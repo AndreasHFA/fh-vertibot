@@ -1,0 +1,2264 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32_configuration.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.align	1
+  19              		.global	RCC_Configuration
+  20              		.thumb
+  21              		.thumb_func
+  23              	RCC_Configuration:
+  24              	.LFB111:
+  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c"
+   1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** /*
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****  * stm32_configuration.c
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****  *
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****  *  Created on: Nov 16, 2012
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****  *      Author: franz
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****  */
+   7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** #include <stm32_configuration.h>
+   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** //! Print Debugmessages
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** #define DEBUG 0
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void RCC_Configuration(void)
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+  26              		.loc 1 13 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 08B5     		push	{r3, lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable I2C1 periph */
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	RCC_APB1PeriphClockCmd( RCC_APB1Periph_I2C1 |
+  35              		.loc 1 15 0
+  36 0002 0121     		movs	r1, #1
+  37 0004 0848     		ldr	r0, .L2
+  38 0006 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  39              	.LVL0:
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 							RCC_APB1Periph_USART2 |
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 							RCC_APB1Periph_USART3 |
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 							RCC_APB1Periph_TIM2 |
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 							RCC_APB1Periph_TIM3 |
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 							RCC_APB1Periph_TIM4, ENABLE);
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable the SPI periph */
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1 |
+  40              		.loc 1 22 0
+  41 000a 0121     		movs	r1, #1
+  42 000c 41F20100 		movw	r0, #4097
+  43 0010 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  44              	.LVL1:
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						   RCC_APB2Periph_SYSCFG, ENABLE);
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable Periph clock enable, SPI, GPIOs */
+  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA |
+  45              		.loc 1 26 0
+  46 0014 0548     		ldr	r0, .L2+4
+  47 0016 0121     		movs	r1, #1
+  48 0018 FFF7FEFF 		bl	RCC_AHBPeriphClockCmd
+  49              	.LVL2:
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_GPIOB |
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_GPIOC |
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_GPIOD |
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_GPIOE |
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_ADC12 |
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 						  RCC_AHBPeriph_DMA1, ENABLE);
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Configure the ADC clock */
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	RCC_ADCCLKConfig(RCC_ADC12PLLCLK_Div2);
+  50              		.loc 1 35 0
+  51 001c 4FF48870 		mov	r0, #272
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+  52              		.loc 1 36 0
+  53 0020 BDE80840 		pop	{r3, lr}
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	RCC_ADCCLKConfig(RCC_ADC12PLLCLK_Div2);
+  54              		.loc 1 35 0
+  55 0024 FFF7FEBF 		b	RCC_ADCCLKConfig
+  56              	.LVL3:
+  57              	.L3:
+  58              		.align	2
+  59              	.L2:
+  60 0028 07002600 		.word	2490375
+  61 002c 01003E10 		.word	272498689
+  62              		.cfi_endproc
+  63              	.LFE111:
+  65              		.align	1
+  66              		.global	NVIC_Configuration
+  67              		.thumb
+  68              		.thumb_func
+  70              	NVIC_Configuration:
+  71              	.LFB112:
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void NVIC_Configuration(void)
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+  72              		.loc 1 42 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 8
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76 0030 37B5     		push	{r0, r1, r2, r4, r5, lr}
+  77              	.LCFI1:
+  78              		.cfi_def_cfa_offset 24
+  79              		.cfi_offset 0, -24
+  80              		.cfi_offset 1, -20
+  81              		.cfi_offset 2, -16
+  82              		.cfi_offset 4, -12
+  83              		.cfi_offset 5, -8
+  84              		.cfi_offset 14, -4
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitTypeDef NVIC_InitStructure;
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#ifdef  VECT_TAB_RAM
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	  /* Set the Vector Table base location at 0x20000000 */
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	  NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0);
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#else  /* VECT_TAB_FLASH  */
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	  /* Set the Vector Table base location at 0x08000000 */
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	  NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);
+  85              		.loc 1 50 0
+  86 0032 0021     		movs	r1, #0
+  87 0034 4FF00060 		mov	r0, #134217728
+  88 0038 FFF7FEFF 		bl	NVIC_SetVectorTable
+  89              	.LVL4:
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#endif
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_PriorityGroupConfig( NVIC_PriorityGroup_4 );
+  90              		.loc 1 53 0
+  91 003c 4FF44070 		mov	r0, #768
+  92 0040 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  93              	.LVL5:
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable the USARTx Interrupt */
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+  94              		.loc 1 56 0
+  95 0044 2623     		movs	r3, #38
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 14;	// Je höher desto niedriger
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;			// FreeRtos desto höher desto höher
+  96              		.loc 1 58 0
+  97 0046 0025     		movs	r5, #0
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  98              		.loc 1 59 0
+  99 0048 0124     		movs	r4, #1
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+ 100              		.loc 1 56 0
+ 101 004a 8DF80430 		strb	r3, [sp, #4]
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_Init(&NVIC_InitStructure);
+ 102              		.loc 1 60 0
+ 103 004e 01A8     		add	r0, sp, #4
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 14;	// Je höher desto niedriger
+ 104              		.loc 1 57 0
+ 105 0050 0E23     		movs	r3, #14
+ 106 0052 8DF80530 		strb	r3, [sp, #5]
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;			// FreeRtos desto höher desto höher
+ 107              		.loc 1 58 0
+ 108 0056 8DF80650 		strb	r5, [sp, #6]
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 109              		.loc 1 59 0
+ 110 005a 8DF80740 		strb	r4, [sp, #7]
+ 111              		.loc 1 60 0
+ 112 005e FFF7FEFF 		bl	NVIC_Init
+ 113              	.LVL6:
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Config the USART3 Interrupt*/
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
+ 114              		.loc 1 63 0
+ 115 0062 2723     		movs	r3, #39
+ 116 0064 8DF80430 		strb	r3, [sp, #4]
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;  // wie war das noch mal mit den Interr
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_Init(&NVIC_InitStructure);
+ 117              		.loc 1 67 0
+ 118 0068 01A8     		add	r0, sp, #4
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;  // wie war das noch mal mit den Interr
+ 119              		.loc 1 64 0
+ 120 006a 0A23     		movs	r3, #10
+ 121 006c 8DF80530 		strb	r3, [sp, #5]
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+ 122              		.loc 1 65 0
+ 123 0070 8DF80650 		strb	r5, [sp, #6]
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 124              		.loc 1 66 0
+ 125 0074 8DF80740 		strb	r4, [sp, #7]
+ 126              		.loc 1 67 0
+ 127 0078 FFF7FEFF 		bl	NVIC_Init
+ 128              	.LVL7:
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable and set EXTI0 Interrupt to the lowest priority */
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
+ 129              		.loc 1 70 0
+ 130 007c 2823     		movs	r3, #40
+ 131 007e 8DF80430 		strb	r3, [sp, #4]
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 13;
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_Init(&NVIC_InitStructure);
+ 132              		.loc 1 74 0
+ 133 0082 01A8     		add	r0, sp, #4
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 13;
+ 134              		.loc 1 71 0
+ 135 0084 0D23     		movs	r3, #13
+ 136 0086 8DF80530 		strb	r3, [sp, #5]
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+ 137              		.loc 1 72 0
+ 138 008a 8DF80650 		strb	r5, [sp, #6]
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 139              		.loc 1 73 0
+ 140 008e 8DF80740 		strb	r4, [sp, #7]
+ 141              		.loc 1 74 0
+ 142 0092 FFF7FEFF 		bl	NVIC_Init
+ 143              	.LVL8:
+  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 144              		.loc 1 75 0
+ 145 0096 3EBD     		pop	{r1, r2, r3, r4, r5, pc}
+ 146              		.cfi_endproc
+ 147              	.LFE112:
+ 149              		.align	1
+ 150              		.global	GPIO_Configuration
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	GPIO_Configuration:
+ 155              	.LFB113:
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void GPIO_Configuration(void)
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 156              		.loc 1 80 0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 16
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160 0098 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 161              	.LCFI2:
+ 162              		.cfi_def_cfa_offset 36
+ 163              		.cfi_offset 4, -36
+ 164              		.cfi_offset 5, -32
+ 165              		.cfi_offset 6, -28
+ 166              		.cfi_offset 7, -24
+ 167              		.cfi_offset 8, -20
+ 168              		.cfi_offset 9, -16
+ 169              		.cfi_offset 10, -12
+ 170              		.cfi_offset 11, -8
+ 171              		.cfi_offset 14, -4
+  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/************************GPIO***************************/
+  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitTypeDef GPIO_InitStructure;
+  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Configure PE14 and PE15 in output pushpull mode */
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 |
+ 172              		.loc 1 85 0
+ 173 009c 4FF47F43 		mov	r3, #65280
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 174              		.loc 1 80 0
+ 175 00a0 85B0     		sub	sp, sp, #20
+ 176              	.LCFI3:
+ 177              		.cfi_def_cfa_offset 56
+ 178              		.loc 1 85 0
+ 179 00a2 0293     		str	r3, [sp, #8]
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 								  GPIO_Pin_10 | GPIO_Pin_11 |
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 								  GPIO_Pin_12 | GPIO_Pin_13 |
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 								  GPIO_Pin_14 | GPIO_Pin_15;
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOE, &GPIO_InitStructure);
+ 180              		.loc 1 93 0
+ 181 00a4 7A4B     		ldr	r3, .L6
+  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 182              		.loc 1 102 0
+ 183 00a6 DFF8F091 		ldr	r9, .L6+8
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 184              		.loc 1 90 0
+ 185 00aa 0024     		movs	r4, #0
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOE, &GPIO_InitStructure);
+ 186              		.loc 1 93 0
+ 187 00ac 1846     		mov	r0, r3
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 188              		.loc 1 91 0
+ 189 00ae 0325     		movs	r5, #3
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable Motor PWM */
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 190              		.loc 1 111 0
+ 191 00b0 784F     		ldr	r7, .L6+4
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 192              		.loc 1 89 0
+ 193 00b2 4FF00108 		mov	r8, #1
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOE, &GPIO_InitStructure);
+ 194              		.loc 1 93 0
+ 195 00b6 02A9     		add	r1, sp, #8
+ 196 00b8 0193     		str	r3, [sp, #4]
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 197              		.loc 1 89 0
+ 198 00ba 8DF80C80 		strb	r8, [sp, #12]
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 199              		.loc 1 90 0
+ 200 00be 8DF80E40 		strb	r4, [sp, #14]
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 201              		.loc 1 91 0
+ 202 00c2 8DF80D50 		strb	r5, [sp, #13]
+  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+ 203              		.loc 1 92 0
+ 204 00c6 8DF80F40 		strb	r4, [sp, #15]
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOE, &GPIO_InitStructure);
+ 205              		.loc 1 93 0
+ 206 00ca FFF7FEFF 		bl	GPIO_Init
+ 207              	.LVL9:
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+ 208              		.loc 1 97 0
+ 209 00ce 4FF40062 		mov	r2, #2048
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 210              		.loc 1 102 0
+ 211 00d2 4846     		mov	r0, r9
+ 212 00d4 02A9     		add	r1, sp, #8
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+ 213              		.loc 1 97 0
+ 214 00d6 0292     		str	r2, [sp, #8]
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 215              		.loc 1 98 0
+ 216 00d8 8DF80C80 		strb	r8, [sp, #12]
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 217              		.loc 1 99 0
+ 218 00dc 8DF80E40 		strb	r4, [sp, #14]
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 219              		.loc 1 100 0
+ 220 00e0 8DF80D50 		strb	r5, [sp, #13]
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+ 221              		.loc 1 101 0
+ 222 00e4 8DF80F40 		strb	r4, [sp, #15]
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 223              		.loc 1 102 0
+ 224 00e8 FFF7FEFF 		bl	GPIO_Init
+ 225              	.LVL10:
+ 226              		.loc 1 111 0
+ 227 00ec 3846     		mov	r0, r7
+ 228 00ee 02A9     		add	r1, sp, #8
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/************************END GPIO***************************/
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************USART****************************/
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* GPIOA Configuration:  USART2 TX on PA2 */
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 229              		.loc 1 119 0
+ 230 00f0 0226     		movs	r6, #2
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+ 231              		.loc 1 106 0
+ 232 00f2 0295     		str	r5, [sp, #8]
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 233              		.loc 1 107 0
+ 234 00f4 8DF80C80 		strb	r8, [sp, #12]
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 235              		.loc 1 108 0
+ 236 00f8 8DF80E40 		strb	r4, [sp, #14]
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 237              		.loc 1 109 0
+ 238 00fc 8DF80D50 		strb	r5, [sp, #13]
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+ 239              		.loc 1 110 0
+ 240 0100 8DF80F40 		strb	r4, [sp, #15]
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 241              		.loc 1 111 0
+ 242 0104 FFF7FEFF 		bl	GPIO_Init
+ 243              	.LVL11:
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+ 244              		.loc 1 118 0
+ 245 0108 0C22     		movs	r2, #12
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 246              		.loc 1 123 0
+ 247 010a 02A9     		add	r1, sp, #8
+ 248 010c 4FF09040 		mov	r0, #1207959552
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+ 249              		.loc 1 118 0
+ 250 0110 0292     		str	r2, [sp, #8]
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 251              		.loc 1 119 0
+ 252 0112 8DF80C60 		strb	r6, [sp, #12]
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 253              		.loc 1 120 0
+ 254 0116 8DF80D50 		strb	r5, [sp, #13]
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 255              		.loc 1 121 0
+ 256 011a 8DF80E40 		strb	r4, [sp, #14]
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+ 257              		.loc 1 122 0
+ 258 011e 8DF80F80 		strb	r8, [sp, #15]
+ 259              		.loc 1 123 0
+ 260 0122 FFF7FEFF 		bl	GPIO_Init
+ 261              	.LVL12:
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Connect USART2 pins to AF2 */
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	// TX = PA2
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	// RX = PA3
+ 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_7);
+ 262              		.loc 1 128 0
+ 263 0126 3146     		mov	r1, r6
+ 264 0128 0722     		movs	r2, #7
+ 265 012a 4FF09040 		mov	r0, #1207959552
+ 266 012e FFF7FEFF 		bl	GPIO_PinAFConfig
+ 267              	.LVL13:
+ 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_7);
+ 268              		.loc 1 129 0
+ 269 0132 2946     		mov	r1, r5
+ 270 0134 0722     		movs	r2, #7
+ 271 0136 4FF09040 		mov	r0, #1207959552
+ 272 013a FFF7FEFF 		bl	GPIO_PinAFConfig
+ 273              	.LVL14:
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* GPIOB Configuration:  USART3 RX on PB11 and TX on PB10 */
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
+ 274              		.loc 1 133 0
+ 275 013e 4FF44062 		mov	r2, #3072
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 276              		.loc 1 138 0
+ 277 0142 3846     		mov	r0, r7
+ 278 0144 02A9     		add	r1, sp, #8
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
+ 279              		.loc 1 133 0
+ 280 0146 0292     		str	r2, [sp, #8]
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 281              		.loc 1 134 0
+ 282 0148 8DF80C60 		strb	r6, [sp, #12]
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 283              		.loc 1 135 0
+ 284 014c 8DF80D50 		strb	r5, [sp, #13]
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 285              		.loc 1 136 0
+ 286 0150 8DF80E40 		strb	r4, [sp, #14]
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+ 287              		.loc 1 137 0
+ 288 0154 8DF80F80 		strb	r8, [sp, #15]
+ 289              		.loc 1 138 0
+ 290 0158 FFF7FEFF 		bl	GPIO_Init
+ 291              	.LVL15:
+ 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Connect USART3 pins to AF7  */
+ 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource10, GPIO_AF_7);
+ 292              		.loc 1 141 0
+ 293 015c 3846     		mov	r0, r7
+ 294 015e 0A21     		movs	r1, #10
+ 295 0160 0722     		movs	r2, #7
+ 296 0162 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 297              	.LVL16:
+ 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource11, GPIO_AF_7);
+ 298              		.loc 1 142 0
+ 299 0166 3846     		mov	r0, r7
+ 300 0168 0B21     		movs	r1, #11
+ 301 016a 0722     		movs	r2, #7
+ 302 016c FFF7FEFF 		bl	GPIO_PinAFConfig
+ 303              	.LVL17:
+ 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/*************************END USART***************************/
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/******************************* SPI config ********************************/
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_5);
+ 304              		.loc 1 148 0
+ 305 0170 0521     		movs	r1, #5
+ 306 0172 0A46     		mov	r2, r1
+ 307 0174 4FF09040 		mov	r0, #1207959552
+ 308 0178 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 309              	.LVL18:
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_5);
+ 310              		.loc 1 149 0
+ 311 017c 0621     		movs	r1, #6
+ 312 017e 0522     		movs	r2, #5
+ 313 0180 4FF09040 		mov	r0, #1207959552
+ 314 0184 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 315              	.LVL19:
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_5);
+ 316              		.loc 1 150 0
+ 317 0188 0721     		movs	r1, #7
+ 318 018a 0522     		movs	r2, #5
+ 319 018c 4FF09040 		mov	r0, #1207959552
+ 320 0190 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 321              	.LVL20:
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;//GPIO_PuPd_DOWN;
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* SPI SCK pin configuration */
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+ 322              		.loc 1 158 0
+ 323 0194 2022     		movs	r2, #32
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 324              		.loc 1 159 0
+ 325 0196 02A9     		add	r1, sp, #8
+ 326 0198 4FF09040 		mov	r0, #1207959552
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+ 327              		.loc 1 158 0
+ 328 019c 0292     		str	r2, [sp, #8]
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* SPI MISO pin configuration */
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+ 329              		.loc 1 162 0
+ 330 019e 4FF0400B 		mov	fp, #64
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 331              		.loc 1 152 0
+ 332 01a2 8DF80C60 		strb	r6, [sp, #12]
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 333              		.loc 1 153 0
+ 334 01a6 8DF80E40 		strb	r4, [sp, #14]
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;//GPIO_PuPd_DOWN;
+ 335              		.loc 1 154 0
+ 336 01aa 8DF80F40 		strb	r4, [sp, #15]
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 337              		.loc 1 155 0
+ 338 01ae 8DF80D50 		strb	r5, [sp, #13]
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 339              		.loc 1 159 0
+ 340 01b2 FFF7FEFF 		bl	GPIO_Init
+ 341              	.LVL21:
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 342              		.loc 1 163 0
+ 343 01b6 02A9     		add	r1, sp, #8
+ 344 01b8 4FF09040 		mov	r0, #1207959552
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* SPI  MOSI pin configuration */
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
+ 345              		.loc 1 166 0
+ 346 01bc 4FF0800A 		mov	sl, #128
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+ 347              		.loc 1 162 0
+ 348 01c0 CDF808B0 		str	fp, [sp, #8]
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 349              		.loc 1 163 0
+ 350 01c4 FFF7FEFF 		bl	GPIO_Init
+ 351              	.LVL22:
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 352              		.loc 1 167 0
+ 353 01c8 02A9     		add	r1, sp, #8
+ 354 01ca 4FF09040 		mov	r0, #1207959552
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
+ 355              		.loc 1 166 0
+ 356 01ce CDF808A0 		str	sl, [sp, #8]
+ 357              		.loc 1 167 0
+ 358 01d2 FFF7FEFF 		bl	GPIO_Init
+ 359              	.LVL23:
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Configure GPIO PIN for Lis Chip select */
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 ;
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOE, &GPIO_InitStructure);
+ 360              		.loc 1 174 0
+ 361 01d6 019B     		ldr	r3, [sp, #4]
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 ;
+ 362              		.loc 1 170 0
+ 363 01d8 0822     		movs	r2, #8
+ 364              		.loc 1 174 0
+ 365 01da 1846     		mov	r0, r3
+ 366 01dc 0DEB0201 		add	r1, sp, r2
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 ;
+ 367              		.loc 1 170 0
+ 368 01e0 0292     		str	r2, [sp, #8]
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+ 369              		.loc 1 171 0
+ 370 01e2 8DF80C80 		strb	r8, [sp, #12]
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 371              		.loc 1 172 0
+ 372 01e6 8DF80E40 		strb	r4, [sp, #14]
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 373              		.loc 1 173 0
+ 374 01ea 8DF80D50 		strb	r5, [sp, #13]
+ 375              		.loc 1 174 0
+ 376 01ee FFF7FEFF 		bl	GPIO_Init
+ 377              	.LVL24:
+ 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/******************************* END SPI ********************************/
+ 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** I2C *************************************/
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource6 , GPIO_AF_4 );
+ 378              		.loc 1 178 0
+ 379 01f2 0621     		movs	r1, #6
+ 380 01f4 3846     		mov	r0, r7
+ 381 01f6 0422     		movs	r2, #4
+ 382 01f8 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 383              	.LVL25:
+ 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource7 , GPIO_AF_4 );
+ 384              		.loc 1 179 0
+ 385 01fc 0422     		movs	r2, #4
+ 386 01fe 3846     		mov	r0, r7
+ 387 0200 0721     		movs	r1, #7
+ 388 0202 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 389              	.LVL26:
+ 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* I2C SCK pin configuration */
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+ 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 390              		.loc 1 188 0
+ 391 0206 3846     		mov	r0, r7
+ 392 0208 02A9     		add	r1, sp, #8
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 393              		.loc 1 181 0
+ 394 020a 8DF80C60 		strb	r6, [sp, #12]
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 395              		.loc 1 182 0
+ 396 020e 8DF80E40 		strb	r4, [sp, #14]
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
+ 397              		.loc 1 183 0
+ 398 0212 8DF80F60 		strb	r6, [sp, #15]
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 399              		.loc 1 184 0
+ 400 0216 8DF80D50 		strb	r5, [sp, #13]
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+ 401              		.loc 1 187 0
+ 402 021a CDF808B0 		str	fp, [sp, #8]
+ 403              		.loc 1 188 0
+ 404 021e FFF7FEFF 		bl	GPIO_Init
+ 405              	.LVL27:
+ 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* I2C SDA pin configuration */
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
+ 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 406              		.loc 1 192 0
+ 407 0222 3846     		mov	r0, r7
+ 408 0224 02A9     		add	r1, sp, #8
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
+ 409              		.loc 1 191 0
+ 410 0226 CDF808A0 		str	sl, [sp, #8]
+ 411              		.loc 1 192 0
+ 412 022a FFF7FEFF 		bl	GPIO_Init
+ 413              	.LVL28:
+ 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** END I2C **********************************/
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** TIM3 PWM OUT *****************************/
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* GPIOA Configuration: Channel 1, 2, 3 and 4 as alternate function push-pull */
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; //| GPIO_Pin_8 | GPIO_Pin_9;
+ 414              		.loc 1 197 0
+ 415 022e C023     		movs	r3, #192
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+ 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 416              		.loc 1 202 0
+ 417 0230 4846     		mov	r0, r9
+ 418 0232 02A9     		add	r1, sp, #8
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; //| GPIO_Pin_8 | GPIO_Pin_9;
+ 419              		.loc 1 197 0
+ 420 0234 0293     		str	r3, [sp, #8]
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 421              		.loc 1 198 0
+ 422 0236 8DF80C60 		strb	r6, [sp, #12]
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 423              		.loc 1 199 0
+ 424 023a 8DF80D50 		strb	r5, [sp, #13]
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 425              		.loc 1 200 0
+ 426 023e 8DF80E40 		strb	r4, [sp, #14]
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+ 427              		.loc 1 201 0
+ 428 0242 8DF80F80 		strb	r8, [sp, #15]
+ 429              		.loc 1 202 0
+ 430 0246 FFF7FEFF 		bl	GPIO_Init
+ 431              	.LVL29:
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_2);
+ 432              		.loc 1 204 0
+ 433 024a 4846     		mov	r0, r9
+ 434 024c 0621     		movs	r1, #6
+ 435 024e 3246     		mov	r2, r6
+ 436 0250 FFF7FEFF 		bl	GPIO_PinAFConfig
+ 437              	.LVL30:
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_2);
+ 438              		.loc 1 205 0
+ 439 0254 4846     		mov	r0, r9
+ 440 0256 0721     		movs	r1, #7
+ 441 0258 3246     		mov	r2, r6
+ 442 025a FFF7FEFF 		bl	GPIO_PinAFConfig
+ 443              	.LVL31:
+ 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_2);
+ 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_2);
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** END TIM3 PWM OUT *************************/
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** TIM2 PWM OUT *****************************/
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* GPIOA Configuration: Channel 1, 2, 3 and 4 as alternate function push-pull */
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** /*
+ 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_6 | GPIO_Pin_7;
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+ 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+ 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+ 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOD, &GPIO_InitStructure);
+ 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource3, GPIO_AF_2);
+ 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_2);
+ 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_2);
+ 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource7, GPIO_AF_2);*/
+ 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/****************************** END TIM3 PWM OUT *************************/
+ 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* EXTI Lines */
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****   /*GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+ 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_IN;
+ 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+ 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOD, &GPIO_InitStructure); */
+ 231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* ADC Config */
+ 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Configure ADC Channels as analog input */
+ 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 ;
+ 444              		.loc 1 234 0
+ 445 025e 3023     		movs	r3, #48
+ 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+ 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+ 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 446              		.loc 1 237 0
+ 447 0260 4846     		mov	r0, r9
+ 448 0262 02A9     		add	r1, sp, #8
+ 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 ;
+ 449              		.loc 1 234 0
+ 450 0264 0293     		str	r3, [sp, #8]
+ 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+ 451              		.loc 1 235 0
+ 452 0266 8DF80C50 		strb	r5, [sp, #12]
+ 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+ 453              		.loc 1 236 0
+ 454 026a 8DF80F40 		strb	r4, [sp, #15]
+ 455              		.loc 1 237 0
+ 456 026e FFF7FEFF 		bl	GPIO_Init
+ 457              	.LVL32:
+ 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 ;
+ 458              		.loc 1 239 0
+ 459 0272 1023     		movs	r3, #16
+ 240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+ 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+ 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 460              		.loc 1 242 0
+ 461 0274 4FF09040 		mov	r0, #1207959552
+ 462 0278 02A9     		add	r1, sp, #8
+ 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 ;
+ 463              		.loc 1 239 0
+ 464 027a 0293     		str	r3, [sp, #8]
+ 240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+ 465              		.loc 1 240 0
+ 466 027c 8DF80C50 		strb	r5, [sp, #12]
+ 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+ 467              		.loc 1 241 0
+ 468 0280 8DF80F40 		strb	r4, [sp, #15]
+ 469              		.loc 1 242 0
+ 470 0284 FFF7FEFF 		bl	GPIO_Init
+ 471              	.LVL33:
+ 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 472              		.loc 1 243 0
+ 473 0288 05B0     		add	sp, sp, #20
+ 474 028a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 475              	.L7:
+ 476 028e 00BF     		.align	2
+ 477              	.L6:
+ 478 0290 00100048 		.word	1207963648
+ 479 0294 00040048 		.word	1207960576
+ 480 0298 00080048 		.word	1207961600
+ 481              		.cfi_endproc
+ 482              	.LFE113:
+ 484              		.align	1
+ 485              		.global	USART_Configuration
+ 486              		.thumb
+ 487              		.thumb_func
+ 489              	USART_Configuration:
+ 490              	.LFB114:
+ 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void USART_Configuration(void)
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 491              		.loc 1 247 0
+ 492              		.cfi_startproc
+ 493              		@ args = 0, pretend = 0, frame = 24
+ 494              		@ frame_needed = 0, uses_anonymous_args = 0
+ 495 029c 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 496              	.LCFI4:
+ 497              		.cfi_def_cfa_offset 24
+ 498              		.cfi_offset 4, -24
+ 499              		.cfi_offset 5, -20
+ 500              		.cfi_offset 6, -16
+ 501              		.cfi_offset 7, -12
+ 502              		.cfi_offset 8, -8
+ 503              		.cfi_offset 14, -4
+ 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitTypeDef USART_InitStructure;
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_BaudRate = 115200;
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Parity = USART_Parity_No;
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Init(USART2, &USART_InitStructure);
+ 504              		.loc 1 256 0
+ 505 02a0 1C4D     		ldr	r5, .L9
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 506              		.loc 1 247 0
+ 507 02a2 86B0     		sub	sp, sp, #24
+ 508              	.LCFI5:
+ 509              		.cfi_def_cfa_offset 48
+ 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE); // enable the USART1 receive interrupt
+ 510              		.loc 1 258 0
+ 511 02a4 1C4E     		ldr	r6, .L9+4
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 512              		.loc 1 251 0
+ 513 02a6 0024     		movs	r4, #0
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_BaudRate = 115200;
+ 514              		.loc 1 250 0
+ 515 02a8 4FF4E138 		mov	r8, #115200
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+ 516              		.loc 1 255 0
+ 517 02ac 0C27     		movs	r7, #12
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Init(USART2, &USART_InitStructure);
+ 518              		.loc 1 256 0
+ 519 02ae 2846     		mov	r0, r5
+ 520 02b0 6946     		mov	r1, sp
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_BaudRate = 115200;
+ 521              		.loc 1 250 0
+ 522 02b2 CDF80080 		str	r8, [sp, #0]
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 523              		.loc 1 251 0
+ 524 02b6 0194     		str	r4, [sp, #4]
+ 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 525              		.loc 1 252 0
+ 526 02b8 0294     		str	r4, [sp, #8]
+ 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Parity = USART_Parity_No;
+ 527              		.loc 1 253 0
+ 528 02ba 0394     		str	r4, [sp, #12]
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 529              		.loc 1 254 0
+ 530 02bc 0594     		str	r4, [sp, #20]
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+ 531              		.loc 1 255 0
+ 532 02be 0497     		str	r7, [sp, #16]
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Init(USART2, &USART_InitStructure);
+ 533              		.loc 1 256 0
+ 534 02c0 FFF7FEFF 		bl	USART_Init
+ 535              	.LVL34:
+ 536              		.loc 1 258 0
+ 537 02c4 0122     		movs	r2, #1
+ 538 02c6 2846     		mov	r0, r5
+ 539 02c8 3146     		mov	r1, r6
+ 540 02ca FFF7FEFF 		bl	USART_ITConfig
+ 541              	.LVL35:
+ 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Cmd(USART2, ENABLE); // enable USART2
+ 542              		.loc 1 260 0
+ 543 02ce 2846     		mov	r0, r5
+ 544 02d0 0121     		movs	r1, #1
+ 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/*
+ 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	 * Configure USART 3
+ 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	 * */
+ 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//USART_InitTypeDef USART_InitStructure;
+ 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_BaudRate = 115200;
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Parity = USART_Parity_No;
+ 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+ 273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Init(USART3, &USART_InitStructure);
+ 545              		.loc 1 273 0
+ 546 02d2 05F58065 		add	r5, r5, #1024
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Cmd(USART2, ENABLE); // enable USART2
+ 547              		.loc 1 260 0
+ 548 02d6 FFF7FEFF 		bl	USART_Cmd
+ 549              	.LVL36:
+ 550              		.loc 1 273 0
+ 551 02da 2846     		mov	r0, r5
+ 552 02dc 6946     		mov	r1, sp
+ 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_BaudRate = 115200;
+ 553              		.loc 1 267 0
+ 554 02de CDF80080 		str	r8, [sp, #0]
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+ 555              		.loc 1 268 0
+ 556 02e2 0194     		str	r4, [sp, #4]
+ 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+ 557              		.loc 1 269 0
+ 558 02e4 0294     		str	r4, [sp, #8]
+ 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Parity = USART_Parity_No;
+ 559              		.loc 1 270 0
+ 560 02e6 0394     		str	r4, [sp, #12]
+ 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+ 561              		.loc 1 271 0
+ 562 02e8 0594     		str	r4, [sp, #20]
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+ 563              		.loc 1 272 0
+ 564 02ea 0497     		str	r7, [sp, #16]
+ 565              		.loc 1 273 0
+ 566 02ec FFF7FEFF 		bl	USART_Init
+ 567              	.LVL37:
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);
+ 568              		.loc 1 275 0
+ 569 02f0 2846     		mov	r0, r5
+ 570 02f2 3146     		mov	r1, r6
+ 571 02f4 0122     		movs	r2, #1
+ 572 02f6 FFF7FEFF 		bl	USART_ITConfig
+ 573              	.LVL38:
+ 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_ITConfig(USART3, USART_IT_TXE, DISABLE);
+ 574              		.loc 1 276 0
+ 575 02fa 2846     		mov	r0, r5
+ 576 02fc 0749     		ldr	r1, .L9+8
+ 577 02fe 2246     		mov	r2, r4
+ 578 0300 FFF7FEFF 		bl	USART_ITConfig
+ 579              	.LVL39:
+ 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	USART_Cmd(USART3, ENABLE); // enable USART3
+ 580              		.loc 1 278 0
+ 581 0304 2846     		mov	r0, r5
+ 582 0306 0121     		movs	r1, #1
+ 583 0308 FFF7FEFF 		bl	USART_Cmd
+ 584              	.LVL40:
+ 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 585              		.loc 1 279 0
+ 586 030c 06B0     		add	sp, sp, #24
+ 587 030e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 588              	.L10:
+ 589 0312 00BF     		.align	2
+ 590              	.L9:
+ 591 0314 00440040 		.word	1073759232
+ 592 0318 05010500 		.word	327941
+ 593 031c 07010700 		.word	459015
+ 594              		.cfi_endproc
+ 595              	.LFE114:
+ 597              		.align	1
+ 598              		.global	SPI_Configuration
+ 599              		.thumb
+ 600              		.thumb_func
+ 602              	SPI_Configuration:
+ 603              	.LFB115:
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void SPI_Configuration(void)
+ 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 604              		.loc 1 283 0
+ 605              		.cfi_startproc
+ 606              		@ args = 0, pretend = 0, frame = 24
+ 607              		@ frame_needed = 0, uses_anonymous_args = 0
+ 608 0320 10B5     		push	{r4, lr}
+ 609              	.LCFI6:
+ 610              		.cfi_def_cfa_offset 8
+ 611              		.cfi_offset 4, -8
+ 612              		.cfi_offset 14, -4
+ 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitTypeDef  SPI_InitStructure;
+ 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* SPI configuration -------------------------------------------------------*/
+ 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_I2S_DeInit(SPI1);
+ 613              		.loc 1 286 0
+ 614 0322 174C     		ldr	r4, .L12
+ 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 615              		.loc 1 283 0
+ 616 0324 86B0     		sub	sp, sp, #24
+ 617              	.LCFI7:
+ 618              		.cfi_def_cfa_offset 32
+ 619              		.loc 1 286 0
+ 620 0326 2046     		mov	r0, r4
+ 621 0328 FFF7FEFF 		bl	SPI_I2S_DeInit
+ 622              	.LVL41:
+ 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+ 623              		.loc 1 287 0
+ 624 032c 0023     		movs	r3, #0
+ 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+ 625              		.loc 1 288 0
+ 626 032e 4FF4E062 		mov	r2, #1792
+ 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+ 627              		.loc 1 287 0
+ 628 0332 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 629              		.loc 1 288 0
+ 630 0336 ADF80820 		strh	r2, [sp, #8]	@ movhi
+ 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+ 631              		.loc 1 289 0
+ 632 033a ADF80A30 		strh	r3, [sp, #10]	@ movhi
+ 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+ 633              		.loc 1 290 0
+ 634 033e ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+ 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+ 635              		.loc 1 293 0
+ 636 0342 ADF81230 		strh	r3, [sp, #18]	@ movhi
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+ 637              		.loc 1 291 0
+ 638 0346 4FF40072 		mov	r2, #512
+ 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_CRCPolynomial = 7;
+ 639              		.loc 1 294 0
+ 640 034a 0723     		movs	r3, #7
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+ 641              		.loc 1 291 0
+ 642 034c ADF80E20 		strh	r2, [sp, #14]	@ movhi
+ 643              		.loc 1 294 0
+ 644 0350 ADF81430 		strh	r3, [sp, #20]	@ movhi
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+ 645              		.loc 1 292 0
+ 646 0354 1022     		movs	r2, #16
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+ 647              		.loc 1 295 0
+ 648 0356 4FF48273 		mov	r3, #260
+ 296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_Init(SPI1, &SPI_InitStructure);
+ 649              		.loc 1 296 0
+ 650 035a 2046     		mov	r0, r4
+ 651 035c 01A9     		add	r1, sp, #4
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+ 652              		.loc 1 292 0
+ 653 035e ADF81020 		strh	r2, [sp, #16]	@ movhi
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+ 654              		.loc 1 295 0
+ 655 0362 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 656              		.loc 1 296 0
+ 657 0366 FFF7FEFF 		bl	SPI_Init
+ 658              	.LVL42:
+ 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Configure the RX FIFO Threshold */
+ 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_RxFIFOThresholdConfig(SPI1, SPI_RxFIFOThreshold_QF);
+ 659              		.loc 1 299 0
+ 660 036a 2046     		mov	r0, r4
+ 661 036c 4FF48051 		mov	r1, #4096
+ 662 0370 FFF7FEFF 		bl	SPI_RxFIFOThresholdConfig
+ 663              	.LVL43:
+ 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable SPI1  */
+ 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	SPI_Cmd(SPI1, ENABLE);
+ 664              		.loc 1 301 0
+ 665 0374 2046     		mov	r0, r4
+ 666 0376 0121     		movs	r1, #1
+ 667 0378 FFF7FEFF 		bl	SPI_Cmd
+ 668              	.LVL44:
+ 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 669              		.loc 1 302 0
+ 670 037c 06B0     		add	sp, sp, #24
+ 671 037e 10BD     		pop	{r4, pc}
+ 672              	.L13:
+ 673              		.align	2
+ 674              	.L12:
+ 675 0380 00300140 		.word	1073819648
+ 676              		.cfi_endproc
+ 677              	.LFE115:
+ 679              		.align	1
+ 680              		.global	I2C_Configuration
+ 681              		.thumb
+ 682              		.thumb_func
+ 684              	I2C_Configuration:
+ 685              	.LFB116:
+ 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void I2C_Configuration(void)
+ 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 686              		.loc 1 306 0
+ 687              		.cfi_startproc
+ 688              		@ args = 0, pretend = 0, frame = 32
+ 689              		@ frame_needed = 0, uses_anonymous_args = 0
+ 690 0384 10B5     		push	{r4, lr}
+ 691              	.LCFI8:
+ 692              		.cfi_def_cfa_offset 8
+ 693              		.cfi_offset 4, -8
+ 694              		.cfi_offset 14, -4
+ 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	I2C_InitTypeDef  I2C_InitStructure;
+ 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	I2C_DeInit(I2C1);
+ 695              		.loc 1 309 0
+ 696 0386 0C4C     		ldr	r4, .L15
+ 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 697              		.loc 1 306 0
+ 698 0388 88B0     		sub	sp, sp, #32
+ 699              	.LCFI9:
+ 700              		.cfi_def_cfa_offset 40
+ 701              		.loc 1 309 0
+ 702 038a 2046     		mov	r0, r4
+ 703 038c FFF7FEFF 		bl	I2C_DeInit
+ 704              	.LVL45:
+ 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     /* I2C configuration -------------------------------------------------------*/
+ 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_Mode = I2C_Mode_I2C;
+ 705              		.loc 1 312 0
+ 706 0390 0023     		movs	r3, #0
+ 707 0392 0493     		str	r3, [sp, #16]
+ 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_AnalogFilter = I2C_AnalogFilter_Enable;
+ 708              		.loc 1 313 0
+ 709 0394 0293     		str	r3, [sp, #8]
+ 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_DigitalFilter = 0x00;
+ 710              		.loc 1 314 0
+ 711 0396 0393     		str	r3, [sp, #12]
+ 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_OwnAddress1 = 0x00;
+ 712              		.loc 1 315 0
+ 713 0398 0593     		str	r3, [sp, #20]
+ 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_Ack = I2C_Ack_Enable;
+ 714              		.loc 1 316 0
+ 715 039a 0693     		str	r3, [sp, #24]
+ 317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
+ 716              		.loc 1 317 0
+ 717 039c 0793     		str	r3, [sp, #28]
+ 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_InitStructure.I2C_Timing = 0x00902025;
+ 718              		.loc 1 318 0
+ 719 039e 074B     		ldr	r3, .L15+4
+ 720 03a0 08A9     		add	r1, sp, #32
+ 721 03a2 41F81C3D 		str	r3, [r1, #-28]!
+ 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     /* Apply LSM303DLHC_I2C configuration after enabling it */
+ 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_Init(I2C1, &I2C_InitStructure);
+ 722              		.loc 1 321 0
+ 723 03a6 2046     		mov	r0, r4
+ 724 03a8 FFF7FEFF 		bl	I2C_Init
+ 725              	.LVL46:
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     /* LSM303DLHC_I2C Peripheral Enable */
+ 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     I2C_Cmd(I2C1, ENABLE);
+ 726              		.loc 1 324 0
+ 727 03ac 2046     		mov	r0, r4
+ 728 03ae 0121     		movs	r1, #1
+ 729 03b0 FFF7FEFF 		bl	I2C_Cmd
+ 730              	.LVL47:
+ 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 731              		.loc 1 325 0
+ 732 03b4 08B0     		add	sp, sp, #32
+ 733 03b6 10BD     		pop	{r4, pc}
+ 734              	.L16:
+ 735              		.align	2
+ 736              	.L15:
+ 737 03b8 00540040 		.word	1073763328
+ 738 03bc 25209000 		.word	9445413
+ 739              		.cfi_endproc
+ 740              	.LFE116:
+ 742              		.align	1
+ 743              		.global	DMA_Configuration
+ 744              		.thumb
+ 745              		.thumb_func
+ 747              	DMA_Configuration:
+ 748              	.LFB117:
+ 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void DMA_Configuration(uint8_t *buffer)
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 749              		.loc 1 329 0
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 48
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753              	.LVL48:
+ 754 03c0 30B5     		push	{r4, r5, lr}
+ 755              	.LCFI10:
+ 756              		.cfi_def_cfa_offset 12
+ 757              		.cfi_offset 4, -12
+ 758              		.cfi_offset 5, -8
+ 759              		.cfi_offset 14, -4
+ 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	DMA_DeInit(DMA1_Channel7);
+ 760              		.loc 1 330 0
+ 761 03c2 0F4C     		ldr	r4, .L18
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 762              		.loc 1 329 0
+ 763 03c4 8DB0     		sub	sp, sp, #52
+ 764              	.LCFI11:
+ 765              		.cfi_def_cfa_offset 64
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 766              		.loc 1 329 0
+ 767 03c6 0546     		mov	r5, r0
+ 768              		.loc 1 330 0
+ 769 03c8 2046     		mov	r0, r4
+ 770              	.LVL49:
+ 771 03ca FFF7FEFF 		bl	DMA_DeInit
+ 772              	.LVL50:
+ 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitTypeDef DMA_InitStructure;
+ 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&I2C1->RXDR;
+ 773              		.loc 1 332 0
+ 774 03ce 0D4B     		ldr	r3, .L18+4
+ 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_MemoryBaseAddr     = (uint32_t)buffer;
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_BufferSize         = 6;
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_DIR                = DMA_DIR_PeripheralSRC;
+ 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralInc      = DMA_PeripheralInc_Disable;
+ 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_MemoryInc          = DMA_MemoryInc_Enable;
+ 775              		.loc 1 337 0
+ 776 03d0 8022     		movs	r2, #128
+ 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&I2C1->RXDR;
+ 777              		.loc 1 332 0
+ 778 03d2 0193     		str	r3, [sp, #4]
+ 779              		.loc 1 337 0
+ 780 03d4 0692     		str	r2, [sp, #24]
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_BufferSize         = 6;
+ 781              		.loc 1 334 0
+ 782 03d6 0623     		movs	r3, #6
+ 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+ 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_MemoryDataSize     = DMA_MemoryDataSize_Byte;
+ 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_Mode               = DMA_Mode_Circular;
+ 783              		.loc 1 340 0
+ 784 03d8 2022     		movs	r2, #32
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_BufferSize         = 6;
+ 785              		.loc 1 334 0
+ 786 03da ADF81030 		strh	r3, [sp, #16]	@ movhi
+ 787              		.loc 1 340 0
+ 788 03de 0992     		str	r2, [sp, #36]
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_DIR                = DMA_DIR_PeripheralSRC;
+ 789              		.loc 1 335 0
+ 790 03e0 0023     		movs	r3, #0
+ 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_Priority           = DMA_Priority_VeryHigh;
+ 791              		.loc 1 341 0
+ 792 03e2 4FF44052 		mov	r2, #12288
+ 342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_M2M                = DMA_M2M_Disable;
+ 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_Init(DMA1_Channel7, &DMA_InitStructure);
+ 793              		.loc 1 343 0
+ 794 03e6 2046     		mov	r0, r4
+ 795 03e8 01A9     		add	r1, sp, #4
+ 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_MemoryBaseAddr     = (uint32_t)buffer;
+ 796              		.loc 1 333 0
+ 797 03ea 0295     		str	r5, [sp, #8]
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_DIR                = DMA_DIR_PeripheralSRC;
+ 798              		.loc 1 335 0
+ 799 03ec 0393     		str	r3, [sp, #12]
+ 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralInc      = DMA_PeripheralInc_Disable;
+ 800              		.loc 1 336 0
+ 801 03ee 0593     		str	r3, [sp, #20]
+ 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+ 802              		.loc 1 338 0
+ 803 03f0 0793     		str	r3, [sp, #28]
+ 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_MemoryDataSize     = DMA_MemoryDataSize_Byte;
+ 804              		.loc 1 339 0
+ 805 03f2 0893     		str	r3, [sp, #32]
+ 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_Priority           = DMA_Priority_VeryHigh;
+ 806              		.loc 1 341 0
+ 807 03f4 0A92     		str	r2, [sp, #40]
+ 342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     DMA_InitStructure.DMA_M2M                = DMA_M2M_Disable;
+ 808              		.loc 1 342 0
+ 809 03f6 0B93     		str	r3, [sp, #44]
+ 810              		.loc 1 343 0
+ 811 03f8 FFF7FEFF 		bl	DMA_Init
+ 812              	.LVL51:
+ 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c ****     //DMA_Cmd(DMA1_Channel1, ENABLE);
+ 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 813              		.loc 1 346 0
+ 814 03fc 0DB0     		add	sp, sp, #52
+ 815 03fe 30BD     		pop	{r4, r5, pc}
+ 816              	.L19:
+ 817              		.align	2
+ 818              	.L18:
+ 819 0400 80000240 		.word	1073873024
+ 820 0404 24540040 		.word	1073763364
+ 821              		.cfi_endproc
+ 822              	.LFE117:
+ 824              		.align	1
+ 825              		.global	TIM2_PWM_Configuration
+ 826              		.thumb
+ 827              		.thumb_func
+ 829              	TIM2_PWM_Configuration:
+ 830              	.LFB118:
+ 347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void TIM2_PWM_Configuration(void)
+ 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 831              		.loc 1 350 0
+ 832              		.cfi_startproc
+ 833              		@ args = 0, pretend = 0, frame = 16
+ 834              		@ frame_needed = 0, uses_anonymous_args = 0
+ 835              	.LVL52:
+ 836 0408 F0B5     		push	{r4, r5, r6, r7, lr}
+ 837              	.LCFI12:
+ 838              		.cfi_def_cfa_offset 20
+ 839              		.cfi_offset 4, -20
+ 840              		.cfi_offset 5, -16
+ 841              		.cfi_offset 6, -12
+ 842              		.cfi_offset 7, -8
+ 843              		.cfi_offset 14, -4
+ 351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	uint16_t PrescalerValue = 0;
+ 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	static TIM_OCInitTypeDef  TIM_OCInitStructure;
+ 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Compute the prescaler value */
+ 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (50000*PRESCALEVALUE)) - 1;
+ 844              		.loc 1 356 0
+ 845 040a 304B     		ldr	r3, .L21
+ 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 846              		.loc 1 350 0
+ 847 040c 85B0     		sub	sp, sp, #20
+ 848              	.LCFI13:
+ 849              		.cfi_def_cfa_offset 40
+ 850              		.loc 1 356 0
+ 851 040e 1C68     		ldr	r4, [r3, #0]
+ 852 0410 2F4B     		ldr	r3, .L21+4
+ 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Time base configuration */
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+ 853              		.loc 1 359 0
+ 854 0412 01A8     		add	r0, sp, #4
+ 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (50000*PRESCALEVALUE)) - 1;
+ 855              		.loc 1 356 0
+ 856 0414 B4FBF3F4 		udiv	r4, r4, r3
+ 857 0418 013C     		subs	r4, r4, #1
+ 858              	.LVL53:
+ 859              		.loc 1 359 0
+ 860 041a FFF7FEFF 		bl	TIM_TimeBaseStructInit
+ 861              	.LVL54:
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 1000;
+ 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
+ 862              		.loc 1 361 0
+ 863 041e ADF80440 		strh	r4, [sp, #4]	@ movhi
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+ 365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel1 */
+ 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 864              		.loc 1 367 0
+ 865 0422 2C4C     		ldr	r4, .L21+8
+ 866              	.LVL55:
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 867              		.loc 1 362 0
+ 868 0424 0027     		movs	r7, #0
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 1000;
+ 869              		.loc 1 360 0
+ 870 0426 4FF47A73 		mov	r3, #1000
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+ 871              		.loc 1 364 0
+ 872 042a 01A9     		add	r1, sp, #4
+ 873 042c 4FF08040 		mov	r0, #1073741824
+ 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 874              		.loc 1 368 0
+ 875 0430 0125     		movs	r5, #1
+ 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 876              		.loc 1 369 0
+ 877 0432 4FF49676 		mov	r6, #300
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 1000;
+ 878              		.loc 1 360 0
+ 879 0436 0293     		str	r3, [sp, #8]
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 880              		.loc 1 362 0
+ 881 0438 ADF80C70 		strh	r7, [sp, #12]	@ movhi
+ 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 882              		.loc 1 363 0
+ 883 043c ADF80670 		strh	r7, [sp, #6]	@ movhi
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+ 884              		.loc 1 364 0
+ 885 0440 FFF7FEFF 		bl	TIM_TimeBaseInit
+ 886              	.LVL56:
+ 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 887              		.loc 1 367 0
+ 888 0444 6023     		movs	r3, #96
+ 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+ 371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC1Init(TIM2, &TIM_OCInitStructure);
+ 889              		.loc 1 371 0
+ 890 0446 2146     		mov	r1, r4
+ 891 0448 4FF08040 		mov	r0, #1073741824
+ 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 892              		.loc 1 367 0
+ 893 044c 2360     		str	r3, [r4, #0]
+ 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 894              		.loc 1 368 0
+ 895 044e A580     		strh	r5, [r4, #4]	@ movhi
+ 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 896              		.loc 1 369 0
+ 897 0450 A660     		str	r6, [r4, #8]
+ 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+ 898              		.loc 1 370 0
+ 899 0452 A781     		strh	r7, [r4, #12]	@ movhi
+ 900              		.loc 1 371 0
+ 901 0454 FFF7FEFF 		bl	TIM_OC1Init
+ 902              	.LVL57:
+ 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC1PreloadConfig(TIM2, TIM_OCPreload_Enable);
+ 903              		.loc 1 372 0
+ 904 0458 0821     		movs	r1, #8
+ 905 045a 4FF08040 		mov	r0, #1073741824
+ 906 045e FFF7FEFF 		bl	TIM_OC1PreloadConfig
+ 907              	.LVL58:
+ 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel2 */
+ 375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC2Init(TIM2, &TIM_OCInitStructure);
+ 908              		.loc 1 377 0
+ 909 0462 2146     		mov	r1, r4
+ 910 0464 4FF08040 		mov	r0, #1073741824
+ 375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 911              		.loc 1 375 0
+ 912 0468 A580     		strh	r5, [r4, #4]	@ movhi
+ 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 913              		.loc 1 376 0
+ 914 046a A660     		str	r6, [r4, #8]
+ 915              		.loc 1 377 0
+ 916 046c FFF7FEFF 		bl	TIM_OC2Init
+ 917              	.LVL59:
+ 378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC2PreloadConfig(TIM2, TIM_OCPreload_Enable);
+ 918              		.loc 1 378 0
+ 919 0470 0821     		movs	r1, #8
+ 920 0472 4FF08040 		mov	r0, #1073741824
+ 921 0476 FFF7FEFF 		bl	TIM_OC2PreloadConfig
+ 922              	.LVL60:
+ 379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel3 */
+ 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC3Init(TIM2, &TIM_OCInitStructure);
+ 923              		.loc 1 383 0
+ 924 047a 2146     		mov	r1, r4
+ 925 047c 4FF08040 		mov	r0, #1073741824
+ 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 926              		.loc 1 381 0
+ 927 0480 A580     		strh	r5, [r4, #4]	@ movhi
+ 382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 928              		.loc 1 382 0
+ 929 0482 A660     		str	r6, [r4, #8]
+ 930              		.loc 1 383 0
+ 931 0484 FFF7FEFF 		bl	TIM_OC3Init
+ 932              	.LVL61:
+ 384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable);
+ 933              		.loc 1 384 0
+ 934 0488 0821     		movs	r1, #8
+ 935 048a 4FF08040 		mov	r0, #1073741824
+ 936 048e FFF7FEFF 		bl	TIM_OC3PreloadConfig
+ 937              	.LVL62:
+ 385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel4 */
+ 387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC4Init(TIM2, &TIM_OCInitStructure);
+ 938              		.loc 1 389 0
+ 939 0492 2146     		mov	r1, r4
+ 940 0494 4FF08040 		mov	r0, #1073741824
+ 387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 941              		.loc 1 387 0
+ 942 0498 A580     		strh	r5, [r4, #4]	@ movhi
+ 388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 943              		.loc 1 388 0
+ 944 049a A660     		str	r6, [r4, #8]
+ 945              		.loc 1 389 0
+ 946 049c FFF7FEFF 		bl	TIM_OC4Init
+ 947              	.LVL63:
+ 390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable);
+ 948              		.loc 1 390 0
+ 949 04a0 0821     		movs	r1, #8
+ 950 04a2 4FF08040 		mov	r0, #1073741824
+ 951 04a6 FFF7FEFF 		bl	TIM_OC4PreloadConfig
+ 952              	.LVL64:
+ 391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_ARRPreloadConfig(TIM2, ENABLE);
+ 953              		.loc 1 392 0
+ 954 04aa 2946     		mov	r1, r5
+ 955 04ac 4FF08040 		mov	r0, #1073741824
+ 956 04b0 FFF7FEFF 		bl	TIM_ARRPreloadConfig
+ 957              	.LVL65:
+ 393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_CtrlPWMOutputs(TIM2, ENABLE);
+ 958              		.loc 1 393 0
+ 959 04b4 2946     		mov	r1, r5
+ 960 04b6 4FF08040 		mov	r0, #1073741824
+ 961 04ba FFF7FEFF 		bl	TIM_CtrlPWMOutputs
+ 962              	.LVL66:
+ 394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 395:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* TIM3 enable counter */
+ 396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_Cmd(TIM2, ENABLE);
+ 963              		.loc 1 396 0
+ 964 04be 4FF08040 		mov	r0, #1073741824
+ 965 04c2 2946     		mov	r1, r5
+ 966 04c4 FFF7FEFF 		bl	TIM_Cmd
+ 967              	.LVL67:
+ 397:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 968              		.loc 1 397 0
+ 969 04c8 05B0     		add	sp, sp, #20
+ 970 04ca F0BD     		pop	{r4, r5, r6, r7, pc}
+ 971              	.L22:
+ 972              		.align	2
+ 973              	.L21:
+ 974 04cc 00000000 		.word	SystemCoreClock
+ 975 04d0 E0930400 		.word	300000
+ 976 04d4 00000000 		.word	.LANCHOR0
+ 977              		.cfi_endproc
+ 978              	.LFE118:
+ 980              		.align	1
+ 981              		.global	TIM3_PWM_Configuration
+ 982              		.thumb
+ 983              		.thumb_func
+ 985              	TIM3_PWM_Configuration:
+ 986              	.LFB119:
+ 398:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 399:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 400:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void TIM3_PWM_Configuration(void)
+ 401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 987              		.loc 1 401 0
+ 988              		.cfi_startproc
+ 989              		@ args = 0, pretend = 0, frame = 16
+ 990              		@ frame_needed = 0, uses_anonymous_args = 0
+ 991              	.LVL68:
+ 992 04d8 2DE9FF41 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+ 993              	.LCFI14:
+ 994              		.cfi_def_cfa_offset 40
+ 995              		.cfi_offset 0, -40
+ 996              		.cfi_offset 1, -36
+ 997              		.cfi_offset 2, -32
+ 998              		.cfi_offset 3, -28
+ 999              		.cfi_offset 4, -24
+ 1000              		.cfi_offset 5, -20
+ 1001              		.cfi_offset 6, -16
+ 1002              		.cfi_offset 7, -12
+ 1003              		.cfi_offset 8, -8
+ 1004              		.cfi_offset 14, -4
+ 402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	uint16_t PrescalerValue = 0;
+ 403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ 404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	static TIM_OCInitTypeDef  TIM_OCInitStructure;
+ 405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Compute the prescaler value */
+ 407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (600000*PRESCALEVALUE)) - 1;//(60000*PRESCALEVALUE)
+ 1005              		.loc 1 407 0
+ 1006 04dc 214B     		ldr	r3, .L24
+ 408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Time base configuration */
+ 410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+ 1007              		.loc 1 410 0
+ 1008 04de 01A8     		add	r0, sp, #4
+ 407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (600000*PRESCALEVALUE)) - 1;//(60000*PRESCALEVALUE)
+ 1009              		.loc 1 407 0
+ 1010 04e0 1C68     		ldr	r4, [r3, #0]
+ 1011 04e2 214B     		ldr	r3, .L24+4
+ 411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 200;
+ 412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
+ 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+ 416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel1 */
+ 418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 1012              		.loc 1 418 0
+ 1013 04e4 214D     		ldr	r5, .L24+8
+ 407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (600000*PRESCALEVALUE)) - 1;//(60000*PRESCALEVALUE)
+ 1014              		.loc 1 407 0
+ 1015 04e6 B4FBF3F4 		udiv	r4, r4, r3
+ 1016 04ea 013C     		subs	r4, r4, #1
+ 1017              	.LVL69:
+ 410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+ 1018              		.loc 1 410 0
+ 1019 04ec FFF7FEFF 		bl	TIM_TimeBaseStructInit
+ 1020              	.LVL70:
+ 412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
+ 1021              		.loc 1 412 0
+ 1022 04f0 ADF80440 		strh	r4, [sp, #4]	@ movhi
+ 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+ 1023              		.loc 1 415 0
+ 1024 04f4 1E4C     		ldr	r4, .L24+12
+ 1025              	.LVL71:
+ 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 1026              		.loc 1 413 0
+ 1027 04f6 0027     		movs	r7, #0
+ 411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 200;
+ 1028              		.loc 1 411 0
+ 1029 04f8 C823     		movs	r3, #200
+ 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+ 1030              		.loc 1 415 0
+ 1031 04fa 2046     		mov	r0, r4
+ 1032 04fc 01A9     		add	r1, sp, #4
+ 411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 200;
+ 1033              		.loc 1 411 0
+ 1034 04fe 0293     		str	r3, [sp, #8]
+ 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 1035              		.loc 1 413 0
+ 1036 0500 ADF80C70 		strh	r7, [sp, #12]	@ movhi
+ 414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 1037              		.loc 1 414 0
+ 1038 0504 ADF80670 		strh	r7, [sp, #6]	@ movhi
+ 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+ 1039              		.loc 1 415 0
+ 1040 0508 FFF7FEFF 		bl	TIM_TimeBaseInit
+ 1041              	.LVL72:
+ 419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 100;
+ 421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+ 1042              		.loc 1 421 0
+ 1043 050c 2F84     		strh	r7, [r5, #32]	@ movhi
+ 422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+ 1044              		.loc 1 422 0
+ 1045 050e 05F11407 		add	r7, r5, #20
+ 418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 1046              		.loc 1 418 0
+ 1047 0512 6023     		movs	r3, #96
+ 419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 1048              		.loc 1 419 0
+ 1049 0514 0126     		movs	r6, #1
+ 420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 100;
+ 1050              		.loc 1 420 0
+ 1051 0516 4FF06408 		mov	r8, #100
+ 1052              		.loc 1 422 0
+ 1053 051a 2046     		mov	r0, r4
+ 1054 051c 3946     		mov	r1, r7
+ 418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+ 1055              		.loc 1 418 0
+ 1056 051e 6B61     		str	r3, [r5, #20]
+ 419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 1057              		.loc 1 419 0
+ 1058 0520 2E83     		strh	r6, [r5, #24]	@ movhi
+ 420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 100;
+ 1059              		.loc 1 420 0
+ 1060 0522 C5F81C80 		str	r8, [r5, #28]
+ 1061              		.loc 1 422 0
+ 1062 0526 FFF7FEFF 		bl	TIM_OC1Init
+ 1063              	.LVL73:
+ 423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
+ 1064              		.loc 1 423 0
+ 1065 052a 2046     		mov	r0, r4
+ 1066 052c 0821     		movs	r1, #8
+ 1067 052e FFF7FEFF 		bl	TIM_OC1PreloadConfig
+ 1068              	.LVL74:
+ 424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel2 */
+ 426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 100;
+ 428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC2Init(TIM3, &TIM_OCInitStructure);
+ 1069              		.loc 1 428 0
+ 1070 0532 2046     		mov	r0, r4
+ 1071 0534 3946     		mov	r1, r7
+ 426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 1072              		.loc 1 426 0
+ 1073 0536 2E83     		strh	r6, [r5, #24]	@ movhi
+ 427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OCInitStructure.TIM_Pulse = 100;
+ 1074              		.loc 1 427 0
+ 1075 0538 C5F81C80 		str	r8, [r5, #28]
+ 1076              		.loc 1 428 0
+ 1077 053c FFF7FEFF 		bl	TIM_OC2Init
+ 1078              	.LVL75:
+ 429:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_OC2PreloadConfig(TIM3, TIM_OCPreload_Enable);
+ 1079              		.loc 1 429 0
+ 1080 0540 2046     		mov	r0, r4
+ 1081 0542 0821     		movs	r1, #8
+ 1082 0544 FFF7FEFF 		bl	TIM_OC2PreloadConfig
+ 1083              	.LVL76:
+ 430:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 431:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel3 */
+ 432:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 433:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 434:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OC3Init(TIM3, &TIM_OCInitStructure);
+ 435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);
+ 436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* PWM1 Mode configuration: Channel4 */
+ 438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+ 439:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OCInitStructure.TIM_Pulse = 50*PRESCALEVALUE;
+ 440:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+ 441:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Enable);
+ 442:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_ARRPreloadConfig(TIM3, ENABLE);
+ 1084              		.loc 1 443 0
+ 1085 0548 2046     		mov	r0, r4
+ 1086 054a 3146     		mov	r1, r6
+ 1087 054c FFF7FEFF 		bl	TIM_ARRPreloadConfig
+ 1088              	.LVL77:
+ 444:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_CtrlPWMOutputs(TIM3, ENABLE);
+ 1089              		.loc 1 444 0
+ 1090 0550 2046     		mov	r0, r4
+ 1091 0552 3146     		mov	r1, r6
+ 1092 0554 FFF7FEFF 		bl	TIM_CtrlPWMOutputs
+ 1093              	.LVL78:
+ 445:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 446:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* TIM3 enable counter */
+ 447:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_Cmd(TIM3, ENABLE);
+ 1094              		.loc 1 447 0
+ 1095 0558 2046     		mov	r0, r4
+ 1096 055a 3146     		mov	r1, r6
+ 1097 055c FFF7FEFF 		bl	TIM_Cmd
+ 1098              	.LVL79:
+ 448:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 1099              		.loc 1 448 0
+ 1100 0560 BDE8FF81 		pop	{r0, r1, r2, r3, r4, r5, r6, r7, r8, pc}
+ 1101              	.L25:
+ 1102              		.align	2
+ 1103              	.L24:
+ 1104 0564 00000000 		.word	SystemCoreClock
+ 1105 0568 80EE3600 		.word	3600000
+ 1106 056c 00000000 		.word	.LANCHOR0
+ 1107 0570 00040040 		.word	1073742848
+ 1108              		.cfi_endproc
+ 1109              	.LFE119:
+ 1111              		.align	1
+ 1112              		.global	TIM4_Configuration
+ 1113              		.thumb
+ 1114              		.thumb_func
+ 1116              	TIM4_Configuration:
+ 1117              	.LFB120:
+ 449:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 450:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void TIM4_Configuration(void)
+ 452:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 1118              		.loc 1 452 0
+ 1119              		.cfi_startproc
+ 1120              		@ args = 0, pretend = 0, frame = 16
+ 1121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1122              	.LVL80:
+ 1123 0574 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+ 1124              	.LCFI15:
+ 1125              		.cfi_def_cfa_offset 24
+ 1126              		.cfi_offset 0, -24
+ 1127              		.cfi_offset 1, -20
+ 1128              		.cfi_offset 2, -16
+ 1129              		.cfi_offset 3, -12
+ 1130              		.cfi_offset 4, -8
+ 1131              		.cfi_offset 14, -4
+ 453:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	uint16_t PrescalerValue = 0;
+ 454:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ 455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 456:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Compute the prescaler value */
+ 457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (50000)) - 1;
+ 1132              		.loc 1 457 0
+ 1133 0576 0F4B     		ldr	r3, .L27
+ 458:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Time base configuration */
+ 459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+ 1134              		.loc 1 459 0
+ 1135 0578 01A8     		add	r0, sp, #4
+ 457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	PrescalerValue = (uint16_t) (SystemCoreClock / (50000)) - 1;
+ 1136              		.loc 1 457 0
+ 1137 057a 1C68     		ldr	r4, [r3, #0]
+ 1138 057c 4CF25033 		movw	r3, #50000
+ 1139 0580 B4FBF3F4 		udiv	r4, r4, r3
+ 1140 0584 013C     		subs	r4, r4, #1
+ 1141              	.LVL81:
+ 1142              		.loc 1 459 0
+ 1143 0586 FFF7FEFF 		bl	TIM_TimeBaseStructInit
+ 1144              	.LVL82:
+ 460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 1000;
+ 461:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
+ 1145              		.loc 1 461 0
+ 1146 058a ADF80440 		strh	r4, [sp, #4]	@ movhi
+ 462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 463:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 464:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+ 1147              		.loc 1 464 0
+ 1148 058e 0A4C     		ldr	r4, .L27+4
+ 1149              	.LVL83:
+ 460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_Period = 1000;
+ 1150              		.loc 1 460 0
+ 1151 0590 4FF47A73 		mov	r3, #1000
+ 1152 0594 0293     		str	r3, [sp, #8]
+ 1153              		.loc 1 464 0
+ 1154 0596 2046     		mov	r0, r4
+ 462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 1155              		.loc 1 462 0
+ 1156 0598 0023     		movs	r3, #0
+ 1157              		.loc 1 464 0
+ 1158 059a 01A9     		add	r1, sp, #4
+ 462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+ 1159              		.loc 1 462 0
+ 1160 059c ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 463:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+ 1161              		.loc 1 463 0
+ 1162 05a0 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 1163              		.loc 1 464 0
+ 1164 05a4 FFF7FEFF 		bl	TIM_TimeBaseInit
+ 1165              	.LVL84:
+ 465:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 466:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* TIM3 enable counter */
+ 467:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	TIM_Cmd(TIM4, ENABLE);
+ 1166              		.loc 1 467 0
+ 1167 05a8 2046     		mov	r0, r4
+ 1168 05aa 0121     		movs	r1, #1
+ 1169 05ac FFF7FEFF 		bl	TIM_Cmd
+ 1170              	.LVL85:
+ 468:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 1171              		.loc 1 468 0
+ 1172 05b0 1FBD     		pop	{r0, r1, r2, r3, r4, pc}
+ 1173              	.L28:
+ 1174 05b2 00BF     		.align	2
+ 1175              	.L27:
+ 1176 05b4 00000000 		.word	SystemCoreClock
+ 1177 05b8 00080040 		.word	1073743872
+ 1178              		.cfi_endproc
+ 1179              	.LFE120:
+ 1181              		.align	1
+ 1182              		.global	getEXTI_Config
+ 1183              		.thumb
+ 1184              		.thumb_func
+ 1186              	getEXTI_Config:
+ 1187              	.LFB121:
+ 469:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 470:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 471:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** EXTI_InitTypeDef *getEXTI_Config(void)
+ 472:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 1188              		.loc 1 472 0
+ 1189              		.cfi_startproc
+ 1190              		@ args = 0, pretend = 0, frame = 0
+ 1191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1192              		@ link register save eliminated.
+ 473:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	static EXTI_InitTypeDef   EXTI_InitStructure;
+ 474:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	return &EXTI_InitStructure;
+ 475:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 1193              		.loc 1 475 0
+ 1194 05bc 0048     		ldr	r0, .L30
+ 1195 05be 7047     		bx	lr
+ 1196              	.L31:
+ 1197              		.align	2
+ 1198              	.L30:
+ 1199 05c0 28000000 		.word	.LANCHOR0+40
+ 1200              		.cfi_endproc
+ 1201              	.LFE121:
+ 1203              		.align	1
+ 1204              		.global	EXTI_Configuration
+ 1205              		.thumb
+ 1206              		.thumb_func
+ 1208              	EXTI_Configuration:
+ 1209              	.LFB122:
+ 476:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 477:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void EXTI_Configuration(void)
+ 478:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 1210              		.loc 1 478 0
+ 1211              		.cfi_startproc
+ 1212              		@ args = 0, pretend = 0, frame = 0
+ 1213              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1214              		@ link register save eliminated.
+ 1215 05c4 7047     		bx	lr
+ 1216              		.cfi_endproc
+ 1217              	.LFE122:
+ 1219              		.align	1
+ 1220              		.global	ADC_Configuration
+ 1221              		.thumb
+ 1222              		.thumb_func
+ 1224              	ADC_Configuration:
+ 1225              	.LFB123:
+ 479:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 481:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 482:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** void ADC_Configuration(void)
+ 485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** {
+ 1226              		.loc 1 485 0
+ 1227              		.cfi_startproc
+ 1228              		@ args = 0, pretend = 0, frame = 80
+ 1229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1230              		.loc 1 485 0
+ 1231 05c6 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1232              	.LCFI16:
+ 1233              		.cfi_def_cfa_offset 20
+ 1234              		.cfi_offset 4, -20
+ 1235              		.cfi_offset 5, -16
+ 1236              		.cfi_offset 6, -12
+ 1237              		.cfi_offset 7, -8
+ 1238              		.cfi_offset 14, -4
+ 1239 05c8 95B0     		sub	sp, sp, #84
+ 1240              	.LCFI17:
+ 1241              		.cfi_def_cfa_offset 104
+ 486:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#if DEBUG
+ 487:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	__IO uint32_t  calibration_value;
+ 488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#endif
+ 489:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 490:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitTypeDef       ADC_InitStructure;
+ 491:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitTypeDef ADC_CommonInitStructure;
+ 492:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjectedInitTypeDef ADC_InjInitStructure;
+ 493:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_StructInit(&ADC_InitStructure);
+ 1242              		.loc 1 494 0
+ 1243 05ca 0CA8     		add	r0, sp, #48
+ 1244 05cc FFF7FEFF 		bl	ADC_StructInit
+ 1245              	.LVL86:
+ 495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 496:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Calibration procedure */
+ 497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_VoltageRegulatorCmd(ADC2, ENABLE);
+ 1246              		.loc 1 497 0
+ 1247 05d0 0121     		movs	r1, #1
+ 1248 05d2 2D48     		ldr	r0, .L41
+ 1249 05d4 FFF7FEFF 		bl	ADC_VoltageRegulatorCmd
+ 1250              	.LVL87:
+ 498:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Insert delay equal to 10 µs */
+ 500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	Delay(10);
+ 1251              		.loc 1 500 0
+ 1252 05d8 0A20     		movs	r0, #10
+ 1253 05da FFF7FEFF 		bl	Delay
+ 1254              	.LVL88:
+ 501:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 502:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_SelectCalibrationMode(ADC2, ADC_CalibrationMode_Single);
+ 1255              		.loc 1 502 0
+ 1256 05de 2A48     		ldr	r0, .L41
+ 1257 05e0 0021     		movs	r1, #0
+ 1258 05e2 FFF7FEFF 		bl	ADC_SelectCalibrationMode
+ 1259              	.LVL89:
+ 503:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_StartCalibration(ADC2);
+ 1260              		.loc 1 503 0
+ 1261 05e6 2848     		ldr	r0, .L41
+ 1262 05e8 FFF7FEFF 		bl	ADC_StartCalibration
+ 1263              	.LVL90:
+ 1264              	.L34:
+ 504:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 505:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	for (; ADC_GetCalibrationStatus(ADC2) != RESET ;);
+ 1265              		.loc 1 505 0 discriminator 1
+ 1266 05ec 2648     		ldr	r0, .L41
+ 1267 05ee FFF7FEFF 		bl	ADC_GetCalibrationStatus
+ 1268              	.LVL91:
+ 1269 05f2 0446     		mov	r4, r0
+ 1270 05f4 0028     		cmp	r0, #0
+ 1271 05f6 F9D1     		bne	.L34
+ 506:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 507:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#if DEBUG
+ 508:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	calibration_value = ADC_GetCalibrationValue(ADC2);
+ 509:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	#endif
+ 510:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 511:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_Mode = ADC_Mode_InjSimul;
+ 1272              		.loc 1 511 0
+ 1273 05f8 0526     		movs	r6, #5
+ 512:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_Clock = ADC_Clock_AsynClkMode;
+ 1274              		.loc 1 512 0
+ 1275 05fa 0190     		str	r0, [sp, #4]
+ 513:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
+ 1276              		.loc 1 513 0
+ 1277 05fc 0290     		str	r0, [sp, #8]
+ 514:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_DMAMode = ADC_DMAMode_OneShot;
+ 1278              		.loc 1 514 0
+ 1279 05fe 0390     		str	r0, [sp, #12]
+ 515:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_TwoSamplingDelay = 0;
+ 1280              		.loc 1 515 0
+ 1281 0600 8DF81000 		strb	r0, [sp, #16]
+ 516:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInit(ADC2, &ADC_CommonInitStructure);
+ 1282              		.loc 1 516 0
+ 1283 0604 6946     		mov	r1, sp
+ 1284 0606 2048     		ldr	r0, .L41
+ 511:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_CommonInitStructure.ADC_Mode = ADC_Mode_InjSimul;
+ 1285              		.loc 1 511 0
+ 1286 0608 0096     		str	r6, [sp, #0]
+ 1287              		.loc 1 516 0
+ 1288 060a FFF7FEFF 		bl	ADC_CommonInit
+ 1289              	.LVL92:
+ 517:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 518:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ContinuousConvMode = ADC_ContinuousConvMode_Enable;
+ 1290              		.loc 1 518 0
+ 1291 060e 4FF40053 		mov	r3, #8192
+ 519:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+ 520:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ExternalTrigConvEvent = ADC_ExternalTrigConvEvent_0;
+ 521:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ExternalTrigEventEdge = ADC_ExternalTrigEventEdge_None;
+ 522:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+ 523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_OverrunMode = ADC_OverrunMode_Disable;
+ 524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_AutoInjMode = ADC_AutoInjec_Enable;
+ 525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_NbrOfRegChannel = 3;
+ 1292              		.loc 1 525 0
+ 1293 0612 0325     		movs	r5, #3
+ 518:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ContinuousConvMode = ADC_ContinuousConvMode_Enable;
+ 1294              		.loc 1 518 0
+ 1295 0614 0C93     		str	r3, [sp, #48]
+ 526:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_Init(ADC2, &ADC_InitStructure);
+ 1296              		.loc 1 526 0
+ 1297 0616 1C48     		ldr	r0, .L41
+ 524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_AutoInjMode = ADC_AutoInjec_Enable;
+ 1298              		.loc 1 524 0
+ 1299 0618 4FF00073 		mov	r3, #33554432
+ 1300              		.loc 1 526 0
+ 1301 061c 0CA9     		add	r1, sp, #48
+ 524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_AutoInjMode = ADC_AutoInjec_Enable;
+ 1302              		.loc 1 524 0
+ 1303 061e 1293     		str	r3, [sp, #72]
+ 519:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+ 1304              		.loc 1 519 0
+ 1305 0620 0D94     		str	r4, [sp, #52]
+ 520:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ExternalTrigConvEvent = ADC_ExternalTrigConvEvent_0;
+ 1306              		.loc 1 520 0
+ 1307 0622 0E94     		str	r4, [sp, #56]
+ 521:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_ExternalTrigEventEdge = ADC_ExternalTrigEventEdge_None;
+ 1308              		.loc 1 521 0
+ 1309 0624 0F94     		str	r4, [sp, #60]
+ 522:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+ 1310              		.loc 1 522 0
+ 1311 0626 1094     		str	r4, [sp, #64]
+ 523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_OverrunMode = ADC_OverrunMode_Disable;
+ 1312              		.loc 1 523 0
+ 1313 0628 1194     		str	r4, [sp, #68]
+ 527:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_ExternalTrigInjecConvEvent = ADC_ExternalTrigInjecConvEvent_0;
+ 529:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_ExternalTrigInjecEventEdge = ADC_ExternalTrigInjecEventEdge_None;
+ 530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_NbrOfInjecChannel = 3;
+ 531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence1 = ADC_Channel_5;
+ 532:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence2 = ADC_Channel_11;
+ 1314              		.loc 1 532 0
+ 1315 062a 0B27     		movs	r7, #11
+ 525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InitStructure.ADC_NbrOfRegChannel = 3;
+ 1316              		.loc 1 525 0
+ 1317 062c 8DF84C50 		strb	r5, [sp, #76]
+ 526:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_Init(ADC2, &ADC_InitStructure);
+ 1318              		.loc 1 526 0
+ 1319 0630 FFF7FEFF 		bl	ADC_Init
+ 1320              	.LVL93:
+ 528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_ExternalTrigInjecConvEvent = ADC_ExternalTrigInjecConvEvent_0;
+ 1321              		.loc 1 528 0
+ 1322 0634 0594     		str	r4, [sp, #20]
+ 529:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_ExternalTrigInjecEventEdge = ADC_ExternalTrigInjecEventEdge_None;
+ 1323              		.loc 1 529 0
+ 1324 0636 0694     		str	r4, [sp, #24]
+ 533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence3 = ADC_Channel_12;
+ 534:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjectedInit(ADC2, &ADC_InjInitStructure);
+ 1325              		.loc 1 534 0
+ 1326 0638 1348     		ldr	r0, .L41
+ 533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence3 = ADC_Channel_12;
+ 1327              		.loc 1 533 0
+ 1328 063a 0C24     		movs	r4, #12
+ 1329              		.loc 1 534 0
+ 1330 063c 05A9     		add	r1, sp, #20
+ 530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_NbrOfInjecChannel = 3;
+ 1331              		.loc 1 530 0
+ 1332 063e 8DF81C50 		strb	r5, [sp, #28]
+ 531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence1 = ADC_Channel_5;
+ 1333              		.loc 1 531 0
+ 1334 0642 0896     		str	r6, [sp, #32]
+ 532:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence2 = ADC_Channel_11;
+ 1335              		.loc 1 532 0
+ 1336 0644 0997     		str	r7, [sp, #36]
+ 533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjInitStructure.ADC_InjecSequence3 = ADC_Channel_12;
+ 1337              		.loc 1 533 0
+ 1338 0646 0A94     		str	r4, [sp, #40]
+ 1339              		.loc 1 534 0
+ 1340 0648 FFF7FEFF 		bl	ADC_InjectedInit
+ 1341              	.LVL94:
+ 535:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 536:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* ADC1 regular channel7 configuration */
+ 537:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	//ADC_RegularChannelConfig(ADC2, ADC_Channel_5, 1, ADC_SampleTime_7Cycles5);
+ 538:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjectedChannelSampleTimeConfig(ADC2, ADC_Channel_5, ADC_SampleTime_7Cycles5);
+ 1342              		.loc 1 538 0
+ 1343 064c 0E48     		ldr	r0, .L41
+ 1344 064e 3146     		mov	r1, r6
+ 1345 0650 2A46     		mov	r2, r5
+ 1346 0652 FFF7FEFF 		bl	ADC_InjectedChannelSampleTimeConfig
+ 1347              	.LVL95:
+ 539:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjectedChannelSampleTimeConfig(ADC2, ADC_Channel_11,ADC_SampleTime_7Cycles5);
+ 1348              		.loc 1 539 0
+ 1349 0656 0C48     		ldr	r0, .L41
+ 1350 0658 3946     		mov	r1, r7
+ 1351 065a 2A46     		mov	r2, r5
+ 1352 065c FFF7FEFF 		bl	ADC_InjectedChannelSampleTimeConfig
+ 1353              	.LVL96:
+ 540:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_InjectedChannelSampleTimeConfig(ADC2, ADC_Channel_12,ADC_SampleTime_7Cycles5);
+ 1354              		.loc 1 540 0
+ 1355 0660 0948     		ldr	r0, .L41
+ 1356 0662 2146     		mov	r1, r4
+ 1357 0664 2A46     		mov	r2, r5
+ 1358 0666 FFF7FEFF 		bl	ADC_InjectedChannelSampleTimeConfig
+ 1359              	.LVL97:
+ 541:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 542:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Enable ADC1 */
+ 543:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_Cmd(ADC2, ENABLE);
+ 1360              		.loc 1 543 0
+ 1361 066a 0748     		ldr	r0, .L41
+ 1362 066c 0121     		movs	r1, #1
+ 1363 066e FFF7FEFF 		bl	ADC_Cmd
+ 1364              	.LVL98:
+ 1365              	.L35:
+ 544:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 545:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* wait for ADRDY */
+ 546:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_RDY));
+ 1366              		.loc 1 546 0 discriminator 1
+ 1367 0672 0548     		ldr	r0, .L41
+ 1368 0674 0121     		movs	r1, #1
+ 1369 0676 FFF7FEFF 		bl	ADC_GetFlagStatus
+ 1370              	.LVL99:
+ 1371 067a 0028     		cmp	r0, #0
+ 1372 067c F9D0     		beq	.L35
+ 547:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 548:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	/* Start ADC1 Software Conversion */
+ 549:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 	ADC_StartConversion(ADC2);
+ 1373              		.loc 1 549 0
+ 1374 067e 0248     		ldr	r0, .L41
+ 1375 0680 FFF7FEFF 		bl	ADC_StartConversion
+ 1376              	.LVL100:
+ 550:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** 
+ 551:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32_configuration.c **** }
+ 1377              		.loc 1 551 0
+ 1378 0684 15B0     		add	sp, sp, #84
+ 1379 0686 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1380              	.L42:
+ 1381              		.align	2
+ 1382              	.L41:
+ 1383 0688 00010050 		.word	1342177536
+ 1384              		.cfi_endproc
+ 1385              	.LFE123:
+ 1387              		.bss
+ 1388              		.align	2
+ 1389              		.set	.LANCHOR0,. + 0
+ 1392              	TIM_OCInitStructure.8544:
+ 1393 0000 00000000 		.space	20
+ 1393      00000000 
+ 1393      00000000 
+ 1393      00000000 
+ 1393      00000000 
+ 1396              	TIM_OCInitStructure.8550:
+ 1397 0014 00000000 		.space	20
+ 1397      00000000 
+ 1397      00000000 
+ 1397      00000000 
+ 1397      00000000 
+ 1400              	EXTI_InitStructure.8559:
+ 1401 0028 00000000 		.space	8
+ 1401      00000000 
+ 1402              		.text
+ 1403              	.Letext0:
+ 1404              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 1405              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 1406              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1407              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1408              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1409              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1410              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1411              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1412              		.file 10 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f3
+ 1413              		.file 11 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f3
+ 1414              		.file 12 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f3
+ 1415              		.file 13 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 1416              		.file 14 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/syst
+ 1417              		.file 15 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f3
+ 1418              		.file 16 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/helperFunctions.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32_configuration.c
+     /tmp/ccyRJTTm.s:18     .text:00000000 $t
+     /tmp/ccyRJTTm.s:23     .text:00000000 RCC_Configuration
+     /tmp/ccyRJTTm.s:60     .text:00000028 $d
+     /tmp/ccyRJTTm.s:65     .text:00000030 $t
+     /tmp/ccyRJTTm.s:70     .text:00000030 NVIC_Configuration
+     /tmp/ccyRJTTm.s:154    .text:00000098 GPIO_Configuration
+     /tmp/ccyRJTTm.s:478    .text:00000290 $d
+     /tmp/ccyRJTTm.s:484    .text:0000029c $t
+     /tmp/ccyRJTTm.s:489    .text:0000029c USART_Configuration
+     /tmp/ccyRJTTm.s:591    .text:00000314 $d
+     /tmp/ccyRJTTm.s:597    .text:00000320 $t
+     /tmp/ccyRJTTm.s:602    .text:00000320 SPI_Configuration
+     /tmp/ccyRJTTm.s:675    .text:00000380 $d
+     /tmp/ccyRJTTm.s:679    .text:00000384 $t
+     /tmp/ccyRJTTm.s:684    .text:00000384 I2C_Configuration
+     /tmp/ccyRJTTm.s:737    .text:000003b8 $d
+     /tmp/ccyRJTTm.s:742    .text:000003c0 $t
+     /tmp/ccyRJTTm.s:747    .text:000003c0 DMA_Configuration
+     /tmp/ccyRJTTm.s:819    .text:00000400 $d
+     /tmp/ccyRJTTm.s:824    .text:00000408 $t
+     /tmp/ccyRJTTm.s:829    .text:00000408 TIM2_PWM_Configuration
+     /tmp/ccyRJTTm.s:974    .text:000004cc $d
+     /tmp/ccyRJTTm.s:980    .text:000004d8 $t
+     /tmp/ccyRJTTm.s:985    .text:000004d8 TIM3_PWM_Configuration
+     /tmp/ccyRJTTm.s:1104   .text:00000564 $d
+     /tmp/ccyRJTTm.s:1111   .text:00000574 $t
+     /tmp/ccyRJTTm.s:1116   .text:00000574 TIM4_Configuration
+     /tmp/ccyRJTTm.s:1176   .text:000005b4 $d
+     /tmp/ccyRJTTm.s:1181   .text:000005bc $t
+     /tmp/ccyRJTTm.s:1186   .text:000005bc getEXTI_Config
+     /tmp/ccyRJTTm.s:1199   .text:000005c0 $d
+     /tmp/ccyRJTTm.s:1203   .text:000005c4 $t
+     /tmp/ccyRJTTm.s:1208   .text:000005c4 EXTI_Configuration
+     /tmp/ccyRJTTm.s:1224   .text:000005c6 ADC_Configuration
+     /tmp/ccyRJTTm.s:1383   .text:00000688 $d
+     /tmp/ccyRJTTm.s:1388   .bss:00000000 $d
+     /tmp/ccyRJTTm.s:1392   .bss:00000000 TIM_OCInitStructure.8544
+     /tmp/ccyRJTTm.s:1396   .bss:00000014 TIM_OCInitStructure.8550
+     /tmp/ccyRJTTm.s:1400   .bss:00000028 EXTI_InitStructure.8559
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
+                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
+                           .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
+                           .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
+                           .group:00000000 wm4.stm32f30x.h.292.5f9271075d54fc48f1e25ff79df85cb2
+                           .group:00000000 wm4.stm32f30x_adc.h.130.cbebad91f78fb87381fe0860eea6104e
+                           .group:00000000 wm4.stm32f30x_comp.h.31.9bbc5f5f1a849069ea9062fbe7b81435
+                           .group:00000000 wm4.stm32f30x_dma.h.31.73d173fa6d60026d432f3cf1d2fc4407
+                           .group:00000000 wm4.stm32f30x_exti.h.31.22e280aa6e095108654ac8d3c74a2409
+                           .group:00000000 wm4.stm32f30x_flash.h.31.bee86dc3079b7049419bdbeec073e2cd
+                           .group:00000000 wm4.stm32f30x_gpio.h.31.3745297fee3728b346ad4d2a2467e40f
+                           .group:00000000 wm4.stm32f30x_syscfg.h.31.96b023b7dbc3641f358604478433eb5c
+                           .group:00000000 wm4.stm32f30x_i2c.h.31.52025acd7f154308042bf46a2835e9d3
+                           .group:00000000 wm4.stm32f30x_pwr.h.31.cdef322c6e7f25cfc29954045d24e9b8
+                           .group:00000000 wm4.stm32f30x_rcc.h.31.3b94c1144b21d1e4fe780e4d1a02d257
+                           .group:00000000 wm4.stm32f30x_spi.h.31.c1ebebab897d23cecc617ec8ad9fd534
+                           .group:00000000 wm4.stm32f30x_tim.h.31.336f9cd855fb4e2cd819ac260ded6518
+                           .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
+                           .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
+                           .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
+                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
+                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
+                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
+                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
+                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
+                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
+                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
+                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
+                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
+                           .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
+                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
+                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
+                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
+                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
+                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
+                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
+                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphClockCmd
+RCC_APB2PeriphClockCmd
+RCC_AHBPeriphClockCmd
+RCC_ADCCLKConfig
+NVIC_SetVectorTable
+NVIC_PriorityGroupConfig
+NVIC_Init
+GPIO_Init
+GPIO_PinAFConfig
+USART_Init
+USART_ITConfig
+USART_Cmd
+SPI_I2S_DeInit
+SPI_Init
+SPI_RxFIFOThresholdConfig
+SPI_Cmd
+I2C_DeInit
+I2C_Init
+I2C_Cmd
+DMA_DeInit
+DMA_Init
+TIM_TimeBaseStructInit
+TIM_TimeBaseInit
+TIM_OC1Init
+TIM_OC1PreloadConfig
+TIM_OC2Init
+TIM_OC2PreloadConfig
+TIM_OC3Init
+TIM_OC3PreloadConfig
+TIM_OC4Init
+TIM_OC4PreloadConfig
+TIM_ARRPreloadConfig
+TIM_CtrlPWMOutputs
+TIM_Cmd
+SystemCoreClock
+ADC_StructInit
+ADC_VoltageRegulatorCmd
+Delay
+ADC_SelectCalibrationMode
+ADC_StartCalibration
+ADC_GetCalibrationStatus
+ADC_CommonInit
+ADC_Init
+ADC_InjectedInit
+ADC_InjectedChannelSampleTimeConfig
+ADC_Cmd
+ADC_GetFlagStatus
+ADC_StartConversion

@@ -1,0 +1,1181 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	__aeabi_f2iz
+  19              		.align	1
+  20              		.thumb
+  21              		.thumb_func
+  23              	IMU_Print_Values:
+  24              	.LFB113:
+  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c"
+   1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stm32f30x.h>
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stm32f30x_conf.h>
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stm32f30x_it.h>
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stm32_configuration.h>
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <Task1.h>
+   7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stdio.h>
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <stdlib.h>
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <string.h>
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <usart.h>
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <FreeRTOS.h>
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <task.h>
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <queue.h>
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <timers.h>
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <semphr.h>
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <croutine.h>
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <IMU_algorithm.h>
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <filter_Lib.h>
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <vertibot_settings.h>
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <xBee_Lib.h>
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <L3GD20_Lib_SPI.h>
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <ADXL345_Lib.h>
+  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <LSM303DLHC_Lib_I2C.h>
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <MotorPWM.h>
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #include <PID_control.h>
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** //#define DEG_TO_RAD 0.017453292f
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /* Info Motorendstufen kalibrieren
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****  *
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****  */
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** //#define ESC_CALIBRATE		// Enstufen Kalibrieren
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** //#define DEBUG				// Motoren werden abgeschalten
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #ifndef DEBUG
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	#define enableX_AXIS
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	#define enableY_AXIS
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #endif
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** #define ACC_MEDIAN_VALUE 5
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void vLedCtrlCoRoutine( xCoRoutineHandle xHandle, unsigned portBASE_TYPE uxIndex );
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void vRemoteCtrlWatchdogCoRoutine( xCoRoutineHandle xHandle, unsigned portBASE_TYPE uxIndex 
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void IMU_Print_Values( void *pvParameters );
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void Position_Controller( void *pvParameters );
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** // static void Position_Controller( void *pvParameters );
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** int main()
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	RCC_Configuration();
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	NVIC_Configuration();
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIO_Configuration();
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	USART_Configuration();
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	setup_xBeeS6();
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SPI_Configuration();
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	I2C_Configuration();
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	//TIM2_PWM_Configuration();
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	TIM3_PWM_Configuration();
+  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	TIM4_Configuration();
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	ADC_Configuration();
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	EXTI_Configuration();
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	DMA_Configuration(&accBuffer[0]);
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	//TIM4_PWM_INPUT_Configuration();
+  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SETTINGS_init(&GlobalSettings);
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	CTRLSTATES_init(&CtrlStates);
+  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xCoRoutineCreate( vLedCtrlCoRoutine, 0, 0 );
+  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	//xCoRoutineCreate( vRemoteCtrlWatchdogCoRoutine, 1, 0 );
+  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/* Motor Enstufe ausschalten */
+  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	//GPIO_ResetBits(GPIOB, GPIO_Pin_1 | GPIO_Pin_2);
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Disable_Motor();
+  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xTaskCreate( Position_Controller, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4,
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	//xTaskCreate( Position_Controller, ( signed char * ) "Pos_Contr", configMINIMAL_STACK_SIZE, NULL,
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xTaskCreate( IMU_Print_Values, ( signed char * ) "Print_Euler", configMINIMAL_STACK_SIZE, NULL, 2,
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/* Start the tasks and timer running. */
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vTaskStartScheduler();
+  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	while(1);
+  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void Position_Controller( void *pvParameters )
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	portTickType xNextWakeTime;
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Disable_Motor();
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/*
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	 * Wait here 2 Seconds to ensure,
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	 * that all capacitors are charged
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	 * and VCC is stable
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	 * */
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vTaskDelay( 2000 );
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Init_IMU();
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Init_PositionController();
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Enable_Motor();
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	while(1)
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	{
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		xNextWakeTime = xTaskGetTickCount();
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		IMU_Calculation();
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		PositionController();
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		vTaskDelayUntil( &xNextWakeTime, DT );
+ 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	}
+ 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** // GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
+ 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /*
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****  *		PID Calculation - this is far from being finished
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****  */
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /*
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void Position_Controller( void *pvParameters )
+ 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	const portTickType xDelay = 5 / portTICK_RATE_MS;
+ 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	float MOT0 = 0;
+ 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	float MOT1 = 0;
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	PID_Control PID_X1;
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	init_PID(0.005f, GlobalSettings.PID_rollPitch.PID_kp, GlobalSettings.PID_rollPitch.PID_ki, GlobalS
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	while(1)
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	{
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		if(CtrlStates.copterStatus & ARMED_FLAG )
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		{
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#ifdef ESC_CALIBRATE
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			MOT0 = MOT1 = GlobalSettings.stopSpeed + CtrlStates.gas;
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			PWM_Motor(0, (uint16_t)MOT0);
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			PWM_Motor(1, (uint16_t)MOT1);
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#endif
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			//Mischen der Werte:
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#ifdef VERTIBOT
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			//PID-Regler
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			calc_PID(-XYZ.y, -5.5, &PID_X1);						// Hier stellt er sich auf 6° ein
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			MOT0 = GlobalSettings.stopSpeed - PID_X1.y;
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			MOT1 = GlobalSettings.stopSpeed - PID_X1.y;
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
+ 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			// Disable Interrupts
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			taskENTER_CRITICAL();
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			yTemp = MOT0;
+ 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#ifdef VERTIBOT
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			  PWM_Motor(0, (uint16_t)MOT0);
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			  PWM_Motor(1, (uint16_t)MOT1);
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#endif
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			taskEXIT_CRITICAL();
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			#endif
+ 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		}
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		else
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		{
+ 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			resetIntegralValues_PID(&PID_X1);
+ 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 			PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		}
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		//
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		uint32_t Header = 0xFF7F3F1F;
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		static uint32_t foo = 0;
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		foo++;
+ 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_X1.y, &PID_X1.esum, 4);
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		vTaskDelay( xDelay );
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	}
+ 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** */
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /*For debug purposes - the print task*/
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** static void IMU_Print_Values( void *pvParameters )
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+  26              		.loc 1 211 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              	.LVL0:
+  31 0000 70B5     		push	{r4, r5, r6, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 4, -16
+  35              		.cfi_offset 5, -12
+  36              		.cfi_offset 6, -8
+  37              		.cfi_offset 14, -4
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	const portTickType xDelay = 40 / portTICK_RATE_MS;
+ 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	while(1)
+ 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	{
+ 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		//printf("%d,%d,%d,%d %d  ",CtrlStates.gas, CtrlStates.nick, CtrlStates.roll, CtrlStates.yaw, Ctr
+ 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		printf("%d,%d,%d\r\n",(int)XYZ.y, (int)XYZ.x, (int)XYZ.z);
+  38              		.loc 1 217 0
+  39 0002 0B4C     		ldr	r4, .L3
+  40              	.LVL1:
+  41              	.L2:
+  42              		.loc 1 217 0 is_stmt 0 discriminator 1
+  43 0004 6068     		ldr	r0, [r4, #4]	@ float
+  44 0006 FFF7FEFF 		bl	__aeabi_f2iz
+  45              	.LVL2:
+  46 000a 0646     		mov	r6, r0
+  47 000c 2068     		ldr	r0, [r4, #0]	@ float
+  48 000e FFF7FEFF 		bl	__aeabi_f2iz
+  49              	.LVL3:
+  50 0012 0546     		mov	r5, r0
+  51 0014 A068     		ldr	r0, [r4, #8]	@ float
+  52 0016 FFF7FEFF 		bl	__aeabi_f2iz
+  53              	.LVL4:
+  54 001a 3146     		mov	r1, r6
+  55 001c 0346     		mov	r3, r0
+  56 001e 2A46     		mov	r2, r5
+  57 0020 0448     		ldr	r0, .L3+4
+  58 0022 FFF7FEFF 		bl	printf
+  59              	.LVL5:
+ 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		//printf("%d %d %d\n\r", xTemp, yTemp, zTemp);
+ 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		//printf("test:%d,%d,%d\r\n", (int)(XYZ.y), (int)(CtrlStates.roll) ,(int)(yTemp));
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		// XYZ.y ?
+ 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		// XYZ.x roll
+ 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		// XYZ.z
+ 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		vTaskDelay( xDelay );
+  60              		.loc 1 224 0 is_stmt 1 discriminator 1
+  61 0026 2820     		movs	r0, #40
+  62 0028 FFF7FEFF 		bl	vTaskDelay
+  63              	.LVL6:
+  64 002c EAE7     		b	.L2
+  65              	.L4:
+  66 002e 00BF     		.align	2
+  67              	.L3:
+  68 0030 00000000 		.word	XYZ
+  69 0034 00000000 		.word	.LC0
+  70              		.cfi_endproc
+  71              	.LFE113:
+  73              		.align	1
+  74              		.thumb
+  75              		.thumb_func
+  77              	Position_Controller:
+  78              	.LFB112:
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+  79              		.loc 1 97 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 8
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              	.LVL7:
+  84 0038 13B5     		push	{r0, r1, r4, lr}
+  85              	.LCFI1:
+  86              		.cfi_def_cfa_offset 16
+  87              		.cfi_offset 0, -16
+  88              		.cfi_offset 1, -12
+  89              		.cfi_offset 4, -8
+  90              		.cfi_offset 14, -4
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Disable_Motor();
+  91              		.loc 1 100 0
+  92 003a FFF7FEFF 		bl	Disable_Motor
+  93              	.LVL8:
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vTaskDelay( 2000 );
+  94              		.loc 1 107 0
+  95 003e 4FF4FA60 		mov	r0, #2000
+  96 0042 FFF7FEFF 		bl	vTaskDelay
+  97              	.LVL9:
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Init_IMU();
+  98              		.loc 1 109 0
+  99 0046 FFF7FEFF 		bl	Init_IMU
+ 100              	.LVL10:
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Init_PositionController();
+ 101              		.loc 1 111 0
+ 102 004a FFF7FEFF 		bl	Init_PositionController
+ 103              	.LVL11:
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Enable_Motor();
+ 104              		.loc 1 113 0
+ 105 004e FFF7FEFF 		bl	Enable_Motor
+ 106              	.LVL12:
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+ 107              		.loc 1 119 0
+ 108 0052 0C4C     		ldr	r4, .L7
+ 109              	.LVL13:
+ 110              	.L6:
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		xNextWakeTime = xTaskGetTickCount();
+ 111              		.loc 1 117 0 discriminator 1
+ 112 0054 FFF7FEFF 		bl	xTaskGetTickCount
+ 113              	.LVL14:
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+ 114              		.loc 1 119 0 discriminator 1
+ 115 0058 A38A     		ldrh	r3, [r4, #20]
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		xNextWakeTime = xTaskGetTickCount();
+ 116              		.loc 1 117 0 discriminator 1
+ 117 005a 0190     		str	r0, [sp, #4]
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+ 118              		.loc 1 119 0 discriminator 1
+ 119 005c 9BB2     		uxth	r3, r3
+ 120 005e 43F40063 		orr	r3, r3, #2048
+ 121 0062 A382     		strh	r3, [r4, #20]	@ movhi
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		IMU_Calculation();
+ 122              		.loc 1 121 0 discriminator 1
+ 123 0064 FFF7FEFF 		bl	IMU_Calculation
+ 124              	.LVL15:
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		PositionController();
+ 125              		.loc 1 123 0 discriminator 1
+ 126 0068 FFF7FEFF 		bl	PositionController
+ 127              	.LVL16:
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+ 128              		.loc 1 125 0 discriminator 1
+ 129 006c A38A     		ldrh	r3, [r4, #20]
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		vTaskDelayUntil( &xNextWakeTime, DT );
+ 130              		.loc 1 127 0 discriminator 1
+ 131 006e 01A8     		add	r0, sp, #4
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+ 132              		.loc 1 125 0 discriminator 1
+ 133 0070 23F40063 		bic	r3, r3, #2048
+ 134 0074 1B04     		lsls	r3, r3, #16
+ 135 0076 1B0C     		lsrs	r3, r3, #16
+ 136 0078 A382     		strh	r3, [r4, #20]	@ movhi
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		vTaskDelayUntil( &xNextWakeTime, DT );
+ 137              		.loc 1 127 0 discriminator 1
+ 138 007a 0221     		movs	r1, #2
+ 139 007c FFF7FEFF 		bl	vTaskDelayUntil
+ 140              	.LVL17:
+ 141 0080 E8E7     		b	.L6
+ 142              	.L8:
+ 143 0082 00BF     		.align	2
+ 144              	.L7:
+ 145 0084 00080048 		.word	1207961600
+ 146              		.cfi_endproc
+ 147              	.LFE112:
+ 149              		.section	.text.startup,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	main
+ 152              		.thumb
+ 153              		.thumb_func
+ 155              	main:
+ 156              	.LFB111:
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 157              		.loc 1 57 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+ 162              	.LCFI2:
+ 163              		.cfi_def_cfa_offset 24
+ 164              		.cfi_offset 0, -24
+ 165              		.cfi_offset 1, -20
+ 166              		.cfi_offset 2, -16
+ 167              		.cfi_offset 3, -12
+ 168              		.cfi_offset 4, -8
+ 169              		.cfi_offset 14, -4
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+ 170              		.loc 1 58 0
+ 171 0002 244B     		ldr	r3, .L11
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xTaskCreate( Position_Controller, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4,
+ 172              		.loc 1 86 0
+ 173 0004 0024     		movs	r4, #0
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+ 174              		.loc 1 58 0
+ 175 0006 D3F88820 		ldr	r2, [r3, #136]
+ 176 000a 42F47002 		orr	r2, r2, #15728640
+ 177 000e C3F88820 		str	r2, [r3, #136]
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	RCC_Configuration();
+ 178              		.loc 1 60 0
+ 179 0012 FFF7FEFF 		bl	RCC_Configuration
+ 180              	.LVL18:
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	NVIC_Configuration();
+ 181              		.loc 1 61 0
+ 182 0016 FFF7FEFF 		bl	NVIC_Configuration
+ 183              	.LVL19:
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIO_Configuration();
+ 184              		.loc 1 62 0
+ 185 001a FFF7FEFF 		bl	GPIO_Configuration
+ 186              	.LVL20:
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	USART_Configuration();
+ 187              		.loc 1 63 0
+ 188 001e FFF7FEFF 		bl	USART_Configuration
+ 189              	.LVL21:
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	setup_xBeeS6();
+ 190              		.loc 1 64 0
+ 191 0022 FFF7FEFF 		bl	setup_xBeeS6
+ 192              	.LVL22:
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SPI_Configuration();
+ 193              		.loc 1 65 0
+ 194 0026 FFF7FEFF 		bl	SPI_Configuration
+ 195              	.LVL23:
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	I2C_Configuration();
+ 196              		.loc 1 66 0
+ 197 002a FFF7FEFF 		bl	I2C_Configuration
+ 198              	.LVL24:
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	TIM3_PWM_Configuration();
+ 199              		.loc 1 68 0
+ 200 002e FFF7FEFF 		bl	TIM3_PWM_Configuration
+ 201              	.LVL25:
+  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	TIM4_Configuration();
+ 202              		.loc 1 69 0
+ 203 0032 FFF7FEFF 		bl	TIM4_Configuration
+ 204              	.LVL26:
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	ADC_Configuration();
+ 205              		.loc 1 70 0
+ 206 0036 FFF7FEFF 		bl	ADC_Configuration
+ 207              	.LVL27:
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	EXTI_Configuration();
+ 208              		.loc 1 71 0
+ 209 003a FFF7FEFF 		bl	EXTI_Configuration
+ 210              	.LVL28:
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	DMA_Configuration(&accBuffer[0]);
+ 211              		.loc 1 72 0
+ 212 003e 1648     		ldr	r0, .L11+4
+ 213 0040 FFF7FEFF 		bl	DMA_Configuration
+ 214              	.LVL29:
+  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	SETTINGS_init(&GlobalSettings);
+ 215              		.loc 1 75 0
+ 216 0044 1548     		ldr	r0, .L11+8
+ 217 0046 FFF7FEFF 		bl	SETTINGS_init
+ 218              	.LVL30:
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	CTRLSTATES_init(&CtrlStates);
+ 219              		.loc 1 76 0
+ 220 004a 1548     		ldr	r0, .L11+12
+ 221 004c FFF7FEFF 		bl	CTRLSTATES_init
+ 222              	.LVL31:
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xCoRoutineCreate( vLedCtrlCoRoutine, 0, 0 );
+ 223              		.loc 1 78 0
+ 224 0050 0021     		movs	r1, #0
+ 225 0052 0A46     		mov	r2, r1
+ 226 0054 1348     		ldr	r0, .L11+16
+ 227 0056 FFF7FEFF 		bl	xCoRoutineCreate
+ 228              	.LVL32:
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	Disable_Motor();
+ 229              		.loc 1 84 0
+ 230 005a FFF7FEFF 		bl	Disable_Motor
+ 231              	.LVL33:
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xTaskCreate( Position_Controller, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4,
+ 232              		.loc 1 86 0
+ 233 005e 0423     		movs	r3, #4
+ 234 0060 8DE81800 		stmia	sp, {r3, r4}
+ 235 0064 1049     		ldr	r1, .L11+20
+ 236 0066 4FF4A072 		mov	r2, #320
+ 237 006a 2346     		mov	r3, r4
+ 238 006c 0294     		str	r4, [sp, #8]
+ 239 006e 0394     		str	r4, [sp, #12]
+ 240 0070 0E48     		ldr	r0, .L11+24
+ 241 0072 FFF7FEFF 		bl	xTaskGenericCreate
+ 242              	.LVL34:
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	xTaskCreate( IMU_Print_Values, ( signed char * ) "Print_Euler", configMINIMAL_STACK_SIZE, NULL, 2,
+ 243              		.loc 1 88 0
+ 244 0076 0223     		movs	r3, #2
+ 245 0078 8DE81800 		stmia	sp, {r3, r4}
+ 246 007c 0C49     		ldr	r1, .L11+28
+ 247 007e 4FF4A072 		mov	r2, #320
+ 248 0082 2346     		mov	r3, r4
+ 249 0084 0294     		str	r4, [sp, #8]
+ 250 0086 0394     		str	r4, [sp, #12]
+ 251 0088 0A48     		ldr	r0, .L11+32
+ 252 008a FFF7FEFF 		bl	xTaskGenericCreate
+ 253              	.LVL35:
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vTaskStartScheduler();
+ 254              		.loc 1 91 0
+ 255 008e FFF7FEFF 		bl	vTaskStartScheduler
+ 256              	.LVL36:
+ 257              	.L10:
+ 258 0092 FEE7     		b	.L10
+ 259              	.L12:
+ 260              		.align	2
+ 261              	.L11:
+ 262 0094 00ED00E0 		.word	-536810240
+ 263 0098 00000000 		.word	accBuffer
+ 264 009c 00000000 		.word	GlobalSettings
+ 265 00a0 00000000 		.word	CtrlStates
+ 266 00a4 00000000 		.word	vLedCtrlCoRoutine
+ 267 00a8 0B000000 		.word	.LC1
+ 268 00ac 00000000 		.word	Position_Controller
+ 269 00b0 14000000 		.word	.LC2
+ 270 00b4 00000000 		.word	IMU_Print_Values
+ 271              		.cfi_endproc
+ 272              	.LFE111:
+ 274              		.text
+ 275              		.align	1
+ 276              		.global	LED_TOGGLE_NOT_READY
+ 277              		.thumb
+ 278              		.thumb_func
+ 280              	LED_TOGGLE_NOT_READY:
+ 281              	.LFB114:
+ 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	}
+ 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void LED_TOGGLE_NOT_READY(void)
+ 231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 282              		.loc 1 231 0
+ 283              		.cfi_startproc
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_8;
+ 287              		.loc 1 232 0
+ 288 0088 0A4B     		ldr	r3, .L14
+ 289 008a 9A8A     		ldrh	r2, [r3, #20]
+ 290 008c 92B2     		uxth	r2, r2
+ 291 008e 82F48072 		eor	r2, r2, #256
+ 292 0092 9A82     		strh	r2, [r3, #20]	@ movhi
+ 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_10;
+ 293              		.loc 1 233 0
+ 294 0094 9A8A     		ldrh	r2, [r3, #20]
+ 295 0096 92B2     		uxth	r2, r2
+ 296 0098 82F48062 		eor	r2, r2, #1024
+ 297 009c 9A82     		strh	r2, [r3, #20]	@ movhi
+ 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_12;
+ 298              		.loc 1 234 0
+ 299 009e 9A8A     		ldrh	r2, [r3, #20]
+ 300 00a0 92B2     		uxth	r2, r2
+ 301 00a2 82F48052 		eor	r2, r2, #4096
+ 302 00a6 9A82     		strh	r2, [r3, #20]	@ movhi
+ 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_14;
+ 303              		.loc 1 235 0
+ 304 00a8 9A8A     		ldrh	r2, [r3, #20]
+ 305 00aa 92B2     		uxth	r2, r2
+ 306 00ac 82F48042 		eor	r2, r2, #16384
+ 307 00b0 9A82     		strh	r2, [r3, #20]	@ movhi
+ 308 00b2 7047     		bx	lr
+ 309              	.L15:
+ 310              		.align	2
+ 311              	.L14:
+ 312 00b4 00100048 		.word	1207963648
+ 313              		.cfi_endproc
+ 314              	.LFE114:
+ 316              		.align	1
+ 317              		.global	LED_TOGGLE_READY
+ 318              		.thumb
+ 319              		.thumb_func
+ 321              	LED_TOGGLE_READY:
+ 322              	.LFB115:
+ 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void LED_TOGGLE_READY(void)
+ 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 323              		.loc 1 239 0
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327              		@ link register save eliminated.
+ 240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_9;
+ 328              		.loc 1 240 0
+ 329 00b8 0A4B     		ldr	r3, .L17
+ 330 00ba 9A8A     		ldrh	r2, [r3, #20]
+ 331 00bc 92B2     		uxth	r2, r2
+ 332 00be 82F40072 		eor	r2, r2, #512
+ 333 00c2 9A82     		strh	r2, [r3, #20]	@ movhi
+ 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_11;
+ 334              		.loc 1 241 0
+ 335 00c4 9A8A     		ldrh	r2, [r3, #20]
+ 336 00c6 92B2     		uxth	r2, r2
+ 337 00c8 82F40062 		eor	r2, r2, #2048
+ 338 00cc 9A82     		strh	r2, [r3, #20]	@ movhi
+ 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_13;
+ 339              		.loc 1 242 0
+ 340 00ce 9A8A     		ldrh	r2, [r3, #20]
+ 341 00d0 92B2     		uxth	r2, r2
+ 342 00d2 82F40052 		eor	r2, r2, #8192
+ 343 00d6 9A82     		strh	r2, [r3, #20]	@ movhi
+ 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	GPIOE->ODR ^= GPIO_Pin_15;
+ 344              		.loc 1 243 0
+ 345 00d8 9A8A     		ldrh	r2, [r3, #20]
+ 346 00da 92B2     		uxth	r2, r2
+ 347 00dc 82F40042 		eor	r2, r2, #32768
+ 348 00e0 9A82     		strh	r2, [r3, #20]	@ movhi
+ 349 00e2 7047     		bx	lr
+ 350              	.L18:
+ 351              		.align	2
+ 352              	.L17:
+ 353 00e4 00100048 		.word	1207963648
+ 354              		.cfi_endproc
+ 355              	.LFE115:
+ 357              		.align	1
+ 358              		.global	LED_TOGGLE_ALL
+ 359              		.thumb
+ 360              		.thumb_func
+ 362              	LED_TOGGLE_ALL:
+ 363              	.LFB116:
+ 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void LED_TOGGLE_ALL(void)
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 364              		.loc 1 247 0
+ 365              		.cfi_startproc
+ 366              		@ args = 0, pretend = 0, frame = 0
+ 367              		@ frame_needed = 0, uses_anonymous_args = 0
+ 368              		@ link register save eliminated.
+ 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	if(GPIOE->ODR & GPIO_Pin_9)
+ 369              		.loc 1 248 0
+ 370 00e8 2E4B     		ldr	r3, .L23
+ 371 00ea 9A8A     		ldrh	r2, [r3, #20]
+ 372 00ec 02F40072 		and	r2, r2, #512
+ 373 00f0 92B2     		uxth	r2, r2
+ 374 00f2 4AB3     		cbz	r2, .L20
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	{
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_9;
+ 375              		.loc 1 250 0
+ 376 00f4 9A8A     		ldrh	r2, [r3, #20]
+ 377 00f6 22F40072 		bic	r2, r2, #512
+ 378 00fa 1204     		lsls	r2, r2, #16
+ 379 00fc 120C     		lsrs	r2, r2, #16
+ 380 00fe 9A82     		strh	r2, [r3, #20]	@ movhi
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_11;
+ 381              		.loc 1 251 0
+ 382 0100 9A8A     		ldrh	r2, [r3, #20]
+ 383 0102 22F40062 		bic	r2, r2, #2048
+ 384 0106 1204     		lsls	r2, r2, #16
+ 385 0108 120C     		lsrs	r2, r2, #16
+ 386 010a 9A82     		strh	r2, [r3, #20]	@ movhi
+ 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_13;
+ 387              		.loc 1 252 0
+ 388 010c 9A8A     		ldrh	r2, [r3, #20]
+ 389 010e 22F40052 		bic	r2, r2, #8192
+ 390 0112 1204     		lsls	r2, r2, #16
+ 391 0114 120C     		lsrs	r2, r2, #16
+ 392 0116 9A82     		strh	r2, [r3, #20]	@ movhi
+ 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_15;
+ 393              		.loc 1 253 0
+ 394 0118 9A8A     		ldrh	r2, [r3, #20]
+ 395 011a 5204     		lsls	r2, r2, #17
+ 396 011c 520C     		lsrs	r2, r2, #17
+ 397 011e 9A82     		strh	r2, [r3, #20]	@ movhi
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_8;
+ 398              		.loc 1 254 0
+ 399 0120 9A8A     		ldrh	r2, [r3, #20]
+ 400 0122 92B2     		uxth	r2, r2
+ 401 0124 42F48072 		orr	r2, r2, #256
+ 402 0128 9A82     		strh	r2, [r3, #20]	@ movhi
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_10;
+ 403              		.loc 1 255 0
+ 404 012a 9A8A     		ldrh	r2, [r3, #20]
+ 405 012c 92B2     		uxth	r2, r2
+ 406 012e 42F48062 		orr	r2, r2, #1024
+ 407 0132 9A82     		strh	r2, [r3, #20]	@ movhi
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_12;
+ 408              		.loc 1 256 0
+ 409 0134 9A8A     		ldrh	r2, [r3, #20]
+ 410 0136 92B2     		uxth	r2, r2
+ 411 0138 42F48052 		orr	r2, r2, #4096
+ 412 013c 9A82     		strh	r2, [r3, #20]	@ movhi
+ 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_14;
+ 413              		.loc 1 257 0
+ 414 013e 9A8A     		ldrh	r2, [r3, #20]
+ 415 0140 92B2     		uxth	r2, r2
+ 416 0142 42F48042 		orr	r2, r2, #16384
+ 417 0146 2BE0     		b	.L22
+ 418              	.L20:
+ 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	}
+ 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	else
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	{
+ 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_9;
+ 419              		.loc 1 261 0
+ 420 0148 9A8A     		ldrh	r2, [r3, #20]
+ 421 014a 92B2     		uxth	r2, r2
+ 422 014c 42F40072 		orr	r2, r2, #512
+ 423 0150 9A82     		strh	r2, [r3, #20]	@ movhi
+ 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_11;
+ 424              		.loc 1 262 0
+ 425 0152 9A8A     		ldrh	r2, [r3, #20]
+ 426 0154 92B2     		uxth	r2, r2
+ 427 0156 42F40062 		orr	r2, r2, #2048
+ 428 015a 9A82     		strh	r2, [r3, #20]	@ movhi
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_13;
+ 429              		.loc 1 263 0
+ 430 015c 9A8A     		ldrh	r2, [r3, #20]
+ 431 015e 92B2     		uxth	r2, r2
+ 432 0160 42F40052 		orr	r2, r2, #8192
+ 433 0164 9A82     		strh	r2, [r3, #20]	@ movhi
+ 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR |= GPIO_Pin_15;
+ 434              		.loc 1 264 0
+ 435 0166 9A8A     		ldrh	r2, [r3, #20]
+ 436 0168 6FEA4242 		mvn	r2, r2, lsl #17
+ 437 016c 6FEA5242 		mvn	r2, r2, lsr #17
+ 438 0170 9A82     		strh	r2, [r3, #20]	@ movhi
+ 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_8;
+ 439              		.loc 1 265 0
+ 440 0172 9A8A     		ldrh	r2, [r3, #20]
+ 441 0174 22F48072 		bic	r2, r2, #256
+ 442 0178 1204     		lsls	r2, r2, #16
+ 443 017a 120C     		lsrs	r2, r2, #16
+ 444 017c 9A82     		strh	r2, [r3, #20]	@ movhi
+ 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_10;
+ 445              		.loc 1 266 0
+ 446 017e 9A8A     		ldrh	r2, [r3, #20]
+ 447 0180 22F48062 		bic	r2, r2, #1024
+ 448 0184 1204     		lsls	r2, r2, #16
+ 449 0186 120C     		lsrs	r2, r2, #16
+ 450 0188 9A82     		strh	r2, [r3, #20]	@ movhi
+ 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_12;
+ 451              		.loc 1 267 0
+ 452 018a 9A8A     		ldrh	r2, [r3, #20]
+ 453 018c 22F48052 		bic	r2, r2, #4096
+ 454 0190 1204     		lsls	r2, r2, #16
+ 455 0192 120C     		lsrs	r2, r2, #16
+ 456 0194 9A82     		strh	r2, [r3, #20]	@ movhi
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		GPIOE->ODR &= ~GPIO_Pin_14;
+ 457              		.loc 1 268 0
+ 458 0196 9A8A     		ldrh	r2, [r3, #20]
+ 459 0198 22F48042 		bic	r2, r2, #16384
+ 460 019c 1204     		lsls	r2, r2, #16
+ 461 019e 120C     		lsrs	r2, r2, #16
+ 462              	.L22:
+ 463 01a0 9A82     		strh	r2, [r3, #20]	@ movhi
+ 464 01a2 7047     		bx	lr
+ 465              	.L24:
+ 466              		.align	2
+ 467              	.L23:
+ 468 01a4 00100048 		.word	1207963648
+ 469              		.cfi_endproc
+ 470              	.LFE116:
+ 472              		.align	1
+ 473              		.thumb
+ 474              		.thumb_func
+ 476              	vLedCtrlCoRoutine:
+ 477              	.LFB117:
+ 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	}
+ 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vLedCtrlCoRoutine( xCoRoutineHandle xHandle,
+ 273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****                          unsigned portBASE_TYPE uxIndex )
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 478              		.loc 1 274 0
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 0
+ 481              		@ frame_needed = 0, uses_anonymous_args = 0
+ 482              	.LVL37:
+ 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    // Co-routines must start with a call to crSTART().
+ 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    crSTART( xHandle );
+ 483              		.loc 1 276 0
+ 484 01a8 838E     		ldrh	r3, [r0, #52]
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 485              		.loc 1 274 0
+ 486 01aa 10B5     		push	{r4, lr}
+ 487              	.LCFI3:
+ 488              		.cfi_def_cfa_offset 8
+ 489              		.cfi_offset 4, -8
+ 490              		.cfi_offset 14, -4
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 491              		.loc 1 274 0
+ 492 01ac 0446     		mov	r4, r0
+ 493              		.loc 1 276 0
+ 494 01ae 23B1     		cbz	r3, .L27
+ 495 01b0 40F23222 		movw	r2, #562
+ 496 01b4 9342     		cmp	r3, r2
+ 497 01b6 17D1     		bne	.L25
+ 498 01b8 07E0     		b	.L28
+ 499              	.LVL38:
+ 500              	.L27:
+ 501              	.LBB4:
+ 502              	.LBB5:
+ 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    for( ;; )
+ 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    {
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   // Delay for a fixed period.
+ 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   crDELAY( xHandle, 200 );
+ 503              		.loc 1 281 0 discriminator 1
+ 504 01ba C820     		movs	r0, #200
+ 505 01bc 0021     		movs	r1, #0
+ 506 01be FFF7FEFF 		bl	vCoRoutineAddToDelayedList
+ 507              	.LVL39:
+ 508 01c2 40F23223 		movw	r3, #562
+ 509 01c6 A386     		strh	r3, [r4, #52]	@ movhi
+ 510 01c8 10BD     		pop	{r4, pc}
+ 511              	.LVL40:
+ 512              	.L28:
+ 513              	.LBE5:
+ 514              	.LBE4:
+ 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   if(CtrlStates.copterStatus == IMU_READY_FLAG)
+ 515              		.loc 1 283 0
+ 516 01ca 084B     		ldr	r3, .L34
+ 517 01cc 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 518 01ce 022B     		cmp	r3, #2
+ 519 01d0 02D1     		bne	.L29
+ 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   {
+ 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		   LED_TOGGLE_READY();
+ 520              		.loc 1 285 0
+ 521 01d2 FFF7FEFF 		bl	LED_TOGGLE_READY
+ 522              	.LVL41:
+ 523 01d6 F0E7     		b	.L27
+ 524              	.LVL42:
+ 525              	.L29:
+ 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   }
+ 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   else if (CtrlStates.copterStatus & ARMED_FLAG)
+ 526              		.loc 1 287 0
+ 527 01d8 DB07     		lsls	r3, r3, #31
+ 528 01da 02D5     		bpl	.L30
+ 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   {
+ 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		   LED_TOGGLE_ALL();
+ 529              		.loc 1 289 0
+ 530 01dc FFF7FEFF 		bl	LED_TOGGLE_ALL
+ 531              	.LVL43:
+ 532 01e0 EBE7     		b	.L27
+ 533              	.LVL44:
+ 534              	.L30:
+ 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   }
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   else
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   {
+ 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		   LED_TOGGLE_NOT_READY();
+ 535              		.loc 1 293 0
+ 536 01e2 FFF7FEFF 		bl	LED_TOGGLE_NOT_READY
+ 537              	.LVL45:
+ 538 01e6 E8E7     		b	.L27
+ 539              	.LVL46:
+ 540              	.L25:
+ 541 01e8 10BD     		pop	{r4, pc}
+ 542              	.L35:
+ 543 01ea 00BF     		.align	2
+ 544              	.L34:
+ 545 01ec 00000000 		.word	CtrlStates
+ 546              		.cfi_endproc
+ 547              	.LFE117:
+ 549              		.align	1
+ 550              		.global	vApplicationMallocFailedHook
+ 551              		.thumb
+ 552              		.thumb_func
+ 554              	vApplicationMallocFailedHook:
+ 555              	.LFB119:
+ 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   }
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    }
+ 296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    // Co-routines must end with a call to crEND().
+ 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    crEND();
+ 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vRemoteCtrlWatchdogCoRoutine( xCoRoutineHandle xHandle,
+ 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****                          unsigned portBASE_TYPE uxIndex )
+ 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    // Co-routines must start with a call to crSTART().
+ 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    crSTART( xHandle );
+ 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    for( ;; )
+ 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    {
+ 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   // Delay for a fixed period.
+ 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   crDELAY( xHandle, 1000 );
+ 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   CtrlStates.watchDogTimVal++;
+ 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   if (CtrlStates.watchDogTimVal >= 2)
+ 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   {
+ 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		   CtrlStates.copterStatus &= ~ARMED_FLAG;
+ 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 		   printf("Watchdog Error!!%d\n", 0);
+ 317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	   }
+ 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    }
+ 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    // Co-routines must end with a call to crEND().
+ 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c ****    crEND();
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vApplicationMallocFailedHook( void )
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 556              		.loc 1 329 0
+ 557              		.cfi_startproc
+ 558              		@ Volatile: function does not return.
+ 559              		@ args = 0, pretend = 0, frame = 0
+ 560              		@ frame_needed = 0, uses_anonymous_args = 0
+ 561              		@ link register save eliminated.
+ 562              	.L37:
+ 563 01f0 FEE7     		b	.L37
+ 564              		.cfi_endproc
+ 565              	.LFE119:
+ 567              		.align	1
+ 568              		.global	vApplicationStackOverflowHook
+ 569              		.thumb
+ 570              		.thumb_func
+ 572              	vApplicationStackOverflowHook:
+ 573              	.LFB120:
+ 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/* Called if a call to pvPortMalloc() fails because there is insufficient
+ 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	free memory available in the FreeRTOS heap.  pvPortMalloc() is called
+ 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	internally by FreeRTOS API functions that create tasks, queues, software
+ 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	timers, and semaphores.  The size of the FreeRTOS heap is set by the
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h. */
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	for( ;; );
+ 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /*-----------------------------------------------------------*/
+ 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vApplicationStackOverflowHook( xTaskHandle *pxTask, signed char *pcTaskName )
+ 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 574              		.loc 1 340 0
+ 575              		.cfi_startproc
+ 576              		@ Volatile: function does not return.
+ 577              		@ args = 0, pretend = 0, frame = 0
+ 578              		@ frame_needed = 0, uses_anonymous_args = 0
+ 579              		@ link register save eliminated.
+ 580              	.LVL47:
+ 581              	.L39:
+ 582 01f2 FEE7     		b	.L39
+ 583              		.cfi_endproc
+ 584              	.LFE120:
+ 586              		.align	1
+ 587              		.global	vApplicationIdleHook
+ 588              		.thumb
+ 589              		.thumb_func
+ 591              	vApplicationIdleHook:
+ 592              	.LFB121:
+ 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	( void ) pcTaskName;
+ 342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	( void ) pxTask;
+ 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/* Run time stack overflow checking is performed if
+ 345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	configconfigCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
+ 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	function is called if a stack overflow is detected. */
+ 347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	for( ;; );
+ 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** /*-----------------------------------------------------------*/
+ 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vApplicationIdleHook( void )
+ 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 593              		.loc 1 352 0
+ 594              		.cfi_startproc
+ 595              		@ args = 0, pretend = 0, frame = 0
+ 596              		@ frame_needed = 0, uses_anonymous_args = 0
+ 597              		@ link register save eliminated.
+ 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	/* This function is called on each cycle of the idle task.  In this case it
+ 355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	does nothing useful, other than report the amout of FreeRTOS heap that
+ 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	remains unallocated. */
+ 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vCoRoutineSchedule();
+ 358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** }
+ 598              		.loc 1 358 0
+ 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 	vCoRoutineSchedule();
+ 599              		.loc 1 357 0
+ 600 01f4 FFF7FEBF 		b	vCoRoutineSchedule
+ 601              	.LVL48:
+ 602              		.cfi_endproc
+ 603              	.LFE121:
+ 605              		.align	1
+ 606              		.global	vApplicationTickHook
+ 607              		.thumb
+ 608              		.thumb_func
+ 610              	vApplicationTickHook:
+ 611              	.LFB122:
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** 
+ 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** void vApplicationTickHook( void )
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/main.c **** {
+ 612              		.loc 1 362 0
+ 613              		.cfi_startproc
+ 614              		@ args = 0, pretend = 0, frame = 0
+ 615              		@ frame_needed = 0, uses_anonymous_args = 0
+ 616              		@ link register save eliminated.
+ 617 01f8 7047     		bx	lr
+ 618              		.cfi_endproc
+ 619              	.LFE122:
+ 621              		.comm	loopcnt,4,4
+ 622              		.comm	zTemp,4,4
+ 623              		.comm	yTemp,4,4
+ 624              		.comm	xTemp,4,4
+ 625              		.comm	accBuffer,6,1
+ 626              		.comm	XYZ,12,4
+ 627              		.comm	CtrlStates,12,4
+ 628              		.comm	GlobalSettings,96,4
+ 629              		.comm	It_Com,532,4
+ 630              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 631              	.LC0:
+ 632 0000 25642C25 		.ascii	"%d,%d,%d\015\012\000"
+ 632      642C2564 
+ 632      0D0A00
+ 633              	.LC1:
+ 634 000b 494D555F 		.ascii	"IMU_Gyro\000"
+ 634      4779726F 
+ 634      00
+ 635              	.LC2:
+ 636 0014 5072696E 		.ascii	"Print_Euler\000"
+ 636      745F4575 
+ 636      6C657200 
+ 637              		.text
+ 638              	.Letext0:
+ 639              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 640              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 641              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 642              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
+ 643              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h"
+ 644              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 645              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
+ 646              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
+ 647              		.file 10 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/croutine.h"
+ 648              		.file 11 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+ 649              		.file 12 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
+ 650              		.file 13 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Task1.h"
+ 651              		.file 14 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h"
+ 652              		.file 15 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/stm32_configuration.h"
+ 653              		.file 16 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/xBee_Lib.h"
+ 654              		.file 17 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccFEZHtK.s:19     .text:00000000 $t
+     /tmp/ccFEZHtK.s:23     .text:00000000 IMU_Print_Values
+     /tmp/ccFEZHtK.s:68     .text:00000030 $d
+                            *COM*:0000000c XYZ
+     /tmp/ccFEZHtK.s:73     .text:00000038 $t
+     /tmp/ccFEZHtK.s:77     .text:00000038 Position_Controller
+     /tmp/ccFEZHtK.s:145    .text:00000084 $d
+     /tmp/ccFEZHtK.s:150    .text.startup:00000000 $t
+     /tmp/ccFEZHtK.s:155    .text.startup:00000000 main
+     /tmp/ccFEZHtK.s:262    .text.startup:00000094 $d
+                            *COM*:00000006 accBuffer
+                            *COM*:00000060 GlobalSettings
+                            *COM*:0000000c CtrlStates
+     /tmp/ccFEZHtK.s:476    .text:000001a8 vLedCtrlCoRoutine
+     /tmp/ccFEZHtK.s:275    .text:00000088 $t
+     /tmp/ccFEZHtK.s:280    .text:00000088 LED_TOGGLE_NOT_READY
+     /tmp/ccFEZHtK.s:312    .text:000000b4 $d
+     /tmp/ccFEZHtK.s:316    .text:000000b8 $t
+     /tmp/ccFEZHtK.s:321    .text:000000b8 LED_TOGGLE_READY
+     /tmp/ccFEZHtK.s:353    .text:000000e4 $d
+     /tmp/ccFEZHtK.s:357    .text:000000e8 $t
+     /tmp/ccFEZHtK.s:362    .text:000000e8 LED_TOGGLE_ALL
+     /tmp/ccFEZHtK.s:468    .text:000001a4 $d
+     /tmp/ccFEZHtK.s:472    .text:000001a8 $t
+     /tmp/ccFEZHtK.s:545    .text:000001ec $d
+     /tmp/ccFEZHtK.s:549    .text:000001f0 $t
+     /tmp/ccFEZHtK.s:554    .text:000001f0 vApplicationMallocFailedHook
+     /tmp/ccFEZHtK.s:572    .text:000001f2 vApplicationStackOverflowHook
+     /tmp/ccFEZHtK.s:591    .text:000001f4 vApplicationIdleHook
+     /tmp/ccFEZHtK.s:610    .text:000001f8 vApplicationTickHook
+                            *COM*:00000004 loopcnt
+                            *COM*:00000004 zTemp
+                            *COM*:00000004 yTemp
+                            *COM*:00000004 xTemp
+                            *COM*:00000214 It_Com
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
+                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
+                           .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
+                           .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
+                           .group:00000000 wm4.stm32f30x.h.292.5f9271075d54fc48f1e25ff79df85cb2
+                           .group:00000000 wm4.stm32f30x_adc.h.130.cbebad91f78fb87381fe0860eea6104e
+                           .group:00000000 wm4.stm32f30x_comp.h.31.9bbc5f5f1a849069ea9062fbe7b81435
+                           .group:00000000 wm4.stm32f30x_dma.h.31.73d173fa6d60026d432f3cf1d2fc4407
+                           .group:00000000 wm4.stm32f30x_exti.h.31.22e280aa6e095108654ac8d3c74a2409
+                           .group:00000000 wm4.stm32f30x_flash.h.31.bee86dc3079b7049419bdbeec073e2cd
+                           .group:00000000 wm4.stm32f30x_gpio.h.31.3745297fee3728b346ad4d2a2467e40f
+                           .group:00000000 wm4.stm32f30x_syscfg.h.31.96b023b7dbc3641f358604478433eb5c
+                           .group:00000000 wm4.stm32f30x_i2c.h.31.52025acd7f154308042bf46a2835e9d3
+                           .group:00000000 wm4.stm32f30x_pwr.h.31.cdef322c6e7f25cfc29954045d24e9b8
+                           .group:00000000 wm4.stm32f30x_rcc.h.31.3b94c1144b21d1e4fe780e4d1a02d257
+                           .group:00000000 wm4.stm32f30x_spi.h.31.c1ebebab897d23cecc617ec8ad9fd534
+                           .group:00000000 wm4.stm32f30x_tim.h.31.336f9cd855fb4e2cd819ac260ded6518
+                           .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
+                           .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
+                           .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
+                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
+                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
+                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
+                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
+                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
+                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
+                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
+                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
+                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
+                           .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
+                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
+                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
+                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
+                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
+                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
+                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
+                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
+                           .group:00000000 wm4.string.h.8.ef946ad0bc9ad5c970c365dcd1fc4b0a
+                           .group:00000000 wm4.string.h.86.d5c872ff52e2712c985b588a0ef39f3c
+                           .group:00000000 wm4.usart.h.2.334fafcea22e35c991473487ab5a0c1a
+                           .group:00000000 wm4.projdefs.h.76.214f319a5937dae232f0ee2912b07e1d
+                           .group:00000000 wm4.FreeRTOSConfig.h.79.e16c6b63f558057e7547045dd4ba1322
+                           .group:00000000 wm4.portmacro.h.77.0810e0eb8c6edf5adf0d27242484a945
+                           .group:00000000 wm4.portable.h.332.e25bf3f97ebf50a0f90736144cb8c3f8
+                           .group:00000000 wm4.mpu_wrappers.h.76.3abcfc7ebb6d78909ee0b4ad2f20f282
+                           .group:00000000 wm4.FreeRTOS.h.159.741cbf33489b2c951994722716e9692e
+                           .group:00000000 wm4.list.h.105.6a6307ce3396638a078c02ff83387dc6
+                           .group:00000000 wm4.task.h.94.33ec4de8c3f825901c54e6cf58507761
+                           .group:00000000 wm4.queue.h.77.c405a8575cf45ee56672246904131fa4
+                           .group:00000000 wm4.timers.h.94.1c877eceef25f06590ac289101b9a408
+                           .group:00000000 wm4.semphr.h.86.b4272882ec518da0b7d9e2c0f219d626
+                           .group:00000000 wm4.croutine.h.76.348a46e106a704888b711d08f2a8ea48
+                           .group:00000000 wm4.filter_Lib.h.9.c3b4da84b619ff7a2d8e947a9cf27fbf
+                           .group:00000000 wm4.vertibot_settings.h.9.f730e6f17c5a792ca136af910b2d7d3a
+                           .group:00000000 wm4.xBee_Lib.h.10.bb24d424c2ef204fc0e67f4e581b677f
+                           .group:00000000 wm4.L3GD20_Lib_SPI.h.9.072a9ccc0c9c5d73511d8e48adcb1d3c
+                           .group:00000000 wm4.ADXL345_Lib.h.2.6f43829aa35c41174f5864ebbe83dc8a
+                           .group:00000000 wm4.LSM303DLHC_Lib_I2C.h.9.6eee883489de0435d98b6cc9e289e091
+                           .group:00000000 wm4.PID_control.h.2.bdb95992097dc3d9a377ee9d97492f02
+                           .group:00000000 wm4.Task1.h.38.95b72794fabb4fdac4b41303ae70ab29
+
+UNDEFINED SYMBOLS
+__aeabi_f2iz
+printf
+vTaskDelay
+Disable_Motor
+Init_IMU
+Init_PositionController
+Enable_Motor
+xTaskGetTickCount
+IMU_Calculation
+PositionController
+vTaskDelayUntil
+RCC_Configuration
+NVIC_Configuration
+GPIO_Configuration
+USART_Configuration
+setup_xBeeS6
+SPI_Configuration
+I2C_Configuration
+TIM3_PWM_Configuration
+TIM4_Configuration
+ADC_Configuration
+EXTI_Configuration
+DMA_Configuration
+SETTINGS_init
+CTRLSTATES_init
+xCoRoutineCreate
+xTaskGenericCreate
+vTaskStartScheduler
+vCoRoutineAddToDelayedList
+vCoRoutineSchedule
