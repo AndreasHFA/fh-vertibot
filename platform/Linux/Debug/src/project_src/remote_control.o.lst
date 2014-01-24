@@ -1,0 +1,385 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"remote_control.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	__aeabi_i2f
+  19              		.global	__aeabi_fmul
+  20              		.global	__aeabi_fadd
+  21              		.global	__aeabi_f2iz
+  22              		.global	__aeabi_fsub
+  23              		.global	__aeabi_fcmpgt
+  24              		.global	__aeabi_fcmplt
+  25              		.align	1
+  26              		.global	CalcRXValues
+  27              		.thumb
+  28              		.thumb_func
+  30              	CalcRXValues:
+  31              	.LFB111:
+  32              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c"
+   1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** /*
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****  * remote_control.c
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****  *
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****  *  Created on: Apr 28, 2013
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****  *      Author: franz
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****  */
+   7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** #include <filter_Lib.h>
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** #include <remote_control.h>
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** #include <vertibot_settings.h>
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** void CalcRXValues(unsigned char *msgPointer, int16_t adjValue)
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** {
+  33              		.loc 1 13 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37              	.LVL0:
+  38 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 24
+  41              		.cfi_offset 3, -24
+  42              		.cfi_offset 4, -20
+  43              		.cfi_offset 5, -16
+  44              		.cfi_offset 6, -12
+  45              		.cfi_offset 7, -8
+  46              		.cfi_offset 14, -4
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	static intFilter gasFiltered = {0,0};
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	static intFilter rollFiltered = {0,0};
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	static intFilter pitchFiltered = {0,0};
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	static intFilter yawFiltered = {0,0};
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	static int16_t currentYaw = 0;
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	/*Reset the Watchdog Timer value*/
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	CtrlStates.watchDogTimVal = 0;
+  47              		.loc 1 21 0
+  48 0002 484D     		ldr	r5, .L21
+  49 0004 0023     		movs	r3, #0
+  50 0006 6B72     		strb	r3, [r5, #9]
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	currentYaw = ((uint8_t)msgPointer[4]-adjValue);
+  51              		.loc 1 23 0
+  52 0008 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+  53 000a 474C     		ldr	r4, .L21+4
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** {
+  54              		.loc 1 13 0
+  55 000c 0746     		mov	r7, r0
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	update_intFilter(&gasFiltered, 1, (((uint8_t)msgPointer[5]-adjValue)*7.5f)+60);
+  56              		.loc 1 25 0
+  57 000e 4079     		ldrb	r0, [r0, #5]	@ zero_extendqisi2
+  58              	.LVL1:
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	currentYaw = ((uint8_t)msgPointer[4]-adjValue);
+  59              		.loc 1 23 0
+  60 0010 5B1A     		subs	r3, r3, r1
+  61 0012 2380     		strh	r3, [r4, #0]	@ movhi
+  62              		.loc 1 25 0
+  63 0014 401A     		subs	r0, r0, r1
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** {
+  64              		.loc 1 13 0
+  65 0016 0E46     		mov	r6, r1
+  66              		.loc 1 25 0
+  67 0018 FFF7FEFF 		bl	__aeabi_i2f
+  68              	.LVL2:
+  69 001c 4349     		ldr	r1, .L21+8
+  70 001e FFF7FEFF 		bl	__aeabi_fmul
+  71              	.LVL3:
+  72 0022 4349     		ldr	r1, .L21+12
+  73 0024 FFF7FEFF 		bl	__aeabi_fadd
+  74              	.LVL4:
+  75 0028 FFF7FEFF 		bl	__aeabi_f2iz
+  76              	.LVL5:
+  77 002c 0121     		movs	r1, #1
+  78 002e 0246     		mov	r2, r0
+  79 0030 201D     		adds	r0, r4, #4
+  80 0032 FFF7FEFF 		bl	update_intFilter
+  81              	.LVL6:
+  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	update_intFilter(&pitchFiltered, 1, ((uint8_t)msgPointer[3]-adjValue)*2.0f);
+  82              		.loc 1 26 0
+  83 0036 F878     		ldrb	r0, [r7, #3]	@ zero_extendqisi2
+  84 0038 801B     		subs	r0, r0, r6
+  85 003a FFF7FEFF 		bl	__aeabi_i2f
+  86              	.LVL7:
+  87 003e 0146     		mov	r1, r0
+  88 0040 FFF7FEFF 		bl	__aeabi_fadd
+  89              	.LVL8:
+  90 0044 FFF7FEFF 		bl	__aeabi_f2iz
+  91              	.LVL9:
+  92 0048 0121     		movs	r1, #1
+  93 004a 0246     		mov	r2, r0
+  94 004c 04F10C00 		add	r0, r4, #12
+  95 0050 FFF7FEFF 		bl	update_intFilter
+  96              	.LVL10:
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	update_intFilter(&rollFiltered, 1, ((uint8_t)msgPointer[2]-adjValue)*2.0f);
+  97              		.loc 1 27 0
+  98 0054 B878     		ldrb	r0, [r7, #2]	@ zero_extendqisi2
+  99 0056 801B     		subs	r0, r0, r6
+ 100 0058 FFF7FEFF 		bl	__aeabi_i2f
+ 101              	.LVL11:
+ 102 005c 0146     		mov	r1, r0
+ 103 005e FFF7FEFF 		bl	__aeabi_fadd
+ 104              	.LVL12:
+ 105 0062 FFF7FEFF 		bl	__aeabi_f2iz
+ 106              	.LVL13:
+ 107 0066 0121     		movs	r1, #1
+ 108 0068 0246     		mov	r2, r0
+ 109 006a 04F11400 		add	r0, r4, #20
+ 110 006e FFF7FEFF 		bl	update_intFilter
+ 111              	.LVL14:
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	update_intFilter(&yawFiltered, 1, currentYaw*0.3f);
+ 112              		.loc 1 28 0
+ 113 0072 B4F90000 		ldrsh	r0, [r4, #0]
+ 114 0076 FFF7FEFF 		bl	__aeabi_i2f
+ 115              	.LVL15:
+ 116 007a 2E49     		ldr	r1, .L21+16
+ 117 007c FFF7FEFF 		bl	__aeabi_fmul
+ 118              	.LVL16:
+ 119 0080 FFF7FEFF 		bl	__aeabi_f2iz
+ 120              	.LVL17:
+ 121 0084 0121     		movs	r1, #1
+ 122 0086 0246     		mov	r2, r0
+ 123 0088 04F11C00 		add	r0, r4, #28
+ 124 008c FFF7FEFF 		bl	update_intFilter
+ 125              	.LVL18:
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//CtrlStates.gas = gasFiltered.filtered;
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//CtrlStates.roll = rollFiltered.filtered;
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	CtrlStates.pitch = pitchFiltered.filtered;
+ 126              		.loc 1 32 0
+ 127 0090 2069     		ldr	r0, [r4, #16]
+ 128 0092 FFF7FEFF 		bl	__aeabi_i2f
+ 129              	.LVL19:
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	/* integrating the yaw value */
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.copterStatus & ARMED_FLAG)
+ 130              		.loc 1 35 0
+ 131 0096 2B7A     		ldrb	r3, [r5, #8]	@ zero_extendqisi2
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	CtrlStates.pitch = pitchFiltered.filtered;
+ 132              		.loc 1 32 0
+ 133 0098 0646     		mov	r6, r0
+ 134              		.loc 1 35 0
+ 135 009a DB07     		lsls	r3, r3, #31
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	CtrlStates.pitch = pitchFiltered.filtered;
+ 136              		.loc 1 32 0
+ 137 009c 2860     		str	r0, [r5, #0]	@ float
+ 138              		.loc 1 35 0
+ 139 009e 08D5     		bpl	.L2
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	{
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 		CtrlStates.yaw -= yawFiltered.filtered;
+ 140              		.loc 1 37 0
+ 141 00a0 206A     		ldr	r0, [r4, #32]
+ 142 00a2 FFF7FEFF 		bl	__aeabi_i2f
+ 143              	.LVL20:
+ 144 00a6 0146     		mov	r1, r0
+ 145 00a8 6868     		ldr	r0, [r5, #4]	@ float
+ 146 00aa FFF7FEFF 		bl	__aeabi_fsub
+ 147              	.LVL21:
+ 148 00ae 6860     		str	r0, [r5, #4]	@ float
+ 149 00b0 02E0     		b	.L3
+ 150              	.L2:
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	}
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	else
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	{
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 		CtrlStates.yaw = XYZ.z;
+ 151              		.loc 1 41 0
+ 152 00b2 214B     		ldr	r3, .L21+20
+ 153 00b4 9B68     		ldr	r3, [r3, #8]	@ float
+ 154 00b6 6B60     		str	r3, [r5, #4]	@ float
+ 155              	.L3:
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	}
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	/* Narrow down all ctrl values */
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	/*
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//if(CtrlStates.gas > MAX_GAS) CtrlStates.gas = MAX_GAS;
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//if(CtrlStates.gas < 0) CtrlStates.gas = 0;
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//if(CtrlStates.roll > -ROLL_PITCH_TRSHLD && CtrlStates.roll < ROLL_PITCH_TRSHLD) CtrlStates.roll 
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//if(CtrlStates.roll > MAX_ROLL) CtrlStates.roll = MAX_ROLL;
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	//if(CtrlStates.roll < -MAX_ROLL) CtrlStates.roll = -MAX_ROLL;
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c ****     */
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.pitch > -ROLL_PITCH_TRSHLD && CtrlStates.pitch < ROLL_PITCH_TRSHLD) CtrlStates.pitch
+ 156              		.loc 1 55 0
+ 157 00b8 3046     		mov	r0, r6
+ 158 00ba 2049     		ldr	r1, .L21+24
+ 159 00bc FFF7FEFF 		bl	__aeabi_fcmpgt
+ 160              	.LVL22:
+ 161 00c0 38B1     		cbz	r0, .L4
+ 162              		.loc 1 55 0 is_stmt 0 discriminator 1
+ 163 00c2 3046     		mov	r0, r6
+ 164 00c4 1E49     		ldr	r1, .L21+28
+ 165 00c6 FFF7FEFF 		bl	__aeabi_fcmplt
+ 166              	.LVL23:
+ 167 00ca 10B1     		cbz	r0, .L4
+ 168 00cc 154B     		ldr	r3, .L21
+ 169 00ce 0022     		movs	r2, #0
+ 170 00d0 1A60     		str	r2, [r3, #0]	@ float
+ 171              	.L4:
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.pitch > MAX_PITCH) CtrlStates.pitch = MAX_PITCH;
+ 172              		.loc 1 56 0 is_stmt 1
+ 173 00d2 144D     		ldr	r5, .L21
+ 174 00d4 1B4C     		ldr	r4, .L21+32
+ 175 00d6 2868     		ldr	r0, [r5, #0]	@ float
+ 176 00d8 2146     		mov	r1, r4
+ 177 00da FFF7FEFF 		bl	__aeabi_fcmpgt
+ 178              	.LVL24:
+ 179 00de 00B1     		cbz	r0, .L7
+ 180              		.loc 1 56 0 is_stmt 0 discriminator 1
+ 181 00e0 2C60     		str	r4, [r5, #0]	@ float
+ 182              	.L7:
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.pitch < -MAX_PITCH) CtrlStates.pitch = -MAX_PITCH;
+ 183              		.loc 1 57 0 is_stmt 1
+ 184 00e2 194C     		ldr	r4, .L21+36
+ 185 00e4 2868     		ldr	r0, [r5, #0]	@ float
+ 186 00e6 2146     		mov	r1, r4
+ 187 00e8 FFF7FEFF 		bl	__aeabi_fcmplt
+ 188              	.LVL25:
+ 189 00ec 08B1     		cbz	r0, .L9
+ 190              		.loc 1 57 0 is_stmt 0 discriminator 1
+ 191 00ee 0D4B     		ldr	r3, .L21
+ 192 00f0 1C60     		str	r4, [r3, #0]	@ float
+ 193              	.L9:
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	/* The yaw value needs a special handling */
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.yaw > 180) CtrlStates.yaw -= 360;
+ 194              		.loc 1 60 0 is_stmt 1
+ 195 00f2 0C4C     		ldr	r4, .L21
+ 196 00f4 1549     		ldr	r1, .L21+40
+ 197 00f6 6568     		ldr	r5, [r4, #4]	@ float
+ 198 00f8 2846     		mov	r0, r5
+ 199 00fa FFF7FEFF 		bl	__aeabi_fcmpgt
+ 200              	.LVL26:
+ 201 00fe 20B1     		cbz	r0, .L11
+ 202              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 203 0100 2846     		mov	r0, r5
+ 204 0102 1349     		ldr	r1, .L21+44
+ 205 0104 FFF7FEFF 		bl	__aeabi_fsub
+ 206              	.LVL27:
+ 207 0108 6060     		str	r0, [r4, #4]	@ float
+ 208              	.L11:
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/remote_control.c **** 	if(CtrlStates.yaw < -180) CtrlStates.yaw += 360;
+ 209              		.loc 1 61 0 is_stmt 1
+ 210 010a 6468     		ldr	r4, [r4, #4]	@ float
+ 211 010c 1149     		ldr	r1, .L21+48
+ 212 010e 2046     		mov	r0, r4
+ 213 0110 FFF7FEFF 		bl	__aeabi_fcmplt
+ 214              	.LVL28:
+ 215 0114 28B1     		cbz	r0, .L1
+ 216              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 217 0116 2046     		mov	r0, r4
+ 218 0118 0D49     		ldr	r1, .L21+44
+ 219 011a FFF7FEFF 		bl	__aeabi_fadd
+ 220              	.LVL29:
+ 221 011e 014B     		ldr	r3, .L21
+ 222 0120 5860     		str	r0, [r3, #4]	@ float
+ 223              	.L1:
+ 224 0122 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 225              	.L22:
+ 226              		.align	2
+ 227              	.L21:
+ 228 0124 00000000 		.word	CtrlStates
+ 229 0128 00000000 		.word	.LANCHOR0
+ 230 012c 0000F040 		.word	1089470464
+ 231 0130 00007042 		.word	1114636288
+ 232 0134 9A99993E 		.word	1050253722
+ 233 0138 00000000 		.word	XYZ
+ 234 013c 000040C0 		.word	-1069547520
+ 235 0140 00004040 		.word	1077936128
+ 236 0144 00000C42 		.word	1108082688
+ 237 0148 00000CC2 		.word	-1039400960
+ 238 014c 00003443 		.word	1127481344
+ 239 0150 0000B443 		.word	1135869952
+ 240 0154 000034C3 		.word	-1020002304
+ 241              		.cfi_endproc
+ 242              	.LFE111:
+ 244              		.comm	XYZ,12,4
+ 245              		.comm	CtrlStates,12,4
+ 246              		.comm	GlobalSettings,96,4
+ 247              		.bss
+ 248              		.align	2
+ 249              		.set	.LANCHOR0,. + 0
+ 252              	currentYaw.6778:
+ 253 0000 0000     		.space	2
+ 254 0002 0000     		.space	2
+ 257              	gasFiltered.6774:
+ 258 0004 00000000 		.space	8
+ 258      00000000 
+ 261              	pitchFiltered.6776:
+ 262 000c 00000000 		.space	8
+ 262      00000000 
+ 265              	rollFiltered.6775:
+ 266 0014 00000000 		.space	8
+ 266      00000000 
+ 269              	yawFiltered.6777:
+ 270 001c 00000000 		.space	8
+ 270      00000000 
+ 271              		.text
+ 272              	.Letext0:
+ 273              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/filter_Lib.h"
+ 274              		.file 3 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 275              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+ 276              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
+ 277              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 remote_control.c
+     /tmp/ccxn5lao.s:25     .text:00000000 $t
+     /tmp/ccxn5lao.s:30     .text:00000000 CalcRXValues
+     /tmp/ccxn5lao.s:228    .text:00000124 $d
+                            *COM*:0000000c CtrlStates
+                            *COM*:0000000c XYZ
+                            *COM*:00000060 GlobalSettings
+     /tmp/ccxn5lao.s:248    .bss:00000000 $d
+     /tmp/ccxn5lao.s:252    .bss:00000000 currentYaw.6778
+     /tmp/ccxn5lao.s:257    .bss:00000004 gasFiltered.6774
+     /tmp/ccxn5lao.s:261    .bss:0000000c pitchFiltered.6776
+     /tmp/ccxn5lao.s:265    .bss:00000014 rollFiltered.6775
+     /tmp/ccxn5lao.s:269    .bss:0000001c yawFiltered.6777
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.filter_Lib.h.9.c3b4da84b619ff7a2d8e947a9cf27fbf
+                           .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
+                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
+                           .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
+                           .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
+                           .group:00000000 wm4.stm32f30x.h.292.5f9271075d54fc48f1e25ff79df85cb2
+                           .group:00000000 wm4.stm32f30x_adc.h.130.cbebad91f78fb87381fe0860eea6104e
+                           .group:00000000 wm4.stm32f30x_comp.h.31.9bbc5f5f1a849069ea9062fbe7b81435
+                           .group:00000000 wm4.stm32f30x_dma.h.31.73d173fa6d60026d432f3cf1d2fc4407
+                           .group:00000000 wm4.stm32f30x_exti.h.31.22e280aa6e095108654ac8d3c74a2409
+                           .group:00000000 wm4.stm32f30x_flash.h.31.bee86dc3079b7049419bdbeec073e2cd
+                           .group:00000000 wm4.stm32f30x_gpio.h.31.3745297fee3728b346ad4d2a2467e40f
+                           .group:00000000 wm4.stm32f30x_syscfg.h.31.96b023b7dbc3641f358604478433eb5c
+                           .group:00000000 wm4.stm32f30x_i2c.h.31.52025acd7f154308042bf46a2835e9d3
+                           .group:00000000 wm4.stm32f30x_pwr.h.31.cdef322c6e7f25cfc29954045d24e9b8
+                           .group:00000000 wm4.stm32f30x_rcc.h.31.3b94c1144b21d1e4fe780e4d1a02d257
+                           .group:00000000 wm4.stm32f30x_spi.h.31.c1ebebab897d23cecc617ec8ad9fd534
+                           .group:00000000 wm4.stm32f30x_tim.h.31.336f9cd855fb4e2cd819ac260ded6518
+                           .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
+                           .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
+                           .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
+                           .group:00000000 wm4.vertibot_settings.h.29.7ee12aa4fbede3ab139da9a63de095e8
+
+UNDEFINED SYMBOLS
+__aeabi_i2f
+__aeabi_fmul
+__aeabi_fadd
+__aeabi_f2iz
+__aeabi_fsub
+__aeabi_fcmpgt
+__aeabi_fcmplt
+update_intFilter

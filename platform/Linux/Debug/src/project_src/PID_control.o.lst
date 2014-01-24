@@ -1,0 +1,1159 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"PID_control.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.align	1
+  19              		.global	init_PID
+  20              		.thumb
+  21              		.thumb_func
+  23              	init_PID:
+  24              	.LFB0:
+  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c"
+   1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** #include <PID_control.h>
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //float CalcVirtualPlant(SmitPredictor_Control *value, float Input);
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //float CalcDelay(SmitPredictor_Control *value, float Input);
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+   7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void init_PID(float sample_rate, float kp, float ki, float kd, float kn, PID_Control *values)
+   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+  26              		.loc 1 8 0
+  27              		.cfi_startproc
+  28              		@ args = 8, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              	.LVL0:
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36              		.loc 1 8 0
+  37 0002 039C     		ldr	r4, [sp, #12]
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->sampling_rate = sample_rate;
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->kp = kp;
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->ki = ki;
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->kd = kd;
+  38              		.loc 1 12 0
+  39 0004 2361     		str	r3, [r4, #16]	@ float
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->kn = kn;
+  40              		.loc 1 13 0
+  41 0006 029B     		ldr	r3, [sp, #8]	@ float
+  42              	.LVL1:
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->sampling_rate = sample_rate;
+  43              		.loc 1 9 0
+  44 0008 2060     		str	r0, [r4, #0]	@ float
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->kp = kp;
+  45              		.loc 1 10 0
+  46 000a A160     		str	r1, [r4, #8]	@ float
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->ki = ki;
+  47              		.loc 1 11 0
+  48 000c E260     		str	r2, [r4, #12]	@ float
+  49              		.loc 1 13 0
+  50 000e 6361     		str	r3, [r4, #20]	@ float
+  51 0010 10BD     		pop	{r4, pc}
+  52              		.cfi_endproc
+  53              	.LFE0:
+  55              		.align	1
+  56              		.global	init_SmithPredictor
+  57              		.thumb
+  58              		.thumb_func
+  60              	init_SmithPredictor:
+  61              	.LFB1:
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void init_SmithPredictor(float a1, float a2, float b1, float b2, float b3, float gain, SmitPredicto
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+  62              		.loc 1 17 0
+  63              		.cfi_startproc
+  64              		@ args = 12, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              	.LVL2:
+  67 0012 10B5     		push	{r4, lr}
+  68              	.LCFI1:
+  69              		.cfi_def_cfa_offset 8
+  70              		.cfi_offset 4, -8
+  71              		.cfi_offset 14, -4
+  72              		.loc 1 17 0
+  73 0014 049C     		ldr	r4, [sp, #16]
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->a1 = a1;
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->a2 = a2;
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->b1 = b1;
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->b2 = b2;
+  74              		.loc 1 21 0
+  75 0016 A363     		str	r3, [r4, #56]	@ float
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->b3 = b3;
+  76              		.loc 1 22 0
+  77 0018 029B     		ldr	r3, [sp, #8]	@ float
+  78              	.LVL3:
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->a1 = a1;
+  79              		.loc 1 18 0
+  80 001a E062     		str	r0, [r4, #44]	@ float
+  81              		.loc 1 22 0
+  82 001c E363     		str	r3, [r4, #60]	@ float
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->gain = gain;
+  83              		.loc 1 23 0
+  84 001e 039B     		ldr	r3, [sp, #12]	@ float
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->a2 = a2;
+  85              		.loc 1 19 0
+  86 0020 2163     		str	r1, [r4, #48]	@ float
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->b1 = b1;
+  87              		.loc 1 20 0
+  88 0022 6263     		str	r2, [r4, #52]	@ float
+  89              		.loc 1 23 0
+  90 0024 2364     		str	r3, [r4, #64]	@ float
+  91 0026 10BD     		pop	{r4, pc}
+  92              		.cfi_endproc
+  93              	.LFE1:
+  95              		.align	1
+  96              		.global	resetIntegralValues_PID
+  97              		.thumb
+  98              		.thumb_func
+ 100              	resetIntegralValues_PID:
+ 101              	.LFB2:
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void resetIntegralValues_PID(PID_Control *values)
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 102              		.loc 1 27 0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+ 107              	.LVL4:
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->ealt = 0;
+ 108              		.loc 1 28 0
+ 109 0028 0023     		movs	r3, #0
+ 110 002a 4362     		str	r3, [r0, #36]	@ float
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->Isum = 0;
+ 111              		.loc 1 29 0
+ 112 002c C361     		str	r3, [r0, #28]	@ float
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->Dsum = 0;
+ 113              		.loc 1 30 0
+ 114 002e 0362     		str	r3, [r0, #32]	@ float
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->y = 0;
+ 115              		.loc 1 31 0
+ 116 0030 4360     		str	r3, [r0, #4]	@ float
+ 117 0032 7047     		bx	lr
+ 118              		.cfi_endproc
+ 119              	.LFE2:
+ 121              		.global	__aeabi_fsub
+ 122              		.global	__aeabi_fmul
+ 123              		.global	__aeabi_fadd
+ 124              		.global	__aeabi_fcmpgt
+ 125              		.global	__aeabi_fcmplt
+ 126              		.align	1
+ 127              		.global	calc_PID
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	calc_PID:
+ 132              	.LFB3:
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Originaler Regler */
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // float P = (values->kp*values->e);
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // float I = (values->esum*(values->ki*values->sampling_rate));
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // float D = (values->kd*values->e -values->Dsum) * values->kn;
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // values->Dsum += D * values->sampling_rate;
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // D-Anteil:
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // values->ealt = values->e;
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // Error
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //values->e = istwert - sollwert;
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //values->e = sollwert - istwert;
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // I-Anteil aufsummieren:
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //values->Isum += (values->e) * values->sampling_rate;
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** // Anti-Windup
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //if (values->esum > xx) values->esum = xx;
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //if (values->esum < xx) values->esum = xx;
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //float P = (values->kp*values->e);
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //float I = (values->Isum*(values->ki));
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //float D = (values->kd*values->e - values->Dsum ) * values->kn;
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //values->Dsum += D * values->sampling_rate;
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void calc_PID(float istwert, float sollwert, PID_Control *PID_Values)
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 133              		.loc 1 61 0
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 0
+ 136              		@ frame_needed = 0, uses_anonymous_args = 0
+ 137              	.LVL5:
+ 138 0034 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 139              	.LCFI2:
+ 140              		.cfi_def_cfa_offset 32
+ 141              		.cfi_offset 3, -32
+ 142              		.cfi_offset 4, -28
+ 143              		.cfi_offset 5, -24
+ 144              		.cfi_offset 6, -20
+ 145              		.cfi_offset 7, -16
+ 146              		.cfi_offset 8, -12
+ 147              		.cfi_offset 9, -8
+ 148              		.cfi_offset 14, -4
+ 149              		.loc 1 61 0
+ 150 0038 0346     		mov	r3, r0
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	float P ,I ,D;
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** #define Isum_max 50.0f
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* */
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - istwert;
+ 151              		.loc 1 67 0
+ 152 003a 0846     		mov	r0, r1
+ 153              	.LVL6:
+ 154 003c 1946     		mov	r1, r3
+ 155              	.LVL7:
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 156              		.loc 1 61 0
+ 157 003e 1446     		mov	r4, r2
+ 158              		.loc 1 67 0
+ 159 0040 FFF7FEFF 		bl	__aeabi_fsub
+ 160              	.LVL8:
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//if(PID_Values->e < 1.0f && PID_Values->e > -1.0f){
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//	PID_Values->e = 0.0f;
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//}
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Nichtlinearität hinzufügen (x^3) */
+  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//PID_Values->e = PID_Values->e * PID_Values->e * PID_Values->e;
+  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// I-Anteil aufsummieren:
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 161              		.loc 1 78 0
+ 162 0044 2768     		ldr	r7, [r4, #0]	@ float
+ 163 0046 E168     		ldr	r1, [r4, #12]	@ float
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - istwert;
+ 164              		.loc 1 67 0
+ 165 0048 A061     		str	r0, [r4, #24]	@ float
+ 166 004a 0546     		mov	r5, r0
+ 167              		.loc 1 78 0
+ 168 004c FFF7FEFF 		bl	__aeabi_fmul
+ 169              	.LVL9:
+ 170 0050 3946     		mov	r1, r7
+ 171 0052 FFF7FEFF 		bl	__aeabi_fmul
+ 172              	.LVL10:
+ 173 0056 E169     		ldr	r1, [r4, #28]	@ float
+ 174 0058 FFF7FEFF 		bl	__aeabi_fadd
+ 175              	.LVL11:
+  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// Anti-Windup
+  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum > Isum_max) PID_Values->Isum = Isum_max;
+ 176              		.loc 1 81 0
+ 177 005c 1A4E     		ldr	r6, .L10
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 178              		.loc 1 78 0
+ 179 005e 8046     		mov	r8, r0
+ 180              		.loc 1 81 0
+ 181 0060 3146     		mov	r1, r6
+ 182 0062 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 183              	.LVL12:
+ 184 0066 10B9     		cbnz	r0, .L5
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 185              		.loc 1 78 0
+ 186 0068 C4F81C80 		str	r8, [r4, #28]	@ float
+ 187 006c 00E0     		b	.L6
+ 188              	.L5:
+ 189              		.loc 1 81 0 discriminator 1
+ 190 006e E661     		str	r6, [r4, #28]	@ float
+ 191              	.L6:
+  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum < -Isum_max) PID_Values->Isum = -Isum_max;
+ 192              		.loc 1 82 0
+ 193 0070 164E     		ldr	r6, .L10+4
+ 194 0072 E069     		ldr	r0, [r4, #28]	@ float
+ 195 0074 3146     		mov	r1, r6
+ 196 0076 FFF7FEFF 		bl	__aeabi_fcmplt
+ 197              	.LVL13:
+ 198 007a 00B1     		cbz	r0, .L7
+ 199              		.loc 1 82 0 is_stmt 0 discriminator 1
+ 200 007c E661     		str	r6, [r4, #28]	@ float
+ 201              	.L7:
+  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	P = (PID_Values->kp * PID_Values->e);
+ 202              		.loc 1 84 0 is_stmt 1
+ 203 007e 2846     		mov	r0, r5
+ 204 0080 A168     		ldr	r1, [r4, #8]	@ float
+ 205 0082 FFF7FEFF 		bl	__aeabi_fmul
+ 206              	.LVL14:
+  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//I = (PID_Values->Isum * PID_Values->ki);
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	I = PID_Values->Isum;
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 207              		.loc 1 87 0
+ 208 0086 266A     		ldr	r6, [r4, #32]	@ float
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	P = (PID_Values->kp * PID_Values->e);
+ 209              		.loc 1 84 0
+ 210 0088 8146     		mov	r9, r0
+ 211              	.LVL15:
+ 212              		.loc 1 87 0
+ 213 008a 2169     		ldr	r1, [r4, #16]	@ float
+ 214 008c 2846     		mov	r0, r5
+ 215              	.LVL16:
+ 216 008e FFF7FEFF 		bl	__aeabi_fmul
+ 217              	.LVL17:
+ 218 0092 3146     		mov	r1, r6
+ 219 0094 FFF7FEFF 		bl	__aeabi_fsub
+ 220              	.LVL18:
+ 221 0098 6169     		ldr	r1, [r4, #20]	@ float
+ 222 009a FFF7FEFF 		bl	__aeabi_fmul
+ 223              	.LVL19:
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Dsum += D * PID_Values->sampling_rate;
+ 224              		.loc 1 88 0
+ 225 009e 3946     		mov	r1, r7
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 226              		.loc 1 87 0
+ 227 00a0 0546     		mov	r5, r0
+ 228              		.loc 1 88 0
+ 229 00a2 FFF7FEFF 		bl	__aeabi_fmul
+ 230              	.LVL20:
+ 231 00a6 0146     		mov	r1, r0
+ 232 00a8 3046     		mov	r0, r6
+ 233 00aa FFF7FEFF 		bl	__aeabi_fadd
+ 234              	.LVL21:
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	I = PID_Values->Isum;
+ 235              		.loc 1 86 0
+ 236 00ae D4F81C80 		ldr	r8, [r4, #28]	@ float
+ 237              	.LVL22:
+ 238              		.loc 1 88 0
+ 239 00b2 2062     		str	r0, [r4, #32]	@ float
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// PID-Regler
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->y = P + I + D;
+ 240              		.loc 1 91 0
+ 241 00b4 4146     		mov	r1, r8
+ 242 00b6 4846     		mov	r0, r9
+ 243 00b8 FFF7FEFF 		bl	__aeabi_fadd
+ 244              	.LVL23:
+ 245 00bc 2946     		mov	r1, r5
+ 246 00be FFF7FEFF 		bl	__aeabi_fadd
+ 247              	.LVL24:
+ 248 00c2 6060     		str	r0, [r4, #4]	@ float
+ 249 00c4 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 250              	.L11:
+ 251              		.align	2
+ 252              	.L10:
+ 253 00c8 00004842 		.word	1112014848
+ 254 00cc 000048C2 		.word	-1035468800
+ 255              		.cfi_endproc
+ 256              	.LFE3:
+ 258              		.align	1
+ 259              		.global	CalcVirtualPlant
+ 260              		.thumb
+ 261              		.thumb_func
+ 263              	CalcVirtualPlant:
+ 264              	.LFB5:
+  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void calc_PID_SmithPredictor(float istwert, float sollwert, PID_Control *PID_Values, SmitPredictor_
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	static float S, E;
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	float P ,I ,D;
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** #define Isum_max 50.0f
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* SmithPrädiktor */
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - ( S - E + istwert);
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// I-Anteil aufsummieren:
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// Anti-Windup
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum > Isum_max) PID_Values->Isum = Isum_max;
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum < -Isum_max) PID_Values->Isum = -Isum_max;
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	P = (PID_Values->kp * PID_Values->e);
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//I = (PID_Values->Isum * PID_Values->ki);
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	I = PID_Values->Isum;
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Dsum += D * PID_Values->sampling_rate;
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	// PID-Regler
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->y = P + I + D;
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Get Virtual Plant */
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	S = CalcVirtualPlant(Plant_Values, PID_Values->y);
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Delay */
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	E = CalcDelay(Plant_Values, S);
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* OLD */
+ 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Calc PID */
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //	PID_Values->Isum = PID_Values->Isum + (PID_Values->e);
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //if (values->esum > xx) values->esum = xx;
+ 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //if (values->esum < xx) values->esum = xx;
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //	PID_Values->y = (PID_Values->kp*PID_Values->e) + (PID_Values->Isum*PID_Values->ki*PID_Values->sa
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //			(PID_Values->kd*(PID_Values->e - PID_Values->ealt)/PID_Values->sampling_rate);
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** //	PID_Values->ealt = PID_Values->e;
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Simulate Virtual Plant */
+ 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* checked */
+ 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcVirtualPlant(SmitPredictor_Control *value, float Input){
+ 265              		.loc 1 141 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              	.LVL25:
+ 270 00d0 70B5     		push	{r4, r5, r6, lr}
+ 271              	.LCFI3:
+ 272              		.cfi_def_cfa_offset 16
+ 273              		.cfi_offset 4, -16
+ 274              		.cfi_offset 5, -12
+ 275              		.cfi_offset 6, -8
+ 276              		.cfi_offset 14, -4
+ 277              		.loc 1 141 0
+ 278 00d2 0446     		mov	r4, r0
+ 279 00d4 0E46     		mov	r6, r1
+ 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Calculate first Section */
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1y[0] = value->b1 * value->vPlantyT1y[1] + value->a1 * value->vPlantyT1x[1];
+ 280              		.loc 1 144 0
+ 281 00d6 406B     		ldr	r0, [r0, #52]	@ float
+ 282              	.LVL26:
+ 283 00d8 A169     		ldr	r1, [r4, #24]	@ float
+ 284              	.LVL27:
+ 285 00da FFF7FEFF 		bl	__aeabi_fmul
+ 286              	.LVL28:
+ 287 00de 2169     		ldr	r1, [r4, #16]	@ float
+ 288 00e0 0546     		mov	r5, r0
+ 289 00e2 E06A     		ldr	r0, [r4, #44]	@ float
+ 290 00e4 FFF7FEFF 		bl	__aeabi_fmul
+ 291              	.LVL29:
+ 292 00e8 0146     		mov	r1, r0
+ 293 00ea 2846     		mov	r0, r5
+ 294 00ec FFF7FEFF 		bl	__aeabi_fadd
+ 295              	.LVL30:
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1x[1] = Input;
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1y[1] = value->vPlantyT1y[0];
+ 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Calculate second Section */
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT2y[0] = value->vPlantyT2y[1] + value->a2 * value->vPlantyT2x[1];
+ 296              		.loc 1 149 0
+ 297 00f0 216A     		ldr	r1, [r4, #32]	@ float
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1y[0] = value->b1 * value->vPlantyT1y[1] + value->a1 * value->vPlantyT1x[1];
+ 298              		.loc 1 144 0
+ 299 00f2 0546     		mov	r5, r0
+ 300 00f4 6061     		str	r0, [r4, #20]	@ float
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1y[1] = value->vPlantyT1y[0];
+ 301              		.loc 1 146 0
+ 302 00f6 A061     		str	r0, [r4, #24]	@ float
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT1x[1] = Input;
+ 303              		.loc 1 145 0
+ 304 00f8 2661     		str	r6, [r4, #16]	@ float
+ 305              		.loc 1 149 0
+ 306 00fa 206B     		ldr	r0, [r4, #48]	@ float
+ 307 00fc FFF7FEFF 		bl	__aeabi_fmul
+ 308              	.LVL31:
+ 309 0100 A16A     		ldr	r1, [r4, #40]	@ float
+ 310 0102 FFF7FEFF 		bl	__aeabi_fadd
+ 311              	.LVL32:
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT2x[1] = value->vPlantyT1y[0];
+ 312              		.loc 1 150 0
+ 313 0106 2562     		str	r5, [r4, #32]	@ float
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT2y[0] = value->vPlantyT2y[1] + value->a2 * value->vPlantyT2x[1];
+ 314              		.loc 1 149 0
+ 315 0108 6062     		str	r0, [r4, #36]	@ float
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->vPlantyT2y[1] = value->vPlantyT2y[0];
+ 316              		.loc 1 151 0
+ 317 010a A062     		str	r0, [r4, #40]	@ float
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	return value->vPlantyT2y[0];
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+ 318              		.loc 1 154 0
+ 319 010c 70BD     		pop	{r4, r5, r6, pc}
+ 320              		.cfi_endproc
+ 321              	.LFE5:
+ 323              		.align	1
+ 324              		.global	CalcVirtualPlant_xxx
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	CalcVirtualPlant_xxx:
+ 329              	.LFB6:
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Simulate Virtual Plant */
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Fehler */
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcVirtualPlant_xxx(SmitPredictor_Control *value, float Input){
+ 330              		.loc 1 158 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334              	.LVL33:
+ 335 010e F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 336              	.LCFI4:
+ 337              		.cfi_def_cfa_offset 24
+ 338              		.cfi_offset 3, -24
+ 339              		.cfi_offset 4, -20
+ 340              		.cfi_offset 5, -16
+ 341              		.cfi_offset 6, -12
+ 342              		.cfi_offset 7, -8
+ 343              		.cfi_offset 14, -4
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* shift */
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[2] = 	value->w[1];
+ 344              		.loc 1 160 0
+ 345 0110 4568     		ldr	r5, [r0, #4]	@ float
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[1] =	value->w[0];
+ 346              		.loc 1 161 0
+ 347 0112 0668     		ldr	r6, [r0, #0]	@ float
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcVirtualPlant_xxx(SmitPredictor_Control *value, float Input){
+ 348              		.loc 1 158 0
+ 349 0114 0446     		mov	r4, r0
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[2] = 	value->w[1];
+ 350              		.loc 1 160 0
+ 351 0116 8560     		str	r5, [r0, #8]	@ float
+ 352              		.loc 1 161 0
+ 353 0118 4660     		str	r6, [r0, #4]	@ float
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[0] = 	(value->gain*Input) + (value->a1*value->w[1]) + (value->a2*value->w[2]);
+ 354              		.loc 1 162 0
+ 355 011a 0846     		mov	r0, r1
+ 356              	.LVL34:
+ 357 011c 216C     		ldr	r1, [r4, #64]	@ float
+ 358              	.LVL35:
+ 359 011e FFF7FEFF 		bl	__aeabi_fmul
+ 360              	.LVL36:
+ 361 0122 E16A     		ldr	r1, [r4, #44]	@ float
+ 362 0124 0746     		mov	r7, r0
+ 363 0126 3046     		mov	r0, r6
+ 364 0128 FFF7FEFF 		bl	__aeabi_fmul
+ 365              	.LVL37:
+ 366 012c 0146     		mov	r1, r0
+ 367 012e 3846     		mov	r0, r7
+ 368 0130 FFF7FEFF 		bl	__aeabi_fadd
+ 369              	.LVL38:
+ 370 0134 216B     		ldr	r1, [r4, #48]	@ float
+ 371 0136 0746     		mov	r7, r0
+ 372 0138 2846     		mov	r0, r5
+ 373 013a FFF7FEFF 		bl	__aeabi_fmul
+ 374              	.LVL39:
+ 375 013e 0146     		mov	r1, r0
+ 376 0140 3846     		mov	r0, r7
+ 377 0142 FFF7FEFF 		bl	__aeabi_fadd
+ 378              	.LVL40:
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	return 		(value->b1*value->w[0]) + (value->b2*value->w[1]) + (value->b3*value->w[2]);
+ 379              		.loc 1 163 0
+ 380 0146 616B     		ldr	r1, [r4, #52]	@ float
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[0] = 	(value->gain*Input) + (value->a1*value->w[1]) + (value->a2*value->w[2]);
+ 381              		.loc 1 162 0
+ 382 0148 2060     		str	r0, [r4, #0]	@ float
+ 383              		.loc 1 163 0
+ 384 014a FFF7FEFF 		bl	__aeabi_fmul
+ 385              	.LVL41:
+ 386 014e A16B     		ldr	r1, [r4, #56]	@ float
+ 387 0150 0746     		mov	r7, r0
+ 388 0152 3046     		mov	r0, r6
+ 389 0154 FFF7FEFF 		bl	__aeabi_fmul
+ 390              	.LVL42:
+ 391 0158 0146     		mov	r1, r0
+ 392 015a 3846     		mov	r0, r7
+ 393 015c FFF7FEFF 		bl	__aeabi_fadd
+ 394              	.LVL43:
+ 395 0160 E16B     		ldr	r1, [r4, #60]	@ float
+ 396 0162 0646     		mov	r6, r0
+ 397 0164 2846     		mov	r0, r5
+ 398 0166 FFF7FEFF 		bl	__aeabi_fmul
+ 399              	.LVL44:
+ 400 016a 0146     		mov	r1, r0
+ 401 016c 3046     		mov	r0, r6
+ 402 016e FFF7FEFF 		bl	__aeabi_fadd
+ 403              	.LVL45:
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+ 404              		.loc 1 164 0
+ 405 0172 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 406              		.cfi_endproc
+ 407              	.LFE6:
+ 409              		.align	1
+ 410              		.global	CalcDirektForm2
+ 411              		.thumb
+ 412              		.thumb_func
+ 414              	CalcDirektForm2:
+ 415              	.LFB7:
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Fehler */
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcDirektForm2(float istwert, float sollwert, SmitPredictor_Control *value){
+ 416              		.loc 1 167 0
+ 417              		.cfi_startproc
+ 418              		@ args = 0, pretend = 0, frame = 0
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+ 420              	.LVL46:
+ 421 0174 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 422              	.LCFI5:
+ 423              		.cfi_def_cfa_offset 24
+ 424              		.cfi_offset 3, -24
+ 425              		.cfi_offset 4, -20
+ 426              		.cfi_offset 5, -16
+ 427              		.cfi_offset 6, -12
+ 428              		.cfi_offset 7, -8
+ 429              		.cfi_offset 14, -4
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* shift */
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	float E = sollwert - istwert;
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[2] = 	value->w[1];
+ 430              		.loc 1 171 0
+ 431 0176 5568     		ldr	r5, [r2, #4]	@ float
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[1] =	value->w[0];
+ 432              		.loc 1 172 0
+ 433 0178 1668     		ldr	r6, [r2, #0]	@ float
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcDirektForm2(float istwert, float sollwert, SmitPredictor_Control *value){
+ 434              		.loc 1 167 0
+ 435 017a 0346     		mov	r3, r0
+ 436              	.LVL47:
+ 437 017c 1446     		mov	r4, r2
+ 438              		.loc 1 172 0
+ 439 017e 5660     		str	r6, [r2, #4]	@ float
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[2] = 	value->w[1];
+ 440              		.loc 1 171 0
+ 441 0180 9560     		str	r5, [r2, #8]	@ float
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	float E = sollwert - istwert;
+ 442              		.loc 1 169 0
+ 443 0182 0846     		mov	r0, r1
+ 444              	.LVL48:
+ 445 0184 1946     		mov	r1, r3
+ 446              	.LVL49:
+ 447 0186 FFF7FEFF 		bl	__aeabi_fsub
+ 448              	.LVL50:
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[0] = 	(value->gain*E) + (-value->a1*value->w[1]) + (-value->a2*value->w[2]);
+ 449              		.loc 1 173 0
+ 450 018a 216C     		ldr	r1, [r4, #64]	@ float
+ 451 018c FFF7FEFF 		bl	__aeabi_fmul
+ 452              	.LVL51:
+ 453 0190 E36A     		ldr	r3, [r4, #44]
+ 454 0192 0746     		mov	r7, r0
+ 455 0194 3146     		mov	r1, r6
+ 456 0196 03F10040 		add	r0, r3, #-2147483648
+ 457 019a FFF7FEFF 		bl	__aeabi_fmul
+ 458              	.LVL52:
+ 459 019e 0146     		mov	r1, r0
+ 460 01a0 3846     		mov	r0, r7
+ 461 01a2 FFF7FEFF 		bl	__aeabi_fadd
+ 462              	.LVL53:
+ 463 01a6 236B     		ldr	r3, [r4, #48]
+ 464 01a8 0746     		mov	r7, r0
+ 465 01aa 2946     		mov	r1, r5
+ 466 01ac 03F10040 		add	r0, r3, #-2147483648
+ 467 01b0 FFF7FEFF 		bl	__aeabi_fmul
+ 468              	.LVL54:
+ 469 01b4 0146     		mov	r1, r0
+ 470 01b6 3846     		mov	r0, r7
+ 471 01b8 FFF7FEFF 		bl	__aeabi_fadd
+ 472              	.LVL55:
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	return 		(value->b1*value->w[0]) + (value->b2*value->w[1]) + (value->b3*value->w[2]);
+ 473              		.loc 1 174 0
+ 474 01bc 616B     		ldr	r1, [r4, #52]	@ float
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->w[0] = 	(value->gain*E) + (-value->a1*value->w[1]) + (-value->a2*value->w[2]);
+ 475              		.loc 1 173 0
+ 476 01be 2060     		str	r0, [r4, #0]	@ float
+ 477              		.loc 1 174 0
+ 478 01c0 FFF7FEFF 		bl	__aeabi_fmul
+ 479              	.LVL56:
+ 480 01c4 A16B     		ldr	r1, [r4, #56]	@ float
+ 481 01c6 0746     		mov	r7, r0
+ 482 01c8 3046     		mov	r0, r6
+ 483 01ca FFF7FEFF 		bl	__aeabi_fmul
+ 484              	.LVL57:
+ 485 01ce 0146     		mov	r1, r0
+ 486 01d0 3846     		mov	r0, r7
+ 487 01d2 FFF7FEFF 		bl	__aeabi_fadd
+ 488              	.LVL58:
+ 489 01d6 E16B     		ldr	r1, [r4, #60]	@ float
+ 490 01d8 0646     		mov	r6, r0
+ 491 01da 2846     		mov	r0, r5
+ 492 01dc FFF7FEFF 		bl	__aeabi_fmul
+ 493              	.LVL59:
+ 494 01e0 0146     		mov	r1, r0
+ 495 01e2 3046     		mov	r0, r6
+ 496 01e4 FFF7FEFF 		bl	__aeabi_fadd
+ 497              	.LVL60:
+ 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+ 498              		.loc 1 175 0
+ 499 01e8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 500              		.cfi_endproc
+ 501              	.LFE7:
+ 503              		.align	1
+ 504              		.global	CalcDelay
+ 505              		.thumb
+ 506              		.thumb_func
+ 508              	CalcDelay:
+ 509              	.LFB8:
+ 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* FIFO Buffer */
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /* Checked */
+ 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** float CalcDelay(SmitPredictor_Control *value, float Input){
+ 510              		.loc 1 179 0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514              		@ link register save eliminated.
+ 515              	.LVL61:
+ 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	static unsigned char dlyindex = 0;
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	dlyindex++;
+ 516              		.loc 1 183 0
+ 517 01ea 094B     		ldr	r3, .L21
+ 518 01ec 1A78     		ldrb	r2, [r3, #0]	@ zero_extendqisi2
+ 519 01ee 0132     		adds	r2, r2, #1
+ 520 01f0 D2B2     		uxtb	r2, r2
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if ( dlyindex >= (sizeof(value->fifo)/sizeof(float))) dlyindex = 0;
+ 521              		.loc 1 184 0
+ 522 01f2 072A     		cmp	r2, #7
+ 523 01f4 88BF     		it	hi
+ 524 01f6 0022     		movhi	r2, #0
+ 525 01f8 1A70     		strb	r2, [r3, #0]
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->fifo[dlyindex] = Input;
+ 526              		.loc 1 185 0
+ 527 01fa 1B78     		ldrb	r3, [r3, #0]	@ zero_extendqisi2
+ 528 01fc 00EB8302 		add	r2, r0, r3, lsl #2
+ 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if ( dlyindex < ( sizeof(value->fifo)/sizeof(float)-1 ) )
+ 529              		.loc 1 186 0
+ 530 0200 062B     		cmp	r3, #6
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	value->fifo[dlyindex] = Input;
+ 531              		.loc 1 185 0
+ 532 0202 5164     		str	r1, [r2, #68]	@ float
+ 533              		.loc 1 186 0
+ 534 0204 01D8     		bhi	.L18
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 		return value->fifo[(dlyindex + 1)];
+ 535              		.loc 1 187 0
+ 536 0206 906C     		ldr	r0, [r2, #72]	@ float
+ 537              	.LVL62:
+ 538 0208 7047     		bx	lr
+ 539              	.LVL63:
+ 540              	.L18:
+ 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	else
+ 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 		return value->fifo[0];
+ 541              		.loc 1 189 0
+ 542 020a 406C     		ldr	r0, [r0, #68]	@ float
+ 543              	.LVL64:
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** }
+ 544              		.loc 1 190 0
+ 545 020c 7047     		bx	lr
+ 546              	.L22:
+ 547 020e 00BF     		.align	2
+ 548              	.L21:
+ 549 0210 00000000 		.word	.LANCHOR0
+ 550              		.cfi_endproc
+ 551              	.LFE8:
+ 553              		.align	1
+ 554              		.global	calc_PID_SmithPredictor
+ 555              		.thumb
+ 556              		.thumb_func
+ 558              	calc_PID_SmithPredictor:
+ 559              	.LFB4:
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 560              		.loc 1 96 0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564              	.LVL65:
+ 565 0214 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, sl, lr}
+ 566              	.LCFI6:
+ 567              		.cfi_def_cfa_offset 32
+ 568              		.cfi_offset 4, -32
+ 569              		.cfi_offset 5, -28
+ 570              		.cfi_offset 6, -24
+ 571              		.cfi_offset 7, -20
+ 572              		.cfi_offset 8, -16
+ 573              		.cfi_offset 9, -12
+ 574              		.cfi_offset 10, -8
+ 575              		.cfi_offset 14, -4
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 576              		.loc 1 96 0
+ 577 0218 1E46     		mov	r6, r3
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - ( S - E + istwert);
+ 578              		.loc 1 103 0
+ 579 021a 2E4B     		ldr	r3, .L29
+ 580              	.LVL66:
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 581              		.loc 1 96 0
+ 582 021c 0746     		mov	r7, r0
+ 583 021e 0D46     		mov	r5, r1
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - ( S - E + istwert);
+ 584              		.loc 1 103 0
+ 585 0220 5868     		ldr	r0, [r3, #4]	@ float
+ 586              	.LVL67:
+ 587 0222 9968     		ldr	r1, [r3, #8]	@ float
+ 588              	.LVL68:
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 589              		.loc 1 96 0
+ 590 0224 1446     		mov	r4, r2
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - ( S - E + istwert);
+ 591              		.loc 1 103 0
+ 592 0226 FFF7FEFF 		bl	__aeabi_fsub
+ 593              	.LVL69:
+ 594 022a 3946     		mov	r1, r7
+ 595 022c FFF7FEFF 		bl	__aeabi_fadd
+ 596              	.LVL70:
+ 597 0230 0146     		mov	r1, r0
+ 598 0232 2846     		mov	r0, r5
+ 599 0234 FFF7FEFF 		bl	__aeabi_fsub
+ 600              	.LVL71:
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 601              		.loc 1 106 0
+ 602 0238 D4F80080 		ldr	r8, [r4, #0]	@ float
+ 603 023c E168     		ldr	r1, [r4, #12]	@ float
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->e = sollwert - ( S - E + istwert);
+ 604              		.loc 1 103 0
+ 605 023e A061     		str	r0, [r4, #24]	@ float
+ 606 0240 0546     		mov	r5, r0
+ 607              	.LVL72:
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 608              		.loc 1 106 0
+ 609 0242 FFF7FEFF 		bl	__aeabi_fmul
+ 610              	.LVL73:
+ 611 0246 4146     		mov	r1, r8
+ 612 0248 FFF7FEFF 		bl	__aeabi_fmul
+ 613              	.LVL74:
+ 614 024c E169     		ldr	r1, [r4, #28]	@ float
+ 615 024e FFF7FEFF 		bl	__aeabi_fadd
+ 616              	.LVL75:
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum > Isum_max) PID_Values->Isum = Isum_max;
+ 617              		.loc 1 109 0
+ 618 0252 214F     		ldr	r7, .L29+4
+ 619              	.LVL76:
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 620              		.loc 1 106 0
+ 621 0254 8146     		mov	r9, r0
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum > Isum_max) PID_Values->Isum = Isum_max;
+ 622              		.loc 1 109 0
+ 623 0256 3946     		mov	r1, r7
+ 624 0258 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 625              	.LVL77:
+ 626 025c 10B9     		cbnz	r0, .L24
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Isum += (PID_Values->e*PID_Values->ki) * PID_Values->sampling_rate;
+ 627              		.loc 1 106 0
+ 628 025e C4F81C90 		str	r9, [r4, #28]	@ float
+ 629 0262 00E0     		b	.L25
+ 630              	.L24:
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum > Isum_max) PID_Values->Isum = Isum_max;
+ 631              		.loc 1 109 0 discriminator 1
+ 632 0264 E761     		str	r7, [r4, #28]	@ float
+ 633              	.L25:
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum < -Isum_max) PID_Values->Isum = -Isum_max;
+ 634              		.loc 1 110 0
+ 635 0266 1D4F     		ldr	r7, .L29+8
+ 636 0268 E069     		ldr	r0, [r4, #28]	@ float
+ 637 026a 3946     		mov	r1, r7
+ 638 026c FFF7FEFF 		bl	__aeabi_fcmplt
+ 639              	.LVL78:
+ 640 0270 00B1     		cbz	r0, .L26
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if (PID_Values->Isum < -Isum_max) PID_Values->Isum = -Isum_max;
+ 641              		.loc 1 110 0 is_stmt 0 discriminator 1
+ 642 0272 E761     		str	r7, [r4, #28]	@ float
+ 643              	.L26:
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	P = (PID_Values->kp * PID_Values->e);
+ 644              		.loc 1 112 0 is_stmt 1
+ 645 0274 A168     		ldr	r1, [r4, #8]	@ float
+ 646 0276 2846     		mov	r0, r5
+ 647 0278 FFF7FEFF 		bl	__aeabi_fmul
+ 648              	.LVL79:
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 649              		.loc 1 115 0
+ 650 027c 276A     		ldr	r7, [r4, #32]	@ float
+ 651 027e 2169     		ldr	r1, [r4, #16]	@ float
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	P = (PID_Values->kp * PID_Values->e);
+ 652              		.loc 1 112 0
+ 653 0280 8246     		mov	sl, r0
+ 654              	.LVL80:
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 655              		.loc 1 115 0
+ 656 0282 2846     		mov	r0, r5
+ 657              	.LVL81:
+ 658 0284 FFF7FEFF 		bl	__aeabi_fmul
+ 659              	.LVL82:
+ 660 0288 3946     		mov	r1, r7
+ 661 028a FFF7FEFF 		bl	__aeabi_fsub
+ 662              	.LVL83:
+ 663 028e 6169     		ldr	r1, [r4, #20]	@ float
+ 664 0290 FFF7FEFF 		bl	__aeabi_fmul
+ 665              	.LVL84:
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Dsum += D * PID_Values->sampling_rate;
+ 666              		.loc 1 116 0
+ 667 0294 4146     		mov	r1, r8
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	D = (PID_Values->kd * PID_Values->e - PID_Values->Dsum ) * PID_Values->kn;
+ 668              		.loc 1 115 0
+ 669 0296 0546     		mov	r5, r0
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Dsum += D * PID_Values->sampling_rate;
+ 670              		.loc 1 116 0
+ 671 0298 FFF7FEFF 		bl	__aeabi_fmul
+ 672              	.LVL85:
+ 673 029c 0146     		mov	r1, r0
+ 674 029e 3846     		mov	r0, r7
+ 675 02a0 FFF7FEFF 		bl	__aeabi_fadd
+ 676              	.LVL86:
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	I = PID_Values->Isum;
+ 677              		.loc 1 114 0
+ 678 02a4 D4F81C90 		ldr	r9, [r4, #28]	@ float
+ 679              	.LVL87:
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->Dsum += D * PID_Values->sampling_rate;
+ 680              		.loc 1 116 0
+ 681 02a8 2062     		str	r0, [r4, #32]	@ float
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	PID_Values->y = P + I + D;
+ 682              		.loc 1 119 0
+ 683 02aa 4946     		mov	r1, r9
+ 684 02ac 5046     		mov	r0, sl
+ 685 02ae FFF7FEFF 		bl	__aeabi_fadd
+ 686              	.LVL88:
+ 687 02b2 2946     		mov	r1, r5
+ 688 02b4 FFF7FEFF 		bl	__aeabi_fadd
+ 689              	.LVL89:
+ 690 02b8 0146     		mov	r1, r0
+ 691 02ba 6060     		str	r0, [r4, #4]	@ float
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	S = CalcVirtualPlant(Plant_Values, PID_Values->y);
+ 692              		.loc 1 122 0
+ 693 02bc 3046     		mov	r0, r6
+ 694 02be FFF7FEFF 		bl	CalcVirtualPlant
+ 695              	.LVL90:
+ 696 02c2 044C     		ldr	r4, .L29
+ 697              	.LVL91:
+ 698 02c4 0146     		mov	r1, r0
+ 699 02c6 6060     		str	r0, [r4, #4]	@ float
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	E = CalcDelay(Plant_Values, S);
+ 700              		.loc 1 125 0
+ 701 02c8 3046     		mov	r0, r6
+ 702 02ca FFF7FEFF 		bl	CalcDelay
+ 703              	.LVL92:
+ 704 02ce A060     		str	r0, [r4, #8]	@ float
+ 705 02d0 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+ 706              	.L30:
+ 707              		.align	2
+ 708              	.L29:
+ 709 02d4 00000000 		.word	.LANCHOR0
+ 710 02d8 00004842 		.word	1112014848
+ 711 02dc 000048C2 		.word	-1035468800
+ 712              		.cfi_endproc
+ 713              	.LFE4:
+ 715              		.global	__aeabi_fcmpge
+ 716              		.global	__aeabi_fcmple
+ 717              		.global	__aeabi_fdiv
+ 718              		.align	1
+ 719              		.global	calc_PID_YAW
+ 720              		.thumb
+ 721              		.thumb_func
+ 723              	calc_PID_YAW:
+ 724              	.LFB9:
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** /*
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c ****  * The yaw PID calculation needs a special handling as the input value has
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c ****  * an integrating character
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c ****  * */
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** void calc_PID_YAW(float istwert, float sollwert, PID_Control *values)
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** {
+ 725              		.loc 1 198 0
+ 726              		.cfi_startproc
+ 727              		@ args = 0, pretend = 0, frame = 0
+ 728              		@ frame_needed = 0, uses_anonymous_args = 0
+ 729              	.LVL93:
+ 730 02e0 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 731              	.LCFI7:
+ 732              		.cfi_def_cfa_offset 24
+ 733              		.cfi_offset 4, -24
+ 734              		.cfi_offset 5, -20
+ 735              		.cfi_offset 6, -16
+ 736              		.cfi_offset 7, -12
+ 737              		.cfi_offset 8, -8
+ 738              		.cfi_offset 14, -4
+ 739              		.loc 1 198 0
+ 740 02e4 1446     		mov	r4, r2
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->e = istwert - sollwert;
+ 741              		.loc 1 199 0
+ 742 02e6 FFF7FEFF 		bl	__aeabi_fsub
+ 743              	.LVL94:
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if(values->e >= 180) values->e -= 360;
+ 744              		.loc 1 201 0
+ 745 02ea 2749     		ldr	r1, .L45
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->e = istwert - sollwert;
+ 746              		.loc 1 199 0
+ 747 02ec 0546     		mov	r5, r0
+ 748              		.loc 1 201 0
+ 749 02ee FFF7FEFF 		bl	__aeabi_fcmpge
+ 750              	.LVL95:
+ 751 02f2 20B1     		cbz	r0, .L43
+ 752              		.loc 1 201 0 is_stmt 0 discriminator 1
+ 753 02f4 2846     		mov	r0, r5
+ 754 02f6 2549     		ldr	r1, .L45+4
+ 755 02f8 FFF7FEFF 		bl	__aeabi_fsub
+ 756              	.LVL96:
+ 757 02fc 0AE0     		b	.L44
+ 758              	.L43:
+ 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	else if (values->e <= -180) values->e += 360;
+ 759              		.loc 1 202 0 is_stmt 1
+ 760 02fe 2846     		mov	r0, r5
+ 761 0300 2349     		ldr	r1, .L45+8
+ 762 0302 FFF7FEFF 		bl	__aeabi_fcmple
+ 763              	.LVL97:
+ 764 0306 08B9     		cbnz	r0, .L35
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->e = istwert - sollwert;
+ 765              		.loc 1 199 0
+ 766 0308 A561     		str	r5, [r4, #24]	@ float
+ 767 030a 04E0     		b	.L34
+ 768              	.L35:
+ 769              		.loc 1 202 0 discriminator 1
+ 770 030c 2846     		mov	r0, r5
+ 771 030e 1F49     		ldr	r1, .L45+4
+ 772 0310 FFF7FEFF 		bl	__aeabi_fadd
+ 773              	.LVL98:
+ 774              	.L44:
+ 775 0314 A061     		str	r0, [r4, #24]	@ float
+ 776              	.L34:
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	/* Keep the e-value in a maintainable range */
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if(values->e > 50) values->e = 50;
+ 777              		.loc 1 205 0
+ 778 0316 1F4D     		ldr	r5, .L45+12
+ 779 0318 A069     		ldr	r0, [r4, #24]	@ float
+ 780 031a 2946     		mov	r1, r5
+ 781 031c FFF7FEFF 		bl	__aeabi_fcmpgt
+ 782              	.LVL99:
+ 783 0320 00B1     		cbz	r0, .L36
+ 784              		.loc 1 205 0 is_stmt 0 discriminator 1
+ 785 0322 A561     		str	r5, [r4, #24]	@ float
+ 786              	.L36:
+ 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	if(values->e < -50) values->e = -50;
+ 787              		.loc 1 206 0 is_stmt 1
+ 788 0324 1C4D     		ldr	r5, .L45+16
+ 789 0326 A069     		ldr	r0, [r4, #24]	@ float
+ 790 0328 2946     		mov	r1, r5
+ 791 032a FFF7FEFF 		bl	__aeabi_fcmplt
+ 792              	.LVL100:
+ 793 032e 00B1     		cbz	r0, .L38
+ 794              		.loc 1 206 0 is_stmt 0 discriminator 1
+ 795 0330 A561     		str	r5, [r4, #24]	@ float
+ 796              	.L38:
+ 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//f�r I-Anteil aufsummieren:
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->Isum = values->Isum + (values->e);
+ 797              		.loc 1 209 0 is_stmt 1
+ 798 0332 A569     		ldr	r5, [r4, #24]	@ float
+ 799 0334 E169     		ldr	r1, [r4, #28]	@ float
+ 800 0336 2846     		mov	r0, r5
+ 801 0338 FFF7FEFF 		bl	__aeabi_fadd
+ 802              	.LVL101:
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//PID-Regler
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->y = (values->kp*values->e) + (values->Isum*values->ki*values->sampling_rate) + (values->kd
+ 803              		.loc 1 212 0
+ 804 033c A168     		ldr	r1, [r4, #8]	@ float
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->Isum = values->Isum + (values->e);
+ 805              		.loc 1 209 0
+ 806 033e 0746     		mov	r7, r0
+ 807 0340 E061     		str	r0, [r4, #28]	@ float
+ 808              		.loc 1 212 0
+ 809 0342 2846     		mov	r0, r5
+ 810 0344 FFF7FEFF 		bl	__aeabi_fmul
+ 811              	.LVL102:
+ 812 0348 2668     		ldr	r6, [r4, #0]	@ float
+ 813 034a 8046     		mov	r8, r0
+ 814 034c E168     		ldr	r1, [r4, #12]	@ float
+ 815 034e 3846     		mov	r0, r7
+ 816 0350 FFF7FEFF 		bl	__aeabi_fmul
+ 817              	.LVL103:
+ 818 0354 3146     		mov	r1, r6
+ 819 0356 FFF7FEFF 		bl	__aeabi_fmul
+ 820              	.LVL104:
+ 821 035a 0146     		mov	r1, r0
+ 822 035c 4046     		mov	r0, r8
+ 823 035e FFF7FEFF 		bl	__aeabi_fadd
+ 824              	.LVL105:
+ 825 0362 616A     		ldr	r1, [r4, #36]	@ float
+ 826 0364 0746     		mov	r7, r0
+ 827 0366 2846     		mov	r0, r5
+ 828 0368 FFF7FEFF 		bl	__aeabi_fsub
+ 829              	.LVL106:
+ 830 036c 2169     		ldr	r1, [r4, #16]	@ float
+ 831 036e FFF7FEFF 		bl	__aeabi_fmul
+ 832              	.LVL107:
+ 833 0372 3146     		mov	r1, r6
+ 834 0374 FFF7FEFF 		bl	__aeabi_fdiv
+ 835              	.LVL108:
+ 836 0378 0146     		mov	r1, r0
+ 837 037a 3846     		mov	r0, r7
+ 838 037c FFF7FEFF 		bl	__aeabi_fadd
+ 839              	.LVL109:
+ 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	//f�r D-Anteil:
+ 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->ealt = values->e;
+ 840              		.loc 1 215 0
+ 841 0380 6562     		str	r5, [r4, #36]	@ float
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/PID_control.c **** 	values->y = (values->kp*values->e) + (values->Isum*values->ki*values->sampling_rate) + (values->kd
+ 842              		.loc 1 212 0
+ 843 0382 6060     		str	r0, [r4, #4]	@ float
+ 844              		.loc 1 215 0
+ 845 0384 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 846              	.L46:
+ 847              		.align	2
+ 848              	.L45:
+ 849 0388 00003443 		.word	1127481344
+ 850 038c 0000B443 		.word	1135869952
+ 851 0390 000034C3 		.word	-1020002304
+ 852 0394 00004842 		.word	1112014848
+ 853 0398 000048C2 		.word	-1035468800
+ 854              		.cfi_endproc
+ 855              	.LFE9:
+ 857              		.bss
+ 858              		.align	2
+ 859              		.set	.LANCHOR0,. + 0
+ 862              	dlyindex.4180:
+ 863 0000 00       		.space	1
+ 864 0001 000000   		.space	3
+ 867              	S.4157:
+ 868 0004 00000000 		.space	4
+ 871              	E.4158:
+ 872 0008 00000000 		.space	4
+ 873              		.text
+ 874              	.Letext0:
+ 875              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 PID_control.c
+     /tmp/ccJn43PJ.s:18     .text:00000000 $t
+     /tmp/ccJn43PJ.s:23     .text:00000000 init_PID
+     /tmp/ccJn43PJ.s:60     .text:00000012 init_SmithPredictor
+     /tmp/ccJn43PJ.s:100    .text:00000028 resetIntegralValues_PID
+     /tmp/ccJn43PJ.s:131    .text:00000034 calc_PID
+     /tmp/ccJn43PJ.s:253    .text:000000c8 $d
+     /tmp/ccJn43PJ.s:258    .text:000000d0 $t
+     /tmp/ccJn43PJ.s:263    .text:000000d0 CalcVirtualPlant
+     /tmp/ccJn43PJ.s:328    .text:0000010e CalcVirtualPlant_xxx
+     /tmp/ccJn43PJ.s:414    .text:00000174 CalcDirektForm2
+     /tmp/ccJn43PJ.s:508    .text:000001ea CalcDelay
+     /tmp/ccJn43PJ.s:549    .text:00000210 $d
+     /tmp/ccJn43PJ.s:553    .text:00000214 $t
+     /tmp/ccJn43PJ.s:558    .text:00000214 calc_PID_SmithPredictor
+     /tmp/ccJn43PJ.s:709    .text:000002d4 $d
+     /tmp/ccJn43PJ.s:718    .text:000002e0 $t
+     /tmp/ccJn43PJ.s:723    .text:000002e0 calc_PID_YAW
+     /tmp/ccJn43PJ.s:849    .text:00000388 $d
+     /tmp/ccJn43PJ.s:858    .bss:00000000 $d
+     /tmp/ccJn43PJ.s:862    .bss:00000000 dlyindex.4180
+     /tmp/ccJn43PJ.s:867    .bss:00000004 S.4157
+     /tmp/ccJn43PJ.s:871    .bss:00000008 E.4158
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.PID_control.h.2.bdb95992097dc3d9a377ee9d97492f02
+
+UNDEFINED SYMBOLS
+__aeabi_fsub
+__aeabi_fmul
+__aeabi_fadd
+__aeabi_fcmpgt
+__aeabi_fcmplt
+__aeabi_fcmpge
+__aeabi_fcmple
+__aeabi_fdiv

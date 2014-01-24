@@ -1,0 +1,362 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"usart.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.align	1
+  19              		.global	Usart2Put
+  20              		.thumb
+  21              		.thumb_func
+  23              	Usart2Put:
+  24              	.LFB111:
+  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c"
+   1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** #include <stm32f30x.h>
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** #include <stm32f30x_conf.h>
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** #include <usart.h>
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** void Usart2Put(uint8_t ch)
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** {
+  26              		.loc 1 6 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              	.LVL0:
+  31 0000 0146     		mov	r1, r0
+  32 0002 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+   7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       USART_SendData(USART2, (uint8_t) ch);
+  37              		.loc 1 7 0
+  38 0004 0448     		ldr	r0, .L7
+  39              	.LVL1:
+  40 0006 FFF7FEFF 		bl	USART_SendData
+  41              	.LVL2:
+  42              	.L2:
+   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       //Loop until the end of transmission
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       while(USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
+  43              		.loc 1 9 0 discriminator 1
+  44 000a 0348     		ldr	r0, .L7
+  45 000c 4021     		movs	r1, #64
+  46 000e FFF7FEFF 		bl	USART_GetFlagStatus
+  47              	.LVL3:
+  48 0012 0028     		cmp	r0, #0
+  49 0014 F9D0     		beq	.L2
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       {
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       }
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** }
+  50              		.loc 1 12 0
+  51 0016 08BD     		pop	{r3, pc}
+  52              	.L8:
+  53              		.align	2
+  54              	.L7:
+  55 0018 00440040 		.word	1073759232
+  56              		.cfi_endproc
+  57              	.LFE111:
+  59              		.align	1
+  60              		.global	Usart3Put
+  61              		.thumb
+  62              		.thumb_func
+  64              	Usart3Put:
+  65              	.LFB112:
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** /*
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****  * USART3 use Interrupt
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****  * */
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** void Usart3Put(uint8_t ch)
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** {
+  66              		.loc 1 19 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              	.LVL4:
+  71 001c 0146     		mov	r1, r0
+  72 001e 08B5     		push	{r3, lr}
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 3, -8
+  76              		.cfi_offset 14, -4
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       USART_SendData(USART3, (uint8_t) ch);
+  77              		.loc 1 20 0
+  78 0020 0448     		ldr	r0, .L15
+  79              	.LVL5:
+  80 0022 FFF7FEFF 		bl	USART_SendData
+  81              	.LVL6:
+  82              	.L10:
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       //Loop until the end of transmission
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       while(USART_GetFlagStatus(USART3, USART_FLAG_TC) == RESET)
+  83              		.loc 1 22 0 discriminator 1
+  84 0026 0348     		ldr	r0, .L15
+  85 0028 4021     		movs	r1, #64
+  86 002a FFF7FEFF 		bl	USART_GetFlagStatus
+  87              	.LVL7:
+  88 002e 0028     		cmp	r0, #0
+  89 0030 F9D0     		beq	.L10
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       {
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c ****       }
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** }
+  90              		.loc 1 25 0
+  91 0032 08BD     		pop	{r3, pc}
+  92              	.L16:
+  93              		.align	2
+  94              	.L15:
+  95 0034 00480040 		.word	1073760256
+  96              		.cfi_endproc
+  97              	.LFE112:
+  99              		.align	1
+ 100              		.global	Usart3Get
+ 101              		.thumb
+ 102              		.thumb_func
+ 104              	Usart3Get:
+ 105              	.LFB113:
+  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** uint8_t Usart3Get(){
+ 106              		.loc 1 27 0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110 0038 08B5     		push	{r3, lr}
+ 111              	.LCFI2:
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 3, -8
+ 114              		.cfi_offset 14, -4
+ 115              	.L18:
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	uint8_t ch;
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	while(USART_GetFlagStatus(USART3, USART_FLAG_RXNE) == RESET)
+ 116              		.loc 1 29 0 discriminator 1
+ 117 003a 0548     		ldr	r0, .L23
+ 118 003c 2021     		movs	r1, #32
+ 119 003e FFF7FEFF 		bl	USART_GetFlagStatus
+ 120              	.LVL8:
+ 121 0042 0028     		cmp	r0, #0
+ 122 0044 F9D0     		beq	.L18
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	{
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	}
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	ch = USART_ReceiveData(USART3);
+ 123              		.loc 1 32 0
+ 124 0046 0248     		ldr	r0, .L23
+ 125 0048 FFF7FEFF 		bl	USART_ReceiveData
+ 126              	.LVL9:
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	return ch;
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** }
+ 127              		.loc 1 34 0
+ 128 004c C0B2     		uxtb	r0, r0
+ 129 004e 08BD     		pop	{r3, pc}
+ 130              	.L24:
+ 131              		.align	2
+ 132              	.L23:
+ 133 0050 00480040 		.word	1073760256
+ 134              		.cfi_endproc
+ 135              	.LFE113:
+ 137              		.align	1
+ 138              		.global	SendBufferedDataFrame
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	SendBufferedDataFrame:
+ 143              	.LFB114:
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** void SendBufferedDataFrame(USART_OBJ* It_Data ,void* Header, void* Value1, void* Value2, void* Valu
+ 144              		.loc 1 36 0
+ 145              		.cfi_startproc
+ 146              		@ args = 8, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              	.LVL10:
+ 149 0054 F0B5     		push	{r4, r5, r6, r7, lr}
+ 150              	.LCFI3:
+ 151              		.cfi_def_cfa_offset 20
+ 152              		.cfi_offset 4, -20
+ 153              		.cfi_offset 5, -16
+ 154              		.cfi_offset 6, -12
+ 155              		.cfi_offset 7, -8
+ 156              		.cfi_offset 14, -4
+ 157              		.loc 1 36 0
+ 158 0056 069C     		ldr	r4, [sp, #24]
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	uint32_t offset;
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	static uint32_t loopcnt = 0;
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	if (Bufferdeep < 1) {
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		Bufferdeep = 1;
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	}
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	if (loopcnt < (Bufferdeep-1)) {
+ 159              		.loc 1 44 0
+ 160 0058 154E     		ldr	r6, .L31
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		Bufferdeep = 1;
+ 161              		.loc 1 41 0
+ 162 005a 002C     		cmp	r4, #0
+ 163 005c 08BF     		it	eq
+ 164 005e 0124     		moveq	r4, #1
+ 165              	.LVL11:
+ 166              		.loc 1 44 0
+ 167 0060 3568     		ldr	r5, [r6, #0]
+ 168 0062 013C     		subs	r4, r4, #1
+ 169              	.LVL12:
+ 170 0064 0968     		ldr	r1, [r1, #0]	@ unaligned
+ 171              	.LVL13:
+ 172 0066 A542     		cmp	r5, r4
+ 173 0068 4FEA0514 		lsl	r4, r5, #4
+ 174              	.LVL14:
+ 175              	.LBB2:
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		offset = loopcnt * 16;
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 0], Header, 4); // 0xFF7F3F1F => 4286529311 => [255][127][63][
+ 176              		.loc 1 46 0
+ 177 006c 04F5807C 		add	ip, r4, #256
+ 178 0070 40F80C10 		str	r1, [r0, ip]	@ unaligned
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 4], Value1, 4);
+ 179              		.loc 1 47 0
+ 180 0074 1268     		ldr	r2, [r2, #0]	@ unaligned
+ 181              	.LVL15:
+ 182 0076 04F58271 		add	r1, r4, #260
+ 183 007a 4250     		str	r2, [r0, r1]	@ unaligned
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 8], Value2, 4);
+ 184              		.loc 1 48 0
+ 185 007c 1B68     		ldr	r3, [r3, #0]	@ unaligned
+ 186              	.LVL16:
+ 187 007e 04F58472 		add	r2, r4, #264
+ 188              	.LBE2:
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** void SendBufferedDataFrame(USART_OBJ* It_Data ,void* Header, void* Value1, void* Value2, void* Valu
+ 189              		.loc 1 36 0
+ 190 0082 059F     		ldr	r7, [sp, #20]
+ 191              	.LBB3:
+ 192              		.loc 1 48 0
+ 193 0084 8350     		str	r3, [r0, r2]	@ unaligned
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 12], Value3, 4);
+ 194              		.loc 1 49 0
+ 195 0086 3B68     		ldr	r3, [r7, #0]	@ unaligned
+ 196 0088 04F58674 		add	r4, r4, #268
+ 197 008c 0351     		str	r3, [r0, r4]	@ unaligned
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		loopcnt++;
+ 198              		.loc 1 50 0
+ 199 008e 05F10105 		add	r5, r5, #1
+ 200              	.LBE3:
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	if (loopcnt < (Bufferdeep-1)) {
+ 201              		.loc 1 44 0
+ 202 0092 01D2     		bcs	.L27
+ 203              	.LVL17:
+ 204              	.LBB4:
+ 205              		.loc 1 50 0
+ 206 0094 3560     		str	r5, [r6, #0]
+ 207 0096 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 208              	.LVL18:
+ 209              	.L27:
+ 210              	.LBE4:
+ 211              	.LBB5:
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	} else {
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		offset = loopcnt * 16;
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 0], Header, 4); // 0xFF7F3F1F => 4286529311 => [255][127][63][
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 4], Value1, 4);
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 8], Value2, 4);
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		memcpy(&It_Data->txbuffer[offset + 12], Value3, 4);
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		It_Data->txlen = (loopcnt+1)*16;
+ 212              		.loc 1 57 0
+ 213 0098 2D01     		lsls	r5, r5, #4
+ 214 009a C0F81052 		str	r5, [r0, #528]
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		loopcnt = 0;
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		USART_ITConfig(USART3, USART_IT_TXE, ENABLE);
+ 215              		.loc 1 59 0
+ 216 009e 0549     		ldr	r1, .L31+4
+ 217 00a0 0548     		ldr	r0, .L31+8
+ 218              	.LVL19:
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		loopcnt = 0;
+ 219              		.loc 1 58 0
+ 220 00a2 0023     		movs	r3, #0
+ 221              		.loc 1 59 0
+ 222 00a4 0122     		movs	r2, #1
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		loopcnt = 0;
+ 223              		.loc 1 58 0
+ 224 00a6 3360     		str	r3, [r6, #0]
+ 225              	.LBE5:
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 	}
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** }
+ 226              		.loc 1 61 0
+ 227 00a8 BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 228              	.LBB6:
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/usart.c **** 		USART_ITConfig(USART3, USART_IT_TXE, ENABLE);
+ 229              		.loc 1 59 0
+ 230 00ac FFF7FEBF 		b	USART_ITConfig
+ 231              	.LVL20:
+ 232              	.L32:
+ 233              		.align	2
+ 234              	.L31:
+ 235 00b0 00000000 		.word	.LANCHOR0
+ 236 00b4 07010700 		.word	459015
+ 237 00b8 00480040 		.word	1073760256
+ 238              	.LBE6:
+ 239              		.cfi_endproc
+ 240              	.LFE114:
+ 242              		.comm	It_Com,532,4
+ 243              		.bss
+ 244              		.align	2
+ 245              		.set	.LANCHOR0,. + 0
+ 248              	loopcnt.6687:
+ 249 0000 00000000 		.space	4
+ 250              		.text
+ 251              	.Letext0:
+ 252              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 253              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 254              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
+ 255              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 256              		.file 6 "<built-in>"
+ 257              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+DEFINED SYMBOLS
+                            *ABS*:00000000 usart.c
+     /tmp/ccu5pBUb.s:18     .text:00000000 $t
+     /tmp/ccu5pBUb.s:23     .text:00000000 Usart2Put
+     /tmp/ccu5pBUb.s:55     .text:00000018 $d
+     /tmp/ccu5pBUb.s:59     .text:0000001c $t
+     /tmp/ccu5pBUb.s:64     .text:0000001c Usart3Put
+     /tmp/ccu5pBUb.s:95     .text:00000034 $d
+     /tmp/ccu5pBUb.s:99     .text:00000038 $t
+     /tmp/ccu5pBUb.s:104    .text:00000038 Usart3Get
+     /tmp/ccu5pBUb.s:133    .text:00000050 $d
+     /tmp/ccu5pBUb.s:137    .text:00000054 $t
+     /tmp/ccu5pBUb.s:142    .text:00000054 SendBufferedDataFrame
+     /tmp/ccu5pBUb.s:235    .text:000000b0 $d
+                            *COM*:00000214 It_Com
+     /tmp/ccu5pBUb.s:244    .bss:00000000 $d
+     /tmp/ccu5pBUb.s:248    .bss:00000000 loopcnt.6687
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
+                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
+                           .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
+                           .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
+                           .group:00000000 wm4.stm32f30x.h.292.5f9271075d54fc48f1e25ff79df85cb2
+                           .group:00000000 wm4.stm32f30x_adc.h.130.cbebad91f78fb87381fe0860eea6104e
+                           .group:00000000 wm4.stm32f30x_comp.h.31.9bbc5f5f1a849069ea9062fbe7b81435
+                           .group:00000000 wm4.stm32f30x_dma.h.31.73d173fa6d60026d432f3cf1d2fc4407
+                           .group:00000000 wm4.stm32f30x_exti.h.31.22e280aa6e095108654ac8d3c74a2409
+                           .group:00000000 wm4.stm32f30x_flash.h.31.bee86dc3079b7049419bdbeec073e2cd
+                           .group:00000000 wm4.stm32f30x_gpio.h.31.3745297fee3728b346ad4d2a2467e40f
+                           .group:00000000 wm4.stm32f30x_syscfg.h.31.96b023b7dbc3641f358604478433eb5c
+                           .group:00000000 wm4.stm32f30x_i2c.h.31.52025acd7f154308042bf46a2835e9d3
+                           .group:00000000 wm4.stm32f30x_pwr.h.31.cdef322c6e7f25cfc29954045d24e9b8
+                           .group:00000000 wm4.stm32f30x_rcc.h.31.3b94c1144b21d1e4fe780e4d1a02d257
+                           .group:00000000 wm4.stm32f30x_spi.h.31.c1ebebab897d23cecc617ec8ad9fd534
+                           .group:00000000 wm4.stm32f30x_tim.h.31.336f9cd855fb4e2cd819ac260ded6518
+                           .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
+                           .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
+                           .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
+                           .group:00000000 wm4.usart.h.2.334fafcea22e35c991473487ab5a0c1a
+
+UNDEFINED SYMBOLS
+USART_SendData
+USART_GetFlagStatus
+USART_ReceiveData
+USART_ITConfig
