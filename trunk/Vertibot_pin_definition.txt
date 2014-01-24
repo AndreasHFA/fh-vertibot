@@ -1,0 +1,16 @@
+Vertibot Pin definition
+
+GPIOA:	Pin4, (Pin5, Pin6)		CurB	
+	Pin2, Pin3 			UART RX/TX
+	Pin5, Pin6, Pin7		SPI (onboard Gyro)	
+GPIOE:	Pin3				SPI (onboard Gyro)
+GPIOB:	Pin0, Pin1			Enable MotA, Enable MotB	
+	Pin6, Pin7			I2C (onboard Acc, Magnetometer)
+	Pin9				XBeeRst
+	Pin10, Pin11			XBeeRx / XBeeTx UART
+GPIOC:	Pin4, Pin5			CurA, Vbat	
+	Pin6, Pin7, Pin8, Pin9		4 Channel Mot PWM Out
+GPIOD:	Pin3, Pin4, Pin6, Pin7		4 Channel Mot PWM Out
+	Pin12, Pin13, Pin14, Pin15	EXTI (4 Channel Receiver Input)
+
+
