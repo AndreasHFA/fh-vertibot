@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_dma.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	DMA_DeInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	DMA_DeInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_dma.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	DMA_DeInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	DMA_DeInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   * @file    stm32f30x_dma.c
@@ -164,233 +166,233 @@
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   */
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** void DMA_DeInit(DMA_Channel_TypeDef* DMAy_Channelx)
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** {
-  26              		.loc 1 142 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  28              		.loc 1 142 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Check the parameters */
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   assert_param(IS_DMA_ALL_PERIPH(DMAy_Channelx));
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Disable the selected DMAy Channelx */
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   DMAy_Channelx->CCR &= (uint16_t)(~DMA_CCR_EN);
-  32              		.loc 1 147 0
-  33 0000 0268     		ldr	r2, [r0, #0]
-  34 0002 4FF6FE73 		movw	r3, #65534
-  35 0006 1340     		ands	r3, r3, r2
-  36 0008 0360     		str	r3, [r0, #0]
+  34              		.loc 1 147 0
+  35 0000 0268     		ldr	r2, [r0, #0]
+  36 0002 4FF6FE73 		movw	r3, #65534
+  37 0006 1340     		ands	r3, r3, r2
+  38 0008 0360     		str	r3, [r0, #0]
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Reset DMAy Channelx control register */
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   DMAy_Channelx->CCR  = 0;
-  37              		.loc 1 150 0
-  38 000a 0023     		movs	r3, #0
-  39 000c 0360     		str	r3, [r0, #0]
+  39              		.loc 1 150 0
+  40 000a 0023     		movs	r3, #0
+  41 000c 0360     		str	r3, [r0, #0]
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Reset DMAy Channelx remaining bytes register */
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   DMAy_Channelx->CNDTR = 0;
-  40              		.loc 1 153 0
-  41 000e 4360     		str	r3, [r0, #4]
+  42              		.loc 1 153 0
+  43 000e 4360     		str	r3, [r0, #4]
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Reset DMAy Channelx peripheral address register */
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   DMAy_Channelx->CPAR  = 0;
-  42              		.loc 1 156 0
-  43 0010 8360     		str	r3, [r0, #8]
+  44              		.loc 1 156 0
+  45 0010 8360     		str	r3, [r0, #8]
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Reset DMAy Channelx memory address register */
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   DMAy_Channelx->CMAR = 0;
-  44              		.loc 1 159 0
-  45 0012 C360     		str	r3, [r0, #12]
+  46              		.loc 1 159 0
+  47 0012 C360     		str	r3, [r0, #12]
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   if (DMAy_Channelx == DMA1_Channel1)
-  46              		.loc 1 161 0
-  47 0014 2C4B     		ldr	r3, .L19
-  48 0016 9842     		cmp	r0, r3
-  49 0018 00D1     		bne	.L2
-  50 001a 26E0     		b	.L14
-  51              	.L2:
+  48              		.loc 1 161 0
+  49 0014 2C4B     		ldr	r3, .L19
+  50 0016 9842     		cmp	r0, r3
+  51 0018 00D1     		bne	.L2
+  52 001a 26E0     		b	.L14
+  53              	.L2:
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel1 */
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL1_IT_MASK;
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel2)
-  52              		.loc 1 166 0
-  53 001c 2B4B     		ldr	r3, .L19+4
-  54 001e 9842     		cmp	r0, r3
-  55 0020 00D1     		bne	.L4
-  56 0022 2CE0     		b	.L15
-  57              	.L4:
+  54              		.loc 1 166 0
+  55 001c 2B4B     		ldr	r3, .L19+4
+  56 001e 9842     		cmp	r0, r3
+  57 0020 00D1     		bne	.L4
+  58 0022 2CE0     		b	.L15
+  59              	.L4:
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel2 */
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL2_IT_MASK;
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel3)
-  58              		.loc 1 171 0
-  59 0024 2A4B     		ldr	r3, .L19+8
-  60 0026 9842     		cmp	r0, r3
-  61 0028 00D1     		bne	.L5
-  62 002a 32E0     		b	.L16
-  63              	.L5:
+  60              		.loc 1 171 0
+  61 0024 2A4B     		ldr	r3, .L19+8
+  62 0026 9842     		cmp	r0, r3
+  63 0028 00D1     		bne	.L5
+  64 002a 32E0     		b	.L16
+  65              	.L5:
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel3 */
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL3_IT_MASK;
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel4)
-  64              		.loc 1 176 0
-  65 002c 294B     		ldr	r3, .L19+12
-  66 002e 9842     		cmp	r0, r3
-  67 0030 00D1     		bne	.L6
-  68 0032 38E0     		b	.L17
-  69              	.L6:
+  66              		.loc 1 176 0
+  67 002c 294B     		ldr	r3, .L19+12
+  68 002e 9842     		cmp	r0, r3
+  69 0030 00D1     		bne	.L6
+  70 0032 38E0     		b	.L17
+  71              	.L6:
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel4 */
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL4_IT_MASK;
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel5)
-  70              		.loc 1 181 0
-  71 0034 284B     		ldr	r3, .L19+16
-  72 0036 9842     		cmp	r0, r3
-  73 0038 00D1     		bne	.L7
-  74 003a 3EE0     		b	.L18
-  75              	.L7:
+  72              		.loc 1 181 0
+  73 0034 284B     		ldr	r3, .L19+16
+  74 0036 9842     		cmp	r0, r3
+  75 0038 00D1     		bne	.L7
+  76 003a 3EE0     		b	.L18
+  77              	.L7:
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel5 */
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL5_IT_MASK;
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel6)
-  76              		.loc 1 186 0
-  77 003c 274B     		ldr	r3, .L19+20
-  78 003e 9842     		cmp	r0, r3
-  79 0040 06D1     		bne	.L8
+  78              		.loc 1 186 0
+  79 003c 274B     		ldr	r3, .L19+20
+  80 003e 9842     		cmp	r0, r3
+  81 0040 06D1     		bne	.L8
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel6 */
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL6_IT_MASK;
-  80              		.loc 1 189 0
-  81 0042 53F8682C 		ldr	r2, [r3, #-104]
-  82 0046 42F47002 		orr	r2, r2, #15728640
-  83 004a 43F8682C 		str	r2, [r3, #-104]
-  84 004e 7047     		bx	lr
-  85              	.L8:
+  82              		.loc 1 189 0
+  83 0042 53F8682C 		ldr	r2, [r3, #-104]
+  84 0046 42F47002 		orr	r2, r2, #15728640
+  85 004a 43F8682C 		str	r2, [r3, #-104]
+  86 004e 7047     		bx	lr
+  87              	.L8:
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA1_Channel7)
-  86              		.loc 1 191 0
-  87 0050 234B     		ldr	r3, .L19+24
-  88 0052 9842     		cmp	r0, r3
-  89 0054 06D1     		bne	.L9
+  88              		.loc 1 191 0
+  89 0050 234B     		ldr	r3, .L19+24
+  90 0052 9842     		cmp	r0, r3
+  91 0054 06D1     		bne	.L9
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA1 Channel7 */
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA1->IFCR |= DMA1_CHANNEL7_IT_MASK;
-  90              		.loc 1 194 0
-  91 0056 53F87C2C 		ldr	r2, [r3, #-124]
-  92 005a 42F07062 		orr	r2, r2, #251658240
-  93 005e 43F87C2C 		str	r2, [r3, #-124]
-  94 0062 7047     		bx	lr
-  95              	.L9:
+  92              		.loc 1 194 0
+  93 0056 53F87C2C 		ldr	r2, [r3, #-124]
+  94 005a 42F07062 		orr	r2, r2, #251658240
+  95 005e 43F87C2C 		str	r2, [r3, #-124]
+  96 0062 7047     		bx	lr
+  97              	.L9:
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA2_Channel1)
-  96              		.loc 1 196 0
-  97 0064 1F4B     		ldr	r3, .L19+28
-  98 0066 9842     		cmp	r0, r3
-  99 0068 06D1     		bne	.L10
- 100              	.L14:
+  98              		.loc 1 196 0
+  99 0064 1F4B     		ldr	r3, .L19+28
+ 100 0066 9842     		cmp	r0, r3
+ 101 0068 06D1     		bne	.L10
+ 102              	.L14:
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA2 Channel1 */
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA2->IFCR |= DMA2_CHANNEL1_IT_MASK;
- 101              		.loc 1 199 0
- 102 006a 53F8042C 		ldr	r2, [r3, #-4]
- 103 006e 42F00F02 		orr	r2, r2, #15
- 104 0072 43F8042C 		str	r2, [r3, #-4]
- 105 0076 7047     		bx	lr
- 106              	.L10:
+ 103              		.loc 1 199 0
+ 104 006a 53F8042C 		ldr	r2, [r3, #-4]
+ 105 006e 42F00F02 		orr	r2, r2, #15
+ 106 0072 43F8042C 		str	r2, [r3, #-4]
+ 107 0076 7047     		bx	lr
+ 108              	.L10:
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA2_Channel2)
- 107              		.loc 1 201 0
- 108 0078 1B4B     		ldr	r3, .L19+32
- 109 007a 9842     		cmp	r0, r3
- 110 007c 06D1     		bne	.L11
- 111              	.L15:
+ 109              		.loc 1 201 0
+ 110 0078 1B4B     		ldr	r3, .L19+32
+ 111 007a 9842     		cmp	r0, r3
+ 112 007c 06D1     		bne	.L11
+ 113              	.L15:
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA2 Channel2 */
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA2->IFCR |= DMA2_CHANNEL2_IT_MASK;
- 112              		.loc 1 204 0
- 113 007e 53F8182C 		ldr	r2, [r3, #-24]
- 114 0082 42F0F002 		orr	r2, r2, #240
- 115 0086 43F8182C 		str	r2, [r3, #-24]
- 116 008a 7047     		bx	lr
- 117              	.L11:
+ 114              		.loc 1 204 0
+ 115 007e 53F8182C 		ldr	r2, [r3, #-24]
+ 116 0082 42F0F002 		orr	r2, r2, #240
+ 117 0086 43F8182C 		str	r2, [r3, #-24]
+ 118 008a 7047     		bx	lr
+ 119              	.L11:
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA2_Channel3)
- 118              		.loc 1 206 0
- 119 008c 174B     		ldr	r3, .L19+36
- 120 008e 9842     		cmp	r0, r3
- 121 0090 06D1     		bne	.L12
- 122              	.L16:
+ 120              		.loc 1 206 0
+ 121 008c 174B     		ldr	r3, .L19+36
+ 122 008e 9842     		cmp	r0, r3
+ 123 0090 06D1     		bne	.L12
+ 124              	.L16:
  207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA2 Channel3 */
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA2->IFCR |= DMA2_CHANNEL3_IT_MASK;
- 123              		.loc 1 209 0
- 124 0092 53F82C2C 		ldr	r2, [r3, #-44]
- 125 0096 42F47062 		orr	r2, r2, #3840
- 126 009a 43F82C2C 		str	r2, [r3, #-44]
- 127 009e 7047     		bx	lr
- 128              	.L12:
+ 125              		.loc 1 209 0
+ 126 0092 53F82C2C 		ldr	r2, [r3, #-44]
+ 127 0096 42F47062 		orr	r2, r2, #3840
+ 128 009a 43F82C2C 		str	r2, [r3, #-44]
+ 129 009e 7047     		bx	lr
+ 130              	.L12:
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else if (DMAy_Channelx == DMA2_Channel4)
- 129              		.loc 1 211 0
- 130 00a0 134B     		ldr	r3, .L19+40
- 131 00a2 9842     		cmp	r0, r3
- 132 00a4 06D1     		bne	.L13
- 133              	.L17:
+ 131              		.loc 1 211 0
+ 132 00a0 134B     		ldr	r3, .L19+40
+ 133 00a2 9842     		cmp	r0, r3
+ 134 00a4 06D1     		bne	.L13
+ 135              	.L17:
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   {
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     /* Reset interrupt pending bits for DMA2 Channel4 */
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     DMA2->IFCR |= DMA2_CHANNEL4_IT_MASK;
- 134              		.loc 1 214 0
- 135 00a6 53F8402C 		ldr	r2, [r3, #-64]
- 136 00aa 42F47042 		orr	r2, r2, #61440
- 137 00ae 43F8402C 		str	r2, [r3, #-64]
- 138 00b2 7047     		bx	lr
- 139              	.L13:
+ 136              		.loc 1 214 0
+ 137 00a6 53F8402C 		ldr	r2, [r3, #-64]
+ 138 00aa 42F47042 		orr	r2, r2, #61440
+ 139 00ae 43F8402C 		str	r2, [r3, #-64]
+ 140 00b2 7047     		bx	lr
+ 141              	.L13:
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   else
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   { 
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     if (DMAy_Channelx == DMA2_Channel5)
- 140              		.loc 1 218 0
- 141 00b4 0F4B     		ldr	r3, .L19+44
- 142 00b6 9842     		cmp	r0, r3
- 143 00b8 05D1     		bne	.L1
- 144              	.L18:
+ 142              		.loc 1 218 0
+ 143 00b4 0F4B     		ldr	r3, .L19+44
+ 144 00b6 9842     		cmp	r0, r3
+ 145 00b8 05D1     		bne	.L1
+ 146              	.L18:
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     {
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****       /* Reset interrupt pending bits for DMA2 Channel5 */
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****       DMA2->IFCR |= DMA2_CHANNEL5_IT_MASK;
- 145              		.loc 1 221 0
- 146 00ba 53F8542C 		ldr	r2, [r3, #-84]
- 147 00be 42F47022 		orr	r2, r2, #983040
- 148 00c2 43F8542C 		str	r2, [r3, #-84]
- 149              	.L1:
- 150 00c6 7047     		bx	lr
- 151              	.L20:
- 152              		.align	2
- 153              	.L19:
- 154 00c8 08000240 		.word	1073872904
- 155 00cc 1C000240 		.word	1073872924
- 156 00d0 30000240 		.word	1073872944
- 157 00d4 44000240 		.word	1073872964
- 158 00d8 58000240 		.word	1073872984
- 159 00dc 6C000240 		.word	1073873004
- 160 00e0 80000240 		.word	1073873024
- 161 00e4 08040240 		.word	1073873928
- 162 00e8 1C040240 		.word	1073873948
- 163 00ec 30040240 		.word	1073873968
- 164 00f0 44040240 		.word	1073873988
- 165 00f4 58040240 		.word	1073874008
- 166              		.cfi_endproc
- 167              	.LFE111:
- 169              		.align	1
- 170              		.global	DMA_Init
- 171              		.thumb
- 172              		.thumb_func
- 174              	DMA_Init:
- 175              	.LFB112:
+ 147              		.loc 1 221 0
+ 148 00ba 53F8542C 		ldr	r2, [r3, #-84]
+ 149 00be 42F47022 		orr	r2, r2, #983040
+ 150 00c2 43F8542C 		str	r2, [r3, #-84]
+ 151              	.L1:
+ 152 00c6 7047     		bx	lr
+ 153              	.L20:
+ 154              		.align	2
+ 155              	.L19:
+ 156 00c8 08000240 		.word	1073872904
+ 157 00cc 1C000240 		.word	1073872924
+ 158 00d0 30000240 		.word	1073872944
+ 159 00d4 44000240 		.word	1073872964
+ 160 00d8 58000240 		.word	1073872984
+ 161 00dc 6C000240 		.word	1073873004
+ 162 00e0 80000240 		.word	1073873024
+ 163 00e4 08040240 		.word	1073873928
+ 164 00e8 1C040240 		.word	1073873948
+ 165 00ec 30040240 		.word	1073873968
+ 166 00f0 44040240 		.word	1073873988
+ 167 00f4 58040240 		.word	1073874008
+ 168              		.cfi_endproc
+ 169              	.LFE111:
+ 171              		.align	1
+ 172              		.global	DMA_Init
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	DMA_Init:
+ 177              	.LFB112:
  222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****     }
  223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   }
  224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** }
@@ -406,18 +408,18 @@
  234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   */
  235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** void DMA_Init(DMA_Channel_TypeDef* DMAy_Channelx, DMA_InitTypeDef* DMA_InitStruct)
  236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** {
- 176              		.loc 1 236 0
- 177              		.cfi_startproc
- 178              		@ args = 0, pretend = 0, frame = 0
- 179              		@ frame_needed = 0, uses_anonymous_args = 0
- 180              	.LVL1:
- 181 00f8 70B5     		push	{r4, r5, r6, lr}
- 182              	.LCFI0:
- 183              		.cfi_def_cfa_offset 16
- 184              		.cfi_offset 4, -16
- 185              		.cfi_offset 5, -12
- 186              		.cfi_offset 6, -8
- 187              		.cfi_offset 14, -4
+ 178              		.loc 1 236 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              	.LVL1:
+ 183 00f8 70B5     		push	{r4, r5, r6, lr}
+ 184              	.LCFI0:
+ 185              		.cfi_def_cfa_offset 16
+ 186              		.cfi_offset 4, -16
+ 187              		.cfi_offset 5, -12
+ 188              		.cfi_offset 6, -8
+ 189              		.cfi_offset 14, -4
  237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   uint32_t tmpreg = 0;
  238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c **** 
  239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Check the parameters */
@@ -448,48 +450,45 @@
  264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Set PL bits according to DMA_Priority value */
  265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   /* Set the MEM2MEM bit according to DMA_M2M value */
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg |= DMA_InitStruct->DMA_DIR | DMA_InitStruct->DMA_Mode |
- 188              		.loc 1 266 0
- 189 00fa 8C68     		ldr	r4, [r1, #8]
- 190 00fc 0D6A     		ldr	r5, [r1, #32]
+ 190              		.loc 1 266 0
+ 191 00fa 8C68     		ldr	r4, [r1, #8]
+ 192 00fc 0D6A     		ldr	r5, [r1, #32]
  252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg = DMAy_Channelx->CCR;
- 191              		.loc 1 252 0
- 192 00fe 0668     		ldr	r6, [r0, #0]
- 193              	.LVL2:
- 194              		.loc 1 266 0
- 195 0100 45EA0402 		orr	r2, r5, r4
- 196 0104 0C69     		ldr	r4, [r1, #16]
+ 193              		.loc 1 252 0
+ 194 00fe 0668     		ldr	r6, [r0, #0]
+ 195              	.LVL2:
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralDataSize | DMA_InitStruct->DMA_MemoryDataSize |
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_Priority | DMA_InitStruct->DMA_M2M;
- 197              		.loc 1 269 0
- 198 0106 8B6A     		ldr	r3, [r1, #40]
+ 196              		.loc 1 269 0
+ 197 0100 8B6A     		ldr	r3, [r1, #40]
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg |= DMA_InitStruct->DMA_DIR | DMA_InitStruct->DMA_Mode |
- 199              		.loc 1 266 0
- 200 0108 2243     		orrs	r2, r2, r4
+ 198              		.loc 1 266 0
+ 199 0102 45EA0402 		orr	r2, r5, r4
+ 200 0106 0C69     		ldr	r4, [r1, #16]
+ 201 0108 2243     		orrs	r2, r2, r4
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
- 201              		.loc 1 267 0
- 202 010a 4C69     		ldr	r4, [r1, #20]
+ 202              		.loc 1 267 0
+ 203 010a 4C69     		ldr	r4, [r1, #20]
+ 204 010c 2243     		orrs	r2, r2, r4
+ 205 010e 8C69     		ldr	r4, [r1, #24]
+ 206 0110 2243     		orrs	r2, r2, r4
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralDataSize | DMA_InitStruct->DMA_MemoryDataSize |
+ 207              		.loc 1 268 0
+ 208 0112 CC69     		ldr	r4, [r1, #28]
+ 209 0114 1443     		orrs	r4, r4, r2
+ 210 0116 4A6A     		ldr	r2, [r1, #36]
  255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg &= CCR_CLEAR_MASK;
- 203              		.loc 1 255 0
- 204 010c 26F4FF46 		bic	r6, r6, #32640
- 205              	.LVL3:
- 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
- 206              		.loc 1 267 0
- 207 0110 2243     		orrs	r2, r2, r4
- 208 0112 8C69     		ldr	r4, [r1, #24]
- 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg &= CCR_CLEAR_MASK;
- 209              		.loc 1 255 0
- 210 0114 26F07006 		bic	r6, r6, #112
- 211              	.LVL4:
- 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
- 212              		.loc 1 267 0
- 213 0118 2243     		orrs	r2, r2, r4
+ 211              		.loc 1 255 0
+ 212 0118 26F4FF46 		bic	r6, r6, #32640
+ 213              	.LVL3:
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****             DMA_InitStruct->DMA_PeripheralDataSize | DMA_InitStruct->DMA_MemoryDataSize |
  214              		.loc 1 268 0
- 215 011a CC69     		ldr	r4, [r1, #28]
- 216 011c 1443     		orrs	r4, r4, r2
- 217 011e 4A6A     		ldr	r2, [r1, #36]
- 218 0120 2243     		orrs	r2, r2, r4
+ 215 011c 2243     		orrs	r2, r2, r4
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg &= CCR_CLEAR_MASK;
+ 216              		.loc 1 255 0
+ 217 011e 26F07006 		bic	r6, r6, #112
+ 218              	.LVL4:
  219              		.loc 1 269 0
  220 0122 1343     		orrs	r3, r3, r2
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dma.c ****   tmpreg |= DMA_InitStruct->DMA_DIR | DMA_InitStruct->DMA_Mode |
@@ -1357,31 +1356,31 @@
  523              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_dma.c
-     /tmp/ccNhQyt1.s:18     .text:00000000 $t
-     /tmp/ccNhQyt1.s:23     .text:00000000 DMA_DeInit
-     /tmp/ccNhQyt1.s:154    .text:000000c8 $d
-     /tmp/ccNhQyt1.s:169    .text:000000f8 $t
-     /tmp/ccNhQyt1.s:174    .text:000000f8 DMA_Init
-     /tmp/ccNhQyt1.s:245    .text:00000136 DMA_StructInit
-     /tmp/ccNhQyt1.s:285    .text:00000150 DMA_Cmd
-     /tmp/ccNhQyt1.s:315    .text:00000166 DMA_SetCurrDataCounter
-     /tmp/ccNhQyt1.s:334    .text:0000016a DMA_GetCurrDataCounter
-     /tmp/ccNhQyt1.s:356    .text:00000170 DMA_ITConfig
-     /tmp/ccNhQyt1.s:388    .text:00000180 DMA_GetFlagStatus
-     /tmp/ccNhQyt1.s:416    .text:00000194 $d
-     /tmp/ccNhQyt1.s:421    .text:0000019c $t
-     /tmp/ccNhQyt1.s:426    .text:0000019c DMA_ClearFlag
-     /tmp/ccNhQyt1.s:446    .text:000001a8 $d
-     /tmp/ccNhQyt1.s:451    .text:000001b0 $t
-     /tmp/ccNhQyt1.s:456    .text:000001b0 DMA_GetITStatus
-     /tmp/ccNhQyt1.s:484    .text:000001c4 $d
-     /tmp/ccNhQyt1.s:489    .text:000001cc $t
-     /tmp/ccNhQyt1.s:494    .text:000001cc DMA_ClearITPendingBit
-     /tmp/ccNhQyt1.s:514    .text:000001d8 $d
+     /tmp/ccUHC8X1.s:20     .text:00000000 $t
+     /tmp/ccUHC8X1.s:25     .text:00000000 DMA_DeInit
+     /tmp/ccUHC8X1.s:156    .text:000000c8 $d
+     /tmp/ccUHC8X1.s:171    .text:000000f8 $t
+     /tmp/ccUHC8X1.s:176    .text:000000f8 DMA_Init
+     /tmp/ccUHC8X1.s:245    .text:00000136 DMA_StructInit
+     /tmp/ccUHC8X1.s:285    .text:00000150 DMA_Cmd
+     /tmp/ccUHC8X1.s:315    .text:00000166 DMA_SetCurrDataCounter
+     /tmp/ccUHC8X1.s:334    .text:0000016a DMA_GetCurrDataCounter
+     /tmp/ccUHC8X1.s:356    .text:00000170 DMA_ITConfig
+     /tmp/ccUHC8X1.s:388    .text:00000180 DMA_GetFlagStatus
+     /tmp/ccUHC8X1.s:416    .text:00000194 $d
+     /tmp/ccUHC8X1.s:421    .text:0000019c $t
+     /tmp/ccUHC8X1.s:426    .text:0000019c DMA_ClearFlag
+     /tmp/ccUHC8X1.s:446    .text:000001a8 $d
+     /tmp/ccUHC8X1.s:451    .text:000001b0 $t
+     /tmp/ccUHC8X1.s:456    .text:000001b0 DMA_GetITStatus
+     /tmp/ccUHC8X1.s:484    .text:000001c4 $d
+     /tmp/ccUHC8X1.s:489    .text:000001cc $t
+     /tmp/ccUHC8X1.s:494    .text:000001cc DMA_ClearITPendingBit
+     /tmp/ccUHC8X1.s:514    .text:000001d8 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

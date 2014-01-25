@@ -50,7 +50,7 @@ all: STM32F3_Vertibot.elf secondary-outputs
 STM32F3_Vertibot.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Summon Linux GCC C Linker'
-	arm-none-eabi-gcc -T""/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/LinkerScript/STM32F303VC_FLASH.ld"" -nostartfiles -Xlinker --gc-sections -Wl,-Map,STM32F3_Vertibot.map -mcpu=cortex-m3 -mthumb -g3 -gdwarf-2 -o "STM32F3_Vertibot.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -T""/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/LinkerScript/STM32F303VC_FLASH.ld"" -nostartfiles -Xlinker --gc-sections -Wl,-Map,STM32F3_Vertibot.map -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g3 -gdwarf-2 -o "STM32F3_Vertibot.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

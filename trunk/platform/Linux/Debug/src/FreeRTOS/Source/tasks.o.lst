@@ -1,26 +1,28 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"tasks.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.thumb
-  20              		.thumb_func
-  22              	prvAddCurrentTaskToDelayedList:
-  23              	.LFB29:
-  24              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"tasks.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.thumb
+  22              		.thumb_func
+  24              	prvAddCurrentTaskToDelayedList:
+  25              	.LFB29:
+  26              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** /*
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c ****     FreeRTOS V7.4.0 - Copyright (C) 2013 Real Time Engineers Ltd.
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
@@ -2400,47 +2402,47 @@
 2377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** static void prvAddCurrentTaskToDelayedList( portTickType xTimeToWake )
 2379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
-  25              		.loc 1 2379 0
-  26              		.cfi_startproc
-  27              		@ args = 0, pretend = 0, frame = 0
-  28              		@ frame_needed = 0, uses_anonymous_args = 0
-  29              	.LVL0:
+  27              		.loc 1 2379 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
 2380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	/* The list item will be inserted in wake time order. */
 2381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentTCB->xGenericListItem ), xTimeToWake );
-  30              		.loc 1 2381 0
-  31 0000 0C4B     		ldr	r3, .L4
+  32              		.loc 1 2381 0
+  33 0000 0C4B     		ldr	r3, .L4
+  34 0002 1A68     		ldr	r2, [r3, #0]
 2379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
-  32              		.loc 1 2379 0
-  33 0002 10B5     		push	{r4, lr}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 4, -8
-  37              		.cfi_offset 14, -4
-  38              		.loc 1 2381 0
-  39 0004 1A68     		ldr	r2, [r3, #0]
-2379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
-  40              		.loc 1 2379 0
-  41 0006 0446     		mov	r4, r0
-  42              		.loc 1 2381 0
-  43 0008 5060     		str	r0, [r2, #4]
+  35              		.loc 1 2379 0
+  36 0004 10B5     		push	{r4, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 4, -8
+  40              		.cfi_offset 14, -4
+  41              		.loc 1 2381 0
+  42 0006 5060     		str	r0, [r2, #4]
 2382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	if( xTimeToWake < xTickCount )
-  44              		.loc 1 2383 0
-  45 000a 5A68     		ldr	r2, [r3, #4]
-  46 000c 9042     		cmp	r0, r2
-  47 000e 06D2     		bcs	.L2
-  48              	.LBB4:
-  49              	.LBB5:
+  43              		.loc 1 2383 0
+  44 0008 5A68     		ldr	r2, [r3, #4]
+  45 000a 9042     		cmp	r0, r2
+2379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
+  46              		.loc 1 2379 0
+  47 000c 0446     		mov	r4, r0
+  48              		.loc 1 2383 0
+  49 000e 06D2     		bcs	.L2
+  50              	.LBB4:
+  51              	.LBB5:
 2384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
 2385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		/* Wake time has overflowed.  Place this item in the overflow list. */
 2386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInsert( ( xList * ) pxOverflowDelayedTaskList, ( xListItem * ) &( pxCurrentTCB->xGenericList
-  50              		.loc 1 2386 0
-  51 0010 9868     		ldr	r0, [r3, #8]
-  52              	.LVL1:
-  53 0012 1968     		ldr	r1, [r3, #0]
-  54 0014 0431     		adds	r1, r1, #4
-  55              	.LBE5:
-  56              	.LBE4:
+  52              		.loc 1 2386 0
+  53 0010 9868     		ldr	r0, [r3, #8]
+  54              	.LVL1:
+  55 0012 1968     		ldr	r1, [r3, #0]
+  56 0014 0431     		adds	r1, r1, #4
+  57              	.LBE5:
+  58              	.LBE4:
 2387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
 2388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	else
 2389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
@@ -2456,101 +2458,101 @@
 2399:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		}
 2400:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
 2401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** }
-  57              		.loc 1 2401 0
-  58 0016 BDE81040 		pop	{r4, lr}
-  59              	.LBB7:
-  60              	.LBB6:
+  59              		.loc 1 2401 0
+  60 0016 BDE81040 		pop	{r4, lr}
+  61              	.LBB7:
+  62              	.LBB6:
 2386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInsert( ( xList * ) pxOverflowDelayedTaskList, ( xListItem * ) &( pxCurrentTCB->xGenericList
-  61              		.loc 1 2386 0
-  62 001a FFF7FEBF 		b	vListInsert
-  63              	.LVL2:
-  64              	.L2:
-  65              	.LBE6:
-  66              	.LBE7:
+  63              		.loc 1 2386 0
+  64 001a FFF7FEBF 		b	vListInsert
+  65              	.LVL2:
+  66              	.L2:
+  67              	.LBE6:
+  68              	.LBE7:
 2391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInsert( ( xList * ) pxDelayedTaskList, ( xListItem * ) &( pxCurrentTCB->xGenericListItem ) )
-  67              		.loc 1 2391 0
-  68 001e D868     		ldr	r0, [r3, #12]
-  69              	.LVL3:
-  70 0020 1968     		ldr	r1, [r3, #0]
-  71 0022 0431     		adds	r1, r1, #4
-  72 0024 FFF7FEFF 		bl	vListInsert
-  73              	.LVL4:
+  69              		.loc 1 2391 0
+  70 001e D868     		ldr	r0, [r3, #12]
+  71              	.LVL3:
+  72 0020 1968     		ldr	r1, [r3, #0]
+  73 0022 0431     		adds	r1, r1, #4
+  74 0024 FFF7FEFF 		bl	vListInsert
+  75              	.LVL4:
 2396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( xTimeToWake < xNextTaskUnblockTime )
-  74              		.loc 1 2396 0
-  75 0028 034B     		ldr	r3, .L4+4
-  76 002a 1A68     		ldr	r2, [r3, #0]
-  77 002c 9442     		cmp	r4, r2
+  76              		.loc 1 2396 0
+  77 0028 034B     		ldr	r3, .L4+4
+  78 002a 1A68     		ldr	r2, [r3, #0]
+  79 002c 9442     		cmp	r4, r2
 2398:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			xNextTaskUnblockTime = xTimeToWake;
-  78              		.loc 1 2398 0
-  79 002e 38BF     		it	cc
-  80 0030 1C60     		strcc	r4, [r3, #0]
-  81 0032 10BD     		pop	{r4, pc}
-  82              	.L5:
-  83              		.align	2
-  84              	.L4:
-  85 0034 00000000 		.word	.LANCHOR0
-  86 0038 00000000 		.word	.LANCHOR1
-  87              		.cfi_endproc
-  88              	.LFE29:
-  90              		.align	1
-  91              		.global	xTaskGenericCreate
-  92              		.thumb
-  93              		.thumb_func
-  95              	xTaskGenericCreate:
-  96              	.LFB0:
+  80              		.loc 1 2398 0
+  81 002e 38BF     		it	cc
+  82 0030 1C60     		strcc	r4, [r3, #0]
+  83 0032 10BD     		pop	{r4, pc}
+  84              	.L5:
+  85              		.align	2
+  86              	.L4:
+  87 0034 00000000 		.word	.LANCHOR0
+  88 0038 00000000 		.word	.LANCHOR1
+  89              		.cfi_endproc
+  90              	.LFE29:
+  92              		.align	1
+  93              		.global	xTaskGenericCreate
+  94              		.thumb
+  95              		.thumb_func
+  97              	xTaskGenericCreate:
+  98              	.LFB0:
  495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
-  97              		.loc 1 495 0
-  98              		.cfi_startproc
-  99              		@ args = 16, pretend = 0, frame = 0
- 100              		@ frame_needed = 0, uses_anonymous_args = 0
- 101              	.LVL5:
- 102 003c 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 103              	.LCFI1:
- 104              		.cfi_def_cfa_offset 40
- 105              		.cfi_offset 3, -40
- 106              		.cfi_offset 4, -36
- 107              		.cfi_offset 5, -32
- 108              		.cfi_offset 6, -28
- 109              		.cfi_offset 7, -24
- 110              		.cfi_offset 8, -20
- 111              		.cfi_offset 9, -16
- 112              		.cfi_offset 10, -12
- 113              		.cfi_offset 11, -8
- 114              		.cfi_offset 14, -4
+  99              		.loc 1 495 0
+ 100              		.cfi_startproc
+ 101              		@ args = 16, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              	.LVL5:
+ 104 003c 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 40
+ 107              		.cfi_offset 3, -40
+ 108              		.cfi_offset 4, -36
+ 109              		.cfi_offset 5, -32
+ 110              		.cfi_offset 6, -28
+ 111              		.cfi_offset 7, -24
+ 112              		.cfi_offset 8, -20
+ 113              		.cfi_offset 9, -16
+ 114              		.cfi_offset 10, -12
+ 115              		.cfi_offset 11, -8
+ 116              		.cfi_offset 14, -4
  495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
- 115              		.loc 1 495 0
- 116 0040 0A9E     		ldr	r6, [sp, #40]
- 117 0042 8846     		mov	r8, r1
- 118 0044 1746     		mov	r7, r2
- 119 0046 9B46     		mov	fp, r3
- 120 0048 DDF82C90 		ldr	r9, [sp, #44]
- 121 004c 0C9D     		ldr	r5, [sp, #48]
+ 117              		.loc 1 495 0
+ 118 0040 0A9E     		ldr	r6, [sp, #40]
+ 119 0042 DDF82C90 		ldr	r9, [sp, #44]
+ 120 0046 0C9D     		ldr	r5, [sp, #48]
+ 121 0048 8846     		mov	r8, r1
+ 122 004a 1746     		mov	r7, r2
+ 123 004c 9B46     		mov	fp, r3
  499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	configASSERT( pxTaskCode );
- 122              		.loc 1 499 0
- 123 004e 8246     		mov	sl, r0
- 124 0050 10B9     		cbnz	r0, .L7
+ 124              		.loc 1 499 0
+ 125 004e 8246     		mov	sl, r0
+ 126 0050 10B9     		cbnz	r0, .L7
  499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	configASSERT( pxTaskCode );
- 125              		.loc 1 499 0 is_stmt 0 discriminator 1
- 126 0052 FFF7FEFF 		bl	ulPortSetInterruptMask
- 127              	.LVL6:
- 128              	.L8:
- 129 0056 FEE7     		b	.L8
- 130              	.LVL7:
- 131              	.L7:
+ 127              		.loc 1 499 0 is_stmt 0 discriminator 1
+ 128 0052 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 129              	.LVL6:
+ 130              	.L8:
+ 131 0056 FEE7     		b	.L8
+ 132              	.LVL7:
+ 133              	.L7:
  500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	configASSERT( ( ( uxPriority & ( ~portPRIVILEGE_BIT ) ) < configMAX_PRIORITIES ) );
- 132              		.loc 1 500 0 is_stmt 1
- 133 0058 042E     		cmp	r6, #4
- 134 005a 02D9     		bls	.L9
+ 134              		.loc 1 500 0 is_stmt 1
+ 135 0058 042E     		cmp	r6, #4
+ 136 005a 02D9     		bls	.L9
  500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	configASSERT( ( ( uxPriority & ( ~portPRIVILEGE_BIT ) ) < configMAX_PRIORITIES ) );
- 135              		.loc 1 500 0 is_stmt 0 discriminator 1
- 136 005c FFF7FEFF 		bl	ulPortSetInterruptMask
- 137              	.LVL8:
- 138              	.L10:
- 139 0060 FEE7     		b	.L10
- 140              	.LVL9:
- 141              	.L9:
- 142              	.LBB15:
- 143              	.LBB16:
+ 137              		.loc 1 500 0 is_stmt 0 discriminator 1
+ 138 005c FFF7FEFF 		bl	ulPortSetInterruptMask
+ 139              	.LVL8:
+ 140              	.L10:
+ 141 0060 FEE7     		b	.L10
+ 142              	.LVL9:
+ 143              	.L9:
+ 144              	.LBB15:
+ 145              	.LBB16:
 2402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** /*-----------------------------------------------------------*/
 2403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** static tskTCB *prvAllocateTCBAndStack( unsigned short usStackDepth, portSTACK_TYPE *puxStackBuffer 
@@ -2560,972 +2562,968 @@
 2408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	/* Allocate space for the TCB.  Where the memory comes from depends on
 2409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	the implementation of the port malloc function. */
 2410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	pxNewTCB = ( tskTCB * ) pvPortMalloc( sizeof( tskTCB ) );
- 144              		.loc 1 2410 0 is_stmt 1
- 145 0062 4420     		movs	r0, #68
- 146              	.LVL10:
- 147 0064 FFF7FEFF 		bl	pvPortMalloc
- 148              	.LVL11:
+ 146              		.loc 1 2410 0 is_stmt 1
+ 147 0062 4420     		movs	r0, #68
+ 148              	.LVL10:
+ 149 0064 FFF7FEFF 		bl	pvPortMalloc
+ 150              	.LVL11:
 2411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	if( pxNewTCB != NULL )
- 149              		.loc 1 2412 0
- 150 0068 0446     		mov	r4, r0
- 151 006a 0028     		cmp	r0, #0
- 152 006c 00F0A480 		beq	.L11
+ 151              		.loc 1 2412 0
+ 152 0068 0446     		mov	r4, r0
+ 153 006a 0028     		cmp	r0, #0
+ 154 006c 00F0A480 		beq	.L11
 2413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
 2414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		/* Allocate space for the stack used by the task being created.
 2415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		The base of the stack memory stored in the TCB so the task can
 2416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		be deleted later if required. */
 2417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		pxNewTCB->pxStack = ( portSTACK_TYPE * ) pvPortMallocAligned( ( ( ( size_t )usStackDepth ) * size
- 153              		.loc 1 2417 0
- 154 0070 1DB9     		cbnz	r5, .L12
- 155 0072 B800     		lsls	r0, r7, #2
- 156              	.LVL12:
- 157 0074 FFF7FEFF 		bl	pvPortMalloc
- 158              	.LVL13:
- 159 0078 0546     		mov	r5, r0
- 160              	.LVL14:
- 161              	.L12:
- 162 007a 2563     		str	r5, [r4, #48]
+ 155              		.loc 1 2417 0
+ 156 0070 1DB9     		cbnz	r5, .L12
+ 157 0072 B800     		lsls	r0, r7, #2
+ 158              	.LVL12:
+ 159 0074 FFF7FEFF 		bl	pvPortMalloc
+ 160              	.LVL13:
+ 161 0078 0546     		mov	r5, r0
+ 162              	.LVL14:
+ 163              	.L12:
+ 164 007a 2563     		str	r5, [r4, #48]
 2418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( pxNewTCB->pxStack == NULL )
- 163              		.loc 1 2419 0
- 164 007c 1DB9     		cbnz	r5, .L13
+ 165              		.loc 1 2419 0
+ 166 007c 1DB9     		cbnz	r5, .L13
 2420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			/* Could not allocate the stack.  Delete the allocated TCB. */
 2422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			vPortFree( pxNewTCB );
- 165              		.loc 1 2422 0
- 166 007e 2046     		mov	r0, r4
- 167 0080 FFF7FEFF 		bl	vPortFree
- 168              	.LVL15:
- 169 0084 98E0     		b	.L11
- 170              	.LVL16:
- 171              	.L13:
+ 167              		.loc 1 2422 0
+ 168 007e 2046     		mov	r0, r4
+ 169 0080 FFF7FEFF 		bl	vPortFree
+ 170              	.LVL15:
+ 171 0084 98E0     		b	.L11
+ 172              	.LVL16:
+ 173              	.L13:
 2423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxNewTCB = NULL;
 2424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		}
 2425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		else
 2426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			/* Just to help debugging. */
 2428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			memset( pxNewTCB->pxStack, ( int ) tskSTACK_FILL_BYTE, ( size_t ) usStackDepth * sizeof( portSTA
- 172              		.loc 1 2428 0
- 173 0086 BA00     		lsls	r2, r7, #2
- 174 0088 A521     		movs	r1, #165
- 175 008a 2846     		mov	r0, r5
- 176 008c FFF7FEFF 		bl	memset
- 177              	.LVL17:
- 178              	.LBE16:
- 179              	.LBE15:
- 180              	.LBB17:
+ 174              		.loc 1 2428 0
+ 175 0086 BA00     		lsls	r2, r7, #2
+ 176 0088 A521     		movs	r1, #165
+ 177 008a 2846     		mov	r0, r5
+ 178 008c FFF7FEFF 		bl	memset
+ 179              	.LVL17:
+ 180              	.LBE16:
+ 181              	.LBE15:
+ 182              	.LBB17:
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTopOfStack = pxNewTCB->pxStack + ( usStackDepth - ( unsigned short ) 1 );
- 181              		.loc 1 530 0
- 182 0090 236B     		ldr	r3, [r4, #48]
- 183              	.LBB18:
- 184              	.LBB19:
+ 183              		.loc 1 530 0
+ 184 0090 236B     		ldr	r3, [r4, #48]
+ 185              	.LBB18:
+ 186              	.LBB19:
 2230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		strncpy( ( char * ) pxTCB->pcTaskName, ( const char * ) pcName, ( unsigned short ) configMAX_TASK
- 185              		.loc 1 2230 0
- 186 0092 4146     		mov	r1, r8
- 187 0094 0A22     		movs	r2, #10
- 188              	.LBE19:
- 189              	.LBE18:
+ 187              		.loc 1 2230 0
+ 188 0092 4146     		mov	r1, r8
+ 189 0094 0A22     		movs	r2, #10
+ 190              	.LBE19:
+ 191              	.LBE18:
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTopOfStack = pxNewTCB->pxStack + ( usStackDepth - ( unsigned short ) 1 );
- 190              		.loc 1 530 0
- 191 0096 013F     		subs	r7, r7, #1
- 192              	.LVL18:
- 193              	.LBB23:
- 194              	.LBB20:
+ 192              		.loc 1 530 0
+ 193 0096 013F     		subs	r7, r7, #1
+ 194              	.LVL18:
+ 195              	.LBB23:
+ 196              	.LBB20:
 2230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		strncpy( ( char * ) pxTCB->pcTaskName, ( const char * ) pcName, ( unsigned short ) configMAX_TASK
- 195              		.loc 1 2230 0
- 196 0098 04F13400 		add	r0, r4, #52
- 197              	.LBE20:
- 198              	.LBE23:
+ 197              		.loc 1 2230 0
+ 198 0098 04F13400 		add	r0, r4, #52
+ 199              	.LBE20:
+ 200              	.LBE23:
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTopOfStack = pxNewTCB->pxStack + ( usStackDepth - ( unsigned short ) 1 );
- 199              		.loc 1 530 0
- 200 009c 03EB8707 		add	r7, r3, r7, lsl #2
- 201              	.LVL19:
- 202              	.LBB24:
- 203              	.LBB21:
+ 201              		.loc 1 530 0
+ 202 009c 03EB8707 		add	r7, r3, r7, lsl #2
+ 203              	.LVL19:
+ 204              	.LBB24:
+ 205              	.LBB21:
 2249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialiseItem( &( pxTCB->xGenericListItem ) );
- 204              		.loc 1 2249 0
- 205 00a0 04F10408 		add	r8, r4, #4
- 206              	.LVL20:
+ 206              		.loc 1 2249 0
+ 207 00a0 04F10408 		add	r8, r4, #4
+ 208              	.LVL20:
 2230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		strncpy( ( char * ) pxTCB->pcTaskName, ( const char * ) pcName, ( unsigned short ) configMAX_TASK
- 207              		.loc 1 2230 0
- 208 00a4 FFF7FEFF 		bl	strncpy
- 209              	.LVL21:
+ 209              		.loc 1 2230 0
+ 210 00a4 FFF7FEFF 		bl	strncpy
+ 211              	.LVL21:
 2233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	pxTCB->pcTaskName[ ( unsigned short ) configMAX_TASK_NAME_LEN - ( unsigned short ) 1 ] = ( signed 
- 210              		.loc 1 2233 0
- 211 00a8 0023     		movs	r3, #0
- 212 00aa 84F83D30 		strb	r3, [r4, #61]
+ 212              		.loc 1 2233 0
+ 213 00a8 0023     		movs	r3, #0
+ 214 00aa 84F83D30 		strb	r3, [r4, #61]
 2249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialiseItem( &( pxTCB->xGenericListItem ) );
- 213              		.loc 1 2249 0
- 214 00ae 4046     		mov	r0, r8
+ 215              		.loc 1 2249 0
+ 216 00ae 4046     		mov	r0, r8
 2242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	pxTCB->uxPriority = uxPriority;
- 215              		.loc 1 2242 0
- 216 00b0 E662     		str	r6, [r4, #44]
+ 217              		.loc 1 2242 0
+ 218 00b0 E662     		str	r6, [r4, #44]
 2245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		pxTCB->uxBasePriority = uxPriority;
- 217              		.loc 1 2245 0
- 218 00b2 2664     		str	r6, [r4, #64]
+ 219              		.loc 1 2245 0
+ 220 00b2 2664     		str	r6, [r4, #64]
 2249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialiseItem( &( pxTCB->xGenericListItem ) );
- 219              		.loc 1 2249 0
- 220 00b4 FFF7FEFF 		bl	vListInitialiseItem
- 221              	.LVL22:
+ 221              		.loc 1 2249 0
+ 222 00b4 FFF7FEFF 		bl	vListInitialiseItem
+ 223              	.LVL22:
 2250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialiseItem( &( pxTCB->xEventListItem ) );
- 222              		.loc 1 2250 0
- 223 00b8 04F11800 		add	r0, r4, #24
- 224 00bc FFF7FEFF 		bl	vListInitialiseItem
- 225              	.LVL23:
- 226              	.LBE21:
- 227              	.LBE24:
+ 224              		.loc 1 2250 0
+ 225 00b8 04F11800 		add	r0, r4, #24
+ 226 00bc FFF7FEFF 		bl	vListInitialiseItem
+ 227              	.LVL23:
+ 228              	.LBE21:
+ 229              	.LBE24:
  531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTopOfStack = ( portSTACK_TYPE * ) ( ( ( portPOINTER_SIZE_TYPE ) pxTopOfStack ) & ( ( portPOINT
- 228              		.loc 1 531 0
- 229 00c0 27F00707 		bic	r7, r7, #7
- 230              	.LVL24:
- 231              	.LBB25:
- 232              	.LBB22:
+ 230              		.loc 1 531 0
+ 231 00c0 27F00707 		bic	r7, r7, #7
+ 232              	.LVL24:
+ 233              	.LBB25:
+ 234              	.LBB22:
 2257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	listSET_LIST_ITEM_VALUE( &( pxTCB->xEventListItem ), configMAX_PRIORITIES - ( portTickType ) uxPri
- 233              		.loc 1 2257 0
- 234 00c4 C6F10503 		rsb	r3, r6, #5
- 235 00c8 A361     		str	r3, [r4, #24]
+ 235              		.loc 1 2257 0
+ 236 00c4 C6F10503 		rsb	r3, r6, #5
+ 237 00c8 A361     		str	r3, [r4, #24]
 2254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	listSET_LIST_ITEM_OWNER( &( pxTCB->xGenericListItem ), pxTCB );
- 236              		.loc 1 2254 0
- 237 00ca 2461     		str	r4, [r4, #16]
+ 238              		.loc 1 2254 0
+ 239 00ca 2461     		str	r4, [r4, #16]
 2258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	listSET_LIST_ITEM_OWNER( &( pxTCB->xEventListItem ), pxTCB );
- 238              		.loc 1 2258 0
- 239 00cc 6462     		str	r4, [r4, #36]
- 240              	.LBE22:
- 241              	.LBE25:
+ 240              		.loc 1 2258 0
+ 241 00cc 6462     		str	r4, [r4, #36]
+ 242              	.LBE22:
+ 243              	.LBE25:
  563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxNewTCB->pxTopOfStack = pxPortInitialiseStack( pxTopOfStack, pxTaskCode, pvParameters );
- 242              		.loc 1 563 0
- 243 00ce 3846     		mov	r0, r7
- 244 00d0 5146     		mov	r1, sl
- 245 00d2 5A46     		mov	r2, fp
- 246 00d4 FFF7FEFF 		bl	pxPortInitialiseStack
- 247              	.LVL25:
+ 244              		.loc 1 563 0
+ 245 00ce 3846     		mov	r0, r7
+ 246 00d0 5146     		mov	r1, sl
+ 247 00d2 5A46     		mov	r2, fp
+ 248 00d4 FFF7FEFF 		bl	pxPortInitialiseStack
+ 249              	.LVL25:
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		portALIGNMENT_ASSERT_pxCurrentTCB( ( ( ( unsigned long ) pxNewTCB->pxTopOfStack & ( unsigned long
- 248              		.loc 1 568 0
- 249 00d8 4307     		lsls	r3, r0, #29
+ 250              		.loc 1 568 0
+ 251 00d8 4307     		lsls	r3, r0, #29
  563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxNewTCB->pxTopOfStack = pxPortInitialiseStack( pxTopOfStack, pxTaskCode, pvParameters );
- 250              		.loc 1 563 0
- 251 00da 2060     		str	r0, [r4, #0]
+ 252              		.loc 1 563 0
+ 253 00da 2060     		str	r0, [r4, #0]
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		portALIGNMENT_ASSERT_pxCurrentTCB( ( ( ( unsigned long ) pxNewTCB->pxTopOfStack & ( unsigned long
- 252              		.loc 1 568 0
- 253 00dc 02D0     		beq	.L14
+ 254              		.loc 1 568 0
+ 255 00dc 02D0     		beq	.L14
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		portALIGNMENT_ASSERT_pxCurrentTCB( ( ( ( unsigned long ) pxNewTCB->pxTopOfStack & ( unsigned long
- 254              		.loc 1 568 0 is_stmt 0 discriminator 1
- 255 00de FFF7FEFF 		bl	ulPortSetInterruptMask
- 256              	.LVL26:
- 257              	.L15:
- 258 00e2 FEE7     		b	.L15
- 259              	.L14:
+ 256              		.loc 1 568 0 is_stmt 0 discriminator 1
+ 257 00de FFF7FEFF 		bl	ulPortSetInterruptMask
+ 258              	.LVL26:
+ 259              	.L15:
+ 260 00e2 FEE7     		b	.L15
+ 261              	.L14:
  570:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( ( void * ) pxCreatedTask != NULL )
- 260              		.loc 1 570 0 is_stmt 1
- 261 00e4 B9F1000F 		cmp	r9, #0
- 262 00e8 01D0     		beq	.L16
+ 262              		.loc 1 570 0 is_stmt 1
+ 263 00e4 B9F1000F 		cmp	r9, #0
+ 264 00e8 01D0     		beq	.L16
  575:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			*pxCreatedTask = ( xTaskHandle ) pxNewTCB;
- 263              		.loc 1 575 0
- 264 00ea C9F80040 		str	r4, [r9, #0]
- 265              	.L16:
+ 265              		.loc 1 575 0
+ 266 00ea C9F80040 		str	r4, [r9, #0]
+ 267              	.L16:
  580:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskENTER_CRITICAL();
- 266              		.loc 1 580 0
- 267 00ee FFF7FEFF 		bl	vPortEnterCritical
- 268              	.LVL27:
+ 268              		.loc 1 580 0
+ 269 00ee FFF7FEFF 		bl	vPortEnterCritical
+ 270              	.LVL27:
  582:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			uxCurrentNumberOfTasks++;
- 269              		.loc 1 582 0
- 270 00f2 334B     		ldr	r3, .L35
- 271 00f4 1A69     		ldr	r2, [r3, #16]
- 272 00f6 0132     		adds	r2, r2, #1
- 273 00f8 1A61     		str	r2, [r3, #16]
+ 271              		.loc 1 582 0
+ 272 00f2 334B     		ldr	r3, .L35
+ 273 00f4 1A69     		ldr	r2, [r3, #16]
+ 274 00f6 0132     		adds	r2, r2, #1
+ 275 00f8 1A61     		str	r2, [r3, #16]
  583:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxCurrentTCB == NULL )
- 274              		.loc 1 583 0
- 275 00fa 1F68     		ldr	r7, [r3, #0]
- 276              	.LVL28:
- 277 00fc 4FBB     		cbnz	r7, .L17
+ 276              		.loc 1 583 0
+ 277 00fa 1F68     		ldr	r7, [r3, #0]
+ 278              	.LVL28:
+ 279 00fc 4FBB     		cbnz	r7, .L17
  587:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				pxCurrentTCB =  pxNewTCB;
- 278              		.loc 1 587 0
- 279 00fe 1C60     		str	r4, [r3, #0]
+ 280              		.loc 1 587 0
+ 281 00fe 1C60     		str	r4, [r3, #0]
  589:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( uxCurrentNumberOfTasks == ( unsigned portBASE_TYPE ) 1 )
- 280              		.loc 1 589 0
- 281 0100 1A69     		ldr	r2, [r3, #16]
- 282 0102 012A     		cmp	r2, #1
- 283 0104 2DD1     		bne	.L19
- 284              	.LBB26:
- 285              	.LBB27:
+ 282              		.loc 1 589 0
+ 283 0100 1A69     		ldr	r2, [r3, #16]
+ 284 0102 012A     		cmp	r2, #1
+ 285 0104 2DD1     		bne	.L19
+ 286              	.LBB26:
+ 287              	.LBB27:
 2317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInitialise( ( xList * ) &( pxReadyTasksLists[ uxPriority ] ) );
- 286              		.loc 1 2317 0
- 287 0106 03F11409 		add	r9, r3, #20
- 288 010a 4FF0140A 		mov	sl, #20
- 289              	.LVL29:
- 290              	.L18:
- 291 010e 0AFB0790 		mla	r0, sl, r7, r9
+ 288              		.loc 1 2317 0
+ 289 0106 03F11409 		add	r9, r3, #20
+ 290 010a 4FF0140A 		mov	sl, #20
+ 291              	.LVL29:
+ 292              	.L18:
+ 293 010e 0AFB0790 		mla	r0, sl, r7, r9
 2315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	for( uxPriority = ( unsigned portBASE_TYPE ) 0U; uxPriority < configMAX_PRIORITIES; uxPriority++ )
- 292              		.loc 1 2315 0
- 293 0112 0137     		adds	r7, r7, #1
+ 294              		.loc 1 2315 0
+ 295 0112 0137     		adds	r7, r7, #1
 2317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInitialise( ( xList * ) &( pxReadyTasksLists[ uxPriority ] ) );
- 294              		.loc 1 2317 0
- 295 0114 FFF7FEFF 		bl	vListInitialise
- 296              	.LVL30:
+ 296              		.loc 1 2317 0
+ 297 0114 FFF7FEFF 		bl	vListInitialise
+ 298              	.LVL30:
 2315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	for( uxPriority = ( unsigned portBASE_TYPE ) 0U; uxPriority < configMAX_PRIORITIES; uxPriority++ )
- 297              		.loc 1 2315 0
- 298 0118 052F     		cmp	r7, #5
+ 299              		.loc 1 2315 0
+ 300 0118 052F     		cmp	r7, #5
 2317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInitialise( ( xList * ) &( pxReadyTasksLists[ uxPriority ] ) );
- 299              		.loc 1 2317 0
- 300 011a 294D     		ldr	r5, .L35
+ 301              		.loc 1 2317 0
+ 302 011a 294D     		ldr	r5, .L35
 2315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	for( uxPriority = ( unsigned portBASE_TYPE ) 0U; uxPriority < configMAX_PRIORITIES; uxPriority++ )
- 301              		.loc 1 2315 0
- 302 011c F7D1     		bne	.L18
+ 303              		.loc 1 2315 0
+ 304 011c F7D1     		bne	.L18
 2320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialise( ( xList * ) &xDelayedTaskList1 );
- 303              		.loc 1 2320 0
- 304 011e 05F17809 		add	r9, r5, #120
- 305 0122 4846     		mov	r0, r9
+ 305              		.loc 1 2320 0
+ 306 011e 05F17809 		add	r9, r5, #120
+ 307 0122 4846     		mov	r0, r9
 2321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialise( ( xList * ) &xDelayedTaskList2 );
- 306              		.loc 1 2321 0
- 307 0124 05F18C07 		add	r7, r5, #140
- 308              	.LVL31:
+ 308              		.loc 1 2321 0
+ 309 0124 05F18C07 		add	r7, r5, #140
+ 310              	.LVL31:
 2320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialise( ( xList * ) &xDelayedTaskList1 );
- 309              		.loc 1 2320 0
- 310 0128 FFF7FEFF 		bl	vListInitialise
- 311              	.LVL32:
+ 311              		.loc 1 2320 0
+ 312 0128 FFF7FEFF 		bl	vListInitialise
+ 313              	.LVL32:
 2321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialise( ( xList * ) &xDelayedTaskList2 );
- 312              		.loc 1 2321 0
- 313 012c 3846     		mov	r0, r7
- 314 012e FFF7FEFF 		bl	vListInitialise
- 315              	.LVL33:
+ 314              		.loc 1 2321 0
+ 315 012c 3846     		mov	r0, r7
+ 316 012e FFF7FEFF 		bl	vListInitialise
+ 317              	.LVL33:
 2322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	vListInitialise( ( xList * ) &xPendingReadyList );
- 316              		.loc 1 2322 0
- 317 0132 05F1A000 		add	r0, r5, #160
- 318 0136 FFF7FEFF 		bl	vListInitialise
- 319              	.LVL34:
+ 318              		.loc 1 2322 0
+ 319 0132 05F1A000 		add	r0, r5, #160
+ 320 0136 FFF7FEFF 		bl	vListInitialise
+ 321              	.LVL34:
 2326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInitialise( ( xList * ) &xTasksWaitingTermination );
- 320              		.loc 1 2326 0
- 321 013a 05F1B400 		add	r0, r5, #180
- 322 013e FFF7FEFF 		bl	vListInitialise
- 323              	.LVL35:
+ 322              		.loc 1 2326 0
+ 323 013a 05F1B400 		add	r0, r5, #180
+ 324 013e FFF7FEFF 		bl	vListInitialise
+ 325              	.LVL35:
 2332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		vListInitialise( ( xList * ) &xSuspendedTaskList );
- 324              		.loc 1 2332 0
- 325 0142 05F1C800 		add	r0, r5, #200
- 326 0146 FFF7FEFF 		bl	vListInitialise
- 327              	.LVL36:
+ 326              		.loc 1 2332 0
+ 327 0142 05F1C800 		add	r0, r5, #200
+ 328 0146 FFF7FEFF 		bl	vListInitialise
+ 329              	.LVL36:
 2338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	pxDelayedTaskList = &xDelayedTaskList1;
- 328              		.loc 1 2338 0
- 329 014a C5F80C90 		str	r9, [r5, #12]
+ 330              		.loc 1 2338 0
+ 331 014a C5F80C90 		str	r9, [r5, #12]
 2339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	pxOverflowDelayedTaskList = &xDelayedTaskList2;
- 330              		.loc 1 2339 0
- 331 014e AF60     		str	r7, [r5, #8]
- 332 0150 07E0     		b	.L19
- 333              	.LVL37:
- 334              	.L17:
- 335              	.LBE27:
- 336              	.LBE26:
+ 332              		.loc 1 2339 0
+ 333 014e AF60     		str	r7, [r5, #8]
+ 334 0150 07E0     		b	.L19
+ 335              	.LVL37:
+ 336              	.L17:
+ 337              	.LBE27:
+ 338              	.LBE26:
  602:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( xSchedulerRunning == pdFALSE )
- 337              		.loc 1 602 0
- 338 0152 D3F8DC20 		ldr	r2, [r3, #220]
- 339 0156 22B9     		cbnz	r2, .L19
+ 339              		.loc 1 602 0
+ 340 0152 D3F8DC20 		ldr	r2, [r3, #220]
+ 341 0156 22B9     		cbnz	r2, .L19
  604:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( pxCurrentTCB->uxPriority <= uxPriority )
- 340              		.loc 1 604 0
- 341 0158 1A68     		ldr	r2, [r3, #0]
- 342 015a D26A     		ldr	r2, [r2, #44]
- 343 015c B242     		cmp	r2, r6
+ 342              		.loc 1 604 0
+ 343 0158 1A68     		ldr	r2, [r3, #0]
+ 344 015a D26A     		ldr	r2, [r2, #44]
+ 345 015c B242     		cmp	r2, r6
  606:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 						pxCurrentTCB = pxNewTCB;
- 344              		.loc 1 606 0
- 345 015e 98BF     		it	ls
- 346 0160 1C60     		strls	r4, [r3, #0]
- 347              	.LVL38:
- 348              	.L19:
+ 346              		.loc 1 606 0
+ 347 015e 98BF     		it	ls
+ 348 0160 1C60     		strls	r4, [r3, #0]
+ 349              	.LVL38:
+ 350              	.L19:
  613:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxNewTCB->uxPriority > uxTopUsedPriority )
- 349              		.loc 1 613 0
- 350 0162 174A     		ldr	r2, .L35
- 351 0164 E36A     		ldr	r3, [r4, #44]
- 352 0166 D2F8E010 		ldr	r1, [r2, #224]
+ 351              		.loc 1 613 0
+ 352 0162 174A     		ldr	r2, .L35
+ 353 0164 E36A     		ldr	r3, [r4, #44]
+ 354 0166 D2F8E010 		ldr	r1, [r2, #224]
  628:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			prvAddTaskToReadyQueue( pxNewTCB );
- 353              		.loc 1 628 0
- 354 016a 154C     		ldr	r4, .L35
- 355              	.LVL39:
+ 355              		.loc 1 628 0
+ 356 016a 154C     		ldr	r4, .L35
+ 357              	.LVL39:
  613:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxNewTCB->uxPriority > uxTopUsedPriority )
- 356              		.loc 1 613 0
- 357 016c 8B42     		cmp	r3, r1
+ 358              		.loc 1 613 0
+ 359 016c 8B42     		cmp	r3, r1
  618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			uxTaskNumber++;
- 358              		.loc 1 618 0
- 359 016e D2F8E410 		ldr	r1, [r2, #228]
+ 360              		.loc 1 618 0
+ 361 016e D2F8E410 		ldr	r1, [r2, #228]
  615:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				uxTopUsedPriority = pxNewTCB->uxPriority;
- 360              		.loc 1 615 0
- 361 0172 88BF     		it	hi
- 362 0174 C2F8E030 		strhi	r3, [r2, #224]
+ 362              		.loc 1 615 0
+ 363 0172 88BF     		it	hi
+ 364 0174 C2F8E030 		strhi	r3, [r2, #224]
  618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			uxTaskNumber++;
- 363              		.loc 1 618 0
- 364 0178 0131     		adds	r1, r1, #1
- 365 017a C2F8E410 		str	r1, [r2, #228]
+ 365              		.loc 1 618 0
+ 366 0178 0131     		adds	r1, r1, #1
+ 367 017a C2F8E410 		str	r1, [r2, #228]
  628:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			prvAddTaskToReadyQueue( pxNewTCB );
- 366              		.loc 1 628 0
- 367 017e D2F8E820 		ldr	r2, [r2, #232]
- 368 0182 4146     		mov	r1, r8
- 369 0184 9342     		cmp	r3, r2
- 370 0186 84BF     		itt	hi
- 371 0188 0D4A     		ldrhi	r2, .L35
- 372 018a C2F8E830 		strhi	r3, [r2, #232]
- 373 018e 04F11402 		add	r2, r4, #20
- 374 0192 1420     		movs	r0, #20
- 375 0194 00FB0320 		mla	r0, r0, r3, r2
- 376 0198 FFF7FEFF 		bl	vListInsertEnd
- 377              	.LVL40:
+ 368              		.loc 1 628 0
+ 369 017e D2F8E820 		ldr	r2, [r2, #232]
+ 370 0182 9342     		cmp	r3, r2
+ 371 0184 84BF     		itt	hi
+ 372 0186 0E4A     		ldrhi	r2, .L35
+ 373 0188 C2F8E830 		strhi	r3, [r2, #232]
+ 374 018c 04F11402 		add	r2, r4, #20
+ 375 0190 1420     		movs	r0, #20
+ 376 0192 00FB0320 		mla	r0, r0, r3, r2
+ 377 0196 4146     		mov	r1, r8
+ 378 0198 FFF7FEFF 		bl	vListInsertEnd
+ 379              	.LVL40:
  633:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskEXIT_CRITICAL();
- 378              		.loc 1 633 0
- 379 019c FFF7FEFF 		bl	vPortExitCritical
- 380              	.LVL41:
- 381              	.LBE17:
+ 380              		.loc 1 633 0
+ 381 019c FFF7FEFF 		bl	vPortExitCritical
+ 382              	.LVL41:
+ 383              	.LBE17:
  643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( xSchedulerRunning != pdFALSE )
- 382              		.loc 1 643 0
- 383 01a0 D4F8DC30 		ldr	r3, [r4, #220]
- 384 01a4 2BB1     		cbz	r3, .L26
+ 384              		.loc 1 643 0
+ 385 01a0 D4F8DC30 		ldr	r3, [r4, #220]
+ 386 01a4 2BB1     		cbz	r3, .L26
  647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxCurrentTCB->uxPriority < uxPriority )
- 385              		.loc 1 647 0
- 386 01a6 2368     		ldr	r3, [r4, #0]
- 387 01a8 DB6A     		ldr	r3, [r3, #44]
- 388 01aa B342     		cmp	r3, r6
- 389 01ac 01D2     		bcs	.L26
+ 387              		.loc 1 647 0
+ 388 01a6 2368     		ldr	r3, [r4, #0]
+ 389 01a8 DB6A     		ldr	r3, [r3, #44]
+ 390 01aa B342     		cmp	r3, r6
+ 391 01ac 01D2     		bcs	.L26
  649:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				portYIELD_WITHIN_API();
- 390              		.loc 1 649 0
- 391 01ae FFF7FEFF 		bl	vPortYield
- 392              	.LVL42:
- 393              	.L26:
+ 392              		.loc 1 649 0
+ 393 01ae FFF7FEFF 		bl	vPortYield
+ 394              	.LVL42:
+ 395              	.L26:
  630:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			xReturn = pdPASS;
- 394              		.loc 1 630 0
- 395 01b2 0120     		movs	r0, #1
- 396 01b4 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 397              	.LVL43:
- 398              	.L11:
- 399              	.LBB28:
+ 396              		.loc 1 630 0
+ 397 01b2 0120     		movs	r0, #1
+ 398 01b4 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 399              	.LVL43:
+ 400              	.L11:
+ 401              	.LBB28:
  637:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
- 400              		.loc 1 637 0
- 401 01b8 4FF0FF30 		mov	r0, #-1
- 402              	.LBE28:
+ 402              		.loc 1 637 0
+ 403 01b8 4FF0FF30 		mov	r0, #-1
+ 404              	.LBE28:
  655:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** }
- 403              		.loc 1 655 0
- 404 01bc BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 405              	.L36:
- 406              		.align	2
- 407              	.L35:
- 408 01c0 00000000 		.word	.LANCHOR0
- 409              		.cfi_endproc
- 410              	.LFE0:
- 412              		.align	1
- 413              		.global	vTaskDelete
- 414              		.thumb
- 415              		.thumb_func
- 417              	vTaskDelete:
- 418              	.LFB1:
+ 405              		.loc 1 655 0
+ 406 01bc BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 407              	.L36:
+ 408              		.align	2
+ 409              	.L35:
+ 410 01c0 00000000 		.word	.LANCHOR0
+ 411              		.cfi_endproc
+ 412              	.LFE0:
+ 414              		.align	1
+ 415              		.global	vTaskDelete
+ 416              		.thumb
+ 417              		.thumb_func
+ 419              	vTaskDelete:
+ 420              	.LFB1:
  661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 419              		.loc 1 661 0
- 420              		.cfi_startproc
- 421              		@ args = 0, pretend = 0, frame = 0
- 422              		@ frame_needed = 0, uses_anonymous_args = 0
- 423              	.LVL44:
- 424 01c4 70B5     		push	{r4, r5, r6, lr}
- 425              	.LCFI2:
- 426              		.cfi_def_cfa_offset 16
- 427              		.cfi_offset 4, -16
- 428              		.cfi_offset 5, -12
- 429              		.cfi_offset 6, -8
- 430              		.cfi_offset 14, -4
+ 421              		.loc 1 661 0
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+ 425              	.LVL44:
+ 426 01c4 70B5     		push	{r4, r5, r6, lr}
+ 427              	.LCFI2:
+ 428              		.cfi_def_cfa_offset 16
+ 429              		.cfi_offset 4, -16
+ 430              		.cfi_offset 5, -12
+ 431              		.cfi_offset 6, -8
+ 432              		.cfi_offset 14, -4
  661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 431              		.loc 1 661 0
- 432 01c6 0546     		mov	r5, r0
+ 433              		.loc 1 661 0
+ 434 01c6 0546     		mov	r5, r0
  664:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskENTER_CRITICAL();
- 433              		.loc 1 664 0
- 434 01c8 FFF7FEFF 		bl	vPortEnterCritical
- 435              	.LVL45:
+ 435              		.loc 1 664 0
+ 436 01c8 FFF7FEFF 		bl	vPortEnterCritical
+ 437              	.LVL45:
  668:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( xTaskToDelete == pxCurrentTCB )
- 436              		.loc 1 668 0
- 437 01cc 164B     		ldr	r3, .L49
- 438 01ce 1A68     		ldr	r2, [r3, #0]
- 439 01d0 9542     		cmp	r5, r2
- 440 01d2 01D0     		beq	.L38
+ 438              		.loc 1 668 0
+ 439 01cc 164B     		ldr	r3, .L49
+ 440 01ce 1A68     		ldr	r2, [r3, #0]
+ 441 01d0 9542     		cmp	r5, r2
+ 442 01d2 01D0     		beq	.L38
  674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTaskToDelete );
- 441              		.loc 1 674 0
- 442 01d4 2C46     		mov	r4, r5
- 443 01d6 15B9     		cbnz	r5, .L39
- 444              	.L38:
+ 443              		.loc 1 674 0
+ 444 01d4 2C46     		mov	r4, r5
+ 445 01d6 15B9     		cbnz	r5, .L39
+ 446              	.L38:
  674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTaskToDelete );
- 445              		.loc 1 674 0 is_stmt 0 discriminator 1
- 446 01d8 1C68     		ldr	r4, [r3, #0]
- 447 01da 0025     		movs	r5, #0
- 448              	.LVL46:
- 449 01dc FFE7     		b	.L39
- 450              	.L39:
- 451              	.LVL47:
+ 447              		.loc 1 674 0 is_stmt 0 discriminator 1
+ 448 01d8 1C68     		ldr	r4, [r3, #0]
+ 449 01da 0025     		movs	r5, #0
+ 450              	.LVL46:
+ 451 01dc FFE7     		b	.L39
+ 452              	.L39:
+ 453              	.LVL47:
  680:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( uxListRemove( ( xListItem * ) &( pxTCB->xGenericListItem ) ) == 0 )
- 452              		.loc 1 680 0 is_stmt 1 discriminator 3
- 453 01de 261D     		adds	r6, r4, #4
- 454 01e0 3046     		mov	r0, r6
- 455 01e2 FFF7FEFF 		bl	uxListRemove
- 456              	.LVL48:
+ 454              		.loc 1 680 0 is_stmt 1 discriminator 3
+ 455 01de 261D     		adds	r6, r4, #4
+ 456 01e0 3046     		mov	r0, r6
+ 457 01e2 FFF7FEFF 		bl	uxListRemove
+ 458              	.LVL48:
  686:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxTCB->xEventListItem.pvContainer != NULL )
- 457              		.loc 1 686 0 discriminator 3
- 458 01e6 A36A     		ldr	r3, [r4, #40]
- 459 01e8 1BB1     		cbz	r3, .L40
+ 459              		.loc 1 686 0 discriminator 3
+ 460 01e6 A36A     		ldr	r3, [r4, #40]
+ 461 01e8 1BB1     		cbz	r3, .L40
  688:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				uxListRemove( &( pxTCB->xEventListItem ) );
- 460              		.loc 1 688 0
- 461 01ea 04F11800 		add	r0, r4, #24
- 462 01ee FFF7FEFF 		bl	uxListRemove
- 463              	.LVL49:
- 464              	.L40:
+ 462              		.loc 1 688 0
+ 463 01ea 04F11800 		add	r0, r4, #24
+ 464 01ee FFF7FEFF 		bl	uxListRemove
+ 465              	.LVL49:
+ 466              	.L40:
  691:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			vListInsertEnd( ( xList * ) &xTasksWaitingTermination, &( pxTCB->xGenericListItem ) );
- 465              		.loc 1 691 0
- 466 01f2 0D4C     		ldr	r4, .L49
- 467              	.LVL50:
- 468 01f4 3146     		mov	r1, r6
- 469 01f6 04F1B400 		add	r0, r4, #180
- 470 01fa FFF7FEFF 		bl	vListInsertEnd
- 471              	.LVL51:
+ 467              		.loc 1 691 0
+ 468 01f2 0D4C     		ldr	r4, .L49
+ 469              	.LVL50:
+ 470 01f4 3146     		mov	r1, r6
+ 471 01f6 04F1B400 		add	r0, r4, #180
+ 472 01fa FFF7FEFF 		bl	vListInsertEnd
+ 473              	.LVL51:
  696:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			++uxTasksDeleted;
- 472              		.loc 1 696 0
- 473 01fe D4F8EC30 		ldr	r3, [r4, #236]
- 474 0202 0133     		adds	r3, r3, #1
- 475 0204 C4F8EC30 		str	r3, [r4, #236]
+ 474              		.loc 1 696 0
+ 475 01fe D4F8EC30 		ldr	r3, [r4, #236]
+ 476 0202 0133     		adds	r3, r3, #1
+ 477 0204 C4F8EC30 		str	r3, [r4, #236]
  700:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			uxTaskNumber++;
- 476              		.loc 1 700 0
- 477 0208 D4F8E430 		ldr	r3, [r4, #228]
- 478 020c 0133     		adds	r3, r3, #1
- 479 020e C4F8E430 		str	r3, [r4, #228]
+ 478              		.loc 1 700 0
+ 479 0208 D4F8E430 		ldr	r3, [r4, #228]
+ 480 020c 0133     		adds	r3, r3, #1
+ 481 020e C4F8E430 		str	r3, [r4, #228]
  704:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskEXIT_CRITICAL();
- 480              		.loc 1 704 0
- 481 0212 FFF7FEFF 		bl	vPortExitCritical
- 482              	.LVL52:
+ 482              		.loc 1 704 0
+ 483 0212 FFF7FEFF 		bl	vPortExitCritical
+ 484              	.LVL52:
  707:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( xSchedulerRunning != pdFALSE )
- 483              		.loc 1 707 0
- 484 0216 D4F8DC30 		ldr	r3, [r4, #220]
- 485 021a 23B1     		cbz	r3, .L37
+ 485              		.loc 1 707 0
+ 486 0216 D4F8DC30 		ldr	r3, [r4, #220]
+ 487 021a 23B1     		cbz	r3, .L37
  709:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( ( void * ) xTaskToDelete == NULL )
- 486              		.loc 1 709 0
- 487 021c 1DB9     		cbnz	r5, .L37
+ 488              		.loc 1 709 0
+ 489 021c 1DB9     		cbnz	r5, .L37
  714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 488              		.loc 1 714 0
- 489 021e BDE87040 		pop	{r4, r5, r6, lr}
+ 490              		.loc 1 714 0
+ 491 021e BDE87040 		pop	{r4, r5, r6, lr}
  711:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				portYIELD_WITHIN_API();
- 490              		.loc 1 711 0
- 491 0222 FFF7FEBF 		b	vPortYield
- 492              	.LVL53:
- 493              	.L37:
- 494 0226 70BD     		pop	{r4, r5, r6, pc}
- 495              	.L50:
- 496              		.align	2
- 497              	.L49:
- 498 0228 00000000 		.word	.LANCHOR0
- 499              		.cfi_endproc
- 500              	.LFE1:
- 502              		.align	1
- 503              		.global	uxTaskPriorityGet
- 504              		.thumb
- 505              		.thumb_func
- 507              	uxTaskPriorityGet:
- 508              	.LFB4:
+ 492              		.loc 1 711 0
+ 493 0222 FFF7FEBF 		b	vPortYield
+ 494              	.LVL53:
+ 495              	.L37:
+ 496 0226 70BD     		pop	{r4, r5, r6, pc}
+ 497              	.L50:
+ 498              		.align	2
+ 499              	.L49:
+ 500 0228 00000000 		.word	.LANCHOR0
+ 501              		.cfi_endproc
+ 502              	.LFE1:
+ 504              		.align	1
+ 505              		.global	uxTaskPriorityGet
+ 506              		.thumb
+ 507              		.thumb_func
+ 509              	uxTaskPriorityGet:
+ 510              	.LFB4:
  908:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 509              		.loc 1 908 0
- 510              		.cfi_startproc
- 511              		@ args = 0, pretend = 0, frame = 0
- 512              		@ frame_needed = 0, uses_anonymous_args = 0
- 513              	.LVL54:
- 514 022c 10B5     		push	{r4, lr}
- 515              	.LCFI3:
- 516              		.cfi_def_cfa_offset 8
- 517              		.cfi_offset 4, -8
- 518              		.cfi_offset 14, -4
+ 511              		.loc 1 908 0
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 0
+ 514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 515              	.LVL54:
+ 516 022c 10B5     		push	{r4, lr}
+ 517              	.LCFI3:
+ 518              		.cfi_def_cfa_offset 8
+ 519              		.cfi_offset 4, -8
+ 520              		.cfi_offset 14, -4
  908:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 519              		.loc 1 908 0
- 520 022e 0446     		mov	r4, r0
+ 521              		.loc 1 908 0
+ 522 022e 0446     		mov	r4, r0
  912:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskENTER_CRITICAL();
- 521              		.loc 1 912 0
- 522 0230 FFF7FEFF 		bl	vPortEnterCritical
- 523              	.LVL55:
+ 523              		.loc 1 912 0
+ 524 0230 FFF7FEFF 		bl	vPortEnterCritical
+ 525              	.LVL55:
  916:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTask );
- 524              		.loc 1 916 0
- 525 0234 0CB9     		cbnz	r4, .L52
+ 526              		.loc 1 916 0
+ 527 0234 0CB9     		cbnz	r4, .L52
  916:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTask );
- 526              		.loc 1 916 0 is_stmt 0 discriminator 1
- 527 0236 034B     		ldr	r3, .L54
- 528 0238 1C68     		ldr	r4, [r3, #0]
- 529              	.LVL56:
- 530              	.L52:
+ 528              		.loc 1 916 0 is_stmt 0 discriminator 1
+ 529 0236 034B     		ldr	r3, .L54
+ 530 0238 1C68     		ldr	r4, [r3, #0]
+ 531              	.LVL56:
+ 532              	.L52:
  917:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			uxReturn = pxTCB->uxPriority;
- 531              		.loc 1 917 0 is_stmt 1 discriminator 3
- 532 023a E46A     		ldr	r4, [r4, #44]
- 533              	.LVL57:
+ 533              		.loc 1 917 0 is_stmt 1 discriminator 3
+ 534 023a E46A     		ldr	r4, [r4, #44]
+ 535              	.LVL57:
  919:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskEXIT_CRITICAL();
- 534              		.loc 1 919 0 discriminator 3
- 535 023c FFF7FEFF 		bl	vPortExitCritical
- 536              	.LVL58:
+ 536              		.loc 1 919 0 discriminator 3
+ 537 023c FFF7FEFF 		bl	vPortExitCritical
+ 538              	.LVL58:
  922:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 537              		.loc 1 922 0 discriminator 3
- 538 0240 2046     		mov	r0, r4
- 539 0242 10BD     		pop	{r4, pc}
- 540              	.L55:
- 541              		.align	2
- 542              	.L54:
- 543 0244 00000000 		.word	.LANCHOR0
- 544              		.cfi_endproc
- 545              	.LFE4:
- 547              		.align	1
- 548              		.global	vTaskPrioritySet
- 549              		.thumb
- 550              		.thumb_func
- 552              	vTaskPrioritySet:
- 553              	.LFB5:
+ 539              		.loc 1 922 0 discriminator 3
+ 540 0240 2046     		mov	r0, r4
+ 541 0242 10BD     		pop	{r4, pc}
+ 542              	.L55:
+ 543              		.align	2
+ 544              	.L54:
+ 545 0244 00000000 		.word	.LANCHOR0
+ 546              		.cfi_endproc
+ 547              	.LFE4:
+ 549              		.align	1
+ 550              		.global	vTaskPrioritySet
+ 551              		.thumb
+ 552              		.thumb_func
+ 554              	vTaskPrioritySet:
+ 555              	.LFB5:
  930:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 554              		.loc 1 930 0
- 555              		.cfi_startproc
- 556              		@ args = 0, pretend = 0, frame = 0
- 557              		@ frame_needed = 0, uses_anonymous_args = 0
- 558              	.LVL59:
+ 556              		.loc 1 930 0
+ 557              		.cfi_startproc
+ 558              		@ args = 0, pretend = 0, frame = 0
+ 559              		@ frame_needed = 0, uses_anonymous_args = 0
+ 560              	.LVL59:
  935:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( ( uxNewPriority < configMAX_PRIORITIES ) );
- 559              		.loc 1 935 0
- 560 0248 0429     		cmp	r1, #4
+ 561              		.loc 1 935 0
+ 562 0248 0429     		cmp	r1, #4
  930:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 561              		.loc 1 930 0
- 562 024a 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 563              	.LCFI4:
- 564              		.cfi_def_cfa_offset 24
- 565              		.cfi_offset 4, -24
- 566              		.cfi_offset 5, -20
- 567              		.cfi_offset 6, -16
- 568              		.cfi_offset 7, -12
- 569              		.cfi_offset 8, -8
- 570              		.cfi_offset 14, -4
+ 563              		.loc 1 930 0
+ 564 024a 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 565              	.LCFI4:
+ 566              		.cfi_def_cfa_offset 24
+ 567              		.cfi_offset 4, -24
+ 568              		.cfi_offset 5, -20
+ 569              		.cfi_offset 6, -16
+ 570              		.cfi_offset 7, -12
+ 571              		.cfi_offset 8, -8
+ 572              		.cfi_offset 14, -4
  930:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 571              		.loc 1 930 0
- 572 024e 0546     		mov	r5, r0
- 573 0250 0E46     		mov	r6, r1
+ 573              		.loc 1 930 0
+ 574 024e 0546     		mov	r5, r0
+ 575 0250 0E46     		mov	r6, r1
  935:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( ( uxNewPriority < configMAX_PRIORITIES ) );
- 574              		.loc 1 935 0
- 575 0252 02D9     		bls	.L57
+ 576              		.loc 1 935 0
+ 577 0252 02D9     		bls	.L57
  935:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( ( uxNewPriority < configMAX_PRIORITIES ) );
- 576              		.loc 1 935 0 is_stmt 0 discriminator 1
- 577 0254 FFF7FEFF 		bl	ulPortSetInterruptMask
- 578              	.LVL60:
- 579              	.L58:
- 580 0258 FEE7     		b	.L58
- 581              	.LVL61:
- 582              	.L57:
+ 578              		.loc 1 935 0 is_stmt 0 discriminator 1
+ 579 0254 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 580              	.LVL60:
+ 581              	.L58:
+ 582 0258 FEE7     		b	.L58
+ 583              	.LVL61:
+ 584              	.L57:
  943:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskENTER_CRITICAL();
- 583              		.loc 1 943 0 is_stmt 1
- 584 025a FFF7FEFF 		bl	vPortEnterCritical
- 585              	.LVL62:
+ 585              		.loc 1 943 0 is_stmt 1
+ 586 025a FFF7FEFF 		bl	vPortEnterCritical
+ 587              	.LVL62:
  945:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( xTask == ( xTaskHandle ) pxCurrentTCB )
- 586              		.loc 1 945 0
- 587 025e 204B     		ldr	r3, .L70
- 588 0260 1A68     		ldr	r2, [r3, #0]
- 589 0262 9542     		cmp	r5, r2
- 590 0264 00D0     		beq	.L59
+ 588              		.loc 1 945 0
+ 589 025e 204B     		ldr	r3, .L70
+ 590 0260 1A68     		ldr	r2, [r3, #0]
+ 591 0262 9542     		cmp	r5, r2
+ 592 0264 00D0     		beq	.L59
  952:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTask );
- 591              		.loc 1 952 0
- 592 0266 15B9     		cbnz	r5, .L69
- 593              	.L59:
+ 593              		.loc 1 952 0
+ 594 0266 15B9     		cbnz	r5, .L69
+ 595              	.L59:
  952:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTask );
- 594              		.loc 1 952 0 is_stmt 0 discriminator 1
- 595 0268 1C68     		ldr	r4, [r3, #0]
- 596 026a 0025     		movs	r5, #0
- 597              	.LVL63:
- 598 026c 00E0     		b	.L60
- 599              	.LVL64:
- 600              	.L69:
+ 596              		.loc 1 952 0 is_stmt 0 discriminator 1
+ 597 0268 1C68     		ldr	r4, [r3, #0]
+ 598 026a 0025     		movs	r5, #0
+ 599              	.LVL63:
+ 600 026c 00E0     		b	.L60
+ 601              	.LVL64:
+ 602              	.L69:
  952:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			pxTCB = prvGetTCBFromHandle( xTask );
- 601              		.loc 1 952 0
- 602 026e 2C46     		mov	r4, r5
- 603              	.LVL65:
- 604              	.L60:
+ 603              		.loc 1 952 0
+ 604 026e 2C46     		mov	r4, r5
+ 605              	.LVL65:
+ 606              	.L60:
  958:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				uxCurrentPriority = pxTCB->uxBasePriority;
- 605              		.loc 1 958 0 is_stmt 1 discriminator 3
- 606 0270 236C     		ldr	r3, [r4, #64]
- 607              	.LVL66:
+ 607              		.loc 1 958 0 is_stmt 1 discriminator 3
+ 608 0270 236C     		ldr	r3, [r4, #64]
+ 609              	.LVL66:
  966:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( uxCurrentPriority != uxNewPriority )
- 608              		.loc 1 966 0 discriminator 3
- 609 0272 B342     		cmp	r3, r6
- 610 0274 2FD0     		beq	.L62
+ 610              		.loc 1 966 0 discriminator 3
+ 611 0272 B342     		cmp	r3, r6
+ 612 0274 2FD0     		beq	.L62
  970:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( uxNewPriority > uxCurrentPriority )
- 611              		.loc 1 970 0
- 612 0276 9E42     		cmp	r6, r3
- 613 0278 03D9     		bls	.L63
+ 613              		.loc 1 970 0
+ 614 0276 9E42     		cmp	r6, r3
+ 615 0278 03D9     		bls	.L63
  972:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( xTask != NULL )
- 614              		.loc 1 972 0
- 615 027a 0035     		adds	r5, r5, #0
- 616 027c 18BF     		it	ne
- 617 027e 0125     		movne	r5, #1
- 618 0280 03E0     		b	.L64
- 619              	.L63:
+ 616              		.loc 1 972 0
+ 617 027a 0035     		adds	r5, r5, #0
+ 618 027c 18BF     		it	ne
+ 619 027e 0125     		movne	r5, #1
+ 620 0280 03E0     		b	.L64
+ 621              	.L63:
  981:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				else if( xTask == NULL )
- 620              		.loc 1 981 0
- 621 0282 D5F10105 		rsbs	r5, r5, #1
- 622 0286 38BF     		it	cc
- 623 0288 0025     		movcc	r5, #0
- 624              	.L64:
- 625              	.LVL67:
+ 622              		.loc 1 981 0
+ 623 0282 D5F10105 		rsbs	r5, r5, #1
+ 624 0286 38BF     		it	cc
+ 625 0288 0025     		movcc	r5, #0
+ 626              	.L64:
+ 627              	.LVL67:
  997:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( pxTCB->uxBasePriority == pxTCB->uxPriority )
- 626              		.loc 1 997 0
- 627 028a E26A     		ldr	r2, [r4, #44]
+ 628              		.loc 1 997 0
+ 629 028a E26A     		ldr	r2, [r4, #44]
 1003:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					pxTCB->uxBasePriority = uxNewPriority;
- 628              		.loc 1 1003 0
- 629 028c 2664     		str	r6, [r4, #64]
+ 630              		.loc 1 1003 0
+ 631 028c 2664     		str	r6, [r4, #64]
  997:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( pxTCB->uxBasePriority == pxTCB->uxPriority )
- 630              		.loc 1 997 0
- 631 028e 9342     		cmp	r3, r2
+ 632              		.loc 1 997 0
+ 633 028e 9342     		cmp	r3, r2
  999:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 						pxTCB->uxPriority = uxNewPriority;
- 632              		.loc 1 999 0
- 633 0290 08BF     		it	eq
- 634 0292 E662     		streq	r6, [r4, #44]
+ 634              		.loc 1 999 0
+ 635 0290 08BF     		it	eq
+ 636 0292 E662     		streq	r6, [r4, #44]
 1011:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				listSET_LIST_ITEM_VALUE( &( pxTCB->xEventListItem ), ( configMAX_PRIORITIES - ( portTickType ) 
- 635              		.loc 1 1011 0
- 636 0294 C6F10506 		rsb	r6, r6, #5
- 637              	.LVL68:
- 638 0298 A661     		str	r6, [r4, #24]
+ 637              		.loc 1 1011 0
+ 638 0294 C6F10506 		rsb	r6, r6, #5
+ 639              	.LVL68:
+ 640 0298 A661     		str	r6, [r4, #24]
 1017:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( listIS_CONTAINED_WITHIN( &( pxReadyTasksLists[ uxCurrentPriority ] ), &( pxTCB->xGenericLis
- 639              		.loc 1 1017 0
- 640 029a 114E     		ldr	r6, .L70
- 641 029c 1422     		movs	r2, #20
- 642 029e 06F11400 		add	r0, r6, #20
- 643 02a2 02FB0303 		mla	r3, r2, r3, r0
- 644              	.LVL69:
- 645 02a6 6269     		ldr	r2, [r4, #20]
- 646 02a8 8046     		mov	r8, r0
- 647 02aa 9A42     		cmp	r2, r3
- 648 02ac 10D1     		bne	.L66
+ 641              		.loc 1 1017 0
+ 642 029a 114E     		ldr	r6, .L70
+ 643 029c 1422     		movs	r2, #20
+ 644 029e 06F11400 		add	r0, r6, #20
+ 645 02a2 02FB0303 		mla	r3, r2, r3, r0
+ 646              	.LVL69:
+ 647 02a6 6269     		ldr	r2, [r4, #20]
+ 648 02a8 9A42     		cmp	r2, r3
+ 649 02aa 8046     		mov	r8, r0
+ 650 02ac 10D1     		bne	.L66
 1022:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( uxListRemove( ( xListItem * ) &( pxTCB->xGenericListItem ) ) == 0 )
- 649              		.loc 1 1022 0
- 650 02ae 271D     		adds	r7, r4, #4
- 651 02b0 3846     		mov	r0, r7
- 652 02b2 FFF7FEFF 		bl	uxListRemove
- 653              	.LVL70:
+ 651              		.loc 1 1022 0
+ 652 02ae 271D     		adds	r7, r4, #4
+ 653 02b0 3846     		mov	r0, r7
+ 654 02b2 FFF7FEFF 		bl	uxListRemove
+ 655              	.LVL70:
 1026:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					prvAddTaskToReadyQueue( pxTCB );
- 654              		.loc 1 1026 0
- 655 02b6 E36A     		ldr	r3, [r4, #44]
- 656 02b8 D6F8E820 		ldr	r2, [r6, #232]
- 657 02bc 3946     		mov	r1, r7
- 658 02be 9342     		cmp	r3, r2
- 659 02c0 88BF     		it	hi
- 660 02c2 C6F8E830 		strhi	r3, [r6, #232]
- 661 02c6 1420     		movs	r0, #20
- 662 02c8 00FB0380 		mla	r0, r0, r3, r8
- 663 02cc FFF7FEFF 		bl	vListInsertEnd
- 664              	.LVL71:
- 665              	.L66:
+ 656              		.loc 1 1026 0
+ 657 02b6 E36A     		ldr	r3, [r4, #44]
+ 658 02b8 D6F8E820 		ldr	r2, [r6, #232]
+ 659 02bc 9342     		cmp	r3, r2
+ 660 02be 88BF     		it	hi
+ 661 02c0 C6F8E830 		strhi	r3, [r6, #232]
+ 662 02c4 1420     		movs	r0, #20
+ 663 02c6 00FB0380 		mla	r0, r0, r3, r8
+ 664 02ca 3946     		mov	r1, r7
+ 665 02cc FFF7FEFF 		bl	vListInsertEnd
+ 666              	.LVL71:
+ 667              	.L66:
 1029:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( xYieldRequired == pdTRUE )
- 666              		.loc 1 1029 0
- 667 02d0 0DB1     		cbz	r5, .L62
+ 668              		.loc 1 1029 0
+ 669 02d0 0DB1     		cbz	r5, .L62
 1031:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					portYIELD_WITHIN_API();
- 668              		.loc 1 1031 0
- 669 02d2 FFF7FEFF 		bl	vPortYield
- 670              	.LVL72:
- 671              	.L62:
+ 670              		.loc 1 1031 0
+ 671 02d2 FFF7FEFF 		bl	vPortYield
+ 672              	.LVL72:
+ 673              	.L62:
 1040:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 672              		.loc 1 1040 0
- 673 02d6 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 674              		.loc 1 1040 0
+ 675 02d6 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
 1035:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		taskEXIT_CRITICAL();
- 674              		.loc 1 1035 0
- 675 02da FFF7FEBF 		b	vPortExitCritical
- 676              	.LVL73:
- 677              	.L71:
- 678 02de 00BF     		.align	2
- 679              	.L70:
- 680 02e0 00000000 		.word	.LANCHOR0
- 681              		.cfi_endproc
- 682              	.LFE5:
- 684              		.align	1
- 685              		.global	xTaskIsTaskSuspended
- 686              		.thumb
- 687              		.thumb_func
- 689              	xTaskIsTaskSuspended:
- 690              	.LFB7:
+ 676              		.loc 1 1035 0
+ 677 02da FFF7FEBF 		b	vPortExitCritical
+ 678              	.LVL73:
+ 679              	.L71:
+ 680 02de 00BF     		.align	2
+ 681              	.L70:
+ 682 02e0 00000000 		.word	.LANCHOR0
+ 683              		.cfi_endproc
+ 684              	.LFE5:
+ 686              		.align	1
+ 687              		.global	xTaskIsTaskSuspended
+ 688              		.thumb
+ 689              		.thumb_func
+ 691              	xTaskIsTaskSuspended:
+ 692              	.LFB7:
 1115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 691              		.loc 1 1115 0
- 692              		.cfi_startproc
- 693              		@ args = 0, pretend = 0, frame = 0
- 694              		@ frame_needed = 0, uses_anonymous_args = 0
- 695              	.LVL74:
- 696 02e4 08B5     		push	{r3, lr}
- 697              	.LCFI5:
- 698              		.cfi_def_cfa_offset 8
- 699              		.cfi_offset 3, -8
- 700              		.cfi_offset 14, -4
+ 693              		.loc 1 1115 0
+ 694              		.cfi_startproc
+ 695              		@ args = 0, pretend = 0, frame = 0
+ 696              		@ frame_needed = 0, uses_anonymous_args = 0
+ 697              	.LVL74:
+ 698 02e4 08B5     		push	{r3, lr}
+ 699              	.LCFI5:
+ 700              		.cfi_def_cfa_offset 8
+ 701              		.cfi_offset 3, -8
+ 702              		.cfi_offset 14, -4
 1120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTask );
- 701              		.loc 1 1120 0
- 702 02e6 10B9     		cbnz	r0, .L73
+ 703              		.loc 1 1120 0
+ 704 02e6 10B9     		cbnz	r0, .L73
 1120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTask );
- 703              		.loc 1 1120 0 is_stmt 0 discriminator 1
- 704 02e8 FFF7FEFF 		bl	ulPortSetInterruptMask
- 705              	.LVL75:
- 706              	.L74:
- 707 02ec FEE7     		b	.L74
- 708              	.LVL76:
- 709              	.L73:
+ 705              		.loc 1 1120 0 is_stmt 0 discriminator 1
+ 706 02e8 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 707              	.LVL75:
+ 708              	.L74:
+ 709 02ec FEE7     		b	.L74
+ 710              	.LVL76:
+ 711              	.L73:
 1124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( listIS_CONTAINED_WITHIN( &xSuspendedTaskList, &( pxTCB->xGenericListItem ) ) != pdFALSE )
- 710              		.loc 1 1124 0 is_stmt 1
- 711 02ee 4369     		ldr	r3, [r0, #20]
- 712 02f0 074A     		ldr	r2, .L79
- 713 02f2 9342     		cmp	r3, r2
- 714 02f4 09D1     		bne	.L77
- 715              	.LVL77:
- 716              	.LBB31:
- 717              	.LBB32:
+ 712              		.loc 1 1124 0 is_stmt 1
+ 713 02ee 4369     		ldr	r3, [r0, #20]
+ 714 02f0 074A     		ldr	r2, .L79
+ 715 02f2 9342     		cmp	r3, r2
+ 716 02f4 09D1     		bne	.L77
+ 717              	.LVL77:
+ 718              	.LBB31:
+ 719              	.LBB32:
 1127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( listIS_CONTAINED_WITHIN( &xPendingReadyList, &( pxTCB->xEventListItem ) ) != pdTRUE )
- 718              		.loc 1 1127 0
- 719 02f6 806A     		ldr	r0, [r0, #40]
- 720              	.LVL78:
- 721 02f8 A2F12803 		sub	r3, r2, #40
- 722 02fc 9842     		cmp	r0, r3
- 723 02fe 04D0     		beq	.L77
+ 720              		.loc 1 1127 0
+ 721 02f6 806A     		ldr	r0, [r0, #40]
+ 722              	.LVL78:
+ 723 02f8 A2F12803 		sub	r3, r2, #40
+ 724 02fc 9842     		cmp	r0, r3
+ 725 02fe 04D0     		beq	.L77
 1133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( listIS_CONTAINED_WITHIN( NULL, &( pxTCB->xEventListItem ) ) == pdTRUE )
- 724              		.loc 1 1133 0
- 725 0300 D0F10100 		rsbs	r0, r0, #1
- 726 0304 38BF     		it	cc
- 727 0306 0020     		movcc	r0, #0
- 728 0308 08BD     		pop	{r3, pc}
- 729              	.LVL79:
- 730              	.L77:
- 731              	.LBE32:
- 732              	.LBE31:
+ 726              		.loc 1 1133 0
+ 727 0300 D0F10100 		rsbs	r0, r0, #1
+ 728 0304 38BF     		it	cc
+ 729 0306 0020     		movcc	r0, #0
+ 730 0308 08BD     		pop	{r3, pc}
+ 731              	.LVL79:
+ 732              	.L77:
+ 733              	.LBE32:
+ 734              	.LBE31:
 1116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	portBASE_TYPE xReturn = pdFALSE;
- 733              		.loc 1 1116 0
- 734 030a 0020     		movs	r0, #0
- 735              	.LVL80:
+ 735              		.loc 1 1116 0
+ 736 030a 0020     		movs	r0, #0
+ 737              	.LVL80:
 1141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 736              		.loc 1 1141 0
- 737 030c 08BD     		pop	{r3, pc}
- 738              	.L80:
- 739 030e 00BF     		.align	2
- 740              	.L79:
- 741 0310 C8000000 		.word	.LANCHOR0+200
- 742              		.cfi_endproc
- 743              	.LFE7:
- 745              		.align	1
- 746              		.global	vTaskResume
- 747              		.thumb
- 748              		.thumb_func
- 750              	vTaskResume:
- 751              	.LFB8:
+ 738              		.loc 1 1141 0
+ 739 030c 08BD     		pop	{r3, pc}
+ 740              	.L80:
+ 741 030e 00BF     		.align	2
+ 742              	.L79:
+ 743 0310 C8000000 		.word	.LANCHOR0+200
+ 744              		.cfi_endproc
+ 745              	.LFE7:
+ 747              		.align	1
+ 748              		.global	vTaskResume
+ 749              		.thumb
+ 750              		.thumb_func
+ 752              	vTaskResume:
+ 753              	.LFB8:
 1149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 752              		.loc 1 1149 0
- 753              		.cfi_startproc
- 754              		@ args = 0, pretend = 0, frame = 0
- 755              		@ frame_needed = 0, uses_anonymous_args = 0
- 756              	.LVL81:
- 757 0314 70B5     		push	{r4, r5, r6, lr}
- 758              	.LCFI6:
- 759              		.cfi_def_cfa_offset 16
- 760              		.cfi_offset 4, -16
- 761              		.cfi_offset 5, -12
- 762              		.cfi_offset 6, -8
- 763              		.cfi_offset 14, -4
+ 754              		.loc 1 1149 0
+ 755              		.cfi_startproc
+ 756              		@ args = 0, pretend = 0, frame = 0
+ 757              		@ frame_needed = 0, uses_anonymous_args = 0
+ 758              	.LVL81:
+ 759 0314 70B5     		push	{r4, r5, r6, lr}
+ 760              	.LCFI6:
+ 761              		.cfi_def_cfa_offset 16
+ 762              		.cfi_offset 4, -16
+ 763              		.cfi_offset 5, -12
+ 764              		.cfi_offset 6, -8
+ 765              		.cfi_offset 14, -4
 1153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTaskToResume );
- 764              		.loc 1 1153 0
- 765 0316 0446     		mov	r4, r0
- 766 0318 10B9     		cbnz	r0, .L82
+ 766              		.loc 1 1153 0
+ 767 0316 0446     		mov	r4, r0
+ 768 0318 10B9     		cbnz	r0, .L82
 1153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTaskToResume );
- 767              		.loc 1 1153 0 is_stmt 0 discriminator 1
- 768 031a FFF7FEFF 		bl	ulPortSetInterruptMask
- 769              	.LVL82:
- 770              	.L83:
- 771 031e FEE7     		b	.L83
- 772              	.LVL83:
- 773              	.L82:
+ 769              		.loc 1 1153 0 is_stmt 0 discriminator 1
+ 770 031a FFF7FEFF 		bl	ulPortSetInterruptMask
+ 771              	.LVL82:
+ 772              	.L83:
+ 773 031e FEE7     		b	.L83
+ 774              	.LVL83:
+ 775              	.L82:
 1161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( ( pxTCB != NULL ) && ( pxTCB != pxCurrentTCB ) )
- 774              		.loc 1 1161 0 is_stmt 1 discriminator 1
- 775 0320 154D     		ldr	r5, .L89
- 776 0322 2B68     		ldr	r3, [r5, #0]
- 777 0324 9842     		cmp	r0, r3
- 778 0326 25D0     		beq	.L81
+ 776              		.loc 1 1161 0 is_stmt 1 discriminator 1
+ 777 0320 154D     		ldr	r5, .L89
+ 778 0322 2B68     		ldr	r3, [r5, #0]
+ 779 0324 9842     		cmp	r0, r3
+ 780 0326 25D0     		beq	.L81
 1163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			taskENTER_CRITICAL();
- 779              		.loc 1 1163 0
- 780 0328 FFF7FEFF 		bl	vPortEnterCritical
- 781              	.LVL84:
+ 781              		.loc 1 1163 0
+ 782 0328 FFF7FEFF 		bl	vPortEnterCritical
+ 783              	.LVL84:
 1165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( xTaskIsTaskSuspended( pxTCB ) == pdTRUE )
- 782              		.loc 1 1165 0
- 783 032c 2046     		mov	r0, r4
- 784 032e FFF7FEFF 		bl	xTaskIsTaskSuspended
- 785              	.LVL85:
- 786 0332 0128     		cmp	r0, #1
- 787 0334 1AD1     		bne	.L86
+ 784              		.loc 1 1165 0
+ 785 032c 2046     		mov	r0, r4
+ 786 032e FFF7FEFF 		bl	xTaskIsTaskSuspended
+ 787              	.LVL85:
+ 788 0332 0128     		cmp	r0, #1
+ 789 0334 1AD1     		bne	.L86
 1171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					uxListRemove(  &( pxTCB->xGenericListItem ) );
- 788              		.loc 1 1171 0
- 789 0336 261D     		adds	r6, r4, #4
- 790 0338 3046     		mov	r0, r6
- 791 033a FFF7FEFF 		bl	uxListRemove
- 792              	.LVL86:
+ 790              		.loc 1 1171 0
+ 791 0336 261D     		adds	r6, r4, #4
+ 792 0338 3046     		mov	r0, r6
+ 793 033a FFF7FEFF 		bl	uxListRemove
+ 794              	.LVL86:
 1172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					prvAddTaskToReadyQueue( pxTCB );
- 793              		.loc 1 1172 0
- 794 033e E36A     		ldr	r3, [r4, #44]
- 795 0340 D5F8E820 		ldr	r2, [r5, #232]
- 796 0344 3146     		mov	r1, r6
- 797 0346 9342     		cmp	r3, r2
- 798 0348 88BF     		it	hi
- 799 034a C5F8E830 		strhi	r3, [r5, #232]
- 800 034e 0A4D     		ldr	r5, .L89
- 801 0350 1420     		movs	r0, #20
- 802 0352 05F11402 		add	r2, r5, #20
- 803 0356 00FB0320 		mla	r0, r0, r3, r2
- 804 035a FFF7FEFF 		bl	vListInsertEnd
- 805              	.LVL87:
+ 795              		.loc 1 1172 0
+ 796 033e E36A     		ldr	r3, [r4, #44]
+ 797 0340 D5F8E820 		ldr	r2, [r5, #232]
+ 798 0344 9342     		cmp	r3, r2
+ 799 0346 88BF     		it	hi
+ 800 0348 C5F8E830 		strhi	r3, [r5, #232]
+ 801 034c 0A4D     		ldr	r5, .L89
+ 802 034e 1420     		movs	r0, #20
+ 803 0350 05F11402 		add	r2, r5, #20
+ 804 0354 00FB0320 		mla	r0, r0, r3, r2
+ 805 0358 3146     		mov	r1, r6
+ 806 035a FFF7FEFF 		bl	vListInsertEnd
+ 807              	.LVL87:
 1175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( pxTCB->uxPriority >= pxCurrentTCB->uxPriority )
- 806              		.loc 1 1175 0
- 807 035e 2B68     		ldr	r3, [r5, #0]
- 808 0360 E26A     		ldr	r2, [r4, #44]
- 809 0362 DB6A     		ldr	r3, [r3, #44]
- 810 0364 9A42     		cmp	r2, r3
- 811 0366 01D3     		bcc	.L86
+ 808              		.loc 1 1175 0
+ 809 035e 2B68     		ldr	r3, [r5, #0]
+ 810 0360 E26A     		ldr	r2, [r4, #44]
+ 811 0362 DB6A     		ldr	r3, [r3, #44]
+ 812 0364 9A42     		cmp	r2, r3
+ 813 0366 01D3     		bcc	.L86
 1179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 						portYIELD_WITHIN_API();
- 812              		.loc 1 1179 0
- 813 0368 FFF7FEFF 		bl	vPortYield
- 814              	.LVL88:
- 815              	.L86:
+ 814              		.loc 1 1179 0
+ 815 0368 FFF7FEFF 		bl	vPortYield
+ 816              	.LVL88:
+ 817              	.L86:
 1185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 816              		.loc 1 1185 0
- 817 036c BDE87040 		pop	{r4, r5, r6, lr}
+ 818              		.loc 1 1185 0
+ 819 036c BDE87040 		pop	{r4, r5, r6, lr}
 1183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			taskEXIT_CRITICAL();
- 818              		.loc 1 1183 0
- 819 0370 FFF7FEBF 		b	vPortExitCritical
- 820              	.LVL89:
- 821              	.L81:
- 822 0374 70BD     		pop	{r4, r5, r6, pc}
- 823              	.L90:
- 824 0376 00BF     		.align	2
- 825              	.L89:
- 826 0378 00000000 		.word	.LANCHOR0
- 827              		.cfi_endproc
- 828              	.LFE8:
- 830              		.align	1
- 831              		.global	xTaskResumeFromISR
- 832              		.thumb
- 833              		.thumb_func
- 835              	xTaskResumeFromISR:
- 836              	.LFB9:
+ 820              		.loc 1 1183 0
+ 821 0370 FFF7FEBF 		b	vPortExitCritical
+ 822              	.LVL89:
+ 823              	.L81:
+ 824 0374 70BD     		pop	{r4, r5, r6, pc}
+ 825              	.L90:
+ 826 0376 00BF     		.align	2
+ 827              	.L89:
+ 828 0378 00000000 		.word	.LANCHOR0
+ 829              		.cfi_endproc
+ 830              	.LFE8:
+ 832              		.align	1
+ 833              		.global	xTaskResumeFromISR
+ 834              		.thumb
+ 835              		.thumb_func
+ 837              	xTaskResumeFromISR:
+ 838              	.LFB9:
 1194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 837              		.loc 1 1194 0
- 838              		.cfi_startproc
- 839              		@ args = 0, pretend = 0, frame = 0
- 840              		@ frame_needed = 0, uses_anonymous_args = 0
- 841              	.LVL90:
- 842 037c 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 843              	.LCFI7:
- 844              		.cfi_def_cfa_offset 24
- 845              		.cfi_offset 4, -24
- 846              		.cfi_offset 5, -20
- 847              		.cfi_offset 6, -16
- 848              		.cfi_offset 7, -12
- 849              		.cfi_offset 8, -8
- 850              		.cfi_offset 14, -4
+ 839              		.loc 1 1194 0
+ 840              		.cfi_startproc
+ 841              		@ args = 0, pretend = 0, frame = 0
+ 842              		@ frame_needed = 0, uses_anonymous_args = 0
+ 843              	.LVL90:
+ 844 037c 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 845              	.LCFI7:
+ 846              		.cfi_def_cfa_offset 24
+ 847              		.cfi_offset 4, -24
+ 848              		.cfi_offset 5, -20
+ 849              		.cfi_offset 6, -16
+ 850              		.cfi_offset 7, -12
+ 851              		.cfi_offset 8, -8
+ 852              		.cfi_offset 14, -4
 1199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTaskToResume );
- 851              		.loc 1 1199 0
- 852 0380 0446     		mov	r4, r0
- 853 0382 10B9     		cbnz	r0, .L92
+ 853              		.loc 1 1199 0
+ 854 0380 0446     		mov	r4, r0
+ 855 0382 10B9     		cbnz	r0, .L92
 1199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		configASSERT( xTaskToResume );
- 854              		.loc 1 1199 0 is_stmt 0 discriminator 1
- 855 0384 FFF7FEFF 		bl	ulPortSetInterruptMask
- 856              	.LVL91:
- 857              	.L93:
- 858 0388 FEE7     		b	.L93
- 859              	.LVL92:
- 860              	.L92:
+ 856              		.loc 1 1199 0 is_stmt 0 discriminator 1
+ 857 0384 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 858              	.LVL91:
+ 859              	.L93:
+ 860 0388 FEE7     		b	.L93
+ 861              	.LVL92:
+ 862              	.L92:
 1203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		uxSavedInterruptStatus = portSET_INTERRUPT_MASK_FROM_ISR();
- 861              		.loc 1 1203 0 is_stmt 1
- 862 038a FFF7FEFF 		bl	ulPortSetInterruptMask
- 863              	.LVL93:
- 864 038e 8046     		mov	r8, r0
- 865              	.LVL94:
+ 863              		.loc 1 1203 0 is_stmt 1
+ 864 038a FFF7FEFF 		bl	ulPortSetInterruptMask
+ 865              	.LVL93:
+ 866 038e 8046     		mov	r8, r0
+ 867              	.LVL94:
 1205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( xTaskIsTaskSuspended( pxTCB ) == pdTRUE )
- 866              		.loc 1 1205 0
- 867 0390 2046     		mov	r0, r4
- 868              	.LVL95:
- 869 0392 FFF7FEFF 		bl	xTaskIsTaskSuspended
- 870              	.LVL96:
- 871 0396 0128     		cmp	r0, #1
- 872 0398 23D1     		bne	.L97
+ 868              		.loc 1 1205 0
+ 869 0390 2046     		mov	r0, r4
+ 870              	.LVL95:
+ 871 0392 FFF7FEFF 		bl	xTaskIsTaskSuspended
+ 872              	.LVL96:
+ 873 0396 0128     		cmp	r0, #1
+ 874 0398 23D1     		bne	.L97
 1209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( uxSchedulerSuspended == ( unsigned portBASE_TYPE ) pdFALSE )
- 873              		.loc 1 1209 0
- 874 039a 154D     		ldr	r5, .L98
- 875 039c D5F8F030 		ldr	r3, [r5, #240]
- 876 03a0 CBB9     		cbnz	r3, .L95
+ 875              		.loc 1 1209 0
+ 876 039a 154D     		ldr	r5, .L98
+ 877 039c D5F8F030 		ldr	r3, [r5, #240]
+ 878 03a0 CBB9     		cbnz	r3, .L95
 1211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					xYieldRequired = ( pxTCB->uxPriority >= pxCurrentTCB->uxPriority );
- 877              		.loc 1 1211 0
- 878 03a2 2A68     		ldr	r2, [r5, #0]
- 879 03a4 E36A     		ldr	r3, [r4, #44]
- 880 03a6 D66A     		ldr	r6, [r2, #44]
- 881 03a8 B342     		cmp	r3, r6
- 882 03aa 34BF     		ite	cc
- 883 03ac 0026     		movcc	r6, #0
- 884 03ae 0126     		movcs	r6, #1
- 885              	.LVL97:
+ 879              		.loc 1 1211 0
+ 880 03a2 2A68     		ldr	r2, [r5, #0]
+ 881 03a4 E36A     		ldr	r3, [r4, #44]
+ 882 03a6 D66A     		ldr	r6, [r2, #44]
+ 883 03a8 B342     		cmp	r3, r6
+ 884 03aa 34BF     		ite	cc
+ 885 03ac 0026     		movcc	r6, #0
+ 886 03ae 0126     		movcs	r6, #1
+ 887              	.LVL97:
 1212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					uxListRemove(  &( pxTCB->xGenericListItem ) );
- 886              		.loc 1 1212 0
- 887 03b0 271D     		adds	r7, r4, #4
- 888 03b2 3846     		mov	r0, r7
- 889 03b4 FFF7FEFF 		bl	uxListRemove
- 890              	.LVL98:
+ 888              		.loc 1 1212 0
+ 889 03b0 271D     		adds	r7, r4, #4
+ 890 03b2 3846     		mov	r0, r7
+ 891 03b4 FFF7FEFF 		bl	uxListRemove
+ 892              	.LVL98:
 1213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					prvAddTaskToReadyQueue( pxTCB );
- 891              		.loc 1 1213 0
- 892 03b8 E36A     		ldr	r3, [r4, #44]
- 893 03ba D5F8E820 		ldr	r2, [r5, #232]
- 894 03be 3946     		mov	r1, r7
- 895 03c0 9342     		cmp	r3, r2
- 896 03c2 0C4A     		ldr	r2, .L98+4
- 897 03c4 88BF     		it	hi
- 898 03c6 C5F8E830 		strhi	r3, [r5, #232]
- 899 03ca 1420     		movs	r0, #20
- 900 03cc 00FB0320 		mla	r0, r0, r3, r2
- 901 03d0 FFF7FEFF 		bl	vListInsertEnd
- 902              	.LVL99:
- 903 03d4 06E0     		b	.L94
- 904              	.LVL100:
- 905              	.L95:
+ 893              		.loc 1 1213 0
+ 894 03b8 E36A     		ldr	r3, [r4, #44]
+ 895 03ba D5F8E820 		ldr	r2, [r5, #232]
+ 896 03be 9342     		cmp	r3, r2
+ 897 03c0 0C4A     		ldr	r2, .L98+4
+ 898 03c2 88BF     		it	hi
+ 899 03c4 C5F8E830 		strhi	r3, [r5, #232]
+ 900 03c8 1420     		movs	r0, #20
+ 901 03ca 00FB0320 		mla	r0, r0, r3, r2
+ 902 03ce 3946     		mov	r1, r7
+ 903 03d0 FFF7FEFF 		bl	vListInsertEnd
+ 904              	.LVL99:
+ 905 03d4 06E0     		b	.L94
+ 906              	.LVL100:
+ 907              	.L95:
 1220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					vListInsertEnd( ( xList * ) &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
- 906              		.loc 1 1220 0
- 907 03d6 05F1A000 		add	r0, r5, #160
- 908 03da 04F11801 		add	r1, r4, #24
- 909 03de FFF7FEFF 		bl	vListInsertEnd
- 910              	.LVL101:
- 911              	.L97:
+ 908              		.loc 1 1220 0
+ 909 03d6 05F1A000 		add	r0, r5, #160
+ 910 03da 04F11801 		add	r1, r4, #24
+ 911 03de FFF7FEFF 		bl	vListInsertEnd
+ 912              	.LVL101:
+ 913              	.L97:
 1195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	portBASE_TYPE xYieldRequired = pdFALSE;
- 912              		.loc 1 1195 0
- 913 03e2 0026     		movs	r6, #0
- 914              	.LVL102:
- 915              	.L94:
+ 914              		.loc 1 1195 0
+ 915 03e2 0026     		movs	r6, #0
+ 916              	.LVL102:
+ 917              	.L94:
 1224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );
- 916              		.loc 1 1224 0
- 917 03e4 4046     		mov	r0, r8
- 918 03e6 FFF7FEFF 		bl	vPortClearInterruptMask
- 919              	.LVL103:
+ 918              		.loc 1 1224 0
+ 919 03e4 4046     		mov	r0, r8
+ 920 03e6 FFF7FEFF 		bl	vPortClearInterruptMask
+ 921              	.LVL103:
 1227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 920              		.loc 1 1227 0
- 921 03ea 3046     		mov	r0, r6
- 922 03ec BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 923              	.L99:
- 924              		.align	2
- 925              	.L98:
- 926 03f0 00000000 		.word	.LANCHOR0
- 927 03f4 14000000 		.word	.LANCHOR0+20
- 928              		.cfi_endproc
- 929              	.LFE9:
- 931              		.align	1
- 932              		.global	vTaskStartScheduler
- 933              		.thumb
- 934              		.thumb_func
- 936              	vTaskStartScheduler:
- 937              	.LFB10:
+ 922              		.loc 1 1227 0
+ 923 03ea 3046     		mov	r0, r6
+ 924 03ec BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 925              	.L99:
+ 926              		.align	2
+ 927              	.L98:
+ 928 03f0 00000000 		.word	.LANCHOR0
+ 929 03f4 14000000 		.word	.LANCHOR0+20
+ 930              		.cfi_endproc
+ 931              	.LFE9:
+ 933              		.align	1
+ 934              		.global	vTaskStartScheduler
+ 935              		.thumb
+ 936              		.thumb_func
+ 938              	vTaskStartScheduler:
+ 939              	.LFB10:
 1233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
- 938              		.loc 1 1233 0
- 939              		.cfi_startproc
- 940              		@ args = 0, pretend = 0, frame = 0
- 941              		@ frame_needed = 0, uses_anonymous_args = 0
- 942 03f8 30B5     		push	{r4, r5, lr}
- 943              	.LCFI8:
- 944              		.cfi_def_cfa_offset 12
- 945              		.cfi_offset 4, -12
- 946              		.cfi_offset 5, -8
- 947              		.cfi_offset 14, -4
+ 940              		.loc 1 1233 0
+ 941              		.cfi_startproc
+ 942              		@ args = 0, pretend = 0, frame = 0
+ 943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 944 03f8 30B5     		push	{r4, r5, lr}
+ 945              	.LCFI8:
+ 946              		.cfi_def_cfa_offset 12
+ 947              		.cfi_offset 4, -12
+ 948              		.cfi_offset 5, -8
+ 949              		.cfi_offset 14, -4
+ 950 03fa 85B0     		sub	sp, sp, #20
+ 951              	.LCFI9:
+ 952              		.cfi_def_cfa_offset 32
 1246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		xReturn = xTaskCreate( prvIdleTask, ( signed char * ) "IDLE", tskIDLE_STACK_SIZE, ( void * ) NULL
- 948              		.loc 1 1246 0
- 949 03fa 0024     		movs	r4, #0
-1233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
- 950              		.loc 1 1233 0
- 951 03fc 85B0     		sub	sp, sp, #20
- 952              	.LCFI9:
- 953              		.cfi_def_cfa_offset 32
-1246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		xReturn = xTaskCreate( prvIdleTask, ( signed char * ) "IDLE", tskIDLE_STACK_SIZE, ( void * ) NULL
- 954              		.loc 1 1246 0
+ 953              		.loc 1 1246 0
+ 954 03fc 0024     		movs	r4, #0
  955 03fe 0094     		str	r4, [sp, #0]
  956 0400 0194     		str	r4, [sp, #4]
  957 0402 0294     		str	r4, [sp, #8]
@@ -3782,20 +3780,20 @@
 1650:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	if( uxSchedulerSuspended == ( unsigned portBASE_TYPE ) pdFALSE )
  1184              		.loc 1 1650 0
  1185 04c0 314B     		ldr	r3, .L138
+ 1186 04c2 D3F8F020 		ldr	r2, [r3, #240]
 1643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
- 1186              		.loc 1 1643 0
- 1187 04c2 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 1188              	.LCFI13:
- 1189              		.cfi_def_cfa_offset 24
- 1190              		.cfi_offset 4, -24
- 1191              		.cfi_offset 5, -20
- 1192              		.cfi_offset 6, -16
- 1193              		.cfi_offset 7, -12
- 1194              		.cfi_offset 8, -8
- 1195              		.cfi_offset 14, -4
+ 1187              		.loc 1 1643 0
+ 1188 04c6 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1189              	.LCFI13:
+ 1190              		.cfi_def_cfa_offset 24
+ 1191              		.cfi_offset 4, -24
+ 1192              		.cfi_offset 5, -20
+ 1193              		.cfi_offset 6, -16
+ 1194              		.cfi_offset 7, -12
+ 1195              		.cfi_offset 8, -8
+ 1196              		.cfi_offset 14, -4
 1650:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	if( uxSchedulerSuspended == ( unsigned portBASE_TYPE ) pdFALSE )
- 1196              		.loc 1 1650 0
- 1197 04c6 D3F8F020 		ldr	r2, [r3, #240]
+ 1197              		.loc 1 1650 0
  1198 04ca 002A     		cmp	r2, #0
  1199 04cc 54D1     		bne	.L122
 1652:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		++xTickCount;
@@ -3922,10 +3920,10 @@
  1301              		.loc 1 1688 0 discriminator 7
  1302 055e E86A     		ldr	r0, [r5, #44]
  1303 0560 D4F8E820 		ldr	r2, [r4, #232]
- 1304 0564 3146     		mov	r1, r6
- 1305 0566 9042     		cmp	r0, r2
- 1306 0568 88BF     		it	hi
- 1307 056a C4F8E800 		strhi	r0, [r4, #232]
+ 1304 0564 9042     		cmp	r0, r2
+ 1305 0566 88BF     		it	hi
+ 1306 0568 C4F8E800 		strhi	r0, [r4, #232]
+ 1307 056c 3146     		mov	r1, r6
  1308 056e 08FB0070 		mla	r0, r8, r0, r7
  1309 0572 FFF7FEFF 		bl	vListInsertEnd
  1310              	.LVL129:
@@ -4031,10 +4029,10 @@
  1398              		.loc 1 1379 0
  1399 05d6 E86A     		ldr	r0, [r5, #44]
  1400 05d8 D4F8E820 		ldr	r2, [r4, #232]
- 1401 05dc 3946     		mov	r1, r7
- 1402 05de 9042     		cmp	r0, r2
- 1403 05e0 88BF     		it	hi
- 1404 05e2 C4F8E800 		strhi	r0, [r4, #232]
+ 1401 05dc 9042     		cmp	r0, r2
+ 1402 05de 88BF     		it	hi
+ 1403 05e0 C4F8E800 		strhi	r0, [r4, #232]
+ 1404 05e4 3946     		mov	r1, r7
  1405 05e6 09FB0080 		mla	r0, r9, r0, r8
  1406 05ea FFF7FEFF 		bl	vListInsertEnd
  1407              	.LVL138:
@@ -4550,13 +4548,13 @@
  734:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( xTickCount < *pxPreviousWakeTime )
  1698              		.loc 1 734 0
  1699 070e 5168     		ldr	r1, [r2, #4]
+ 1700 0710 9942     		cmp	r1, r3
  732:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			xTimeToWake = *pxPreviousWakeTime + xTimeIncrement;
- 1700              		.loc 1 732 0
- 1701 0710 1C19     		adds	r4, r3, r4
- 1702              	.LVL175:
+ 1701              		.loc 1 732 0
+ 1702 0712 1C44     		add	r4, r3, r4
+ 1703              	.LVL175:
  734:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( xTickCount < *pxPreviousWakeTime )
- 1703              		.loc 1 734 0
- 1704 0712 9942     		cmp	r1, r3
+ 1704              		.loc 1 734 0
  1705 0714 02D2     		bcs	.L193
  741:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( ( xTimeToWake < *pxPreviousWakeTime ) && ( xTimeToWake > xTickCount ) )
  1706              		.loc 1 741 0
@@ -4682,8 +4680,8 @@
  1810 0786 2368     		ldr	r3, [r4, #0]
  1811 0788 1C49     		ldr	r1, .L219+4
  1812 078a 186B     		ldr	r0, [r3, #48]
- 1813 078c 1422     		movs	r2, #20
- 1814 078e 1A4D     		ldr	r5, .L219
+ 1813 078c 1A4D     		ldr	r5, .L219
+ 1814 078e 1422     		movs	r2, #20
  1815 0790 FFF7FEFF 		bl	memcmp
  1816              	.LVL183:
  1817 0794 88B1     		cbz	r0, .L210
@@ -4734,8 +4732,8 @@
  1856 07d4 1431     		adds	r1, r1, #20
  1857 07d6 02FB0313 		mla	r3, r2, r3, r1
  1858              	.LVL186:
- 1859 07da 5A68     		ldr	r2, [r3, #4]
- 1860 07dc 03F10801 		add	r1, r3, #8
+ 1859 07da 03F10801 		add	r1, r3, #8
+ 1860 07de 5A68     		ldr	r2, [r3, #4]
  1861 07e0 5268     		ldr	r2, [r2, #4]
  1862 07e2 8A42     		cmp	r2, r1
  1863 07e4 5A60     		str	r2, [r3, #4]
@@ -5249,76 +5247,72 @@
 2026:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			*pxTicksToWait -= ( ( portTickType ) xTickCount - ( portTickType ) pxTimeOut->xTimeOnEntering );
  2309              		.loc 1 2026 0
  2310 09a0 0749     		ldr	r1, .L269
+ 2311 09a2 4968     		ldr	r1, [r1, #4]
+ 2312 09a4 521A     		subs	r2, r2, r1
+ 2313 09a6 D318     		adds	r3, r2, r3
+ 2314 09a8 2B60     		str	r3, [r5, #0]
 2027:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			vTaskSetTimeOutState( pxTimeOut );
- 2311              		.loc 1 2027 0
- 2312 09a2 2046     		mov	r0, r4
-2026:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			*pxTicksToWait -= ( ( portTickType ) xTickCount - ( portTickType ) pxTimeOut->xTimeOnEntering );
- 2313              		.loc 1 2026 0
- 2314 09a4 4968     		ldr	r1, [r1, #4]
- 2315 09a6 521A     		subs	r2, r2, r1
- 2316 09a8 D318     		adds	r3, r2, r3
- 2317 09aa 2B60     		str	r3, [r5, #0]
-2027:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			vTaskSetTimeOutState( pxTimeOut );
- 2318              		.loc 1 2027 0
- 2319 09ac FFF7FEFF 		bl	vTaskSetTimeOutState
- 2320              	.LVL238:
- 2321              	.L266:
+ 2315              		.loc 1 2027 0
+ 2316 09aa 2046     		mov	r0, r4
+ 2317 09ac FFF7FEFF 		bl	vTaskSetTimeOutState
+ 2318              	.LVL238:
+ 2319              	.L266:
 2010:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				xReturn = pdFALSE;
- 2322              		.loc 1 2010 0
- 2323 09b0 0024     		movs	r4, #0
- 2324              	.LVL239:
- 2325 09b2 00E0     		b	.L264
- 2326              	.LVL240:
- 2327              	.L268:
+ 2320              		.loc 1 2010 0
+ 2321 09b0 0024     		movs	r4, #0
+ 2322              	.LVL239:
+ 2323 09b2 00E0     		b	.L264
+ 2324              	.LVL240:
+ 2325              	.L268:
 2021:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			xReturn = pdTRUE;
- 2328              		.loc 1 2021 0
- 2329 09b4 0124     		movs	r4, #1
- 2330              	.LVL241:
- 2331              	.L264:
+ 2326              		.loc 1 2021 0
+ 2327 09b4 0124     		movs	r4, #1
+ 2328              	.LVL241:
+ 2329              	.L264:
 2035:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	taskEXIT_CRITICAL();
- 2332              		.loc 1 2035 0
- 2333 09b6 FFF7FEFF 		bl	vPortExitCritical
- 2334              	.LVL242:
+ 2330              		.loc 1 2035 0
+ 2331 09b6 FFF7FEFF 		bl	vPortExitCritical
+ 2332              	.LVL242:
 2038:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** }
- 2335              		.loc 1 2038 0
- 2336 09ba 2046     		mov	r0, r4
- 2337 09bc 38BD     		pop	{r3, r4, r5, pc}
- 2338              	.L270:
- 2339 09be 00BF     		.align	2
- 2340              	.L269:
- 2341 09c0 00000000 		.word	.LANCHOR0
- 2342              		.cfi_endproc
- 2343              	.LFE23:
- 2345              		.align	1
- 2346              		.global	vTaskMissedYield
- 2347              		.thumb
- 2348              		.thumb_func
- 2350              	vTaskMissedYield:
- 2351              	.LFB24:
+ 2333              		.loc 1 2038 0
+ 2334 09ba 2046     		mov	r0, r4
+ 2335 09bc 38BD     		pop	{r3, r4, r5, pc}
+ 2336              	.L270:
+ 2337 09be 00BF     		.align	2
+ 2338              	.L269:
+ 2339 09c0 00000000 		.word	.LANCHOR0
+ 2340              		.cfi_endproc
+ 2341              	.LFE23:
+ 2343              		.align	1
+ 2344              		.global	vTaskMissedYield
+ 2345              		.thumb
+ 2346              		.thumb_func
+ 2348              	vTaskMissedYield:
+ 2349              	.LFB24:
 2042:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** {
- 2352              		.loc 1 2042 0
- 2353              		.cfi_startproc
- 2354              		@ args = 0, pretend = 0, frame = 0
- 2355              		@ frame_needed = 0, uses_anonymous_args = 0
- 2356              		@ link register save eliminated.
+ 2350              		.loc 1 2042 0
+ 2351              		.cfi_startproc
+ 2352              		@ args = 0, pretend = 0, frame = 0
+ 2353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2354              		@ link register save eliminated.
 2043:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	xMissedYield = pdTRUE;
- 2357              		.loc 1 2043 0
- 2358 09c4 024B     		ldr	r3, .L272
- 2359 09c6 0122     		movs	r2, #1
- 2360 09c8 C3F8FC20 		str	r2, [r3, #252]
- 2361 09cc 7047     		bx	lr
- 2362              	.L273:
- 2363 09ce 00BF     		.align	2
- 2364              	.L272:
- 2365 09d0 00000000 		.word	.LANCHOR0
- 2366              		.cfi_endproc
- 2367              	.LFE24:
- 2369              		.align	1
- 2370              		.global	xTaskGetCurrentTaskHandle
- 2371              		.thumb
- 2372              		.thumb_func
- 2374              	xTaskGetCurrentTaskHandle:
- 2375              	.LFB32:
+ 2355              		.loc 1 2043 0
+ 2356 09c4 024B     		ldr	r3, .L272
+ 2357 09c6 0122     		movs	r2, #1
+ 2358 09c8 C3F8FC20 		str	r2, [r3, #252]
+ 2359 09cc 7047     		bx	lr
+ 2360              	.L273:
+ 2361 09ce 00BF     		.align	2
+ 2362              	.L272:
+ 2363 09d0 00000000 		.word	.LANCHOR0
+ 2364              		.cfi_endproc
+ 2365              	.LFE24:
+ 2367              		.align	1
+ 2368              		.global	xTaskGetCurrentTaskHandle
+ 2369              		.thumb
+ 2370              		.thumb_func
+ 2372              	xTaskGetCurrentTaskHandle:
+ 2373              	.LFB32:
 2600:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
 2601:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2602:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** #endif /* INCLUDE_vTaskDelete */
@@ -5328,38 +5322,38 @@
 2606:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2607:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	xTaskHandle xTaskGetCurrentTaskHandle( void )
 2608:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 2376              		.loc 1 2608 0
- 2377              		.cfi_startproc
- 2378              		@ args = 0, pretend = 0, frame = 0
- 2379              		@ frame_needed = 0, uses_anonymous_args = 0
- 2380              		@ link register save eliminated.
+ 2374              		.loc 1 2608 0
+ 2375              		.cfi_startproc
+ 2376              		@ args = 0, pretend = 0, frame = 0
+ 2377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2378              		@ link register save eliminated.
 2609:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	xTaskHandle xReturn;
 2610:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2611:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		/* A critical section is not required as this is not called from
 2612:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		an interrupt and the current TCB will always be the same for any
 2613:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		individual execution thread. */
 2614:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		xReturn = pxCurrentTCB;
- 2381              		.loc 1 2614 0
- 2382 09d4 014B     		ldr	r3, .L275
- 2383 09d6 1868     		ldr	r0, [r3, #0]
- 2384              	.LVL243:
+ 2379              		.loc 1 2614 0
+ 2380 09d4 014B     		ldr	r3, .L275
+ 2381 09d6 1868     		ldr	r0, [r3, #0]
+ 2382              	.LVL243:
 2615:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2616:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		return xReturn;
 2617:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 2385              		.loc 1 2617 0
- 2386 09d8 7047     		bx	lr
- 2387              	.L276:
- 2388 09da 00BF     		.align	2
- 2389              	.L275:
- 2390 09dc 00000000 		.word	.LANCHOR0
- 2391              		.cfi_endproc
- 2392              	.LFE32:
- 2394              		.align	1
- 2395              		.global	xTaskGetSchedulerState
- 2396              		.thumb
- 2397              		.thumb_func
- 2399              	xTaskGetSchedulerState:
- 2400              	.LFB33:
+ 2383              		.loc 1 2617 0
+ 2384 09d8 7047     		bx	lr
+ 2385              	.L276:
+ 2386 09da 00BF     		.align	2
+ 2387              	.L275:
+ 2388 09dc 00000000 		.word	.LANCHOR0
+ 2389              		.cfi_endproc
+ 2390              	.LFE32:
+ 2392              		.align	1
+ 2393              		.global	xTaskGetSchedulerState
+ 2394              		.thumb
+ 2395              		.thumb_func
+ 2397              	xTaskGetSchedulerState:
+ 2398              	.LFB33:
 2618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2619:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** #endif /* ( ( INCLUDE_xTaskGetCurrentTaskHandle == 1 ) || ( configUSE_MUTEXES == 1 ) ) */
 2620:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** /*-----------------------------------------------------------*/
@@ -5368,35 +5362,35 @@
 2623:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2624:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	portBASE_TYPE xTaskGetSchedulerState( void )
 2625:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 2401              		.loc 1 2625 0
- 2402              		.cfi_startproc
- 2403              		@ args = 0, pretend = 0, frame = 0
- 2404              		@ frame_needed = 0, uses_anonymous_args = 0
- 2405              		@ link register save eliminated.
+ 2399              		.loc 1 2625 0
+ 2400              		.cfi_startproc
+ 2401              		@ args = 0, pretend = 0, frame = 0
+ 2402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2403              		@ link register save eliminated.
 2626:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	portBASE_TYPE xReturn;
 2627:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2628:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( xSchedulerRunning == pdFALSE )
- 2406              		.loc 1 2628 0
- 2407 09e0 054B     		ldr	r3, .L281
- 2408 09e2 D3F8DC00 		ldr	r0, [r3, #220]
- 2409 09e6 28B1     		cbz	r0, .L278
+ 2404              		.loc 1 2628 0
+ 2405 09e0 054B     		ldr	r3, .L281
+ 2406 09e2 D3F8DC00 		ldr	r0, [r3, #220]
+ 2407 09e6 28B1     		cbz	r0, .L278
 2629:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2630:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			xReturn = taskSCHEDULER_NOT_STARTED;
 2631:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		}
 2632:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		else
 2633:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2634:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( uxSchedulerSuspended == ( unsigned portBASE_TYPE ) pdFALSE )
- 2410              		.loc 1 2634 0
- 2411 09e8 D3F8F000 		ldr	r0, [r3, #240]
+ 2408              		.loc 1 2634 0
+ 2409 09e8 D3F8F000 		ldr	r0, [r3, #240]
 2635:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			{
 2636:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				xReturn = taskSCHEDULER_RUNNING;
- 2412              		.loc 1 2636 0
- 2413 09ec 0028     		cmp	r0, #0
- 2414 09ee 14BF     		ite	ne
- 2415 09f0 0220     		movne	r0, #2
- 2416 09f2 0120     		moveq	r0, #1
- 2417              	.L278:
- 2418              	.LVL244:
+ 2410              		.loc 1 2636 0
+ 2411 09ec 0028     		cmp	r0, #0
+ 2412 09ee 14BF     		ite	ne
+ 2413 09f0 0220     		movne	r0, #2
+ 2414 09f2 0120     		moveq	r0, #1
+ 2415              	.L278:
+ 2416              	.LVL244:
 2637:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			}
 2638:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			else
 2639:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			{
@@ -5406,20 +5400,20 @@
 2643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2644:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		return xReturn;
 2645:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 2419              		.loc 1 2645 0
- 2420 09f4 7047     		bx	lr
- 2421              	.L282:
- 2422 09f6 00BF     		.align	2
- 2423              	.L281:
- 2424 09f8 00000000 		.word	.LANCHOR0
- 2425              		.cfi_endproc
- 2426              	.LFE33:
- 2428              		.align	1
- 2429              		.global	vTaskPriorityInherit
- 2430              		.thumb
- 2431              		.thumb_func
- 2433              	vTaskPriorityInherit:
- 2434              	.LFB34:
+ 2417              		.loc 1 2645 0
+ 2418 09f4 7047     		bx	lr
+ 2419              	.L282:
+ 2420 09f6 00BF     		.align	2
+ 2421              	.L281:
+ 2422 09f8 00000000 		.word	.LANCHOR0
+ 2423              		.cfi_endproc
+ 2424              	.LFE33:
+ 2426              		.align	1
+ 2427              		.global	vTaskPriorityInherit
+ 2428              		.thumb
+ 2429              		.thumb_func
+ 2431              	vTaskPriorityInherit:
+ 2432              	.LFB34:
 2646:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** #endif /* ( ( INCLUDE_xTaskGetSchedulerState == 1 ) || ( configUSE_TIMERS == 1 ) ) */
 2648:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** /*-----------------------------------------------------------*/
@@ -5428,88 +5422,88 @@
 2651:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2652:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	void vTaskPriorityInherit( xTaskHandle * const pxMutexHolder )
 2653:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 2435              		.loc 1 2653 0
- 2436              		.cfi_startproc
- 2437              		@ args = 0, pretend = 0, frame = 0
- 2438              		@ frame_needed = 0, uses_anonymous_args = 0
- 2439              	.LVL245:
- 2440 09fc 70B5     		push	{r4, r5, r6, lr}
- 2441              	.LCFI25:
- 2442              		.cfi_def_cfa_offset 16
- 2443              		.cfi_offset 4, -16
- 2444              		.cfi_offset 5, -12
- 2445              		.cfi_offset 6, -8
- 2446              		.cfi_offset 14, -4
+ 2433              		.loc 1 2653 0
+ 2434              		.cfi_startproc
+ 2435              		@ args = 0, pretend = 0, frame = 0
+ 2436              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2437              	.LVL245:
+ 2438 09fc 70B5     		push	{r4, r5, r6, lr}
+ 2439              	.LCFI25:
+ 2440              		.cfi_def_cfa_offset 16
+ 2441              		.cfi_offset 4, -16
+ 2442              		.cfi_offset 5, -12
+ 2443              		.cfi_offset 6, -8
+ 2444              		.cfi_offset 14, -4
 2654:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	tskTCB * const pxTCB = ( tskTCB * ) pxMutexHolder;
 2655:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2656:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		/* If the mutex was given back by an interrupt while the queue was
 2657:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		locked then the mutex holder might now be NULL. */
 2658:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( pxMutexHolder != NULL )
- 2447              		.loc 1 2658 0
- 2448 09fe 0446     		mov	r4, r0
- 2449 0a00 0028     		cmp	r0, #0
- 2450 0a02 2BD0     		beq	.L283
+ 2445              		.loc 1 2658 0
+ 2446 09fe 0446     		mov	r4, r0
+ 2447 0a00 0028     		cmp	r0, #0
+ 2448 0a02 2BD0     		beq	.L283
 2659:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2660:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxTCB->uxPriority < pxCurrentTCB->uxPriority )
- 2451              		.loc 1 2660 0
- 2452 0a04 164D     		ldr	r5, .L290
- 2453 0a06 C26A     		ldr	r2, [r0, #44]
- 2454 0a08 2B68     		ldr	r3, [r5, #0]
- 2455 0a0a DB6A     		ldr	r3, [r3, #44]
- 2456 0a0c 9A42     		cmp	r2, r3
- 2457 0a0e 25D2     		bcs	.L283
+ 2449              		.loc 1 2660 0
+ 2450 0a04 164D     		ldr	r5, .L290
+ 2451 0a06 C26A     		ldr	r2, [r0, #44]
+ 2452 0a08 2B68     		ldr	r3, [r5, #0]
+ 2453 0a0a DB6A     		ldr	r3, [r3, #44]
+ 2454 0a0c 9A42     		cmp	r2, r3
+ 2455 0a0e 25D2     		bcs	.L283
 2661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			{
 2662:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				/* Adjust the mutex holder state to account for its new priority. */
 2663:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				listSET_LIST_ITEM_VALUE( &( pxTCB->xEventListItem ), configMAX_PRIORITIES - ( portTickType ) px
- 2458              		.loc 1 2663 0
- 2459 0a10 2B46     		mov	r3, r5
- 2460 0a12 53F8141B 		ldr	r1, [r3], #20
- 2461 0a16 C96A     		ldr	r1, [r1, #44]
- 2462 0a18 C1F10501 		rsb	r1, r1, #5
- 2463 0a1c 8161     		str	r1, [r0, #24]
+ 2456              		.loc 1 2663 0
+ 2457 0a10 2B46     		mov	r3, r5
+ 2458 0a12 53F8141B 		ldr	r1, [r3], #20
+ 2459 0a16 C96A     		ldr	r1, [r1, #44]
+ 2460 0a18 C1F10501 		rsb	r1, r1, #5
+ 2461 0a1c 8161     		str	r1, [r0, #24]
 2664:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2665:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				/* If the task being modified is in the ready state it will need to
 2666:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				be moved into a new list. */
 2667:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( listIS_CONTAINED_WITHIN( &( pxReadyTasksLists[ pxTCB->uxPriority ] ), &( pxTCB->xGenericLis
- 2464              		.loc 1 2667 0
- 2465 0a1e 1421     		movs	r1, #20
- 2466 0a20 01FB0233 		mla	r3, r1, r2, r3
- 2467 0a24 4169     		ldr	r1, [r0, #20]
- 2468 0a26 9942     		cmp	r1, r3
- 2469 0a28 15D1     		bne	.L285
+ 2462              		.loc 1 2667 0
+ 2463 0a1e 1421     		movs	r1, #20
+ 2464 0a20 01FB0233 		mla	r3, r1, r2, r3
+ 2465 0a24 4169     		ldr	r1, [r0, #20]
+ 2466 0a26 9942     		cmp	r1, r3
+ 2467 0a28 15D1     		bne	.L285
 2668:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				{
 2669:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					if( uxListRemove( ( xListItem * ) &( pxTCB->xGenericListItem ) ) == 0 )
- 2470              		.loc 1 2669 0
- 2471 0a2a 061D     		adds	r6, r0, #4
- 2472 0a2c 3046     		mov	r0, r6
- 2473              	.LVL246:
- 2474 0a2e FFF7FEFF 		bl	uxListRemove
- 2475              	.LVL247:
+ 2468              		.loc 1 2669 0
+ 2469 0a2a 061D     		adds	r6, r0, #4
+ 2470 0a2c 3046     		mov	r0, r6
+ 2471              	.LVL246:
+ 2472 0a2e FFF7FEFF 		bl	uxListRemove
+ 2473              	.LVL247:
 2670:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					{
 2671:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 						taskRESET_READY_PRIORITY( pxTCB->uxPriority );
 2672:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					}
 2673:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					/* Inherit the priority before being moved into the new list. */
 2675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					pxTCB->uxPriority = pxCurrentTCB->uxPriority;
- 2476              		.loc 1 2675 0
- 2477 0a32 2B68     		ldr	r3, [r5, #0]
+ 2474              		.loc 1 2675 0
+ 2475 0a32 2B68     		ldr	r3, [r5, #0]
 2676:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					prvAddTaskToReadyQueue( pxTCB );
- 2478              		.loc 1 2676 0
- 2479 0a34 D5F8E820 		ldr	r2, [r5, #232]
+ 2476              		.loc 1 2676 0
+ 2477 0a34 D5F8E820 		ldr	r2, [r5, #232]
 2675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					pxTCB->uxPriority = pxCurrentTCB->uxPriority;
- 2480              		.loc 1 2675 0
- 2481 0a38 DB6A     		ldr	r3, [r3, #44]
- 2482              		.loc 1 2676 0
- 2483 0a3a 3146     		mov	r1, r6
- 2484 0a3c 9342     		cmp	r3, r2
- 2485 0a3e 094A     		ldr	r2, .L290+4
- 2486 0a40 88BF     		it	hi
- 2487 0a42 C5F8E830 		strhi	r3, [r5, #232]
- 2488 0a46 1420     		movs	r0, #20
- 2489 0a48 00FB0320 		mla	r0, r0, r3, r2
+ 2478              		.loc 1 2675 0
+ 2479 0a38 DB6A     		ldr	r3, [r3, #44]
+ 2480              		.loc 1 2676 0
+ 2481 0a3a 9342     		cmp	r3, r2
+ 2482 0a3c 094A     		ldr	r2, .L290+4
+ 2483 0a3e 88BF     		it	hi
+ 2484 0a40 C5F8E830 		strhi	r3, [r5, #232]
+ 2485 0a44 1420     		movs	r0, #20
+ 2486 0a46 00FB0320 		mla	r0, r0, r3, r2
+ 2487 0a4a 3146     		mov	r1, r6
 2675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					pxTCB->uxPriority = pxCurrentTCB->uxPriority;
- 2490              		.loc 1 2675 0
- 2491 0a4c E362     		str	r3, [r4, #44]
+ 2488              		.loc 1 2675 0
+ 2489 0a4c E362     		str	r3, [r4, #44]
 2677:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				}
 2678:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				else
 2679:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				{
@@ -5521,33 +5515,33 @@
 2685:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			}
 2686:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		}
 2687:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 2492              		.loc 1 2687 0
- 2493 0a4e BDE87040 		pop	{r4, r5, r6, lr}
+ 2490              		.loc 1 2687 0
+ 2491 0a4e BDE87040 		pop	{r4, r5, r6, lr}
 2676:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					prvAddTaskToReadyQueue( pxTCB );
- 2494              		.loc 1 2676 0
- 2495 0a52 FFF7FEBF 		b	vListInsertEnd
- 2496              	.LVL248:
- 2497              	.L285:
+ 2492              		.loc 1 2676 0
+ 2493 0a52 FFF7FEBF 		b	vListInsertEnd
+ 2494              	.LVL248:
+ 2495              	.L285:
 2681:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					pxTCB->uxPriority = pxCurrentTCB->uxPriority;
- 2498              		.loc 1 2681 0
- 2499 0a56 2B68     		ldr	r3, [r5, #0]
- 2500 0a58 DB6A     		ldr	r3, [r3, #44]
- 2501 0a5a C362     		str	r3, [r0, #44]
- 2502              	.L283:
- 2503 0a5c 70BD     		pop	{r4, r5, r6, pc}
- 2504              	.L291:
- 2505 0a5e 00BF     		.align	2
- 2506              	.L290:
- 2507 0a60 00000000 		.word	.LANCHOR0
- 2508 0a64 14000000 		.word	.LANCHOR0+20
- 2509              		.cfi_endproc
- 2510              	.LFE34:
- 2512              		.align	1
- 2513              		.global	vTaskPriorityDisinherit
- 2514              		.thumb
- 2515              		.thumb_func
- 2517              	vTaskPriorityDisinherit:
- 2518              	.LFB35:
+ 2496              		.loc 1 2681 0
+ 2497 0a56 2B68     		ldr	r3, [r5, #0]
+ 2498 0a58 DB6A     		ldr	r3, [r3, #44]
+ 2499 0a5a C362     		str	r3, [r0, #44]
+ 2500              	.L283:
+ 2501 0a5c 70BD     		pop	{r4, r5, r6, pc}
+ 2502              	.L291:
+ 2503 0a5e 00BF     		.align	2
+ 2504              	.L290:
+ 2505 0a60 00000000 		.word	.LANCHOR0
+ 2506 0a64 14000000 		.word	.LANCHOR0+20
+ 2507              		.cfi_endproc
+ 2508              	.LFE34:
+ 2510              		.align	1
+ 2511              		.global	vTaskPriorityDisinherit
+ 2512              		.thumb
+ 2513              		.thumb_func
+ 2515              	vTaskPriorityDisinherit:
+ 2516              	.LFB35:
 2688:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2689:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** #endif /* configUSE_MUTEXES */
 2690:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** /*-----------------------------------------------------------*/
@@ -5556,41 +5550,41 @@
 2693:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2694:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	void vTaskPriorityDisinherit( xTaskHandle * const pxMutexHolder )
 2695:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	{
- 2519              		.loc 1 2695 0
- 2520              		.cfi_startproc
- 2521              		@ args = 0, pretend = 0, frame = 0
- 2522              		@ frame_needed = 0, uses_anonymous_args = 0
- 2523              	.LVL249:
- 2524 0a68 38B5     		push	{r3, r4, r5, lr}
- 2525              	.LCFI26:
- 2526              		.cfi_def_cfa_offset 16
- 2527              		.cfi_offset 3, -16
- 2528              		.cfi_offset 4, -12
- 2529              		.cfi_offset 5, -8
- 2530              		.cfi_offset 14, -4
+ 2517              		.loc 1 2695 0
+ 2518              		.cfi_startproc
+ 2519              		@ args = 0, pretend = 0, frame = 0
+ 2520              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2521              	.LVL249:
+ 2522 0a68 38B5     		push	{r3, r4, r5, lr}
+ 2523              	.LCFI26:
+ 2524              		.cfi_def_cfa_offset 16
+ 2525              		.cfi_offset 3, -16
+ 2526              		.cfi_offset 4, -12
+ 2527              		.cfi_offset 5, -8
+ 2528              		.cfi_offset 14, -4
 2696:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	tskTCB * const pxTCB = ( tskTCB * ) pxMutexHolder;
 2697:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 
 2698:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		if( pxMutexHolder != NULL )
- 2531              		.loc 1 2698 0
- 2532 0a6a 0446     		mov	r4, r0
- 2533 0a6c E0B1     		cbz	r0, .L292
+ 2529              		.loc 1 2698 0
+ 2530 0a6a 0446     		mov	r4, r0
+ 2531 0a6c E0B1     		cbz	r0, .L292
 2699:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		{
 2700:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			if( pxTCB->uxPriority != pxTCB->uxBasePriority )
- 2534              		.loc 1 2700 0
- 2535 0a6e C26A     		ldr	r2, [r0, #44]
- 2536 0a70 036C     		ldr	r3, [r0, #64]
- 2537 0a72 9A42     		cmp	r2, r3
- 2538 0a74 18D0     		beq	.L292
+ 2532              		.loc 1 2700 0
+ 2533 0a6e C26A     		ldr	r2, [r0, #44]
+ 2534 0a70 036C     		ldr	r3, [r0, #64]
+ 2535 0a72 9A42     		cmp	r2, r3
+ 2536 0a74 18D0     		beq	.L292
 2701:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			{
 2702:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				/* We must be the running task to be able to give the mutex back.
 2703:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				Remove ourselves from the ready list we currently appear in. */
 2704:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				if( uxListRemove( ( xListItem * ) &( pxTCB->xGenericListItem ) ) == 0 )
- 2539              		.loc 1 2704 0
- 2540 0a76 051D     		adds	r5, r0, #4
- 2541 0a78 2846     		mov	r0, r5
- 2542              	.LVL250:
- 2543 0a7a FFF7FEFF 		bl	uxListRemove
- 2544              	.LVL251:
+ 2537              		.loc 1 2704 0
+ 2538 0a76 051D     		adds	r5, r0, #4
+ 2539 0a78 2846     		mov	r0, r5
+ 2540              	.LVL250:
+ 2541 0a7a FFF7FEFF 		bl	uxListRemove
+ 2542              	.LVL251:
 2705:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				{
 2706:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 					taskRESET_READY_PRIORITY( pxTCB->uxPriority );
 2707:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				}
@@ -5599,276 +5593,276 @@
 2710:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				ready list. */
 2711:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				traceTASK_PRIORITY_DISINHERIT( pxTCB, pxTCB->uxBasePriority );
 2712:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				pxTCB->uxPriority = pxTCB->uxBasePriority;
- 2545              		.loc 1 2712 0
- 2546 0a7e 236C     		ldr	r3, [r4, #64]
+ 2543              		.loc 1 2712 0
+ 2544 0a7e 236C     		ldr	r3, [r4, #64]
 2713:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				listSET_LIST_ITEM_VALUE( &( pxTCB->xEventListItem ), configMAX_PRIORITIES - ( portTickType ) px
- 2547              		.loc 1 2713 0
- 2548 0a80 C3F10502 		rsb	r2, r3, #5
- 2549 0a84 A261     		str	r2, [r4, #24]
+ 2545              		.loc 1 2713 0
+ 2546 0a80 C3F10502 		rsb	r2, r3, #5
+ 2547 0a84 A261     		str	r2, [r4, #24]
 2714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				prvAddTaskToReadyQueue( pxTCB );
- 2550              		.loc 1 2714 0
- 2551 0a86 094A     		ldr	r2, .L298
+ 2548              		.loc 1 2714 0
+ 2549 0a86 094A     		ldr	r2, .L298
 2712:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				pxTCB->uxPriority = pxTCB->uxBasePriority;
- 2552              		.loc 1 2712 0
- 2553 0a88 E362     		str	r3, [r4, #44]
- 2554              		.loc 1 2714 0
- 2555 0a8a D2F8E810 		ldr	r1, [r2, #232]
- 2556 0a8e 8B42     		cmp	r3, r1
- 2557 0a90 88BF     		it	hi
- 2558 0a92 C2F8E830 		strhi	r3, [r2, #232]
- 2559 0a96 064A     		ldr	r2, .L298+4
- 2560 0a98 1420     		movs	r0, #20
- 2561 0a9a 00FB0320 		mla	r0, r0, r3, r2
- 2562 0a9e 2946     		mov	r1, r5
+ 2550              		.loc 1 2712 0
+ 2551 0a88 E362     		str	r3, [r4, #44]
+ 2552              		.loc 1 2714 0
+ 2553 0a8a D2F8E810 		ldr	r1, [r2, #232]
+ 2554 0a8e 8B42     		cmp	r3, r1
+ 2555 0a90 88BF     		it	hi
+ 2556 0a92 C2F8E830 		strhi	r3, [r2, #232]
+ 2557 0a96 064A     		ldr	r2, .L298+4
+ 2558 0a98 1420     		movs	r0, #20
+ 2559 0a9a 00FB0320 		mla	r0, r0, r3, r2
+ 2560 0a9e 2946     		mov	r1, r5
 2715:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 			}
 2716:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 		}
 2717:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 	}
- 2563              		.loc 1 2717 0
- 2564 0aa0 BDE83840 		pop	{r3, r4, r5, lr}
+ 2561              		.loc 1 2717 0
+ 2562 0aa0 BDE83840 		pop	{r3, r4, r5, lr}
 2714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/tasks.c **** 				prvAddTaskToReadyQueue( pxTCB );
- 2565              		.loc 1 2714 0
- 2566 0aa4 FFF7FEBF 		b	vListInsertEnd
- 2567              	.LVL252:
- 2568              	.L292:
- 2569 0aa8 38BD     		pop	{r3, r4, r5, pc}
- 2570              	.L299:
- 2571 0aaa 00BF     		.align	2
- 2572              	.L298:
- 2573 0aac 00000000 		.word	.LANCHOR0
- 2574 0ab0 14000000 		.word	.LANCHOR0+20
- 2575              		.cfi_endproc
- 2576              	.LFE35:
- 2578              		.global	pxCurrentTCB
- 2579              		.section	.rodata
- 2580              		.set	.LANCHOR2,. + 0
- 2583              	ucExpectedStackBytes.5909:
- 2584 0000 A5       		.byte	-91
- 2585 0001 A5       		.byte	-91
- 2586 0002 A5       		.byte	-91
- 2587 0003 A5       		.byte	-91
- 2588 0004 A5       		.byte	-91
- 2589 0005 A5       		.byte	-91
- 2590 0006 A5       		.byte	-91
- 2591 0007 A5       		.byte	-91
- 2592 0008 A5       		.byte	-91
- 2593 0009 A5       		.byte	-91
- 2594 000a A5       		.byte	-91
- 2595 000b A5       		.byte	-91
- 2596 000c A5       		.byte	-91
- 2597 000d A5       		.byte	-91
- 2598 000e A5       		.byte	-91
- 2599 000f A5       		.byte	-91
- 2600 0010 A5       		.byte	-91
- 2601 0011 A5       		.byte	-91
- 2602 0012 A5       		.byte	-91
- 2603 0013 A5       		.byte	-91
- 2604              		.section	.rodata.str1.1,"aMS",%progbits,1
- 2605              	.LC0:
- 2606 0000 49444C45 		.ascii	"IDLE\000"
- 2606      00
- 2607              		.data
- 2608              		.align	2
- 2609              		.set	.LANCHOR1,. + 0
- 2612              	xNextTaskUnblockTime:
- 2613 0000 FFFFFFFF 		.word	-1
- 2614              		.bss
- 2615              		.align	2
- 2616              		.set	.LANCHOR0,. + 0
- 2619              	pxCurrentTCB:
- 2620 0000 00000000 		.space	4
- 2623              	xTickCount:
- 2624 0004 00000000 		.space	4
- 2627              	pxOverflowDelayedTaskList:
- 2628 0008 00000000 		.space	4
- 2631              	pxDelayedTaskList:
- 2632 000c 00000000 		.space	4
- 2635              	uxCurrentNumberOfTasks:
- 2636 0010 00000000 		.space	4
- 2639              	pxReadyTasksLists:
- 2640 0014 00000000 		.space	100
- 2640      00000000 
- 2640      00000000 
- 2640      00000000 
- 2640      00000000 
- 2643              	xDelayedTaskList1:
- 2644 0078 00000000 		.space	20
- 2644      00000000 
- 2644      00000000 
- 2644      00000000 
- 2644      00000000 
- 2647              	xDelayedTaskList2:
- 2648 008c 00000000 		.space	20
- 2648      00000000 
- 2648      00000000 
- 2648      00000000 
- 2648      00000000 
- 2651              	xPendingReadyList:
- 2652 00a0 00000000 		.space	20
- 2652      00000000 
- 2652      00000000 
- 2652      00000000 
- 2652      00000000 
- 2655              	xTasksWaitingTermination:
- 2656 00b4 00000000 		.space	20
- 2656      00000000 
- 2656      00000000 
- 2656      00000000 
- 2656      00000000 
- 2659              	xSuspendedTaskList:
- 2660 00c8 00000000 		.space	20
- 2660      00000000 
- 2660      00000000 
- 2660      00000000 
- 2660      00000000 
- 2663              	xSchedulerRunning:
- 2664 00dc 00000000 		.space	4
- 2667              	uxTopUsedPriority:
- 2668 00e0 00000000 		.space	4
- 2671              	uxTaskNumber:
- 2672 00e4 00000000 		.space	4
- 2675              	uxTopReadyPriority:
- 2676 00e8 00000000 		.space	4
- 2679              	uxTasksDeleted:
- 2680 00ec 00000000 		.space	4
- 2683              	uxSchedulerSuspended:
- 2684 00f0 00000000 		.space	4
- 2687              	xNumOfOverflows:
- 2688 00f4 00000000 		.space	4
- 2691              	uxMissedTicks:
- 2692 00f8 00000000 		.space	4
- 2695              	xMissedYield:
- 2696 00fc 00000000 		.space	4
- 2697              		.text
- 2698              	.Letext0:
- 2699              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 2700              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h"
- 2701              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
- 2702              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
- 2703              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
- 2704              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
- 2705              		.file 8 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 2706              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/timers.h"
+ 2563              		.loc 1 2714 0
+ 2564 0aa4 FFF7FEBF 		b	vListInsertEnd
+ 2565              	.LVL252:
+ 2566              	.L292:
+ 2567 0aa8 38BD     		pop	{r3, r4, r5, pc}
+ 2568              	.L299:
+ 2569 0aaa 00BF     		.align	2
+ 2570              	.L298:
+ 2571 0aac 00000000 		.word	.LANCHOR0
+ 2572 0ab0 14000000 		.word	.LANCHOR0+20
+ 2573              		.cfi_endproc
+ 2574              	.LFE35:
+ 2576              		.global	pxCurrentTCB
+ 2577              		.section	.rodata
+ 2578              		.set	.LANCHOR2,. + 0
+ 2581              	ucExpectedStackBytes.5909:
+ 2582 0000 A5       		.byte	-91
+ 2583 0001 A5       		.byte	-91
+ 2584 0002 A5       		.byte	-91
+ 2585 0003 A5       		.byte	-91
+ 2586 0004 A5       		.byte	-91
+ 2587 0005 A5       		.byte	-91
+ 2588 0006 A5       		.byte	-91
+ 2589 0007 A5       		.byte	-91
+ 2590 0008 A5       		.byte	-91
+ 2591 0009 A5       		.byte	-91
+ 2592 000a A5       		.byte	-91
+ 2593 000b A5       		.byte	-91
+ 2594 000c A5       		.byte	-91
+ 2595 000d A5       		.byte	-91
+ 2596 000e A5       		.byte	-91
+ 2597 000f A5       		.byte	-91
+ 2598 0010 A5       		.byte	-91
+ 2599 0011 A5       		.byte	-91
+ 2600 0012 A5       		.byte	-91
+ 2601 0013 A5       		.byte	-91
+ 2602              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 2603              	.LC0:
+ 2604 0000 49444C45 		.ascii	"IDLE\000"
+ 2604      00
+ 2605              		.data
+ 2606              		.align	2
+ 2607              		.set	.LANCHOR1,. + 0
+ 2610              	xNextTaskUnblockTime:
+ 2611 0000 FFFFFFFF 		.word	-1
+ 2612              		.bss
+ 2613              		.align	2
+ 2614              		.set	.LANCHOR0,. + 0
+ 2617              	pxCurrentTCB:
+ 2618 0000 00000000 		.space	4
+ 2621              	xTickCount:
+ 2622 0004 00000000 		.space	4
+ 2625              	pxOverflowDelayedTaskList:
+ 2626 0008 00000000 		.space	4
+ 2629              	pxDelayedTaskList:
+ 2630 000c 00000000 		.space	4
+ 2633              	uxCurrentNumberOfTasks:
+ 2634 0010 00000000 		.space	4
+ 2637              	pxReadyTasksLists:
+ 2638 0014 00000000 		.space	100
+ 2638      00000000 
+ 2638      00000000 
+ 2638      00000000 
+ 2638      00000000 
+ 2641              	xDelayedTaskList1:
+ 2642 0078 00000000 		.space	20
+ 2642      00000000 
+ 2642      00000000 
+ 2642      00000000 
+ 2642      00000000 
+ 2645              	xDelayedTaskList2:
+ 2646 008c 00000000 		.space	20
+ 2646      00000000 
+ 2646      00000000 
+ 2646      00000000 
+ 2646      00000000 
+ 2649              	xPendingReadyList:
+ 2650 00a0 00000000 		.space	20
+ 2650      00000000 
+ 2650      00000000 
+ 2650      00000000 
+ 2650      00000000 
+ 2653              	xTasksWaitingTermination:
+ 2654 00b4 00000000 		.space	20
+ 2654      00000000 
+ 2654      00000000 
+ 2654      00000000 
+ 2654      00000000 
+ 2657              	xSuspendedTaskList:
+ 2658 00c8 00000000 		.space	20
+ 2658      00000000 
+ 2658      00000000 
+ 2658      00000000 
+ 2658      00000000 
+ 2661              	xSchedulerRunning:
+ 2662 00dc 00000000 		.space	4
+ 2665              	uxTopUsedPriority:
+ 2666 00e0 00000000 		.space	4
+ 2669              	uxTaskNumber:
+ 2670 00e4 00000000 		.space	4
+ 2673              	uxTopReadyPriority:
+ 2674 00e8 00000000 		.space	4
+ 2677              	uxTasksDeleted:
+ 2678 00ec 00000000 		.space	4
+ 2681              	uxSchedulerSuspended:
+ 2682 00f0 00000000 		.space	4
+ 2685              	xNumOfOverflows:
+ 2686 00f4 00000000 		.space	4
+ 2689              	uxMissedTicks:
+ 2690 00f8 00000000 		.space	4
+ 2693              	xMissedYield:
+ 2694 00fc 00000000 		.space	4
+ 2695              		.text
+ 2696              	.Letext0:
+ 2697              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 2698              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h"
+ 2699              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 2700              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
+ 2701              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
+ 2702              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
+ 2703              		.file 8 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 2704              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/timers.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 tasks.c
-     /tmp/cca553fB.s:18     .text:00000000 $t
-     /tmp/cca553fB.s:22     .text:00000000 prvAddCurrentTaskToDelayedList
-     /tmp/cca553fB.s:85     .text:00000034 $d
-     /tmp/cca553fB.s:90     .text:0000003c $t
-     /tmp/cca553fB.s:95     .text:0000003c xTaskGenericCreate
-     /tmp/cca553fB.s:408    .text:000001c0 $d
-     /tmp/cca553fB.s:412    .text:000001c4 $t
-     /tmp/cca553fB.s:417    .text:000001c4 vTaskDelete
-     /tmp/cca553fB.s:498    .text:00000228 $d
-     /tmp/cca553fB.s:502    .text:0000022c $t
-     /tmp/cca553fB.s:507    .text:0000022c uxTaskPriorityGet
-     /tmp/cca553fB.s:543    .text:00000244 $d
-     /tmp/cca553fB.s:547    .text:00000248 $t
-     /tmp/cca553fB.s:552    .text:00000248 vTaskPrioritySet
-     /tmp/cca553fB.s:680    .text:000002e0 $d
-     /tmp/cca553fB.s:684    .text:000002e4 $t
-     /tmp/cca553fB.s:689    .text:000002e4 xTaskIsTaskSuspended
-     /tmp/cca553fB.s:741    .text:00000310 $d
-     /tmp/cca553fB.s:745    .text:00000314 $t
-     /tmp/cca553fB.s:750    .text:00000314 vTaskResume
-     /tmp/cca553fB.s:826    .text:00000378 $d
-     /tmp/cca553fB.s:830    .text:0000037c $t
-     /tmp/cca553fB.s:835    .text:0000037c xTaskResumeFromISR
-     /tmp/cca553fB.s:926    .text:000003f0 $d
-     /tmp/cca553fB.s:931    .text:000003f8 $t
-     /tmp/cca553fB.s:936    .text:000003f8 vTaskStartScheduler
-     /tmp/cca553fB.s:1011   .text:00000448 $d
-     /tmp/cca553fB.s:1492   .text:0000065c prvIdleTask
-     /tmp/cca553fB.s:1017   .text:00000454 $t
-     /tmp/cca553fB.s:1022   .text:00000454 vTaskEndScheduler
-     /tmp/cca553fB.s:1048   .text:0000046c $d
-     /tmp/cca553fB.s:1052   .text:00000470 $t
-     /tmp/cca553fB.s:1057   .text:00000470 vTaskSuspendAll
-     /tmp/cca553fB.s:1073   .text:00000480 $d
-     /tmp/cca553fB.s:1077   .text:00000484 $t
-     /tmp/cca553fB.s:1082   .text:00000484 xTaskGetTickCount
-     /tmp/cca553fB.s:1109   .text:00000498 $d
-     /tmp/cca553fB.s:1113   .text:0000049c $t
-     /tmp/cca553fB.s:1118   .text:0000049c xTaskGetTickCountFromISR
-     /tmp/cca553fB.s:1145   .text:000004b0 $d
-     /tmp/cca553fB.s:1149   .text:000004b4 $t
-     /tmp/cca553fB.s:1154   .text:000004b4 uxTaskGetNumberOfTasks
-     /tmp/cca553fB.s:1169   .text:000004bc $d
-     /tmp/cca553fB.s:1173   .text:000004c0 $t
-     /tmp/cca553fB.s:1178   .text:000004c0 vTaskIncrementTick
-     /tmp/cca553fB.s:1324   .text:00000588 $d
-     /tmp/cca553fB.s:1329   .text:00000590 $t
-     /tmp/cca553fB.s:1334   .text:00000590 xTaskResumeAll
-     /tmp/cca553fB.s:1484   .text:00000658 $d
-     /tmp/cca553fB.s:1488   .text:0000065c $t
-     /tmp/cca553fB.s:1585   .text:000006b8 $d
-     /tmp/cca553fB.s:1589   .text:000006bc $t
-     /tmp/cca553fB.s:1594   .text:000006bc vTaskDelay
-     /tmp/cca553fB.s:1647   .text:000006ec $d
-     /tmp/cca553fB.s:1651   .text:000006f0 $t
-     /tmp/cca553fB.s:1656   .text:000006f0 vTaskDelayUntil
-     /tmp/cca553fB.s:1762   .text:00000758 $d
-     /tmp/cca553fB.s:1766   .text:0000075c $t
-     /tmp/cca553fB.s:1771   .text:0000075c vTaskSwitchContext
-     /tmp/cca553fB.s:1876   .text:000007f8 $d
-     /tmp/cca553fB.s:1882   .text:00000800 $t
-     /tmp/cca553fB.s:1887   .text:00000800 vTaskSuspend
-     /tmp/cca553fB.s:1976   .text:00000868 $d
-     /tmp/cca553fB.s:1980   .text:0000086c $t
-     /tmp/cca553fB.s:1985   .text:0000086c vTaskPlaceOnEventList
-     /tmp/cca553fB.s:2049   .text:000008ac $d
-     /tmp/cca553fB.s:2053   .text:000008b0 $t
-     /tmp/cca553fB.s:2058   .text:000008b0 vTaskPlaceOnEventListRestricted
-     /tmp/cca553fB.s:2109   .text:000008dc $d
-     /tmp/cca553fB.s:2113   .text:000008e0 $t
-     /tmp/cca553fB.s:2118   .text:000008e0 xTaskRemoveFromEventList
-     /tmp/cca553fB.s:2198   .text:0000093c $d
-     /tmp/cca553fB.s:2203   .text:00000944 $t
-     /tmp/cca553fB.s:2208   .text:00000944 vTaskSetTimeOutState
-     /tmp/cca553fB.s:2239   .text:0000095c $d
-     /tmp/cca553fB.s:2243   .text:00000960 $t
-     /tmp/cca553fB.s:2248   .text:00000960 xTaskCheckForTimeOut
-     /tmp/cca553fB.s:2341   .text:000009c0 $d
-     /tmp/cca553fB.s:2345   .text:000009c4 $t
-     /tmp/cca553fB.s:2350   .text:000009c4 vTaskMissedYield
-     /tmp/cca553fB.s:2365   .text:000009d0 $d
-     /tmp/cca553fB.s:2369   .text:000009d4 $t
-     /tmp/cca553fB.s:2374   .text:000009d4 xTaskGetCurrentTaskHandle
-     /tmp/cca553fB.s:2390   .text:000009dc $d
-     /tmp/cca553fB.s:2394   .text:000009e0 $t
-     /tmp/cca553fB.s:2399   .text:000009e0 xTaskGetSchedulerState
-     /tmp/cca553fB.s:2424   .text:000009f8 $d
-     /tmp/cca553fB.s:2428   .text:000009fc $t
-     /tmp/cca553fB.s:2433   .text:000009fc vTaskPriorityInherit
-     /tmp/cca553fB.s:2507   .text:00000a60 $d
-     /tmp/cca553fB.s:2512   .text:00000a68 $t
-     /tmp/cca553fB.s:2517   .text:00000a68 vTaskPriorityDisinherit
-     /tmp/cca553fB.s:2573   .text:00000aac $d
-     /tmp/cca553fB.s:2619   .bss:00000000 pxCurrentTCB
-     /tmp/cca553fB.s:2583   .rodata:00000000 ucExpectedStackBytes.5909
-     /tmp/cca553fB.s:2608   .data:00000000 $d
-     /tmp/cca553fB.s:2612   .data:00000000 xNextTaskUnblockTime
-     /tmp/cca553fB.s:2615   .bss:00000000 $d
-     /tmp/cca553fB.s:2623   .bss:00000004 xTickCount
-     /tmp/cca553fB.s:2627   .bss:00000008 pxOverflowDelayedTaskList
-     /tmp/cca553fB.s:2631   .bss:0000000c pxDelayedTaskList
-     /tmp/cca553fB.s:2635   .bss:00000010 uxCurrentNumberOfTasks
-     /tmp/cca553fB.s:2639   .bss:00000014 pxReadyTasksLists
-     /tmp/cca553fB.s:2643   .bss:00000078 xDelayedTaskList1
-     /tmp/cca553fB.s:2647   .bss:0000008c xDelayedTaskList2
-     /tmp/cca553fB.s:2651   .bss:000000a0 xPendingReadyList
-     /tmp/cca553fB.s:2655   .bss:000000b4 xTasksWaitingTermination
-     /tmp/cca553fB.s:2659   .bss:000000c8 xSuspendedTaskList
-     /tmp/cca553fB.s:2663   .bss:000000dc xSchedulerRunning
-     /tmp/cca553fB.s:2667   .bss:000000e0 uxTopUsedPriority
-     /tmp/cca553fB.s:2671   .bss:000000e4 uxTaskNumber
-     /tmp/cca553fB.s:2675   .bss:000000e8 uxTopReadyPriority
-     /tmp/cca553fB.s:2679   .bss:000000ec uxTasksDeleted
-     /tmp/cca553fB.s:2683   .bss:000000f0 uxSchedulerSuspended
-     /tmp/cca553fB.s:2687   .bss:000000f4 xNumOfOverflows
-     /tmp/cca553fB.s:2691   .bss:000000f8 uxMissedTicks
-     /tmp/cca553fB.s:2695   .bss:000000fc xMissedYield
+     /tmp/cc17Xvpi.s:20     .text:00000000 $t
+     /tmp/cc17Xvpi.s:24     .text:00000000 prvAddCurrentTaskToDelayedList
+     /tmp/cc17Xvpi.s:87     .text:00000034 $d
+     /tmp/cc17Xvpi.s:92     .text:0000003c $t
+     /tmp/cc17Xvpi.s:97     .text:0000003c xTaskGenericCreate
+     /tmp/cc17Xvpi.s:410    .text:000001c0 $d
+     /tmp/cc17Xvpi.s:414    .text:000001c4 $t
+     /tmp/cc17Xvpi.s:419    .text:000001c4 vTaskDelete
+     /tmp/cc17Xvpi.s:500    .text:00000228 $d
+     /tmp/cc17Xvpi.s:504    .text:0000022c $t
+     /tmp/cc17Xvpi.s:509    .text:0000022c uxTaskPriorityGet
+     /tmp/cc17Xvpi.s:545    .text:00000244 $d
+     /tmp/cc17Xvpi.s:549    .text:00000248 $t
+     /tmp/cc17Xvpi.s:554    .text:00000248 vTaskPrioritySet
+     /tmp/cc17Xvpi.s:682    .text:000002e0 $d
+     /tmp/cc17Xvpi.s:686    .text:000002e4 $t
+     /tmp/cc17Xvpi.s:691    .text:000002e4 xTaskIsTaskSuspended
+     /tmp/cc17Xvpi.s:743    .text:00000310 $d
+     /tmp/cc17Xvpi.s:747    .text:00000314 $t
+     /tmp/cc17Xvpi.s:752    .text:00000314 vTaskResume
+     /tmp/cc17Xvpi.s:828    .text:00000378 $d
+     /tmp/cc17Xvpi.s:832    .text:0000037c $t
+     /tmp/cc17Xvpi.s:837    .text:0000037c xTaskResumeFromISR
+     /tmp/cc17Xvpi.s:928    .text:000003f0 $d
+     /tmp/cc17Xvpi.s:933    .text:000003f8 $t
+     /tmp/cc17Xvpi.s:938    .text:000003f8 vTaskStartScheduler
+     /tmp/cc17Xvpi.s:1011   .text:00000448 $d
+     /tmp/cc17Xvpi.s:1492   .text:0000065c prvIdleTask
+     /tmp/cc17Xvpi.s:1017   .text:00000454 $t
+     /tmp/cc17Xvpi.s:1022   .text:00000454 vTaskEndScheduler
+     /tmp/cc17Xvpi.s:1048   .text:0000046c $d
+     /tmp/cc17Xvpi.s:1052   .text:00000470 $t
+     /tmp/cc17Xvpi.s:1057   .text:00000470 vTaskSuspendAll
+     /tmp/cc17Xvpi.s:1073   .text:00000480 $d
+     /tmp/cc17Xvpi.s:1077   .text:00000484 $t
+     /tmp/cc17Xvpi.s:1082   .text:00000484 xTaskGetTickCount
+     /tmp/cc17Xvpi.s:1109   .text:00000498 $d
+     /tmp/cc17Xvpi.s:1113   .text:0000049c $t
+     /tmp/cc17Xvpi.s:1118   .text:0000049c xTaskGetTickCountFromISR
+     /tmp/cc17Xvpi.s:1145   .text:000004b0 $d
+     /tmp/cc17Xvpi.s:1149   .text:000004b4 $t
+     /tmp/cc17Xvpi.s:1154   .text:000004b4 uxTaskGetNumberOfTasks
+     /tmp/cc17Xvpi.s:1169   .text:000004bc $d
+     /tmp/cc17Xvpi.s:1173   .text:000004c0 $t
+     /tmp/cc17Xvpi.s:1178   .text:000004c0 vTaskIncrementTick
+     /tmp/cc17Xvpi.s:1324   .text:00000588 $d
+     /tmp/cc17Xvpi.s:1329   .text:00000590 $t
+     /tmp/cc17Xvpi.s:1334   .text:00000590 xTaskResumeAll
+     /tmp/cc17Xvpi.s:1484   .text:00000658 $d
+     /tmp/cc17Xvpi.s:1488   .text:0000065c $t
+     /tmp/cc17Xvpi.s:1585   .text:000006b8 $d
+     /tmp/cc17Xvpi.s:1589   .text:000006bc $t
+     /tmp/cc17Xvpi.s:1594   .text:000006bc vTaskDelay
+     /tmp/cc17Xvpi.s:1647   .text:000006ec $d
+     /tmp/cc17Xvpi.s:1651   .text:000006f0 $t
+     /tmp/cc17Xvpi.s:1656   .text:000006f0 vTaskDelayUntil
+     /tmp/cc17Xvpi.s:1762   .text:00000758 $d
+     /tmp/cc17Xvpi.s:1766   .text:0000075c $t
+     /tmp/cc17Xvpi.s:1771   .text:0000075c vTaskSwitchContext
+     /tmp/cc17Xvpi.s:1876   .text:000007f8 $d
+     /tmp/cc17Xvpi.s:1882   .text:00000800 $t
+     /tmp/cc17Xvpi.s:1887   .text:00000800 vTaskSuspend
+     /tmp/cc17Xvpi.s:1976   .text:00000868 $d
+     /tmp/cc17Xvpi.s:1980   .text:0000086c $t
+     /tmp/cc17Xvpi.s:1985   .text:0000086c vTaskPlaceOnEventList
+     /tmp/cc17Xvpi.s:2049   .text:000008ac $d
+     /tmp/cc17Xvpi.s:2053   .text:000008b0 $t
+     /tmp/cc17Xvpi.s:2058   .text:000008b0 vTaskPlaceOnEventListRestricted
+     /tmp/cc17Xvpi.s:2109   .text:000008dc $d
+     /tmp/cc17Xvpi.s:2113   .text:000008e0 $t
+     /tmp/cc17Xvpi.s:2118   .text:000008e0 xTaskRemoveFromEventList
+     /tmp/cc17Xvpi.s:2198   .text:0000093c $d
+     /tmp/cc17Xvpi.s:2203   .text:00000944 $t
+     /tmp/cc17Xvpi.s:2208   .text:00000944 vTaskSetTimeOutState
+     /tmp/cc17Xvpi.s:2239   .text:0000095c $d
+     /tmp/cc17Xvpi.s:2243   .text:00000960 $t
+     /tmp/cc17Xvpi.s:2248   .text:00000960 xTaskCheckForTimeOut
+     /tmp/cc17Xvpi.s:2339   .text:000009c0 $d
+     /tmp/cc17Xvpi.s:2343   .text:000009c4 $t
+     /tmp/cc17Xvpi.s:2348   .text:000009c4 vTaskMissedYield
+     /tmp/cc17Xvpi.s:2363   .text:000009d0 $d
+     /tmp/cc17Xvpi.s:2367   .text:000009d4 $t
+     /tmp/cc17Xvpi.s:2372   .text:000009d4 xTaskGetCurrentTaskHandle
+     /tmp/cc17Xvpi.s:2388   .text:000009dc $d
+     /tmp/cc17Xvpi.s:2392   .text:000009e0 $t
+     /tmp/cc17Xvpi.s:2397   .text:000009e0 xTaskGetSchedulerState
+     /tmp/cc17Xvpi.s:2422   .text:000009f8 $d
+     /tmp/cc17Xvpi.s:2426   .text:000009fc $t
+     /tmp/cc17Xvpi.s:2431   .text:000009fc vTaskPriorityInherit
+     /tmp/cc17Xvpi.s:2505   .text:00000a60 $d
+     /tmp/cc17Xvpi.s:2510   .text:00000a68 $t
+     /tmp/cc17Xvpi.s:2515   .text:00000a68 vTaskPriorityDisinherit
+     /tmp/cc17Xvpi.s:2571   .text:00000aac $d
+     /tmp/cc17Xvpi.s:2617   .bss:00000000 pxCurrentTCB
+     /tmp/cc17Xvpi.s:2581   .rodata:00000000 ucExpectedStackBytes.5909
+     /tmp/cc17Xvpi.s:2606   .data:00000000 $d
+     /tmp/cc17Xvpi.s:2610   .data:00000000 xNextTaskUnblockTime
+     /tmp/cc17Xvpi.s:2613   .bss:00000000 $d
+     /tmp/cc17Xvpi.s:2621   .bss:00000004 xTickCount
+     /tmp/cc17Xvpi.s:2625   .bss:00000008 pxOverflowDelayedTaskList
+     /tmp/cc17Xvpi.s:2629   .bss:0000000c pxDelayedTaskList
+     /tmp/cc17Xvpi.s:2633   .bss:00000010 uxCurrentNumberOfTasks
+     /tmp/cc17Xvpi.s:2637   .bss:00000014 pxReadyTasksLists
+     /tmp/cc17Xvpi.s:2641   .bss:00000078 xDelayedTaskList1
+     /tmp/cc17Xvpi.s:2645   .bss:0000008c xDelayedTaskList2
+     /tmp/cc17Xvpi.s:2649   .bss:000000a0 xPendingReadyList
+     /tmp/cc17Xvpi.s:2653   .bss:000000b4 xTasksWaitingTermination
+     /tmp/cc17Xvpi.s:2657   .bss:000000c8 xSuspendedTaskList
+     /tmp/cc17Xvpi.s:2661   .bss:000000dc xSchedulerRunning
+     /tmp/cc17Xvpi.s:2665   .bss:000000e0 uxTopUsedPriority
+     /tmp/cc17Xvpi.s:2669   .bss:000000e4 uxTaskNumber
+     /tmp/cc17Xvpi.s:2673   .bss:000000e8 uxTopReadyPriority
+     /tmp/cc17Xvpi.s:2677   .bss:000000ec uxTasksDeleted
+     /tmp/cc17Xvpi.s:2681   .bss:000000f0 uxSchedulerSuspended
+     /tmp/cc17Xvpi.s:2685   .bss:000000f4 xNumOfOverflows
+     /tmp/cc17Xvpi.s:2689   .bss:000000f8 uxMissedTicks
+     /tmp/cc17Xvpi.s:2693   .bss:000000fc xMissedYield
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
                            .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
                            .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66

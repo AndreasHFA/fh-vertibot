@@ -1,77 +1,79 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"MotorPWM.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	PWM_Motor
-  20              		.thumb
-  21              		.thumb_func
-  23              	PWM_Motor:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"MotorPWM.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	PWM_Motor
+  22              		.thumb
+  23              		.thumb_func
+  25              	PWM_Motor:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** #include <MotorPWM.h>
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 
    4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 
    5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** void PWM_Motor(uint8_t Motor, uint16_t value)
    6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** {
-  26              		.loc 1 6 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  28              		.loc 1 6 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	switch (Motor)
-  32              		.loc 1 7 0
-  33 0000 0528     		cmp	r0, #5
-  34 0002 16D8     		bhi	.L1
-  35 0004 DFE800F0 		tbb	[pc, r0]
-  36              	.L9:
-  37 0008 03       		.byte	(.L3-.L9)/2
-  38 0009 05       		.byte	(.L4-.L9)/2
-  39 000a 07       		.byte	(.L5-.L9)/2
-  40 000b 0A       		.byte	(.L6-.L9)/2
-  41 000c 0D       		.byte	(.L7-.L9)/2
-  42 000d 11       		.byte	(.L8-.L9)/2
-  43              		.align	1
-  44              	.L3:
+  34              		.loc 1 7 0
+  35 0000 0528     		cmp	r0, #5
+  36 0002 16D8     		bhi	.L1
+  37 0004 DFE800F0 		tbb	[pc, r0]
+  38              	.L9:
+  39 0008 03       		.byte	(.L3-.L9)/2
+  40 0009 05       		.byte	(.L4-.L9)/2
+  41 000a 07       		.byte	(.L5-.L9)/2
+  42 000b 0A       		.byte	(.L6-.L9)/2
+  43 000c 0D       		.byte	(.L7-.L9)/2
+  44 000d 11       		.byte	(.L8-.L9)/2
+  45              		.align	1
+  46              	.L3:
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	{
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	case 0:
   10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare1(TIM3, value);
-  45              		.loc 1 10 0
-  46 000e 0948     		ldr	r0, .L12
-  47              	.LVL1:
-  48 0010 09E0     		b	.L10
-  49              	.LVL2:
-  50              	.L4:
+  47              		.loc 1 10 0
+  48 000e 0948     		ldr	r0, .L12
+  49              	.LVL1:
+  50 0010 09E0     		b	.L10
+  51              	.LVL2:
+  52              	.L4:
   11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		break;
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	case 1:
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare2(TIM3, value);
-  51              		.loc 1 13 0
-  52 0012 0848     		ldr	r0, .L12
-  53              	.LVL3:
-  54 0014 0BE0     		b	.L11
-  55              	.LVL4:
-  56              	.L5:
+  53              		.loc 1 13 0
+  54 0012 0848     		ldr	r0, .L12
+  55              	.LVL3:
+  56 0014 0BE0     		b	.L11
+  57              	.LVL4:
+  58              	.L5:
   14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		break;
   15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	case 2:
   16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare3(TIM3, value);
-  57              		.loc 1 16 0
-  58 0016 0748     		ldr	r0, .L12
-  59              	.LVL5:
+  59              		.loc 1 16 0
+  60 0016 0748     		ldr	r0, .L12
+  61              	.LVL5:
   17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		break;
   18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	case 3:
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare4(TIM3, value);
@@ -84,149 +86,149 @@
   26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		break;
   27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	}
   28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** }
-  60              		.loc 1 28 0
+  62              		.loc 1 28 0
   16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare3(TIM3, value);
-  61              		.loc 1 16 0
-  62 0018 FFF7FEBF 		b	TIM_SetCompare3
-  63              	.LVL6:
-  64              	.L6:
+  63              		.loc 1 16 0
+  64 0018 FFF7FEBF 		b	TIM_SetCompare3
+  65              	.LVL6:
+  66              	.L6:
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare4(TIM3, value);
-  65              		.loc 1 19 0
-  66 001c 0548     		ldr	r0, .L12
-  67              	.LVL7:
-  68              		.loc 1 28 0
+  67              		.loc 1 19 0
+  68 001c 0548     		ldr	r0, .L12
+  69              	.LVL7:
+  70              		.loc 1 28 0
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare4(TIM3, value);
-  69              		.loc 1 19 0
-  70 001e FFF7FEBF 		b	TIM_SetCompare4
-  71              	.LVL8:
-  72              	.L7:
+  71              		.loc 1 19 0
+  72 001e FFF7FEBF 		b	TIM_SetCompare4
+  73              	.LVL8:
+  74              	.L7:
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare1(TIM2, value);
-  73              		.loc 1 22 0
-  74 0022 4FF08040 		mov	r0, #1073741824
-  75              	.LVL9:
-  76              	.L10:
-  77              		.loc 1 28 0
+  75              		.loc 1 22 0
+  76 0022 4FF08040 		mov	r0, #1073741824
+  77              	.LVL9:
+  78              	.L10:
+  79              		.loc 1 28 0
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare1(TIM2, value);
-  78              		.loc 1 22 0
-  79 0026 FFF7FEBF 		b	TIM_SetCompare1
-  80              	.LVL10:
-  81              	.L8:
+  80              		.loc 1 22 0
+  81 0026 FFF7FEBF 		b	TIM_SetCompare1
+  82              	.LVL10:
+  83              	.L8:
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare2(TIM2, value);
-  82              		.loc 1 25 0
-  83 002a 4FF08040 		mov	r0, #1073741824
-  84              	.LVL11:
-  85              	.L11:
-  86              		.loc 1 28 0
+  84              		.loc 1 25 0
+  85 002a 4FF08040 		mov	r0, #1073741824
+  86              	.LVL11:
+  87              	.L11:
+  88              		.loc 1 28 0
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 		TIM_SetCompare2(TIM2, value);
-  87              		.loc 1 25 0
-  88 002e FFF7FEBF 		b	TIM_SetCompare2
-  89              	.LVL12:
-  90              	.L1:
-  91 0032 7047     		bx	lr
-  92              	.L13:
-  93              		.align	2
-  94              	.L12:
-  95 0034 00040040 		.word	1073742848
-  96              		.cfi_endproc
-  97              	.LFE111:
-  99              		.align	1
- 100              		.global	Enable_Motor
- 101              		.thumb
- 102              		.thumb_func
- 104              	Enable_Motor:
- 105              	.LFB112:
+  89              		.loc 1 25 0
+  90 002e FFF7FEBF 		b	TIM_SetCompare2
+  91              	.LVL12:
+  92              	.L1:
+  93 0032 7047     		bx	lr
+  94              	.L13:
+  95              		.align	2
+  96              	.L12:
+  97 0034 00040040 		.word	1073742848
+  98              		.cfi_endproc
+  99              	.LFE111:
+ 101              		.align	1
+ 102              		.global	Enable_Motor
+ 103              		.thumb
+ 104              		.thumb_func
+ 106              	Enable_Motor:
+ 107              	.LFB112:
   29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** void Enable_Motor(){
- 106              		.loc 1 30 0
- 107              		.cfi_startproc
- 108              		@ args = 0, pretend = 0, frame = 0
- 109              		@ frame_needed = 0, uses_anonymous_args = 0
- 110 0038 10B5     		push	{r4, lr}
- 111              	.LCFI0:
- 112              		.cfi_def_cfa_offset 8
- 113              		.cfi_offset 4, -8
- 114              		.cfi_offset 14, -4
+ 108              		.loc 1 30 0
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 0
+ 111              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112 0038 10B5     		push	{r4, lr}
+ 113              	.LCFI0:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 4, -8
+ 116              		.cfi_offset 14, -4
   31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	//GPIO_WriteBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 , Bit_SET);
   32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	GPIO_WriteBit(GPIOB, GPIO_Pin_0 , Bit_RESET);
- 115              		.loc 1 32 0
- 116 003a 064C     		ldr	r4, .L15
- 117 003c 0121     		movs	r1, #1
- 118 003e 2046     		mov	r0, r4
- 119 0040 0022     		movs	r2, #0
- 120 0042 FFF7FEFF 		bl	GPIO_WriteBit
- 121              	.LVL13:
+ 117              		.loc 1 32 0
+ 118 003a 064C     		ldr	r4, .L15
+ 119 003c 0121     		movs	r1, #1
+ 120 003e 2046     		mov	r0, r4
+ 121 0040 0022     		movs	r2, #0
+ 122 0042 FFF7FEFF 		bl	GPIO_WriteBit
+ 123              	.LVL13:
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	GPIO_WriteBit(GPIOB, GPIO_Pin_1 , Bit_RESET);
- 122              		.loc 1 33 0
- 123 0046 2046     		mov	r0, r4
- 124 0048 0221     		movs	r1, #2
- 125 004a 0022     		movs	r2, #0
+ 124              		.loc 1 33 0
+ 125 0046 2046     		mov	r0, r4
+ 126 0048 0221     		movs	r1, #2
+ 127 004a 0022     		movs	r2, #0
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** }
- 126              		.loc 1 34 0
- 127 004c BDE81040 		pop	{r4, lr}
+ 128              		.loc 1 34 0
+ 129 004c BDE81040 		pop	{r4, lr}
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	GPIO_WriteBit(GPIOB, GPIO_Pin_1 , Bit_RESET);
- 128              		.loc 1 33 0
- 129 0050 FFF7FEBF 		b	GPIO_WriteBit
- 130              	.LVL14:
- 131              	.L16:
- 132              		.align	2
- 133              	.L15:
- 134 0054 00040048 		.word	1207960576
- 135              		.cfi_endproc
- 136              	.LFE112:
- 138              		.align	1
- 139              		.global	Disable_Motor
- 140              		.thumb
- 141              		.thumb_func
- 143              	Disable_Motor:
- 144              	.LFB113:
+ 130              		.loc 1 33 0
+ 131 0050 FFF7FEBF 		b	GPIO_WriteBit
+ 132              	.LVL14:
+ 133              	.L16:
+ 134              		.align	2
+ 135              	.L15:
+ 136 0054 00040048 		.word	1207960576
+ 137              		.cfi_endproc
+ 138              	.LFE112:
+ 140              		.align	1
+ 141              		.global	Disable_Motor
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	Disable_Motor:
+ 146              	.LFB113:
   35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 
   36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** void Disable_Motor(){
- 145              		.loc 1 36 0
- 146              		.cfi_startproc
- 147              		@ args = 0, pretend = 0, frame = 0
- 148              		@ frame_needed = 0, uses_anonymous_args = 0
- 149              		@ link register save eliminated.
+ 147              		.loc 1 36 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151              		@ link register save eliminated.
   37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	//GPIO_WriteBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 , Bit_RESET);
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	GPIO_WriteBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 , Bit_SET);
- 150              		.loc 1 38 0
- 151 0058 0248     		ldr	r0, .L18
- 152 005a 0321     		movs	r1, #3
- 153 005c 0122     		movs	r2, #1
+ 152              		.loc 1 38 0
+ 153 0058 0248     		ldr	r0, .L18
+ 154 005a 0321     		movs	r1, #3
+ 155 005c 0122     		movs	r2, #1
   39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** }
- 154              		.loc 1 39 0
+ 156              		.loc 1 39 0
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/MotorPWM.c **** 	GPIO_WriteBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 , Bit_SET);
- 155              		.loc 1 38 0
- 156 005e FFF7FEBF 		b	GPIO_WriteBit
- 157              	.LVL15:
- 158              	.L19:
- 159 0062 00BF     		.align	2
- 160              	.L18:
- 161 0064 00040048 		.word	1207960576
- 162              		.cfi_endproc
- 163              	.LFE113:
- 165              	.Letext0:
- 166              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 167              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 168              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 169              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 170              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 157              		.loc 1 38 0
+ 158 005e FFF7FEBF 		b	GPIO_WriteBit
+ 159              	.LVL15:
+ 160              	.L19:
+ 161 0062 00BF     		.align	2
+ 162              	.L18:
+ 163 0064 00040048 		.word	1207960576
+ 164              		.cfi_endproc
+ 165              	.LFE113:
+ 167              	.Letext0:
+ 168              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 169              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 170              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 171              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 172              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 MotorPWM.c
-     /tmp/ccpxWdxq.s:18     .text:00000000 $t
-     /tmp/ccpxWdxq.s:23     .text:00000000 PWM_Motor
-     /tmp/ccpxWdxq.s:37     .text:00000008 $d
-     /tmp/ccpxWdxq.s:43     .text:0000000e $t
-     /tmp/ccpxWdxq.s:95     .text:00000034 $d
-     /tmp/ccpxWdxq.s:99     .text:00000038 $t
-     /tmp/ccpxWdxq.s:104    .text:00000038 Enable_Motor
-     /tmp/ccpxWdxq.s:134    .text:00000054 $d
-     /tmp/ccpxWdxq.s:138    .text:00000058 $t
-     /tmp/ccpxWdxq.s:143    .text:00000058 Disable_Motor
-     /tmp/ccpxWdxq.s:161    .text:00000064 $d
+     /tmp/ccHURXV9.s:20     .text:00000000 $t
+     /tmp/ccHURXV9.s:25     .text:00000000 PWM_Motor
+     /tmp/ccHURXV9.s:39     .text:00000008 $d
+     /tmp/ccHURXV9.s:45     .text:0000000e $t
+     /tmp/ccHURXV9.s:97     .text:00000034 $d
+     /tmp/ccHURXV9.s:101    .text:00000038 $t
+     /tmp/ccHURXV9.s:106    .text:00000038 Enable_Motor
+     /tmp/ccHURXV9.s:136    .text:00000054 $d
+     /tmp/ccHURXV9.s:140    .text:00000058 $t
+     /tmp/ccHURXV9.s:145    .text:00000058 Disable_Motor
+     /tmp/ccHURXV9.s:163    .text:00000064 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

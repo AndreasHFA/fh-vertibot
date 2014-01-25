@@ -1,36 +1,38 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"ADXL345_Lib.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.comm	XYZ,12,4
-  19              		.comm	CtrlStates,12,4
-  20              		.comm	GlobalSettings,96,4
-  21              	.Letext0:
-  22              		.file 1 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
-  23              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
-  24              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
-  25              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"ADXL345_Lib.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.comm	XYZ,12,4
+  21              		.comm	CtrlStates,12,4
+  22              		.comm	GlobalSettings,96,4
+  23              	.Letext0:
+  24              		.file 1 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+  25              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+  26              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
+  27              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 ADXL345_Lib.c
                             *COM*:0000000c XYZ
                             *COM*:0000000c CtrlStates
                             *COM*:00000060 GlobalSettings
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
@@ -51,7 +53,7 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
                            .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
                            .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
-                           .group:00000000 wm4.vertibot_settings.h.29.7ee12aa4fbede3ab139da9a63de095e8
+                           .group:00000000 wm4.vertibot_settings.h.30.48fd32711c00a27183609ce2dc24e6c6
                            .group:00000000 wm4.ADXL345_Lib.h.2.6f43829aa35c41174f5864ebbe83dc8a
                            .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
                            .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584

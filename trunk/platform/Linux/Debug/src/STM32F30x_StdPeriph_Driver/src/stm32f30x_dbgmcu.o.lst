@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_dbgmcu.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	DBGMCU_GetREVID
-  20              		.thumb
-  21              		.thumb_func
-  23              	DBGMCU_GetREVID:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_dbgmcu.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	DBGMCU_GetREVID
+  22              		.thumb
+  23              		.thumb_func
+  25              	DBGMCU_GetREVID:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   * @file    stm32f30x_dbgmcu.c
@@ -96,31 +98,31 @@
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   */
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** uint32_t DBGMCU_GetREVID(void)
   74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** {
-  26              		.loc 1 74 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
+  28              		.loc 1 74 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****    return(DBGMCU->IDCODE >> 16);
-  31              		.loc 1 75 0
-  32 0000 014B     		ldr	r3, .L2
-  33 0002 1868     		ldr	r0, [r3, #0]
+  33              		.loc 1 75 0
+  34 0000 014B     		ldr	r3, .L2
+  35 0002 1868     		ldr	r0, [r3, #0]
   76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** }
-  34              		.loc 1 76 0
-  35 0004 000C     		lsrs	r0, r0, #16
-  36 0006 7047     		bx	lr
-  37              	.L3:
-  38              		.align	2
-  39              	.L2:
-  40 0008 002004E0 		.word	-536600576
-  41              		.cfi_endproc
-  42              	.LFE111:
-  44              		.align	1
-  45              		.global	DBGMCU_GetDEVID
-  46              		.thumb
-  47              		.thumb_func
-  49              	DBGMCU_GetDEVID:
-  50              	.LFB112:
+  36              		.loc 1 76 0
+  37 0004 000C     		lsrs	r0, r0, #16
+  38 0006 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 0008 002004E0 		.word	-536600576
+  43              		.cfi_endproc
+  44              	.LFE111:
+  46              		.align	1
+  47              		.global	DBGMCU_GetDEVID
+  48              		.thumb
+  49              		.thumb_func
+  51              	DBGMCU_GetDEVID:
+  52              	.LFB112:
   77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** 
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** /**
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   * @brief   Returns the device identifier.
@@ -129,32 +131,32 @@
   82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   */
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** uint32_t DBGMCU_GetDEVID(void)
   84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** {
-  51              		.loc 1 84 0
-  52              		.cfi_startproc
-  53              		@ args = 0, pretend = 0, frame = 0
-  54              		@ frame_needed = 0, uses_anonymous_args = 0
-  55              		@ link register save eliminated.
+  53              		.loc 1 84 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              		@ link register save eliminated.
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****    return(DBGMCU->IDCODE & IDCODE_DEVID_MASK);
-  56              		.loc 1 85 0
-  57 000c 024B     		ldr	r3, .L5
-  58 000e 1868     		ldr	r0, [r3, #0]
-  59 0010 0005     		lsls	r0, r0, #20
+  58              		.loc 1 85 0
+  59 000c 024B     		ldr	r3, .L5
+  60 000e 1868     		ldr	r0, [r3, #0]
+  61 0010 0005     		lsls	r0, r0, #20
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** }
-  60              		.loc 1 86 0
-  61 0012 000D     		lsrs	r0, r0, #20
-  62 0014 7047     		bx	lr
-  63              	.L6:
-  64 0016 00BF     		.align	2
-  65              	.L5:
-  66 0018 002004E0 		.word	-536600576
-  67              		.cfi_endproc
-  68              	.LFE112:
-  70              		.align	1
-  71              		.global	DBGMCU_Config
-  72              		.thumb
-  73              		.thumb_func
-  75              	DBGMCU_Config:
-  76              	.LFB113:
+  62              		.loc 1 86 0
+  63 0012 000D     		lsrs	r0, r0, #20
+  64 0014 7047     		bx	lr
+  65              	.L6:
+  66 0016 00BF     		.align	2
+  67              	.L5:
+  68 0018 002004E0 		.word	-536600576
+  69              		.cfi_endproc
+  70              	.LFE112:
+  72              		.align	1
+  73              		.global	DBGMCU_Config
+  74              		.thumb
+  75              		.thumb_func
+  77              	DBGMCU_Config:
+  78              	.LFB113:
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** 
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** /**
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   * @}
@@ -185,52 +187,52 @@
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   */
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** {
-  77              		.loc 1 116 0
-  78              		.cfi_startproc
-  79              		@ args = 0, pretend = 0, frame = 0
-  80              		@ frame_needed = 0, uses_anonymous_args = 0
-  81              		@ link register save eliminated.
-  82              	.LVL0:
-  83 001c 044B     		ldr	r3, .L11
+  79              		.loc 1 116 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+  84              	.LVL0:
+  85 001c 044B     		ldr	r3, .L11
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   /* Check the parameters */
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->CR |= DBGMCU_Periph;
-  84              		.loc 1 122 0
-  85 001e 5A68     		ldr	r2, [r3, #4]
+  86              		.loc 1 122 0
+  87 001e 5A68     		ldr	r2, [r3, #4]
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
-  86              		.loc 1 120 0
-  87 0020 09B1     		cbz	r1, .L8
-  88              		.loc 1 122 0
-  89 0022 1043     		orrs	r0, r0, r2
-  90              	.LVL1:
-  91 0024 01E0     		b	.L10
-  92              	.LVL2:
-  93              	.L8:
+  88              		.loc 1 120 0
+  89 0020 09B1     		cbz	r1, .L8
+  90              		.loc 1 122 0
+  91 0022 1043     		orrs	r0, r0, r2
+  92              	.LVL1:
+  93 0024 01E0     		b	.L10
+  94              	.LVL2:
+  95              	.L8:
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   }
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   else
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->CR &= ~DBGMCU_Periph;
-  94              		.loc 1 126 0
-  95 0026 22EA0000 		bic	r0, r2, r0
-  96              	.LVL3:
-  97              	.L10:
-  98 002a 5860     		str	r0, [r3, #4]
-  99 002c 7047     		bx	lr
- 100              	.L12:
- 101 002e 00BF     		.align	2
- 102              	.L11:
- 103 0030 002004E0 		.word	-536600576
- 104              		.cfi_endproc
- 105              	.LFE113:
- 107              		.align	1
- 108              		.global	DBGMCU_APB1PeriphConfig
- 109              		.thumb
- 110              		.thumb_func
- 112              	DBGMCU_APB1PeriphConfig:
- 113              	.LFB114:
+  96              		.loc 1 126 0
+  97 0026 22EA0000 		bic	r0, r2, r0
+  98              	.LVL3:
+  99              	.L10:
+ 100 002a 5860     		str	r0, [r3, #4]
+ 101 002c 7047     		bx	lr
+ 102              	.L12:
+ 103 002e 00BF     		.align	2
+ 104              	.L11:
+ 105 0030 002004E0 		.word	-536600576
+ 106              		.cfi_endproc
+ 107              	.LFE113:
+ 109              		.align	1
+ 110              		.global	DBGMCU_APB1PeriphConfig
+ 111              		.thumb
+ 112              		.thumb_func
+ 114              	DBGMCU_APB1PeriphConfig:
+ 115              	.LFB114:
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   }
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** }
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** 
@@ -258,13 +260,13 @@
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   */
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** {
- 114              		.loc 1 153 0
- 115              		.cfi_startproc
- 116              		@ args = 0, pretend = 0, frame = 0
- 117              		@ frame_needed = 0, uses_anonymous_args = 0
- 118              		@ link register save eliminated.
- 119              	.LVL4:
- 120 0034 044B     		ldr	r3, .L17
+ 116              		.loc 1 153 0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
+ 121              	.LVL4:
+ 122 0034 044B     		ldr	r3, .L17
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   /* Check the parameters */
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_DBGMCU_APB1PERIPH(DBGMCU_Periph));
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -272,39 +274,39 @@
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->APB1FZ |= DBGMCU_Periph;
- 121              		.loc 1 160 0
- 122 0036 9A68     		ldr	r2, [r3, #8]
+ 123              		.loc 1 160 0
+ 124 0036 9A68     		ldr	r2, [r3, #8]
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
- 123              		.loc 1 158 0
- 124 0038 09B1     		cbz	r1, .L14
- 125              		.loc 1 160 0
- 126 003a 1043     		orrs	r0, r0, r2
- 127              	.LVL5:
- 128 003c 01E0     		b	.L16
- 129              	.LVL6:
- 130              	.L14:
+ 125              		.loc 1 158 0
+ 126 0038 09B1     		cbz	r1, .L14
+ 127              		.loc 1 160 0
+ 128 003a 1043     		orrs	r0, r0, r2
+ 129              	.LVL5:
+ 130 003c 01E0     		b	.L16
+ 131              	.LVL6:
+ 132              	.L14:
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   }
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   else
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->APB1FZ &= ~DBGMCU_Periph;
- 131              		.loc 1 164 0
- 132 003e 22EA0000 		bic	r0, r2, r0
- 133              	.LVL7:
- 134              	.L16:
- 135 0042 9860     		str	r0, [r3, #8]
- 136 0044 7047     		bx	lr
- 137              	.L18:
- 138 0046 00BF     		.align	2
- 139              	.L17:
- 140 0048 002004E0 		.word	-536600576
- 141              		.cfi_endproc
- 142              	.LFE114:
- 144              		.align	1
- 145              		.global	DBGMCU_APB2PeriphConfig
- 146              		.thumb
- 147              		.thumb_func
- 149              	DBGMCU_APB2PeriphConfig:
- 150              	.LFB115:
+ 133              		.loc 1 164 0
+ 134 003e 22EA0000 		bic	r0, r2, r0
+ 135              	.LVL7:
+ 136              	.L16:
+ 137 0042 9860     		str	r0, [r3, #8]
+ 138 0044 7047     		bx	lr
+ 139              	.L18:
+ 140 0046 00BF     		.align	2
+ 141              	.L17:
+ 142 0048 002004E0 		.word	-536600576
+ 143              		.cfi_endproc
+ 144              	.LFE114:
+ 146              		.align	1
+ 147              		.global	DBGMCU_APB2PeriphConfig
+ 148              		.thumb
+ 149              		.thumb_func
+ 151              	DBGMCU_APB2PeriphConfig:
+ 152              	.LFB115:
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   }
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** }
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** 
@@ -323,13 +325,13 @@
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   */
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c **** {
- 151              		.loc 1 182 0
- 152              		.cfi_startproc
- 153              		@ args = 0, pretend = 0, frame = 0
- 154              		@ frame_needed = 0, uses_anonymous_args = 0
- 155              		@ link register save eliminated.
- 156              	.LVL8:
- 157 004c 044B     		ldr	r3, .L23
+ 153              		.loc 1 182 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              		@ link register save eliminated.
+ 158              	.LVL8:
+ 159 004c 044B     		ldr	r3, .L23
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   /* Check the parameters */
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_DBGMCU_APB2PERIPH(DBGMCU_Periph));
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -337,58 +339,58 @@
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->APB2FZ |= DBGMCU_Periph;
- 158              		.loc 1 189 0
- 159 004e DA68     		ldr	r2, [r3, #12]
+ 160              		.loc 1 189 0
+ 161 004e DA68     		ldr	r2, [r3, #12]
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   if (NewState != DISABLE)
- 160              		.loc 1 187 0
- 161 0050 09B1     		cbz	r1, .L20
- 162              		.loc 1 189 0
- 163 0052 1043     		orrs	r0, r0, r2
- 164              	.LVL9:
- 165 0054 01E0     		b	.L22
- 166              	.LVL10:
- 167              	.L20:
+ 162              		.loc 1 187 0
+ 163 0050 09B1     		cbz	r1, .L20
+ 164              		.loc 1 189 0
+ 165 0052 1043     		orrs	r0, r0, r2
+ 166              	.LVL9:
+ 167 0054 01E0     		b	.L22
+ 168              	.LVL10:
+ 169              	.L20:
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   }
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   else
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****   {
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dbgmcu.c ****     DBGMCU->APB2FZ &= ~DBGMCU_Periph;
- 168              		.loc 1 193 0
- 169 0056 22EA0000 		bic	r0, r2, r0
- 170              	.LVL11:
- 171              	.L22:
- 172 005a D860     		str	r0, [r3, #12]
- 173 005c 7047     		bx	lr
- 174              	.L24:
- 175 005e 00BF     		.align	2
- 176              	.L23:
- 177 0060 002004E0 		.word	-536600576
- 178              		.cfi_endproc
- 179              	.LFE115:
- 181              	.Letext0:
- 182              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 183              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 184              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 170              		.loc 1 193 0
+ 171 0056 22EA0000 		bic	r0, r2, r0
+ 172              	.LVL11:
+ 173              	.L22:
+ 174 005a D860     		str	r0, [r3, #12]
+ 175 005c 7047     		bx	lr
+ 176              	.L24:
+ 177 005e 00BF     		.align	2
+ 178              	.L23:
+ 179 0060 002004E0 		.word	-536600576
+ 180              		.cfi_endproc
+ 181              	.LFE115:
+ 183              	.Letext0:
+ 184              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 185              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 186              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_dbgmcu.c
-     /tmp/ccTgkMo5.s:18     .text:00000000 $t
-     /tmp/ccTgkMo5.s:23     .text:00000000 DBGMCU_GetREVID
-     /tmp/ccTgkMo5.s:40     .text:00000008 $d
-     /tmp/ccTgkMo5.s:44     .text:0000000c $t
-     /tmp/ccTgkMo5.s:49     .text:0000000c DBGMCU_GetDEVID
-     /tmp/ccTgkMo5.s:66     .text:00000018 $d
-     /tmp/ccTgkMo5.s:70     .text:0000001c $t
-     /tmp/ccTgkMo5.s:75     .text:0000001c DBGMCU_Config
-     /tmp/ccTgkMo5.s:103    .text:00000030 $d
-     /tmp/ccTgkMo5.s:107    .text:00000034 $t
-     /tmp/ccTgkMo5.s:112    .text:00000034 DBGMCU_APB1PeriphConfig
-     /tmp/ccTgkMo5.s:140    .text:00000048 $d
-     /tmp/ccTgkMo5.s:144    .text:0000004c $t
-     /tmp/ccTgkMo5.s:149    .text:0000004c DBGMCU_APB2PeriphConfig
-     /tmp/ccTgkMo5.s:177    .text:00000060 $d
+     /tmp/ccFUvGNN.s:20     .text:00000000 $t
+     /tmp/ccFUvGNN.s:25     .text:00000000 DBGMCU_GetREVID
+     /tmp/ccFUvGNN.s:42     .text:00000008 $d
+     /tmp/ccFUvGNN.s:46     .text:0000000c $t
+     /tmp/ccFUvGNN.s:51     .text:0000000c DBGMCU_GetDEVID
+     /tmp/ccFUvGNN.s:68     .text:00000018 $d
+     /tmp/ccFUvGNN.s:72     .text:0000001c $t
+     /tmp/ccFUvGNN.s:77     .text:0000001c DBGMCU_Config
+     /tmp/ccFUvGNN.s:105    .text:00000030 $d
+     /tmp/ccFUvGNN.s:109    .text:00000034 $t
+     /tmp/ccFUvGNN.s:114    .text:00000034 DBGMCU_APB1PeriphConfig
+     /tmp/ccFUvGNN.s:142    .text:00000048 $d
+     /tmp/ccFUvGNN.s:146    .text:0000004c $t
+     /tmp/ccFUvGNN.s:151    .text:0000004c DBGMCU_APB2PeriphConfig
+     /tmp/ccFUvGNN.s:179    .text:00000060 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

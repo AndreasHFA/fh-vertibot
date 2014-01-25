@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_iwdg.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	IWDG_WriteAccessCmd
-  20              		.thumb
-  21              		.thumb_func
-  23              	IWDG_WriteAccessCmd:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_iwdg.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	IWDG_WriteAccessCmd
+  22              		.thumb
+  23              		.thumb_func
+  25              	IWDG_WriteAccessCmd:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   * @file    stm32f30x_iwdg.c
@@ -163,31 +165,31 @@
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess)
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
-  26              		.loc 1 141 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  28              		.loc 1 141 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Check the parameters */
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   assert_param(IS_IWDG_WRITE_ACCESS(IWDG_WriteAccess));
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->KR = IWDG_WriteAccess;
-  32              		.loc 1 144 0
-  33 0000 014B     		ldr	r3, .L2
-  34 0002 1860     		str	r0, [r3, #0]
-  35 0004 7047     		bx	lr
-  36              	.L3:
-  37 0006 00BF     		.align	2
-  38              	.L2:
-  39 0008 00300040 		.word	1073754112
-  40              		.cfi_endproc
-  41              	.LFE111:
-  43              		.align	1
-  44              		.global	IWDG_SetPrescaler
-  45              		.thumb
-  46              		.thumb_func
-  48              	IWDG_SetPrescaler:
-  49              	.LFB112:
+  34              		.loc 1 144 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1860     		str	r0, [r3, #0]
+  37 0004 7047     		bx	lr
+  38              	.L3:
+  39 0006 00BF     		.align	2
+  40              	.L2:
+  41 0008 00300040 		.word	1073754112
+  42              		.cfi_endproc
+  43              	.LFE111:
+  45              		.align	1
+  46              		.global	IWDG_SetPrescaler
+  47              		.thumb
+  48              		.thumb_func
+  50              	IWDG_SetPrescaler:
+  51              	.LFB112:
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
@@ -205,31 +207,31 @@
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_SetPrescaler(uint8_t IWDG_Prescaler)
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
-  50              		.loc 1 161 0
-  51              		.cfi_startproc
-  52              		@ args = 0, pretend = 0, frame = 0
-  53              		@ frame_needed = 0, uses_anonymous_args = 0
-  54              		@ link register save eliminated.
-  55              	.LVL1:
+  52              		.loc 1 161 0
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 0, uses_anonymous_args = 0
+  56              		@ link register save eliminated.
+  57              	.LVL1:
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Check the parameters */
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   assert_param(IS_IWDG_PRESCALER(IWDG_Prescaler));
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->PR = IWDG_Prescaler;
-  56              		.loc 1 164 0
-  57 000c 014B     		ldr	r3, .L5
-  58 000e 5860     		str	r0, [r3, #4]
-  59 0010 7047     		bx	lr
-  60              	.L6:
-  61 0012 00BF     		.align	2
-  62              	.L5:
-  63 0014 00300040 		.word	1073754112
-  64              		.cfi_endproc
-  65              	.LFE112:
-  67              		.align	1
-  68              		.global	IWDG_SetReload
-  69              		.thumb
-  70              		.thumb_func
-  72              	IWDG_SetReload:
-  73              	.LFB113:
+  58              		.loc 1 164 0
+  59 000c 014B     		ldr	r3, .L5
+  60 000e 5860     		str	r0, [r3, #4]
+  61 0010 7047     		bx	lr
+  62              	.L6:
+  63 0012 00BF     		.align	2
+  64              	.L5:
+  65 0014 00300040 		.word	1073754112
+  66              		.cfi_endproc
+  67              	.LFE112:
+  69              		.align	1
+  70              		.global	IWDG_SetReload
+  71              		.thumb
+  72              		.thumb_func
+  74              	IWDG_SetReload:
+  75              	.LFB113:
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
@@ -240,31 +242,31 @@
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_SetReload(uint16_t Reload)
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
-  74              		.loc 1 174 0
-  75              		.cfi_startproc
-  76              		@ args = 0, pretend = 0, frame = 0
-  77              		@ frame_needed = 0, uses_anonymous_args = 0
-  78              		@ link register save eliminated.
-  79              	.LVL2:
+  76              		.loc 1 174 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+  81              	.LVL2:
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Check the parameters */
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   assert_param(IS_IWDG_RELOAD(Reload));
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->RLR = Reload;
-  80              		.loc 1 177 0
-  81 0018 014B     		ldr	r3, .L8
-  82 001a 9860     		str	r0, [r3, #8]
-  83 001c 7047     		bx	lr
-  84              	.L9:
-  85 001e 00BF     		.align	2
-  86              	.L8:
-  87 0020 00300040 		.word	1073754112
-  88              		.cfi_endproc
-  89              	.LFE113:
-  91              		.align	1
-  92              		.global	IWDG_ReloadCounter
-  93              		.thumb
-  94              		.thumb_func
-  96              	IWDG_ReloadCounter:
-  97              	.LFB114:
+  82              		.loc 1 177 0
+  83 0018 014B     		ldr	r3, .L8
+  84 001a 9860     		str	r0, [r3, #8]
+  85 001c 7047     		bx	lr
+  86              	.L9:
+  87 001e 00BF     		.align	2
+  88              	.L8:
+  89 0020 00300040 		.word	1073754112
+  90              		.cfi_endproc
+  91              	.LFE113:
+  93              		.align	1
+  94              		.global	IWDG_ReloadCounter
+  95              		.thumb
+  96              		.thumb_func
+  98              	IWDG_ReloadCounter:
+  99              	.LFB114:
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
@@ -275,29 +277,29 @@
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_ReloadCounter(void)
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
-  98              		.loc 1 187 0
-  99              		.cfi_startproc
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102              		@ link register save eliminated.
+ 100              		.loc 1 187 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->KR = KR_KEY_RELOAD;
- 103              		.loc 1 188 0
- 104 0024 024B     		ldr	r3, .L11
- 105 0026 4AF6AA22 		movw	r2, #43690
- 106 002a 1A60     		str	r2, [r3, #0]
- 107 002c 7047     		bx	lr
- 108              	.L12:
- 109 002e 00BF     		.align	2
- 110              	.L11:
- 111 0030 00300040 		.word	1073754112
- 112              		.cfi_endproc
- 113              	.LFE114:
- 115              		.align	1
- 116              		.global	IWDG_SetWindowValue
- 117              		.thumb
- 118              		.thumb_func
- 120              	IWDG_SetWindowValue:
- 121              	.LFB115:
+ 105              		.loc 1 188 0
+ 106 0024 024B     		ldr	r3, .L11
+ 107 0026 4AF6AA22 		movw	r2, #43690
+ 108 002a 1A60     		str	r2, [r3, #0]
+ 109 002c 7047     		bx	lr
+ 110              	.L12:
+ 111 002e 00BF     		.align	2
+ 112              	.L11:
+ 113 0030 00300040 		.word	1073754112
+ 114              		.cfi_endproc
+ 115              	.LFE114:
+ 117              		.align	1
+ 118              		.global	IWDG_SetWindowValue
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	IWDG_SetWindowValue:
+ 123              	.LFB115:
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
@@ -308,31 +310,31 @@
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_SetWindowValue(uint16_t WindowValue)
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
- 122              		.loc 1 198 0
- 123              		.cfi_startproc
- 124              		@ args = 0, pretend = 0, frame = 0
- 125              		@ frame_needed = 0, uses_anonymous_args = 0
- 126              		@ link register save eliminated.
- 127              	.LVL3:
+ 124              		.loc 1 198 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 129              	.LVL3:
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Check the parameters */
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   assert_param(IS_IWDG_WINDOW_VALUE(WindowValue));
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->WINR = WindowValue;
- 128              		.loc 1 201 0
- 129 0034 014B     		ldr	r3, .L14
- 130 0036 1861     		str	r0, [r3, #16]
- 131 0038 7047     		bx	lr
- 132              	.L15:
- 133 003a 00BF     		.align	2
- 134              	.L14:
- 135 003c 00300040 		.word	1073754112
- 136              		.cfi_endproc
- 137              	.LFE115:
- 139              		.align	1
- 140              		.global	IWDG_Enable
- 141              		.thumb
- 142              		.thumb_func
- 144              	IWDG_Enable:
- 145              	.LFB116:
+ 130              		.loc 1 201 0
+ 131 0034 014B     		ldr	r3, .L14
+ 132 0036 1861     		str	r0, [r3, #16]
+ 133 0038 7047     		bx	lr
+ 134              	.L15:
+ 135 003a 00BF     		.align	2
+ 136              	.L14:
+ 137 003c 00300040 		.word	1073754112
+ 138              		.cfi_endproc
+ 139              	.LFE115:
+ 141              		.align	1
+ 142              		.global	IWDG_Enable
+ 143              		.thumb
+ 144              		.thumb_func
+ 146              	IWDG_Enable:
+ 147              	.LFB116:
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
@@ -358,29 +360,29 @@
  224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** void IWDG_Enable(void)
  226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
- 146              		.loc 1 226 0
- 147              		.cfi_startproc
- 148              		@ args = 0, pretend = 0, frame = 0
- 149              		@ frame_needed = 0, uses_anonymous_args = 0
- 150              		@ link register save eliminated.
+ 148              		.loc 1 226 0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
  227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   IWDG->KR = KR_KEY_ENABLE;
- 151              		.loc 1 227 0
- 152 0040 024B     		ldr	r3, .L17
- 153 0042 4CF6CC42 		movw	r2, #52428
- 154 0046 1A60     		str	r2, [r3, #0]
- 155 0048 7047     		bx	lr
- 156              	.L18:
- 157 004a 00BF     		.align	2
- 158              	.L17:
- 159 004c 00300040 		.word	1073754112
- 160              		.cfi_endproc
- 161              	.LFE116:
- 163              		.align	1
- 164              		.global	IWDG_GetFlagStatus
- 165              		.thumb
- 166              		.thumb_func
- 168              	IWDG_GetFlagStatus:
- 169              	.LFB117:
+ 153              		.loc 1 227 0
+ 154 0040 024B     		ldr	r3, .L17
+ 155 0042 4CF6CC42 		movw	r2, #52428
+ 156 0046 1A60     		str	r2, [r3, #0]
+ 157 0048 7047     		bx	lr
+ 158              	.L18:
+ 159 004a 00BF     		.align	2
+ 160              	.L17:
+ 161 004c 00300040 		.word	1073754112
+ 162              		.cfi_endproc
+ 163              	.LFE116:
+ 165              		.align	1
+ 166              		.global	IWDG_GetFlagStatus
+ 167              		.thumb
+ 168              		.thumb_func
+ 170              	IWDG_GetFlagStatus:
+ 171              	.LFB117:
  228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
  229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** 
  230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** /**
@@ -410,21 +412,21 @@
  254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   */
  255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG)
  256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** {
- 170              		.loc 1 256 0
- 171              		.cfi_startproc
- 172              		@ args = 0, pretend = 0, frame = 0
- 173              		@ frame_needed = 0, uses_anonymous_args = 0
- 174              		@ link register save eliminated.
- 175              	.LVL4:
+ 172              		.loc 1 256 0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176              		@ link register save eliminated.
+ 177              	.LVL4:
  257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   FlagStatus bitstatus = RESET;
  258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Check the parameters */
  259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   assert_param(IS_IWDG_FLAG(IWDG_FLAG));
  260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   if ((IWDG->SR & IWDG_FLAG) != (uint32_t)RESET)
- 176              		.loc 1 260 0
- 177 0050 034B     		ldr	r3, .L20
- 178 0052 DB68     		ldr	r3, [r3, #12]
- 179              	.LVL5:
- 180 0054 1842     		tst	r0, r3
+ 178              		.loc 1 260 0
+ 179 0050 034B     		ldr	r3, .L20
+ 180 0052 DB68     		ldr	r3, [r3, #12]
+ 181              	.LVL5:
+ 182 0054 1842     		tst	r0, r3
  261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   {
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****     bitstatus = SET;
  263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   }
@@ -435,49 +437,49 @@
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   /* Return the flag status */
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c ****   return bitstatus;
  270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_iwdg.c **** }
- 181              		.loc 1 270 0
- 182 0056 0CBF     		ite	eq
- 183 0058 0020     		moveq	r0, #0
- 184 005a 0120     		movne	r0, #1
- 185              	.LVL6:
- 186 005c 7047     		bx	lr
- 187              	.L21:
- 188 005e 00BF     		.align	2
- 189              	.L20:
- 190 0060 00300040 		.word	1073754112
- 191              		.cfi_endproc
- 192              	.LFE117:
- 194              	.Letext0:
- 195              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 196              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 197              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 183              		.loc 1 270 0
+ 184 0056 0CBF     		ite	eq
+ 185 0058 0020     		moveq	r0, #0
+ 186 005a 0120     		movne	r0, #1
+ 187              	.LVL6:
+ 188 005c 7047     		bx	lr
+ 189              	.L21:
+ 190 005e 00BF     		.align	2
+ 191              	.L20:
+ 192 0060 00300040 		.word	1073754112
+ 193              		.cfi_endproc
+ 194              	.LFE117:
+ 196              	.Letext0:
+ 197              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 198              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 199              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_iwdg.c
-     /tmp/cceuozuI.s:18     .text:00000000 $t
-     /tmp/cceuozuI.s:23     .text:00000000 IWDG_WriteAccessCmd
-     /tmp/cceuozuI.s:39     .text:00000008 $d
-     /tmp/cceuozuI.s:43     .text:0000000c $t
-     /tmp/cceuozuI.s:48     .text:0000000c IWDG_SetPrescaler
-     /tmp/cceuozuI.s:63     .text:00000014 $d
-     /tmp/cceuozuI.s:67     .text:00000018 $t
-     /tmp/cceuozuI.s:72     .text:00000018 IWDG_SetReload
-     /tmp/cceuozuI.s:87     .text:00000020 $d
-     /tmp/cceuozuI.s:91     .text:00000024 $t
-     /tmp/cceuozuI.s:96     .text:00000024 IWDG_ReloadCounter
-     /tmp/cceuozuI.s:111    .text:00000030 $d
-     /tmp/cceuozuI.s:115    .text:00000034 $t
-     /tmp/cceuozuI.s:120    .text:00000034 IWDG_SetWindowValue
-     /tmp/cceuozuI.s:135    .text:0000003c $d
-     /tmp/cceuozuI.s:139    .text:00000040 $t
-     /tmp/cceuozuI.s:144    .text:00000040 IWDG_Enable
-     /tmp/cceuozuI.s:159    .text:0000004c $d
-     /tmp/cceuozuI.s:163    .text:00000050 $t
-     /tmp/cceuozuI.s:168    .text:00000050 IWDG_GetFlagStatus
-     /tmp/cceuozuI.s:190    .text:00000060 $d
+     /tmp/ccyQbVN8.s:20     .text:00000000 $t
+     /tmp/ccyQbVN8.s:25     .text:00000000 IWDG_WriteAccessCmd
+     /tmp/ccyQbVN8.s:41     .text:00000008 $d
+     /tmp/ccyQbVN8.s:45     .text:0000000c $t
+     /tmp/ccyQbVN8.s:50     .text:0000000c IWDG_SetPrescaler
+     /tmp/ccyQbVN8.s:65     .text:00000014 $d
+     /tmp/ccyQbVN8.s:69     .text:00000018 $t
+     /tmp/ccyQbVN8.s:74     .text:00000018 IWDG_SetReload
+     /tmp/ccyQbVN8.s:89     .text:00000020 $d
+     /tmp/ccyQbVN8.s:93     .text:00000024 $t
+     /tmp/ccyQbVN8.s:98     .text:00000024 IWDG_ReloadCounter
+     /tmp/ccyQbVN8.s:113    .text:00000030 $d
+     /tmp/ccyQbVN8.s:117    .text:00000034 $t
+     /tmp/ccyQbVN8.s:122    .text:00000034 IWDG_SetWindowValue
+     /tmp/ccyQbVN8.s:137    .text:0000003c $d
+     /tmp/ccyQbVN8.s:141    .text:00000040 $t
+     /tmp/ccyQbVN8.s:146    .text:00000040 IWDG_Enable
+     /tmp/ccyQbVN8.s:161    .text:0000004c $d
+     /tmp/ccyQbVN8.s:165    .text:00000050 $t
+     /tmp/ccyQbVN8.s:170    .text:00000050 IWDG_GetFlagStatus
+     /tmp/ccyQbVN8.s:192    .text:00000060 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

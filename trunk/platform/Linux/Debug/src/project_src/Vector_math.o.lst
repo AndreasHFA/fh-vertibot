@@ -1,22 +1,22 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"Vector_math.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.global	__aeabi_fmul
-  19              		.global	__aeabi_fadd
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"Vector_math.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
   20              		.align	1
   21              		.global	VectorDotProduct
   22              		.thumb
@@ -35,293 +35,233 @@
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              	.LVL0:
-  33 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  33 0000 10B5     		push	{r4, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 24
-  36              		.cfi_offset 3, -24
-  37              		.cfi_offset 4, -20
-  38              		.cfi_offset 5, -16
-  39              		.cfi_offset 6, -12
-  40              		.cfi_offset 7, -8
-  41              		.cfi_offset 14, -4
-  42              		.loc 1 6 0
-  43 0002 0746     		mov	r7, r0
-  44 0004 0E46     		mov	r6, r1
-  45 0006 0024     		movs	r4, #0
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	int c = 0;
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	float op=0;      
-  46              		.loc 1 8 0
-  47 0008 0025     		movs	r5, #0
-  48              	.LVL1:
-  49              	.L2:
+  38              		.loc 1 8 0
+  39 0002 9FED070A 		flds	s0, .L4
+   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
+  40              		.loc 1 6 0
+  41 0006 0023     		movs	r3, #0
+  42              	.LVL1:
+  43              	.L2:
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** float VectorDotProduct(float vector1[3],float vector2[3]) 
+  44              		.loc 1 5 0 discriminator 2
+  45 0008 C418     		adds	r4, r0, r3
+  46 000a CA18     		adds	r2, r1, r3
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for( c = 0 ; c < 3 ; c++ )   
   10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	{   
   11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		op += vector1[c] * vector2[c];   
-  50              		.loc 1 11 0 discriminator 2
-  51 000a 3159     		ldr	r1, [r6, r4]	@ float
-  52 000c 3859     		ldr	r0, [r7, r4]	@ float
-  53 000e FFF7FEFF 		bl	__aeabi_fmul
-  54              	.LVL2:
-  55 0012 0146     		mov	r1, r0
-  56 0014 2846     		mov	r0, r5
-  57 0016 FFF7FEFF 		bl	__aeabi_fadd
-  58              	.LVL3:
-  59 001a 0434     		adds	r4, r4, #4
+  47              		.loc 1 11 0 discriminator 2
+  48 000c 94ED007A 		flds	s14, [r4, #0]
+  49 0010 D2ED007A 		flds	s15, [r2, #0]
+  50 0014 0433     		adds	r3, r3, #4
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for( c = 0 ; c < 3 ; c++ )   
-  60              		.loc 1 9 0 discriminator 2
-  61 001c 0C2C     		cmp	r4, #12
-  62              		.loc 1 11 0 discriminator 2
-  63 001e 0546     		mov	r5, r0
-  64              	.LVL4:
+  51              		.loc 1 9 0 discriminator 2
+  52 0016 0C2B     		cmp	r3, #12
+  53              		.loc 1 11 0 discriminator 2
+  54 0018 07EE270A 		fmacs	s0, s14, s15
+  55              	.LVL2:
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for( c = 0 ; c < 3 ; c++ )   
-  65              		.loc 1 9 0 discriminator 2
-  66 0020 F3D1     		bne	.L2
+  56              		.loc 1 9 0 discriminator 2
+  57 001c F4D1     		bne	.L2
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	}      
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	return op;  
   14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** }  
-  67              		.loc 1 14 0
-  68 0022 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-  69              		.cfi_endproc
-  70              	.LFE0:
-  72              		.global	__aeabi_fsub
-  73              		.align	1
-  74              		.global	VectorCrossProduct
-  75              		.thumb
-  76              		.thumb_func
-  78              	VectorCrossProduct:
-  79              	.LFB1:
+  58              		.loc 1 14 0
+  59 001e 10BD     		pop	{r4, pc}
+  60              	.L5:
+  61              		.align	2
+  62              	.L4:
+  63 0020 00000000 		.word	0
+  64              		.cfi_endproc
+  65              	.LFE0:
+  67              		.align	1
+  68              		.global	VectorCrossProduct
+  69              		.thumb
+  70              		.thumb_func
+  72              	VectorCrossProduct:
+  73              	.LFB1:
   15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** //Computes the cross product of two vectors 
   17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void VectorCrossProduct(float vectorOut[3], float v1[3],float v2[3]) 
   18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
-  80              		.loc 1 18 0
-  81              		.cfi_startproc
-  82              		@ args = 0, pretend = 0, frame = 0
-  83              		@ frame_needed = 0, uses_anonymous_args = 0
-  84              	.LVL5:
-  85 0024 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  86              	.LCFI1:
-  87              		.cfi_def_cfa_offset 24
-  88              		.cfi_offset 3, -24
-  89              		.cfi_offset 4, -20
-  90              		.cfi_offset 5, -16
-  91              		.cfi_offset 6, -12
-  92              		.cfi_offset 7, -8
-  93              		.cfi_offset 14, -4
-  94              		.loc 1 18 0
-  95 0026 0D46     		mov	r5, r1
-  96 0028 0646     		mov	r6, r0
+  74              		.loc 1 18 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79              	.LVL3:
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	vectorOut[0] = (v1[1]*v2[2]) - (v1[2]*v2[1]);   
-  97              		.loc 1 19 0
-  98 002a 4868     		ldr	r0, [r1, #4]	@ float
-  99              	.LVL6:
- 100 002c 9168     		ldr	r1, [r2, #8]	@ float
- 101              	.LVL7:
-  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
- 102              		.loc 1 18 0
- 103 002e 1446     		mov	r4, r2
- 104              		.loc 1 19 0
- 105 0030 FFF7FEFF 		bl	__aeabi_fmul
- 106              	.LVL8:
- 107 0034 6168     		ldr	r1, [r4, #4]	@ float
- 108 0036 0746     		mov	r7, r0
- 109 0038 A868     		ldr	r0, [r5, #8]	@ float
- 110 003a FFF7FEFF 		bl	__aeabi_fmul
- 111              	.LVL9:
- 112 003e 0146     		mov	r1, r0
- 113 0040 3846     		mov	r0, r7
- 114 0042 FFF7FEFF 		bl	__aeabi_fsub
- 115              	.LVL10:
- 116 0046 3060     		str	r0, [r6, #0]	@ float
+  80              		.loc 1 19 0
+  81 0024 91ED026A 		flds	s12, [r1, #8]
+  82 0028 D2ED017A 		flds	s15, [r2, #4]
+  83 002c D1ED016A 		flds	s13, [r1, #4]
+  84 0030 92ED027A 		flds	s14, [r2, #8]
+  85 0034 66EE277A 		fmuls	s15, s12, s15
+  86 0038 56EE877A 		fmscs	s15, s13, s14
+  87 003c C0ED007A 		fsts	s15, [r0, #0]
   20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	vectorOut[1] = (v1[2]*v2[0]) - (v1[0]*v2[2]);   
- 117              		.loc 1 20 0
- 118 0048 2168     		ldr	r1, [r4, #0]	@ float
- 119 004a A868     		ldr	r0, [r5, #8]	@ float
- 120 004c FFF7FEFF 		bl	__aeabi_fmul
- 121              	.LVL11:
- 122 0050 A168     		ldr	r1, [r4, #8]	@ float
- 123 0052 0746     		mov	r7, r0
- 124 0054 2868     		ldr	r0, [r5, #0]	@ float
- 125 0056 FFF7FEFF 		bl	__aeabi_fmul
- 126              	.LVL12:
- 127 005a 0146     		mov	r1, r0
- 128 005c 3846     		mov	r0, r7
- 129 005e FFF7FEFF 		bl	__aeabi_fsub
- 130              	.LVL13:
- 131 0062 7060     		str	r0, [r6, #4]	@ float
+  88              		.loc 1 20 0
+  89 0040 91ED006A 		flds	s12, [r1, #0]
+  90 0044 D2ED027A 		flds	s15, [r2, #8]
+  91 0048 D1ED026A 		flds	s13, [r1, #8]
+  92 004c 92ED007A 		flds	s14, [r2, #0]
+  93 0050 66EE277A 		fmuls	s15, s12, s15
+  94 0054 56EE877A 		fmscs	s15, s13, s14
+  95 0058 C0ED017A 		fsts	s15, [r0, #4]
   21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	vectorOut[2] = (v1[0]*v2[1]) - (v1[1]*v2[0]); 
- 132              		.loc 1 21 0
- 133 0064 6168     		ldr	r1, [r4, #4]	@ float
- 134 0066 2868     		ldr	r0, [r5, #0]	@ float
- 135 0068 FFF7FEFF 		bl	__aeabi_fmul
- 136              	.LVL14:
- 137 006c 2168     		ldr	r1, [r4, #0]	@ float
- 138 006e 0746     		mov	r7, r0
- 139 0070 6868     		ldr	r0, [r5, #4]	@ float
- 140 0072 FFF7FEFF 		bl	__aeabi_fmul
- 141              	.LVL15:
- 142 0076 0146     		mov	r1, r0
- 143 0078 3846     		mov	r0, r7
- 144 007a FFF7FEFF 		bl	__aeabi_fsub
- 145              	.LVL16:
- 146 007e B060     		str	r0, [r6, #8]	@ float
- 147 0080 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 148              		.cfi_endproc
- 149              	.LFE1:
- 151              		.align	1
- 152              		.global	VectorScale
- 153              		.thumb
- 154              		.thumb_func
- 156              	VectorScale:
- 157              	.LFB2:
+  96              		.loc 1 21 0
+  97 005c 91ED016A 		flds	s12, [r1, #4]
+  98 0060 D2ED007A 		flds	s15, [r2, #0]
+  99 0064 D1ED006A 		flds	s13, [r1, #0]
+ 100 0068 92ED017A 		flds	s14, [r2, #4]
+ 101 006c 66EE277A 		fmuls	s15, s12, s15
+ 102 0070 56EE877A 		fmscs	s15, s13, s14
+ 103 0074 C0ED027A 		fsts	s15, [r0, #8]
+ 104 0078 7047     		bx	lr
+ 105              		.cfi_endproc
+ 106              	.LFE1:
+ 108              		.align	1
+ 109              		.global	VectorScale
+ 110              		.thumb
+ 111              		.thumb_func
+ 113              	VectorScale:
+ 114              	.LFB2:
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** }  
   23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** //Multiply the vector by a scalar.  
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void VectorScale(float vectorOut[3],float vectorIn[3], float scale2) 
   26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
- 158              		.loc 1 26 0
- 159              		.cfi_startproc
- 160              		@ args = 0, pretend = 0, frame = 0
- 161              		@ frame_needed = 0, uses_anonymous_args = 0
- 162              	.LVL17:
- 163 0082 70B5     		push	{r4, r5, r6, lr}
- 164              	.LCFI2:
- 165              		.cfi_def_cfa_offset 16
- 166              		.cfi_offset 4, -16
- 167              		.cfi_offset 5, -12
- 168              		.cfi_offset 6, -8
- 169              		.cfi_offset 14, -4
- 170              		.loc 1 26 0
- 171 0084 0446     		mov	r4, r0
- 172 0086 0D46     		mov	r5, r1
+ 115              		.loc 1 26 0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120              	.LVL4:
   27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	int c = 0;
   28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for( c = 0 ; c < 3 ; c++ )   
   29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	{    
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		vectorOut[c] = vectorIn[c] * scale2;    
- 173              		.loc 1 30 0
- 174 0088 0868     		ldr	r0, [r1, #0]	@ float
- 175              	.LVL18:
- 176 008a 1146     		mov	r1, r2
- 177              	.LVL19:
-  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
- 178              		.loc 1 26 0
- 179 008c 1646     		mov	r6, r2
- 180              		.loc 1 30 0
- 181 008e FFF7FEFF 		bl	__aeabi_fmul
- 182              	.LVL20:
- 183 0092 2060     		str	r0, [r4, #0]	@ float
- 184              	.LVL21:
- 185 0094 6868     		ldr	r0, [r5, #4]	@ float
- 186 0096 3146     		mov	r1, r6
- 187 0098 FFF7FEFF 		bl	__aeabi_fmul
- 188              	.LVL22:
- 189 009c 6060     		str	r0, [r4, #4]	@ float
- 190              	.LVL23:
- 191 009e A868     		ldr	r0, [r5, #8]	@ float
- 192 00a0 3146     		mov	r1, r6
- 193 00a2 FFF7FEFF 		bl	__aeabi_fmul
- 194              	.LVL24:
- 195 00a6 A060     		str	r0, [r4, #8]	@ float
- 196              	.LVL25:
- 197 00a8 70BD     		pop	{r4, r5, r6, pc}
- 198              		.cfi_endproc
- 199              	.LFE2:
- 201              		.align	1
- 202              		.global	VectorAdd
- 203              		.thumb
- 204              		.thumb_func
- 206              	VectorAdd:
- 207              	.LFB3:
+ 121              		.loc 1 30 0
+ 122 007a D1ED007A 		flds	s15, [r1, #0]
+ 123 007e 67EE807A 		fmuls	s15, s15, s0
+ 124 0082 C0ED007A 		fsts	s15, [r0, #0]
+ 125              	.LVL5:
+ 126 0086 D1ED017A 		flds	s15, [r1, #4]
+ 127 008a 67EE807A 		fmuls	s15, s15, s0
+ 128 008e C0ED017A 		fsts	s15, [r0, #4]
+ 129              	.LVL6:
+ 130 0092 D1ED027A 		flds	s15, [r1, #8]
+ 131 0096 27EE800A 		fmuls	s0, s15, s0
+ 132              	.LVL7:
+ 133 009a 80ED020A 		fsts	s0, [r0, #8]
+ 134              	.LVL8:
+ 135 009e 7047     		bx	lr
+ 136              		.cfi_endproc
+ 137              	.LFE2:
+ 139              		.align	1
+ 140              		.global	VectorAdd
+ 141              		.thumb
+ 142              		.thumb_func
+ 144              	VectorAdd:
+ 145              	.LFB3:
   31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	} 
   32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** }  
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void VectorAdd(float vectorOut[3],float vectorIn1[3], float vectorIn2[3]) 
   35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {
- 208              		.loc 1 35 0
- 209              		.cfi_startproc
- 210              		@ args = 0, pretend = 0, frame = 0
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212              	.LVL26:
- 213 00aa F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 214              	.LCFI3:
- 215              		.cfi_def_cfa_offset 24
- 216              		.cfi_offset 3, -24
- 217              		.cfi_offset 4, -20
- 218              		.cfi_offset 5, -16
- 219              		.cfi_offset 6, -12
- 220              		.cfi_offset 7, -8
- 221              		.cfi_offset 14, -4
- 222              		.loc 1 35 0
- 223 00ac 0546     		mov	r5, r0
- 224 00ae 0E46     		mov	r6, r1
- 225 00b0 1746     		mov	r7, r2
- 226 00b2 0024     		movs	r4, #0
- 227              	.LVL27:
- 228              	.L7:
+ 146              		.loc 1 35 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              	.LVL9:
+ 151 00a0 70B5     		push	{r4, r5, r6, lr}
+ 152              	.LCFI1:
+ 153              		.cfi_def_cfa_offset 16
+ 154              		.cfi_offset 4, -16
+ 155              		.cfi_offset 5, -12
+ 156              		.cfi_offset 6, -8
+ 157              		.cfi_offset 14, -4
+ 158              		.loc 1 35 0
+ 159 00a2 0023     		movs	r3, #0
+ 160              	.LVL10:
+ 161              	.L9:
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void VectorAdd(float vectorOut[3],float vectorIn1[3], float vectorIn2[3]) 
+ 162              		.loc 1 34 0 discriminator 2
+ 163 00a4 CE18     		adds	r6, r1, r3
+ 164 00a6 D518     		adds	r5, r2, r3
   36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	int c = 0;
   37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c ****    
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for(c = 0 ; c < 3 ; c++ )   
   39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	{      
   40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		vectorOut[c] = vectorIn1[c] + vectorIn2[c];   
- 229              		.loc 1 40 0 discriminator 2
- 230 00b4 3059     		ldr	r0, [r6, r4]	@ float
- 231 00b6 3959     		ldr	r1, [r7, r4]	@ float
- 232 00b8 FFF7FEFF 		bl	__aeabi_fadd
- 233              	.LVL28:
- 234 00bc 2851     		str	r0, [r5, r4]	@ float
- 235 00be 0434     		adds	r4, r4, #4
+ 165              		.loc 1 40 0 discriminator 2
+ 166 00a8 96ED007A 		flds	s14, [r6, #0]
+ 167 00ac D5ED007A 		flds	s15, [r5, #0]
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void VectorAdd(float vectorOut[3],float vectorIn1[3], float vectorIn2[3]) 
+ 168              		.loc 1 34 0 discriminator 2
+ 169 00b0 C418     		adds	r4, r0, r3
+ 170              		.loc 1 40 0 discriminator 2
+ 171 00b2 77EE277A 		fadds	s15, s14, s15
+ 172 00b6 0433     		adds	r3, r3, #4
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for(c = 0 ; c < 3 ; c++ )   
- 236              		.loc 1 38 0 discriminator 2
- 237 00c0 0C2C     		cmp	r4, #12
- 238 00c2 F7D1     		bne	.L7
+ 173              		.loc 1 38 0 discriminator 2
+ 174 00b8 0C2B     		cmp	r3, #12
+ 175              		.loc 1 40 0 discriminator 2
+ 176 00ba C4ED007A 		fsts	s15, [r4, #0]
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for(c = 0 ; c < 3 ; c++ )   
+ 177              		.loc 1 38 0 discriminator 2
+ 178 00be F1D1     		bne	.L9
   41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	} 
   42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** } 
- 239              		.loc 1 42 0
- 240 00c4 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 241              		.cfi_endproc
- 242              	.LFE3:
- 244              		.align	1
- 245              		.global	MatrixMultiply
- 246              		.thumb
- 247              		.thumb_func
- 249              	MatrixMultiply:
- 250              	.LFB4:
+ 179              		.loc 1 42 0
+ 180 00c0 70BD     		pop	{r4, r5, r6, pc}
+ 181              		.cfi_endproc
+ 182              	.LFE3:
+ 184              		.align	1
+ 185              		.global	MatrixMultiply
+ 186              		.thumb
+ 187              		.thumb_func
+ 189              	MatrixMultiply:
+ 190              	.LFB4:
   43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 
   46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** //Multiply two 3x3 matrices. 
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void MatrixMultiply(float a[3][3], float b[3][3],float mat[3][3]) 
   48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** {   
- 251              		.loc 1 48 0
- 252              		.cfi_startproc
- 253              		@ args = 0, pretend = 0, frame = 24
- 254              		@ frame_needed = 0, uses_anonymous_args = 0
- 255              	.LVL29:
- 256 00c6 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 257              	.LCFI4:
- 258              		.cfi_def_cfa_offset 36
- 259              		.cfi_offset 4, -36
- 260              		.cfi_offset 5, -32
- 261              		.cfi_offset 6, -28
- 262              		.cfi_offset 7, -24
- 263              		.cfi_offset 8, -20
- 264              		.cfi_offset 9, -16
- 265              		.cfi_offset 10, -12
- 266              		.cfi_offset 11, -8
- 267              		.cfi_offset 14, -4
- 268 00ca 8146     		mov	r9, r0
- 269 00cc 87B0     		sub	sp, sp, #28
- 270              	.LCFI5:
- 271              		.cfi_def_cfa_offset 64
- 272              		.loc 1 48 0
- 273 00ce 8846     		mov	r8, r1
- 274 00d0 0746     		mov	r7, r0
+ 191              		.loc 1 48 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 16
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195              	.LVL11:
+ 196 00c2 F0B5     		push	{r4, r5, r6, r7, lr}
+ 197              	.LCFI2:
+ 198              		.cfi_def_cfa_offset 20
+ 199              		.cfi_offset 4, -20
+ 200              		.cfi_offset 5, -16
+ 201              		.cfi_offset 6, -12
+ 202              		.cfi_offset 7, -8
+ 203              		.cfi_offset 14, -4
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void MatrixMultiply(float a[3][3], float b[3][3],float mat[3][3]) 
- 275              		.loc 1 47 0
- 276 00d2 0025     		movs	r5, #0
- 277 00d4 25E0     		b	.L10
- 278              	.LVL30:
- 279              	.L11:
+ 204              		.loc 1 47 0
+ 205 00c4 0830     		adds	r0, r0, #8
+ 206              	.LVL12:
+ 207              		.loc 1 48 0
+ 208 00c6 85B0     		sub	sp, sp, #20
+ 209              	.LCFI3:
+ 210              		.cfi_def_cfa_offset 40
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void MatrixMultiply(float a[3][3], float b[3][3],float mat[3][3]) 
+ 211              		.loc 1 47 0
+ 212 00c8 0025     		movs	r5, #0
+ 213 00ca 22E0     		b	.L12
+ 214              	.LVL13:
+ 215              	.L13:
   49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	float op[3];    
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	int x = 0;
   51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	int y = 0;
@@ -335,91 +275,78 @@
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			for(  w = 0 ; w < 3 ; w++ )       
   60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			{        
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 				op[w] = a[x][w]*b[w][y];       
- 280              		.loc 1 61 0 discriminator 1
- 281 00d6 58F80410 		ldr	r1, [r8, r4]	@ float
- 282 00da 59F80500 		ldr	r0, [r9, r5]	@ float
- 283 00de 0192     		str	r2, [sp, #4]
- 284 00e0 FFF7FEFF 		bl	__aeabi_fmul
- 285              	.LVL31:
- 286 00e4 F168     		ldr	r1, [r6, #12]	@ float
- 287 00e6 8246     		mov	sl, r0
- 288 00e8 0390     		str	r0, [sp, #12]	@ float
- 289              	.LVL32:
- 290 00ea 7868     		ldr	r0, [r7, #4]	@ float
- 291 00ec FFF7FEFF 		bl	__aeabi_fmul
- 292              	.LVL33:
- 293 00f0 0146     		mov	r1, r0
- 294 00f2 0490     		str	r0, [sp, #16]	@ float
- 295              	.LVL34:
+ 216              		.loc 1 61 0 discriminator 1
+ 217 00cc D3ED007A 		flds	s15, [r3, #0]
+ 218 00d0 10ED027A 		flds	s14, [r0, #-8]
+ 219 00d4 50ED016A 		flds	s13, [r0, #-4]
+ 220 00d8 27EE277A 		fmuls	s14, s14, s15
+ 221 00dc D3ED037A 		flds	s15, [r3, #12]
+ 222 00e0 66EEA77A 		fmuls	s15, s13, s15
+ 223 00e4 8DED017A 		fsts	s14, [sp, #4]
+ 224              	.LVL14:
+ 225 00e8 D0ED006A 		flds	s13, [r0, #0]
+ 226 00ec CDED027A 		fsts	s15, [sp, #8]
+ 227              	.LVL15:
   62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			}        
   63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			mat[x][y] = 0;       
   64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			mat[x][y] = op[0] + op[1] + op[2];              
- 296              		.loc 1 64 0 discriminator 1
- 297 00f4 5046     		mov	r0, sl
- 298 00f6 FFF7FEFF 		bl	__aeabi_fadd
- 299              	.LVL35:
+ 228              		.loc 1 64 0 discriminator 1
+ 229 00f0 77EE277A 		fadds	s15, s14, s15
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 				op[w] = a[x][w]*b[w][y];       
- 300              		.loc 1 61 0 discriminator 1
- 301 00fa B169     		ldr	r1, [r6, #24]	@ float
- 302              		.loc 1 64 0 discriminator 1
- 303 00fc 8246     		mov	sl, r0
-  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 				op[w] = a[x][w]*b[w][y];       
- 304              		.loc 1 61 0 discriminator 1
- 305 00fe B868     		ldr	r0, [r7, #8]	@ float
- 306 0100 FFF7FEFF 		bl	__aeabi_fmul
- 307              	.LVL36:
- 308 0104 0146     		mov	r1, r0
- 309              		.loc 1 64 0 discriminator 1
- 310 0106 5046     		mov	r0, sl
- 311 0108 FFF7FEFF 		bl	__aeabi_fadd
- 312              	.LVL37:
- 313 010c 4BF80400 		str	r0, [fp, r4]	@ float
- 314 0110 0434     		adds	r4, r4, #4
- 315 0112 0436     		adds	r6, r6, #4
-  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		for(  y = 0 ; y < 3 ; y++ )     
- 316              		.loc 1 57 0 discriminator 1
- 317 0114 0C2C     		cmp	r4, #12
- 318 0116 019A     		ldr	r2, [sp, #4]
- 319 0118 DDD1     		bne	.L11
- 320              	.LVL38:
- 321 011a 0C35     		adds	r5, r5, #12
- 322 011c 0C37     		adds	r7, r7, #12
-  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for(  x = 0 ; x < 3 ; x++ )   
- 323              		.loc 1 55 0
- 324 011e 242D     		cmp	r5, #36
- 325 0120 04D0     		beq	.L9
- 326              	.LVL39:
- 327              	.L10:
+ 230              		.loc 1 61 0 discriminator 1
+ 231 00f4 93ED067A 		flds	s14, [r3, #24]
+ 232              		.loc 1 64 0 discriminator 1
+ 233 00f8 46EE877A 		fmacs	s15, s13, s14
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void MatrixMultiply(float a[3][3], float b[3][3],float mat[3][3]) 
- 328              		.loc 1 47 0 discriminator 1
- 329 0122 02EB050B 		add	fp, r2, r5
- 330 0126 4646     		mov	r6, r8
- 331 0128 0024     		movs	r4, #0
- 332 012a D4E7     		b	.L11
- 333              	.LVL40:
- 334              	.L9:
+ 234              		.loc 1 47 0 discriminator 1
+ 235 00fc 3719     		adds	r7, r6, r4
+ 236 00fe 0434     		adds	r4, r4, #4
+ 237 0100 0433     		adds	r3, r3, #4
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		for(  y = 0 ; y < 3 ; y++ )     
+ 238              		.loc 1 57 0 discriminator 1
+ 239 0102 0C2C     		cmp	r4, #12
+ 240              		.loc 1 64 0 discriminator 1
+ 241 0104 C7ED007A 		fsts	s15, [r7, #0]
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		for(  y = 0 ; y < 3 ; y++ )     
+ 242              		.loc 1 57 0 discriminator 1
+ 243 0108 E0D1     		bne	.L13
+ 244 010a 0C35     		adds	r5, r5, #12
+ 245 010c 0C30     		adds	r0, r0, #12
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	for(  x = 0 ; x < 3 ; x++ )   
+ 246              		.loc 1 55 0
+ 247 010e 242D     		cmp	r5, #36
+ 248 0110 03D0     		beq	.L11
+ 249              	.LVL16:
+ 250              	.L12:
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** void MatrixMultiply(float a[3][3], float b[3][3],float mat[3][3]) 
+ 251              		.loc 1 47 0 discriminator 1
+ 252 0112 5619     		adds	r6, r2, r5
+ 253 0114 0B46     		mov	r3, r1
+ 254 0116 0024     		movs	r4, #0
+ 255 0118 D8E7     		b	.L13
+ 256              	.LVL17:
+ 257              	.L11:
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 			//test=mat[x][y];     
   66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 		}   
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** 	} 
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Vector_math.c **** } 
- 335              		.loc 1 68 0
- 336 012c 07B0     		add	sp, sp, #28
- 337 012e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 338              		.cfi_endproc
- 339              	.LFE4:
- 341              	.Letext0:
+ 258              		.loc 1 68 0
+ 259 011a 05B0     		add	sp, sp, #20
+ 260 011c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 261              		.cfi_endproc
+ 262              	.LFE4:
+ 264              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 Vector_math.c
-     /tmp/ccxlxL0t.s:20     .text:00000000 $t
-     /tmp/ccxlxL0t.s:25     .text:00000000 VectorDotProduct
-     /tmp/ccxlxL0t.s:78     .text:00000024 VectorCrossProduct
-     /tmp/ccxlxL0t.s:156    .text:00000082 VectorScale
-     /tmp/ccxlxL0t.s:206    .text:000000aa VectorAdd
-     /tmp/ccxlxL0t.s:249    .text:000000c6 MatrixMultiply
+     /tmp/ccUYYdDd.s:20     .text:00000000 $t
+     /tmp/ccUYYdDd.s:25     .text:00000000 VectorDotProduct
+     /tmp/ccUYYdDd.s:63     .text:00000020 $d
+     /tmp/ccUYYdDd.s:67     .text:00000024 $t
+     /tmp/ccUYYdDd.s:72     .text:00000024 VectorCrossProduct
+     /tmp/ccUYYdDd.s:113    .text:0000007a VectorScale
+     /tmp/ccUYYdDd.s:144    .text:000000a0 VectorAdd
+     /tmp/ccUYYdDd.s:189    .text:000000c2 MatrixMultiply
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
 
-UNDEFINED SYMBOLS
-__aeabi_fmul
-__aeabi_fadd
-__aeabi_fsub
+NO UNDEFINED SYMBOLS

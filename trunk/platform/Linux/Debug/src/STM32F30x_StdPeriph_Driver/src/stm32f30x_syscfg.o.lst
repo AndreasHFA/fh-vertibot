@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_syscfg.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	SYSCFG_DeInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	SYSCFG_DeInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_syscfg.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	SYSCFG_DeInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	SYSCFG_DeInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   * @file    stm32f30x_syscfg.c
@@ -131,59 +133,59 @@
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_DeInit(void)
  109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
-  26              		.loc 1 109 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
+  28              		.loc 1 109 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
  110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Reset SYSCFG_CFGR1 register to reset value without affecting MEM_MODE bits */
  111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR1 &= SYSCFG_CFGR1_MEM_MODE;
-  31              		.loc 1 111 0
-  32 0000 084B     		ldr	r3, .L2
-  33 0002 1A68     		ldr	r2, [r3, #0]
-  34 0004 02F00302 		and	r2, r2, #3
-  35 0008 1A60     		str	r2, [r3, #0]
+  33              		.loc 1 111 0
+  34 0000 084B     		ldr	r3, .L2
+  35 0002 1A68     		ldr	r2, [r3, #0]
+  36 0004 02F00302 		and	r2, r2, #3
+  37 0008 1A60     		str	r2, [r3, #0]
  112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set FPU Interrupt Enable bits to default value */
  113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR1 |= 0x7C000000;
-  36              		.loc 1 113 0
-  37 000a 1A68     		ldr	r2, [r3, #0]
-  38 000c 42F0F842 		orr	r2, r2, #2080374784
-  39 0010 1A60     		str	r2, [r3, #0]
+  38              		.loc 1 113 0
+  39 000a 1A68     		ldr	r2, [r3, #0]
+  40 000c 42F0F842 		orr	r2, r2, #2080374784
+  41 0010 1A60     		str	r2, [r3, #0]
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Reset RAM Write protection bits to default value */
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->RCR = 0x00000000;
-  40              		.loc 1 115 0
-  41 0012 0022     		movs	r2, #0
-  42 0014 5A60     		str	r2, [r3, #4]
+  42              		.loc 1 115 0
+  43 0012 0022     		movs	r2, #0
+  44 0014 5A60     		str	r2, [r3, #4]
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set EXTICRx registers to reset value */
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[0] = 0;
-  43              		.loc 1 117 0
-  44 0016 9A60     		str	r2, [r3, #8]
+  45              		.loc 1 117 0
+  46 0016 9A60     		str	r2, [r3, #8]
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[1] = 0;
-  45              		.loc 1 118 0
-  46 0018 DA60     		str	r2, [r3, #12]
+  47              		.loc 1 118 0
+  48 0018 DA60     		str	r2, [r3, #12]
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[2] = 0;
-  47              		.loc 1 119 0
-  48 001a 1A61     		str	r2, [r3, #16]
+  49              		.loc 1 119 0
+  50 001a 1A61     		str	r2, [r3, #16]
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[3] = 0;
-  49              		.loc 1 120 0
-  50 001c 5A61     		str	r2, [r3, #20]
+  51              		.loc 1 120 0
+  52 001c 5A61     		str	r2, [r3, #20]
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set CFGR2 register to reset value */
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR2 = 0;
-  51              		.loc 1 122 0
-  52 001e 9A61     		str	r2, [r3, #24]
-  53 0020 7047     		bx	lr
-  54              	.L3:
-  55 0022 00BF     		.align	2
-  56              	.L2:
-  57 0024 00000140 		.word	1073807360
-  58              		.cfi_endproc
-  59              	.LFE111:
-  61              		.align	1
-  62              		.global	SYSCFG_MemoryRemapConfig
-  63              		.thumb
-  64              		.thumb_func
-  66              	SYSCFG_MemoryRemapConfig:
-  67              	.LFB112:
+  53              		.loc 1 122 0
+  54 001e 9A61     		str	r2, [r3, #24]
+  55 0020 7047     		bx	lr
+  56              	.L3:
+  57 0022 00BF     		.align	2
+  58              	.L2:
+  59 0024 00000140 		.word	1073807360
+  60              		.cfi_endproc
+  61              	.LFE111:
+  63              		.align	1
+  64              		.global	SYSCFG_MemoryRemapConfig
+  65              		.thumb
+  66              		.thumb_func
+  68              	SYSCFG_MemoryRemapConfig:
+  69              	.LFB112:
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -197,12 +199,12 @@
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_MemoryRemapConfig(uint32_t SYSCFG_MemoryRemap)
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
-  68              		.loc 1 135 0
-  69              		.cfi_startproc
-  70              		@ args = 0, pretend = 0, frame = 0
-  71              		@ frame_needed = 0, uses_anonymous_args = 0
-  72              		@ link register save eliminated.
-  73              	.LVL0:
+  70              		.loc 1 135 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  75              	.LVL0:
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   uint32_t tmpcfgr1 = 0;
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
@@ -210,40 +212,40 @@
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Get CFGR1 register value */
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmpcfgr1 = SYSCFG->CFGR1;
-  74              		.loc 1 142 0
-  75 0028 034B     		ldr	r3, .L5
-  76 002a 1A68     		ldr	r2, [r3, #0]
-  77              	.LVL1:
+  76              		.loc 1 142 0
+  77 0028 034B     		ldr	r3, .L5
+  78 002a 1A68     		ldr	r2, [r3, #0]
+  79              	.LVL1:
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Clear MEM_MODE bits */
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmpcfgr1 &= (uint32_t) (~SYSCFG_CFGR1_MEM_MODE);
-  78              		.loc 1 145 0
-  79 002c 22F00302 		bic	r2, r2, #3
-  80              	.LVL2:
+  80              		.loc 1 145 0
+  81 002c 22F00302 		bic	r2, r2, #3
+  82              	.LVL2:
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set the new MEM_MODE bits value */
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmpcfgr1 |= (uint32_t) SYSCFG_MemoryRemap;
-  81              		.loc 1 148 0
-  82 0030 1043     		orrs	r0, r0, r2
-  83              	.LVL3:
+  83              		.loc 1 148 0
+  84 0030 1043     		orrs	r0, r0, r2
+  85              	.LVL3:
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set CFGR1 register with the new memory remap configuration */
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR1 = tmpcfgr1;
-  84              		.loc 1 151 0
-  85 0032 1860     		str	r0, [r3, #0]
-  86 0034 7047     		bx	lr
-  87              	.L6:
-  88 0036 00BF     		.align	2
-  89              	.L5:
-  90 0038 00000140 		.word	1073807360
-  91              		.cfi_endproc
-  92              	.LFE112:
-  94              		.align	1
-  95              		.global	SYSCFG_DMAChannelRemapConfig
-  96              		.thumb
-  97              		.thumb_func
-  99              	SYSCFG_DMAChannelRemapConfig:
- 100              	.LFB113:
+  86              		.loc 1 151 0
+  87 0032 1860     		str	r0, [r3, #0]
+  88 0034 7047     		bx	lr
+  89              	.L6:
+  90 0036 00BF     		.align	2
+  91              	.L5:
+  92 0038 00000140 		.word	1073807360
+  93              		.cfi_endproc
+  94              	.LFE112:
+  96              		.align	1
+  97              		.global	SYSCFG_DMAChannelRemapConfig
+  98              		.thumb
+  99              		.thumb_func
+ 101              	SYSCFG_DMAChannelRemapConfig:
+ 102              	.LFB113:
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -269,13 +271,13 @@
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_DMAChannelRemapConfig(uint32_t SYSCFG_DMARemap, FunctionalState NewState)
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 101              		.loc 1 176 0
- 102              		.cfi_startproc
- 103              		@ args = 0, pretend = 0, frame = 0
- 104              		@ frame_needed = 0, uses_anonymous_args = 0
- 105              		@ link register save eliminated.
- 106              	.LVL4:
- 107 003c 044B     		ldr	r3, .L11
+ 103              		.loc 1 176 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+ 108              	.LVL4:
+ 109 003c 044B     		ldr	r3, .L11
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameters */
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_DMA_REMAP(SYSCFG_DMARemap));
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -284,40 +286,40 @@
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Remap the DMA channel */
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 |= (uint32_t)SYSCFG_DMARemap;
- 108              		.loc 1 184 0
- 109 003e 1A68     		ldr	r2, [r3, #0]
+ 110              		.loc 1 184 0
+ 111 003e 1A68     		ldr	r2, [r3, #0]
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   if (NewState != DISABLE)
- 110              		.loc 1 181 0
- 111 0040 09B1     		cbz	r1, .L8
- 112              		.loc 1 184 0
- 113 0042 1043     		orrs	r0, r0, r2
- 114              	.LVL5:
- 115 0044 01E0     		b	.L10
- 116              	.LVL6:
- 117              	.L8:
+ 112              		.loc 1 181 0
+ 113 0040 09B1     		cbz	r1, .L8
+ 114              		.loc 1 184 0
+ 115 0042 1043     		orrs	r0, r0, r2
+ 116              	.LVL5:
+ 117 0044 01E0     		b	.L10
+ 118              	.LVL6:
+ 119              	.L8:
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   else
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* use the default DMA channel mapping */
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 &= (uint32_t)(~SYSCFG_DMARemap);
- 118              		.loc 1 189 0
- 119 0046 22EA0000 		bic	r0, r2, r0
- 120              	.LVL7:
- 121              	.L10:
- 122 004a 1860     		str	r0, [r3, #0]
- 123 004c 7047     		bx	lr
- 124              	.L12:
- 125 004e 00BF     		.align	2
- 126              	.L11:
- 127 0050 00000140 		.word	1073807360
- 128              		.cfi_endproc
- 129              	.LFE113:
- 131              		.align	1
- 132              		.global	SYSCFG_TriggerRemapConfig
- 133              		.thumb
- 134              		.thumb_func
- 136              	SYSCFG_TriggerRemapConfig:
- 137              	.LFB114:
+ 120              		.loc 1 189 0
+ 121 0046 22EA0000 		bic	r0, r2, r0
+ 122              	.LVL7:
+ 123              	.L10:
+ 124 004a 1860     		str	r0, [r3, #0]
+ 125 004c 7047     		bx	lr
+ 126              	.L12:
+ 127 004e 00BF     		.align	2
+ 128              	.L11:
+ 129 0050 00000140 		.word	1073807360
+ 130              		.cfi_endproc
+ 131              	.LFE113:
+ 133              		.align	1
+ 134              		.global	SYSCFG_TriggerRemapConfig
+ 135              		.thumb
+ 136              		.thumb_func
+ 138              	SYSCFG_TriggerRemapConfig:
+ 139              	.LFB114:
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
@@ -335,13 +337,13 @@
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_TriggerRemapConfig(uint32_t SYSCFG_TriggerRemap, FunctionalState NewState)
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 138              		.loc 1 206 0
- 139              		.cfi_startproc
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142              		@ link register save eliminated.
- 143              	.LVL8:
- 144 0054 044B     		ldr	r3, .L17
+ 140              		.loc 1 206 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		@ link register save eliminated.
+ 145              	.LVL8:
+ 146 0054 044B     		ldr	r3, .L17
  207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameters */
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_TRIGGER_REMAP(SYSCFG_TriggerRemap));
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -350,40 +352,40 @@
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Remap the trigger */
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 |= (uint32_t)SYSCFG_TriggerRemap;
- 145              		.loc 1 214 0
- 146 0056 1A68     		ldr	r2, [r3, #0]
+ 147              		.loc 1 214 0
+ 148 0056 1A68     		ldr	r2, [r3, #0]
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   if (NewState != DISABLE)
- 147              		.loc 1 211 0
- 148 0058 09B1     		cbz	r1, .L14
- 149              		.loc 1 214 0
- 150 005a 1043     		orrs	r0, r0, r2
- 151              	.LVL9:
- 152 005c 01E0     		b	.L16
- 153              	.LVL10:
- 154              	.L14:
+ 149              		.loc 1 211 0
+ 150 0058 09B1     		cbz	r1, .L14
+ 151              		.loc 1 214 0
+ 152 005a 1043     		orrs	r0, r0, r2
+ 153              	.LVL9:
+ 154 005c 01E0     		b	.L16
+ 155              	.LVL10:
+ 156              	.L14:
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   else
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Use the default trigger mapping */
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 &= (uint32_t)(~SYSCFG_TriggerRemap);
- 155              		.loc 1 219 0
- 156 005e 22EA0000 		bic	r0, r2, r0
- 157              	.LVL11:
- 158              	.L16:
- 159 0062 1860     		str	r0, [r3, #0]
- 160 0064 7047     		bx	lr
- 161              	.L18:
- 162 0066 00BF     		.align	2
- 163              	.L17:
- 164 0068 00000140 		.word	1073807360
- 165              		.cfi_endproc
- 166              	.LFE114:
- 168              		.align	1
- 169              		.global	SYSCFG_EncoderRemapConfig
- 170              		.thumb
- 171              		.thumb_func
- 173              	SYSCFG_EncoderRemapConfig:
- 174              	.LFB115:
+ 157              		.loc 1 219 0
+ 158 005e 22EA0000 		bic	r0, r2, r0
+ 159              	.LVL11:
+ 160              	.L16:
+ 161 0062 1860     		str	r0, [r3, #0]
+ 162 0064 7047     		bx	lr
+ 163              	.L18:
+ 164 0066 00BF     		.align	2
+ 165              	.L17:
+ 166 0068 00000140 		.word	1073807360
+ 167              		.cfi_endproc
+ 168              	.LFE114:
+ 170              		.align	1
+ 171              		.global	SYSCFG_EncoderRemapConfig
+ 172              		.thumb
+ 173              		.thumb_func
+ 175              	SYSCFG_EncoderRemapConfig:
+ 176              	.LFB115:
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
@@ -401,43 +403,43 @@
  234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_EncoderRemapConfig(uint32_t SYSCFG_EncoderRemap)
  236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 175              		.loc 1 236 0
- 176              		.cfi_startproc
- 177              		@ args = 0, pretend = 0, frame = 0
- 178              		@ frame_needed = 0, uses_anonymous_args = 0
- 179              		@ link register save eliminated.
- 180              	.LVL12:
+ 177              		.loc 1 236 0
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181              		@ link register save eliminated.
+ 182              	.LVL12:
  237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
  238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_ENCODER_REMAP(SYSCFG_EncoderRemap));
  239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Reset the encoder mode remapping bits */
  241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR1 &= (uint32_t)(~SYSCFG_CFGR1_ENCODER_MODE);
- 181              		.loc 1 241 0
- 182 006c 044B     		ldr	r3, .L20
- 183 006e 1A68     		ldr	r2, [r3, #0]
- 184 0070 22F44002 		bic	r2, r2, #12582912
- 185 0074 1A60     		str	r2, [r3, #0]
+ 183              		.loc 1 241 0
+ 184 006c 044B     		ldr	r3, .L20
+ 185 006e 1A68     		ldr	r2, [r3, #0]
+ 186 0070 22F44002 		bic	r2, r2, #12582912
+ 187 0074 1A60     		str	r2, [r3, #0]
  242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Set the selected configuration */
  244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR1 |= (uint32_t)(SYSCFG_EncoderRemap);
- 186              		.loc 1 244 0
- 187 0076 1A68     		ldr	r2, [r3, #0]
- 188 0078 1043     		orrs	r0, r0, r2
- 189              	.LVL13:
- 190 007a 1860     		str	r0, [r3, #0]
- 191 007c 7047     		bx	lr
- 192              	.L21:
- 193 007e 00BF     		.align	2
- 194              	.L20:
- 195 0080 00000140 		.word	1073807360
- 196              		.cfi_endproc
- 197              	.LFE115:
- 199              		.align	1
- 200              		.global	SYSCFG_USBInterruptLineRemapCmd
- 201              		.thumb
- 202              		.thumb_func
- 204              	SYSCFG_USBInterruptLineRemapCmd:
- 205              	.LFB116:
+ 188              		.loc 1 244 0
+ 189 0076 1A68     		ldr	r2, [r3, #0]
+ 190 0078 1043     		orrs	r0, r0, r2
+ 191              	.LVL13:
+ 192 007a 1860     		str	r0, [r3, #0]
+ 193 007c 7047     		bx	lr
+ 194              	.L21:
+ 195 007e 00BF     		.align	2
+ 196              	.L20:
+ 197 0080 00000140 		.word	1073807360
+ 198              		.cfi_endproc
+ 199              	.LFE115:
+ 201              		.align	1
+ 202              		.global	SYSCFG_USBInterruptLineRemapCmd
+ 203              		.thumb
+ 204              		.thumb_func
+ 206              	SYSCFG_USBInterruptLineRemapCmd:
+ 207              	.LFB116:
  245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -456,33 +458,33 @@
  260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_USBInterruptLineRemapCmd(FunctionalState NewState)
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 206              		.loc 1 262 0
- 207              		.cfi_startproc
- 208              		@ args = 0, pretend = 0, frame = 0
- 209              		@ frame_needed = 0, uses_anonymous_args = 0
- 210              		@ link register save eliminated.
- 211              	.LVL14:
+ 208              		.loc 1 262 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 213              	.LVL14:
  263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
  264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Remap the USB interupt lines */
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   *(__IO uint32_t *) CFGR1_USBITRMP_BB = (uint32_t)NewState;
- 212              		.loc 1 267 0
- 213 0084 014B     		ldr	r3, .L23
- 214 0086 1860     		str	r0, [r3, #0]
- 215 0088 7047     		bx	lr
- 216              	.L24:
- 217 008a 00BF     		.align	2
- 218              	.L23:
- 219 008c 14002042 		.word	1109393428
- 220              		.cfi_endproc
- 221              	.LFE116:
- 223              		.align	1
- 224              		.global	SYSCFG_I2CFastModePlusConfig
- 225              		.thumb
- 226              		.thumb_func
- 228              	SYSCFG_I2CFastModePlusConfig:
- 229              	.LFB117:
+ 214              		.loc 1 267 0
+ 215 0084 014B     		ldr	r3, .L23
+ 216 0086 1860     		str	r0, [r3, #0]
+ 217 0088 7047     		bx	lr
+ 218              	.L24:
+ 219 008a 00BF     		.align	2
+ 220              	.L23:
+ 221 008c 14002042 		.word	1109393428
+ 222              		.cfi_endproc
+ 223              	.LFE116:
+ 225              		.align	1
+ 226              		.global	SYSCFG_I2CFastModePlusConfig
+ 227              		.thumb
+ 228              		.thumb_func
+ 230              	SYSCFG_I2CFastModePlusConfig:
+ 231              	.LFB117:
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -510,13 +512,13 @@
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_I2CFastModePlusConfig(uint32_t SYSCFG_I2CFastModePlus, FunctionalState NewState)
  294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 230              		.loc 1 294 0
- 231              		.cfi_startproc
- 232              		@ args = 0, pretend = 0, frame = 0
- 233              		@ frame_needed = 0, uses_anonymous_args = 0
- 234              		@ link register save eliminated.
- 235              	.LVL15:
- 236 0090 044B     		ldr	r3, .L29
+ 232              		.loc 1 294 0
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 0, uses_anonymous_args = 0
+ 236              		@ link register save eliminated.
+ 237              	.LVL15:
+ 238 0090 044B     		ldr	r3, .L29
  295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameters */
  296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_I2C_FMP(SYSCFG_I2CFastModePlus));
  297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -525,40 +527,40 @@
  300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Enable fast mode plus driving capability for selected I2C pin */
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 |= (uint32_t)SYSCFG_I2CFastModePlus;
- 237              		.loc 1 302 0
- 238 0092 1A68     		ldr	r2, [r3, #0]
+ 239              		.loc 1 302 0
+ 240 0092 1A68     		ldr	r2, [r3, #0]
  299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   if (NewState != DISABLE)
- 239              		.loc 1 299 0
- 240 0094 09B1     		cbz	r1, .L26
- 241              		.loc 1 302 0
- 242 0096 1043     		orrs	r0, r0, r2
- 243              	.LVL16:
- 244 0098 01E0     		b	.L28
- 245              	.LVL17:
- 246              	.L26:
+ 241              		.loc 1 299 0
+ 242 0094 09B1     		cbz	r1, .L26
+ 243              		.loc 1 302 0
+ 244 0096 1043     		orrs	r0, r0, r2
+ 245              	.LVL16:
+ 246 0098 01E0     		b	.L28
+ 247              	.LVL17:
+ 248              	.L26:
  303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   else
  305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Disable fast mode plus driving capability for selected I2C pin */
  307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 &= (uint32_t)(~SYSCFG_I2CFastModePlus);
- 247              		.loc 1 307 0
- 248 009a 22EA0000 		bic	r0, r2, r0
- 249              	.LVL18:
- 250              	.L28:
- 251 009e 1860     		str	r0, [r3, #0]
- 252 00a0 7047     		bx	lr
- 253              	.L30:
- 254 00a2 00BF     		.align	2
- 255              	.L29:
- 256 00a4 00000140 		.word	1073807360
- 257              		.cfi_endproc
- 258              	.LFE117:
- 260              		.align	1
- 261              		.global	SYSCFG_ITConfig
- 262              		.thumb
- 263              		.thumb_func
- 265              	SYSCFG_ITConfig:
- 266              	.LFB118:
+ 249              		.loc 1 307 0
+ 250 009a 22EA0000 		bic	r0, r2, r0
+ 251              	.LVL18:
+ 252              	.L28:
+ 253 009e 1860     		str	r0, [r3, #0]
+ 254 00a0 7047     		bx	lr
+ 255              	.L30:
+ 256 00a2 00BF     		.align	2
+ 257              	.L29:
+ 258 00a4 00000140 		.word	1073807360
+ 259              		.cfi_endproc
+ 260              	.LFE117:
+ 262              		.align	1
+ 263              		.global	SYSCFG_ITConfig
+ 264              		.thumb
+ 265              		.thumb_func
+ 267              	SYSCFG_ITConfig:
+ 268              	.LFB118:
  308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
@@ -578,13 +580,13 @@
  324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_ITConfig(uint32_t SYSCFG_IT, FunctionalState NewState)  
  326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 267              		.loc 1 326 0
- 268              		.cfi_startproc
- 269              		@ args = 0, pretend = 0, frame = 0
- 270              		@ frame_needed = 0, uses_anonymous_args = 0
- 271              		@ link register save eliminated.
- 272              	.LVL19:
- 273 00a8 044B     		ldr	r3, .L35
+ 269              		.loc 1 326 0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273              		@ link register save eliminated.
+ 274              	.LVL19:
+ 275 00a8 044B     		ldr	r3, .L35
  327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameters */
  328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_IT(SYSCFG_IT)); 
@@ -593,40 +595,40 @@
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Enable the selected SYSCFG interrupts */
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 |= SYSCFG_IT;
- 274              		.loc 1 334 0
- 275 00aa 1A68     		ldr	r2, [r3, #0]
+ 276              		.loc 1 334 0
+ 277 00aa 1A68     		ldr	r2, [r3, #0]
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   if (NewState != DISABLE)
- 276              		.loc 1 331 0
- 277 00ac 09B1     		cbz	r1, .L32
- 278              		.loc 1 334 0
- 279 00ae 1043     		orrs	r0, r0, r2
- 280              	.LVL20:
- 281 00b0 01E0     		b	.L34
- 282              	.LVL21:
- 283              	.L32:
+ 278              		.loc 1 331 0
+ 279 00ac 09B1     		cbz	r1, .L32
+ 280              		.loc 1 334 0
+ 281 00ae 1043     		orrs	r0, r0, r2
+ 282              	.LVL20:
+ 283 00b0 01E0     		b	.L34
+ 284              	.LVL21:
+ 285              	.L32:
  335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   else
  337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* Disable the selected SYSCFG interrupts */
  339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     SYSCFG->CFGR1 &= ((uint32_t)~SYSCFG_IT);
- 284              		.loc 1 339 0
- 285 00b2 22EA0000 		bic	r0, r2, r0
- 286              	.LVL22:
- 287              	.L34:
- 288 00b6 1860     		str	r0, [r3, #0]
- 289 00b8 7047     		bx	lr
- 290              	.L36:
- 291 00ba 00BF     		.align	2
- 292              	.L35:
- 293 00bc 00000140 		.word	1073807360
- 294              		.cfi_endproc
- 295              	.LFE118:
- 297              		.align	1
- 298              		.global	SYSCFG_EXTILineConfig
- 299              		.thumb
- 300              		.thumb_func
- 302              	SYSCFG_EXTILineConfig:
- 303              	.LFB119:
+ 286              		.loc 1 339 0
+ 287 00b2 22EA0000 		bic	r0, r2, r0
+ 288              	.LVL22:
+ 289              	.L34:
+ 290 00b6 1860     		str	r0, [r3, #0]
+ 291 00b8 7047     		bx	lr
+ 292              	.L36:
+ 293 00ba 00BF     		.align	2
+ 294              	.L35:
+ 295 00bc 00000140 		.word	1073807360
+ 296              		.cfi_endproc
+ 297              	.LFE118:
+ 299              		.align	1
+ 300              		.global	SYSCFG_EXTILineConfig
+ 301              		.thumb
+ 302              		.thumb_func
+ 304              	SYSCFG_EXTILineConfig:
+ 305              	.LFB119:
  340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   }
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
@@ -640,11 +642,11 @@
  350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex)
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 304              		.loc 1 352 0
- 305              		.cfi_startproc
- 306              		@ args = 0, pretend = 0, frame = 0
- 307              		@ frame_needed = 0, uses_anonymous_args = 0
- 308              	.LVL23:
+ 306              		.loc 1 352 0
+ 307              		.cfi_startproc
+ 308              		@ args = 0, pretend = 0, frame = 0
+ 309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 310              	.LVL23:
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   uint32_t tmp = 0x00;
  354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameters */
@@ -652,54 +654,57 @@
  357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_EXTI_PIN_SOURCE(EXTI_PinSourcex));
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   
  359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmp = ((uint32_t)0x0F) << (0x04 * (EXTI_PinSourcex & (uint8_t)0x03));
- 309              		.loc 1 359 0
- 310 00c0 01F00302 		and	r2, r1, #3
+ 311              		.loc 1 359 0
+ 312 00c0 01F00302 		and	r2, r1, #3
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[EXTI_PinSourcex >> 0x02] &= ~tmp;
+ 313              		.loc 1 360 0
+ 314 00c4 8908     		lsrs	r1, r1, #2
+ 315              	.LVL24:
+ 316 00c6 0A4B     		ldr	r3, .L38
+ 317 00c8 0231     		adds	r1, r1, #2
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 311              		.loc 1 352 0
- 312 00c4 30B5     		push	{r4, r5, lr}
- 313              	.LCFI0:
- 314              		.cfi_def_cfa_offset 12
- 315              		.cfi_offset 4, -12
- 316              		.cfi_offset 5, -8
- 317              		.cfi_offset 14, -4
- 318              		.loc 1 359 0
- 319 00c6 9200     		lsls	r2, r2, #2
- 320              	.LVL24:
- 321 00c8 0F24     		movs	r4, #15
- 322 00ca 04FA02F4 		lsl	r4, r4, r2
- 323              	.LVL25:
- 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[EXTI_PinSourcex >> 0x02] &= ~tmp;
+ 318              		.loc 1 352 0
+ 319 00ca 30B5     		push	{r4, r5, lr}
+ 320              	.LCFI0:
+ 321              		.cfi_def_cfa_offset 12
+ 322              		.cfi_offset 4, -12
+ 323              		.cfi_offset 5, -8
+ 324              		.cfi_offset 14, -4
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmp = ((uint32_t)0x0F) << (0x04 * (EXTI_PinSourcex & (uint8_t)0x03));
+ 325              		.loc 1 359 0
+ 326 00cc 9200     		lsls	r2, r2, #2
+ 327              	.LVL25:
+ 328              		.loc 1 360 0
+ 329 00ce 53F82150 		ldr	r5, [r3, r1, lsl #2]
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   tmp = ((uint32_t)0x0F) << (0x04 * (EXTI_PinSourcex & (uint8_t)0x03));
+ 330              		.loc 1 359 0
+ 331 00d2 0F24     		movs	r4, #15
+ 332 00d4 04FA02F4 		lsl	r4, r4, r2
+ 333              	.LVL26:
+ 334              		.loc 1 360 0
+ 335 00d8 25EA0404 		bic	r4, r5, r4
+ 336              	.LVL27:
+ 337 00dc 43F82140 		str	r4, [r3, r1, lsl #2]
  361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[EXTI_PinSourcex >> 0x02] |= (((uint32_t)EXTI_PortSourceGPIOx) << (0x04 * (EXTI_Pin
- 324              		.loc 1 361 0
- 325 00ce 00FA02F0 		lsl	r0, r0, r2
- 326              	.LVL26:
- 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->EXTICR[EXTI_PinSourcex >> 0x02] &= ~tmp;
- 327              		.loc 1 360 0
- 328 00d2 074B     		ldr	r3, .L38
- 329 00d4 8908     		lsrs	r1, r1, #2
- 330              	.LVL27:
- 331 00d6 0231     		adds	r1, r1, #2
- 332 00d8 53F82150 		ldr	r5, [r3, r1, lsl #2]
- 333 00dc 25EA0404 		bic	r4, r5, r4
- 334              	.LVL28:
- 335 00e0 43F82140 		str	r4, [r3, r1, lsl #2]
- 336              		.loc 1 361 0
- 337 00e4 53F82140 		ldr	r4, [r3, r1, lsl #2]
- 338 00e8 0443     		orrs	r4, r4, r0
- 339 00ea 43F82140 		str	r4, [r3, r1, lsl #2]
- 340 00ee 30BD     		pop	{r4, r5, pc}
- 341              	.L39:
- 342              		.align	2
- 343              	.L38:
- 344 00f0 00000140 		.word	1073807360
- 345              		.cfi_endproc
- 346              	.LFE119:
- 348              		.align	1
- 349              		.global	SYSCFG_BreakConfig
- 350              		.thumb
- 351              		.thumb_func
- 353              	SYSCFG_BreakConfig:
- 354              	.LFB120:
+ 338              		.loc 1 361 0
+ 339 00e0 53F82140 		ldr	r4, [r3, r1, lsl #2]
+ 340 00e4 00FA02F0 		lsl	r0, r0, r2
+ 341              	.LVL28:
+ 342 00e8 0443     		orrs	r4, r4, r0
+ 343 00ea 43F82140 		str	r4, [r3, r1, lsl #2]
+ 344 00ee 30BD     		pop	{r4, r5, pc}
+ 345              	.L39:
+ 346              		.align	2
+ 347              	.L38:
+ 348 00f0 00000140 		.word	1073807360
+ 349              		.cfi_endproc
+ 350              	.LFE119:
+ 352              		.align	1
+ 353              		.global	SYSCFG_BreakConfig
+ 354              		.thumb
+ 355              		.thumb_func
+ 357              	SYSCFG_BreakConfig:
+ 358              	.LFB120:
  362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -715,35 +720,35 @@
  374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_BreakConfig(uint32_t SYSCFG_Break)
  376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 355              		.loc 1 376 0
- 356              		.cfi_startproc
- 357              		@ args = 0, pretend = 0, frame = 0
- 358              		@ frame_needed = 0, uses_anonymous_args = 0
- 359              		@ link register save eliminated.
- 360              	.LVL29:
+ 359              		.loc 1 376 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363              		@ link register save eliminated.
+ 364              	.LVL29:
  377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
  378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_LOCK_CONFIG(SYSCFG_Break));
  379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR2 |= (uint32_t) SYSCFG_Break;
- 361              		.loc 1 380 0
- 362 00f4 024B     		ldr	r3, .L41
- 363 00f6 9A69     		ldr	r2, [r3, #24]
- 364 00f8 1043     		orrs	r0, r0, r2
- 365              	.LVL30:
- 366 00fa 9861     		str	r0, [r3, #24]
- 367 00fc 7047     		bx	lr
- 368              	.L42:
- 369 00fe 00BF     		.align	2
- 370              	.L41:
- 371 0100 00000140 		.word	1073807360
- 372              		.cfi_endproc
- 373              	.LFE120:
- 375              		.align	1
- 376              		.global	SYSCFG_BypassParityCheckDisable
- 377              		.thumb
- 378              		.thumb_func
- 380              	SYSCFG_BypassParityCheckDisable:
- 381              	.LFB121:
+ 365              		.loc 1 380 0
+ 366 00f4 024B     		ldr	r3, .L41
+ 367 00f6 9A69     		ldr	r2, [r3, #24]
+ 368 00f8 1043     		orrs	r0, r0, r2
+ 369              	.LVL30:
+ 370 00fa 9861     		str	r0, [r3, #24]
+ 371 00fc 7047     		bx	lr
+ 372              	.L42:
+ 373 00fe 00BF     		.align	2
+ 374              	.L41:
+ 375 0100 00000140 		.word	1073807360
+ 376              		.cfi_endproc
+ 377              	.LFE120:
+ 379              		.align	1
+ 380              		.global	SYSCFG_BypassParityCheckDisable
+ 381              		.thumb
+ 382              		.thumb_func
+ 384              	SYSCFG_BypassParityCheckDisable:
+ 385              	.LFB121:
  381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -755,30 +760,30 @@
  389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_BypassParityCheckDisable(void)
  391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 382              		.loc 1 391 0
- 383              		.cfi_startproc
- 384              		@ args = 0, pretend = 0, frame = 0
- 385              		@ frame_needed = 0, uses_anonymous_args = 0
- 386              		@ link register save eliminated.
+ 386              		.loc 1 391 0
+ 387              		.cfi_startproc
+ 388              		@ args = 0, pretend = 0, frame = 0
+ 389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 390              		@ link register save eliminated.
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Disable the adddress parity check on RAM */
  393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   *(__IO uint32_t *) CFGR1_BYPADDRPAR_BB = (uint32_t)0x00000001;
- 387              		.loc 1 393 0
- 388 0104 014B     		ldr	r3, .L44
- 389 0106 0122     		movs	r2, #1
- 390 0108 1A60     		str	r2, [r3, #0]
- 391 010a 7047     		bx	lr
- 392              	.L45:
- 393              		.align	2
- 394              	.L44:
- 395 010c 10032042 		.word	1109394192
- 396              		.cfi_endproc
- 397              	.LFE121:
- 399              		.align	1
- 400              		.global	SYSCFG_SRAMWRPEnable
- 401              		.thumb
- 402              		.thumb_func
- 404              	SYSCFG_SRAMWRPEnable:
- 405              	.LFB122:
+ 391              		.loc 1 393 0
+ 392 0104 014B     		ldr	r3, .L44
+ 393 0106 0122     		movs	r2, #1
+ 394 0108 1A60     		str	r2, [r3, #0]
+ 395 010a 7047     		bx	lr
+ 396              	.L45:
+ 397              		.align	2
+ 398              	.L44:
+ 399 010c 10032042 		.word	1109394192
+ 400              		.cfi_endproc
+ 401              	.LFE121:
+ 403              		.align	1
+ 404              		.global	SYSCFG_SRAMWRPEnable
+ 405              		.thumb
+ 406              		.thumb_func
+ 408              	SYSCFG_SRAMWRPEnable:
+ 409              	.LFB122:
  394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  395:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -790,36 +795,36 @@
  402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_SRAMWRPEnable(uint32_t SYSCFG_SRAMWRP)
  404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 406              		.loc 1 404 0
- 407              		.cfi_startproc
- 408              		@ args = 0, pretend = 0, frame = 0
- 409              		@ frame_needed = 0, uses_anonymous_args = 0
- 410              		@ link register save eliminated.
- 411              	.LVL31:
+ 410              		.loc 1 404 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              		@ link register save eliminated.
+ 415              	.LVL31:
  405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
  406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_PAGE(SYSCFG_SRAMWRP));
  407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Enable the write-protection on the selected ICODE SRAM page */
  409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->RCR |= (uint32_t)SYSCFG_SRAMWRP;
- 412              		.loc 1 409 0
- 413 0110 024B     		ldr	r3, .L47
- 414 0112 5A68     		ldr	r2, [r3, #4]
- 415 0114 1043     		orrs	r0, r0, r2
- 416              	.LVL32:
- 417 0116 5860     		str	r0, [r3, #4]
- 418 0118 7047     		bx	lr
- 419              	.L48:
- 420 011a 00BF     		.align	2
- 421              	.L47:
- 422 011c 00000140 		.word	1073807360
- 423              		.cfi_endproc
- 424              	.LFE122:
- 426              		.align	1
- 427              		.global	SYSCFG_GetFlagStatus
- 428              		.thumb
- 429              		.thumb_func
- 431              	SYSCFG_GetFlagStatus:
- 432              	.LFB123:
+ 416              		.loc 1 409 0
+ 417 0110 024B     		ldr	r3, .L47
+ 418 0112 5A68     		ldr	r2, [r3, #4]
+ 419 0114 1043     		orrs	r0, r0, r2
+ 420              	.LVL32:
+ 421 0116 5860     		str	r0, [r3, #4]
+ 422 0118 7047     		bx	lr
+ 423              	.L48:
+ 424 011a 00BF     		.align	2
+ 425              	.L47:
+ 426 011c 00000140 		.word	1073807360
+ 427              		.cfi_endproc
+ 428              	.LFE122:
+ 430              		.align	1
+ 431              		.global	SYSCFG_GetFlagStatus
+ 432              		.thumb
+ 433              		.thumb_func
+ 435              	SYSCFG_GetFlagStatus:
+ 436              	.LFB123:
  410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
  411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
@@ -831,12 +836,12 @@
  418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** FlagStatus SYSCFG_GetFlagStatus(uint32_t SYSCFG_Flag)
  420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 433              		.loc 1 420 0
- 434              		.cfi_startproc
- 435              		@ args = 0, pretend = 0, frame = 0
- 436              		@ frame_needed = 0, uses_anonymous_args = 0
- 437              		@ link register save eliminated.
- 438              	.LVL33:
+ 437              		.loc 1 420 0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 0
+ 440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 441              		@ link register save eliminated.
+ 442              	.LVL33:
  421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   FlagStatus bitstatus = RESET;
  422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
@@ -844,10 +849,10 @@
  425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the status of the specified SPI flag */
  427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   if ((SYSCFG->CFGR2 & SYSCFG_CFGR2_SRAM_PE) != (uint32_t)RESET)
- 439              		.loc 1 427 0
- 440 0120 024B     		ldr	r3, .L50
- 441 0122 9869     		ldr	r0, [r3, #24]
- 442              	.LVL34:
+ 443              		.loc 1 427 0
+ 444 0120 024B     		ldr	r3, .L50
+ 445 0122 9869     		ldr	r0, [r3, #24]
+ 446              	.LVL34:
  428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   {
  429:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     /* SYSCFG_Flag is set */
  430:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****     bitstatus = SET;
@@ -860,22 +865,22 @@
  437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Return the SYSCFG_Flag status */
  438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   return  bitstatus;
  439:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** }
- 443              		.loc 1 439 0
- 444 0124 C0F30020 		ubfx	r0, r0, #8, #1
- 445              	.LVL35:
- 446 0128 7047     		bx	lr
- 447              	.L51:
- 448 012a 00BF     		.align	2
- 449              	.L50:
- 450 012c 00000140 		.word	1073807360
- 451              		.cfi_endproc
- 452              	.LFE123:
- 454              		.align	1
- 455              		.global	SYSCFG_ClearFlag
- 456              		.thumb
- 457              		.thumb_func
- 459              	SYSCFG_ClearFlag:
- 460              	.LFB124:
+ 447              		.loc 1 439 0
+ 448 0124 C0F30020 		ubfx	r0, r0, #8, #1
+ 449              	.LVL35:
+ 450 0128 7047     		bx	lr
+ 451              	.L51:
+ 452 012a 00BF     		.align	2
+ 453              	.L50:
+ 454 012c 00000140 		.word	1073807360
+ 455              		.cfi_endproc
+ 456              	.LFE123:
+ 458              		.align	1
+ 459              		.global	SYSCFG_ClearFlag
+ 460              		.thumb
+ 461              		.thumb_func
+ 463              	SYSCFG_ClearFlag:
+ 464              	.LFB124:
  440:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  441:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** /**
  442:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   * @brief  Clears the selected SYSCFG flag.
@@ -886,81 +891,81 @@
  447:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   */
  448:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** void SYSCFG_ClearFlag(uint32_t SYSCFG_Flag)
  449:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** {
- 461              		.loc 1 449 0
- 462              		.cfi_startproc
- 463              		@ args = 0, pretend = 0, frame = 0
- 464              		@ frame_needed = 0, uses_anonymous_args = 0
- 465              		@ link register save eliminated.
- 466              	.LVL36:
+ 465              		.loc 1 449 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469              		@ link register save eliminated.
+ 470              	.LVL36:
  450:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   /* Check the parameter */
  451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   assert_param(IS_SYSCFG_FLAG(SYSCFG_Flag));
  452:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c **** 
  453:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c ****   SYSCFG->CFGR2 |= (uint32_t) SYSCFG_Flag;
- 467              		.loc 1 453 0
- 468 0130 024B     		ldr	r3, .L53
- 469 0132 9A69     		ldr	r2, [r3, #24]
- 470 0134 1043     		orrs	r0, r0, r2
- 471              	.LVL37:
- 472 0136 9861     		str	r0, [r3, #24]
- 473 0138 7047     		bx	lr
- 474              	.L54:
- 475 013a 00BF     		.align	2
- 476              	.L53:
- 477 013c 00000140 		.word	1073807360
- 478              		.cfi_endproc
- 479              	.LFE124:
- 481              	.Letext0:
- 482              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 483              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 484              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 471              		.loc 1 453 0
+ 472 0130 024B     		ldr	r3, .L53
+ 473 0132 9A69     		ldr	r2, [r3, #24]
+ 474 0134 1043     		orrs	r0, r0, r2
+ 475              	.LVL37:
+ 476 0136 9861     		str	r0, [r3, #24]
+ 477 0138 7047     		bx	lr
+ 478              	.L54:
+ 479 013a 00BF     		.align	2
+ 480              	.L53:
+ 481 013c 00000140 		.word	1073807360
+ 482              		.cfi_endproc
+ 483              	.LFE124:
+ 485              	.Letext0:
+ 486              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 487              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 488              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_syscfg.c
-     /tmp/ccutGbNN.s:18     .text:00000000 $t
-     /tmp/ccutGbNN.s:23     .text:00000000 SYSCFG_DeInit
-     /tmp/ccutGbNN.s:57     .text:00000024 $d
-     /tmp/ccutGbNN.s:61     .text:00000028 $t
-     /tmp/ccutGbNN.s:66     .text:00000028 SYSCFG_MemoryRemapConfig
-     /tmp/ccutGbNN.s:90     .text:00000038 $d
-     /tmp/ccutGbNN.s:94     .text:0000003c $t
-     /tmp/ccutGbNN.s:99     .text:0000003c SYSCFG_DMAChannelRemapConfig
-     /tmp/ccutGbNN.s:127    .text:00000050 $d
-     /tmp/ccutGbNN.s:131    .text:00000054 $t
-     /tmp/ccutGbNN.s:136    .text:00000054 SYSCFG_TriggerRemapConfig
-     /tmp/ccutGbNN.s:164    .text:00000068 $d
-     /tmp/ccutGbNN.s:168    .text:0000006c $t
-     /tmp/ccutGbNN.s:173    .text:0000006c SYSCFG_EncoderRemapConfig
-     /tmp/ccutGbNN.s:195    .text:00000080 $d
-     /tmp/ccutGbNN.s:199    .text:00000084 $t
-     /tmp/ccutGbNN.s:204    .text:00000084 SYSCFG_USBInterruptLineRemapCmd
-     /tmp/ccutGbNN.s:219    .text:0000008c $d
-     /tmp/ccutGbNN.s:223    .text:00000090 $t
-     /tmp/ccutGbNN.s:228    .text:00000090 SYSCFG_I2CFastModePlusConfig
-     /tmp/ccutGbNN.s:256    .text:000000a4 $d
-     /tmp/ccutGbNN.s:260    .text:000000a8 $t
-     /tmp/ccutGbNN.s:265    .text:000000a8 SYSCFG_ITConfig
-     /tmp/ccutGbNN.s:293    .text:000000bc $d
-     /tmp/ccutGbNN.s:297    .text:000000c0 $t
-     /tmp/ccutGbNN.s:302    .text:000000c0 SYSCFG_EXTILineConfig
-     /tmp/ccutGbNN.s:344    .text:000000f0 $d
-     /tmp/ccutGbNN.s:348    .text:000000f4 $t
-     /tmp/ccutGbNN.s:353    .text:000000f4 SYSCFG_BreakConfig
-     /tmp/ccutGbNN.s:371    .text:00000100 $d
-     /tmp/ccutGbNN.s:375    .text:00000104 $t
-     /tmp/ccutGbNN.s:380    .text:00000104 SYSCFG_BypassParityCheckDisable
-     /tmp/ccutGbNN.s:395    .text:0000010c $d
-     /tmp/ccutGbNN.s:399    .text:00000110 $t
-     /tmp/ccutGbNN.s:404    .text:00000110 SYSCFG_SRAMWRPEnable
-     /tmp/ccutGbNN.s:422    .text:0000011c $d
-     /tmp/ccutGbNN.s:426    .text:00000120 $t
-     /tmp/ccutGbNN.s:431    .text:00000120 SYSCFG_GetFlagStatus
-     /tmp/ccutGbNN.s:450    .text:0000012c $d
-     /tmp/ccutGbNN.s:454    .text:00000130 $t
-     /tmp/ccutGbNN.s:459    .text:00000130 SYSCFG_ClearFlag
-     /tmp/ccutGbNN.s:477    .text:0000013c $d
+     /tmp/ccXMWfrZ.s:20     .text:00000000 $t
+     /tmp/ccXMWfrZ.s:25     .text:00000000 SYSCFG_DeInit
+     /tmp/ccXMWfrZ.s:59     .text:00000024 $d
+     /tmp/ccXMWfrZ.s:63     .text:00000028 $t
+     /tmp/ccXMWfrZ.s:68     .text:00000028 SYSCFG_MemoryRemapConfig
+     /tmp/ccXMWfrZ.s:92     .text:00000038 $d
+     /tmp/ccXMWfrZ.s:96     .text:0000003c $t
+     /tmp/ccXMWfrZ.s:101    .text:0000003c SYSCFG_DMAChannelRemapConfig
+     /tmp/ccXMWfrZ.s:129    .text:00000050 $d
+     /tmp/ccXMWfrZ.s:133    .text:00000054 $t
+     /tmp/ccXMWfrZ.s:138    .text:00000054 SYSCFG_TriggerRemapConfig
+     /tmp/ccXMWfrZ.s:166    .text:00000068 $d
+     /tmp/ccXMWfrZ.s:170    .text:0000006c $t
+     /tmp/ccXMWfrZ.s:175    .text:0000006c SYSCFG_EncoderRemapConfig
+     /tmp/ccXMWfrZ.s:197    .text:00000080 $d
+     /tmp/ccXMWfrZ.s:201    .text:00000084 $t
+     /tmp/ccXMWfrZ.s:206    .text:00000084 SYSCFG_USBInterruptLineRemapCmd
+     /tmp/ccXMWfrZ.s:221    .text:0000008c $d
+     /tmp/ccXMWfrZ.s:225    .text:00000090 $t
+     /tmp/ccXMWfrZ.s:230    .text:00000090 SYSCFG_I2CFastModePlusConfig
+     /tmp/ccXMWfrZ.s:258    .text:000000a4 $d
+     /tmp/ccXMWfrZ.s:262    .text:000000a8 $t
+     /tmp/ccXMWfrZ.s:267    .text:000000a8 SYSCFG_ITConfig
+     /tmp/ccXMWfrZ.s:295    .text:000000bc $d
+     /tmp/ccXMWfrZ.s:299    .text:000000c0 $t
+     /tmp/ccXMWfrZ.s:304    .text:000000c0 SYSCFG_EXTILineConfig
+     /tmp/ccXMWfrZ.s:348    .text:000000f0 $d
+     /tmp/ccXMWfrZ.s:352    .text:000000f4 $t
+     /tmp/ccXMWfrZ.s:357    .text:000000f4 SYSCFG_BreakConfig
+     /tmp/ccXMWfrZ.s:375    .text:00000100 $d
+     /tmp/ccXMWfrZ.s:379    .text:00000104 $t
+     /tmp/ccXMWfrZ.s:384    .text:00000104 SYSCFG_BypassParityCheckDisable
+     /tmp/ccXMWfrZ.s:399    .text:0000010c $d
+     /tmp/ccXMWfrZ.s:403    .text:00000110 $t
+     /tmp/ccXMWfrZ.s:408    .text:00000110 SYSCFG_SRAMWRPEnable
+     /tmp/ccXMWfrZ.s:426    .text:0000011c $d
+     /tmp/ccXMWfrZ.s:430    .text:00000120 $t
+     /tmp/ccXMWfrZ.s:435    .text:00000120 SYSCFG_GetFlagStatus
+     /tmp/ccXMWfrZ.s:454    .text:0000012c $d
+     /tmp/ccXMWfrZ.s:458    .text:00000130 $t
+     /tmp/ccXMWfrZ.s:463    .text:00000130 SYSCFG_ClearFlag
+     /tmp/ccXMWfrZ.s:481    .text:0000013c $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

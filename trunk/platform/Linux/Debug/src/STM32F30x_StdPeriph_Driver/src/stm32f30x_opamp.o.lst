@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_opamp.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	OPAMP_DeInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	OPAMP_DeInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_opamp.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	OPAMP_DeInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	OPAMP_DeInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   * @file    stm32f30x_opamp.c
@@ -167,31 +169,31 @@
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_DeInit(uint32_t OPAMP_Selection)
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
-  26              		.loc 1 145 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  28              		.loc 1 145 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Set OPAMP_CSR register to reset value */
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) = ((uint32_t)0x00000000);
-  32              		.loc 1 147 0
-  33 0000 014B     		ldr	r3, .L2
-  34 0002 0022     		movs	r2, #0
-  35 0004 C250     		str	r2, [r0, r3]
-  36 0006 7047     		bx	lr
-  37              	.L3:
-  38              		.align	2
-  39              	.L2:
-  40 0008 38000140 		.word	1073807416
-  41              		.cfi_endproc
-  42              	.LFE111:
-  44              		.align	1
-  45              		.global	OPAMP_Init
-  46              		.thumb
-  47              		.thumb_func
-  49              	OPAMP_Init:
-  50              	.LFB112:
+  34              		.loc 1 147 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 0022     		movs	r2, #0
+  37 0004 C250     		str	r2, [r0, r3]
+  38 0006 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 0008 38000140 		.word	1073807416
+  43              		.cfi_endproc
+  44              	.LFE111:
+  46              		.align	1
+  47              		.global	OPAMP_Init
+  48              		.thumb
+  49              		.thumb_func
+  51              	OPAMP_Init:
+  52              	.LFB112:
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -210,11 +212,11 @@
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_Init(uint32_t OPAMP_Selection, OPAMP_InitTypeDef* OPAMP_InitStruct)
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
-  51              		.loc 1 165 0
-  52              		.cfi_startproc
-  53              		@ args = 0, pretend = 0, frame = 0
-  54              		@ frame_needed = 0, uses_anonymous_args = 0
-  55              	.LVL1:
+  53              		.loc 1 165 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              	.LVL1:
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   uint32_t tmpreg = 0;
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
@@ -224,55 +226,55 @@
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Get the OPAMPx_CSR register value */
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
-  56              		.loc 1 174 0
-  57 000c 054B     		ldr	r3, .L5
+  58              		.loc 1 174 0
+  59 000c 054B     		ldr	r3, .L5
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
-  58              		.loc 1 165 0
-  59 000e 30B5     		push	{r4, r5, lr}
-  60              	.LCFI0:
-  61              		.cfi_def_cfa_offset 12
-  62              		.cfi_offset 4, -12
-  63              		.cfi_offset 5, -8
-  64              		.cfi_offset 14, -4
+  60              		.loc 1 165 0
+  61 000e 30B5     		push	{r4, r5, lr}
+  62              	.LCFI0:
+  63              		.cfi_def_cfa_offset 12
+  64              		.cfi_offset 4, -12
+  65              		.cfi_offset 5, -8
+  66              		.cfi_offset 14, -4
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Clear the inverting and non inverting bits selection bits */
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= (uint32_t) (OPAMP_CSR_DEFAULT_MASK);
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Configure OPAMP: inverting and non inverting inputs */
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg |= (uint32_t)(OPAMP_InitStruct->OPAMP_InvertingInput | OPAMP_InitStruct->OPAMP_NonInvertin
-  65              		.loc 1 180 0
-  66 0010 91E82400 		ldmia	r1, {r2, r5}
+  67              		.loc 1 180 0
+  68 0010 91E82400 		ldmia	r1, {r2, r5}
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
-  67              		.loc 1 174 0
-  68 0014 C458     		ldr	r4, [r0, r3]
-  69              	.LVL2:
-  70              		.loc 1 180 0
-  71 0016 2A43     		orrs	r2, r2, r5
+  69              		.loc 1 174 0
+  70 0014 C458     		ldr	r4, [r0, r3]
+  71              	.LVL2:
+  72              		.loc 1 180 0
+  73 0016 2A43     		orrs	r2, r2, r5
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= (uint32_t) (OPAMP_CSR_DEFAULT_MASK);
-  72              		.loc 1 177 0
-  73 0018 24F06C04 		bic	r4, r4, #108
-  74              	.LVL3:
-  75              		.loc 1 180 0
-  76 001c 2243     		orrs	r2, r2, r4
-  77              	.LVL4:
+  74              		.loc 1 177 0
+  75 0018 24F06C04 		bic	r4, r4, #108
+  76              	.LVL3:
+  77              		.loc 1 180 0
+  78 001c 2243     		orrs	r2, r2, r4
+  79              	.LVL4:
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Write to OPAMPx_CSR register */
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) = tmpreg;
-  78              		.loc 1 183 0
-  79 001e C250     		str	r2, [r0, r3]
-  80 0020 30BD     		pop	{r4, r5, pc}
-  81              	.L6:
-  82 0022 00BF     		.align	2
-  83              	.L5:
-  84 0024 38000140 		.word	1073807416
-  85              		.cfi_endproc
-  86              	.LFE112:
-  88              		.align	1
-  89              		.global	OPAMP_StructInit
-  90              		.thumb
-  91              		.thumb_func
-  93              	OPAMP_StructInit:
-  94              	.LFB113:
+  80              		.loc 1 183 0
+  81 001e C250     		str	r2, [r0, r3]
+  82 0020 30BD     		pop	{r4, r5, pc}
+  83              	.L6:
+  84 0022 00BF     		.align	2
+  85              	.L5:
+  86 0024 38000140 		.word	1073807416
+  87              		.cfi_endproc
+  88              	.LFE112:
+  90              		.align	1
+  91              		.global	OPAMP_StructInit
+  92              		.thumb
+  93              		.thumb_func
+  95              	OPAMP_StructInit:
+  96              	.LFB113:
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -283,28 +285,28 @@
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_StructInit(OPAMP_InitTypeDef* OPAMP_InitStruct)
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
-  95              		.loc 1 193 0
-  96              		.cfi_startproc
-  97              		@ args = 0, pretend = 0, frame = 0
-  98              		@ frame_needed = 0, uses_anonymous_args = 0
-  99              		@ link register save eliminated.
- 100              	.LVL5:
+  97              		.loc 1 193 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+ 102              	.LVL5:
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   OPAMP_InitStruct->OPAMP_NonInvertingInput = OPAMP_NonInvertingInput_IO1;
- 101              		.loc 1 194 0
- 102 0028 0023     		movs	r3, #0
- 103 002a 4360     		str	r3, [r0, #4]
+ 103              		.loc 1 194 0
+ 104 0028 0023     		movs	r3, #0
+ 105 002a 4360     		str	r3, [r0, #4]
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   OPAMP_InitStruct->OPAMP_InvertingInput = OPAMP_InvertingInput_IO1;
- 104              		.loc 1 195 0
- 105 002c 0360     		str	r3, [r0, #0]
- 106 002e 7047     		bx	lr
- 107              		.cfi_endproc
- 108              	.LFE113:
- 110              		.align	1
- 111              		.global	OPAMP_PGAConfig
- 112              		.thumb
- 113              		.thumb_func
- 115              	OPAMP_PGAConfig:
- 116              	.LFB114:
+ 106              		.loc 1 195 0
+ 107 002c 0360     		str	r3, [r0, #0]
+ 108 002e 7047     		bx	lr
+ 109              		.cfi_endproc
+ 110              	.LFE113:
+ 112              		.align	1
+ 113              		.global	OPAMP_PGAConfig
+ 114              		.thumb
+ 115              		.thumb_func
+ 117              	OPAMP_PGAConfig:
+ 118              	.LFB114:
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -320,11 +322,11 @@
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_PGAConfig(uint32_t OPAMP_Selection, uint32_t OPAMP_PGAGain, uint32_t OPAMP_PGAConnect)
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 117              		.loc 1 210 0
- 118              		.cfi_startproc
- 119              		@ args = 0, pretend = 0, frame = 0
- 120              		@ frame_needed = 0, uses_anonymous_args = 0
- 121              	.LVL6:
+ 119              		.loc 1 210 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              	.LVL6:
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_PGAGAIN(OPAMP_PGAGain));
@@ -332,29 +334,26 @@
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Reset the configuration bits */
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (uint32_t)(~OPAMP_CSR_PGGAIN);
- 122              		.loc 1 217 0
- 123 0030 054B     		ldr	r3, .L9
+ 124              		.loc 1 217 0
+ 125 0030 054B     		ldr	r3, .L9
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 124              		.loc 1 210 0
- 125 0032 10B5     		push	{r4, lr}
- 126              	.LCFI1:
- 127              		.cfi_def_cfa_offset 8
- 128              		.cfi_offset 4, -8
- 129              		.cfi_offset 14, -4
- 130              		.loc 1 217 0
- 131 0034 C458     		ldr	r4, [r0, r3]
+ 126              		.loc 1 210 0
+ 127 0032 10B5     		push	{r4, lr}
+ 128              	.LCFI1:
+ 129              		.cfi_def_cfa_offset 8
+ 130              		.cfi_offset 4, -8
+ 131              		.cfi_offset 14, -4
+ 132              		.loc 1 217 0
+ 133 0034 C458     		ldr	r4, [r0, r3]
+ 134 0036 24F47034 		bic	r4, r4, #245760
+ 135 003a C450     		str	r4, [r0, r3]
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Set the new configuration */
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= (uint32_t) (OPAMP_PGAGain | OPAMP_PGAConnect
- 132              		.loc 1 220 0
- 133 0036 0A43     		orrs	r2, r2, r1
- 134              	.LVL7:
- 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (uint32_t)(~OPAMP_CSR_PGGAIN);
- 135              		.loc 1 217 0
- 136 0038 24F47034 		bic	r4, r4, #245760
- 137 003c C450     		str	r4, [r0, r3]
- 138              		.loc 1 220 0
- 139 003e C458     		ldr	r4, [r0, r3]
+ 136              		.loc 1 220 0
+ 137 003c C458     		ldr	r4, [r0, r3]
+ 138 003e 0A43     		orrs	r2, r2, r1
+ 139              	.LVL7:
  140 0040 1443     		orrs	r4, r4, r2
  141 0042 C450     		str	r4, [r0, r3]
  142 0044 10BD     		pop	{r4, pc}
@@ -584,6 +583,12 @@
  260              		@ args = 0, pretend = 0, frame = 0
  261              		@ frame_needed = 0, uses_anonymous_args = 0
  262              	.LVL14:
+ 263 0090 30B5     		push	{r4, r5, lr}
+ 264              	.LCFI2:
+ 265              		.cfi_def_cfa_offset 12
+ 266              		.cfi_offset 4, -12
+ 267              		.cfi_offset 5, -8
+ 268              		.cfi_offset 14, -4
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   uint32_t tmpreg = 0;
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
@@ -593,56 +598,48 @@
  339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Get the OPAMPx_CSR register value */
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
- 263              		.loc 1 341 0
- 264 0090 064B     		ldr	r3, .L27
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 265              		.loc 1 332 0
- 266 0092 30B5     		push	{r4, r5, lr}
- 267              	.LCFI2:
- 268              		.cfi_def_cfa_offset 12
- 269              		.cfi_offset 4, -12
- 270              		.cfi_offset 5, -8
- 271              		.cfi_offset 14, -4
+ 269              		.loc 1 341 0
+ 270 0092 064B     		ldr	r3, .L27
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Clear the secondary inverting bit, secondary non inverting bit and TCMEN bits */
  344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= (uint32_t) (OPAMP_CSR_TIMERMUX_MASK);
  345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Configure OPAMP: secondary inverting and non inverting inputs */
  347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg |= (uint32_t)((uint32_t)(OPAMP_InitStruct->OPAMP_InvertingInput<<3) | (uint32_t)(OPAMP_Ini
- 272              		.loc 1 347 0
- 273 0094 91E82400 		ldmia	r1, {r2, r5}
+ 271              		.loc 1 347 0
+ 272 0094 91E82400 		ldmia	r1, {r2, r5}
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
- 274              		.loc 1 341 0
- 275 0098 C458     		ldr	r4, [r0, r3]
- 276              	.LVL15:
- 277              		.loc 1 347 0
- 278 009a D200     		lsls	r2, r2, #3
+ 273              		.loc 1 341 0
+ 274 0098 C458     		ldr	r4, [r0, r3]
+ 275              	.LVL15:
+ 276              		.loc 1 347 0
+ 277 009a D200     		lsls	r2, r2, #3
  344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= (uint32_t) (OPAMP_CSR_TIMERMUX_MASK);
- 279              		.loc 1 344 0
- 280 009c 24F4E064 		bic	r4, r4, #1792
- 281              	.LVL16:
- 282              		.loc 1 347 0
- 283 00a0 42EAC512 		orr	r2, r2, r5, lsl #7
- 284 00a4 2243     		orrs	r2, r2, r4
- 285              	.LVL17:
+ 278              		.loc 1 344 0
+ 279 009c 24F4E064 		bic	r4, r4, #1792
+ 280              	.LVL16:
+ 281              		.loc 1 347 0
+ 282 00a0 42EAC512 		orr	r2, r2, r5, lsl #7
+ 283 00a4 2243     		orrs	r2, r2, r4
+ 284              	.LVL17:
  348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Write to OPAMPx_CSR register */
  350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) = tmpreg;
- 286              		.loc 1 350 0
- 287 00a6 C250     		str	r2, [r0, r3]
- 288 00a8 30BD     		pop	{r4, r5, pc}
- 289              	.L28:
- 290 00aa 00BF     		.align	2
- 291              	.L27:
- 292 00ac 38000140 		.word	1073807416
- 293              		.cfi_endproc
- 294              	.LFE118:
- 296              		.align	1
- 297              		.global	OPAMP_TimerControlledMuxCmd
- 298              		.thumb
- 299              		.thumb_func
- 301              	OPAMP_TimerControlledMuxCmd:
- 302              	.LFB119:
+ 285              		.loc 1 350 0
+ 286 00a6 C250     		str	r2, [r0, r3]
+ 287 00a8 30BD     		pop	{r4, r5, pc}
+ 288              	.L28:
+ 289 00aa 00BF     		.align	2
+ 290              	.L27:
+ 291 00ac 38000140 		.word	1073807416
+ 292              		.cfi_endproc
+ 293              	.LFE118:
+ 295              		.align	1
+ 296              		.global	OPAMP_TimerControlledMuxCmd
+ 297              		.thumb
+ 298              		.thumb_func
+ 300              	OPAMP_TimerControlledMuxCmd:
+ 301              	.LFB119:
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -658,13 +655,13 @@
  363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_TimerControlledMuxCmd(uint32_t OPAMP_Selection, FunctionalState NewState)
  365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 303              		.loc 1 365 0
- 304              		.cfi_startproc
- 305              		@ args = 0, pretend = 0, frame = 0
- 306              		@ frame_needed = 0, uses_anonymous_args = 0
- 307              		@ link register save eliminated.
- 308              	.LVL18:
- 309 00b0 044B     		ldr	r3, .L33
+ 302              		.loc 1 365 0
+ 303              		.cfi_startproc
+ 304              		@ args = 0, pretend = 0, frame = 0
+ 305              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306              		@ link register save eliminated.
+ 307              	.LVL18:
+ 308 00b0 044B     		ldr	r3, .L33
  366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
  367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -673,37 +670,37 @@
  371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Enable the timer-controlled Mux mode */
  373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= (uint32_t) (OPAMP_CSR_TCMEN);
- 310              		.loc 1 373 0
- 311 00b2 C258     		ldr	r2, [r0, r3]
+ 309              		.loc 1 373 0
+ 310 00b2 C258     		ldr	r2, [r0, r3]
  370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   if (NewState != DISABLE)
- 312              		.loc 1 370 0
- 313 00b4 11B1     		cbz	r1, .L30
- 314              		.loc 1 373 0
- 315 00b6 42F08002 		orr	r2, r2, #128
- 316 00ba 01E0     		b	.L32
- 317              	.L30:
+ 311              		.loc 1 370 0
+ 312 00b4 11B1     		cbz	r1, .L30
+ 313              		.loc 1 373 0
+ 314 00b6 42F08002 		orr	r2, r2, #128
+ 315 00ba 01E0     		b	.L32
+ 316              	.L30:
  374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   else
  376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Disable the timer-controlled Mux mode */
  378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (uint32_t)(~OPAMP_CSR_TCMEN);
- 318              		.loc 1 378 0
- 319 00bc 22F08002 		bic	r2, r2, #128
- 320              	.L32:
- 321 00c0 C250     		str	r2, [r0, r3]
- 322 00c2 7047     		bx	lr
- 323              	.L34:
- 324              		.align	2
- 325              	.L33:
- 326 00c4 38000140 		.word	1073807416
- 327              		.cfi_endproc
- 328              	.LFE119:
- 330              		.align	1
- 331              		.global	OPAMP_Cmd
- 332              		.thumb
- 333              		.thumb_func
- 335              	OPAMP_Cmd:
- 336              	.LFB120:
+ 317              		.loc 1 378 0
+ 318 00bc 22F08002 		bic	r2, r2, #128
+ 319              	.L32:
+ 320 00c0 C250     		str	r2, [r0, r3]
+ 321 00c2 7047     		bx	lr
+ 322              	.L34:
+ 323              		.align	2
+ 324              	.L33:
+ 325 00c4 38000140 		.word	1073807416
+ 326              		.cfi_endproc
+ 327              	.LFE119:
+ 329              		.align	1
+ 330              		.global	OPAMP_Cmd
+ 331              		.thumb
+ 332              		.thumb_func
+ 334              	OPAMP_Cmd:
+ 335              	.LFB120:
  379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
@@ -720,13 +717,13 @@
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_Cmd(uint32_t OPAMP_Selection, FunctionalState NewState)
  394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 337              		.loc 1 394 0
- 338              		.cfi_startproc
- 339              		@ args = 0, pretend = 0, frame = 0
- 340              		@ frame_needed = 0, uses_anonymous_args = 0
- 341              		@ link register save eliminated.
- 342              	.LVL19:
- 343 00c8 044B     		ldr	r3, .L39
+ 336              		.loc 1 394 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 341              	.LVL19:
+ 342 00c8 044B     		ldr	r3, .L39
  395:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
  396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  397:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -735,37 +732,37 @@
  400:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Enable the selected OPAMPx peripheral */
  402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= (uint32_t) (OPAMP_CSR_OPAMPxEN);
- 344              		.loc 1 402 0
- 345 00ca C258     		ldr	r2, [r0, r3]
+ 343              		.loc 1 402 0
+ 344 00ca C258     		ldr	r2, [r0, r3]
  399:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   if (NewState != DISABLE)
- 346              		.loc 1 399 0
- 347 00cc 11B1     		cbz	r1, .L36
- 348              		.loc 1 402 0
- 349 00ce 42F00102 		orr	r2, r2, #1
- 350 00d2 01E0     		b	.L38
- 351              	.L36:
+ 345              		.loc 1 399 0
+ 346 00cc 11B1     		cbz	r1, .L36
+ 347              		.loc 1 402 0
+ 348 00ce 42F00102 		orr	r2, r2, #1
+ 349 00d2 01E0     		b	.L38
+ 350              	.L36:
  403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   else
  405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Disable the selected OPAMPx peripheral */
  407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (uint32_t)(~OPAMP_CSR_OPAMPxEN);
- 352              		.loc 1 407 0
- 353 00d4 22F00102 		bic	r2, r2, #1
- 354              	.L38:
- 355 00d8 C250     		str	r2, [r0, r3]
- 356 00da 7047     		bx	lr
- 357              	.L40:
- 358              		.align	2
- 359              	.L39:
- 360 00dc 38000140 		.word	1073807416
- 361              		.cfi_endproc
- 362              	.LFE120:
- 364              		.align	1
- 365              		.global	OPAMP_GetOutputLevel
- 366              		.thumb
- 367              		.thumb_func
- 369              	OPAMP_GetOutputLevel:
- 370              	.LFB121:
+ 351              		.loc 1 407 0
+ 352 00d4 22F00102 		bic	r2, r2, #1
+ 353              	.L38:
+ 354 00d8 C250     		str	r2, [r0, r3]
+ 355 00da 7047     		bx	lr
+ 356              	.L40:
+ 357              		.align	2
+ 358              	.L39:
+ 359 00dc 38000140 		.word	1073807416
+ 360              		.cfi_endproc
+ 361              	.LFE120:
+ 363              		.align	1
+ 364              		.global	OPAMP_GetOutputLevel
+ 365              		.thumb
+ 366              		.thumb_func
+ 368              	OPAMP_GetOutputLevel:
+ 369              	.LFB121:
  408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
@@ -784,12 +781,12 @@
  423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** uint32_t OPAMP_GetOutputLevel(uint32_t OPAMP_Selection)
  425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 371              		.loc 1 425 0
- 372              		.cfi_startproc
- 373              		@ args = 0, pretend = 0, frame = 0
- 374              		@ frame_needed = 0, uses_anonymous_args = 0
- 375              		@ link register save eliminated.
- 376              	.LVL20:
+ 370              		.loc 1 425 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
+ 375              	.LVL20:
  426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   uint32_t opampout = 0x0;
  427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
@@ -797,10 +794,10 @@
  430:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  431:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check if selected OPAMP output is high */
  432:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   if ((*(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) & (OPAMP_CSR_OUTCAL)) != 0)
- 377              		.loc 1 432 0
- 378 00e0 024B     		ldr	r3, .L44
- 379 00e2 C058     		ldr	r0, [r0, r3]
- 380              	.LVL21:
+ 376              		.loc 1 432 0
+ 377 00e0 024B     		ldr	r3, .L44
+ 378 00e2 C058     		ldr	r0, [r0, r3]
+ 379              	.LVL21:
  433:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  434:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     opampout = OPAMP_OutputLevel_High;
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
@@ -812,22 +809,22 @@
  441:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Return the OPAMP output level */
  442:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   return (uint32_t)(opampout);
  443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
- 381              		.loc 1 443 0
- 382 00e4 00F08040 		and	r0, r0, #1073741824
- 383              	.LVL22:
- 384 00e8 7047     		bx	lr
- 385              	.L45:
- 386 00ea 00BF     		.align	2
- 387              	.L44:
- 388 00ec 38000140 		.word	1073807416
- 389              		.cfi_endproc
- 390              	.LFE121:
- 392              		.align	1
- 393              		.global	OPAMP_OffsetTrimModeSelect
- 394              		.thumb
- 395              		.thumb_func
- 397              	OPAMP_OffsetTrimModeSelect:
- 398              	.LFB122:
+ 380              		.loc 1 443 0
+ 381 00e4 00F08040 		and	r0, r0, #1073741824
+ 382              	.LVL22:
+ 383 00e8 7047     		bx	lr
+ 384              	.L45:
+ 385 00ea 00BF     		.align	2
+ 386              	.L44:
+ 387 00ec 38000140 		.word	1073807416
+ 388              		.cfi_endproc
+ 389              	.LFE121:
+ 391              		.align	1
+ 392              		.global	OPAMP_OffsetTrimModeSelect
+ 393              		.thumb
+ 394              		.thumb_func
+ 396              	OPAMP_OffsetTrimModeSelect:
+ 397              	.LFB122:
  444:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  445:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
  446:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   * @brief  Select the trimming mode.
@@ -844,44 +841,44 @@
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  458:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_OffsetTrimModeSelect(uint32_t OPAMP_Selection, uint32_t OPAMP_Trimming)
  459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 399              		.loc 1 459 0
- 400              		.cfi_startproc
- 401              		@ args = 0, pretend = 0, frame = 0
- 402              		@ frame_needed = 0, uses_anonymous_args = 0
- 403              		@ link register save eliminated.
- 404              	.LVL23:
+ 398              		.loc 1 459 0
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 0
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402              		@ link register save eliminated.
+ 403              	.LVL23:
  460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
  461:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_TRIMMING(OPAMP_Trimming));
  463:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  464:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Reset USERTRIM bit */
  465:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (~(uint32_t) (OPAMP_CSR_USERTRIM));
- 405              		.loc 1 465 0
- 406 00f0 044B     		ldr	r3, .L47
- 407 00f2 C258     		ldr	r2, [r0, r3]
- 408 00f4 22F48022 		bic	r2, r2, #262144
- 409 00f8 C250     		str	r2, [r0, r3]
+ 404              		.loc 1 465 0
+ 405 00f0 044B     		ldr	r3, .L47
+ 406 00f2 C258     		ldr	r2, [r0, r3]
+ 407 00f4 22F48022 		bic	r2, r2, #262144
+ 408 00f8 C250     		str	r2, [r0, r3]
  466:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  467:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Select trimming mode */
  468:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= OPAMP_Trimming;
- 410              		.loc 1 468 0
- 411 00fa C258     		ldr	r2, [r0, r3]
- 412 00fc 1143     		orrs	r1, r1, r2
- 413              	.LVL24:
- 414 00fe C150     		str	r1, [r0, r3]
- 415 0100 7047     		bx	lr
- 416              	.L48:
- 417 0102 00BF     		.align	2
- 418              	.L47:
- 419 0104 38000140 		.word	1073807416
- 420              		.cfi_endproc
- 421              	.LFE122:
- 423              		.align	1
- 424              		.global	OPAMP_OffsetTrimConfig
- 425              		.thumb
- 426              		.thumb_func
- 428              	OPAMP_OffsetTrimConfig:
- 429              	.LFB123:
+ 409              		.loc 1 468 0
+ 410 00fa C258     		ldr	r2, [r0, r3]
+ 411 00fc 1143     		orrs	r1, r1, r2
+ 412              	.LVL24:
+ 413 00fe C150     		str	r1, [r0, r3]
+ 414 0100 7047     		bx	lr
+ 415              	.L48:
+ 416 0102 00BF     		.align	2
+ 417              	.L47:
+ 418 0104 38000140 		.word	1073807416
+ 419              		.cfi_endproc
+ 420              	.LFE122:
+ 422              		.align	1
+ 423              		.global	OPAMP_OffsetTrimConfig
+ 424              		.thumb
+ 425              		.thumb_func
+ 427              	OPAMP_OffsetTrimConfig:
+ 428              	.LFB123:
  469:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  470:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  471:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -899,17 +896,11 @@
  483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_OffsetTrimConfig(uint32_t OPAMP_Selection, uint32_t OPAMP_Input, uint32_t OPAMP_TrimValu
  485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 430              		.loc 1 485 0
- 431              		.cfi_startproc
- 432              		@ args = 0, pretend = 0, frame = 0
- 433              		@ frame_needed = 0, uses_anonymous_args = 0
- 434              	.LVL25:
- 435 0108 30B5     		push	{r4, r5, lr}
- 436              	.LCFI3:
- 437              		.cfi_def_cfa_offset 12
- 438              		.cfi_offset 4, -12
- 439              		.cfi_offset 5, -8
- 440              		.cfi_offset 14, -4
+ 429              		.loc 1 485 0
+ 430              		.cfi_startproc
+ 431              		@ args = 0, pretend = 0, frame = 0
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
+ 433              	.LVL25:
  486:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   uint32_t tmpreg = 0;
  487:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
@@ -919,48 +910,53 @@
  492:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  493:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Get the OPAMPx_CSR register value */
  494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
+ 434              		.loc 1 494 0
+ 435 0108 064B     		ldr	r3, .L50
+ 485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
+ 436              		.loc 1 485 0
+ 437 010a 30B5     		push	{r4, r5, lr}
+ 438              	.LCFI3:
+ 439              		.cfi_def_cfa_offset 12
+ 440              		.cfi_offset 4, -12
+ 441              		.cfi_offset 5, -8
+ 442              		.cfi_offset 14, -4
+ 443              		.loc 1 494 0
+ 444 010c C558     		ldr	r5, [r0, r3]
+ 445              	.LVL26:
  495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  496:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Clear the trimming bits */
  497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= ((uint32_t)~(OPAMP_CSR_TRIMMING_MASK<<OPAMP_Input));
- 441              		.loc 1 497 0
- 442 010a 1F24     		movs	r4, #31
- 443 010c 04FA01F4 		lsl	r4, r4, r1
+ 446              		.loc 1 497 0
+ 447 010e 1F24     		movs	r4, #31
+ 448 0110 04FA01F4 		lsl	r4, r4, r1
+ 449 0114 25EA0404 		bic	r4, r5, r4
+ 450              	.LVL27:
  498:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Configure the new trimming value */
  500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg |= (uint32_t)(OPAMP_TrimValue<<OPAMP_Input);
- 444              		.loc 1 500 0
- 445 0110 02FA01F2 		lsl	r2, r2, r1
- 446              	.LVL26:
- 494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg = *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection);
- 447              		.loc 1 494 0
- 448 0114 034B     		ldr	r3, .L50
- 449 0116 C558     		ldr	r5, [r0, r3]
- 450              	.LVL27:
- 497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   tmpreg &= ((uint32_t)~(OPAMP_CSR_TRIMMING_MASK<<OPAMP_Input));
- 451              		.loc 1 497 0
- 452 0118 25EA0404 		bic	r4, r5, r4
+ 451              		.loc 1 500 0
+ 452 0118 02FA01F2 		lsl	r2, r2, r1
  453              	.LVL28:
- 454              		.loc 1 500 0
- 455 011c 1443     		orrs	r4, r4, r2
- 456              	.LVL29:
+ 454 011c 1443     		orrs	r4, r4, r2
+ 455              	.LVL29:
  501:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  502:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /*!< Write to OPAMPx_CSR register */
  503:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) = tmpreg;
- 457              		.loc 1 503 0
- 458 011e C450     		str	r4, [r0, r3]
- 459 0120 30BD     		pop	{r4, r5, pc}
- 460              	.L51:
- 461 0122 00BF     		.align	2
- 462              	.L50:
- 463 0124 38000140 		.word	1073807416
- 464              		.cfi_endproc
- 465              	.LFE123:
- 467              		.align	1
- 468              		.global	OPAMP_StartCalibration
- 469              		.thumb
- 470              		.thumb_func
- 472              	OPAMP_StartCalibration:
- 473              	.LFB124:
+ 456              		.loc 1 503 0
+ 457 011e C450     		str	r4, [r0, r3]
+ 458 0120 30BD     		pop	{r4, r5, pc}
+ 459              	.L51:
+ 460 0122 00BF     		.align	2
+ 461              	.L50:
+ 462 0124 38000140 		.word	1073807416
+ 463              		.cfi_endproc
+ 464              	.LFE123:
+ 466              		.align	1
+ 467              		.global	OPAMP_StartCalibration
+ 468              		.thumb
+ 469              		.thumb_func
+ 471              	OPAMP_StartCalibration:
+ 472              	.LFB124:
  504:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  505:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  506:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** /**
@@ -976,13 +972,13 @@
  516:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  517:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_StartCalibration(uint32_t OPAMP_Selection, FunctionalState NewState)
  518:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 474              		.loc 1 518 0
- 475              		.cfi_startproc
- 476              		@ args = 0, pretend = 0, frame = 0
- 477              		@ frame_needed = 0, uses_anonymous_args = 0
- 478              		@ link register save eliminated.
- 479              	.LVL30:
- 480 0128 044B     		ldr	r3, .L56
+ 473              		.loc 1 518 0
+ 474              		.cfi_startproc
+ 475              		@ args = 0, pretend = 0, frame = 0
+ 476              		@ frame_needed = 0, uses_anonymous_args = 0
+ 477              		@ link register save eliminated.
+ 478              	.LVL30:
+ 479 0128 044B     		ldr	r3, .L56
  519:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameters */
  520:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  521:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -991,37 +987,37 @@
  524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Start the OPAMPx calibration */
  526:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= (uint32_t) (OPAMP_CSR_CALON);
- 481              		.loc 1 526 0
- 482 012a C258     		ldr	r2, [r0, r3]
+ 480              		.loc 1 526 0
+ 481 012a C258     		ldr	r2, [r0, r3]
  523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   if (NewState != DISABLE)
- 483              		.loc 1 523 0
- 484 012c 11B1     		cbz	r1, .L53
- 485              		.loc 1 526 0
- 486 012e 42F40062 		orr	r2, r2, #2048
- 487 0132 01E0     		b	.L55
- 488              	.L53:
+ 482              		.loc 1 523 0
+ 483 012c 11B1     		cbz	r1, .L53
+ 484              		.loc 1 526 0
+ 485 012e 42F40062 		orr	r2, r2, #2048
+ 486 0132 01E0     		b	.L55
+ 487              	.L53:
  527:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   else
  529:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   {
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     /* Stop the OPAMPx calibration */
  531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****     *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) &= (uint32_t)(~OPAMP_CSR_CALON);
- 489              		.loc 1 531 0
- 490 0134 22F40062 		bic	r2, r2, #2048
- 491              	.L55:
- 492 0138 C250     		str	r2, [r0, r3]
- 493 013a 7047     		bx	lr
- 494              	.L57:
- 495              		.align	2
- 496              	.L56:
- 497 013c 38000140 		.word	1073807416
- 498              		.cfi_endproc
- 499              	.LFE124:
- 501              		.align	1
- 502              		.global	OPAMP_LockConfig
- 503              		.thumb
- 504              		.thumb_func
- 506              	OPAMP_LockConfig:
- 507              	.LFB125:
+ 488              		.loc 1 531 0
+ 489 0134 22F40062 		bic	r2, r2, #2048
+ 490              	.L55:
+ 491 0138 C250     		str	r2, [r0, r3]
+ 492 013a 7047     		bx	lr
+ 493              	.L57:
+ 494              		.align	2
+ 495              	.L56:
+ 496 013c 38000140 		.word	1073807416
+ 497              		.cfi_endproc
+ 498              	.LFE124:
+ 500              		.align	1
+ 501              		.global	OPAMP_LockConfig
+ 502              		.thumb
+ 503              		.thumb_func
+ 505              	OPAMP_LockConfig:
+ 506              	.LFB125:
  532:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   }
  533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** }
  534:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
@@ -1054,83 +1050,83 @@
  561:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   */
  562:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** void OPAMP_LockConfig(uint32_t OPAMP_Selection)
  563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** {
- 508              		.loc 1 563 0
- 509              		.cfi_startproc
- 510              		@ args = 0, pretend = 0, frame = 0
- 511              		@ frame_needed = 0, uses_anonymous_args = 0
- 512              		@ link register save eliminated.
- 513              	.LVL31:
+ 507              		.loc 1 563 0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511              		@ link register save eliminated.
+ 512              	.LVL31:
  564:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Check the parameter */
  565:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   assert_param(IS_OPAMP_ALL_PERIPH(OPAMP_Selection));
  566:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c **** 
  567:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   /* Set the lock bit corresponding to selected OPAMP */
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_opamp.c ****   *(__IO uint32_t *) (OPAMP_BASE + OPAMP_Selection) |= (uint32_t) (OPAMP_CSR_LOCK);
- 514              		.loc 1 568 0
- 515 0140 024B     		ldr	r3, .L59
- 516 0142 C258     		ldr	r2, [r0, r3]
- 517 0144 42F00042 		orr	r2, r2, #-2147483648
- 518 0148 C250     		str	r2, [r0, r3]
- 519 014a 7047     		bx	lr
- 520              	.L60:
- 521              		.align	2
- 522              	.L59:
- 523 014c 38000140 		.word	1073807416
- 524              		.cfi_endproc
- 525              	.LFE125:
- 527              	.Letext0:
- 528              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 529              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 530              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 531              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 513              		.loc 1 568 0
+ 514 0140 024B     		ldr	r3, .L59
+ 515 0142 C258     		ldr	r2, [r0, r3]
+ 516 0144 42F00042 		orr	r2, r2, #-2147483648
+ 517 0148 C250     		str	r2, [r0, r3]
+ 518 014a 7047     		bx	lr
+ 519              	.L60:
+ 520              		.align	2
+ 521              	.L59:
+ 522 014c 38000140 		.word	1073807416
+ 523              		.cfi_endproc
+ 524              	.LFE125:
+ 526              	.Letext0:
+ 527              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 528              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 529              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 530              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_opamp.c
-     /tmp/ccUffySH.s:18     .text:00000000 $t
-     /tmp/ccUffySH.s:23     .text:00000000 OPAMP_DeInit
-     /tmp/ccUffySH.s:40     .text:00000008 $d
-     /tmp/ccUffySH.s:44     .text:0000000c $t
-     /tmp/ccUffySH.s:49     .text:0000000c OPAMP_Init
-     /tmp/ccUffySH.s:84     .text:00000024 $d
-     /tmp/ccUffySH.s:88     .text:00000028 $t
-     /tmp/ccUffySH.s:93     .text:00000028 OPAMP_StructInit
-     /tmp/ccUffySH.s:115    .text:00000030 OPAMP_PGAConfig
-     /tmp/ccUffySH.s:146    .text:00000048 $d
-     /tmp/ccUffySH.s:150    .text:0000004c $t
-     /tmp/ccUffySH.s:155    .text:0000004c OPAMP_VrefConfig
-     /tmp/ccUffySH.s:179    .text:0000005c $d
-     /tmp/ccUffySH.s:183    .text:00000060 $t
-     /tmp/ccUffySH.s:188    .text:00000060 OPAMP_VrefConnectNonInvertingInput
-     /tmp/ccUffySH.s:213    .text:00000074 $d
-     /tmp/ccUffySH.s:217    .text:00000078 $t
-     /tmp/ccUffySH.s:222    .text:00000078 OPAMP_VrefConnectADCCmd
-     /tmp/ccUffySH.s:247    .text:0000008c $d
-     /tmp/ccUffySH.s:251    .text:00000090 $t
-     /tmp/ccUffySH.s:256    .text:00000090 OPAMP_TimerControlledMuxConfig
-     /tmp/ccUffySH.s:292    .text:000000ac $d
-     /tmp/ccUffySH.s:296    .text:000000b0 $t
-     /tmp/ccUffySH.s:301    .text:000000b0 OPAMP_TimerControlledMuxCmd
-     /tmp/ccUffySH.s:326    .text:000000c4 $d
-     /tmp/ccUffySH.s:330    .text:000000c8 $t
-     /tmp/ccUffySH.s:335    .text:000000c8 OPAMP_Cmd
-     /tmp/ccUffySH.s:360    .text:000000dc $d
-     /tmp/ccUffySH.s:364    .text:000000e0 $t
-     /tmp/ccUffySH.s:369    .text:000000e0 OPAMP_GetOutputLevel
-     /tmp/ccUffySH.s:388    .text:000000ec $d
-     /tmp/ccUffySH.s:392    .text:000000f0 $t
-     /tmp/ccUffySH.s:397    .text:000000f0 OPAMP_OffsetTrimModeSelect
-     /tmp/ccUffySH.s:419    .text:00000104 $d
-     /tmp/ccUffySH.s:423    .text:00000108 $t
-     /tmp/ccUffySH.s:428    .text:00000108 OPAMP_OffsetTrimConfig
-     /tmp/ccUffySH.s:463    .text:00000124 $d
-     /tmp/ccUffySH.s:467    .text:00000128 $t
-     /tmp/ccUffySH.s:472    .text:00000128 OPAMP_StartCalibration
-     /tmp/ccUffySH.s:497    .text:0000013c $d
-     /tmp/ccUffySH.s:501    .text:00000140 $t
-     /tmp/ccUffySH.s:506    .text:00000140 OPAMP_LockConfig
-     /tmp/ccUffySH.s:523    .text:0000014c $d
+     /tmp/cciN1JK8.s:20     .text:00000000 $t
+     /tmp/cciN1JK8.s:25     .text:00000000 OPAMP_DeInit
+     /tmp/cciN1JK8.s:42     .text:00000008 $d
+     /tmp/cciN1JK8.s:46     .text:0000000c $t
+     /tmp/cciN1JK8.s:51     .text:0000000c OPAMP_Init
+     /tmp/cciN1JK8.s:86     .text:00000024 $d
+     /tmp/cciN1JK8.s:90     .text:00000028 $t
+     /tmp/cciN1JK8.s:95     .text:00000028 OPAMP_StructInit
+     /tmp/cciN1JK8.s:117    .text:00000030 OPAMP_PGAConfig
+     /tmp/cciN1JK8.s:146    .text:00000048 $d
+     /tmp/cciN1JK8.s:150    .text:0000004c $t
+     /tmp/cciN1JK8.s:155    .text:0000004c OPAMP_VrefConfig
+     /tmp/cciN1JK8.s:179    .text:0000005c $d
+     /tmp/cciN1JK8.s:183    .text:00000060 $t
+     /tmp/cciN1JK8.s:188    .text:00000060 OPAMP_VrefConnectNonInvertingInput
+     /tmp/cciN1JK8.s:213    .text:00000074 $d
+     /tmp/cciN1JK8.s:217    .text:00000078 $t
+     /tmp/cciN1JK8.s:222    .text:00000078 OPAMP_VrefConnectADCCmd
+     /tmp/cciN1JK8.s:247    .text:0000008c $d
+     /tmp/cciN1JK8.s:251    .text:00000090 $t
+     /tmp/cciN1JK8.s:256    .text:00000090 OPAMP_TimerControlledMuxConfig
+     /tmp/cciN1JK8.s:291    .text:000000ac $d
+     /tmp/cciN1JK8.s:295    .text:000000b0 $t
+     /tmp/cciN1JK8.s:300    .text:000000b0 OPAMP_TimerControlledMuxCmd
+     /tmp/cciN1JK8.s:325    .text:000000c4 $d
+     /tmp/cciN1JK8.s:329    .text:000000c8 $t
+     /tmp/cciN1JK8.s:334    .text:000000c8 OPAMP_Cmd
+     /tmp/cciN1JK8.s:359    .text:000000dc $d
+     /tmp/cciN1JK8.s:363    .text:000000e0 $t
+     /tmp/cciN1JK8.s:368    .text:000000e0 OPAMP_GetOutputLevel
+     /tmp/cciN1JK8.s:387    .text:000000ec $d
+     /tmp/cciN1JK8.s:391    .text:000000f0 $t
+     /tmp/cciN1JK8.s:396    .text:000000f0 OPAMP_OffsetTrimModeSelect
+     /tmp/cciN1JK8.s:418    .text:00000104 $d
+     /tmp/cciN1JK8.s:422    .text:00000108 $t
+     /tmp/cciN1JK8.s:427    .text:00000108 OPAMP_OffsetTrimConfig
+     /tmp/cciN1JK8.s:462    .text:00000124 $d
+     /tmp/cciN1JK8.s:466    .text:00000128 $t
+     /tmp/cciN1JK8.s:471    .text:00000128 OPAMP_StartCalibration
+     /tmp/cciN1JK8.s:496    .text:0000013c $d
+     /tmp/cciN1JK8.s:500    .text:00000140 $t
+     /tmp/cciN1JK8.s:505    .text:00000140 OPAMP_LockConfig
+     /tmp/cciN1JK8.s:522    .text:0000014c $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

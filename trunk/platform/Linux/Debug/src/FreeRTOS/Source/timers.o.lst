@@ -1,26 +1,28 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"timers.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.thumb
-  20              		.thumb_func
-  22              	prvCheckForValidListAndQueue:
-  23              	.LFB11:
-  24              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"timers.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.thumb
+  22              		.thumb_func
+  24              	prvCheckForValidListAndQueue:
+  25              	.LFB11:
+  26              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** /*
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c ****     FreeRTOS V7.4.0 - Copyright (C) 2013 Real Time Engineers Ltd.
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
@@ -664,1056 +666,1057 @@
  641:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  642:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** static void prvCheckForValidListAndQueue( void )
  643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
-  25              		.loc 1 643 0
-  26              		.cfi_startproc
-  27              		@ args = 0, pretend = 0, frame = 0
-  28              		@ frame_needed = 0, uses_anonymous_args = 0
-  29 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  30              	.LCFI0:
-  31              		.cfi_def_cfa_offset 24
-  32              		.cfi_offset 3, -24
-  33              		.cfi_offset 4, -20
-  34              		.cfi_offset 5, -16
-  35              		.cfi_offset 6, -12
-  36              		.cfi_offset 7, -8
-  37              		.cfi_offset 14, -4
+  27              		.loc 1 643 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 24
+  34              		.cfi_offset 3, -24
+  35              		.cfi_offset 4, -20
+  36              		.cfi_offset 5, -16
+  37              		.cfi_offset 6, -12
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
  644:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	/* Check that the list from which active timers are referenced, and the
  645:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	queue used to communicate with the timer service, have been
  646:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	initialised. */
  647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskENTER_CRITICAL();
  648:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	{
  649:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( xTimerQueue == NULL )
-  38              		.loc 1 649 0
-  39 0002 0D4C     		ldr	r4, .L3
+  40              		.loc 1 649 0
+  41 0002 0D4C     		ldr	r4, .L3
  647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskENTER_CRITICAL();
-  40              		.loc 1 647 0
-  41 0004 FFF7FEFF 		bl	vPortEnterCritical
-  42              	.LVL0:
-  43              		.loc 1 649 0
-  44 0008 2568     		ldr	r5, [r4, #0]
-  45 000a 85B9     		cbnz	r5, .L2
+  42              		.loc 1 647 0
+  43 0004 FFF7FEFF 		bl	vPortEnterCritical
+  44              	.LVL0:
+  45              		.loc 1 649 0
+  46 0008 2568     		ldr	r5, [r4, #0]
+  47 000a 85B9     		cbnz	r5, .L2
  650:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		{
  651:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInitialise( &xActiveTimerList1 );
-  46              		.loc 1 651 0
-  47 000c 271D     		adds	r7, r4, #4
-  48 000e 3846     		mov	r0, r7
+  48              		.loc 1 651 0
+  49 000c 271D     		adds	r7, r4, #4
+  50 000e 3846     		mov	r0, r7
  652:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInitialise( &xActiveTimerList2 );
-  49              		.loc 1 652 0
-  50 0010 04F11806 		add	r6, r4, #24
+  51              		.loc 1 652 0
+  52 0010 04F11806 		add	r6, r4, #24
  651:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInitialise( &xActiveTimerList1 );
-  51              		.loc 1 651 0
-  52 0014 FFF7FEFF 		bl	vListInitialise
-  53              	.LVL1:
-  54              		.loc 1 652 0
-  55 0018 3046     		mov	r0, r6
-  56 001a FFF7FEFF 		bl	vListInitialise
-  57              	.LVL2:
+  53              		.loc 1 651 0
+  54 0014 FFF7FEFF 		bl	vListInitialise
+  55              	.LVL1:
+  56              		.loc 1 652 0
+  57 0018 3046     		mov	r0, r6
+  58 001a FFF7FEFF 		bl	vListInitialise
+  59              	.LVL2:
  653:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxCurrentTimerList = &xActiveTimerList1;
  654:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxOverflowTimerList = &xActiveTimerList2;
  655:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xTimerQueue = xQueueCreate( ( unsigned portBASE_TYPE ) configTIMER_QUEUE_LENGTH, sizeof( xTIMER_
-  58              		.loc 1 655 0
-  59 001e 0520     		movs	r0, #5
-  60 0020 0C21     		movs	r1, #12
-  61 0022 2A46     		mov	r2, r5
+  60              		.loc 1 655 0
+  61 001e 0520     		movs	r0, #5
+  62 0020 0C21     		movs	r1, #12
+  63 0022 2A46     		mov	r2, r5
  653:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxCurrentTimerList = &xActiveTimerList1;
-  62              		.loc 1 653 0
-  63 0024 E762     		str	r7, [r4, #44]
+  64              		.loc 1 653 0
+  65 0024 E762     		str	r7, [r4, #44]
  654:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxOverflowTimerList = &xActiveTimerList2;
-  64              		.loc 1 654 0
-  65 0026 2663     		str	r6, [r4, #48]
-  66              		.loc 1 655 0
-  67 0028 FFF7FEFF 		bl	xQueueGenericCreate
-  68              	.LVL3:
-  69 002c 2060     		str	r0, [r4, #0]
-  70              	.L2:
+  66              		.loc 1 654 0
+  67 0026 2663     		str	r6, [r4, #48]
+  68              		.loc 1 655 0
+  69 0028 FFF7FEFF 		bl	xQueueGenericCreate
+  70              	.LVL3:
+  71 002c 2060     		str	r0, [r4, #0]
+  72              	.L2:
  656:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		}
  657:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	}
  658:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskEXIT_CRITICAL();
  659:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
-  71              		.loc 1 659 0
-  72 002e BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+  73              		.loc 1 659 0
+  74 002e BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
  658:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskEXIT_CRITICAL();
-  73              		.loc 1 658 0
-  74 0032 FFF7FEBF 		b	vPortExitCritical
-  75              	.LVL4:
-  76              	.L4:
-  77 0036 00BF     		.align	2
-  78              	.L3:
-  79 0038 00000000 		.word	.LANCHOR0
-  80              		.cfi_endproc
-  81              	.LFE11:
-  83              		.align	1
-  84              		.thumb
-  85              		.thumb_func
-  87              	prvInsertTimerInActiveList:
-  88              	.LFB8:
+  75              		.loc 1 658 0
+  76 0032 FFF7FEBF 		b	vPortExitCritical
+  77              	.LVL4:
+  78              	.L4:
+  79 0036 00BF     		.align	2
+  80              	.L3:
+  81 0038 00000000 		.word	.LANCHOR0
+  82              		.cfi_endproc
+  83              	.LFE11:
+  85              		.align	1
+  86              		.thumb
+  87              		.thumb_func
+  89              	prvInsertTimerInActiveList:
+  90              	.LFB8:
  474:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
-  89              		.loc 1 474 0
-  90              		.cfi_startproc
-  91              		@ args = 0, pretend = 0, frame = 0
-  92              		@ frame_needed = 0, uses_anonymous_args = 0
-  93              	.LVL5:
-  94 003c 10B5     		push	{r4, lr}
-  95              	.LCFI1:
-  96              		.cfi_def_cfa_offset 8
-  97              		.cfi_offset 4, -8
-  98              		.cfi_offset 14, -4
- 480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xNextExpiryTime <= xTimeNow )
-  99              		.loc 1 480 0
- 100 003e 9142     		cmp	r1, r2
+  91              		.loc 1 474 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              	.LVL5:
+  96 003c 10B5     		push	{r4, lr}
+  97              	.LCFI1:
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 4, -8
+ 100              		.cfi_offset 14, -4
  474:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
  101              		.loc 1 474 0
- 102 0040 0446     		mov	r4, r0
- 477:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	listSET_LIST_ITEM_VALUE( &( pxTimer->xTimerListItem ), xNextExpiryTime );
- 103              		.loc 1 477 0
- 104 0042 4160     		str	r1, [r0, #4]
- 478:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	listSET_LIST_ITEM_OWNER( &( pxTimer->xTimerListItem ), pxTimer );
- 105              		.loc 1 478 0
- 106 0044 2061     		str	r0, [r4, #16]
+ 102 003e 0446     		mov	r4, r0
  480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xNextExpiryTime <= xTimeNow )
- 107              		.loc 1 480 0
- 108 0046 06D8     		bhi	.L6
+ 103              		.loc 1 480 0
+ 104 0040 9142     		cmp	r1, r2
+ 477:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	listSET_LIST_ITEM_VALUE( &( pxTimer->xTimerListItem ), xNextExpiryTime );
+ 105              		.loc 1 477 0
+ 106 0042 4160     		str	r1, [r0, #4]
+ 478:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	listSET_LIST_ITEM_OWNER( &( pxTimer->xTimerListItem ), pxTimer );
+ 107              		.loc 1 478 0
+ 108 0044 2061     		str	r0, [r4, #16]
+ 480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xNextExpiryTime <= xTimeNow )
+ 109              		.loc 1 480 0
+ 110 0046 06D8     		bhi	.L6
  484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( ( ( portTickType ) ( xTimeNow - xCommandTime ) ) >= pxTimer->xTimerPeriodInTicks )
- 109              		.loc 1 484 0
- 110 0048 8169     		ldr	r1, [r0, #24]
- 111              	.LVL6:
- 112 004a D21A     		subs	r2, r2, r3
- 113              	.LVL7:
- 114 004c 8A42     		cmp	r2, r1
- 115 004e 0DD2     		bcs	.L10
- 116              	.LVL8:
- 117              	.LBB4:
- 118              	.LBB5:
+ 111              		.loc 1 484 0
+ 112 0048 8169     		ldr	r1, [r0, #24]
+ 113              	.LVL6:
+ 114 004a D21A     		subs	r2, r2, r3
+ 115              	.LVL7:
+ 116 004c 8A42     		cmp	r2, r1
+ 117 004e 0DD2     		bcs	.L10
+ 118              	.LVL8:
+ 119              	.LBB4:
+ 120              	.LBB5:
  492:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInsert( pxOverflowTimerList, &( pxTimer->xTimerListItem ) );
- 119              		.loc 1 492 0
- 120 0050 074B     		ldr	r3, .L12
- 121              	.LVL9:
- 122 0052 186B     		ldr	r0, [r3, #48]
- 123              	.LVL10:
- 124 0054 05E0     		b	.L11
- 125              	.LVL11:
- 126              	.L6:
- 127              	.LBE5:
- 128              	.LBE4:
+ 121              		.loc 1 492 0
+ 122 0050 074B     		ldr	r3, .L12
+ 123              	.LVL9:
+ 124 0052 186B     		ldr	r0, [r3, #48]
+ 125              	.LVL10:
+ 126 0054 05E0     		b	.L11
+ 127              	.LVL11:
+ 128              	.L6:
+ 129              	.LBE5:
+ 130              	.LBE4:
  497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( ( xTimeNow < xCommandTime ) && ( xNextExpiryTime >= xCommandTime ) )
- 129              		.loc 1 497 0
- 130 0056 9A42     		cmp	r2, r3
- 131 0058 01D2     		bcs	.L8
+ 131              		.loc 1 497 0
+ 132 0056 9A42     		cmp	r2, r3
+ 133 0058 01D2     		bcs	.L8
  497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( ( xTimeNow < xCommandTime ) && ( xNextExpiryTime >= xCommandTime ) )
- 132              		.loc 1 497 0 is_stmt 0 discriminator 1
- 133 005a 9942     		cmp	r1, r3
- 134 005c 06D2     		bcs	.L10
- 135              	.L8:
+ 134              		.loc 1 497 0 is_stmt 0 discriminator 1
+ 135 005a 9942     		cmp	r1, r3
+ 136 005c 06D2     		bcs	.L10
+ 137              	.L8:
  506:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInsert( pxCurrentTimerList, &( pxTimer->xTimerListItem ) );
- 136              		.loc 1 506 0 is_stmt 1
- 137 005e 044B     		ldr	r3, .L12
- 138              	.LVL12:
- 139 0060 D86A     		ldr	r0, [r3, #44]
- 140              	.LVL13:
- 141              	.L11:
- 142 0062 211D     		adds	r1, r4, #4
- 143 0064 FFF7FEFF 		bl	vListInsert
- 144              	.LVL14:
+ 138              		.loc 1 506 0 is_stmt 1
+ 139 005e 044B     		ldr	r3, .L12
+ 140              	.LVL12:
+ 141 0060 D86A     		ldr	r0, [r3, #44]
+ 142              	.LVL13:
+ 143              	.L11:
+ 144 0062 211D     		adds	r1, r4, #4
+ 145 0064 FFF7FEFF 		bl	vListInsert
+ 146              	.LVL14:
  475:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** portBASE_TYPE xProcessTimerNow = pdFALSE;
- 145              		.loc 1 475 0
- 146 0068 0020     		movs	r0, #0
- 147 006a 10BD     		pop	{r4, pc}
- 148              	.LVL15:
- 149              	.L10:
+ 147              		.loc 1 475 0
+ 148 0068 0020     		movs	r0, #0
+ 149 006a 10BD     		pop	{r4, pc}
+ 150              	.LVL15:
+ 151              	.L10:
  488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xProcessTimerNow = pdTRUE;
- 150              		.loc 1 488 0
- 151 006c 0120     		movs	r0, #1
- 152              	.LVL16:
+ 152              		.loc 1 488 0
+ 153 006c 0120     		movs	r0, #1
+ 154              	.LVL16:
  511:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 153              		.loc 1 511 0
- 154 006e 10BD     		pop	{r4, pc}
- 155              	.L13:
- 156              		.align	2
- 157              	.L12:
- 158 0070 00000000 		.word	.LANCHOR0
- 159              		.cfi_endproc
- 160              	.LFE8:
- 162              		.align	1
- 163              		.global	xTimerCreateTimerTask
- 164              		.thumb
- 165              		.thumb_func
- 167              	xTimerCreateTimerTask:
- 168              	.LFB0:
+ 155              		.loc 1 511 0
+ 156 006e 10BD     		pop	{r4, pc}
+ 157              	.L13:
+ 158              		.align	2
+ 159              	.L12:
+ 160 0070 00000000 		.word	.LANCHOR0
+ 161              		.cfi_endproc
+ 162              	.LFE8:
+ 164              		.align	1
+ 165              		.global	xTimerCreateTimerTask
+ 166              		.thumb
+ 167              		.thumb_func
+ 169              	xTimerCreateTimerTask:
+ 170              	.LFB0:
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 169              		.loc 1 196 0
- 170              		.cfi_startproc
- 171              		@ args = 0, pretend = 0, frame = 0
- 172              		@ frame_needed = 0, uses_anonymous_args = 0
- 173              	.LVL17:
- 174 0074 1FB5     		push	{r0, r1, r2, r3, r4, lr}
- 175              	.LCFI2:
- 176              		.cfi_def_cfa_offset 24
- 177              		.cfi_offset 0, -24
- 178              		.cfi_offset 1, -20
- 179              		.cfi_offset 2, -16
- 180              		.cfi_offset 3, -12
- 181              		.cfi_offset 4, -8
- 182              		.cfi_offset 14, -4
+ 171              		.loc 1 196 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              	.LVL17:
+ 176 0074 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+ 177              	.LCFI2:
+ 178              		.cfi_def_cfa_offset 24
+ 179              		.cfi_offset 0, -24
+ 180              		.cfi_offset 1, -20
+ 181              		.cfi_offset 2, -16
+ 182              		.cfi_offset 3, -12
+ 183              		.cfi_offset 4, -8
+ 184              		.cfi_offset 14, -4
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	prvCheckForValidListAndQueue();
- 183              		.loc 1 203 0
- 184 0076 FFF7C3FF 		bl	prvCheckForValidListAndQueue
- 185              	.LVL18:
+ 185              		.loc 1 203 0
+ 186 0076 FFF7C3FF 		bl	prvCheckForValidListAndQueue
+ 187              	.LVL18:
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimerQueue != NULL )
- 186              		.loc 1 205 0
- 187 007a 0B4B     		ldr	r3, .L23
- 188 007c 1B68     		ldr	r3, [r3, #0]
- 189 007e 13B9     		cbnz	r3, .L15
- 190              	.LVL19:
- 191              	.L17:
+ 188              		.loc 1 205 0
+ 189 007a 0B4B     		ldr	r3, .L23
+ 190 007c 1B68     		ldr	r3, [r3, #0]
+ 191 007e 13B9     		cbnz	r3, .L15
+ 192              	.LVL19:
+ 193              	.L17:
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	configASSERT( xReturn );
- 192              		.loc 1 221 0
- 193 0080 FFF7FEFF 		bl	ulPortSetInterruptMask
- 194              	.LVL20:
- 195 0084 0DE0     		b	.L16
- 196              	.LVL21:
- 197              	.L15:
+ 194              		.loc 1 221 0
+ 195 0080 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 196              	.LVL20:
+ 197 0084 0DE0     		b	.L16
+ 198              	.LVL21:
+ 199              	.L15:
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xReturn = xTaskCreate( prvTimerTask, ( const signed char * ) "Tmr Svc", ( unsigned short ) confi
- 198              		.loc 1 216 0
- 199 0086 0323     		movs	r3, #3
- 200 0088 0093     		str	r3, [sp, #0]
- 201 008a 0023     		movs	r3, #0
- 202 008c 0193     		str	r3, [sp, #4]
- 203 008e 0293     		str	r3, [sp, #8]
- 204 0090 0393     		str	r3, [sp, #12]
- 205 0092 0648     		ldr	r0, .L23+4
- 206 0094 0649     		ldr	r1, .L23+8
- 207 0096 4FF4A072 		mov	r2, #320
- 208 009a FFF7FEFF 		bl	xTaskGenericCreate
- 209              	.LVL22:
+ 200              		.loc 1 216 0
+ 201 0086 0323     		movs	r3, #3
+ 202 0088 0093     		str	r3, [sp, #0]
+ 203 008a 0023     		movs	r3, #0
+ 204 008c 0193     		str	r3, [sp, #4]
+ 205 008e 0293     		str	r3, [sp, #8]
+ 206 0090 0393     		str	r3, [sp, #12]
+ 207 0092 0648     		ldr	r0, .L23+4
+ 208 0094 0649     		ldr	r1, .L23+8
+ 209 0096 4FF4A072 		mov	r2, #320
+ 210 009a FFF7FEFF 		bl	xTaskGenericCreate
+ 211              	.LVL22:
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	configASSERT( xReturn );
- 210              		.loc 1 221 0
- 211 009e 08B9     		cbnz	r0, .L22
- 212 00a0 EEE7     		b	.L17
- 213              	.LVL23:
- 214              	.L16:
- 215 00a2 FEE7     		b	.L16
- 216              	.LVL24:
- 217              	.L22:
+ 212              		.loc 1 221 0
+ 213 009e 08B9     		cbnz	r0, .L22
+ 214 00a0 EEE7     		b	.L17
+ 215              	.LVL23:
+ 216              	.L16:
+ 217 00a2 FEE7     		b	.L16
+ 218              	.LVL24:
+ 219              	.L22:
  223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 218              		.loc 1 223 0
- 219 00a4 05B0     		add	sp, sp, #20
- 220 00a6 00BD     		pop	{pc}
- 221              	.L24:
- 222              		.align	2
- 223              	.L23:
- 224 00a8 00000000 		.word	.LANCHOR0
- 225 00ac 00000000 		.word	prvTimerTask
- 226 00b0 00000000 		.word	.LC0
- 227              		.cfi_endproc
- 228              	.LFE0:
- 230              		.align	1
- 231              		.global	xTimerCreate
- 232              		.thumb
- 233              		.thumb_func
- 235              	xTimerCreate:
- 236              	.LFB1:
+ 220              		.loc 1 223 0
+ 221 00a4 05B0     		add	sp, sp, #20
+ 222 00a6 00BD     		pop	{pc}
+ 223              	.L24:
+ 224              		.align	2
+ 225              	.L23:
+ 226 00a8 00000000 		.word	.LANCHOR0
+ 227 00ac 00000000 		.word	prvTimerTask
+ 228 00b0 00000000 		.word	.LC0
+ 229              		.cfi_endproc
+ 230              	.LFE0:
+ 232              		.align	1
+ 233              		.global	xTimerCreate
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	xTimerCreate:
+ 238              	.LFB1:
  227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 237              		.loc 1 227 0
- 238              		.cfi_startproc
- 239              		@ args = 4, pretend = 0, frame = 0
- 240              		@ frame_needed = 0, uses_anonymous_args = 0
- 241              	.LVL25:
- 242 00b4 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 243              	.LCFI3:
- 244              		.cfi_def_cfa_offset 24
- 245              		.cfi_offset 4, -24
- 246              		.cfi_offset 5, -20
- 247              		.cfi_offset 6, -16
- 248              		.cfi_offset 7, -12
- 249              		.cfi_offset 8, -8
- 250              		.cfi_offset 14, -4
+ 239              		.loc 1 227 0
+ 240              		.cfi_startproc
+ 241              		@ args = 4, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243              	.LVL25:
+ 244 00b4 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 245              	.LCFI3:
+ 246              		.cfi_def_cfa_offset 24
+ 247              		.cfi_offset 4, -24
+ 248              		.cfi_offset 5, -20
+ 249              		.cfi_offset 6, -16
+ 250              		.cfi_offset 7, -12
+ 251              		.cfi_offset 8, -8
+ 252              		.cfi_offset 14, -4
  227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 251              		.loc 1 227 0
- 252 00b8 8046     		mov	r8, r0
- 253 00ba 1746     		mov	r7, r2
- 254 00bc 1E46     		mov	r6, r3
+ 253              		.loc 1 227 0
+ 254 00b8 8046     		mov	r8, r0
+ 255 00ba 1746     		mov	r7, r2
+ 256 00bc 1E46     		mov	r6, r3
  231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimerPeriodInTicks == ( portTickType ) 0U )
- 255              		.loc 1 231 0
- 256 00be 0D46     		mov	r5, r1
- 257 00c0 11B9     		cbnz	r1, .L26
- 258              	.LVL26:
+ 257              		.loc 1 231 0
+ 258 00be 0D46     		mov	r5, r1
+ 259 00c0 11B9     		cbnz	r1, .L26
+ 260              	.LVL26:
  234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		configASSERT( ( xTimerPeriodInTicks > 0 ) );
- 259              		.loc 1 234 0 discriminator 1
- 260 00c2 FFF7FEFF 		bl	ulPortSetInterruptMask
- 261              	.LVL27:
- 262              	.L27:
- 263 00c6 FEE7     		b	.L27
- 264              	.LVL28:
- 265              	.L26:
+ 261              		.loc 1 234 0 discriminator 1
+ 262 00c2 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 263              	.LVL27:
+ 264              	.L27:
+ 265 00c6 FEE7     		b	.L27
+ 266              	.LVL28:
+ 267              	.L26:
  238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		pxNewTimer = ( xTIMER * ) pvPortMalloc( sizeof( xTIMER ) );
- 266              		.loc 1 238 0
- 267 00c8 2820     		movs	r0, #40
- 268              	.LVL29:
- 269 00ca FFF7FEFF 		bl	pvPortMalloc
- 270              	.LVL30:
+ 268              		.loc 1 238 0
+ 269 00c8 2820     		movs	r0, #40
+ 270              	.LVL29:
+ 271 00ca FFF7FEFF 		bl	pvPortMalloc
+ 272              	.LVL30:
  239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( pxNewTimer != NULL )
- 271              		.loc 1 239 0
- 272 00ce 0446     		mov	r4, r0
- 273 00d0 58B1     		cbz	r0, .L28
+ 273              		.loc 1 239 0
+ 274 00ce 0446     		mov	r4, r0
+ 275 00d0 58B1     		cbz	r0, .L28
  243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			prvCheckForValidListAndQueue();
- 274              		.loc 1 243 0
- 275 00d2 FFF795FF 		bl	prvCheckForValidListAndQueue
- 276              	.LVL31:
+ 276              		.loc 1 243 0
+ 277 00d2 FFF795FF 		bl	prvCheckForValidListAndQueue
+ 278              	.LVL31:
  250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->pxCallbackFunction = pxCallbackFunction;
- 277              		.loc 1 250 0
- 278 00d6 069B     		ldr	r3, [sp, #24]
+ 279              		.loc 1 250 0
+ 280 00d6 069B     		ldr	r3, [sp, #24]
  246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->pcTimerName = pcTimerName;
- 279              		.loc 1 246 0
- 280 00d8 C4F80080 		str	r8, [r4, #0]
+ 281              		.loc 1 246 0
+ 282 00d8 C4F80080 		str	r8, [r4, #0]
  247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->xTimerPeriodInTicks = xTimerPeriodInTicks;
- 281              		.loc 1 247 0
- 282 00dc A561     		str	r5, [r4, #24]
+ 283              		.loc 1 247 0
+ 284 00dc A561     		str	r5, [r4, #24]
  248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->uxAutoReload = uxAutoReload;
- 283              		.loc 1 248 0
- 284 00de E761     		str	r7, [r4, #28]
+ 285              		.loc 1 248 0
+ 286 00de E761     		str	r7, [r4, #28]
  249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->pvTimerID = pvTimerID;
- 285              		.loc 1 249 0
- 286 00e0 2662     		str	r6, [r4, #32]
+ 287              		.loc 1 249 0
+ 288 00e0 2662     		str	r6, [r4, #32]
  250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			pxNewTimer->pxCallbackFunction = pxCallbackFunction;
- 287              		.loc 1 250 0
- 288 00e2 6362     		str	r3, [r4, #36]
+ 289              		.loc 1 250 0
+ 290 00e2 6362     		str	r3, [r4, #36]
  251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			vListInitialiseItem( &( pxNewTimer->xTimerListItem ) );
- 289              		.loc 1 251 0
- 290 00e4 201D     		adds	r0, r4, #4
- 291 00e6 FFF7FEFF 		bl	vListInitialiseItem
- 292              	.LVL32:
- 293              	.L28:
+ 291              		.loc 1 251 0
+ 292 00e4 201D     		adds	r0, r4, #4
+ 293 00e6 FFF7FEFF 		bl	vListInitialiseItem
+ 294              	.LVL32:
+ 295              	.L28:
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 294              		.loc 1 262 0
- 295 00ea 2046     		mov	r0, r4
- 296 00ec BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 297              		.cfi_endproc
- 298              	.LFE1:
- 300              		.align	1
- 301              		.global	xTimerGenericCommand
- 302              		.thumb
- 303              		.thumb_func
- 305              	xTimerGenericCommand:
- 306              	.LFB2:
+ 296              		.loc 1 262 0
+ 297 00ea 2046     		mov	r0, r4
+ 298 00ec BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 299              		.cfi_endproc
+ 300              	.LFE1:
+ 302              		.align	1
+ 303              		.global	xTimerGenericCommand
+ 304              		.thumb
+ 305              		.thumb_func
+ 307              	xTimerGenericCommand:
+ 308              	.LFB2:
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 307              		.loc 1 266 0
- 308              		.cfi_startproc
- 309              		@ args = 4, pretend = 0, frame = 16
- 310              		@ frame_needed = 0, uses_anonymous_args = 0
- 311              	.LVL33:
- 312 00f0 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
- 313              	.LCFI4:
- 314              		.cfi_def_cfa_offset 32
- 315              		.cfi_offset 0, -32
- 316              		.cfi_offset 1, -28
- 317              		.cfi_offset 2, -24
- 318              		.cfi_offset 3, -20
- 319              		.cfi_offset 4, -16
- 320              		.cfi_offset 5, -12
- 321              		.cfi_offset 6, -8
- 322              		.cfi_offset 14, -4
+ 309              		.loc 1 266 0
+ 310              		.cfi_startproc
+ 311              		@ args = 4, pretend = 0, frame = 16
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              	.LVL33:
+ 314 00f0 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 315              	.LCFI4:
+ 316              		.cfi_def_cfa_offset 32
+ 317              		.cfi_offset 0, -32
+ 318              		.cfi_offset 1, -28
+ 319              		.cfi_offset 2, -24
+ 320              		.cfi_offset 3, -20
+ 321              		.cfi_offset 4, -16
+ 322              		.cfi_offset 5, -12
+ 323              		.cfi_offset 6, -8
+ 324              		.cfi_offset 14, -4
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimerQueue != NULL )
- 323              		.loc 1 272 0
- 324 00f2 0F4D     		ldr	r5, .L38
+ 325              		.loc 1 272 0
+ 326 00f2 0F4D     		ldr	r5, .L38
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 325              		.loc 1 266 0
- 326 00f4 0646     		mov	r6, r0
+ 327              		.loc 1 266 0
+ 328 00f4 0646     		mov	r6, r0
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimerQueue != NULL )
- 327              		.loc 1 272 0
- 328 00f6 2868     		ldr	r0, [r5, #0]
- 329              	.LVL34:
+ 329              		.loc 1 272 0
+ 330 00f6 2868     		ldr	r0, [r5, #0]
+ 331              	.LVL34:
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 330              		.loc 1 266 0
- 331 00f8 1C46     		mov	r4, r3
+ 332              		.loc 1 266 0
+ 333 00f8 1C46     		mov	r4, r3
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimerQueue != NULL )
- 332              		.loc 1 272 0
- 333 00fa B0B1     		cbz	r0, .L33
+ 334              		.loc 1 272 0
+ 335 00fa B8B1     		cbz	r0, .L33
  275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xMessage.xMessageID = xCommandID;
- 334              		.loc 1 275 0
- 335 00fc 0191     		str	r1, [sp, #4]
+ 336              		.loc 1 275 0
+ 337 00fc 0191     		str	r1, [sp, #4]
  276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xMessage.xMessageValue = xOptionalValue;
- 336              		.loc 1 276 0
- 337 00fe 0292     		str	r2, [sp, #8]
+ 338              		.loc 1 276 0
+ 339 00fe 0292     		str	r2, [sp, #8]
  277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xMessage.pxTimer = ( xTIMER * ) xTimer;
- 338              		.loc 1 277 0
- 339 0100 0396     		str	r6, [sp, #12]
+ 340              		.loc 1 277 0
+ 341 0100 0396     		str	r6, [sp, #12]
  279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( pxHigherPriorityTaskWoken == NULL )
- 340              		.loc 1 279 0
- 341 0102 6BB9     		cbnz	r3, .L34
+ 342              		.loc 1 279 0
+ 343 0102 73B9     		cbnz	r3, .L34
  281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			if( xTaskGetSchedulerState() == taskSCHEDULER_RUNNING )
- 342              		.loc 1 281 0
- 343 0104 FFF7FEFF 		bl	xTaskGetSchedulerState
- 344              	.LVL35:
- 345 0108 0128     		cmp	r0, #1
+ 344              		.loc 1 281 0
+ 345 0104 FFF7FEFF 		bl	xTaskGetSchedulerState
+ 346              	.LVL35:
+ 347 0108 0128     		cmp	r0, #1
  287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xReturn = xQueueSendToBack( xTimerQueue, &xMessage, tmrNO_DELAY );
- 346              		.loc 1 287 0
- 347 010a 18BF     		it	ne
- 348 010c 2246     		movne	r2, r4
+ 348              		.loc 1 287 0
+ 349 010a 18BF     		it	ne
+ 350 010c 2246     		movne	r2, r4
  283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xReturn = xQueueSendToBack( xTimerQueue, &xMessage, xBlockTime );
- 349              		.loc 1 283 0
- 350 010e 2868     		ldr	r0, [r5, #0]
- 351 0110 01A9     		add	r1, sp, #4
- 352 0112 06BF     		itte	eq
- 353 0114 089A     		ldreq	r2, [sp, #32]
- 354 0116 2346     		moveq	r3, r4
+ 351              		.loc 1 283 0
+ 352 010e 2868     		ldr	r0, [r5, #0]
+ 353 0110 08BF     		it	eq
+ 354 0112 089A     		ldreq	r2, [sp, #32]
+ 355 0114 01A9     		add	r1, sp, #4
+ 356 0116 0CBF     		ite	eq
+ 357 0118 2346     		moveq	r3, r4
  287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xReturn = xQueueSendToBack( xTimerQueue, &xMessage, tmrNO_DELAY );
- 355              		.loc 1 287 0
- 356 0118 1346     		movne	r3, r2
- 357 011a FFF7FEFF 		bl	xQueueGenericSend
- 358              	.LVL36:
- 359 011e 04E0     		b	.L33
- 360              	.LVL37:
- 361              	.L34:
+ 358              		.loc 1 287 0
+ 359 011a 1346     		movne	r3, r2
+ 360 011c FFF7FEFF 		bl	xQueueGenericSend
+ 361              	.LVL36:
+ 362 0120 04E0     		b	.L33
+ 363              	.LVL37:
+ 364              	.L34:
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xReturn = xQueueSendToBackFromISR( xTimerQueue, &xMessage, pxHigherPriorityTaskWoken );
- 362              		.loc 1 292 0
- 363 0120 1A46     		mov	r2, r3
- 364              	.LVL38:
- 365 0122 01A9     		add	r1, sp, #4
- 366              	.LVL39:
- 367 0124 0023     		movs	r3, #0
- 368              	.LVL40:
- 369 0126 FFF7FEFF 		bl	xQueueGenericSendFromISR
- 370              	.LVL41:
- 371              	.L33:
+ 365              		.loc 1 292 0
+ 366 0122 1A46     		mov	r2, r3
+ 367              	.LVL38:
+ 368 0124 01A9     		add	r1, sp, #4
+ 369              	.LVL39:
+ 370 0126 0023     		movs	r3, #0
+ 371              	.LVL40:
+ 372 0128 FFF7FEFF 		bl	xQueueGenericSendFromISR
+ 373              	.LVL41:
+ 374              	.L33:
  299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 372              		.loc 1 299 0
- 373 012a 04B0     		add	sp, sp, #16
- 374 012c 70BD     		pop	{r4, r5, r6, pc}
- 375              	.L39:
- 376 012e 00BF     		.align	2
- 377              	.L38:
- 378 0130 00000000 		.word	.LANCHOR0
- 379              		.cfi_endproc
- 380              	.LFE2:
- 382              		.align	1
- 383              		.thumb
- 384              		.thumb_func
- 386              	prvSwitchTimerLists.isra.1:
- 387              	.LFB15:
+ 375              		.loc 1 299 0
+ 376 012c 04B0     		add	sp, sp, #16
+ 377 012e 70BD     		pop	{r4, r5, r6, pc}
+ 378              	.L39:
+ 379              		.align	2
+ 380              	.L38:
+ 381 0130 00000000 		.word	.LANCHOR0
+ 382              		.cfi_endproc
+ 383              	.LFE2:
+ 385              		.align	1
+ 386              		.thumb
+ 387              		.thumb_func
+ 389              	prvSwitchTimerLists.isra.1:
+ 390              	.LFB15:
  585:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** static void prvSwitchTimerLists( portTickType xLastTime )
- 388              		.loc 1 585 0
- 389              		.cfi_startproc
- 390              		@ args = 0, pretend = 0, frame = 0
- 391              		@ frame_needed = 0, uses_anonymous_args = 0
- 392 0134 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
- 393              	.LCFI5:
- 394              		.cfi_def_cfa_offset 32
- 395              		.cfi_offset 0, -32
- 396              		.cfi_offset 1, -28
- 397              		.cfi_offset 4, -24
- 398              		.cfi_offset 5, -20
- 399              		.cfi_offset 6, -16
- 400              		.cfi_offset 7, -12
- 401              		.cfi_offset 8, -8
- 402              		.cfi_offset 14, -4
+ 391              		.loc 1 585 0
+ 392              		.cfi_startproc
+ 393              		@ args = 0, pretend = 0, frame = 0
+ 394              		@ frame_needed = 0, uses_anonymous_args = 0
+ 395 0134 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
+ 396              	.LCFI5:
+ 397              		.cfi_def_cfa_offset 32
+ 398              		.cfi_offset 0, -32
+ 399              		.cfi_offset 1, -28
+ 400              		.cfi_offset 4, -24
+ 401              		.cfi_offset 5, -20
+ 402              		.cfi_offset 6, -16
+ 403              		.cfi_offset 7, -12
+ 404              		.cfi_offset 8, -8
+ 405              		.cfi_offset 14, -4
  599:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	while( listLIST_IS_EMPTY( pxCurrentTimerList ) == pdFALSE )
- 403              		.loc 1 599 0
- 404 0138 194E     		ldr	r6, .L50
+ 406              		.loc 1 599 0
+ 407 0138 194E     		ldr	r6, .L50
  629:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xResult = xTimerGenericCommand( pxTimer, tmrCOMMAND_START, xNextExpireTime, NULL, tmrNO_DELAY )
- 405              		.loc 1 629 0
- 406 013a 4FF00008 		mov	r8, #0
- 407 013e 24E0     		b	.L49
- 408              	.L46:
+ 408              		.loc 1 629 0
+ 409 013a 4FF00008 		mov	r8, #0
+ 410 013e 24E0     		b	.L49
+ 411              	.L46:
  601:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xNextExpireTime = listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxCurrentTimerList );
- 409              		.loc 1 601 0
- 410 0140 DA68     		ldr	r2, [r3, #12]
- 411 0142 1568     		ldr	r5, [r2, #0]
- 412              	.LVL42:
+ 412              		.loc 1 601 0
+ 413 0140 DA68     		ldr	r2, [r3, #12]
+ 414 0142 1568     		ldr	r5, [r2, #0]
+ 415              	.LVL42:
  604:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		pxTimer = ( xTIMER * ) listGET_OWNER_OF_HEAD_ENTRY( pxCurrentTimerList );
- 413              		.loc 1 604 0
- 414 0144 DB68     		ldr	r3, [r3, #12]
- 415 0146 DC68     		ldr	r4, [r3, #12]
- 416              	.LVL43:
+ 416              		.loc 1 604 0
+ 417 0144 DB68     		ldr	r3, [r3, #12]
+ 418 0146 DC68     		ldr	r4, [r3, #12]
+ 419              	.LVL43:
  605:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		uxListRemove( &( pxTimer->xTimerListItem ) );
- 417              		.loc 1 605 0
- 418 0148 271D     		adds	r7, r4, #4
- 419 014a 3846     		mov	r0, r7
- 420 014c FFF7FEFF 		bl	uxListRemove
- 421              	.LVL44:
+ 420              		.loc 1 605 0
+ 421 0148 271D     		adds	r7, r4, #4
+ 422 014a 3846     		mov	r0, r7
+ 423 014c FFF7FEFF 		bl	uxListRemove
+ 424              	.LVL44:
  610:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		pxTimer->pxCallbackFunction( ( xTimerHandle ) pxTimer );
- 422              		.loc 1 610 0
- 423 0150 636A     		ldr	r3, [r4, #36]
- 424 0152 2046     		mov	r0, r4
- 425 0154 9847     		blx	r3
- 426              	.LVL45:
+ 425              		.loc 1 610 0
+ 426 0150 636A     		ldr	r3, [r4, #36]
+ 427 0152 2046     		mov	r0, r4
+ 428 0154 9847     		blx	r3
+ 429              	.LVL45:
  612:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( pxTimer->uxAutoReload == ( unsigned portBASE_TYPE ) pdTRUE )
- 427              		.loc 1 612 0
- 428 0156 E369     		ldr	r3, [r4, #28]
- 429 0158 012B     		cmp	r3, #1
- 430 015a 16D1     		bne	.L49
+ 430              		.loc 1 612 0
+ 431 0156 E369     		ldr	r3, [r4, #28]
+ 432 0158 012B     		cmp	r3, #1
+ 433 015a 16D1     		bne	.L49
  620:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xReloadTime = ( xNextExpireTime + pxTimer->xTimerPeriodInTicks );
- 431              		.loc 1 620 0
- 432 015c A369     		ldr	r3, [r4, #24]
- 433 015e EB18     		adds	r3, r5, r3
- 434              	.LVL46:
+ 434              		.loc 1 620 0
+ 435 015c A369     		ldr	r3, [r4, #24]
+ 436 015e EB18     		adds	r3, r5, r3
+ 437              	.LVL46:
  621:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			if( xReloadTime > xNextExpireTime )
- 435              		.loc 1 621 0
- 436 0160 AB42     		cmp	r3, r5
- 437 0162 06D9     		bls	.L43
+ 438              		.loc 1 621 0
+ 439 0160 AB42     		cmp	r3, r5
+ 440 0162 06D9     		bls	.L43
  623:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				listSET_LIST_ITEM_VALUE( &( pxTimer->xTimerListItem ), xReloadTime );
- 438              		.loc 1 623 0
- 439 0164 6360     		str	r3, [r4, #4]
+ 441              		.loc 1 623 0
+ 442 0164 6360     		str	r3, [r4, #4]
  624:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				listSET_LIST_ITEM_OWNER( &( pxTimer->xTimerListItem ), pxTimer );
- 440              		.loc 1 624 0
- 441 0166 2461     		str	r4, [r4, #16]
+ 443              		.loc 1 624 0
+ 444 0166 2461     		str	r4, [r4, #16]
  625:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				vListInsert( pxCurrentTimerList, &( pxTimer->xTimerListItem ) );
- 442              		.loc 1 625 0
- 443 0168 F06A     		ldr	r0, [r6, #44]
- 444 016a 3946     		mov	r1, r7
- 445 016c FFF7FEFF 		bl	vListInsert
- 446              	.LVL47:
- 447 0170 0BE0     		b	.L49
- 448              	.LVL48:
- 449              	.L43:
+ 445              		.loc 1 625 0
+ 446 0168 F06A     		ldr	r0, [r6, #44]
+ 447 016a 3946     		mov	r1, r7
+ 448 016c FFF7FEFF 		bl	vListInsert
+ 449              	.LVL47:
+ 450 0170 0BE0     		b	.L49
+ 451              	.LVL48:
+ 452              	.L43:
  629:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xResult = xTimerGenericCommand( pxTimer, tmrCOMMAND_START, xNextExpireTime, NULL, tmrNO_DELAY )
- 450              		.loc 1 629 0
- 451 0172 0021     		movs	r1, #0
- 452 0174 CDF80080 		str	r8, [sp, #0]
- 453 0178 2046     		mov	r0, r4
- 454 017a 2A46     		mov	r2, r5
- 455 017c 0B46     		mov	r3, r1
- 456              	.LVL49:
- 457 017e FFF7FEFF 		bl	xTimerGenericCommand
- 458              	.LVL50:
+ 453              		.loc 1 629 0
+ 454 0172 0021     		movs	r1, #0
+ 455 0174 CDF80080 		str	r8, [sp, #0]
+ 456 0178 2046     		mov	r0, r4
+ 457 017a 2A46     		mov	r2, r5
+ 458 017c 0B46     		mov	r3, r1
+ 459              	.LVL49:
+ 460 017e FFF7FEFF 		bl	xTimerGenericCommand
+ 461              	.LVL50:
  630:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				configASSERT( xResult );
- 459              		.loc 1 630 0
- 460 0182 10B9     		cbnz	r0, .L49
- 461 0184 FFF7FEFF 		bl	ulPortSetInterruptMask
- 462              	.LVL51:
- 463              	.L45:
- 464 0188 FEE7     		b	.L45
- 465              	.LVL52:
- 466              	.L49:
+ 462              		.loc 1 630 0
+ 463 0182 10B9     		cbnz	r0, .L49
+ 464 0184 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 465              	.LVL51:
+ 466              	.L45:
+ 467 0188 FEE7     		b	.L45
+ 468              	.LVL52:
+ 469              	.L49:
  599:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	while( listLIST_IS_EMPTY( pxCurrentTimerList ) == pdFALSE )
- 467              		.loc 1 599 0
- 468 018a F36A     		ldr	r3, [r6, #44]
- 469 018c 044A     		ldr	r2, .L50
- 470 018e 1968     		ldr	r1, [r3, #0]
- 471 0190 0029     		cmp	r1, #0
- 472 0192 D5D1     		bne	.L46
- 473              	.LVL53:
+ 470              		.loc 1 599 0
+ 471 018a F36A     		ldr	r3, [r6, #44]
+ 472 018c 044A     		ldr	r2, .L50
+ 473 018e 1968     		ldr	r1, [r3, #0]
+ 474 0190 0029     		cmp	r1, #0
+ 475 0192 D5D1     		bne	.L46
+ 476              	.LVL53:
  637:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	pxCurrentTimerList = pxOverflowTimerList;
- 474              		.loc 1 637 0
- 475 0194 116B     		ldr	r1, [r2, #48]
+ 477              		.loc 1 637 0
+ 478 0194 116B     		ldr	r1, [r2, #48]
  638:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	pxOverflowTimerList = pxTemp;
- 476              		.loc 1 638 0
- 477 0196 1363     		str	r3, [r2, #48]
+ 479              		.loc 1 638 0
+ 480 0196 1363     		str	r3, [r2, #48]
  637:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	pxCurrentTimerList = pxOverflowTimerList;
- 478              		.loc 1 637 0
- 479 0198 D162     		str	r1, [r2, #44]
+ 481              		.loc 1 637 0
+ 482 0198 D162     		str	r1, [r2, #44]
  639:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 480              		.loc 1 639 0
- 481 019a BDE8FC81 		pop	{r2, r3, r4, r5, r6, r7, r8, pc}
- 482              	.L51:
- 483 019e 00BF     		.align	2
- 484              	.L50:
- 485 01a0 00000000 		.word	.LANCHOR0
- 486              		.cfi_endproc
- 487              	.LFE15:
- 489              		.align	1
- 490              		.thumb
- 491              		.thumb_func
- 493              	prvTimerTask:
- 494              	.LFB4:
+ 483              		.loc 1 639 0
+ 484 019a BDE8FC81 		pop	{r2, r3, r4, r5, r6, r7, r8, pc}
+ 485              	.L51:
+ 486 019e 00BF     		.align	2
+ 487              	.L50:
+ 488 01a0 00000000 		.word	.LANCHOR0
+ 489              		.cfi_endproc
+ 490              	.LFE15:
+ 492              		.align	1
+ 493              		.thumb
+ 494              		.thumb_func
+ 496              	prvTimerTask:
+ 497              	.LFB4:
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 495              		.loc 1 352 0
- 496              		.cfi_startproc
- 497              		@ args = 0, pretend = 0, frame = 16
- 498              		@ frame_needed = 0, uses_anonymous_args = 0
- 499              	.LVL54:
- 500 01a4 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 501              	.LCFI6:
- 502              		.cfi_def_cfa_offset 28
- 503              		.cfi_offset 4, -28
- 504              		.cfi_offset 5, -24
- 505              		.cfi_offset 6, -20
- 506              		.cfi_offset 7, -16
- 507              		.cfi_offset 8, -12
- 508              		.cfi_offset 9, -8
- 509              		.cfi_offset 14, -4
- 510              	.LBB18:
- 511              	.LBB19:
+ 498              		.loc 1 352 0
+ 499              		.cfi_startproc
+ 500              		@ args = 0, pretend = 0, frame = 16
+ 501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 502              	.LVL54:
+ 503 01a4 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 504              	.LCFI6:
+ 505              		.cfi_def_cfa_offset 28
+ 506              		.cfi_offset 4, -28
+ 507              		.cfi_offset 5, -24
+ 508              		.cfi_offset 6, -20
+ 509              		.cfi_offset 7, -16
+ 510              		.cfi_offset 8, -12
+ 511              		.cfi_offset 9, -8
+ 512              		.cfi_offset 14, -4
+ 513              	.LBB18:
+ 514              	.LBB19:
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	*pxListWasEmpty = listLIST_IS_EMPTY( pxCurrentTimerList );
- 512              		.loc 1 435 0
- 513 01a8 524D     		ldr	r5, .L84
- 514              	.LBE19:
- 515              	.LBE18:
+ 515              		.loc 1 435 0
+ 516 01a8 524D     		ldr	r5, .L84
+ 517              	.LBE19:
+ 518              	.LBE18:
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 516              		.loc 1 352 0
- 517 01aa 87B0     		sub	sp, sp, #28
- 518              	.LCFI7:
- 519              		.cfi_def_cfa_offset 56
- 520 01ac A846     		mov	r8, r5
- 521              	.LVL55:
- 522              	.L74:
- 523              	.LBB21:
- 524              	.LBB20:
+ 519              		.loc 1 352 0
+ 520 01aa 87B0     		sub	sp, sp, #28
+ 521              	.LCFI7:
+ 522              		.cfi_def_cfa_offset 56
+ 523 01ac A846     		mov	r8, r5
+ 524              	.LVL55:
+ 525              	.L74:
+ 526              	.LBB21:
+ 527              	.LBB20:
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	*pxListWasEmpty = listLIST_IS_EMPTY( pxCurrentTimerList );
- 525              		.loc 1 435 0 discriminator 1
- 526 01ae EB6A     		ldr	r3, [r5, #44]
- 527 01b0 1A68     		ldr	r2, [r3, #0]
- 528 01b2 D2F10109 		rsbs	r9, r2, #1
- 529 01b6 38BF     		it	cc
- 530 01b8 4FF00009 		movcc	r9, #0
- 531              	.LVL56:
+ 528              		.loc 1 435 0 discriminator 1
+ 529 01ae EB6A     		ldr	r3, [r5, #44]
+ 530 01b0 1A68     		ldr	r2, [r3, #0]
+ 531 01b2 D2F10109 		rsbs	r9, r2, #1
+ 532 01b6 38BF     		it	cc
+ 533 01b8 4FF00009 		movcc	r9, #0
+ 534              	.LVL56:
  436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( *pxListWasEmpty == pdFALSE )
- 532              		.loc 1 436 0 discriminator 1
- 533 01bc B9F1000F 		cmp	r9, #0
- 534 01c0 02D1     		bne	.L75
+ 535              		.loc 1 436 0 discriminator 1
+ 536 01bc B9F1000F 		cmp	r9, #0
+ 537 01c0 02D1     		bne	.L75
  438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xNextExpireTime = listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxCurrentTimerList );
- 535              		.loc 1 438 0
- 536 01c2 DB68     		ldr	r3, [r3, #12]
- 537 01c4 1E68     		ldr	r6, [r3, #0]
- 538              	.LVL57:
- 539 01c6 00E0     		b	.L53
- 540              	.LVL58:
- 541              	.L75:
+ 538              		.loc 1 438 0
+ 539 01c2 DB68     		ldr	r3, [r3, #12]
+ 540 01c4 1E68     		ldr	r6, [r3, #0]
+ 541              	.LVL57:
+ 542 01c6 00E0     		b	.L53
+ 543              	.LVL58:
+ 544              	.L75:
  443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xNextExpireTime = ( portTickType ) 0U;
- 542              		.loc 1 443 0
- 543 01c8 0026     		movs	r6, #0
- 544              	.L53:
- 545              	.LVL59:
- 546              	.LBE20:
- 547              	.LBE21:
- 548              	.LBB22:
- 549              	.LBB23:
+ 545              		.loc 1 443 0
+ 546 01c8 0026     		movs	r6, #0
+ 547              	.L53:
+ 548              	.LVL59:
+ 549              	.LBE20:
+ 550              	.LBE21:
+ 551              	.LBB22:
+ 552              	.LBB23:
  380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	vTaskSuspendAll();
- 550              		.loc 1 380 0
- 551 01ca FFF7FEFF 		bl	vTaskSuspendAll
- 552              	.LVL60:
- 553              	.LBB24:
- 554              	.LBB25:
+ 553              		.loc 1 380 0
+ 554 01ca FFF7FEFF 		bl	vTaskSuspendAll
+ 555              	.LVL60:
+ 556              	.LBB24:
+ 557              	.LBB25:
  455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xTimeNow = xTaskGetTickCount();
- 555              		.loc 1 455 0
- 556 01ce FFF7FEFF 		bl	xTaskGetTickCount
- 557              	.LVL61:
+ 558              		.loc 1 455 0
+ 559 01ce FFF7FEFF 		bl	xTaskGetTickCount
+ 560              	.LVL61:
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimeNow < xLastTime )
- 558              		.loc 1 457 0
- 559 01d2 D8F83430 		ldr	r3, [r8, #52]
+ 561              		.loc 1 457 0
+ 562 01d2 D8F83430 		ldr	r3, [r8, #52]
+ 563 01d6 9842     		cmp	r0, r3
  455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xTimeNow = xTaskGetTickCount();
- 560              		.loc 1 455 0
- 561 01d6 0746     		mov	r7, r0
- 562              	.LVL62:
+ 564              		.loc 1 455 0
+ 565 01d8 0746     		mov	r7, r0
+ 566              	.LVL62:
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimeNow < xLastTime )
- 563              		.loc 1 457 0
- 564 01d8 9842     		cmp	r0, r3
- 565 01da 03D2     		bcs	.L76
+ 567              		.loc 1 457 0
+ 568 01da 03D2     		bcs	.L76
  459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		prvSwitchTimerLists( xLastTime );
- 566              		.loc 1 459 0
- 567 01dc FFF7AAFF 		bl	prvSwitchTimerLists.isra.1
- 568              	.LVL63:
+ 569              		.loc 1 459 0
+ 570 01dc FFF7AAFF 		bl	prvSwitchTimerLists.isra.1
+ 571              	.LVL63:
  460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		*pxTimerListsWereSwitched = pdTRUE;
- 569              		.loc 1 460 0
- 570 01e0 0123     		movs	r3, #1
- 571 01e2 00E0     		b	.L54
- 572              	.LVL64:
- 573              	.L76:
+ 572              		.loc 1 460 0
+ 573 01e0 0123     		movs	r3, #1
+ 574 01e2 00E0     		b	.L54
+ 575              	.LVL64:
+ 576              	.L76:
  464:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		*pxTimerListsWereSwitched = pdFALSE;
- 574              		.loc 1 464 0
- 575 01e4 0023     		movs	r3, #0
- 576              	.LVL65:
- 577              	.L54:
+ 577              		.loc 1 464 0
+ 578 01e4 0023     		movs	r3, #0
+ 579              	.LVL65:
+ 580              	.L54:
  467:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xLastTime = xTimeNow;
- 578              		.loc 1 467 0
- 579 01e6 6F63     		str	r7, [r5, #52]
- 580              	.LBE25:
- 581              	.LBE24:
+ 581              		.loc 1 467 0
+ 582 01e6 6F63     		str	r7, [r5, #52]
+ 583              	.LBE25:
+ 584              	.LBE24:
  388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( xTimerListsWereSwitched == pdFALSE )
- 582              		.loc 1 388 0
- 583 01e8 002B     		cmp	r3, #0
- 584 01ea 34D1     		bne	.L55
+ 585              		.loc 1 388 0
+ 586 01e8 002B     		cmp	r3, #0
+ 587 01ea 34D1     		bne	.L55
  391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			if( ( xListWasEmpty == pdFALSE ) && ( xNextExpireTime <= xTimeNow ) )
- 585              		.loc 1 391 0
- 586 01ec B9F1000F 		cmp	r9, #0
- 587 01f0 25D1     		bne	.L56
- 588 01f2 BE42     		cmp	r6, r7
- 589 01f4 23D8     		bhi	.L56
+ 588              		.loc 1 391 0
+ 589 01ec B9F1000F 		cmp	r9, #0
+ 590 01f0 25D1     		bne	.L56
+ 591 01f2 BE42     		cmp	r6, r7
+ 592 01f4 23D8     		bhi	.L56
  393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				xTaskResumeAll();
- 590              		.loc 1 393 0
- 591 01f6 FFF7FEFF 		bl	xTaskResumeAll
- 592              	.LVL66:
- 593              	.LBB26:
- 594              	.LBB27:
+ 593              		.loc 1 393 0
+ 594 01f6 FFF7FEFF 		bl	xTaskResumeAll
+ 595              	.LVL66:
+ 596              	.LBB26:
+ 597              	.LBB27:
  322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	pxTimer = ( xTIMER * ) listGET_OWNER_OF_HEAD_ENTRY( pxCurrentTimerList );
- 595              		.loc 1 322 0
- 596 01fa EB6A     		ldr	r3, [r5, #44]
- 597 01fc DB68     		ldr	r3, [r3, #12]
- 598 01fe DC68     		ldr	r4, [r3, #12]
- 599              	.LVL67:
+ 598              		.loc 1 322 0
+ 599 01fa EB6A     		ldr	r3, [r5, #44]
+ 600 01fc DB68     		ldr	r3, [r3, #12]
+ 601 01fe DC68     		ldr	r4, [r3, #12]
+ 602              	.LVL67:
  323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	uxListRemove( &( pxTimer->xTimerListItem ) );
- 600              		.loc 1 323 0
- 601 0200 201D     		adds	r0, r4, #4
- 602 0202 FFF7FEFF 		bl	uxListRemove
- 603              	.LVL68:
+ 603              		.loc 1 323 0
+ 604 0200 201D     		adds	r0, r4, #4
+ 605 0202 FFF7FEFF 		bl	uxListRemove
+ 606              	.LVL68:
  328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( pxTimer->uxAutoReload == ( unsigned portBASE_TYPE ) pdTRUE )
- 604              		.loc 1 328 0
- 605 0206 E369     		ldr	r3, [r4, #28]
- 606 0208 012B     		cmp	r3, #1
- 607 020a 14D1     		bne	.L57
+ 607              		.loc 1 328 0
+ 608 0206 E369     		ldr	r3, [r4, #28]
+ 609 0208 012B     		cmp	r3, #1
+ 610 020a 14D1     		bne	.L57
  336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( prvInsertTimerInActiveList( pxTimer, ( xNextExpireTime + pxTimer->xTimerPeriodInTicks ), xTim
- 608              		.loc 1 336 0
- 609 020c A169     		ldr	r1, [r4, #24]
- 610 020e 2046     		mov	r0, r4
- 611 0210 7118     		adds	r1, r6, r1
- 612 0212 3A46     		mov	r2, r7
- 613 0214 3346     		mov	r3, r6
- 614 0216 FFF711FF 		bl	prvInsertTimerInActiveList
- 615              	.LVL69:
- 616 021a 0128     		cmp	r0, #1
- 617 021c 0BD1     		bne	.L57
+ 611              		.loc 1 336 0
+ 612 020c A169     		ldr	r1, [r4, #24]
+ 613 020e 2046     		mov	r0, r4
+ 614 0210 7118     		adds	r1, r6, r1
+ 615 0212 3A46     		mov	r2, r7
+ 616 0214 3346     		mov	r3, r6
+ 617 0216 FFF711FF 		bl	prvInsertTimerInActiveList
+ 618              	.LVL69:
+ 619 021a 0128     		cmp	r0, #1
+ 620 021c 0BD1     		bne	.L57
  340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xResult = xTimerGenericCommand( pxTimer, tmrCOMMAND_START, xNextExpireTime, NULL, tmrNO_DELAY );
- 618              		.loc 1 340 0
- 619 021e CDF80090 		str	r9, [sp, #0]
- 620 0222 2046     		mov	r0, r4
- 621 0224 4946     		mov	r1, r9
- 622 0226 3246     		mov	r2, r6
- 623 0228 4B46     		mov	r3, r9
- 624 022a FFF7FEFF 		bl	xTimerGenericCommand
- 625              	.LVL70:
+ 621              		.loc 1 340 0
+ 622 021e CDF80090 		str	r9, [sp, #0]
+ 623 0222 2046     		mov	r0, r4
+ 624 0224 4946     		mov	r1, r9
+ 625 0226 3246     		mov	r2, r6
+ 626 0228 4B46     		mov	r3, r9
+ 627 022a FFF7FEFF 		bl	xTimerGenericCommand
+ 628              	.LVL70:
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			configASSERT( xResult );
- 626              		.loc 1 341 0
- 627 022e 10B9     		cbnz	r0, .L57
- 628 0230 FFF7FEFF 		bl	ulPortSetInterruptMask
- 629              	.LVL71:
- 630              	.L58:
- 631 0234 FEE7     		b	.L58
- 632              	.L57:
+ 629              		.loc 1 341 0
+ 630 022e 10B9     		cbnz	r0, .L57
+ 631 0230 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 632              	.LVL71:
+ 633              	.L58:
+ 634 0234 FEE7     		b	.L58
+ 635              	.L57:
  347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	pxTimer->pxCallbackFunction( ( xTimerHandle ) pxTimer );
- 633              		.loc 1 347 0
- 634 0236 636A     		ldr	r3, [r4, #36]
- 635 0238 2046     		mov	r0, r4
- 636 023a 9847     		blx	r3
- 637              	.LVL72:
- 638 023c 50E0     		b	.L83
- 639              	.LVL73:
- 640              	.L56:
- 641              	.LBE27:
- 642              	.LBE26:
+ 636              		.loc 1 347 0
+ 637 0236 636A     		ldr	r3, [r4, #36]
+ 638 0238 2046     		mov	r0, r4
+ 639 023a 9847     		blx	r3
+ 640              	.LVL72:
+ 641 023c 50E0     		b	.L83
+ 642              	.LVL73:
+ 643              	.L56:
+ 644              	.LBE27:
+ 645              	.LBE26:
  404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				vQueueWaitForMessageRestricted( xTimerQueue, ( xNextExpireTime - xTimeNow ) );
- 643              		.loc 1 404 0
- 644 023e D8F80000 		ldr	r0, [r8, #0]
- 645 0242 F11B     		subs	r1, r6, r7
- 646 0244 FFF7FEFF 		bl	vQueueWaitForMessageRestricted
- 647              	.LVL74:
+ 646              		.loc 1 404 0
+ 647 023e D8F80000 		ldr	r0, [r8, #0]
+ 648 0242 F11B     		subs	r1, r6, r7
+ 649 0244 FFF7FEFF 		bl	vQueueWaitForMessageRestricted
+ 650              	.LVL74:
  406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				if( xTaskResumeAll() == pdFALSE )
- 648              		.loc 1 406 0
- 649 0248 FFF7FEFF 		bl	xTaskResumeAll
- 650              	.LVL75:
- 651 024c 0028     		cmp	r0, #0
- 652 024e 47D1     		bne	.L83
+ 651              		.loc 1 406 0
+ 652 0248 FFF7FEFF 		bl	xTaskResumeAll
+ 653              	.LVL75:
+ 654 024c 0028     		cmp	r0, #0
+ 655 024e 47D1     		bne	.L83
  412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 					portYIELD_WITHIN_API();
- 653              		.loc 1 412 0
- 654 0250 FFF7FEFF 		bl	vPortYield
- 655              	.LVL76:
- 656 0254 44E0     		b	.L83
- 657              	.LVL77:
- 658              	.L55:
+ 656              		.loc 1 412 0
+ 657 0250 FFF7FEFF 		bl	vPortYield
+ 658              	.LVL76:
+ 659 0254 44E0     		b	.L83
+ 660              	.LVL77:
+ 661              	.L55:
  418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			xTaskResumeAll();
- 659              		.loc 1 418 0
- 660 0256 FFF7FEFF 		bl	xTaskResumeAll
- 661              	.LVL78:
- 662 025a 41E0     		b	.L83
- 663              	.LVL79:
- 664              	.L73:
- 665              	.LBE23:
- 666              	.LBE22:
- 667              	.LBB28:
- 668              	.LBB29:
+ 662              		.loc 1 418 0
+ 663 0256 FFF7FEFF 		bl	xTaskResumeAll
+ 664              	.LVL78:
+ 665 025a 41E0     		b	.L83
+ 666              	.LVL79:
+ 667              	.L73:
+ 668              	.LBE23:
+ 669              	.LBE22:
+ 670              	.LBB28:
+ 671              	.LBB29:
  523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		pxTimer = xMessage.pxTimer;
- 669              		.loc 1 523 0
- 670 025c 059C     		ldr	r4, [sp, #20]
- 671              	.LVL80:
+ 672              		.loc 1 523 0
+ 673 025c 059C     		ldr	r4, [sp, #20]
+ 674              	.LVL80:
  525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		if( listIS_CONTAINED_WITHIN( NULL, &( pxTimer->xTimerListItem ) ) == pdFALSE )
- 672              		.loc 1 525 0
- 673 025e 6369     		ldr	r3, [r4, #20]
- 674 0260 13B1     		cbz	r3, .L61
+ 675              		.loc 1 525 0
+ 676 025e 6369     		ldr	r3, [r4, #20]
+ 677 0260 13B1     		cbz	r3, .L61
  528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 			uxListRemove( &( pxTimer->xTimerListItem ) );
- 675              		.loc 1 528 0
- 676 0262 201D     		adds	r0, r4, #4
- 677 0264 FFF7FEFF 		bl	uxListRemove
- 678              	.LVL81:
- 679              	.L61:
- 680              	.LBB30:
- 681              	.LBB31:
+ 678              		.loc 1 528 0
+ 679 0262 201D     		adds	r0, r4, #4
+ 680 0264 FFF7FEFF 		bl	uxListRemove
+ 681              	.LVL81:
+ 682              	.L61:
+ 683              	.LBB30:
+ 684              	.LBB31:
  455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xTimeNow = xTaskGetTickCount();
- 682              		.loc 1 455 0
- 683 0268 FFF7FEFF 		bl	xTaskGetTickCount
- 684              	.LVL82:
+ 685              		.loc 1 455 0
+ 686 0268 FFF7FEFF 		bl	xTaskGetTickCount
+ 687              	.LVL82:
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimeNow < xLastTime )
- 685              		.loc 1 457 0
- 686 026c 6B6B     		ldr	r3, [r5, #52]
+ 688              		.loc 1 457 0
+ 689 026c 6B6B     		ldr	r3, [r5, #52]
+ 690 026e 9842     		cmp	r0, r3
  455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xTimeNow = xTaskGetTickCount();
- 687              		.loc 1 455 0
- 688 026e 0746     		mov	r7, r0
- 689              	.LVL83:
+ 691              		.loc 1 455 0
+ 692 0270 0746     		mov	r7, r0
+ 693              	.LVL83:
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	if( xTimeNow < xLastTime )
- 690              		.loc 1 457 0
- 691 0270 9842     		cmp	r0, r3
- 692 0272 01D2     		bcs	.L62
+ 694              		.loc 1 457 0
+ 695 0272 01D2     		bcs	.L62
  459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		prvSwitchTimerLists( xLastTime );
- 693              		.loc 1 459 0
- 694 0274 FFF75EFF 		bl	prvSwitchTimerLists.isra.1
- 695              	.LVL84:
- 696              	.L62:
- 697              	.LBE31:
- 698              	.LBE30:
+ 696              		.loc 1 459 0
+ 697 0274 FFF75EFF 		bl	prvSwitchTimerLists.isra.1
+ 698              	.LVL84:
+ 699              	.L62:
+ 700              	.LBE31:
+ 701              	.LBE30:
  541:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		switch( xMessage.xMessageID )
- 699              		.loc 1 541 0
- 700 0278 039E     		ldr	r6, [sp, #12]
- 701              	.LBB33:
- 702              	.LBB32:
+ 702              		.loc 1 541 0
+ 703 0278 039E     		ldr	r6, [sp, #12]
+ 704              	.LBB33:
+ 705              	.LBB32:
  467:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	xLastTime = xTimeNow;
- 703              		.loc 1 467 0
- 704 027a C8F83470 		str	r7, [r8, #52]
- 705              	.LBE32:
- 706              	.LBE33:
+ 706              		.loc 1 467 0
+ 707 027a C8F83470 		str	r7, [r8, #52]
+ 708              	.LBE32:
+ 709              	.LBE33:
  541:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		switch( xMessage.xMessageID )
- 707              		.loc 1 541 0
- 708 027e 022E     		cmp	r6, #2
- 709 0280 1ED0     		beq	.L65
- 710 0282 032E     		cmp	r6, #3
- 711 0284 29D0     		beq	.L66
- 712 0286 5EBB     		cbnz	r6, .L83
+ 710              		.loc 1 541 0
+ 711 027e 022E     		cmp	r6, #2
+ 712 0280 1ED0     		beq	.L65
+ 713 0282 032E     		cmp	r6, #3
+ 714 0284 29D0     		beq	.L66
+ 715 0286 5EBB     		cbnz	r6, .L83
  545:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				if( prvInsertTimerInActiveList( pxTimer,  xMessage.xMessageValue + pxTimer->xTimerPeriodInTicks
- 713              		.loc 1 545 0
- 714 0288 049B     		ldr	r3, [sp, #16]
- 715 028a A169     		ldr	r1, [r4, #24]
- 716 028c 2046     		mov	r0, r4
- 717 028e 5918     		adds	r1, r3, r1
- 718 0290 3A46     		mov	r2, r7
- 719 0292 FFF7D3FE 		bl	prvInsertTimerInActiveList
- 720              	.LVL85:
- 721 0296 0128     		cmp	r0, #1
- 722 0298 22D1     		bne	.L83
+ 716              		.loc 1 545 0
+ 717 0288 049B     		ldr	r3, [sp, #16]
+ 718 028a A169     		ldr	r1, [r4, #24]
+ 719 028c 2046     		mov	r0, r4
+ 720 028e 5918     		adds	r1, r3, r1
+ 721 0290 3A46     		mov	r2, r7
+ 722 0292 FFF7D3FE 		bl	prvInsertTimerInActiveList
+ 723              	.LVL85:
+ 724 0296 0128     		cmp	r0, #1
+ 725 0298 22D1     		bne	.L83
  549:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 					pxTimer->pxCallbackFunction( ( xTimerHandle ) pxTimer );
- 723              		.loc 1 549 0
- 724 029a 636A     		ldr	r3, [r4, #36]
- 725 029c 2046     		mov	r0, r4
- 726 029e 9847     		blx	r3
- 727              	.LVL86:
+ 726              		.loc 1 549 0
+ 727 029a 636A     		ldr	r3, [r4, #36]
+ 728 029c 2046     		mov	r0, r4
+ 729 029e 9847     		blx	r3
+ 730              	.LVL86:
  551:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 					if( pxTimer->uxAutoReload == ( unsigned portBASE_TYPE ) pdTRUE )
- 728              		.loc 1 551 0
- 729 02a0 E369     		ldr	r3, [r4, #28]
- 730 02a2 012B     		cmp	r3, #1
- 731 02a4 1CD1     		bne	.L83
+ 731              		.loc 1 551 0
+ 732 02a0 E369     		ldr	r3, [r4, #28]
+ 733 02a2 012B     		cmp	r3, #1
+ 734 02a4 1CD1     		bne	.L83
  553:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 						xResult = xTimerGenericCommand( pxTimer, tmrCOMMAND_START, xMessage.xMessageValue + pxTimer->
- 732              		.loc 1 553 0
- 733 02a6 A269     		ldr	r2, [r4, #24]
- 734 02a8 049B     		ldr	r3, [sp, #16]
- 735 02aa 0096     		str	r6, [sp, #0]
- 736 02ac D218     		adds	r2, r2, r3
- 737 02ae 2046     		mov	r0, r4
- 738 02b0 3146     		mov	r1, r6
- 739 02b2 3346     		mov	r3, r6
- 740 02b4 FFF7FEFF 		bl	xTimerGenericCommand
- 741              	.LVL87:
+ 735              		.loc 1 553 0
+ 736 02a6 A269     		ldr	r2, [r4, #24]
+ 737 02a8 049B     		ldr	r3, [sp, #16]
+ 738 02aa 0096     		str	r6, [sp, #0]
+ 739 02ac D218     		adds	r2, r2, r3
+ 740 02ae 2046     		mov	r0, r4
+ 741 02b0 3146     		mov	r1, r6
+ 742 02b2 3346     		mov	r3, r6
+ 743 02b4 FFF7FEFF 		bl	xTimerGenericCommand
+ 744              	.LVL87:
  554:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 						configASSERT( xResult );
- 742              		.loc 1 554 0
- 743 02b8 90B9     		cbnz	r0, .L83
- 744 02ba FFF7FEFF 		bl	ulPortSetInterruptMask
- 745              	.LVL88:
- 746              	.L70:
- 747 02be FEE7     		b	.L70
- 748              	.L65:
+ 745              		.loc 1 554 0
+ 746 02b8 90B9     		cbnz	r0, .L83
+ 747 02ba FFF7FEFF 		bl	ulPortSetInterruptMask
+ 748              	.LVL88:
+ 749              	.L70:
+ 750 02be FEE7     		b	.L70
+ 751              	.L65:
  566:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				pxTimer->xTimerPeriodInTicks = xMessage.xMessageValue;
- 749              		.loc 1 566 0
- 750 02c0 0499     		ldr	r1, [sp, #16]
- 751 02c2 A161     		str	r1, [r4, #24]
+ 752              		.loc 1 566 0
+ 753 02c0 0499     		ldr	r1, [sp, #16]
+ 754 02c2 A161     		str	r1, [r4, #24]
  567:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				configASSERT( ( pxTimer->xTimerPeriodInTicks > 0 ) );
- 752              		.loc 1 567 0
- 753 02c4 11B9     		cbnz	r1, .L71
- 754 02c6 FFF7FEFF 		bl	ulPortSetInterruptMask
- 755              	.LVL89:
- 756              	.L72:
- 757 02ca FEE7     		b	.L72
- 758              	.L71:
+ 755              		.loc 1 567 0
+ 756 02c4 11B9     		cbnz	r1, .L71
+ 757 02c6 FFF7FEFF 		bl	ulPortSetInterruptMask
+ 758              	.LVL89:
+ 759              	.L72:
+ 760 02ca FEE7     		b	.L72
+ 761              	.L71:
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				prvInsertTimerInActiveList( pxTimer, ( xTimeNow + pxTimer->xTimerPeriodInTicks ), xTimeNow, xTi
- 759              		.loc 1 568 0
- 760 02cc 2046     		mov	r0, r4
- 761 02ce 7918     		adds	r1, r7, r1
- 762 02d0 3A46     		mov	r2, r7
- 763 02d2 3B46     		mov	r3, r7
- 764 02d4 FFF7B2FE 		bl	prvInsertTimerInActiveList
- 765              	.LVL90:
- 766 02d8 02E0     		b	.L83
- 767              	.L66:
+ 762              		.loc 1 568 0
+ 763 02cc 2046     		mov	r0, r4
+ 764 02ce 7918     		adds	r1, r7, r1
+ 765 02d0 3A46     		mov	r2, r7
+ 766 02d2 3B46     		mov	r3, r7
+ 767 02d4 FFF7B2FE 		bl	prvInsertTimerInActiveList
+ 768              	.LVL90:
+ 769 02d8 02E0     		b	.L83
+ 770              	.L66:
  574:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 				vPortFree( pxTimer );
- 768              		.loc 1 574 0
- 769 02da 2046     		mov	r0, r4
- 770 02dc FFF7FEFF 		bl	vPortFree
- 771              	.LVL91:
- 772              	.L83:
+ 771              		.loc 1 574 0
+ 772 02da 2046     		mov	r0, r4
+ 773 02dc FFF7FEFF 		bl	vPortFree
+ 774              	.LVL91:
+ 775              	.L83:
  521:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	while( xQueueReceive( xTimerQueue, &xMessage, tmrNO_DELAY ) != pdFAIL )
- 773              		.loc 1 521 0
- 774 02e0 0022     		movs	r2, #0
- 775 02e2 2868     		ldr	r0, [r5, #0]
- 776 02e4 03A9     		add	r1, sp, #12
- 777 02e6 1346     		mov	r3, r2
- 778 02e8 FFF7FEFF 		bl	xQueueGenericReceive
- 779              	.LVL92:
- 780 02ec 0028     		cmp	r0, #0
- 781 02ee B5D1     		bne	.L73
- 782 02f0 5DE7     		b	.L74
- 783              	.L85:
- 784 02f2 00BF     		.align	2
- 785              	.L84:
- 786 02f4 00000000 		.word	.LANCHOR0
- 787              	.LBE29:
- 788              	.LBE28:
- 789              		.cfi_endproc
- 790              	.LFE4:
- 792              		.align	1
- 793              		.global	xTimerIsTimerActive
- 794              		.thumb
- 795              		.thumb_func
- 797              	xTimerIsTimerActive:
- 798              	.LFB12:
+ 776              		.loc 1 521 0
+ 777 02e0 0022     		movs	r2, #0
+ 778 02e2 2868     		ldr	r0, [r5, #0]
+ 779 02e4 03A9     		add	r1, sp, #12
+ 780 02e6 1346     		mov	r3, r2
+ 781 02e8 FFF7FEFF 		bl	xQueueGenericReceive
+ 782              	.LVL92:
+ 783 02ec 0028     		cmp	r0, #0
+ 784 02ee B5D1     		bne	.L73
+ 785 02f0 5DE7     		b	.L74
+ 786              	.L85:
+ 787 02f2 00BF     		.align	2
+ 788              	.L84:
+ 789 02f4 00000000 		.word	.LANCHOR0
+ 790              	.LBE29:
+ 791              	.LBE28:
+ 792              		.cfi_endproc
+ 793              	.LFE4:
+ 795              		.align	1
+ 796              		.global	xTimerIsTimerActive
+ 797              		.thumb
+ 798              		.thumb_func
+ 800              	xTimerIsTimerActive:
+ 801              	.LFB12:
  660:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** /*-----------------------------------------------------------*/
  661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  662:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** portBASE_TYPE xTimerIsTimerActive( xTimerHandle xTimer )
  663:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 799              		.loc 1 663 0
- 800              		.cfi_startproc
- 801              		@ args = 0, pretend = 0, frame = 0
- 802              		@ frame_needed = 0, uses_anonymous_args = 0
- 803              	.LVL93:
- 804 02f8 10B5     		push	{r4, lr}
- 805              	.LCFI8:
- 806              		.cfi_def_cfa_offset 8
- 807              		.cfi_offset 4, -8
- 808              		.cfi_offset 14, -4
- 809              		.loc 1 663 0
- 810 02fa 0446     		mov	r4, r0
- 811              	.LVL94:
+ 802              		.loc 1 663 0
+ 803              		.cfi_startproc
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806              	.LVL93:
+ 807 02f8 10B5     		push	{r4, lr}
+ 808              	.LCFI8:
+ 809              		.cfi_def_cfa_offset 8
+ 810              		.cfi_offset 4, -8
+ 811              		.cfi_offset 14, -4
+ 812              		.loc 1 663 0
+ 813 02fa 0446     		mov	r4, r0
+ 814              	.LVL94:
  664:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** portBASE_TYPE xTimerIsInActiveList;
  665:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** xTIMER *pxTimer = ( xTIMER * ) xTimer;
  666:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  667:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	/* Is the timer in the list of active timers? */
  668:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskENTER_CRITICAL();
- 812              		.loc 1 668 0
- 813 02fc FFF7FEFF 		bl	vPortEnterCritical
- 814              	.LVL95:
+ 815              		.loc 1 668 0
+ 816 02fc FFF7FEFF 		bl	vPortEnterCritical
+ 817              	.LVL95:
  669:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	{
  670:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		/* Checking to see if it is in the NULL list in effect checks to see if
  671:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		it is referenced from either the current or the overflow timer lists in
  672:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		one go, but the logic has to be reversed, hence the '!'. */
  673:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 		xTimerIsInActiveList = !( listIS_CONTAINED_WITHIN( NULL, &( pxTimer->xTimerListItem ) ) );
- 815              		.loc 1 673 0
- 816 0300 6469     		ldr	r4, [r4, #20]
- 817              	.LVL96:
- 818 0302 0034     		adds	r4, r4, #0
- 819 0304 18BF     		it	ne
- 820 0306 0124     		movne	r4, #1
- 821              	.LVL97:
+ 818              		.loc 1 673 0
+ 819 0300 6469     		ldr	r4, [r4, #20]
+ 820              	.LVL96:
+ 821 0302 0034     		adds	r4, r4, #0
+ 822 0304 18BF     		it	ne
+ 823 0306 0124     		movne	r4, #1
+ 824              	.LVL97:
  674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	}
  675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	taskEXIT_CRITICAL();
- 822              		.loc 1 675 0
- 823 0308 FFF7FEFF 		bl	vPortExitCritical
- 824              	.LVL98:
+ 825              		.loc 1 675 0
+ 826 0308 FFF7FEFF 		bl	vPortExitCritical
+ 827              	.LVL98:
  676:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  677:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	return xTimerIsInActiveList;
  678:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 825              		.loc 1 678 0
- 826 030c 2046     		mov	r0, r4
- 827 030e 10BD     		pop	{r4, pc}
- 828              		.cfi_endproc
- 829              	.LFE12:
- 831              		.align	1
- 832              		.global	pvTimerGetTimerID
- 833              		.thumb
- 834              		.thumb_func
- 836              	pvTimerGetTimerID:
- 837              	.LFB13:
+ 828              		.loc 1 678 0
+ 829 030c 2046     		mov	r0, r4
+ 830 030e 10BD     		pop	{r4, pc}
+ 831              		.cfi_endproc
+ 832              	.LFE12:
+ 834              		.align	1
+ 835              		.global	pvTimerGetTimerID
+ 836              		.thumb
+ 837              		.thumb_func
+ 839              	pvTimerGetTimerID:
+ 840              	.LFB13:
  679:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** /*-----------------------------------------------------------*/
  680:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  681:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** void *pvTimerGetTimerID( xTimerHandle xTimer )
  682:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** {
- 838              		.loc 1 682 0
- 839              		.cfi_startproc
- 840              		@ args = 0, pretend = 0, frame = 0
- 841              		@ frame_needed = 0, uses_anonymous_args = 0
- 842              		@ link register save eliminated.
- 843              	.LVL99:
+ 841              		.loc 1 682 0
+ 842              		.cfi_startproc
+ 843              		@ args = 0, pretend = 0, frame = 0
+ 844              		@ frame_needed = 0, uses_anonymous_args = 0
+ 845              		@ link register save eliminated.
+ 846              	.LVL99:
  683:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** xTIMER *pxTimer = ( xTIMER * ) xTimer;
  684:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 
  685:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** 	return pxTimer->pvTimerID;
  686:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/timers.c **** }
- 844              		.loc 1 686 0
- 845 0310 006A     		ldr	r0, [r0, #32]
- 846              	.LVL100:
- 847 0312 7047     		bx	lr
- 848              		.cfi_endproc
- 849              	.LFE13:
- 851              		.section	.rodata.str1.1,"aMS",%progbits,1
- 852              	.LC0:
- 853 0000 546D7220 		.ascii	"Tmr Svc\000"
- 853      53766300 
- 854              		.bss
- 855              		.align	2
- 856              		.set	.LANCHOR0,. + 0
- 859              	xTimerQueue:
- 860 0000 00000000 		.space	4
- 863              	xActiveTimerList1:
- 864 0004 00000000 		.space	20
- 864      00000000 
- 864      00000000 
- 864      00000000 
- 864      00000000 
- 867              	xActiveTimerList2:
- 868 0018 00000000 		.space	20
- 868      00000000 
- 868      00000000 
- 868      00000000 
- 868      00000000 
- 871              	pxCurrentTimerList:
- 872 002c 00000000 		.space	4
- 875              	pxOverflowTimerList:
- 876 0030 00000000 		.space	4
- 879              	xLastTime.4462:
- 880 0034 00000000 		.space	4
- 881              		.text
- 882              	.Letext0:
- 883              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 884              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h"
- 885              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
- 886              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
- 887              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
- 888              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/queue.h"
- 889              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/timers.h"
- 890              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
+ 847              		.loc 1 686 0
+ 848 0310 006A     		ldr	r0, [r0, #32]
+ 849              	.LVL100:
+ 850 0312 7047     		bx	lr
+ 851              		.cfi_endproc
+ 852              	.LFE13:
+ 854              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 855              	.LC0:
+ 856 0000 546D7220 		.ascii	"Tmr Svc\000"
+ 856      53766300 
+ 857              		.bss
+ 858              		.align	2
+ 859              		.set	.LANCHOR0,. + 0
+ 862              	xTimerQueue:
+ 863 0000 00000000 		.space	4
+ 866              	xActiveTimerList1:
+ 867 0004 00000000 		.space	20
+ 867      00000000 
+ 867      00000000 
+ 867      00000000 
+ 867      00000000 
+ 870              	xActiveTimerList2:
+ 871 0018 00000000 		.space	20
+ 871      00000000 
+ 871      00000000 
+ 871      00000000 
+ 871      00000000 
+ 874              	pxCurrentTimerList:
+ 875 002c 00000000 		.space	4
+ 878              	pxOverflowTimerList:
+ 879 0030 00000000 		.space	4
+ 882              	xLastTime.4462:
+ 883 0034 00000000 		.space	4
+ 884              		.text
+ 885              	.Letext0:
+ 886              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 887              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h"
+ 888              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 889              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
+ 890              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
+ 891              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/queue.h"
+ 892              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/timers.h"
+ 893              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 timers.c
-     /tmp/ccxzG758.s:18     .text:00000000 $t
-     /tmp/ccxzG758.s:22     .text:00000000 prvCheckForValidListAndQueue
-     /tmp/ccxzG758.s:79     .text:00000038 $d
-     /tmp/ccxzG758.s:83     .text:0000003c $t
-     /tmp/ccxzG758.s:87     .text:0000003c prvInsertTimerInActiveList
-     /tmp/ccxzG758.s:158    .text:00000070 $d
-     /tmp/ccxzG758.s:162    .text:00000074 $t
-     /tmp/ccxzG758.s:167    .text:00000074 xTimerCreateTimerTask
-     /tmp/ccxzG758.s:224    .text:000000a8 $d
-     /tmp/ccxzG758.s:493    .text:000001a4 prvTimerTask
-     /tmp/ccxzG758.s:230    .text:000000b4 $t
-     /tmp/ccxzG758.s:235    .text:000000b4 xTimerCreate
-     /tmp/ccxzG758.s:305    .text:000000f0 xTimerGenericCommand
-     /tmp/ccxzG758.s:378    .text:00000130 $d
-     /tmp/ccxzG758.s:382    .text:00000134 $t
-     /tmp/ccxzG758.s:386    .text:00000134 prvSwitchTimerLists.isra.1
-     /tmp/ccxzG758.s:485    .text:000001a0 $d
-     /tmp/ccxzG758.s:489    .text:000001a4 $t
-     /tmp/ccxzG758.s:786    .text:000002f4 $d
-     /tmp/ccxzG758.s:792    .text:000002f8 $t
-     /tmp/ccxzG758.s:797    .text:000002f8 xTimerIsTimerActive
-     /tmp/ccxzG758.s:836    .text:00000310 pvTimerGetTimerID
-     /tmp/ccxzG758.s:855    .bss:00000000 $d
-     /tmp/ccxzG758.s:859    .bss:00000000 xTimerQueue
-     /tmp/ccxzG758.s:863    .bss:00000004 xActiveTimerList1
-     /tmp/ccxzG758.s:867    .bss:00000018 xActiveTimerList2
-     /tmp/ccxzG758.s:871    .bss:0000002c pxCurrentTimerList
-     /tmp/ccxzG758.s:875    .bss:00000030 pxOverflowTimerList
-     /tmp/ccxzG758.s:879    .bss:00000034 xLastTime.4462
+     /tmp/ccIJ97Qo.s:20     .text:00000000 $t
+     /tmp/ccIJ97Qo.s:24     .text:00000000 prvCheckForValidListAndQueue
+     /tmp/ccIJ97Qo.s:81     .text:00000038 $d
+     /tmp/ccIJ97Qo.s:85     .text:0000003c $t
+     /tmp/ccIJ97Qo.s:89     .text:0000003c prvInsertTimerInActiveList
+     /tmp/ccIJ97Qo.s:160    .text:00000070 $d
+     /tmp/ccIJ97Qo.s:164    .text:00000074 $t
+     /tmp/ccIJ97Qo.s:169    .text:00000074 xTimerCreateTimerTask
+     /tmp/ccIJ97Qo.s:226    .text:000000a8 $d
+     /tmp/ccIJ97Qo.s:496    .text:000001a4 prvTimerTask
+     /tmp/ccIJ97Qo.s:232    .text:000000b4 $t
+     /tmp/ccIJ97Qo.s:237    .text:000000b4 xTimerCreate
+     /tmp/ccIJ97Qo.s:307    .text:000000f0 xTimerGenericCommand
+     /tmp/ccIJ97Qo.s:381    .text:00000130 $d
+     /tmp/ccIJ97Qo.s:385    .text:00000134 $t
+     /tmp/ccIJ97Qo.s:389    .text:00000134 prvSwitchTimerLists.isra.1
+     /tmp/ccIJ97Qo.s:488    .text:000001a0 $d
+     /tmp/ccIJ97Qo.s:492    .text:000001a4 $t
+     /tmp/ccIJ97Qo.s:789    .text:000002f4 $d
+     /tmp/ccIJ97Qo.s:795    .text:000002f8 $t
+     /tmp/ccIJ97Qo.s:800    .text:000002f8 xTimerIsTimerActive
+     /tmp/ccIJ97Qo.s:839    .text:00000310 pvTimerGetTimerID
+     /tmp/ccIJ97Qo.s:858    .bss:00000000 $d
+     /tmp/ccIJ97Qo.s:862    .bss:00000000 xTimerQueue
+     /tmp/ccIJ97Qo.s:866    .bss:00000004 xActiveTimerList1
+     /tmp/ccIJ97Qo.s:870    .bss:00000018 xActiveTimerList2
+     /tmp/ccIJ97Qo.s:874    .bss:0000002c pxCurrentTimerList
+     /tmp/ccIJ97Qo.s:878    .bss:00000030 pxOverflowTimerList
+     /tmp/ccIJ97Qo.s:882    .bss:00000034 xLastTime.4462
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stddef.h.40.50cf36416e06376af8a9dca28536f2e4
                            .group:00000000 wm4.projdefs.h.76.214f319a5937dae232f0ee2912b07e1d
                            .group:00000000 wm4.FreeRTOSConfig.h.79.5ce50f1f04ae36d94916fa991aa4b8d7
