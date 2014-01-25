@@ -11,5 +11,9 @@
 
 void Delay(volatile uint32_t delayCount);
 
+float min(float a, float b);
+float max(float a, float b);
+
+
 #endif /* HELPERFUNCTIONS_H */
 

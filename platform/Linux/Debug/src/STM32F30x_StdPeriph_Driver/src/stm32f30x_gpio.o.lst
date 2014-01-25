@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_gpio.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	GPIO_DeInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	GPIO_DeInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_gpio.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	GPIO_DeInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	GPIO_DeInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   * @file    stm32f30x_gpio.c
@@ -144,168 +146,168 @@
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   */
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** void GPIO_DeInit(GPIO_TypeDef* GPIOx)
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** {
-  26              		.loc 1 122 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              	.LVL0:
+  28              		.loc 1 122 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   /* Check the parameters */
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   if(GPIOx == GPIOA)
-  31              		.loc 1 126 0
-  32 0000 B0F1904F 		cmp	r0, #1207959552
+  33              		.loc 1 126 0
+  34 0000 B0F1904F 		cmp	r0, #1207959552
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** {
-  33              		.loc 1 122 0
-  34 0004 08B5     		push	{r3, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
-  38              		.cfi_offset 14, -4
-  39              		.loc 1 126 0
-  40 0006 07D1     		bne	.L2
+  35              		.loc 1 122 0
+  36 0004 08B5     		push	{r3, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+  41              		.loc 1 126 0
+  42 0006 07D1     		bne	.L2
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOA, ENABLE);
-  41              		.loc 1 128 0
-  42 0008 4FF40030 		mov	r0, #131072
-  43              	.LVL1:
-  44 000c 0121     		movs	r1, #1
-  45 000e FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
-  46              	.LVL2:
+  43              		.loc 1 128 0
+  44 0008 4FF40030 		mov	r0, #131072
+  45              	.LVL1:
+  46 000c 0121     		movs	r1, #1
+  47 000e FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+  48              	.LVL2:
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOA, DISABLE);
-  47              		.loc 1 129 0
-  48 0012 4FF40030 		mov	r0, #131072
-  49 0016 35E0     		b	.L8
-  50              	.LVL3:
-  51              	.L2:
+  49              		.loc 1 129 0
+  50 0012 4FF40030 		mov	r0, #131072
+  51 0016 35E0     		b	.L8
+  52              	.LVL3:
+  53              	.L2:
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   else if(GPIOx == GPIOB)
-  52              		.loc 1 131 0
-  53 0018 1D4B     		ldr	r3, .L9
-  54 001a 9842     		cmp	r0, r3
-  55 001c 07D1     		bne	.L3
+  54              		.loc 1 131 0
+  55 0018 1D4B     		ldr	r3, .L9
+  56 001a 9842     		cmp	r0, r3
+  57 001c 07D1     		bne	.L3
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOB, ENABLE);
-  56              		.loc 1 133 0
-  57 001e 4FF48020 		mov	r0, #262144
-  58              	.LVL4:
-  59 0022 0121     		movs	r1, #1
-  60 0024 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
-  61              	.LVL5:
+  58              		.loc 1 133 0
+  59 001e 4FF48020 		mov	r0, #262144
+  60              	.LVL4:
+  61 0022 0121     		movs	r1, #1
+  62 0024 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+  63              	.LVL5:
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOB, DISABLE);
-  62              		.loc 1 134 0
-  63 0028 4FF48020 		mov	r0, #262144
-  64 002c 2AE0     		b	.L8
-  65              	.LVL6:
-  66              	.L3:
+  64              		.loc 1 134 0
+  65 0028 4FF48020 		mov	r0, #262144
+  66 002c 2AE0     		b	.L8
+  67              	.LVL6:
+  68              	.L3:
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   else if(GPIOx == GPIOC)
-  67              		.loc 1 136 0
-  68 002e 194B     		ldr	r3, .L9+4
-  69 0030 9842     		cmp	r0, r3
-  70 0032 07D1     		bne	.L4
+  69              		.loc 1 136 0
+  70 002e 194B     		ldr	r3, .L9+4
+  71 0030 9842     		cmp	r0, r3
+  72 0032 07D1     		bne	.L4
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOC, ENABLE);
-  71              		.loc 1 138 0
-  72 0034 4FF40020 		mov	r0, #524288
-  73              	.LVL7:
-  74 0038 0121     		movs	r1, #1
-  75 003a FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
-  76              	.LVL8:
+  73              		.loc 1 138 0
+  74 0034 4FF40020 		mov	r0, #524288
+  75              	.LVL7:
+  76 0038 0121     		movs	r1, #1
+  77 003a FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+  78              	.LVL8:
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOC, DISABLE);
-  77              		.loc 1 139 0
-  78 003e 4FF40020 		mov	r0, #524288
-  79 0042 1FE0     		b	.L8
-  80              	.LVL9:
-  81              	.L4:
+  79              		.loc 1 139 0
+  80 003e 4FF40020 		mov	r0, #524288
+  81 0042 1FE0     		b	.L8
+  82              	.LVL9:
+  83              	.L4:
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   else if(GPIOx == GPIOD)
-  82              		.loc 1 141 0
-  83 0044 144B     		ldr	r3, .L9+8
-  84 0046 9842     		cmp	r0, r3
-  85 0048 07D1     		bne	.L5
+  84              		.loc 1 141 0
+  85 0044 144B     		ldr	r3, .L9+8
+  86 0046 9842     		cmp	r0, r3
+  87 0048 07D1     		bne	.L5
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOD, ENABLE);
-  86              		.loc 1 143 0
-  87 004a 4FF48010 		mov	r0, #1048576
-  88              	.LVL10:
-  89 004e 0121     		movs	r1, #1
-  90 0050 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
-  91              	.LVL11:
+  88              		.loc 1 143 0
+  89 004a 4FF48010 		mov	r0, #1048576
+  90              	.LVL10:
+  91 004e 0121     		movs	r1, #1
+  92 0050 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+  93              	.LVL11:
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOD, DISABLE);
-  92              		.loc 1 144 0
-  93 0054 4FF48010 		mov	r0, #1048576
-  94 0058 14E0     		b	.L8
-  95              	.LVL12:
-  96              	.L5:
+  94              		.loc 1 144 0
+  95 0054 4FF48010 		mov	r0, #1048576
+  96 0058 14E0     		b	.L8
+  97              	.LVL12:
+  98              	.L5:
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   else if(GPIOx == GPIOE)
-  97              		.loc 1 146 0
-  98 005a 104B     		ldr	r3, .L9+12
-  99 005c 9842     		cmp	r0, r3
- 100 005e 07D1     		bne	.L6
+  99              		.loc 1 146 0
+ 100 005a 104B     		ldr	r3, .L9+12
+ 101 005c 9842     		cmp	r0, r3
+ 102 005e 07D1     		bne	.L6
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOE, ENABLE);
- 101              		.loc 1 148 0
- 102 0060 4FF40010 		mov	r0, #2097152
- 103              	.LVL13:
- 104 0064 0121     		movs	r1, #1
- 105 0066 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
- 106              	.LVL14:
+ 103              		.loc 1 148 0
+ 104 0060 4FF40010 		mov	r0, #2097152
+ 105              	.LVL13:
+ 106 0064 0121     		movs	r1, #1
+ 107 0066 FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+ 108              	.LVL14:
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOE, DISABLE);
- 107              		.loc 1 149 0
- 108 006a 4FF40010 		mov	r0, #2097152
- 109 006e 09E0     		b	.L8
- 110              	.LVL15:
- 111              	.L6:
+ 109              		.loc 1 149 0
+ 110 006a 4FF40010 		mov	r0, #2097152
+ 111 006e 09E0     		b	.L8
+ 112              	.LVL15:
+ 113              	.L6:
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   else
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   {
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     if(GPIOx == GPIOF)
- 112              		.loc 1 153 0
- 113 0070 0B4B     		ldr	r3, .L9+16
- 114 0072 9842     		cmp	r0, r3
- 115 0074 0BD1     		bne	.L1
+ 114              		.loc 1 153 0
+ 115 0070 0B4B     		ldr	r3, .L9+16
+ 116 0072 9842     		cmp	r0, r3
+ 117 0074 0BD1     		bne	.L1
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     {
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOF, ENABLE);
- 116              		.loc 1 155 0
- 117 0076 4FF48000 		mov	r0, #4194304
- 118              	.LVL16:
- 119 007a 0121     		movs	r1, #1
- 120 007c FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
- 121              	.LVL17:
+ 118              		.loc 1 155 0
+ 119 0076 4FF48000 		mov	r0, #4194304
+ 120              	.LVL16:
+ 121 007a 0121     		movs	r1, #1
+ 122 007c FFF7FEFF 		bl	RCC_AHBPeriphResetCmd
+ 123              	.LVL17:
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOF, DISABLE);
- 122              		.loc 1 156 0
- 123 0080 4FF48000 		mov	r0, #4194304
- 124              	.L8:
- 125 0084 0021     		movs	r1, #0
+ 124              		.loc 1 156 0
+ 125 0080 4FF48000 		mov	r0, #4194304
+ 126              	.L8:
+ 127 0084 0021     		movs	r1, #0
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     }
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   }
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** }
- 126              		.loc 1 159 0
- 127 0086 BDE80840 		pop	{r3, lr}
+ 128              		.loc 1 159 0
+ 129 0086 BDE80840 		pop	{r3, lr}
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       RCC_AHBPeriphResetCmd(RCC_AHBPeriph_GPIOF, DISABLE);
- 128              		.loc 1 156 0
- 129 008a FFF7FEBF 		b	RCC_AHBPeriphResetCmd
- 130              	.LVL18:
- 131              	.L1:
- 132 008e 08BD     		pop	{r3, pc}
- 133              	.L10:
- 134              		.align	2
- 135              	.L9:
- 136 0090 00040048 		.word	1207960576
- 137 0094 00080048 		.word	1207961600
- 138 0098 000C0048 		.word	1207962624
- 139 009c 00100048 		.word	1207963648
- 140 00a0 00140048 		.word	1207964672
- 141              		.cfi_endproc
- 142              	.LFE111:
- 144              		.align	1
- 145              		.global	GPIO_Init
- 146              		.thumb
- 147              		.thumb_func
- 149              	GPIO_Init:
- 150              	.LFB112:
+ 130              		.loc 1 156 0
+ 131 008a FFF7FEBF 		b	RCC_AHBPeriphResetCmd
+ 132              	.LVL18:
+ 133              	.L1:
+ 134 008e 08BD     		pop	{r3, pc}
+ 135              	.L10:
+ 136              		.align	2
+ 137              	.L9:
+ 138 0090 00040048 		.word	1207960576
+ 139 0094 00080048 		.word	1207961600
+ 140 0098 000C0048 		.word	1207962624
+ 141 009c 00100048 		.word	1207963648
+ 142 00a0 00140048 		.word	1207964672
+ 143              		.cfi_endproc
+ 144              	.LFE111:
+ 146              		.align	1
+ 147              		.global	GPIO_Init
+ 148              		.thumb
+ 149              		.thumb_func
+ 151              	GPIO_Init:
+ 152              	.LFB112:
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** /**
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   * @brief  Initializes the GPIOx peripheral according to the specified 
@@ -322,21 +324,21 @@
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   */
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** { 
- 151              		.loc 1 175 0
- 152              		.cfi_startproc
- 153              		@ args = 0, pretend = 0, frame = 0
- 154              		@ frame_needed = 0, uses_anonymous_args = 0
- 155              	.LVL19:
- 156 00a4 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 157              	.LCFI1:
- 158              		.cfi_def_cfa_offset 28
- 159              		.cfi_offset 4, -28
- 160              		.cfi_offset 5, -24
- 161              		.cfi_offset 6, -20
- 162              		.cfi_offset 7, -16
- 163              		.cfi_offset 8, -12
- 164              		.cfi_offset 9, -8
- 165              		.cfi_offset 14, -4
+ 153              		.loc 1 175 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              	.LVL19:
+ 158 00a4 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 159              	.LCFI1:
+ 160              		.cfi_def_cfa_offset 28
+ 161              		.cfi_offset 4, -28
+ 162              		.cfi_offset 5, -24
+ 163              		.cfi_offset 6, -20
+ 164              		.cfi_offset 7, -16
+ 165              		.cfi_offset 8, -12
+ 166              		.cfi_offset 9, -8
+ 167              		.cfi_offset 14, -4
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   uint32_t pinpos = 0x00, pos = 0x00 , currentpin = 0x00;
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   /* Check the parameters */
@@ -353,15 +355,15 @@
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     /* Get the port pins position */
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     currentpin = (GPIO_InitStruct->GPIO_Pin) & pos;
- 166              		.loc 1 191 0
- 167 00a8 0023     		movs	r3, #0
- 168 00aa 0F68     		ldr	r7, [r1, #0]
+ 168              		.loc 1 191 0
+ 169 00a8 0023     		movs	r3, #0
+ 170 00aa 0F68     		ldr	r7, [r1, #0]
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   for (pinpos = 0x00; pinpos < 0x10; pinpos++)
- 169              		.loc 1 186 0
- 170 00ac 1A46     		mov	r2, r3
+ 171              		.loc 1 186 0
+ 172 00ac 1A46     		mov	r2, r3
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     pos = ((uint32_t)0x01) << pinpos;
- 171              		.loc 1 188 0
- 172 00ae 4FF0010C 		mov	ip, #1
+ 173              		.loc 1 188 0
+ 174 00ae 4FF0010C 		mov	ip, #1
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     if (currentpin == pos)
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     {
@@ -383,71 +385,68 @@
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       }
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       GPIOx->MODER  &= ~(GPIO_MODER_MODER0 << (pinpos * 2));
- 173              		.loc 1 212 0
- 174 00b2 0324     		movs	r4, #3
- 175              	.LVL20:
- 176              	.L14:
+ 175              		.loc 1 212 0
+ 176 00b2 0324     		movs	r4, #3
+ 177              	.LVL20:
+ 178              	.L14:
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     pos = ((uint32_t)0x01) << pinpos;
- 177              		.loc 1 188 0
- 178 00b4 0CFA02F6 		lsl	r6, ip, r2
- 179              	.LVL21:
+ 179              		.loc 1 188 0
+ 180 00b4 0CFA02F6 		lsl	r6, ip, r2
+ 181              	.LVL21:
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     currentpin = (GPIO_InitStruct->GPIO_Pin) & pos;
- 180              		.loc 1 191 0
- 181 00b8 06EA0705 		and	r5, r6, r7
- 182              	.LVL22:
+ 182              		.loc 1 191 0
+ 183 00b8 06EA0705 		and	r5, r6, r7
+ 184              	.LVL22:
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****     if (currentpin == pos)
- 183              		.loc 1 193 0
- 184 00bc B542     		cmp	r5, r6
- 185 00be 3FD1     		bne	.L12
+ 185              		.loc 1 193 0
+ 186 00bc B542     		cmp	r5, r6
+ 187 00be 3FD1     		bne	.L12
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       if ((GPIO_InitStruct->GPIO_Mode == GPIO_Mode_OUT) || (GPIO_InitStruct->GPIO_Mode == GPIO_Mode
- 186              		.loc 1 195 0
- 187 00c0 0E79     		ldrb	r6, [r1, #4]	@ zero_extendqisi2
- 188              	.LVL23:
- 189 00c2 06F1FF38 		add	r8, r6, #-1
- 190 00c6 B8F1010F 		cmp	r8, #1
- 191 00ca 20D8     		bhi	.L13
+ 188              		.loc 1 195 0
+ 189 00c0 0E79     		ldrb	r6, [r1, #4]	@ zero_extendqisi2
+ 190              	.LVL23:
+ 191 00c2 06F1FF38 		add	r8, r6, #-1
+ 192 00c6 B8F1010F 		cmp	r8, #1
+ 193 00ca 20D8     		bhi	.L13
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****         GPIOx->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (pinpos * 2));
- 192              		.loc 1 201 0
- 193 00cc 04FA03F9 		lsl	r9, r4, r3
- 194 00d0 D0F80880 		ldr	r8, [r0, #8]
- 195 00d4 28EA0908 		bic	r8, r8, r9
- 196 00d8 C0F80880 		str	r8, [r0, #8]
+ 194              		.loc 1 201 0
+ 195 00cc D0F80880 		ldr	r8, [r0, #8]
+ 196 00d0 04FA03F9 		lsl	r9, r4, r3
+ 197 00d4 28EA0908 		bic	r8, r8, r9
+ 198 00d8 C0F80880 		str	r8, [r0, #8]
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****         GPIOx->OSPEEDR |= ((uint32_t)(GPIO_InitStruct->GPIO_Speed) << (pinpos * 2));
- 197              		.loc 1 202 0
- 198 00dc 91F80580 		ldrb	r8, [r1, #5]	@ zero_extendqisi2
- 199 00e0 D0F80890 		ldr	r9, [r0, #8]
- 200 00e4 08FA03F8 		lsl	r8, r8, r3
- 201 00e8 48EA0908 		orr	r8, r8, r9
- 202 00ec C0F80880 		str	r8, [r0, #8]
+ 199              		.loc 1 202 0
+ 200 00dc 91F80580 		ldrb	r8, [r1, #5]	@ zero_extendqisi2
+ 201 00e0 D0F80890 		ldr	r9, [r0, #8]
+ 202 00e4 08FA03F8 		lsl	r8, r8, r3
+ 203 00e8 48EA0908 		orr	r8, r8, r9
+ 204 00ec C0F80880 		str	r8, [r0, #8]
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****         GPIOx->OTYPER &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)pinpos));
- 203              		.loc 1 208 0
- 204 00f0 B0F80480 		ldrh	r8, [r0, #4]
- 205 00f4 1FFA88F8 		uxth	r8, r8
- 206 00f8 28EA0505 		bic	r5, r8, r5
- 207              	.LVL24:
- 208 00fc 8580     		strh	r5, [r0, #4]	@ movhi
+ 205              		.loc 1 208 0
+ 206 00f0 B0F80480 		ldrh	r8, [r0, #4]
+ 207 00f4 1FFA88F8 		uxth	r8, r8
+ 208 00f8 28EA0505 		bic	r5, r8, r5
+ 209              	.LVL24:
+ 210 00fc 8580     		strh	r5, [r0, #4]	@ movhi
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****         GPIOx->OTYPER |= (uint16_t)(((uint16_t)GPIO_InitStruct->GPIO_OType) << ((uint16_t)pinpos));
- 209              		.loc 1 209 0
- 210 00fe 8D79     		ldrb	r5, [r1, #6]	@ zero_extendqisi2
- 211 0100 B0F80480 		ldrh	r8, [r0, #4]
- 212 0104 05FA02F5 		lsl	r5, r5, r2
- 213 0108 45EA0805 		orr	r5, r5, r8
- 214 010c 8580     		strh	r5, [r0, #4]	@ movhi
- 215              	.L13:
- 216              		.loc 1 212 0
- 217 010e 04FA03F5 		lsl	r5, r4, r3
+ 211              		.loc 1 209 0
+ 212 00fe 8D79     		ldrb	r5, [r1, #6]	@ zero_extendqisi2
+ 213 0100 B0F80480 		ldrh	r8, [r0, #4]
+ 214 0104 05FA02F5 		lsl	r5, r5, r2
+ 215 0108 45EA0805 		orr	r5, r5, r8
+ 216 010c 8580     		strh	r5, [r0, #4]	@ movhi
+ 217              	.L13:
+ 218              		.loc 1 212 0
+ 219 010e D0F80080 		ldr	r8, [r0, #0]
+ 220 0112 04FA03F5 		lsl	r5, r4, r3
+ 221 0116 ED43     		mvns	r5, r5
+ 222 0118 05EA0808 		and	r8, r5, r8
+ 223 011c C0F80080 		str	r8, [r0, #0]
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       GPIOx->MODER |= (((uint32_t)GPIO_InitStruct->GPIO_Mode) << (pinpos * 2));
- 218              		.loc 1 214 0
- 219 0112 06FA03F6 		lsl	r6, r6, r3
- 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****       GPIOx->MODER  &= ~(GPIO_MODER_MODER0 << (pinpos * 2));
- 220              		.loc 1 212 0
- 221 0116 D0F80080 		ldr	r8, [r0, #0]
- 222 011a ED43     		mvns	r5, r5
- 223 011c 05EA0808 		and	r8, r5, r8
- 224 0120 C0F80080 		str	r8, [r0, #0]
- 225              		.loc 1 214 0
- 226 0124 D0F80080 		ldr	r8, [r0, #0]
+ 224              		.loc 1 214 0
+ 225 0120 D0F80080 		ldr	r8, [r0, #0]
+ 226 0124 06FA03F6 		lsl	r6, r6, r3
  227 0128 46EA0806 		orr	r6, r6, r8
  228 012c 0660     		str	r6, [r0, #0]
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** 
@@ -1000,71 +999,73 @@
  508:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   temp = ((uint32_t)(GPIO_AF) << ((uint32_t)((uint32_t)GPIO_PinSource & (uint32_t)0x07) * 4));
  503              		.loc 1 508 0
  504 01aa 01F00703 		and	r3, r1, #7
- 499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** {
- 505              		.loc 1 499 0
- 506 01ae 30B5     		push	{r4, r5, lr}
- 507              	.LCFI2:
- 508              		.cfi_def_cfa_offset 12
- 509              		.cfi_offset 4, -12
- 510              		.cfi_offset 5, -8
- 511              		.cfi_offset 14, -4
- 512              		.loc 1 508 0
- 513 01b0 9B00     		lsls	r3, r3, #2
- 514              	.LVL45:
  509:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   GPIOx->AFR[GPIO_PinSource >> 0x03] &= ~((uint32_t)0xF << ((uint32_t)((uint32_t)GPIO_PinSource & (
- 515              		.loc 1 509 0
- 516 01b2 0F24     		movs	r4, #15
- 517 01b4 04FA03F4 		lsl	r4, r4, r3
+ 505              		.loc 1 509 0
+ 506 01ae C908     		lsrs	r1, r1, #3
+ 507              	.LVL45:
+ 508 01b0 0831     		adds	r1, r1, #8
+ 499:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c **** {
+ 509              		.loc 1 499 0
+ 510 01b2 30B5     		push	{r4, r5, lr}
+ 511              	.LCFI2:
+ 512              		.cfi_def_cfa_offset 12
+ 513              		.cfi_offset 4, -12
+ 514              		.cfi_offset 5, -8
+ 515              		.cfi_offset 14, -4
  508:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   temp = ((uint32_t)(GPIO_AF) << ((uint32_t)((uint32_t)GPIO_PinSource & (uint32_t)0x07) * 4));
- 518              		.loc 1 508 0
- 519 01b8 02FA03F2 		lsl	r2, r2, r3
- 520              	.LVL46:
- 521              		.loc 1 509 0
- 522 01bc C908     		lsrs	r1, r1, #3
- 523              	.LVL47:
- 524 01be 0831     		adds	r1, r1, #8
- 525 01c0 50F82150 		ldr	r5, [r0, r1, lsl #2]
- 526 01c4 25EA0404 		bic	r4, r5, r4
- 527 01c8 40F82140 		str	r4, [r0, r1, lsl #2]
+ 516              		.loc 1 508 0
+ 517 01b4 9B00     		lsls	r3, r3, #2
+ 518              	.LVL46:
+ 519              		.loc 1 509 0
+ 520 01b6 50F82150 		ldr	r5, [r0, r1, lsl #2]
+ 521 01ba 0F24     		movs	r4, #15
+ 522 01bc 04FA03F4 		lsl	r4, r4, r3
+ 523 01c0 25EA0404 		bic	r4, r5, r4
+ 524 01c4 40F82140 		str	r4, [r0, r1, lsl #2]
  510:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   temp_2 = GPIOx->AFR[GPIO_PinSource >> 0x03] | temp;
- 528              		.loc 1 510 0
- 529 01cc 50F82140 		ldr	r4, [r0, r1, lsl #2]
- 530 01d0 1443     		orrs	r4, r4, r2
- 531              	.LVL48:
+ 525              		.loc 1 510 0
+ 526 01c8 50F82140 		ldr	r4, [r0, r1, lsl #2]
+ 508:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   temp = ((uint32_t)(GPIO_AF) << ((uint32_t)((uint32_t)GPIO_PinSource & (uint32_t)0x07) * 4));
+ 527              		.loc 1 508 0
+ 528 01cc 02FA03F2 		lsl	r2, r2, r3
+ 529              	.LVL47:
+ 530              		.loc 1 510 0
+ 531 01d0 1443     		orrs	r4, r4, r2
+ 532              	.LVL48:
  511:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c ****   GPIOx->AFR[GPIO_PinSource >> 0x03] = temp_2;
- 532              		.loc 1 511 0
- 533 01d2 40F82140 		str	r4, [r0, r1, lsl #2]
- 534 01d6 30BD     		pop	{r4, r5, pc}
- 535              		.cfi_endproc
- 536              	.LFE123:
- 538              	.Letext0:
- 539              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 540              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 541              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 542              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 543              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 533              		.loc 1 511 0
+ 534 01d2 40F82140 		str	r4, [r0, r1, lsl #2]
+ 535 01d6 30BD     		pop	{r4, r5, pc}
+ 536              		.cfi_endproc
+ 537              	.LFE123:
+ 539              	.Letext0:
+ 540              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 541              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 542              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 543              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 544              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_gpio.c
-     /tmp/cc9XCVhY.s:18     .text:00000000 $t
-     /tmp/cc9XCVhY.s:23     .text:00000000 GPIO_DeInit
-     /tmp/cc9XCVhY.s:136    .text:00000090 $d
-     /tmp/cc9XCVhY.s:144    .text:000000a4 $t
-     /tmp/cc9XCVhY.s:149    .text:000000a4 GPIO_Init
-     /tmp/cc9XCVhY.s:256    .text:0000014c GPIO_StructInit
-     /tmp/cc9XCVhY.s:287    .text:00000160 GPIO_PinLockConfig
-     /tmp/cc9XCVhY.s:318    .text:00000170 GPIO_ReadInputDataBit
-     /tmp/cc9XCVhY.s:344    .text:0000017c GPIO_ReadInputData
-     /tmp/cc9XCVhY.s:366    .text:00000182 GPIO_ReadOutputDataBit
-     /tmp/cc9XCVhY.s:392    .text:0000018e GPIO_ReadOutputData
-     /tmp/cc9XCVhY.s:414    .text:00000194 GPIO_SetBits
-     /tmp/cc9XCVhY.s:433    .text:00000198 GPIO_ResetBits
-     /tmp/cc9XCVhY.s:452    .text:0000019c GPIO_WriteBit
-     /tmp/cc9XCVhY.s:477    .text:000001a6 GPIO_Write
-     /tmp/cc9XCVhY.s:496    .text:000001aa GPIO_PinAFConfig
+     /tmp/ccPnI5sd.s:20     .text:00000000 $t
+     /tmp/ccPnI5sd.s:25     .text:00000000 GPIO_DeInit
+     /tmp/ccPnI5sd.s:138    .text:00000090 $d
+     /tmp/ccPnI5sd.s:146    .text:000000a4 $t
+     /tmp/ccPnI5sd.s:151    .text:000000a4 GPIO_Init
+     /tmp/ccPnI5sd.s:256    .text:0000014c GPIO_StructInit
+     /tmp/ccPnI5sd.s:287    .text:00000160 GPIO_PinLockConfig
+     /tmp/ccPnI5sd.s:318    .text:00000170 GPIO_ReadInputDataBit
+     /tmp/ccPnI5sd.s:344    .text:0000017c GPIO_ReadInputData
+     /tmp/ccPnI5sd.s:366    .text:00000182 GPIO_ReadOutputDataBit
+     /tmp/ccPnI5sd.s:392    .text:0000018e GPIO_ReadOutputData
+     /tmp/ccPnI5sd.s:414    .text:00000194 GPIO_SetBits
+     /tmp/ccPnI5sd.s:433    .text:00000198 GPIO_ResetBits
+     /tmp/ccPnI5sd.s:452    .text:0000019c GPIO_WriteBit
+     /tmp/ccPnI5sd.s:477    .text:000001a6 GPIO_Write
+     /tmp/ccPnI5sd.s:496    .text:000001aa GPIO_PinAFConfig
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

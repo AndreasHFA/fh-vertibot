@@ -3,7 +3,7 @@
 #include <stm32f30x_it.h>
 #include <stm32_configuration.h>
 
-#include <Task1.h>
+#include <Tasks.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,6 +26,7 @@
 #include <LSM303DLHC_Lib_I2C.h>
 #include <MotorPWM.h>
 #include <PID_control.h>
+#include <fuzzy.h>
 
 //#define DEG_TO_RAD 0.017453292f
 
@@ -49,8 +50,8 @@
 static void vLedCtrlCoRoutine( xCoRoutineHandle xHandle, unsigned portBASE_TYPE uxIndex );
 static void vRemoteCtrlWatchdogCoRoutine( xCoRoutineHandle xHandle, unsigned portBASE_TYPE uxIndex );
 static void IMU_Print_Values( void *pvParameters );
-static void Position_Controller( void *pvParameters );
-// static void Position_Controller( void *pvParameters );
+static void IMU_Task( void *pvParameters );
+static void Control_Task( void *pvParameters );
 
 
 int main()
@@ -62,6 +63,7 @@ int main()
 	GPIO_Configuration();
 	USART_Configuration();
 	setup_xBeeS6();
+
 	SPI_Configuration();
 	I2C_Configuration();
 	//TIM2_PWM_Configuration();
@@ -83,8 +85,25 @@ int main()
 	//GPIO_ResetBits(GPIOB, GPIO_Pin_1 | GPIO_Pin_2);
 	Disable_Motor();
 
-	xTaskCreate( Position_Controller, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4, NULL );
-	//xTaskCreate( Position_Controller, ( signed char * ) "Pos_Contr", configMINIMAL_STACK_SIZE, NULL, 3, NULL );
+
+	/* Debug Fuzzy Controll */
+/*
+ 	while(1){
+		//GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+
+
+		GPIOC->ODR ^= GPIO_Pin_11;		// Toggle Pin
+				//IMU_Calculation();
+
+				PositionController();
+
+	    //GPIOC->ODR &= ~GPIO_Pin_11;	// Clear Debug Pin
+
+	}
+*/
+
+	xTaskCreate( IMU_Task, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4, NULL );
+	xTaskCreate( Control_Task, ( signed char * ) "Pos_Contr", configMINIMAL_STACK_SIZE, NULL, 3, NULL );
 	xTaskCreate( IMU_Print_Values, ( signed char * ) "Print_Euler", configMINIMAL_STACK_SIZE, NULL, 2, NULL );
 
 	/* Start the tasks and timer running. */
@@ -93,7 +112,10 @@ int main()
 	while(1);
 }
 
-static void Position_Controller( void *pvParameters )
+/*********************************
+ *		IMU Task
+ *********************************/
+static void IMU_Task( void *pvParameters )
 {
 	portTickType xNextWakeTime;
 
@@ -108,21 +130,17 @@ static void Position_Controller( void *pvParameters )
 
 	Init_IMU();
 
-	Init_PositionController();
-
 	Enable_Motor();
 
 	while(1)
 	{
 		xNextWakeTime = xTaskGetTickCount();
 
-		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+		//GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
 
 		IMU_Calculation();
 
-		PositionController();
-
-		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+		//GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
 
 		vTaskDelayUntil( &xNextWakeTime, DT );
 	}
@@ -130,81 +148,30 @@ static void Position_Controller( void *pvParameters )
 
 // GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
 
-/*
- *		PID Calculation - this is far from being finished
- */
 
-/*
-static void Position_Controller( void *pvParameters )
+/*********************************
+ *		Controller Task
+ *********************************/
+static void Control_Task( void *pvParameters )
 {
-	const portTickType xDelay = 5 / portTICK_RATE_MS;
+	const portTickType xDelay = 50 / portTICK_RATE_MS;
 
-	float MOT0 = 0;
-	float MOT1 = 0;
+	Init_PositionController();
 
-	PID_Control PID_X1;
-
-	init_PID(0.005f, GlobalSettings.PID_rollPitch.PID_kp, GlobalSettings.PID_rollPitch.PID_ki, GlobalSettings.PID_rollPitch.PID_kd, &PID_X1);
 
 	while(1)
 	{
-		if(CtrlStates.copterStatus & ARMED_FLAG )
-		{
-			#ifdef ESC_CALIBRATE
-			MOT0 = MOT1 = GlobalSettings.stopSpeed + CtrlStates.gas;
+		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
 
-			PWM_Motor(0, (uint16_t)MOT0);
-			PWM_Motor(1, (uint16_t)MOT1);
+		PositionController();
 
-			#endif
+		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
 
-			//Mischen der Werte:
-
-			#ifdef VERTIBOT
-			//PID-Regler
-			calc_PID(-XYZ.y, -5.5, &PID_X1);						// Hier stellt er sich auf 6° ein
-
-			MOT0 = GlobalSettings.stopSpeed - PID_X1.y;
-			MOT1 = GlobalSettings.stopSpeed - PID_X1.y;
-
-			if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
-			if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
-
-			if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
-			if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
-
-			// Disable Interrupts
-			taskENTER_CRITICAL();
-
-			yTemp = MOT0;
-
-			#ifdef VERTIBOT
-			  PWM_Motor(0, (uint16_t)MOT0);
-			  PWM_Motor(1, (uint16_t)MOT1);
-			#endif
-
-			taskEXIT_CRITICAL();
-
-			#endif
-		}
-		else
-		{
-			resetIntegralValues_PID(&PID_X1);
-
-			PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
-			PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
-		}
-
-		//
-		uint32_t Header = 0xFF7F3F1F;
-		static uint32_t foo = 0;
-		foo++;
-		SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_X1.y, &PID_X1.esum, 4);
 
 		vTaskDelay( xDelay );
 	}
 }
-*/
+
 
 /*For debug purposes - the print task*/
 static void IMU_Print_Values( void *pvParameters )
@@ -363,3 +330,56 @@ void vApplicationTickHook( void )
 
 
 }
+
+//if(CtrlStates.copterStatus & ARMED_FLAG )
+//{
+//	#ifdef ESC_CALIBRATE
+//	MOT0 = MOT1 = GlobalSettings.stopSpeed + CtrlStates.gas;
+//
+//	PWM_Motor(0, (uint16_t)MOT0);
+//	PWM_Motor(1, (uint16_t)MOT1);
+//
+//	#endif
+//
+//	//Mischen der Werte:
+//
+//	#ifdef VERTIBOT
+//	//PID-Regler
+//	calc_PID(-XYZ.y, -5.5, &PID_X1);						// Hier stellt er sich auf 6° ein
+//
+//	MOT0 = GlobalSettings.stopSpeed - PID_X1.y;
+//	MOT1 = GlobalSettings.stopSpeed - PID_X1.y;
+//
+//	if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
+//	if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
+//
+//	if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
+//	if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
+//
+//	// Disable Interrupts
+//	taskENTER_CRITICAL();
+//
+//	yTemp = MOT0;
+//
+//	#ifdef VERTIBOT
+//	  PWM_Motor(0, (uint16_t)MOT0);
+//	  PWM_Motor(1, (uint16_t)MOT1);
+//	#endif
+//
+//	taskEXIT_CRITICAL();
+//
+//	#endif
+//}
+//else
+//{
+//	resetIntegralValues_PID(&PID_X1);
+//
+//	PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
+//	PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
+//}
+//
+////
+//uint32_t Header = 0xFF7F3F1F;
+//static uint32_t foo = 0;
+//foo++;
+//SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_X1.y, &PID_X1.esum, 4);

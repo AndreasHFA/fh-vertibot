@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f30x_exti.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	EXTI_DeInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	EXTI_DeInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"stm32f30x_exti.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	EXTI_DeInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	EXTI_DeInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   * @file    stm32f30x_exti.c
@@ -147,71 +149,71 @@
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_DeInit(void)
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
-  26              		.loc 1 125 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
+  28              		.loc 1 125 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->IMR    = 0x1F800000;
-  31              		.loc 1 126 0
-  32 0000 0A4B     		ldr	r3, .L2
-  33 0002 4FF0FC52 		mov	r2, #528482304
-  34 0006 1A60     		str	r2, [r3, #0]
+  33              		.loc 1 126 0
+  34 0000 0A4B     		ldr	r3, .L2
+  35 0002 4FF0FC52 		mov	r2, #528482304
+  36 0006 1A60     		str	r2, [r3, #0]
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->EMR    = 0x00000000;
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->RTSR   = 0x00000000;
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->FTSR   = 0x00000000;
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->SWIER  = 0x00000000;
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->PR     = 0xE07FFFFF;
-  35              		.loc 1 131 0
-  36 0008 6FF0FC51 		mvn	r1, #528482304
+  37              		.loc 1 131 0
+  38 0008 6FF0FC51 		mvn	r1, #528482304
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->EMR    = 0x00000000;
-  37              		.loc 1 127 0
-  38 000c 0022     		movs	r2, #0
-  39 000e 5A60     		str	r2, [r3, #4]
+  39              		.loc 1 127 0
+  40 000c 0022     		movs	r2, #0
+  41 000e 5A60     		str	r2, [r3, #4]
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->RTSR   = 0x00000000;
-  40              		.loc 1 128 0
-  41 0010 9A60     		str	r2, [r3, #8]
+  42              		.loc 1 128 0
+  43 0010 9A60     		str	r2, [r3, #8]
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->FTSR   = 0x00000000;
-  42              		.loc 1 129 0
-  43 0012 DA60     		str	r2, [r3, #12]
+  44              		.loc 1 129 0
+  45 0012 DA60     		str	r2, [r3, #12]
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->SWIER  = 0x00000000;
-  44              		.loc 1 130 0
-  45 0014 1A61     		str	r2, [r3, #16]
-  46              		.loc 1 131 0
-  47 0016 5961     		str	r1, [r3, #20]
+  46              		.loc 1 130 0
+  47 0014 1A61     		str	r2, [r3, #16]
+  48              		.loc 1 131 0
+  49 0016 5961     		str	r1, [r3, #20]
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->IMR2   = 0x0000000C;
-  48              		.loc 1 132 0
-  49 0018 0C21     		movs	r1, #12
-  50 001a 1962     		str	r1, [r3, #32]
+  50              		.loc 1 132 0
+  51 0018 0C21     		movs	r1, #12
+  52 001a 1962     		str	r1, [r3, #32]
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->EMR2   = 0x00000000;
-  51              		.loc 1 133 0
-  52 001c 5A62     		str	r2, [r3, #36]
+  53              		.loc 1 133 0
+  54 001c 5A62     		str	r2, [r3, #36]
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->RTSR2  = 0x00000000;
-  53              		.loc 1 134 0
-  54 001e 9A62     		str	r2, [r3, #40]
+  55              		.loc 1 134 0
+  56 001e 9A62     		str	r2, [r3, #40]
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->FTSR2  = 0x00000000;
-  55              		.loc 1 135 0
-  56 0020 DA62     		str	r2, [r3, #44]
+  57              		.loc 1 135 0
+  58 0020 DA62     		str	r2, [r3, #44]
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->SWIER2 = 0x00000000;
-  57              		.loc 1 136 0
-  58 0022 1A63     		str	r2, [r3, #48]
+  59              		.loc 1 136 0
+  60 0022 1A63     		str	r2, [r3, #48]
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI->PR2    = 0x00000003;
-  59              		.loc 1 137 0
-  60 0024 0322     		movs	r2, #3
-  61 0026 5A63     		str	r2, [r3, #52]
-  62 0028 7047     		bx	lr
-  63              	.L3:
-  64 002a 00BF     		.align	2
-  65              	.L2:
-  66 002c 00040140 		.word	1073808384
-  67              		.cfi_endproc
-  68              	.LFE111:
-  70              		.align	1
-  71              		.global	EXTI_Init
-  72              		.thumb
-  73              		.thumb_func
-  75              	EXTI_Init:
-  76              	.LFB112:
+  61              		.loc 1 137 0
+  62 0024 0322     		movs	r2, #3
+  63 0026 5A63     		str	r2, [r3, #52]
+  64 0028 7047     		bx	lr
+  65              	.L3:
+  66 002a 00BF     		.align	2
+  67              	.L2:
+  68 002c 00040140 		.word	1073808384
+  69              		.cfi_endproc
+  70              	.LFE111:
+  72              		.align	1
+  73              		.global	EXTI_Init
+  74              		.thumb
+  75              		.thumb_func
+  77              	EXTI_Init:
+  78              	.LFB112:
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
@@ -230,11 +232,11 @@
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
-  77              		.loc 1 155 0
-  78              		.cfi_startproc
-  79              		@ args = 0, pretend = 0, frame = 0
-  80              		@ frame_needed = 0, uses_anonymous_args = 0
-  81              	.LVL0:
+  79              		.loc 1 155 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              	.LVL0:
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   uint32_t tmp = 0;
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   /* Check the parameters */
@@ -246,63 +248,60 @@
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   tmp = (uint32_t)EXTI_BASE;
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****       
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
-  82              		.loc 1 166 0
-  83 0030 8279     		ldrb	r2, [r0, #6]	@ zero_extendqisi2
+  84              		.loc 1 166 0
+  85 0030 8279     		ldrb	r2, [r0, #6]	@ zero_extendqisi2
+  86 0032 0368     		ldr	r3, [r0, #0]
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
-  84              		.loc 1 155 0
-  85 0032 70B5     		push	{r4, r5, r6, lr}
-  86              	.LCFI0:
-  87              		.cfi_def_cfa_offset 16
-  88              		.cfi_offset 4, -16
-  89              		.cfi_offset 5, -12
-  90              		.cfi_offset 6, -8
-  91              		.cfi_offset 14, -4
-  92 0034 0368     		ldr	r3, [r0, #0]
-  93              		.loc 1 166 0
-  94 0036 002A     		cmp	r2, #0
-  95 0038 66D0     		beq	.L5
+  87              		.loc 1 155 0
+  88 0034 70B5     		push	{r4, r5, r6, lr}
+  89              	.LCFI0:
+  90              		.cfi_def_cfa_offset 16
+  91              		.cfi_offset 4, -16
+  92              		.cfi_offset 5, -12
+  93              		.cfi_offset 6, -8
+  94              		.cfi_offset 14, -4
+  95              		.loc 1 166 0
+  96 0036 002A     		cmp	r2, #0
+  97 0038 66D0     		beq	.L5
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   {
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     /* Clear EXTI line configuration */   
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) (((uint32_t) &(EXTI->IMR)) + ((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20) &=
-  96              		.loc 1 169 0
-  97 003a 23F01F02 		bic	r2, r3, #31
-  98 003e 03F01F01 		and	r1, r3, #31
-  99 0042 0123     		movs	r3, #1
- 100 0044 03FA01F1 		lsl	r1, r3, r1
- 101 0048 02F18042 		add	r2, r2, #1073741824
- 102 004c 02F58232 		add	r2, r2, #66560
- 103 0050 1468     		ldr	r4, [r2, #0]
- 104 0052 24EA0101 		bic	r1, r4, r1
- 105 0056 1160     		str	r1, [r2, #0]
+  98              		.loc 1 169 0
+  99 003a 23F01F02 		bic	r2, r3, #31
+ 100 003e 02F18042 		add	r2, r2, #1073741824
+ 101 0042 02F58232 		add	r2, r2, #66560
+ 102 0046 03F01F01 		and	r1, r3, #31
+ 103 004a 1468     		ldr	r4, [r2, #0]
+ 104 004c 0123     		movs	r3, #1
+ 105 004e 03FA01F1 		lsl	r1, r3, r1
+ 106 0052 24EA0101 		bic	r1, r4, r1
+ 107 0056 1160     		str	r1, [r2, #0]
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) (((uint32_t) &(EXTI->EMR)) + ((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20) &=
- 106              		.loc 1 170 0
- 107 0058 0468     		ldr	r4, [r0, #0]
- 108 005a 344A     		ldr	r2, .L9
- 109 005c 24F01F01 		bic	r1, r4, #31
- 110 0060 04F01F04 		and	r4, r4, #31
- 111 0064 03FA04F4 		lsl	r4, r3, r4
- 112 0068 8D58     		ldr	r5, [r1, r2]
- 113 006a 25EA0404 		bic	r4, r5, r4
- 114 006e 8C50     		str	r4, [r1, r2]
+ 108              		.loc 1 170 0
+ 109 0058 0468     		ldr	r4, [r0, #0]
+ 110 005a 344A     		ldr	r2, .L9
+ 111 005c 24F01F01 		bic	r1, r4, #31
+ 112 0060 04F01F04 		and	r4, r4, #31
+ 113 0064 8D58     		ldr	r5, [r1, r2]
+ 114 0066 03FA04F4 		lsl	r4, r3, r4
+ 115 006a 25EA0404 		bic	r4, r5, r4
+ 116 006e 8C50     		str	r4, [r1, r2]
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****      
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
- 115              		.loc 1 172 0
- 116 0070 0468     		ldr	r4, [r0, #0]
- 117              	.LVL1:
- 118 0072 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
- 119 0074 24F01F02 		bic	r2, r4, #31
+ 117              		.loc 1 172 0
+ 118 0070 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 119 0072 0468     		ldr	r4, [r0, #0]
+ 120              	.LVL1:
+ 121 0074 01F18041 		add	r1, r1, #1073741824
+ 122 0078 24F01F02 		bic	r2, r4, #31
+ 123 007c 01F58231 		add	r1, r1, #66560
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) tmp |= (uint32_t)(1 << (EXTI_InitStruct->EXTI_Line & 0x1F));
- 120              		.loc 1 174 0
- 121 0078 04F01F04 		and	r4, r4, #31
- 122              	.LVL2:
- 123 007c 03FA04F4 		lsl	r4, r3, r4
- 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
- 124              		.loc 1 172 0
- 125 0080 01F18041 		add	r1, r1, #1073741824
- 126 0084 01F58231 		add	r1, r1, #66560
- 127              		.loc 1 174 0
- 128 0088 8D58     		ldr	r5, [r1, r2]
+ 124              		.loc 1 174 0
+ 125 0080 04F01F04 		and	r4, r4, #31
+ 126              	.LVL2:
+ 127 0084 8D58     		ldr	r5, [r1, r2]
+ 128 0086 03FA04F4 		lsl	r4, r3, r4
  129 008a 2C43     		orrs	r4, r4, r5
  130 008c 8C50     		str	r4, [r1, r2]
  131              	.LVL3:
@@ -316,8 +315,8 @@
  134 0090 274C     		ldr	r4, .L9+4
  135 0092 21F01F02 		bic	r2, r1, #31
  136 0096 01F01F01 		and	r1, r1, #31
- 137 009a 03FA01F1 		lsl	r1, r3, r1
- 138 009e 1559     		ldr	r5, [r2, r4]
+ 137 009a 1559     		ldr	r5, [r2, r4]
+ 138 009c 03FA01F1 		lsl	r1, r3, r1
  139 00a0 25EA0101 		bic	r1, r5, r1
  140 00a4 1151     		str	r1, [r2, r4]
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) (((uint32_t) &(EXTI->FTSR)) + ((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20) &
@@ -326,8 +325,8 @@
  143 00a8 2249     		ldr	r1, .L9+8
  144 00aa 25F01F02 		bic	r2, r5, #31
  145 00ae 05F01F05 		and	r5, r5, #31
- 146 00b2 03FA05F5 		lsl	r5, r3, r5
- 147 00b6 5658     		ldr	r6, [r2, r1]
+ 146 00b2 5658     		ldr	r6, [r2, r1]
+ 147 00b4 03FA05F5 		lsl	r5, r3, r5
  148 00b8 26EA0505 		bic	r5, r6, r5
  149 00bc 5550     		str	r5, [r2, r1]
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     
@@ -344,8 +343,8 @@
  155              		.loc 1 186 0
  156 00c6 22F01F05 		bic	r5, r2, #31
  157 00ca 02F01F02 		and	r2, r2, #31
- 158 00ce 03FA02F2 		lsl	r2, r3, r2
- 159 00d2 2E59     		ldr	r6, [r5, r4]
+ 158 00ce 2E59     		ldr	r6, [r5, r4]
+ 159 00d0 03FA02F2 		lsl	r2, r3, r2
  160 00d4 3243     		orrs	r2, r2, r6
  161 00d6 2A51     		str	r2, [r5, r4]
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) (((uint32_t) &(EXTI->FTSR)) + ((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20) |
@@ -354,8 +353,8 @@
  164              	.LVL4:
  165 00da 20F01F02 		bic	r2, r0, #31
  166 00de 00F01F00 		and	r0, r0, #31
- 167 00e2 03FA00F3 		lsl	r3, r3, r0
- 168 00e6 5458     		ldr	r4, [r2, r1]
+ 167 00e2 5458     		ldr	r4, [r2, r1]
+ 168 00e4 03FA00F3 		lsl	r3, r3, r0
  169 00e8 2343     		orrs	r3, r3, r4
  170 00ea 1CE0     		b	.L8
  171              	.LVL5:
@@ -365,68 +364,62 @@
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     {
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****       tmp += EXTI_InitStruct->EXTI_Trigger + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
  173              		.loc 1 191 0
- 174 00ec 22F01F01 		bic	r1, r2, #31
+ 174 00ec 05F18040 		add	r0, r5, #1073741824
+ 175              	.LVL6:
+ 176 00f0 22F01F01 		bic	r1, r2, #31
+ 177 00f4 00F58230 		add	r0, r0, #66560
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****       *(__IO uint32_t *) tmp |= (uint32_t)(1 << (EXTI_InitStruct->EXTI_Line & 0x1F));
- 175              		.loc 1 193 0
- 176 00f0 02F01F02 		and	r2, r2, #31
- 177              	.LVL6:
- 178 00f4 03FA02F3 		lsl	r3, r3, r2
- 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****       tmp += EXTI_InitStruct->EXTI_Trigger + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
- 179              		.loc 1 191 0
- 180 00f8 05F18040 		add	r0, r5, #1073741824
- 181              	.LVL7:
- 182 00fc 00F58230 		add	r0, r0, #66560
- 183              		.loc 1 193 0
- 184 0100 4458     		ldr	r4, [r0, r1]
- 185 0102 2343     		orrs	r3, r3, r4
- 186 0104 4350     		str	r3, [r0, r1]
- 187 0106 70BD     		pop	{r4, r5, r6, pc}
- 188              	.LVL8:
- 189              	.L5:
+ 178              		.loc 1 193 0
+ 179 00f8 02F01F02 		and	r2, r2, #31
+ 180              	.LVL7:
+ 181 00fc 4458     		ldr	r4, [r0, r1]
+ 182 00fe 03FA02F3 		lsl	r3, r3, r2
+ 183 0102 2343     		orrs	r3, r3, r4
+ 184 0104 4350     		str	r3, [r0, r1]
+ 185 0106 70BD     		pop	{r4, r5, r6, pc}
+ 186              	.LVL8:
+ 187              	.L5:
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     }
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   }
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****       
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   else
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   {
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
- 190              		.loc 1 199 0
- 191 0108 23F01F02 		bic	r2, r3, #31
+ 188              		.loc 1 199 0
+ 189 0108 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 190 010a 01F18041 		add	r1, r1, #1073741824
+ 191 010e 23F01F02 		bic	r2, r3, #31
+ 192 0112 01F58231 		add	r1, r1, #66560
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     /* Disable the selected external lines */
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     *(__IO uint32_t *) tmp &= ~(uint32_t)(1 << (EXTI_InitStruct->EXTI_Line & 0x1F));
- 192              		.loc 1 202 0
- 193 010c 0124     		movs	r4, #1
- 194 010e 03F01F03 		and	r3, r3, #31
+ 193              		.loc 1 202 0
+ 194 0116 03F01F03 		and	r3, r3, #31
  195              	.LVL9:
- 196 0112 04FA03F3 		lsl	r3, r4, r3
- 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     tmp += EXTI_InitStruct->EXTI_Mode + (((EXTI_InitStruct->EXTI_Line) >> 5 ) * 0x20);
- 197              		.loc 1 199 0
- 198 0116 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
- 199 0118 01F18041 		add	r1, r1, #1073741824
- 200 011c 01F58231 		add	r1, r1, #66560
- 201              		.loc 1 202 0
- 202 0120 8858     		ldr	r0, [r1, r2]
- 203              	.LVL10:
- 204 0122 20EA0303 		bic	r3, r0, r3
- 205              	.LVL11:
- 206              	.L8:
- 207 0126 8B50     		str	r3, [r1, r2]
- 208 0128 70BD     		pop	{r4, r5, r6, pc}
- 209              	.L10:
- 210 012a 00BF     		.align	2
- 211              	.L9:
- 212 012c 04040140 		.word	1073808388
- 213 0130 08040140 		.word	1073808392
- 214 0134 0C040140 		.word	1073808396
- 215              		.cfi_endproc
- 216              	.LFE112:
- 218              		.align	1
- 219              		.global	EXTI_StructInit
- 220              		.thumb
- 221              		.thumb_func
- 223              	EXTI_StructInit:
- 224              	.LFB113:
+ 196 011a 8858     		ldr	r0, [r1, r2]
+ 197              	.LVL10:
+ 198 011c 0124     		movs	r4, #1
+ 199 011e 04FA03F3 		lsl	r3, r4, r3
+ 200 0122 20EA0303 		bic	r3, r0, r3
+ 201              	.LVL11:
+ 202              	.L8:
+ 203 0126 8B50     		str	r3, [r1, r2]
+ 204 0128 70BD     		pop	{r4, r5, r6, pc}
+ 205              	.L10:
+ 206 012a 00BF     		.align	2
+ 207              	.L9:
+ 208 012c 04040140 		.word	1073808388
+ 209 0130 08040140 		.word	1073808392
+ 210 0134 0C040140 		.word	1073808396
+ 211              		.cfi_endproc
+ 212              	.LFE112:
+ 214              		.align	1
+ 215              		.global	EXTI_StructInit
+ 216              		.thumb
+ 217              		.thumb_func
+ 219              	EXTI_StructInit:
+ 220              	.LFB113:
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   }
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****          
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
@@ -439,39 +432,39 @@
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct)
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 225              		.loc 1 214 0
- 226              		.cfi_startproc
- 227              		@ args = 0, pretend = 0, frame = 0
- 228              		@ frame_needed = 0, uses_anonymous_args = 0
- 229              		@ link register save eliminated.
- 230              	.LVL12:
+ 221              		.loc 1 214 0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              		@ link register save eliminated.
+ 226              	.LVL12:
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_Line = EXTI_LINENONE;
- 231              		.loc 1 215 0
- 232 0138 0023     		movs	r3, #0
+ 227              		.loc 1 215 0
+ 228 0138 0023     		movs	r3, #0
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_Trigger = EXTI_Trigger_Rising_Falling;
- 233              		.loc 1 217 0
- 234 013a 1022     		movs	r2, #16
+ 229              		.loc 1 217 0
+ 230 013a 1022     		movs	r2, #16
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_Line = EXTI_LINENONE;
- 235              		.loc 1 215 0
- 236 013c 0360     		str	r3, [r0, #0]
+ 231              		.loc 1 215 0
+ 232 013c 0360     		str	r3, [r0, #0]
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
- 237              		.loc 1 216 0
- 238 013e 0371     		strb	r3, [r0, #4]
- 239              		.loc 1 217 0
- 240 0140 4271     		strb	r2, [r0, #5]
+ 233              		.loc 1 216 0
+ 234 013e 0371     		strb	r3, [r0, #4]
+ 235              		.loc 1 217 0
+ 236 0140 4271     		strb	r2, [r0, #5]
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   EXTI_InitStruct->EXTI_LineCmd = DISABLE;
- 241              		.loc 1 218 0
- 242 0142 8371     		strb	r3, [r0, #6]
- 243 0144 7047     		bx	lr
- 244              		.cfi_endproc
- 245              	.LFE113:
- 247              		.align	1
- 248              		.global	EXTI_GenerateSWInterrupt
- 249              		.thumb
- 250              		.thumb_func
- 252              	EXTI_GenerateSWInterrupt:
- 253              	.LFB114:
+ 237              		.loc 1 218 0
+ 238 0142 8371     		strb	r3, [r0, #6]
+ 239 0144 7047     		bx	lr
+ 240              		.cfi_endproc
+ 241              	.LFE113:
+ 243              		.align	1
+ 244              		.global	EXTI_GenerateSWInterrupt
+ 245              		.thumb
+ 246              		.thumb_func
+ 248              	EXTI_GenerateSWInterrupt:
+ 249              	.LFB114:
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
@@ -483,46 +476,46 @@
  227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line)
  229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 254              		.loc 1 229 0
- 255              		.cfi_startproc
- 256              		@ args = 0, pretend = 0, frame = 0
- 257              		@ frame_needed = 0, uses_anonymous_args = 0
- 258              	.LVL13:
+ 250              		.loc 1 229 0
+ 251              		.cfi_startproc
+ 252              		@ args = 0, pretend = 0, frame = 0
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254              	.LVL13:
  230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   /* Check the parameters */
  231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   assert_param(IS_EXTI_LINE_EXT(EXTI_Line));
  232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   *(__IO uint32_t *) (((uint32_t) &(EXTI->SWIER)) + ((EXTI_Line) >> 5 ) * 0x20) |= (uint32_t)(1 << 
- 259              		.loc 1 233 0
- 260 0146 20F01F02 		bic	r2, r0, #31
+ 255              		.loc 1 233 0
+ 256 0146 20F01F02 		bic	r2, r0, #31
+ 257 014a 054B     		ldr	r3, .L13
  229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 261              		.loc 1 229 0
- 262 014a 10B5     		push	{r4, lr}
- 263              	.LCFI1:
- 264              		.cfi_def_cfa_offset 8
- 265              		.cfi_offset 4, -8
- 266              		.cfi_offset 14, -4
- 267              		.loc 1 233 0
- 268 014c 00F01F00 		and	r0, r0, #31
- 269              	.LVL14:
- 270 0150 0124     		movs	r4, #1
- 271 0152 04FA00F0 		lsl	r0, r4, r0
- 272 0156 024B     		ldr	r3, .L13
- 273 0158 D158     		ldr	r1, [r2, r3]
- 274 015a 0843     		orrs	r0, r0, r1
- 275 015c D050     		str	r0, [r2, r3]
- 276 015e 10BD     		pop	{r4, pc}
- 277              	.L14:
- 278              		.align	2
- 279              	.L13:
- 280 0160 10040140 		.word	1073808400
- 281              		.cfi_endproc
- 282              	.LFE114:
- 284              		.align	1
- 285              		.global	EXTI_GetFlagStatus
- 286              		.thumb
- 287              		.thumb_func
- 289              	EXTI_GetFlagStatus:
- 290              	.LFB115:
+ 258              		.loc 1 229 0
+ 259 014c 10B5     		push	{r4, lr}
+ 260              	.LCFI1:
+ 261              		.cfi_def_cfa_offset 8
+ 262              		.cfi_offset 4, -8
+ 263              		.cfi_offset 14, -4
+ 264              		.loc 1 233 0
+ 265 014e D158     		ldr	r1, [r2, r3]
+ 266 0150 00F01F00 		and	r0, r0, #31
+ 267              	.LVL14:
+ 268 0154 0124     		movs	r4, #1
+ 269 0156 04FA00F0 		lsl	r0, r4, r0
+ 270 015a 0843     		orrs	r0, r0, r1
+ 271 015c D050     		str	r0, [r2, r3]
+ 272 015e 10BD     		pop	{r4, pc}
+ 273              	.L14:
+ 274              		.align	2
+ 275              	.L13:
+ 276 0160 10040140 		.word	1073808400
+ 277              		.cfi_endproc
+ 278              	.LFE114:
+ 280              		.align	1
+ 281              		.global	EXTI_GetFlagStatus
+ 282              		.thumb
+ 283              		.thumb_func
+ 285              	EXTI_GetFlagStatus:
+ 286              	.LFB115:
  234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
  236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
@@ -553,28 +546,28 @@
  261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line)
  263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 291              		.loc 1 263 0
- 292              		.cfi_startproc
- 293              		@ args = 0, pretend = 0, frame = 0
- 294              		@ frame_needed = 0, uses_anonymous_args = 0
- 295              		@ link register save eliminated.
- 296              	.LVL15:
+ 287              		.loc 1 263 0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292              	.LVL15:
  264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   FlagStatus bitstatus = RESET;
  265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   /* Check the parameters */
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   assert_param(IS_GET_EXTI_LINE(EXTI_Line));
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****    
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   if ((*(__IO uint32_t *) (((uint32_t) &(EXTI->PR)) + ((EXTI_Line) >> 5 ) * 0x20)& (uint32_t)(1 << 
- 297              		.loc 1 269 0
- 298 0164 064B     		ldr	r3, .L16
- 299 0166 20F01F02 		bic	r2, r0, #31
- 300 016a D358     		ldr	r3, [r2, r3]
- 301              	.LVL16:
- 302 016c 00F01F00 		and	r0, r0, #31
- 303              	.LVL17:
- 304 0170 0122     		movs	r2, #1
- 305 0172 02FA00F0 		lsl	r0, r2, r0
- 306 0176 0342     		tst	r3, r0
+ 293              		.loc 1 269 0
+ 294 0164 20F01F02 		bic	r2, r0, #31
+ 295 0168 054B     		ldr	r3, .L16
+ 296 016a 00F01F00 		and	r0, r0, #31
+ 297              	.LVL16:
+ 298 016e D358     		ldr	r3, [r2, r3]
+ 299              	.LVL17:
+ 300 0170 0122     		movs	r2, #1
+ 301 0172 02FA00F0 		lsl	r0, r2, r0
+ 302 0176 0342     		tst	r3, r0
  270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   {
  271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     bitstatus = SET;
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   }
@@ -584,23 +577,23 @@
  276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   }
  277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   return bitstatus;
  278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
- 307              		.loc 1 278 0
- 308 0178 0CBF     		ite	eq
- 309 017a 0020     		moveq	r0, #0
- 310 017c 0120     		movne	r0, #1
- 311 017e 7047     		bx	lr
- 312              	.L17:
- 313              		.align	2
- 314              	.L16:
- 315 0180 14040140 		.word	1073808404
- 316              		.cfi_endproc
- 317              	.LFE115:
- 319              		.align	1
- 320              		.global	EXTI_ClearFlag
- 321              		.thumb
- 322              		.thumb_func
- 324              	EXTI_ClearFlag:
- 325              	.LFB116:
+ 303              		.loc 1 278 0
+ 304 0178 0CBF     		ite	eq
+ 305 017a 0020     		moveq	r0, #0
+ 306 017c 0120     		movne	r0, #1
+ 307 017e 7047     		bx	lr
+ 308              	.L17:
+ 309              		.align	2
+ 310              	.L16:
+ 311 0180 14040140 		.word	1073808404
+ 312              		.cfi_endproc
+ 313              	.LFE115:
+ 315              		.align	1
+ 316              		.global	EXTI_ClearFlag
+ 317              		.thumb
+ 318              		.thumb_func
+ 320              	EXTI_ClearFlag:
+ 321              	.LFB116:
  279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
  281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   * @brief  Clears the EXTI's line pending flags.
@@ -610,37 +603,37 @@
  285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_ClearFlag(uint32_t EXTI_Line)
  287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 326              		.loc 1 287 0
- 327              		.cfi_startproc
- 328              		@ args = 0, pretend = 0, frame = 0
- 329              		@ frame_needed = 0, uses_anonymous_args = 0
- 330              		@ link register save eliminated.
- 331              	.LVL18:
+ 322              		.loc 1 287 0
+ 323              		.cfi_startproc
+ 324              		@ args = 0, pretend = 0, frame = 0
+ 325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 326              		@ link register save eliminated.
+ 327              	.LVL18:
  288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   /* Check the parameters */
  289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   assert_param(IS_EXTI_LINE_EXT(EXTI_Line));
  290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   *(__IO uint32_t *) (((uint32_t) &(EXTI->PR)) + ((EXTI_Line) >> 5 ) * 0x20) = (1 << (EXTI_Line & 0
- 332              		.loc 1 291 0
- 333 0184 20F01F02 		bic	r2, r0, #31
- 334 0188 0123     		movs	r3, #1
- 335 018a 00F01F00 		and	r0, r0, #31
- 336              	.LVL19:
- 337 018e 03FA00F0 		lsl	r0, r3, r0
- 338 0192 014B     		ldr	r3, .L19
- 339 0194 D050     		str	r0, [r2, r3]
- 340 0196 7047     		bx	lr
- 341              	.L20:
- 342              		.align	2
- 343              	.L19:
- 344 0198 14040140 		.word	1073808404
- 345              		.cfi_endproc
- 346              	.LFE116:
- 348              		.align	1
- 349              		.global	EXTI_GetITStatus
- 350              		.thumb
- 351              		.thumb_func
- 353              	EXTI_GetITStatus:
- 354              	.LFB117:
+ 328              		.loc 1 291 0
+ 329 0184 20F01F02 		bic	r2, r0, #31
+ 330 0188 0123     		movs	r3, #1
+ 331 018a 00F01F00 		and	r0, r0, #31
+ 332              	.LVL19:
+ 333 018e 03FA00F0 		lsl	r0, r3, r0
+ 334 0192 014B     		ldr	r3, .L19
+ 335 0194 D050     		str	r0, [r2, r3]
+ 336 0196 7047     		bx	lr
+ 337              	.L20:
+ 338              		.align	2
+ 339              	.L19:
+ 340 0198 14040140 		.word	1073808404
+ 341              		.cfi_endproc
+ 342              	.LFE116:
+ 344              		.align	1
+ 345              		.global	EXTI_GetITStatus
+ 346              		.thumb
+ 347              		.thumb_func
+ 349              	EXTI_GetITStatus:
+ 350              	.LFB117:
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
  293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
@@ -651,12 +644,12 @@
  299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** ITStatus EXTI_GetITStatus(uint32_t EXTI_Line)
  301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 355              		.loc 1 301 0
- 356              		.cfi_startproc
- 357              		@ args = 0, pretend = 0, frame = 0
- 358              		@ frame_needed = 0, uses_anonymous_args = 0
- 359              		@ link register save eliminated.
- 360              	.LVL20:
+ 351              		.loc 1 301 0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              		@ link register save eliminated.
+ 356              	.LVL20:
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   ITStatus bitstatus = RESET;
  303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   uint32_t enablestatus = 0;
  304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   
@@ -664,35 +657,35 @@
  306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   assert_param(IS_GET_EXTI_LINE(EXTI_Line));
  307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   
  308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   enablestatus =  *(__IO uint32_t *) (((uint32_t) &(EXTI->IMR)) + ((EXTI_Line) >> 5 ) * 0x20) & (ui
- 361              		.loc 1 308 0
- 362 019c 4209     		lsrs	r2, r0, #5
- 363 019e 02F10073 		add	r3, r2, #33554432
- 364 01a2 03F50263 		add	r3, r3, #2080
- 365 01a6 5B01     		lsls	r3, r3, #5
- 366 01a8 1968     		ldr	r1, [r3, #0]
- 367 01aa 00F01F00 		and	r0, r0, #31
- 368              	.LVL21:
- 369 01ae 0123     		movs	r3, #1
- 370 01b0 03FA00F3 		lsl	r3, r3, r0
- 371              	.LVL22:
+ 357              		.loc 1 308 0
+ 358 019c 4209     		lsrs	r2, r0, #5
+ 359 019e 02F10073 		add	r3, r2, #33554432
+ 360 01a2 03F50263 		add	r3, r3, #2080
+ 361 01a6 5B01     		lsls	r3, r3, #5
+ 362 01a8 00F01F00 		and	r0, r0, #31
+ 363              	.LVL21:
+ 364 01ac 1968     		ldr	r1, [r3, #0]
+ 365 01ae 0123     		movs	r3, #1
+ 366 01b0 03FA00F3 		lsl	r3, r3, r0
+ 367              	.LVL22:
  309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****  
  310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   if ( (((*(__IO uint32_t *) (((uint32_t) &(EXTI->PR)) + (((EXTI_Line) >> 5 ) * 0x20) )) & (uint32_
- 372              		.loc 1 310 0
- 373 01b4 0448     		ldr	r0, .L24
- 374 01b6 5201     		lsls	r2, r2, #5
- 375 01b8 1058     		ldr	r0, [r2, r0]
- 376 01ba 1840     		ands	r0, r0, r3
- 377 01bc 03D0     		beq	.L22
- 378              		.loc 1 310 0 is_stmt 0 discriminator 1
- 379 01be 1942     		tst	r1, r3
+ 368              		.loc 1 310 0
+ 369 01b4 5201     		lsls	r2, r2, #5
+ 370 01b6 0448     		ldr	r0, .L24
+ 371 01b8 1058     		ldr	r0, [r2, r0]
+ 372 01ba 1840     		ands	r0, r0, r3
+ 373 01bc 03D0     		beq	.L22
+ 374              		.loc 1 310 0 is_stmt 0 discriminator 1
+ 375 01be 1942     		tst	r1, r3
  311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   {
  312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****     bitstatus = SET;
- 380              		.loc 1 312 0 is_stmt 1 discriminator 1
- 381 01c0 0CBF     		ite	eq
- 382 01c2 0020     		moveq	r0, #0
- 383 01c4 0120     		movne	r0, #1
- 384              	.L22:
- 385              	.LVL23:
+ 376              		.loc 1 312 0 is_stmt 1 discriminator 1
+ 377 01c0 0CBF     		ite	eq
+ 378 01c2 0020     		moveq	r0, #0
+ 379 01c4 0120     		movne	r0, #1
+ 380              	.L22:
+ 381              	.LVL23:
  313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   }
  314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   else
  315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   {
@@ -701,20 +694,20 @@
  318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   return bitstatus;
  319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   
  320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** }
- 386              		.loc 1 320 0
- 387 01c6 7047     		bx	lr
- 388              	.L25:
- 389              		.align	2
- 390              	.L24:
- 391 01c8 14040140 		.word	1073808404
- 392              		.cfi_endproc
- 393              	.LFE117:
- 395              		.align	1
- 396              		.global	EXTI_ClearITPendingBit
- 397              		.thumb
- 398              		.thumb_func
- 400              	EXTI_ClearITPendingBit:
- 401              	.LFB118:
+ 382              		.loc 1 320 0
+ 383 01c6 7047     		bx	lr
+ 384              	.L25:
+ 385              		.align	2
+ 386              	.L24:
+ 387 01c8 14040140 		.word	1073808404
+ 388              		.cfi_endproc
+ 389              	.LFE117:
+ 391              		.align	1
+ 392              		.global	EXTI_ClearITPendingBit
+ 393              		.thumb
+ 394              		.thumb_func
+ 396              	EXTI_ClearITPendingBit:
+ 397              	.LFB118:
  321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** 
  322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** /**
  323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   * @brief  Clears the EXTI's line pending bits.
@@ -724,64 +717,64 @@
  327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   */
  328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
  329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c **** {
- 402              		.loc 1 329 0
- 403              		.cfi_startproc
- 404              		@ args = 0, pretend = 0, frame = 0
- 405              		@ frame_needed = 0, uses_anonymous_args = 0
- 406              		@ link register save eliminated.
- 407              	.LVL24:
+ 398              		.loc 1 329 0
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 0
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402              		@ link register save eliminated.
+ 403              	.LVL24:
  330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   /* Check the parameters */
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   assert_param(IS_EXTI_LINE_EXT(EXTI_Line));
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c ****   *(__IO uint32_t *) (((uint32_t) &(EXTI->PR)) + ((EXTI_Line) >> 5 ) * 0x20) = (1 << (EXTI_Line & 0
- 408              		.loc 1 333 0
- 409 01cc 20F01F02 		bic	r2, r0, #31
- 410 01d0 0123     		movs	r3, #1
- 411 01d2 00F01F00 		and	r0, r0, #31
- 412              	.LVL25:
- 413 01d6 03FA00F0 		lsl	r0, r3, r0
- 414 01da 014B     		ldr	r3, .L27
- 415 01dc D050     		str	r0, [r2, r3]
- 416 01de 7047     		bx	lr
- 417              	.L28:
- 418              		.align	2
- 419              	.L27:
- 420 01e0 14040140 		.word	1073808404
- 421              		.cfi_endproc
- 422              	.LFE118:
- 424              	.Letext0:
- 425              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 426              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 427              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 428              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 404              		.loc 1 333 0
+ 405 01cc 20F01F02 		bic	r2, r0, #31
+ 406 01d0 0123     		movs	r3, #1
+ 407 01d2 00F01F00 		and	r0, r0, #31
+ 408              	.LVL25:
+ 409 01d6 03FA00F0 		lsl	r0, r3, r0
+ 410 01da 014B     		ldr	r3, .L27
+ 411 01dc D050     		str	r0, [r2, r3]
+ 412 01de 7047     		bx	lr
+ 413              	.L28:
+ 414              		.align	2
+ 415              	.L27:
+ 416 01e0 14040140 		.word	1073808404
+ 417              		.cfi_endproc
+ 418              	.LFE118:
+ 420              	.Letext0:
+ 421              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 422              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 423              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 424              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_exti.c
-     /tmp/ccTmKQy8.s:18     .text:00000000 $t
-     /tmp/ccTmKQy8.s:23     .text:00000000 EXTI_DeInit
-     /tmp/ccTmKQy8.s:66     .text:0000002c $d
-     /tmp/ccTmKQy8.s:70     .text:00000030 $t
-     /tmp/ccTmKQy8.s:75     .text:00000030 EXTI_Init
-     /tmp/ccTmKQy8.s:212    .text:0000012c $d
-     /tmp/ccTmKQy8.s:218    .text:00000138 $t
-     /tmp/ccTmKQy8.s:223    .text:00000138 EXTI_StructInit
-     /tmp/ccTmKQy8.s:252    .text:00000146 EXTI_GenerateSWInterrupt
-     /tmp/ccTmKQy8.s:280    .text:00000160 $d
-     /tmp/ccTmKQy8.s:284    .text:00000164 $t
-     /tmp/ccTmKQy8.s:289    .text:00000164 EXTI_GetFlagStatus
-     /tmp/ccTmKQy8.s:315    .text:00000180 $d
-     /tmp/ccTmKQy8.s:319    .text:00000184 $t
-     /tmp/ccTmKQy8.s:324    .text:00000184 EXTI_ClearFlag
-     /tmp/ccTmKQy8.s:344    .text:00000198 $d
-     /tmp/ccTmKQy8.s:348    .text:0000019c $t
-     /tmp/ccTmKQy8.s:353    .text:0000019c EXTI_GetITStatus
-     /tmp/ccTmKQy8.s:391    .text:000001c8 $d
-     /tmp/ccTmKQy8.s:395    .text:000001cc $t
-     /tmp/ccTmKQy8.s:400    .text:000001cc EXTI_ClearITPendingBit
-     /tmp/ccTmKQy8.s:420    .text:000001e0 $d
+     /tmp/ccdHc5de.s:20     .text:00000000 $t
+     /tmp/ccdHc5de.s:25     .text:00000000 EXTI_DeInit
+     /tmp/ccdHc5de.s:68     .text:0000002c $d
+     /tmp/ccdHc5de.s:72     .text:00000030 $t
+     /tmp/ccdHc5de.s:77     .text:00000030 EXTI_Init
+     /tmp/ccdHc5de.s:208    .text:0000012c $d
+     /tmp/ccdHc5de.s:214    .text:00000138 $t
+     /tmp/ccdHc5de.s:219    .text:00000138 EXTI_StructInit
+     /tmp/ccdHc5de.s:248    .text:00000146 EXTI_GenerateSWInterrupt
+     /tmp/ccdHc5de.s:276    .text:00000160 $d
+     /tmp/ccdHc5de.s:280    .text:00000164 $t
+     /tmp/ccdHc5de.s:285    .text:00000164 EXTI_GetFlagStatus
+     /tmp/ccdHc5de.s:311    .text:00000180 $d
+     /tmp/ccdHc5de.s:315    .text:00000184 $t
+     /tmp/ccdHc5de.s:320    .text:00000184 EXTI_ClearFlag
+     /tmp/ccdHc5de.s:340    .text:00000198 $d
+     /tmp/ccdHc5de.s:344    .text:0000019c $t
+     /tmp/ccdHc5de.s:349    .text:0000019c EXTI_GetITStatus
+     /tmp/ccdHc5de.s:387    .text:000001c8 $d
+     /tmp/ccdHc5de.s:391    .text:000001cc $t
+     /tmp/ccdHc5de.s:396    .text:000001cc EXTI_ClearITPendingBit
+     /tmp/ccdHc5de.s:416    .text:000001e0 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"list.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	vListInitialise
-  20              		.thumb
-  21              		.thumb_func
-  23              	vListInitialise:
-  24              	.LFB0:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"list.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	vListInitialise
+  22              		.thumb
+  23              		.thumb_func
+  25              	vListInitialise:
+  26              	.LFB0:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** /*
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c ****     FreeRTOS V7.4.0 - Copyright (C) 2013 Real Time Engineers Ltd.
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
@@ -107,87 +109,87 @@
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
   84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** void vListInitialise( xList *pxList )
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
-  26              		.loc 1 85 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  28              		.loc 1 85 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* The list structure contains a list item which is used to mark the
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	end of the list.  To initialise the list the list end is inserted
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	as the only list entry. */
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( xListItem * ) &( pxList->xListEnd );
-  32              		.loc 1 89 0
-  33 0000 00F10803 		add	r3, r0, #8
+  34              		.loc 1 89 0
+  35 0000 00F10803 		add	r3, r0, #8
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* The list end value is the highest possible value in the list to
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	ensure it remains at the end of the list. */
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->xListEnd.xItemValue = portMAX_DELAY;
-  34              		.loc 1 93 0
-  35 0004 4FF0FF32 		mov	r2, #-1
-  36 0008 8260     		str	r2, [r0, #8]
+  36              		.loc 1 93 0
+  37 0004 4FF0FF32 		mov	r2, #-1
+  38 0008 8260     		str	r2, [r0, #8]
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( xListItem * ) &( pxList->xListEnd );
-  37              		.loc 1 89 0
-  38 000a 4360     		str	r3, [r0, #4]
+  39              		.loc 1 89 0
+  40 000a 4360     		str	r3, [r0, #4]
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* The list end next and previous pointers point to itself so we know
   96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	when the list is empty. */
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->xListEnd.pxNext = ( xListItem * ) &( pxList->xListEnd );
-  39              		.loc 1 97 0
-  40 000c C360     		str	r3, [r0, #12]
+  41              		.loc 1 97 0
+  42 000c C360     		str	r3, [r0, #12]
   98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->xListEnd.pxPrevious = ( xListItem * ) &( pxList->xListEnd );
-  41              		.loc 1 98 0
-  42 000e 0361     		str	r3, [r0, #16]
+  43              		.loc 1 98 0
+  44 000e 0361     		str	r3, [r0, #16]
   99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->uxNumberOfItems = ( unsigned portBASE_TYPE ) 0U;
-  43              		.loc 1 100 0
-  44 0010 0023     		movs	r3, #0
-  45 0012 0360     		str	r3, [r0, #0]
-  46 0014 7047     		bx	lr
-  47              		.cfi_endproc
-  48              	.LFE0:
-  50              		.align	1
-  51              		.global	vListInitialiseItem
-  52              		.thumb
-  53              		.thumb_func
-  55              	vListInitialiseItem:
-  56              	.LFB1:
+  45              		.loc 1 100 0
+  46 0010 0023     		movs	r3, #0
+  47 0012 0360     		str	r3, [r0, #0]
+  48 0014 7047     		bx	lr
+  49              		.cfi_endproc
+  50              	.LFE0:
+  52              		.align	1
+  53              		.global	vListInitialiseItem
+  54              		.thumb
+  55              		.thumb_func
+  57              	vListInitialiseItem:
+  58              	.LFB1:
  101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** }
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** void vListInitialiseItem( xListItem *pxItem )
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
-  57              		.loc 1 105 0
-  58              		.cfi_startproc
-  59              		@ args = 0, pretend = 0, frame = 0
-  60              		@ frame_needed = 0, uses_anonymous_args = 0
-  61              		@ link register save eliminated.
-  62              	.LVL1:
+  59              		.loc 1 105 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+  64              	.LVL1:
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Make sure the list item is not recorded as being on a list. */
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxItem->pvContainer = NULL;
-  63              		.loc 1 107 0
-  64 0016 0023     		movs	r3, #0
-  65 0018 0361     		str	r3, [r0, #16]
-  66 001a 7047     		bx	lr
-  67              		.cfi_endproc
-  68              	.LFE1:
-  70              		.align	1
-  71              		.global	vListInsertEnd
-  72              		.thumb
-  73              		.thumb_func
-  75              	vListInsertEnd:
-  76              	.LFB2:
+  65              		.loc 1 107 0
+  66 0016 0023     		movs	r3, #0
+  67 0018 0361     		str	r3, [r0, #16]
+  68 001a 7047     		bx	lr
+  69              		.cfi_endproc
+  70              	.LFE1:
+  72              		.align	1
+  73              		.global	vListInsertEnd
+  74              		.thumb
+  75              		.thumb_func
+  77              	vListInsertEnd:
+  78              	.LFB2:
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** }
  109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** void vListInsertEnd( xList *pxList, xListItem *pxNewListItem )
  112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
-  77              		.loc 1 112 0
-  78              		.cfi_startproc
-  79              		@ args = 0, pretend = 0, frame = 0
-  80              		@ frame_needed = 0, uses_anonymous_args = 0
-  81              		@ link register save eliminated.
-  82              	.LVL2:
+  79              		.loc 1 112 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+  84              	.LVL2:
  113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** volatile xListItem * pxIndex;
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Insert a new list item into pxList, but rather than sort the list,
@@ -195,79 +197,72 @@
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pvListGetOwnerOfNextEntry.  This means it has to be the item pointed to by
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	the pxIndex member. */
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxIndex = pxList->pxIndex;
-  83              		.loc 1 119 0
-  84 001c 4368     		ldr	r3, [r0, #4]
-  85              	.LVL3:
+  85              		.loc 1 119 0
+  86 001c 4368     		ldr	r3, [r0, #4]
+  87              	.LVL3:
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIndex->pxNext;
-  86              		.loc 1 121 0
-  87 001e 5A68     		ldr	r2, [r3, #4]
+  88              		.loc 1 121 0
+  89 001e 5A68     		ldr	r2, [r3, #4]
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxPrevious = pxList->pxIndex;
-  88              		.loc 1 122 0
-  89 0020 8B60     		str	r3, [r1, #8]
+  90              		.loc 1 122 0
+  91 0020 8B60     		str	r3, [r1, #8]
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIndex->pxNext;
-  90              		.loc 1 121 0
-  91 0022 4A60     		str	r2, [r1, #4]
+  92              		.loc 1 121 0
+  93 0022 4A60     		str	r2, [r1, #4]
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxIndex->pxNext->pxPrevious = ( volatile xListItem * ) pxNewListItem;
-  92              		.loc 1 123 0
-  93 0024 5A68     		ldr	r2, [r3, #4]
-  94 0026 9160     		str	r1, [r2, #8]
+  94              		.loc 1 123 0
+  95 0024 5A68     		ldr	r2, [r3, #4]
+  96 0026 9160     		str	r1, [r2, #8]
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxIndex->pxNext = ( volatile xListItem * ) pxNewListItem;
-  95              		.loc 1 124 0
-  96 0028 5960     		str	r1, [r3, #4]
+  97              		.loc 1 124 0
+  98 0028 5960     		str	r1, [r3, #4]
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( volatile xListItem * ) pxNewListItem;
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Remember which list the item is in. */
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pvContainer = ( void * ) pxList;
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )++;
-  97              		.loc 1 130 0
-  98 002a 0368     		ldr	r3, [r0, #0]
-  99              	.LVL4:
+  99              		.loc 1 130 0
+ 100 002a 0368     		ldr	r3, [r0, #0]
+ 101              	.LVL4:
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( volatile xListItem * ) pxNewListItem;
- 100              		.loc 1 125 0
- 101 002c 4160     		str	r1, [r0, #4]
- 102              		.loc 1 130 0
- 103 002e 0133     		adds	r3, r3, #1
+ 102              		.loc 1 125 0
+ 103 002c 4160     		str	r1, [r0, #4]
+ 104              		.loc 1 130 0
+ 105 002e 0133     		adds	r3, r3, #1
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pvContainer = ( void * ) pxList;
- 104              		.loc 1 128 0
- 105 0030 0861     		str	r0, [r1, #16]
- 106              		.loc 1 130 0
- 107 0032 0360     		str	r3, [r0, #0]
- 108 0034 7047     		bx	lr
- 109              		.cfi_endproc
- 110              	.LFE2:
- 112              		.align	1
- 113              		.global	vListInsert
- 114              		.thumb
- 115              		.thumb_func
- 117              	vListInsert:
- 118              	.LFB3:
+ 106              		.loc 1 128 0
+ 107 0030 0861     		str	r0, [r1, #16]
+ 108              		.loc 1 130 0
+ 109 0032 0360     		str	r3, [r0, #0]
+ 110 0034 7047     		bx	lr
+ 111              		.cfi_endproc
+ 112              	.LFE2:
+ 114              		.align	1
+ 115              		.global	vListInsert
+ 116              		.thumb
+ 117              		.thumb_func
+ 119              	vListInsert:
+ 120              	.LFB3:
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** }
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** void vListInsert( xList *pxList, xListItem *pxNewListItem )
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
- 119              		.loc 1 135 0
- 120              		.cfi_startproc
- 121              		@ args = 0, pretend = 0, frame = 0
- 122              		@ frame_needed = 0, uses_anonymous_args = 0
- 123              	.LVL5:
+ 121              		.loc 1 135 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              	.LVL5:
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** volatile xListItem *pxIterator;
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** portTickType xValueOfInsertion;
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Insert the new list item into the list, sorted in ulListItem order. */
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	xValueOfInsertion = pxNewListItem->xItemValue;
- 124              		.loc 1 140 0
- 125 0036 0A68     		ldr	r2, [r1, #0]
- 126              	.LVL6:
- 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
- 127              		.loc 1 135 0
- 128 0038 10B5     		push	{r4, lr}
- 129              	.LCFI0:
- 130              		.cfi_def_cfa_offset 8
- 131              		.cfi_offset 4, -8
- 132              		.cfi_offset 14, -4
+ 126              		.loc 1 140 0
+ 127 0036 0A68     		ldr	r2, [r1, #0]
+ 128              	.LVL6:
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* If the list already contains a list item with the same item value then
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	the new list item should be placed after it.  This ensures that TCB's which
@@ -277,17 +272,25 @@
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	to guard against this by checking the value first and modifying the
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	algorithm slightly if necessary. */
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	if( xValueOfInsertion == portMAX_DELAY )
- 133              		.loc 1 149 0
- 134 003a 531C     		adds	r3, r2, #1
- 135 003c 01D1     		bne	.L5
+ 129              		.loc 1 149 0
+ 130 0038 531C     		adds	r3, r2, #1
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
+ 131              		.loc 1 135 0
+ 132 003a 10B5     		push	{r4, lr}
+ 133              	.LCFI0:
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 4, -8
+ 136              		.cfi_offset 14, -4
+ 137              		.loc 1 149 0
+ 138 003c 01D1     		bne	.L5
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	{
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 		pxIterator = pxList->xListEnd.pxPrevious;
- 136              		.loc 1 151 0
- 137 003e 0369     		ldr	r3, [r0, #16]
- 138              	.LVL7:
- 139 0040 07E0     		b	.L6
- 140              	.LVL8:
- 141              	.L5:
+ 139              		.loc 1 151 0
+ 140 003e 0369     		ldr	r3, [r0, #16]
+ 141              	.LVL7:
+ 142 0040 07E0     		b	.L6
+ 143              	.LVL8:
+ 144              	.L5:
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	}
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	else
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	{
@@ -308,21 +311,21 @@
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 		**********************************************************************/
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 		for( pxIterator = ( xListItem * ) &( pxList->xListEnd ); pxIterator->pxNext->xItemValue <= xValue
- 142              		.loc 1 171 0
- 143 0042 00F10803 		add	r3, r0, #8
- 144              	.LVL9:
- 145 0046 00E0     		b	.L7
- 146              	.L8:
- 147              		.loc 1 171 0 is_stmt 0 discriminator 2
- 148 0048 5B68     		ldr	r3, [r3, #4]
- 149              	.LVL10:
- 150              	.L7:
- 151              		.loc 1 171 0 discriminator 1
- 152 004a 5C68     		ldr	r4, [r3, #4]
- 153 004c 2468     		ldr	r4, [r4, #0]
- 154 004e 9442     		cmp	r4, r2
- 155 0050 FAD9     		bls	.L8
- 156              	.L6:
+ 145              		.loc 1 171 0
+ 146 0042 00F10803 		add	r3, r0, #8
+ 147              	.LVL9:
+ 148 0046 00E0     		b	.L7
+ 149              	.L8:
+ 150              		.loc 1 171 0 is_stmt 0 discriminator 2
+ 151 0048 5B68     		ldr	r3, [r3, #4]
+ 152              	.LVL10:
+ 153              	.L7:
+ 154              		.loc 1 171 0 discriminator 1
+ 155 004a 5C68     		ldr	r4, [r3, #4]
+ 156 004c 2468     		ldr	r4, [r4, #0]
+ 157 004e 9442     		cmp	r4, r2
+ 158 0050 FAD9     		bls	.L8
+ 159              	.L6:
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 		{
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 			/* There is nothing to do here, we are just iterating to the
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 			wanted insertion position. */
@@ -330,9 +333,9 @@
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	}
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIterator->pxNext;
- 157              		.loc 1 178 0 is_stmt 1
- 158 0052 5A68     		ldr	r2, [r3, #4]
- 159              	.LVL11:
+ 160              		.loc 1 178 0 is_stmt 1
+ 161 0052 5A68     		ldr	r2, [r3, #4]
+ 162              	.LVL11:
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext->pxPrevious = ( volatile xListItem * ) pxNewListItem;
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxPrevious = pxIterator;
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxIterator->pxNext = ( volatile xListItem * ) pxNewListItem;
@@ -340,110 +343,110 @@
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Remember which list the item is in.  This allows fast removal of the
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	item later. */
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pvContainer = ( void * ) pxList;
- 160              		.loc 1 185 0
- 161 0054 0861     		str	r0, [r1, #16]
+ 163              		.loc 1 185 0
+ 164 0054 0861     		str	r0, [r1, #16]
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext->pxPrevious = ( volatile xListItem * ) pxNewListItem;
- 162              		.loc 1 179 0
- 163 0056 9160     		str	r1, [r2, #8]
+ 165              		.loc 1 179 0
+ 166 0056 9160     		str	r1, [r2, #8]
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIterator->pxNext;
- 164              		.loc 1 178 0
- 165 0058 4A60     		str	r2, [r1, #4]
+ 167              		.loc 1 178 0
+ 168 0058 4A60     		str	r2, [r1, #4]
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxIterator->pxNext = ( volatile xListItem * ) pxNewListItem;
- 166              		.loc 1 181 0
- 167 005a 5960     		str	r1, [r3, #4]
+ 169              		.loc 1 181 0
+ 170 005a 5960     		str	r1, [r3, #4]
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxNewListItem->pxPrevious = pxIterator;
- 168              		.loc 1 180 0
- 169 005c 8B60     		str	r3, [r1, #8]
+ 171              		.loc 1 180 0
+ 172 005c 8B60     		str	r3, [r1, #8]
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )++;
- 170              		.loc 1 187 0
- 171 005e 0368     		ldr	r3, [r0, #0]
- 172              	.LVL12:
- 173 0060 0133     		adds	r3, r3, #1
- 174 0062 0360     		str	r3, [r0, #0]
- 175 0064 10BD     		pop	{r4, pc}
- 176              		.cfi_endproc
- 177              	.LFE3:
- 179              		.align	1
- 180              		.global	uxListRemove
- 181              		.thumb
- 182              		.thumb_func
- 184              	uxListRemove:
- 185              	.LFB4:
+ 173              		.loc 1 187 0
+ 174 005e 0368     		ldr	r3, [r0, #0]
+ 175              	.LVL12:
+ 176 0060 0133     		adds	r3, r3, #1
+ 177 0062 0360     		str	r3, [r0, #0]
+ 178 0064 10BD     		pop	{r4, pc}
+ 179              		.cfi_endproc
+ 180              	.LFE3:
+ 182              		.align	1
+ 183              		.global	uxListRemove
+ 184              		.thumb
+ 185              		.thumb_func
+ 187              	uxListRemove:
+ 188              	.LFB4:
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** }
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** unsigned portBASE_TYPE uxListRemove( xListItem *pxItemToRemove )
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** {
- 186              		.loc 1 192 0
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 0, uses_anonymous_args = 0
- 190              		@ link register save eliminated.
- 191              	.LVL13:
+ 189              		.loc 1 192 0
+ 190              		.cfi_startproc
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 194              	.LVL13:
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** xList * pxList;
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxItemToRemove->pxNext->pxPrevious = pxItemToRemove->pxPrevious;
- 192              		.loc 1 195 0
- 193 0066 4368     		ldr	r3, [r0, #4]
- 194 0068 8268     		ldr	r2, [r0, #8]
- 195 006a 9A60     		str	r2, [r3, #8]
+ 195              		.loc 1 195 0
+ 196 0066 4368     		ldr	r3, [r0, #4]
+ 197 0068 8268     		ldr	r2, [r0, #8]
+ 198 006a 9A60     		str	r2, [r3, #8]
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxItemToRemove->pxPrevious->pxNext = pxItemToRemove->pxNext;
- 196              		.loc 1 196 0
- 197 006c 8268     		ldr	r2, [r0, #8]
- 198 006e 5360     		str	r3, [r2, #4]
+ 199              		.loc 1 196 0
+ 200 006c 8268     		ldr	r2, [r0, #8]
+ 201 006e 5360     		str	r3, [r2, #4]
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* The list item knows which list it is in.  Obtain the list from the list
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	item. */
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxList = ( xList * ) pxItemToRemove->pvContainer;
- 199              		.loc 1 200 0
- 200 0070 0369     		ldr	r3, [r0, #16]
- 201              	.LVL14:
+ 202              		.loc 1 200 0
+ 203 0070 0369     		ldr	r3, [r0, #16]
+ 204              	.LVL14:
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	/* Make sure the index is left pointing to a valid item. */
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	if( pxList->pxIndex == pxItemToRemove )
- 202              		.loc 1 203 0
- 203 0072 5968     		ldr	r1, [r3, #4]
- 204 0074 8142     		cmp	r1, r0
+ 205              		.loc 1 203 0
+ 206 0072 5968     		ldr	r1, [r3, #4]
+ 207 0074 8142     		cmp	r1, r0
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	{
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 		pxList->pxIndex = pxItemToRemove->pxPrevious;
- 205              		.loc 1 205 0
- 206 0076 08BF     		it	eq
- 207 0078 5A60     		streq	r2, [r3, #4]
+ 208              		.loc 1 205 0
+ 209 0076 08BF     		it	eq
+ 210 0078 5A60     		streq	r2, [r3, #4]
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	}
  207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	pxItemToRemove->pvContainer = NULL;
- 208              		.loc 1 208 0
- 209 007a 0022     		movs	r2, #0
- 210 007c 0261     		str	r2, [r0, #16]
+ 211              		.loc 1 208 0
+ 212 007a 0022     		movs	r2, #0
+ 213 007c 0261     		str	r2, [r0, #16]
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )--;
- 211              		.loc 1 209 0
- 212 007e 1A68     		ldr	r2, [r3, #0]
- 213 0080 013A     		subs	r2, r2, #1
- 214 0082 1A60     		str	r2, [r3, #0]
+ 214              		.loc 1 209 0
+ 215 007e 1A68     		ldr	r2, [r3, #0]
+ 216 0080 013A     		subs	r2, r2, #1
+ 217 0082 1A60     		str	r2, [r3, #0]
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** 	return pxList->uxNumberOfItems;
- 215              		.loc 1 211 0
- 216 0084 1868     		ldr	r0, [r3, #0]
- 217              	.LVL15:
+ 218              		.loc 1 211 0
+ 219 0084 1868     		ldr	r0, [r3, #0]
+ 220              	.LVL15:
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/list.c **** }
- 218              		.loc 1 212 0
- 219 0086 7047     		bx	lr
- 220              		.cfi_endproc
- 221              	.LFE4:
- 223              	.Letext0:
- 224              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
- 225              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 221              		.loc 1 212 0
+ 222 0086 7047     		bx	lr
+ 223              		.cfi_endproc
+ 224              	.LFE4:
+ 226              	.Letext0:
+ 227              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
+ 228              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
 DEFINED SYMBOLS
                             *ABS*:00000000 list.c
-     /tmp/ccu9WYVO.s:18     .text:00000000 $t
-     /tmp/ccu9WYVO.s:23     .text:00000000 vListInitialise
-     /tmp/ccu9WYVO.s:55     .text:00000016 vListInitialiseItem
-     /tmp/ccu9WYVO.s:75     .text:0000001c vListInsertEnd
-     /tmp/ccu9WYVO.s:117    .text:00000036 vListInsert
-     /tmp/ccu9WYVO.s:184    .text:00000066 uxListRemove
+     /tmp/ccWr0PFQ.s:20     .text:00000000 $t
+     /tmp/ccWr0PFQ.s:25     .text:00000000 vListInitialise
+     /tmp/ccWr0PFQ.s:57     .text:00000016 vListInitialiseItem
+     /tmp/ccWr0PFQ.s:77     .text:0000001c vListInsertEnd
+     /tmp/ccWr0PFQ.s:119    .text:00000036 vListInsert
+     /tmp/ccWr0PFQ.s:187    .text:00000066 uxListRemove
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
                            .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
                            .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66

@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"system_stm32f30x.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	SystemInit
-  20              		.thumb
-  21              		.thumb_func
-  23              	SystemInit:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templa
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"system_stm32f30x.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	SystemInit
+  22              		.thumb
+  23              		.thumb_func
+  25              	SystemInit:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templa
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** /**
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   ******************************************************************************
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   * @file    system_stm32f30x.c
@@ -192,83 +194,88 @@
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   */
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** void SystemInit(void)
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** {
-  26              		.loc 1 170 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 8
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
+  28              		.loc 1 170 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* FPU settings ------------------------------------------------------------*/
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
+  33              		.loc 1 173 0
+  34 0000 3B4B     		ldr	r3, .L17
+  35 0002 D3F88820 		ldr	r2, [r3, #136]
+  36 0006 42F47002 		orr	r2, r2, #15728640
+  37 000a C3F88820 		str	r2, [r3, #136]
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   #endif
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset the RCC clock configuration to the default reset state ------------*/
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Set HSION bit */
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CR |= (uint32_t)0x00000001;
-  31              		.loc 1 178 0
-  32 0000 384B     		ldr	r3, .L17
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** {
-  33              		.loc 1 170 0
-  34 0002 82B0     		sub	sp, sp, #8
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.loc 1 178 0
-  38 0004 1A68     		ldr	r2, [r3, #0]
-  39 0006 42F00102 		orr	r2, r2, #1
-  40 000a 1A60     		str	r2, [r3, #0]
+  38              		.loc 1 178 0
+  39 000e 394B     		ldr	r3, .L17+4
+  40 0010 1A68     		ldr	r2, [r3, #0]
+  41 0012 42F00102 		orr	r2, r2, #1
+  42 0016 1A60     		str	r2, [r3, #0]
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset CFGR register */
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CFGR &= 0xF87FC00C;
-  41              		.loc 1 181 0
-  42 000c 5968     		ldr	r1, [r3, #4]
-  43 000e 364A     		ldr	r2, .L17+4
-  44 0010 0A40     		ands	r2, r2, r1
-  45 0012 5A60     		str	r2, [r3, #4]
+  43              		.loc 1 181 0
+  44 0018 5968     		ldr	r1, [r3, #4]
+  45 001a 374A     		ldr	r2, .L17+8
+  46 001c 0A40     		ands	r2, r2, r1
+  47 001e 5A60     		str	r2, [r3, #4]
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset HSEON, CSSON and PLLON bits */
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CR &= (uint32_t)0xFEF6FFFF;
-  46              		.loc 1 184 0
-  47 0014 1A68     		ldr	r2, [r3, #0]
-  48 0016 22F08472 		bic	r2, r2, #17301504
-  49 001a 22F48032 		bic	r2, r2, #65536
-  50 001e 1A60     		str	r2, [r3, #0]
+  48              		.loc 1 184 0
+  49 0020 1A68     		ldr	r2, [r3, #0]
+  50 0022 22F08472 		bic	r2, r2, #17301504
+  51 0026 22F48032 		bic	r2, r2, #65536
+  52 002a 1A60     		str	r2, [r3, #0]
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset HSEBYP bit */
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CR &= (uint32_t)0xFFFBFFFF;
-  51              		.loc 1 187 0
-  52 0020 1A68     		ldr	r2, [r3, #0]
-  53 0022 22F48022 		bic	r2, r2, #262144
-  54 0026 1A60     		str	r2, [r3, #0]
+  53              		.loc 1 187 0
+  54 002c 1A68     		ldr	r2, [r3, #0]
+  55 002e 22F48022 		bic	r2, r2, #262144
+  56 0032 1A60     		str	r2, [r3, #0]
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE bits */
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CFGR &= (uint32_t)0xFF80FFFF;
-  55              		.loc 1 190 0
-  56 0028 5A68     		ldr	r2, [r3, #4]
-  57 002a 22F4FE02 		bic	r2, r2, #8323072
-  58 002e 5A60     		str	r2, [r3, #4]
+  57              		.loc 1 190 0
+  58 0034 5A68     		ldr	r2, [r3, #4]
+  59 0036 22F4FE02 		bic	r2, r2, #8323072
+  60 003a 5A60     		str	r2, [r3, #4]
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset PREDIV1[3:0] bits */
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CFGR2 &= (uint32_t)0xFFFFFFF0;
-  59              		.loc 1 193 0
-  60 0030 DA6A     		ldr	r2, [r3, #44]
-  61 0032 22F00F02 		bic	r2, r2, #15
-  62 0036 DA62     		str	r2, [r3, #44]
+  61              		.loc 1 193 0
+  62 003c DA6A     		ldr	r2, [r3, #44]
+  63 003e 22F00F02 		bic	r2, r2, #15
+  64 0042 DA62     		str	r2, [r3, #44]
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Reset USARTSW[1:0], I2CSW and TIMs bits */
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CFGR3 &= (uint32_t)0xFF00FCCC;
-  63              		.loc 1 196 0
-  64 0038 196B     		ldr	r1, [r3, #48]
-  65 003a 2C4A     		ldr	r2, .L17+8
-  66 003c 0A40     		ands	r2, r2, r1
-  67 003e 1A63     		str	r2, [r3, #48]
+  65              		.loc 1 196 0
+  66 0044 196B     		ldr	r1, [r3, #48]
+  67 0046 2D4A     		ldr	r2, .L17+12
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** {
+  68              		.loc 1 170 0
+  69 0048 82B0     		sub	sp, sp, #8
+  70              	.LCFI0:
+  71              		.cfi_def_cfa_offset 8
+  72              		.loc 1 196 0
+  73 004a 0A40     		ands	r2, r2, r1
+  74 004c 1A63     		str	r2, [r3, #48]
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Disable all interrupts */
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CIR = 0x00000000;
-  68              		.loc 1 199 0
-  69 0040 0022     		movs	r2, #0
-  70 0042 9A60     		str	r2, [r3, #8]
-  71              	.LBB4:
-  72              	.LBB5:
+  75              		.loc 1 199 0
+  76 004e 0022     		movs	r2, #0
+  77 0050 9A60     		str	r2, [r3, #8]
+  78              	.LBB4:
+  79              	.LBB5:
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Configure the System clock source, PLL Multiplier and Divider factors, 
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      AHB/APBx prescalers and Flash settings ----------------------------------*/
@@ -372,11 +379,11 @@
  300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** static void SetSysClock(void)
  301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** {
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
-  73              		.loc 1 302 0
-  74 0044 0092     		str	r2, [sp, #0]
-  75              	.LVL0:
-  76 0046 0192     		str	r2, [sp, #4]
-  77              	.LVL1:
+  80              		.loc 1 302 0
+  81 0052 0092     		str	r2, [sp, #0]
+  82              	.LVL0:
+  83 0054 0192     		str	r2, [sp, #4]
+  84              	.LVL1:
  303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** /******************************************************************************/
  305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** /*            PLL (clocked by HSE) used as System clock source                */
@@ -385,321 +392,321 @@
  308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------*/
  309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Enable HSE */
  310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   RCC->CR |= ((uint32_t)RCC_CR_HSEON);
-  78              		.loc 1 310 0
-  79 0048 1A68     		ldr	r2, [r3, #0]
-  80 004a 42F48032 		orr	r2, r2, #65536
-  81 004e 1A60     		str	r2, [r3, #0]
-  82              	.L3:
+  85              		.loc 1 310 0
+  86 0056 1A68     		ldr	r2, [r3, #0]
+  87 0058 42F48032 		orr	r2, r2, #65536
+  88 005c 1A60     		str	r2, [r3, #0]
+  89              	.L3:
  311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****  
  312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   /* Wait till HSE is ready and if Time out is reached exit */
  313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   do
  314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   {
  315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     HSEStatus = RCC->CR & RCC_CR_HSERDY;
-  83              		.loc 1 315 0
-  84 0050 1A68     		ldr	r2, [r3, #0]
-  85 0052 02F40032 		and	r2, r2, #131072
-  86              	.LVL2:
-  87 0056 0192     		str	r2, [sp, #4]
-  88              	.LVL3:
+  90              		.loc 1 315 0
+  91 005e 1A68     		ldr	r2, [r3, #0]
+  92 0060 02F40032 		and	r2, r2, #131072
+  93              	.LVL2:
+  94 0064 0192     		str	r2, [sp, #4]
+  95              	.LVL3:
  316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     StartUpCounter++;
-  89              		.loc 1 316 0
-  90 0058 009A     		ldr	r2, [sp, #0]
-  91              	.LVL4:
-  92 005a 0132     		adds	r2, r2, #1
-  93              	.LVL5:
-  94 005c 0092     		str	r2, [sp, #0]
-  95              	.LVL6:
+  96              		.loc 1 316 0
+  97 0066 009A     		ldr	r2, [sp, #0]
+  98              	.LVL4:
+  99 0068 0132     		adds	r2, r2, #1
+ 100              	.LVL5:
+ 101 006a 0092     		str	r2, [sp, #0]
+ 102              	.LVL6:
  317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
-  96              		.loc 1 317 0
-  97 005e 019A     		ldr	r2, [sp, #4]
-  98              	.LVL7:
-  99 0060 1AB9     		cbnz	r2, .L2
- 100 0062 009A     		ldr	r2, [sp, #0]
- 101 0064 B2F5A06F 		cmp	r2, #1280
- 102 0068 F2D1     		bne	.L3
- 103              	.L2:
+ 103              		.loc 1 317 0
+ 104 006c 019A     		ldr	r2, [sp, #4]
+ 105              	.LVL7:
+ 106 006e 1AB9     		cbnz	r2, .L2
+ 107 0070 009A     		ldr	r2, [sp, #0]
+ 108 0072 B2F5A06F 		cmp	r2, #1280
+ 109 0076 F2D1     		bne	.L3
+ 110              	.L2:
  318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   if ((RCC->CR & RCC_CR_HSERDY) != RESET)
- 104              		.loc 1 319 0
- 105 006a 1E4B     		ldr	r3, .L17
- 106 006c 1B68     		ldr	r3, [r3, #0]
- 107 006e 13F40033 		ands	r3, r3, #131072
+ 111              		.loc 1 319 0
+ 112 0078 1E4B     		ldr	r3, .L17+4
+ 113 007a 1B68     		ldr	r3, [r3, #0]
+ 114 007c 13F40033 		ands	r3, r3, #131072
  320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   {
  321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     HSEStatus = (uint32_t)0x01;
- 108              		.loc 1 321 0
- 109 0072 18BF     		it	ne
- 110 0074 0123     		movne	r3, #1
+ 115              		.loc 1 321 0
+ 116 0080 18BF     		it	ne
+ 117 0082 0123     		movne	r3, #1
  322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   }
  323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   else
  324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   {
  325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     HSEStatus = (uint32_t)0x00;
- 111              		.loc 1 325 0
- 112 0076 0193     		str	r3, [sp, #4]
+ 118              		.loc 1 325 0
+ 119 0084 0193     		str	r3, [sp, #4]
  326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   }
  327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   if (HSEStatus == (uint32_t)0x01)
- 113              		.loc 1 328 0
- 114 0078 019B     		ldr	r3, [sp, #4]
- 115 007a 012B     		cmp	r3, #1
- 116 007c 04D0     		beq	.L6
- 117              	.L9:
- 118              	.LBE5:
- 119              	.LBE4:
+ 120              		.loc 1 328 0
+ 121 0086 019B     		ldr	r3, [sp, #4]
+ 122 0088 012B     		cmp	r3, #1
+ 123 008a 04D0     		beq	.L6
+ 124              	.L9:
+ 125              	.LBE5:
+ 126              	.LBE4:
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
- 120              		.loc 1 208 0
- 121 007e 1C4B     		ldr	r3, .L17+12
- 122 0080 4FF00062 		mov	r2, #134217728
- 123 0084 9A60     		str	r2, [r3, #8]
- 124 0086 2AE0     		b	.L16
- 125              	.L6:
- 126              	.LBB7:
- 127              	.LBB6:
+ 127              		.loc 1 208 0
+ 128 008c 184B     		ldr	r3, .L17
+ 129 008e 4FF00062 		mov	r2, #134217728
+ 130 0092 9A60     		str	r2, [r3, #8]
+ 131 0094 2AE0     		b	.L16
+ 132              	.L6:
+ 133              	.LBB7:
+ 134              	.LBB6:
  329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   {
  330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* Enable Prefetch Buffer and set Flash Latency */
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     FLASH->ACR = FLASH_ACR_PRFTBE | (uint32_t)FLASH_ACR_LATENCY_1;
- 128              		.loc 1 331 0
- 129 0088 1A4B     		ldr	r3, .L17+16
- 130 008a 1222     		movs	r2, #18
- 131 008c 1A60     		str	r2, [r3, #0]
+ 135              		.loc 1 331 0
+ 136 0096 1A4B     		ldr	r3, .L17+16
+ 137 0098 1222     		movs	r2, #18
+ 138 009a 1A60     		str	r2, [r3, #0]
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****  
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      /* HCLK = SYSCLK / 1 */
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      RCC->CFGR |= (uint32_t)RCC_CFGR_HPRE_DIV1;
- 132              		.loc 1 334 0
- 133 008e A3F58053 		sub	r3, r3, #4096
- 134 0092 5A68     		ldr	r2, [r3, #4]
- 135 0094 5A60     		str	r2, [r3, #4]
+ 139              		.loc 1 334 0
+ 140 009c A3F58053 		sub	r3, r3, #4096
+ 141 00a0 5A68     		ldr	r2, [r3, #4]
+ 142 00a2 5A60     		str	r2, [r3, #4]
  335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****        
  336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      /* PCLK2 = HCLK / 1 */
  337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      RCC->CFGR |= (uint32_t)RCC_CFGR_PPRE2_DIV1;
- 136              		.loc 1 337 0
- 137 0096 5A68     		ldr	r2, [r3, #4]
- 138 0098 5A60     		str	r2, [r3, #4]
+ 143              		.loc 1 337 0
+ 144 00a4 5A68     		ldr	r2, [r3, #4]
+ 145 00a6 5A60     		str	r2, [r3, #4]
  338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      
  339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      /* PCLK1 = HCLK / 2 */
  340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****      RCC->CFGR |= (uint32_t)RCC_CFGR_PPRE1_DIV2;
- 139              		.loc 1 340 0
- 140 009a 5A68     		ldr	r2, [r3, #4]
- 141 009c 42F48062 		orr	r2, r2, #1024
- 142 00a0 5A60     		str	r2, [r3, #4]
+ 146              		.loc 1 340 0
+ 147 00a8 5A68     		ldr	r2, [r3, #4]
+ 148 00aa 42F48062 		orr	r2, r2, #1024
+ 149 00ae 5A60     		str	r2, [r3, #4]
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* PLL configuration */
  343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE | RCC_CFGR_PLLMULL));
- 143              		.loc 1 343 0
- 144 00a2 5A68     		ldr	r2, [r3, #4]
- 145 00a4 22F47C12 		bic	r2, r2, #4128768
- 146 00a8 5A60     		str	r2, [r3, #4]
+ 150              		.loc 1 343 0
+ 151 00b0 5A68     		ldr	r2, [r3, #4]
+ 152 00b2 22F47C12 		bic	r2, r2, #4128768
+ 153 00b6 5A60     		str	r2, [r3, #4]
  344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     RCC->CFGR |= (uint32_t)(RCC_CFGR_PLLSRC_PREDIV1 | RCC_CFGR_PLLXTPRE_PREDIV1 | RCC_CFGR_PLLMULL9
- 147              		.loc 1 344 0
- 148 00aa 5A68     		ldr	r2, [r3, #4]
- 149 00ac 42F4E812 		orr	r2, r2, #1900544
- 150 00b0 5A60     		str	r2, [r3, #4]
+ 154              		.loc 1 344 0
+ 155 00b8 5A68     		ldr	r2, [r3, #4]
+ 156 00ba 42F4E812 		orr	r2, r2, #1900544
+ 157 00be 5A60     		str	r2, [r3, #4]
  345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* Enable PLL */
  347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     RCC->CR |= RCC_CR_PLLON;
- 151              		.loc 1 347 0
- 152 00b2 1A68     		ldr	r2, [r3, #0]
- 153 00b4 42F08072 		orr	r2, r2, #16777216
- 154 00b8 1A60     		str	r2, [r3, #0]
- 155              	.L7:
+ 158              		.loc 1 347 0
+ 159 00c0 1A68     		ldr	r2, [r3, #0]
+ 160 00c2 42F08072 		orr	r2, r2, #16777216
+ 161 00c6 1A60     		str	r2, [r3, #0]
+ 162              	.L7:
  348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* Wait till PLL is ready */
  350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     while((RCC->CR & RCC_CR_PLLRDY) == 0)
- 156              		.loc 1 350 0
- 157 00ba 1968     		ldr	r1, [r3, #0]
- 158 00bc 094A     		ldr	r2, .L17
- 159 00be 8901     		lsls	r1, r1, #6
- 160 00c0 FBD5     		bpl	.L7
+ 163              		.loc 1 350 0
+ 164 00c8 1968     		ldr	r1, [r3, #0]
+ 165 00ca 0A4A     		ldr	r2, .L17+4
+ 166 00cc 8901     		lsls	r1, r1, #6
+ 167 00ce FBD5     		bpl	.L7
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     {
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     }
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     
  354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* Select PLL as system clock source */
  355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
- 161              		.loc 1 355 0
- 162 00c2 5368     		ldr	r3, [r2, #4]
- 163 00c4 23F00303 		bic	r3, r3, #3
- 164 00c8 5360     		str	r3, [r2, #4]
+ 168              		.loc 1 355 0
+ 169 00d0 5368     		ldr	r3, [r2, #4]
+ 170 00d2 23F00303 		bic	r3, r3, #3
+ 171 00d6 5360     		str	r3, [r2, #4]
  356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;
- 165              		.loc 1 356 0
- 166 00ca 5368     		ldr	r3, [r2, #4]
- 167 00cc 43F00203 		orr	r3, r3, #2
- 168 00d0 5360     		str	r3, [r2, #4]
- 169              	.L8:
+ 172              		.loc 1 356 0
+ 173 00d8 5368     		ldr	r3, [r2, #4]
+ 174 00da 43F00203 		orr	r3, r3, #2
+ 175 00de 5360     		str	r3, [r2, #4]
+ 176              	.L8:
  357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** 
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     /* Wait till PLL is used as system clock source */
  359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)RCC_CFGR_SWS_PLL)
- 170              		.loc 1 359 0
- 171 00d2 5368     		ldr	r3, [r2, #4]
- 172 00d4 03F00C03 		and	r3, r3, #12
- 173 00d8 082B     		cmp	r3, #8
- 174 00da FAD1     		bne	.L8
- 175 00dc CFE7     		b	.L9
- 176              	.L16:
- 177              	.LBE6:
- 178              	.LBE7:
+ 177              		.loc 1 359 0
+ 178 00e0 5368     		ldr	r3, [r2, #4]
+ 179 00e2 03F00C03 		and	r3, r3, #12
+ 180 00e6 082B     		cmp	r3, #8
+ 181 00e8 FAD1     		bne	.L8
+ 182 00ea CFE7     		b	.L9
+ 183              	.L16:
+ 184              	.LBE6:
+ 185              	.LBE7:
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** }
- 179              		.loc 1 210 0
- 180 00de 02B0     		add	sp, sp, #8
- 181 00e0 7047     		bx	lr
- 182              	.L18:
- 183 00e2 00BF     		.align	2
- 184              	.L17:
- 185 00e4 00100240 		.word	1073876992
- 186 00e8 0CC07FF8 		.word	-125845492
- 187 00ec CCFC00FF 		.word	-16712500
- 188 00f0 00ED00E0 		.word	-536810240
- 189 00f4 00200240 		.word	1073881088
- 190              		.cfi_endproc
- 191              	.LFE111:
- 193              		.align	1
- 194              		.global	SystemCoreClockUpdate
- 195              		.thumb
- 196              		.thumb_func
- 198              	SystemCoreClockUpdate:
- 199              	.LFB112:
+ 186              		.loc 1 210 0
+ 187 00ec 02B0     		add	sp, sp, #8
+ 188 00ee 7047     		bx	lr
+ 189              	.L18:
+ 190              		.align	2
+ 191              	.L17:
+ 192 00f0 00ED00E0 		.word	-536810240
+ 193 00f4 00100240 		.word	1073876992
+ 194 00f8 0CC07FF8 		.word	-125845492
+ 195 00fc CCFC00FF 		.word	-16712500
+ 196 0100 00200240 		.word	1073881088
+ 197              		.cfi_endproc
+ 198              	.LFE111:
+ 200              		.align	1
+ 201              		.global	SystemCoreClockUpdate
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	SystemCoreClockUpdate:
+ 206              	.LFB112:
  249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c **** {
- 200              		.loc 1 249 0
- 201              		.cfi_startproc
- 202              		@ args = 0, pretend = 0, frame = 0
- 203              		@ frame_needed = 0, uses_anonymous_args = 0
- 204              		@ link register save eliminated.
- 205              	.LVL8:
+ 207              		.loc 1 249 0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212              	.LVL8:
  253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
- 206              		.loc 1 253 0
- 207 00f8 144A     		ldr	r2, .L27
- 208 00fa 154B     		ldr	r3, .L27+4
- 209 00fc 5168     		ldr	r1, [r2, #4]
- 210              	.LVL9:
- 211 00fe 01F00C01 		and	r1, r1, #12
- 212              	.LVL10:
+ 213              		.loc 1 253 0
+ 214 0104 144A     		ldr	r2, .L27
+ 215 0106 154B     		ldr	r3, .L27+4
+ 216 0108 5168     		ldr	r1, [r2, #4]
+ 217              	.LVL9:
+ 218 010a 01F00C01 		and	r1, r1, #12
+ 219              	.LVL10:
  255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   switch (tmp)
- 213              		.loc 1 255 0
- 214 0102 0429     		cmp	r1, #4
- 215 0104 01D0     		beq	.L22
- 216 0106 0829     		cmp	r1, #8
- 217 0108 02D0     		beq	.L23
- 218              	.L22:
+ 220              		.loc 1 255 0
+ 221 010e 0429     		cmp	r1, #4
+ 222 0110 01D0     		beq	.L22
+ 223 0112 0829     		cmp	r1, #8
+ 224 0114 02D0     		beq	.L23
+ 225              	.L22:
  261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       SystemCoreClock = HSE_VALUE;
- 219              		.loc 1 261 0
- 220 010a 124A     		ldr	r2, .L27+8
- 221 010c 1A60     		str	r2, [r3, #0]
+ 226              		.loc 1 261 0
+ 227 0116 124A     		ldr	r2, .L27+8
+ 228 0118 1A60     		str	r2, [r3, #0]
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       break;
- 222              		.loc 1 262 0
- 223 010e 11E0     		b	.L24
- 224              	.L23:
+ 229              		.loc 1 262 0
+ 230 011a 11E0     		b	.L24
+ 231              	.L23:
  265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMULL;
- 225              		.loc 1 265 0
- 226 0110 5168     		ldr	r1, [r2, #4]
- 227              	.LVL11:
+ 232              		.loc 1 265 0
+ 233 011c 5168     		ldr	r1, [r2, #4]
+ 234              	.LVL11:
  266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
- 228              		.loc 1 266 0
- 229 0112 5068     		ldr	r0, [r2, #4]
- 230              	.LVL12:
+ 235              		.loc 1 266 0
+ 236 011e 5068     		ldr	r0, [r2, #4]
+ 237              	.LVL12:
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       pllmull = ( pllmull >> 18) + 2;
- 231              		.loc 1 267 0
- 232 0114 C1F38341 		ubfx	r1, r1, #18, #4
- 233              	.LVL13:
- 234 0118 0231     		adds	r1, r1, #2
- 235              	.LVL14:
+ 238              		.loc 1 267 0
+ 239 0120 C1F38341 		ubfx	r1, r1, #18, #4
+ 240              	.LVL13:
+ 241 0124 0231     		adds	r1, r1, #2
+ 242              	.LVL14:
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****       if (pllsource == 0x00)
- 236              		.loc 1 269 0
- 237 011a C003     		lsls	r0, r0, #15
- 238              	.LVL15:
- 239 011c 01D4     		bmi	.L25
+ 243              		.loc 1 269 0
+ 244 0126 C003     		lsls	r0, r0, #15
+ 245              	.LVL15:
+ 246 0128 01D4     		bmi	.L25
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         SystemCoreClock = (HSI_VALUE >> 1) * pllmull;
- 240              		.loc 1 272 0
- 241 011e 0E4A     		ldr	r2, .L27+12
- 242 0120 06E0     		b	.L26
- 243              	.L25:
+ 247              		.loc 1 272 0
+ 248 012a 0E4A     		ldr	r2, .L27+12
+ 249 012c 06E0     		b	.L26
+ 250              	.L25:
  276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
- 244              		.loc 1 276 0
- 245 0122 D26A     		ldr	r2, [r2, #44]
- 246              	.LVL16:
- 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         SystemCoreClock = (HSE_VALUE / prediv1factor) * pllmull; 
- 247              		.loc 1 278 0
- 248 0124 0B48     		ldr	r0, .L27+8
- 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
- 249              		.loc 1 276 0
- 250 0126 02F00F02 		and	r2, r2, #15
- 251              	.LVL17:
- 252 012a 0132     		adds	r2, r2, #1
- 253              	.LVL18:
+ 251              		.loc 1 276 0
+ 252 012e D26A     		ldr	r2, [r2, #44]
+ 253              	.LVL16:
  278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         SystemCoreClock = (HSE_VALUE / prediv1factor) * pllmull; 
  254              		.loc 1 278 0
- 255 012c B0FBF2F2 		udiv	r2, r0, r2
- 256              	.LVL19:
- 257              	.L26:
- 258 0130 5143     		muls	r1, r2, r1
- 259              	.LVL20:
- 260 0132 1960     		str	r1, [r3, #0]
- 261              	.L24:
+ 255 0130 0B48     		ldr	r0, .L27+8
+ 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
+ 256              		.loc 1 276 0
+ 257 0132 02F00F02 		and	r2, r2, #15
+ 258              	.LVL17:
+ 259 0136 0132     		adds	r2, r2, #1
+ 260              	.LVL18:
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****         SystemCoreClock = (HSE_VALUE / prediv1factor) * pllmull; 
+ 261              		.loc 1 278 0
+ 262 0138 B0FBF2F2 		udiv	r2, r0, r2
+ 263              	.LVL19:
+ 264              	.L26:
+ 265 013c 5143     		muls	r1, r2, r1
+ 266              	.LVL20:
+ 267 013e 1960     		str	r1, [r3, #0]
+ 268              	.L24:
  287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
- 262              		.loc 1 287 0
- 263 0134 054B     		ldr	r3, .L27
- 264 0136 5A68     		ldr	r2, [r3, #4]
- 265 0138 054B     		ldr	r3, .L27+4
- 266 013a C2F30312 		ubfx	r2, r2, #4, #4
- 267 013e 9A18     		adds	r2, r3, r2
- 268 0140 1179     		ldrb	r1, [r2, #4]	@ zero_extendqisi2
- 269              	.LVL21:
+ 269              		.loc 1 287 0
+ 270 0140 054B     		ldr	r3, .L27
+ 271 0142 5A68     		ldr	r2, [r3, #4]
+ 272 0144 054B     		ldr	r3, .L27+4
+ 273 0146 C2F30312 		ubfx	r2, r2, #4, #4
+ 274 014a 9A18     		adds	r2, r3, r2
+ 275 014c 1179     		ldrb	r1, [r2, #4]	@ zero_extendqisi2
+ 276              	.LVL21:
  289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Source/Templates/system_stm32f30x.c ****   SystemCoreClock >>= tmp;  
- 270              		.loc 1 289 0
- 271 0142 1A68     		ldr	r2, [r3, #0]
- 272 0144 22FA01F2 		lsr	r2, r2, r1
- 273 0148 1A60     		str	r2, [r3, #0]
- 274 014a 7047     		bx	lr
- 275              	.L28:
- 276              		.align	2
- 277              	.L27:
- 278 014c 00100240 		.word	1073876992
- 279 0150 00000000 		.word	.LANCHOR0
- 280 0154 00127A00 		.word	8000000
- 281 0158 00093D00 		.word	4000000
- 282              		.cfi_endproc
- 283              	.LFE112:
- 285              		.global	AHBPrescTable
- 286              		.global	SystemCoreClock
- 287              		.data
- 288              		.align	2
- 289              		.set	.LANCHOR0,. + 0
- 292              	SystemCoreClock:
- 293 0000 00A24A04 		.word	72000000
- 296              	AHBPrescTable:
- 297 0004 00       		.byte	0
- 298 0005 00       		.byte	0
- 299 0006 00       		.byte	0
- 300 0007 00       		.byte	0
- 301 0008 00       		.byte	0
- 302 0009 00       		.byte	0
- 303 000a 00       		.byte	0
- 304 000b 00       		.byte	0
- 305 000c 01       		.byte	1
- 306 000d 02       		.byte	2
- 307 000e 03       		.byte	3
- 308 000f 04       		.byte	4
- 309 0010 06       		.byte	6
- 310 0011 07       		.byte	7
- 311 0012 08       		.byte	8
- 312 0013 09       		.byte	9
- 313              		.text
- 314              	.Letext0:
- 315              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 316              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 317              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 277              		.loc 1 289 0
+ 278 014e 1A68     		ldr	r2, [r3, #0]
+ 279 0150 22FA01F2 		lsr	r2, r2, r1
+ 280 0154 1A60     		str	r2, [r3, #0]
+ 281 0156 7047     		bx	lr
+ 282              	.L28:
+ 283              		.align	2
+ 284              	.L27:
+ 285 0158 00100240 		.word	1073876992
+ 286 015c 00000000 		.word	.LANCHOR0
+ 287 0160 00127A00 		.word	8000000
+ 288 0164 00093D00 		.word	4000000
+ 289              		.cfi_endproc
+ 290              	.LFE112:
+ 292              		.global	AHBPrescTable
+ 293              		.global	SystemCoreClock
+ 294              		.data
+ 295              		.align	2
+ 296              		.set	.LANCHOR0,. + 0
+ 299              	SystemCoreClock:
+ 300 0000 00A24A04 		.word	72000000
+ 303              	AHBPrescTable:
+ 304 0004 00       		.byte	0
+ 305 0005 00       		.byte	0
+ 306 0006 00       		.byte	0
+ 307 0007 00       		.byte	0
+ 308 0008 00       		.byte	0
+ 309 0009 00       		.byte	0
+ 310 000a 00       		.byte	0
+ 311 000b 00       		.byte	0
+ 312 000c 01       		.byte	1
+ 313 000d 02       		.byte	2
+ 314 000e 03       		.byte	3
+ 315 000f 04       		.byte	4
+ 316 0010 06       		.byte	6
+ 317 0011 07       		.byte	7
+ 318 0012 08       		.byte	8
+ 319 0013 09       		.byte	9
+ 320              		.text
+ 321              	.Letext0:
+ 322              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 323              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 324              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32f30x.c
-     /tmp/ccSg8xfR.s:18     .text:00000000 $t
-     /tmp/ccSg8xfR.s:23     .text:00000000 SystemInit
-     /tmp/ccSg8xfR.s:185    .text:000000e4 $d
-     /tmp/ccSg8xfR.s:193    .text:000000f8 $t
-     /tmp/ccSg8xfR.s:198    .text:000000f8 SystemCoreClockUpdate
-     /tmp/ccSg8xfR.s:278    .text:0000014c $d
-     /tmp/ccSg8xfR.s:296    .data:00000004 AHBPrescTable
-     /tmp/ccSg8xfR.s:292    .data:00000000 SystemCoreClock
-     /tmp/ccSg8xfR.s:288    .data:00000000 $d
+     /tmp/ccPNPVbe.s:20     .text:00000000 $t
+     /tmp/ccPNPVbe.s:25     .text:00000000 SystemInit
+     /tmp/ccPNPVbe.s:192    .text:000000f0 $d
+     /tmp/ccPNPVbe.s:200    .text:00000104 $t
+     /tmp/ccPNPVbe.s:205    .text:00000104 SystemCoreClockUpdate
+     /tmp/ccPNPVbe.s:285    .text:00000158 $d
+     /tmp/ccPNPVbe.s:303    .data:00000004 AHBPrescTable
+     /tmp/ccPNPVbe.s:299    .data:00000000 SystemCoreClock
+     /tmp/ccPNPVbe.s:295    .data:00000000 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07

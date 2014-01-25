@@ -24,7 +24,7 @@ src/project_src/main.d: \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/stm32f30x_it.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/stm32_configuration.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/helperFunctions.h \
- /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Task1.h \
+ /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Tasks.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/FreeRTOS.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/projdefs.h \
@@ -48,7 +48,8 @@ src/project_src/main.d: \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/ADXL345_Lib.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/LSM303DLHC_Lib_I2C.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h \
- /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h
+ /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h \
+ /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/fuzzy.h
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32f30x.h:
 
@@ -98,7 +99,7 @@ src/project_src/main.d: \
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/helperFunctions.h:
 
-/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Task1.h:
+/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Tasks.h:
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h:
 
@@ -147,3 +148,5 @@ src/project_src/main.d: \
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h:
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h:
+
+/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/fuzzy.h:
