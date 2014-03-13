@@ -38,16 +38,22 @@ intFilter yMagFiltered = {0,0};
 uint16_t MOT0 = 0;
 uint16_t MOT1 = 0;
 
-PID_Control PID_Position;
+PID_Control PID_Y;
+PID_Control PID_Z;
 SmitPredictor_Control Smith_Position;
 
 
 void Init_PositionController(){
 
-	init_PID(DT_S, 	GlobalSettings.PID_rollPitch.PID_kp,
+	init_PID(ContrTaskDT_S, GlobalSettings.PID_rollPitch.PID_kp,
 					GlobalSettings.PID_rollPitch.PID_ki,
 					GlobalSettings.PID_rollPitch.PID_kd,
-					GlobalSettings.PID_rollPitch.PID_kn, &PID_Position);
+					GlobalSettings.PID_rollPitch.PID_kn, &PID_Y);
+
+	init_PID(ContrTaskDT_S, GlobalSettings.PID_yaw.PID_kp,
+					GlobalSettings.PID_yaw.PID_ki,
+					GlobalSettings.PID_yaw.PID_kd,
+					GlobalSettings.PID_yaw.PID_kn, &PID_Z);
 
 
 	init_SmithPredictor(GlobalSettings.SmithPrediktor_rollPitch.a1, GlobalSettings.SmithPrediktor_rollPitch.a2,
@@ -148,6 +154,10 @@ void IMU_Calculation()
 	/*!
 	 *  IMU - Calculation Process
 	 */
+
+	//GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+
+
 		Gyro_readValues(&gyroXYZ);
 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
@@ -257,36 +267,53 @@ void IMU_Calculation()
 		//IMU_DCM_to_Euler_deg(&IMU, &euler);
 		IMU_DCM_to_XYZ(&IMU, &XYZ);
 
+		//GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
 
 }
 
-float InPut[4];
+float Setpoint_Y = 0.0f;
+float Setpoint_Z = 0.0f;
+
 void PositionController()
 {
 	//** PID Calculation Test
+	static uint8_t Fault = 1;
 
-	//if(CtrlStates.copterStatus & ARMED_FLAG )
+	if(CtrlStates.copterStatus & ARMED_FLAG )
 	{
-		float MiddelPos = 4.8f;
-		float Setpoint;
+		float MiddelPos = 5.5f;
 
+		float Roll;
 
+		/* !!! TODO: Implement Timeout !!! */
 		/* Get Controll Values */
 		if(It_Com.rxready == 1)
 		{
 			It_Com.rxready = 0;
 			memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
 			memcpy(&CtrlStates.yaw, &It_Com.rxbuffer[8], 4);
+			memcpy(&Roll, &It_Com.rxbuffer[12], 4);
 		}
-		/* Calc Setpoint */
-		Setpoint = MiddelPos + CtrlStates.pitch;
+		/* Calc Setpoint Z */
+		Setpoint_Y = MiddelPos + CtrlStates.pitch/10.0f;
 
-#ifdef  PID-Controller
+		/* Integrate YAW Position */
+		if(CtrlStates.yaw > 12.0f || CtrlStates.yaw < -12.0f )
+			Setpoint_Z += CtrlStates.yaw * PID_Z.sampling_rate*0.7f;
 
-		calc_PID(XYZ.y, 4.8f, &PID_Position); // Hier stellt er sich auf 6° ein
+		/* Correct Angular */
+		if(Setpoint_Z > 179.9f) Setpoint_Z = -179.9f;
+		if(Setpoint_Z < -179.9f) Setpoint_Z = 179.9f;
 
-		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
-		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
+		/* Check Watchdog */
+		// TODO Implement Check
+
+#ifdef  PIDController
+
+		calc_PID(XYZ.y, 4.8f, &PID_Y); // Hier stellt er sich auf 6° ein
+
+		MOT0 = GlobalSettings.stopSpeed - PID_Y.y;
+		MOT1 = GlobalSettings.stopSpeed - PID_Y.y;
 
 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
@@ -305,31 +332,30 @@ void PositionController()
 		taskEXIT_CRITICAL();
 #endif
 
-#ifdef PIDSmithPredictor-Controller
 
-		//calc_PID_SmithPredictor(XYZ.y, 4.8f, &PID_Position, &Smith_Position);
-
-		//calc_PID(XYZ.y, 4.8f, &PID_Position);
-
-
-
-		/* Get Angle */
-		InPut[0] = XYZ.y;
-		/* Get Angle Acceleration */
-		InPut[1] = xGyroFiltered_float.currentValue;
-
+#ifdef FuzzyController
+		float InPut[4];
 		float OutPut[1];
 
-		//MyFirstFuzzy(&InPut, &OutPut);
-		//fuzzy(&InPut, &OutPut);
+		/* Get Error Angle */
+		InPut[0] = 4.8f - XYZ.y;
 
+		/* Limit Error */
+		if(InPut[0] > 10.0f) InPut[0] = 10.0f;
+		else if(InPut[0]< -10.0f) InPut[0] = -10.0f;
 
-		if  (PID_Position.y > -5.0f && PID_Position.y < 5.0f )
-		//	NotLinear = 0.0f;
+		/* Get Angle Acceleration */
+		InPut[1] = (xGyroFiltered_float.currentValue/400.0f);
 
+		/* Limit Angle Acceleration */
+		if(InPut[1] > 5.0f) InPut[1] = 5.0f;
+		else if (InPut[1] < -5.0f) InPut[1] = -5.0f;
 
-		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
-		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
+		/* Calculate the Fuzzy */
+		fuzzy(&InPut, &OutPut);
+
+		MOT0 = GlobalSettings.stopSpeed - OutPut[0]*-1.4f;;
+		MOT1 = GlobalSettings.stopSpeed - OutPut[0]*-1.4f;;
 
 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
@@ -338,18 +364,72 @@ void PositionController()
 		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
 
 
-		if ( MOT0 < 100 ) MOT0 -= 10;
-		if ( MOT0 > 100 ) MOT0 += 10;
-
 		MOT1 = MOT0;
 
 		// Disable Interrupts
-		// taskENTER_CRITICAL();
+		taskENTER_CRITICAL();
 
 		PWM_Motor(0, MOT0);
 		PWM_Motor(1, MOT1);
 
-		// taskEXIT_CRITICAL();
+		taskEXIT_CRITICAL();
+
+#endif // Fuzzy Controller
+
+#ifdef PIDSmithPredictorController
+
+		//calc_PID_SmithPredictor(XYZ.y, 4.8f, &PID_Position, &Smith_Position);
+		calc_PID(XYZ.y, Setpoint_Y, &PID_Y);
+		calc_PID_YAW(XYZ.z, Setpoint_Z, &PID_Z);
+
+		/*  */
+	//	if(PID_Z.y < 0.0f){
+			MOT0 = GlobalSettings.stopSpeed - PID_Y.y + PID_Z.y; 	//+ PID_Z.y;  //- PID_Y.y + PID_Z.y;
+			MOT1 = GlobalSettings.stopSpeed - PID_Y.y - PID_Z.y;  //- PID_Z.y;  //- PID_Y.y - PID_Z.y;
+		//}
+		//else{
+		//	MOT0 = GlobalSettings.stopSpeed - PID_Y.y; 	//+ PID_Z.y;  //- PID_Y.y + PID_Z.y;
+		//	MOT1 = GlobalSettings.stopSpeed - PID_Y.y + PID_Z.y; 	//- PID_Z.y;  //- PID_Z.y;  //- PID_Y.y - PID_Z.y;
+	//	}
+
+		// MOT1 = MOT0 = GlobalSettings.stopSpeed - CtrlStates.yaw;
+
+		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
+		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
+
+		if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
+		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
+
+		/* Test */
+		static uint8_t i = 0;
+
+		/* Out Zone */
+		if( (XYZ.y > 40.0f) || (XYZ.y < (-40.0f)) ||
+			(XYZ.x > 30.0f) || (XYZ.x < (-30.0f))	) Fault = 1;
+
+
+		/* Secure Zone */
+		if( (XYZ.y < 20.0f && XYZ.y > (-20.0f) ) && Fault == 1 ){
+			i++;
+			if(i > 180) {
+				resetIntegralValues_PID(&PID_Y);
+				resetIntegralValues_PID(&PID_Z);
+				Setpoint_Z = XYZ.z;
+				Fault = 0;
+			}
+		}else i = 0;
+
+		/* Check Fault Status */
+		if(Fault == 1) Disable_Motor();
+		else Enable_Motor();
+
+		// Disable Interrupts
+		taskENTER_CRITICAL();
+
+		PWM_Motor(0, MOT0);
+		PWM_Motor(1, MOT1);
+
+		taskEXIT_CRITICAL();
 #endif
 
 #ifdef ForceMotorValues
@@ -373,13 +453,18 @@ void PositionController()
 
 #endif
 
-	}
-//	else
+	}	else
 	{
-		resetIntegralValues_PID(&PID_Position);
+		resetIntegralValues_PID(&PID_Y);
+		resetIntegralValues_PID(&PID_Z);
+		Fault = 1;
 
-		PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
-		PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
+		Setpoint_Z = XYZ.z;
+
+		MOT0 = (uint16_t)GlobalSettings.stopSpeed;
+
+		PWM_Motor(0, MOT0);
+		PWM_Motor(1, MOT0);
 	}
 
 
@@ -391,9 +476,9 @@ void PositionController()
 
 	uint32_t foobar = MOT0;
 
-	// SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.Isum, &foobar, 12);
-	//SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.e, &foobar, 12);
-	SendBufferedDataFrame(&It_Com, &Header, &InPut[1], &InPut[0], &foobar, 1);
+	// SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Z.Isum, &foobar, 12);
+	SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &XYZ.x, &foobar, 2);
+	//SendBufferedDataFrame(&It_Com, &Header, &InPut[1], &InPut[0], &foobar, 1);		// Fuzzy Debug
 
 
 

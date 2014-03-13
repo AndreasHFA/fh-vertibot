@@ -26,8 +26,8 @@
 //#define HMC5883L
 //#include <HMC5883L_Lib.h>
 
-//#define PID-Controller
-#define PIDSmithPredictor-Controller
+//#define PIDController
+#define PIDSmithPredictorController
 //#define ForceMotorValues
 
 

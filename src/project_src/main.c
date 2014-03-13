@@ -26,7 +26,7 @@
 #include <LSM303DLHC_Lib_I2C.h>
 #include <MotorPWM.h>
 #include <PID_control.h>
-#include <fuzzy.h>
+//#include <fuzzy.h>
 
 //#define DEG_TO_RAD 0.017453292f
 
@@ -104,7 +104,7 @@ int main()
 
 	xTaskCreate( IMU_Task, ( signed char * ) "IMU_Gyro", configMINIMAL_STACK_SIZE, NULL, 4, NULL );
 	xTaskCreate( Control_Task, ( signed char * ) "Pos_Contr", configMINIMAL_STACK_SIZE, NULL, 3, NULL );
-	xTaskCreate( IMU_Print_Values, ( signed char * ) "Print_Euler", configMINIMAL_STACK_SIZE, NULL, 2, NULL );
+	//xTaskCreate( IMU_Print_Values, ( signed char * ) "Print_Euler", configMINIMAL_STACK_SIZE, NULL, 2, NULL );
 
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();
@@ -132,15 +132,18 @@ static void IMU_Task( void *pvParameters )
 
 	Enable_Motor();
 
+	xNextWakeTime = xTaskGetTickCount();
+
 	while(1)
 	{
-		xNextWakeTime = xTaskGetTickCount();
 
-		//GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
 
 		IMU_Calculation();
 
-		//GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+		//GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
+
+		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
 
 		vTaskDelayUntil( &xNextWakeTime, DT );
 	}
@@ -154,18 +157,18 @@ static void IMU_Task( void *pvParameters )
  *********************************/
 static void Control_Task( void *pvParameters )
 {
-	const portTickType xDelay = 50 / portTICK_RATE_MS;
+	const portTickType xDelay = 10 / portTICK_RATE_MS;
 
 	Init_PositionController();
 
-
 	while(1)
 	{
-		GPIOC->ODR |= GPIO_Pin_11;	// Set Debug Pin
+		//GPIOC->ODR |= GPIO_Pin_10;	// Set Debug Pin
 
+		////Disable_Motor();
 		PositionController();
 
-		GPIOC->ODR &= ~GPIO_Pin_11; // Clear Debug Pin
+		//GPIOC->ODR &= ~GPIO_Pin_10; // Clear Debug Pin
 
 
 		vTaskDelay( xDelay );
@@ -282,6 +285,7 @@ void vRemoteCtrlWatchdogCoRoutine( xCoRoutineHandle xHandle,
 		   CtrlStates.copterStatus &= ~ARMED_FLAG;
 		   printf("Watchdog Error!!%d\n", 0);
 	   }
+	   GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
    }
 
    // Co-routines must end with a call to crEND().
@@ -299,7 +303,10 @@ void vApplicationMallocFailedHook( void )
 	internally by FreeRTOS API functions that create tasks, queues, software
 	timers, and semaphores.  The size of the FreeRTOS heap is set by the
 	configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h. */
-	for( ;; );
+	for( ;; )
+	{
+		GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
+	}
 }
 /*-----------------------------------------------------------*/
 
@@ -311,7 +318,10 @@ void vApplicationStackOverflowHook( xTaskHandle *pxTask, signed char *pcTaskName
 	/* Run time stack overflow checking is performed if
 	configconfigCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
 	function is called if a stack overflow is detected. */
-	for( ;; );
+	for( ;; ){
+
+		GPIOC->ODR ^= GPIO_Pin_11; // Toggle Debug Pin
+	};
 }
 /*-----------------------------------------------------------*/
 

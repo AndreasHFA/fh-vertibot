@@ -196,22 +196,22 @@ float CalcDelay(SmitPredictor_Control *value, float Input){
  * */
 void calc_PID_YAW(float istwert, float sollwert, PID_Control *values)
 {
-	values->e = istwert - sollwert;
+	values->e = sollwert - istwert;
 
 	if(values->e >= 180) values->e -= 360;
 	else if (values->e <= -180) values->e += 360;
 
-	/* Keep the e-value in a maintainable range */
 	if(values->e > 50) values->e = 50;
 	if(values->e < -50) values->e = -50;
 
-	//f�r I-Anteil aufsummieren:
 	values->Isum = values->Isum + (values->e);
+
+	if(values->Isum < Isum_max) values->Isum = Isum_max;
+	if(values->Isum > Isum_max) values->Isum = Isum_max;
 
 	//PID-Regler
 	values->y = (values->kp*values->e) + (values->Isum*values->ki*values->sampling_rate) + (values->kd*(values->e - values->ealt)/values->sampling_rate);
 
-	//f�r D-Anteil:
 	values->ealt = values->e;
 }
 
