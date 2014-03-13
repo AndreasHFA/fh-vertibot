@@ -37,12 +37,12 @@ void SETTINGS_init(GlobalSettings_s *settings)
 	settings->minSpeed = 0; 	//*PRESCALEVALUE;
 	settings->maxSpeed = 200;	//*PRESCALEVALUE;
 
-	settings->PID_yaw.PID_kp = 1.0f;
-	settings->PID_yaw.PID_ki = 0.0f;
+	settings->PID_yaw.PID_kp = 2.0f;
+	settings->PID_yaw.PID_ki = 1.0f;
 	settings->PID_yaw.PID_kd = 0.0f;
 
 /* PID Only */
-#ifdef PID-Controller										// Matlab rob 0.6			//
+#ifdef PIDController										// Matlab rob 0.6			//
 	settings->PID_rollPitch.PID_kp = 19.847615688639f;		// 23.8526967116026  		// 22.7f;
 	settings->PID_rollPitch.PID_ki = 52.4488131557352f;		//    	// 0.8f;
 	settings->PID_rollPitch.PID_kd = 1.2881940564086f; 	//		// 0.40f;
@@ -50,21 +50,21 @@ void SETTINGS_init(GlobalSettings_s *settings)
 #endif
 
 
-#ifdef PIDSmithPredictor-Controller
+#ifdef PIDSmithPredictorController
 
 	/* PID */
-	settings->PID_rollPitch.PID_kp = 21.115707268541f; //14.5478771127435f;    	//22.7f;
-	settings->PID_rollPitch.PID_ki = 0.8405091086306f; //28.1211353951591f;  	//0.8f;
+	settings->PID_rollPitch.PID_kp = 18.115707268541f; //14.5478771127435f;    	//22.7f;
+	settings->PID_rollPitch.PID_ki = 3.8405091086306f; //28.1211353951591f;  	//0.8f;
 	settings->PID_rollPitch.PID_kd = 0.4392517058174756f; //1.84575662912126f; 	//0.40f;
 	settings->PID_rollPitch.PID_kn = 80.8259704631948f; //683.74924793257f;
 
 	/* Smith Predictor */
-	settings->SmithPrediktor_rollPitch.b1 = 1.0f;						//0.9753f;	// T1b
-    settings->SmithPrediktor_rollPitch.b2 = 0.024690087971871f;			//0.0f;
-	settings->SmithPrediktor_rollPitch.b3 = -0.975309912028128f;		//0.0f;
-	settings->SmithPrediktor_rollPitch.a1 = 0.995023590034886f;			//0.02469f;	// T1a
-	settings->SmithPrediktor_rollPitch.a2 = 0.003294688806972f;			//0.007f;		// T2a
-	settings->SmithPrediktor_rollPitch.gain =  38.285739551944431f;		//0.0f;
+	settings->SmithPrediktor_rollPitch.b1 = 0.9753f;	// T1b
+    settings->SmithPrediktor_rollPitch.b2 = 0.0f;
+	settings->SmithPrediktor_rollPitch.b3 = 0.0f;
+	settings->SmithPrediktor_rollPitch.a1 = 0.02469f;	// T1a
+	settings->SmithPrediktor_rollPitch.a2 = 0.007f;		// T2a
+	settings->SmithPrediktor_rollPitch.gain = 0.0f;
 
 
 	/* Test Controller */

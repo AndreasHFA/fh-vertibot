@@ -44,6 +44,10 @@
 #define DT 2 // original 2
 #define DT_S ((float)DT/1000)
 
+//! dt-Time of Controller Task
+#define ContrTaskDT 10	//10ms
+#define ContrTaskDT_S ((float)ContrTaskDT/1000)
+
 uint8_t accBuffer[6];
 
 int xTemp;
