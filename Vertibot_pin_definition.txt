@@ -7,7 +7,7 @@ GPIOE:	Pin3				SPI (onboard Gyro)
 GPIOB:	Pin0, Pin1			Enable MotA, Enable MotB	
 	Pin6, Pin7			I2C (onboard Acc, Magnetometer)
 	Pin9				XBeeRst
-	Pin10, Pin11			XBeeRx / XBeeTx UART
+	Pin10, Pin11			XBee Txt / XBee Rxt UART 3
 GPIOC:	Pin4, Pin5			CurA, Vbat	
 	Pin6, Pin7, Pin8, Pin9		4 Channel Mot PWM Out
 GPIOD:	Pin3, Pin4, Pin6, Pin7		4 Channel Mot PWM Out

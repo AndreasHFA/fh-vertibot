@@ -195,8 +195,8 @@
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Enable DAC reset state */
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   RCC_APB1PeriphResetCmd(RCC_APB1Periph_DAC, ENABLE);
   37              		.loc 1 161 0
-  38 0002 0121     		movs	r1, #1
-  39 0004 4FF00050 		mov	r0, #536870912
+  38 0002 4FF00050 		mov	r0, #536870912
+  39 0006 0121     		movs	r1, #1
   40 0008 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
   41              	.LVL0:
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Release DAC from reset state */
@@ -260,14 +260,14 @@
   72              		.cfi_offset 5, -8
   73              		.cfi_offset 14, -4
   74              		.loc 1 189 0
-  75 001e 1A68     		ldr	r2, [r3, #0]
+  75 001e 1A68     		ldr	r2, [r3]
   76              	.LVL3:
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Clear BOFFx, TENx, TSELx, WAVEx and MAMPx bits */
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmpreg1 &= ~(CR_CLEAR_MASK << DAC_Channel);
   77              		.loc 1 191 0
   78 0020 40F6FE75 		movw	r5, #4094
-  79 0024 05FA00F5 		lsl	r5, r5, r0
-  80 0028 22EA0505 		bic	r5, r2, r5
+  79 0024 8540     		lsls	r5, r5, r0
+  80 0026 22EA0505 		bic	r5, r2, r5
   81              	.LVL4:
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Configure for the selected DAC channel: buffer output, trigger, 
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****      wave generation, mask/amplitude for wave generation */
@@ -277,31 +277,31 @@
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Set BOFFx bit according to DAC_OutputBuffer value */   
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmpreg2 = (DAC_InitStruct->DAC_Trigger | DAC_InitStruct->DAC_WaveGeneration |
   82              		.loc 1 198 0
-  83 002c 91E81400 		ldmia	r1, {r2, r4}
-  84 0030 1443     		orrs	r4, r4, r2
-  85 0032 8A68     		ldr	r2, [r1, #8]
-  86 0034 C968     		ldr	r1, [r1, #12]
+  83 002a 91E81400 		ldmia	r1, {r2, r4}
+  84 002e 1443     		orrs	r4, r4, r2
+  85 0030 8A68     		ldr	r2, [r1, #8]
+  86 0032 C968     		ldr	r1, [r1, #12]
   87              	.LVL5:
-  88 0036 2243     		orrs	r2, r2, r4
+  88 0034 2243     		orrs	r2, r2, r4
   89              	.LVL6:
-  90 0038 0A43     		orrs	r2, r2, r1
-  91              	.LVL7:
+  90 0036 0A43     		orrs	r2, r2, r1
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****              DAC_InitStruct->DAC_LFSRUnmask_TriangleAmplitude | \
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****              DAC_InitStruct->DAC_OutputBuffer);
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Calculate CR register value depending on DAC_Channel */
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmpreg1 |= tmpreg2 << DAC_Channel;
-  92              		.loc 1 202 0
-  93 003a 02FA00F0 		lsl	r0, r2, r0
-  94              	.LVL8:
-  95 003e 2843     		orrs	r0, r0, r5
-  96              	.LVL9:
+  91              		.loc 1 202 0
+  92 0038 02FA00F0 		lsl	r0, r2, r0
+  93              	.LVL7:
+  94 003c 2843     		orrs	r0, r0, r5
+  95              	.LVL8:
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Write to DAC CR */
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   DAC->CR = tmpreg1;
-  97              		.loc 1 204 0
-  98 0040 1860     		str	r0, [r3, #0]
-  99 0042 30BD     		pop	{r4, r5, pc}
+  96              		.loc 1 204 0
+  97 003e 1860     		str	r0, [r3]
+  98              	.LVL9:
+  99 0040 30BD     		pop	{r4, r5, pc}
  100              	.L4:
- 101              		.align	2
+ 101 0042 00BF     		.align	2
  102              	.L3:
  103 0044 00740040 		.word	1073771520
  104              		.cfi_endproc
@@ -333,7 +333,7 @@
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   DAC_InitStruct->DAC_Trigger = DAC_Trigger_None;
  120              		.loc 1 217 0
  121 0048 0023     		movs	r3, #0
- 122 004a 0360     		str	r3, [r0, #0]
+ 122 004a 0360     		str	r3, [r0]
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Initialize the DAC_WaveGeneration member */
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   DAC_InitStruct->DAC_WaveGeneration = DAC_WaveGeneration_None;
  123              		.loc 1 219 0
@@ -376,7 +376,7 @@
  143              		@ frame_needed = 0, uses_anonymous_args = 0
  144              		@ link register save eliminated.
  145              	.LVL11:
- 146 0054 074B     		ldr	r3, .L10
+ 146 0054 064B     		ldr	r3, .L11
  147 0056 0122     		movs	r2, #1
  239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
@@ -384,16 +384,16 @@
  242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
  148              		.loc 1 243 0
- 149 0058 21B1     		cbz	r1, .L7
+ 149 0058 19B1     		cbz	r1, .L7
  244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable the selected DAC channel */
  246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR |= (DAC_CR_EN1 << DAC_Channel);
  150              		.loc 1 246 0
- 151 005a 1968     		ldr	r1, [r3, #0]
+ 151 005a 1968     		ldr	r1, [r3]
  152              	.LVL12:
- 153 005c 02FA00F2 		lsl	r2, r2, r0
- 154 0060 0A43     		orrs	r2, r2, r1
- 155 0062 04E0     		b	.L9
+ 153 005c 8240     		lsls	r2, r2, r0
+ 154 005e 0A43     		orrs	r2, r2, r1
+ 155 0060 03E0     		b	.L9
  156              	.LVL13:
  157              	.L7:
  247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
@@ -402,17 +402,17 @@
  250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable the selected DAC channel */
  251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR &= (~(DAC_CR_EN1 << DAC_Channel));
  158              		.loc 1 251 0
- 159 0064 1968     		ldr	r1, [r3, #0]
+ 159 0062 1968     		ldr	r1, [r3]
  160              	.LVL14:
- 161 0066 02FA00F2 		lsl	r2, r2, r0
- 162 006a 21EA0202 		bic	r2, r1, r2
+ 161 0064 8240     		lsls	r2, r2, r0
+ 162 0066 21EA0202 		bic	r2, r1, r2
  163              	.L9:
- 164 006e 1A60     		str	r2, [r3, #0]
- 165 0070 7047     		bx	lr
- 166              	.L11:
- 167 0072 00BF     		.align	2
- 168              	.L10:
- 169 0074 00740040 		.word	1073771520
+ 164 006a 1A60     		str	r2, [r3]
+ 165 006c 7047     		bx	lr
+ 166              	.L12:
+ 167 006e 00BF     		.align	2
+ 168              	.L11:
+ 169 0070 00740040 		.word	1073771520
  170              		.cfi_endproc
  171              	.LFE114:
  173              		.align	1
@@ -442,45 +442,45 @@
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184              		@ link register save eliminated.
  185              	.LVL15:
- 186 0078 074B     		ldr	r3, .L16
- 187 007a 0009     		lsrs	r0, r0, #4
+ 186 0074 064B     		ldr	r3, .L17
+ 187 0076 0009     		lsrs	r0, r0, #4
  188              	.LVL16:
- 189 007c 0122     		movs	r2, #1
+ 189 0078 0122     		movs	r2, #1
  267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
  190              		.loc 1 271 0
- 191 007e 21B1     		cbz	r1, .L13
+ 191 007a 19B1     		cbz	r1, .L14
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable software trigger for the selected DAC channel */
  274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->SWTRIGR |= (uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4);
  192              		.loc 1 274 0
- 193 0080 5968     		ldr	r1, [r3, #4]
+ 193 007c 5968     		ldr	r1, [r3, #4]
  194              	.LVL17:
- 195 0082 02FA00F2 		lsl	r2, r2, r0
- 196 0086 0A43     		orrs	r2, r2, r1
- 197 0088 04E0     		b	.L15
+ 195 007e 8240     		lsls	r2, r2, r0
+ 196 0080 0A43     		orrs	r2, r2, r1
+ 197 0082 03E0     		b	.L16
  198              	.LVL18:
- 199              	.L13:
+ 199              	.L14:
  275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable software trigger for the selected DAC channel */
  279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->SWTRIGR &= ~((uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4));
  200              		.loc 1 279 0
- 201 008a 5968     		ldr	r1, [r3, #4]
+ 201 0084 5968     		ldr	r1, [r3, #4]
  202              	.LVL19:
- 203 008c 02FA00F2 		lsl	r2, r2, r0
- 204 0090 21EA0202 		bic	r2, r1, r2
- 205              	.L15:
- 206 0094 5A60     		str	r2, [r3, #4]
- 207 0096 7047     		bx	lr
- 208              	.L17:
+ 203 0086 8240     		lsls	r2, r2, r0
+ 204 0088 21EA0202 		bic	r2, r1, r2
+ 205              	.L16:
+ 206 008c 5A60     		str	r2, [r3, #4]
+ 207 008e 7047     		bx	lr
+ 208              	.L18:
  209              		.align	2
- 210              	.L16:
- 211 0098 00740040 		.word	1073771520
+ 210              	.L17:
+ 211 0090 00740040 		.word	1073771520
  212              		.cfi_endproc
  213              	.LFE115:
  215              		.align	1
@@ -506,7 +506,7 @@
  225              		@ frame_needed = 0, uses_anonymous_args = 0
  226              		@ link register save eliminated.
  227              	.LVL20:
- 228 009c 044B     		ldr	r3, .L22
+ 228 0094 044B     		ldr	r3, .L23
  291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
@@ -515,28 +515,28 @@
  296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable software trigger for both DAC channels */
  297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->SWTRIGR |= DUAL_SWTRIG_SET;
  229              		.loc 1 297 0
- 230 009e 5A68     		ldr	r2, [r3, #4]
+ 230 0096 5A68     		ldr	r2, [r3, #4]
  294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
  231              		.loc 1 294 0
- 232 00a0 10B1     		cbz	r0, .L19
+ 232 0098 10B1     		cbz	r0, .L20
  233              		.loc 1 297 0
- 234 00a2 42F00302 		orr	r2, r2, #3
- 235 00a6 01E0     		b	.L21
- 236              	.L19:
+ 234 009a 42F00302 		orr	r2, r2, #3
+ 235 009e 01E0     		b	.L22
+ 236              	.L20:
  298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable software trigger for both DAC channels */
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->SWTRIGR &= DUAL_SWTRIG_RESET;
  237              		.loc 1 302 0
- 238 00a8 22F00302 		bic	r2, r2, #3
- 239              	.L21:
- 240 00ac 5A60     		str	r2, [r3, #4]
- 241 00ae 7047     		bx	lr
- 242              	.L23:
+ 238 00a0 22F00302 		bic	r2, r2, #3
+ 239              	.L22:
+ 240 00a4 5A60     		str	r2, [r3, #4]
+ 241 00a6 7047     		bx	lr
+ 242              	.L24:
  243              		.align	2
- 244              	.L22:
- 245 00b0 00740040 		.word	1073771520
+ 244              	.L23:
+ 245 00a8 00740040 		.word	1073771520
  246              		.cfi_endproc
  247              	.LFE116:
  249              		.align	1
@@ -570,8 +570,8 @@
  259              		@ frame_needed = 0, uses_anonymous_args = 0
  260              		@ link register save eliminated.
  261              	.LVL21:
- 262 00b4 054B     		ldr	r3, .L28
- 263 00b6 01FA00F1 		lsl	r1, r1, r0
+ 262 00ac 054B     		ldr	r3, .L29
+ 263 00ae 8140     		lsls	r1, r1, r0
  264              	.LVL22:
  322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
@@ -580,33 +580,33 @@
  326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
  265              		.loc 1 327 0
- 266 00ba 12B1     		cbz	r2, .L25
+ 266 00b0 12B1     		cbz	r2, .L26
  328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable the selected wave generation for the selected DAC channel */
  330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR |= DAC_Wave << DAC_Channel;
  267              		.loc 1 330 0
- 268 00bc 1A68     		ldr	r2, [r3, #0]
+ 268 00b2 1A68     		ldr	r2, [r3]
  269              	.LVL23:
- 270 00be 1143     		orrs	r1, r1, r2
- 271 00c0 02E0     		b	.L27
+ 270 00b4 1143     		orrs	r1, r1, r2
+ 271 00b6 02E0     		b	.L28
  272              	.LVL24:
- 273              	.L25:
+ 273              	.L26:
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable the selected wave generation for the selected DAC channel */
  335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR &= ~(DAC_Wave << DAC_Channel);
  274              		.loc 1 335 0
- 275 00c2 1A68     		ldr	r2, [r3, #0]
+ 275 00b8 1A68     		ldr	r2, [r3]
  276              	.LVL25:
- 277 00c4 22EA0101 		bic	r1, r2, r1
- 278              	.L27:
- 279 00c8 1960     		str	r1, [r3, #0]
- 280 00ca 7047     		bx	lr
- 281              	.L29:
- 282              		.align	2
- 283              	.L28:
- 284 00cc 00740040 		.word	1073771520
+ 277 00ba 22EA0101 		bic	r1, r2, r1
+ 278              	.L28:
+ 279 00be 1960     		str	r1, [r3]
+ 280 00c0 7047     		bx	lr
+ 281              	.L30:
+ 282 00c2 00BF     		.align	2
+ 283              	.L29:
+ 284 00c4 00740040 		.word	1073771520
  285              		.cfi_endproc
  286              	.LFE117:
  288              		.align	1
@@ -636,53 +636,52 @@
  298              		@ frame_needed = 0, uses_anonymous_args = 0
  299              		@ link register save eliminated.
  300              	.LVL26:
- 301 00d0 82B0     		sub	sp, sp, #8
+ 301 00c8 82B0     		sub	sp, sp, #8
  302              	.LCFI2:
  303              		.cfi_def_cfa_offset 8
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   __IO uint32_t tmp = 0;
  304              		.loc 1 351 0
- 305 00d2 0023     		movs	r3, #0
- 306 00d4 0193     		str	r3, [sp, #4]
- 307              	.LVL27:
+ 305 00ca 0023     		movs	r3, #0
+ 306 00cc 0193     		str	r3, [sp, #4]
  352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_ALIGN(DAC_Align));
  355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_DATA(Data));
  356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp = (uint32_t)DAC_BASE; 
- 308              		.loc 1 357 0
- 309 00d6 054B     		ldr	r3, .L31
- 310 00d8 0193     		str	r3, [sp, #4]
+ 307              		.loc 1 357 0
+ 308 00ce 054B     		ldr	r3, .L32
+ 309 00d0 0193     		str	r3, [sp, #4]
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp += DHR12R1_OFFSET + DAC_Align;
- 311              		.loc 1 358 0
- 312 00da 019B     		ldr	r3, [sp, #4]
- 313 00dc 0833     		adds	r3, r3, #8
- 314 00de 1818     		adds	r0, r3, r0
- 315              	.LVL28:
- 316 00e0 0190     		str	r0, [sp, #4]
- 317              	.LVL29:
+ 310              		.loc 1 358 0
+ 311 00d2 019B     		ldr	r3, [sp, #4]
+ 312 00d4 0833     		adds	r3, r3, #8
+ 313 00d6 1844     		add	r0, r0, r3
+ 314              	.LVL27:
+ 315 00d8 0190     		str	r0, [sp, #4]
  359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Set the DAC channel1 selected data holding register */
  361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   *(__IO uint32_t *) tmp = Data;
- 318              		.loc 1 361 0
- 319 00e2 019B     		ldr	r3, [sp, #4]
- 320 00e4 1960     		str	r1, [r3, #0]
+ 316              		.loc 1 361 0
+ 317 00da 019B     		ldr	r3, [sp, #4]
+ 318 00dc 1960     		str	r1, [r3]
  362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
- 321              		.loc 1 362 0
- 322 00e6 02B0     		add	sp, sp, #8
- 323 00e8 7047     		bx	lr
- 324              	.L32:
- 325 00ea 00BF     		.align	2
- 326              	.L31:
- 327 00ec 00740040 		.word	1073771520
- 328              		.cfi_endproc
- 329              	.LFE118:
- 331              		.align	1
- 332              		.global	DAC_SetChannel2Data
- 333              		.thumb
- 334              		.thumb_func
- 336              	DAC_SetChannel2Data:
- 337              	.LFB119:
+ 319              		.loc 1 362 0
+ 320 00de 02B0     		add	sp, sp, #8
+ 321              		@ sp needed
+ 322 00e0 7047     		bx	lr
+ 323              	.L33:
+ 324 00e2 00BF     		.align	2
+ 325              	.L32:
+ 326 00e4 00740040 		.word	1073771520
+ 327              		.cfi_endproc
+ 328              	.LFE118:
+ 330              		.align	1
+ 331              		.global	DAC_SetChannel2Data
+ 332              		.thumb
+ 333              		.thumb_func
+ 335              	DAC_SetChannel2Data:
+ 336              	.LFB119:
  363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
  365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   * @brief  Sets the specified data holding register value for DAC channel2.
@@ -696,59 +695,58 @@
  373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data)
  375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 338              		.loc 1 375 0
- 339              		.cfi_startproc
- 340              		@ args = 0, pretend = 0, frame = 8
- 341              		@ frame_needed = 0, uses_anonymous_args = 0
- 342              		@ link register save eliminated.
- 343              	.LVL30:
- 344 00f0 82B0     		sub	sp, sp, #8
- 345              	.LCFI3:
- 346              		.cfi_def_cfa_offset 8
+ 337              		.loc 1 375 0
+ 338              		.cfi_startproc
+ 339              		@ args = 0, pretend = 0, frame = 8
+ 340              		@ frame_needed = 0, uses_anonymous_args = 0
+ 341              		@ link register save eliminated.
+ 342              	.LVL28:
+ 343 00e8 82B0     		sub	sp, sp, #8
+ 344              	.LCFI3:
+ 345              		.cfi_def_cfa_offset 8
  376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   __IO uint32_t tmp = 0;
- 347              		.loc 1 376 0
- 348 00f2 0023     		movs	r3, #0
- 349 00f4 0193     		str	r3, [sp, #4]
- 350              	.LVL31:
+ 346              		.loc 1 376 0
+ 347 00ea 0023     		movs	r3, #0
+ 348 00ec 0193     		str	r3, [sp, #4]
  377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_ALIGN(DAC_Align));
  380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_DATA(Data));
  381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp = (uint32_t)DAC_BASE;
- 351              		.loc 1 382 0
- 352 00f6 054B     		ldr	r3, .L34
- 353 00f8 0193     		str	r3, [sp, #4]
+ 349              		.loc 1 382 0
+ 350 00ee 054B     		ldr	r3, .L35
+ 351 00f0 0193     		str	r3, [sp, #4]
  383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp += DHR12R2_OFFSET + DAC_Align;
- 354              		.loc 1 383 0
- 355 00fa 019B     		ldr	r3, [sp, #4]
- 356 00fc 1433     		adds	r3, r3, #20
- 357 00fe 1818     		adds	r0, r3, r0
- 358              	.LVL32:
- 359 0100 0190     		str	r0, [sp, #4]
- 360              	.LVL33:
+ 352              		.loc 1 383 0
+ 353 00f2 019B     		ldr	r3, [sp, #4]
+ 354 00f4 1433     		adds	r3, r3, #20
+ 355 00f6 1844     		add	r0, r0, r3
+ 356              	.LVL29:
+ 357 00f8 0190     		str	r0, [sp, #4]
  384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Set the DAC channel2 selected data holding register */
  386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   *(__IO uint32_t *)tmp = Data;
- 361              		.loc 1 386 0
- 362 0102 019B     		ldr	r3, [sp, #4]
- 363 0104 1960     		str	r1, [r3, #0]
+ 358              		.loc 1 386 0
+ 359 00fa 019B     		ldr	r3, [sp, #4]
+ 360 00fc 1960     		str	r1, [r3]
  387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
- 364              		.loc 1 387 0
- 365 0106 02B0     		add	sp, sp, #8
- 366 0108 7047     		bx	lr
+ 361              		.loc 1 387 0
+ 362 00fe 02B0     		add	sp, sp, #8
+ 363              		@ sp needed
+ 364 0100 7047     		bx	lr
+ 365              	.L36:
+ 366 0102 00BF     		.align	2
  367              	.L35:
- 368 010a 00BF     		.align	2
- 369              	.L34:
- 370 010c 00740040 		.word	1073771520
- 371              		.cfi_endproc
- 372              	.LFE119:
- 374              		.align	1
- 375              		.global	DAC_SetDualChannelData
- 376              		.thumb
- 377              		.thumb_func
- 379              	DAC_SetDualChannelData:
- 380              	.LFB120:
+ 368 0104 00740040 		.word	1073771520
+ 369              		.cfi_endproc
+ 370              	.LFE119:
+ 372              		.align	1
+ 373              		.global	DAC_SetDualChannelData
+ 374              		.thumb
+ 375              		.thumb_func
+ 377              	DAC_SetDualChannelData:
+ 378              	.LFB120:
  388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
  390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   * @brief  Sets the specified data holding register value for dual channel DAC.
@@ -765,12 +763,12 @@
  401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_SetDualChannelData(uint32_t DAC_Align, uint16_t Data2, uint16_t Data1)
  403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 381              		.loc 1 403 0
- 382              		.cfi_startproc
- 383              		@ args = 0, pretend = 0, frame = 0
- 384              		@ frame_needed = 0, uses_anonymous_args = 0
- 385              		@ link register save eliminated.
- 386              	.LVL34:
+ 379              		.loc 1 403 0
+ 380              		.cfi_startproc
+ 381              		@ args = 0, pretend = 0, frame = 0
+ 382              		@ frame_needed = 0, uses_anonymous_args = 0
+ 383              		@ link register save eliminated.
+ 384              	.LVL30:
  404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   uint32_t data = 0, tmp = 0;
  405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
@@ -780,8 +778,8 @@
  410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Calculate and set dual DAC data holding register value */
  412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (DAC_Align == DAC_Align_8b_R)
- 387              		.loc 1 412 0
- 388 0110 0828     		cmp	r0, #8
+ 385              		.loc 1 412 0
+ 386 0108 0828     		cmp	r0, #8
  413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     data = ((uint32_t)Data2 << 8) | Data1; 
  415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
@@ -792,35 +790,35 @@
  420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp = (uint32_t)DAC_BASE;
  422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp += DHR12RD_OFFSET + DAC_Align;
- 389              		.loc 1 422 0
- 390 0112 044B     		ldr	r3, .L39
+ 387              		.loc 1 422 0
+ 388 010a 044B     		ldr	r3, .L40
  414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     data = ((uint32_t)Data2 << 8) | Data1; 
- 391              		.loc 1 414 0
- 392 0114 0CBF     		ite	eq
- 393 0116 42EA0121 		orreq	r1, r2, r1, lsl #8
- 394              	.LVL35:
+ 389              		.loc 1 414 0
+ 390 010c 0CBF     		ite	eq
+ 391 010e 42EA0121 		orreq	r1, r2, r1, lsl #8
+ 392              	.LVL31:
  418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     data = ((uint32_t)Data2 << 16) | Data1;
- 395              		.loc 1 418 0
- 396 011a 42EA0141 		orrne	r1, r2, r1, lsl #16
- 397              	.LVL36:
+ 393              		.loc 1 418 0
+ 394 0112 42EA0141 		orrne	r1, r2, r1, lsl #16
+ 395              	.LVL32:
  423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Set the dual DAC selected data holding register */
  425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   *(__IO uint32_t *)tmp = data;
- 398              		.loc 1 425 0
- 399 011e C150     		str	r1, [r0, r3]
- 400 0120 7047     		bx	lr
+ 396              		.loc 1 425 0
+ 397 0116 C150     		str	r1, [r0, r3]
+ 398 0118 7047     		bx	lr
+ 399              	.L41:
+ 400 011a 00BF     		.align	2
  401              	.L40:
- 402 0122 00BF     		.align	2
- 403              	.L39:
- 404 0124 20740040 		.word	1073771552
- 405              		.cfi_endproc
- 406              	.LFE120:
- 408              		.align	1
- 409              		.global	DAC_GetDataOutputValue
- 410              		.thumb
- 411              		.thumb_func
- 413              	DAC_GetDataOutputValue:
- 414              	.LFB121:
+ 402 011c 20740040 		.word	1073771552
+ 403              		.cfi_endproc
+ 404              	.LFE120:
+ 406              		.align	1
+ 407              		.global	DAC_GetDataOutputValue
+ 408              		.thumb
+ 409              		.thumb_func
+ 411              	DAC_GetDataOutputValue:
+ 412              	.LFB121:
  426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
  427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
@@ -833,60 +831,58 @@
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel)
  437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 415              		.loc 1 437 0
- 416              		.cfi_startproc
- 417              		@ args = 0, pretend = 0, frame = 8
- 418              		@ frame_needed = 0, uses_anonymous_args = 0
- 419              		@ link register save eliminated.
- 420              	.LVL37:
- 421 0128 82B0     		sub	sp, sp, #8
- 422              	.LCFI4:
- 423              		.cfi_def_cfa_offset 8
+ 413              		.loc 1 437 0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 8
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              		@ link register save eliminated.
+ 418              	.LVL33:
+ 419 0120 82B0     		sub	sp, sp, #8
+ 420              	.LCFI4:
+ 421              		.cfi_def_cfa_offset 8
  438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   __IO uint32_t tmp = 0;
- 424              		.loc 1 438 0
- 425 012a 0023     		movs	r3, #0
- 426 012c 0193     		str	r3, [sp, #4]
- 427              	.LVL38:
+ 422              		.loc 1 438 0
+ 423 0122 0023     		movs	r3, #0
+ 424 0124 0193     		str	r3, [sp, #4]
  439:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  440:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  441:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  442:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp = (uint32_t) DAC_BASE ;
- 428              		.loc 1 443 0
- 429 012e 064B     		ldr	r3, .L42
- 430 0130 0193     		str	r3, [sp, #4]
+ 425              		.loc 1 443 0
+ 426 0126 064B     		ldr	r3, .L43
+ 427 0128 0193     		str	r3, [sp, #4]
  444:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   tmp += DOR_OFFSET + ((uint32_t)DAC_Channel >> 2);
- 431              		.loc 1 444 0
- 432 0132 019B     		ldr	r3, [sp, #4]
- 433 0134 2C33     		adds	r3, r3, #44
- 434 0136 03EB9000 		add	r0, r3, r0, lsr #2
- 435              	.LVL39:
- 436 013a 0190     		str	r0, [sp, #4]
- 437              	.LVL40:
+ 428              		.loc 1 444 0
+ 429 012a 019B     		ldr	r3, [sp, #4]
+ 430 012c 2C33     		adds	r3, r3, #44
+ 431 012e 03EB9000 		add	r0, r3, r0, lsr #2
+ 432              	.LVL34:
+ 433 0132 0190     		str	r0, [sp, #4]
  445:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  446:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Returns the DAC channel data output register value */
  447:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   return (uint16_t) (*(__IO uint32_t*) tmp);
- 438              		.loc 1 447 0
- 439 013c 019B     		ldr	r3, [sp, #4]
- 440 013e 1868     		ldr	r0, [r3, #0]
- 441              	.LVL41:
+ 434              		.loc 1 447 0
+ 435 0134 019B     		ldr	r3, [sp, #4]
+ 436 0136 1868     		ldr	r0, [r3]
  448:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
- 442              		.loc 1 448 0
- 443 0140 80B2     		uxth	r0, r0
- 444 0142 02B0     		add	sp, sp, #8
- 445 0144 7047     		bx	lr
- 446              	.L43:
- 447 0146 00BF     		.align	2
- 448              	.L42:
- 449 0148 00740040 		.word	1073771520
- 450              		.cfi_endproc
- 451              	.LFE121:
- 453              		.align	1
- 454              		.global	DAC_DMACmd
- 455              		.thumb
- 456              		.thumb_func
- 458              	DAC_DMACmd:
- 459              	.LFB122:
+ 437              		.loc 1 448 0
+ 438 0138 80B2     		uxth	r0, r0
+ 439 013a 02B0     		add	sp, sp, #8
+ 440              		@ sp needed
+ 441 013c 7047     		bx	lr
+ 442              	.L44:
+ 443 013e 00BF     		.align	2
+ 444              	.L43:
+ 445 0140 00740040 		.word	1073771520
+ 446              		.cfi_endproc
+ 447              	.LFE121:
+ 449              		.align	1
+ 450              		.global	DAC_DMACmd
+ 451              		.thumb
+ 452              		.thumb_func
+ 454              	DAC_DMACmd:
+ 455              	.LFB122:
  449:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
  450:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   * @}
  451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
@@ -921,57 +917,57 @@
  480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  481:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState)
  482:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 460              		.loc 1 482 0
- 461              		.cfi_startproc
- 462              		@ args = 0, pretend = 0, frame = 0
- 463              		@ frame_needed = 0, uses_anonymous_args = 0
- 464              		@ link register save eliminated.
- 465              	.LVL42:
- 466 014c 074B     		ldr	r3, .L48
- 467 014e 4FF48052 		mov	r2, #4096
+ 456              		.loc 1 482 0
+ 457              		.cfi_startproc
+ 458              		@ args = 0, pretend = 0, frame = 0
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460              		@ link register save eliminated.
+ 461              	.LVL35:
+ 462 0144 064B     		ldr	r3, .L49
+ 463 0146 4FF48052 		mov	r2, #4096
  483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  486:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  487:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
- 468              		.loc 1 487 0
- 469 0152 21B1     		cbz	r1, .L45
+ 464              		.loc 1 487 0
+ 465 014a 19B1     		cbz	r1, .L46
  488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  489:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable the selected DAC channel DMA request */
  490:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR |= (DAC_CR_DMAEN1 << DAC_Channel);
- 470              		.loc 1 490 0
- 471 0154 1968     		ldr	r1, [r3, #0]
- 472              	.LVL43:
- 473 0156 02FA00F2 		lsl	r2, r2, r0
- 474 015a 0A43     		orrs	r2, r2, r1
- 475 015c 04E0     		b	.L47
- 476              	.LVL44:
- 477              	.L45:
+ 466              		.loc 1 490 0
+ 467 014c 1968     		ldr	r1, [r3]
+ 468              	.LVL36:
+ 469 014e 8240     		lsls	r2, r2, r0
+ 470 0150 0A43     		orrs	r2, r2, r1
+ 471 0152 03E0     		b	.L48
+ 472              	.LVL37:
+ 473              	.L46:
  491:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  492:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  493:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable the selected DAC channel DMA request */
  495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR &= (~(DAC_CR_DMAEN1 << DAC_Channel));
- 478              		.loc 1 495 0
- 479 015e 1968     		ldr	r1, [r3, #0]
- 480              	.LVL45:
- 481 0160 02FA00F2 		lsl	r2, r2, r0
- 482 0164 21EA0202 		bic	r2, r1, r2
- 483              	.L47:
- 484 0168 1A60     		str	r2, [r3, #0]
- 485 016a 7047     		bx	lr
- 486              	.L49:
- 487              		.align	2
- 488              	.L48:
- 489 016c 00740040 		.word	1073771520
- 490              		.cfi_endproc
- 491              	.LFE122:
- 493              		.align	1
- 494              		.global	DAC_ITConfig
- 495              		.thumb
- 496              		.thumb_func
- 498              	DAC_ITConfig:
- 499              	.LFB123:
+ 474              		.loc 1 495 0
+ 475 0154 1968     		ldr	r1, [r3]
+ 476              	.LVL38:
+ 477 0156 8240     		lsls	r2, r2, r0
+ 478 0158 21EA0202 		bic	r2, r1, r2
+ 479              	.L48:
+ 480 015c 1A60     		str	r2, [r3]
+ 481 015e 7047     		bx	lr
+ 482              	.L50:
+ 483              		.align	2
+ 484              	.L49:
+ 485 0160 00740040 		.word	1073771520
+ 486              		.cfi_endproc
+ 487              	.LFE122:
+ 489              		.align	1
+ 490              		.global	DAC_ITConfig
+ 491              		.thumb
+ 492              		.thumb_func
+ 494              	DAC_ITConfig:
+ 495              	.LFB123:
  496:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
  498:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
@@ -1007,57 +1003,57 @@
  528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */ 
  529:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewState)  
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 500              		.loc 1 530 0
- 501              		.cfi_startproc
- 502              		@ args = 0, pretend = 0, frame = 0
- 503              		@ frame_needed = 0, uses_anonymous_args = 0
- 504              		@ link register save eliminated.
- 505              	.LVL46:
- 506 0170 054B     		ldr	r3, .L54
- 507 0172 01FA00F1 		lsl	r1, r1, r0
- 508              	.LVL47:
+ 496              		.loc 1 530 0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500              		@ link register save eliminated.
+ 501              	.LVL39:
+ 502 0164 054B     		ldr	r3, .L55
+ 503 0166 8140     		lsls	r1, r1, r0
+ 504              	.LVL40:
  531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  532:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  534:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_IT(DAC_IT)); 
  535:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  536:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (NewState != DISABLE)
- 509              		.loc 1 536 0
- 510 0176 12B1     		cbz	r2, .L51
+ 505              		.loc 1 536 0
+ 506 0168 12B1     		cbz	r2, .L52
  537:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  538:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Enable the selected DAC interrupts */
  539:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR |=  (DAC_IT << DAC_Channel);
- 511              		.loc 1 539 0
- 512 0178 1A68     		ldr	r2, [r3, #0]
- 513              	.LVL48:
- 514 017a 1143     		orrs	r1, r1, r2
- 515 017c 02E0     		b	.L53
- 516              	.LVL49:
- 517              	.L51:
+ 507              		.loc 1 539 0
+ 508 016a 1A68     		ldr	r2, [r3]
+ 509              	.LVL41:
+ 510 016c 1143     		orrs	r1, r1, r2
+ 511 016e 02E0     		b	.L54
+ 512              	.LVL42:
+ 513              	.L52:
  540:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  541:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  542:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  543:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* Disable the selected DAC interrupts */
  544:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     DAC->CR &= (~(uint32_t)(DAC_IT << DAC_Channel));
- 518              		.loc 1 544 0
- 519 017e 1A68     		ldr	r2, [r3, #0]
- 520              	.LVL50:
- 521 0180 22EA0101 		bic	r1, r2, r1
- 522              	.L53:
- 523 0184 1960     		str	r1, [r3, #0]
- 524 0186 7047     		bx	lr
- 525              	.L55:
- 526              		.align	2
- 527              	.L54:
- 528 0188 00740040 		.word	1073771520
- 529              		.cfi_endproc
- 530              	.LFE123:
- 532              		.align	1
- 533              		.global	DAC_GetFlagStatus
- 534              		.thumb
- 535              		.thumb_func
- 537              	DAC_GetFlagStatus:
- 538              	.LFB124:
+ 514              		.loc 1 544 0
+ 515 0170 1A68     		ldr	r2, [r3]
+ 516              	.LVL43:
+ 517 0172 22EA0101 		bic	r1, r2, r1
+ 518              	.L54:
+ 519 0176 1960     		str	r1, [r3]
+ 520 0178 7047     		bx	lr
+ 521              	.L56:
+ 522 017a 00BF     		.align	2
+ 523              	.L55:
+ 524 017c 00740040 		.word	1073771520
+ 525              		.cfi_endproc
+ 526              	.LFE123:
+ 528              		.align	1
+ 529              		.global	DAC_GetFlagStatus
+ 530              		.thumb
+ 531              		.thumb_func
+ 533              	DAC_GetFlagStatus:
+ 534              	.LFB124:
  545:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  546:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
  547:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
@@ -1076,12 +1072,12 @@
  560:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  561:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG)
  562:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 539              		.loc 1 562 0
- 540              		.cfi_startproc
- 541              		@ args = 0, pretend = 0, frame = 0
- 542              		@ frame_needed = 0, uses_anonymous_args = 0
- 543              		@ link register save eliminated.
- 544              	.LVL51:
+ 535              		.loc 1 562 0
+ 536              		.cfi_startproc
+ 537              		@ args = 0, pretend = 0, frame = 0
+ 538              		@ frame_needed = 0, uses_anonymous_args = 0
+ 539              		@ link register save eliminated.
+ 540              	.LVL44:
  563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   FlagStatus bitstatus = RESET;
  564:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  565:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
@@ -1089,13 +1085,13 @@
  567:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the status of the specified DAC flag */
  569:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if ((DAC->SR & (DAC_FLAG << DAC_Channel)) != (uint8_t)RESET)
- 545              		.loc 1 569 0
- 546 018c 044B     		ldr	r3, .L57
- 547 018e 5B6B     		ldr	r3, [r3, #52]
- 548              	.LVL52:
- 549 0190 01FA00F1 		lsl	r1, r1, r0
- 550              	.LVL53:
- 551 0194 1942     		tst	r1, r3
+ 541              		.loc 1 569 0
+ 542 0180 034B     		ldr	r3, .L58
+ 543 0182 5B6B     		ldr	r3, [r3, #52]
+ 544              	.LVL45:
+ 545 0184 8140     		lsls	r1, r1, r0
+ 546              	.LVL46:
+ 547 0186 1942     		tst	r1, r3
  570:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  571:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* DAC_FLAG is set */
  572:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     bitstatus = SET;
@@ -1108,24 +1104,24 @@
  579:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Return the DAC_FLAG status */
  580:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   return  bitstatus;
  581:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
- 552              		.loc 1 581 0
- 553 0196 0CBF     		ite	eq
- 554 0198 0020     		moveq	r0, #0
- 555 019a 0120     		movne	r0, #1
- 556              	.LVL54:
- 557 019c 7047     		bx	lr
- 558              	.L58:
- 559 019e 00BF     		.align	2
- 560              	.L57:
- 561 01a0 00740040 		.word	1073771520
- 562              		.cfi_endproc
- 563              	.LFE124:
- 565              		.align	1
- 566              		.global	DAC_ClearFlag
- 567              		.thumb
- 568              		.thumb_func
- 570              	DAC_ClearFlag:
- 571              	.LFB125:
+ 548              		.loc 1 581 0
+ 549 0188 0CBF     		ite	eq
+ 550 018a 0020     		moveq	r0, #0
+ 551 018c 0120     		movne	r0, #1
+ 552              	.LVL47:
+ 553 018e 7047     		bx	lr
+ 554              	.L59:
+ 555              		.align	2
+ 556              	.L58:
+ 557 0190 00740040 		.word	1073771520
+ 558              		.cfi_endproc
+ 559              	.LFE124:
+ 561              		.align	1
+ 562              		.global	DAC_ClearFlag
+ 563              		.thumb
+ 564              		.thumb_func
+ 566              	DAC_ClearFlag:
+ 567              	.LFB125:
  582:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  583:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
  584:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   * @brief  Clears the DAC channel's pending flags.
@@ -1140,36 +1136,36 @@
  593:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  594:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG)
  595:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 572              		.loc 1 595 0
- 573              		.cfi_startproc
- 574              		@ args = 0, pretend = 0, frame = 0
- 575              		@ frame_needed = 0, uses_anonymous_args = 0
- 576              		@ link register save eliminated.
- 577              	.LVL55:
+ 568              		.loc 1 595 0
+ 569              		.cfi_startproc
+ 570              		@ args = 0, pretend = 0, frame = 0
+ 571              		@ frame_needed = 0, uses_anonymous_args = 0
+ 572              		@ link register save eliminated.
+ 573              	.LVL48:
  596:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  597:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  598:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_FLAG(DAC_FLAG));
  599:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  600:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Clear the selected DAC flags */
  601:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   DAC->SR = (DAC_FLAG << DAC_Channel);
- 578              		.loc 1 601 0
- 579 01a4 024B     		ldr	r3, .L60
- 580 01a6 01FA00F1 		lsl	r1, r1, r0
- 581              	.LVL56:
- 582 01aa 5963     		str	r1, [r3, #52]
- 583 01ac 7047     		bx	lr
- 584              	.L61:
- 585 01ae 00BF     		.align	2
- 586              	.L60:
- 587 01b0 00740040 		.word	1073771520
- 588              		.cfi_endproc
- 589              	.LFE125:
- 591              		.align	1
- 592              		.global	DAC_GetITStatus
- 593              		.thumb
- 594              		.thumb_func
- 596              	DAC_GetITStatus:
- 597              	.LFB126:
+ 574              		.loc 1 601 0
+ 575 0194 014B     		ldr	r3, .L61
+ 576 0196 8140     		lsls	r1, r1, r0
+ 577              	.LVL49:
+ 578 0198 5963     		str	r1, [r3, #52]
+ 579 019a 7047     		bx	lr
+ 580              	.L62:
+ 581              		.align	2
+ 582              	.L61:
+ 583 019c 00740040 		.word	1073771520
+ 584              		.cfi_endproc
+ 585              	.LFE125:
+ 587              		.align	1
+ 588              		.global	DAC_GetITStatus
+ 589              		.thumb
+ 590              		.thumb_func
+ 592              	DAC_GetITStatus:
+ 593              	.LFB126:
  602:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
  603:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  604:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
@@ -1187,12 +1183,12 @@
  616:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  617:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT)
  618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 598              		.loc 1 618 0
- 599              		.cfi_startproc
- 600              		@ args = 0, pretend = 0, frame = 0
- 601              		@ frame_needed = 0, uses_anonymous_args = 0
- 602              		@ link register save eliminated.
- 603              	.LVL57:
+ 594              		.loc 1 618 0
+ 595              		.cfi_startproc
+ 596              		@ args = 0, pretend = 0, frame = 0
+ 597              		@ frame_needed = 0, uses_anonymous_args = 0
+ 598              		@ link register save eliminated.
+ 599              	.LVL50:
  619:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   ITStatus bitstatus = RESET;
  620:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   uint32_t enablestatus = 0;
  621:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
@@ -1202,31 +1198,31 @@
  625:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  626:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Get the DAC_IT enable bit status */
  627:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   enablestatus = (DAC->CR & (DAC_IT << DAC_Channel)) ;
- 604              		.loc 1 627 0
- 605 01b4 054B     		ldr	r3, .L65
- 606 01b6 01FA00F1 		lsl	r1, r1, r0
- 607              	.LVL58:
- 608 01ba 1A68     		ldr	r2, [r3, #0]
- 609              	.LVL59:
+ 600              		.loc 1 627 0
+ 601 01a0 054B     		ldr	r3, .L66
+ 602 01a2 8140     		lsls	r1, r1, r0
+ 603              	.LVL51:
+ 604 01a4 1A68     		ldr	r2, [r3]
+ 605              	.LVL52:
  628:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   
  629:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the status of the specified DAC interrupt */
  630:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   if (((DAC->SR & (DAC_IT << DAC_Channel)) != (uint32_t)RESET) && enablestatus)
- 610              		.loc 1 630 0
- 611 01bc 586B     		ldr	r0, [r3, #52]
- 612              	.LVL60:
- 613 01be 0840     		ands	r0, r1, r0
- 614 01c0 03D0     		beq	.L63
- 615              		.loc 1 630 0 is_stmt 0 discriminator 1
- 616 01c2 1142     		tst	r1, r2
+ 606              		.loc 1 630 0
+ 607 01a6 586B     		ldr	r0, [r3, #52]
+ 608              	.LVL53:
+ 609 01a8 0840     		ands	r0, r1, r0
+ 610 01aa 03D0     		beq	.L64
+ 611              		.loc 1 630 0 is_stmt 0 discriminator 1
+ 612 01ac 1142     		tst	r1, r2
  631:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
  632:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     /* DAC_IT is set */
  633:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****     bitstatus = SET;
- 617              		.loc 1 633 0 is_stmt 1 discriminator 1
- 618 01c4 0CBF     		ite	eq
- 619 01c6 0020     		moveq	r0, #0
- 620 01c8 0120     		movne	r0, #1
- 621              	.L63:
- 622              	.LVL61:
+ 613              		.loc 1 633 0 is_stmt 1 discriminator 1
+ 614 01ae 0CBF     		ite	eq
+ 615 01b0 0020     		moveq	r0, #0
+ 616 01b2 0120     		movne	r0, #1
+ 617              	.L64:
+ 618              	.LVL54:
  634:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   }
  635:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   else
  636:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   {
@@ -1236,20 +1232,20 @@
  640:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Return the DAC_IT status */
  641:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   return  bitstatus;
  642:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** }
- 623              		.loc 1 642 0
- 624 01ca 7047     		bx	lr
- 625              	.L66:
- 626              		.align	2
- 627              	.L65:
- 628 01cc 00740040 		.word	1073771520
- 629              		.cfi_endproc
- 630              	.LFE126:
- 632              		.align	1
- 633              		.global	DAC_ClearITPendingBit
- 634              		.thumb
- 635              		.thumb_func
- 637              	DAC_ClearITPendingBit:
- 638              	.LFB127:
+ 619              		.loc 1 642 0
+ 620 01b4 7047     		bx	lr
+ 621              	.L67:
+ 622 01b6 00BF     		.align	2
+ 623              	.L66:
+ 624 01b8 00740040 		.word	1073771520
+ 625              		.cfi_endproc
+ 626              	.LFE126:
+ 628              		.align	1
+ 629              		.global	DAC_ClearITPendingBit
+ 630              		.thumb
+ 631              		.thumb_func
+ 633              	DAC_ClearITPendingBit:
+ 634              	.LFB127:
  643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  644:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** /**
  645:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   * @brief  Clears the DAC channel's interrupt pending bits.
@@ -1264,90 +1260,94 @@
  654:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   */
  655:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT)
  656:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** {
- 639              		.loc 1 656 0
- 640              		.cfi_startproc
- 641              		@ args = 0, pretend = 0, frame = 0
- 642              		@ frame_needed = 0, uses_anonymous_args = 0
- 643              		@ link register save eliminated.
- 644              	.LVL62:
+ 635              		.loc 1 656 0
+ 636              		.cfi_startproc
+ 637              		@ args = 0, pretend = 0, frame = 0
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639              		@ link register save eliminated.
+ 640              	.LVL55:
  657:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Check the parameters */
  658:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_CHANNEL(DAC_Channel));
  659:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   assert_param(IS_DAC_IT(DAC_IT)); 
  660:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c **** 
  661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   /* Clear the selected DAC interrupt pending bits */
  662:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_dac.c ****   DAC->SR = (DAC_IT << DAC_Channel);
- 645              		.loc 1 662 0
- 646 01d0 024B     		ldr	r3, .L68
- 647 01d2 01FA00F1 		lsl	r1, r1, r0
- 648              	.LVL63:
- 649 01d6 5963     		str	r1, [r3, #52]
- 650 01d8 7047     		bx	lr
- 651              	.L69:
- 652 01da 00BF     		.align	2
- 653              	.L68:
- 654 01dc 00740040 		.word	1073771520
- 655              		.cfi_endproc
- 656              	.LFE127:
- 658              	.Letext0:
- 659              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 660              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 661              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 662              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 663              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 641              		.loc 1 662 0
+ 642 01bc 014B     		ldr	r3, .L69
+ 643 01be 8140     		lsls	r1, r1, r0
+ 644              	.LVL56:
+ 645 01c0 5963     		str	r1, [r3, #52]
+ 646 01c2 7047     		bx	lr
+ 647              	.L70:
+ 648              		.align	2
+ 649              	.L69:
+ 650 01c4 00740040 		.word	1073771520
+ 651              		.cfi_endproc
+ 652              	.LFE127:
+ 654              	.Letext0:
+ 655              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 656              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 657              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 658              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 659              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_dac.c
-     /tmp/ccuxFkVJ.s:20     .text:00000000 $t
-     /tmp/ccuxFkVJ.s:25     .text:00000000 DAC_DeInit
-     /tmp/ccuxFkVJ.s:58     .text:0000001a DAC_Init
-     /tmp/ccuxFkVJ.s:103    .text:00000044 $d
-     /tmp/ccuxFkVJ.s:107    .text:00000048 $t
-     /tmp/ccuxFkVJ.s:112    .text:00000048 DAC_StructInit
-     /tmp/ccuxFkVJ.s:138    .text:00000054 DAC_Cmd
-     /tmp/ccuxFkVJ.s:169    .text:00000074 $d
-     /tmp/ccuxFkVJ.s:173    .text:00000078 $t
-     /tmp/ccuxFkVJ.s:178    .text:00000078 DAC_SoftwareTriggerCmd
-     /tmp/ccuxFkVJ.s:211    .text:00000098 $d
-     /tmp/ccuxFkVJ.s:215    .text:0000009c $t
-     /tmp/ccuxFkVJ.s:220    .text:0000009c DAC_DualSoftwareTriggerCmd
-     /tmp/ccuxFkVJ.s:245    .text:000000b0 $d
-     /tmp/ccuxFkVJ.s:249    .text:000000b4 $t
-     /tmp/ccuxFkVJ.s:254    .text:000000b4 DAC_WaveGenerationCmd
-     /tmp/ccuxFkVJ.s:284    .text:000000cc $d
-     /tmp/ccuxFkVJ.s:288    .text:000000d0 $t
-     /tmp/ccuxFkVJ.s:293    .text:000000d0 DAC_SetChannel1Data
-     /tmp/ccuxFkVJ.s:327    .text:000000ec $d
-     /tmp/ccuxFkVJ.s:331    .text:000000f0 $t
-     /tmp/ccuxFkVJ.s:336    .text:000000f0 DAC_SetChannel2Data
-     /tmp/ccuxFkVJ.s:370    .text:0000010c $d
-     /tmp/ccuxFkVJ.s:374    .text:00000110 $t
-     /tmp/ccuxFkVJ.s:379    .text:00000110 DAC_SetDualChannelData
-     /tmp/ccuxFkVJ.s:404    .text:00000124 $d
-     /tmp/ccuxFkVJ.s:408    .text:00000128 $t
-     /tmp/ccuxFkVJ.s:413    .text:00000128 DAC_GetDataOutputValue
-     /tmp/ccuxFkVJ.s:449    .text:00000148 $d
-     /tmp/ccuxFkVJ.s:453    .text:0000014c $t
-     /tmp/ccuxFkVJ.s:458    .text:0000014c DAC_DMACmd
-     /tmp/ccuxFkVJ.s:489    .text:0000016c $d
-     /tmp/ccuxFkVJ.s:493    .text:00000170 $t
-     /tmp/ccuxFkVJ.s:498    .text:00000170 DAC_ITConfig
-     /tmp/ccuxFkVJ.s:528    .text:00000188 $d
-     /tmp/ccuxFkVJ.s:532    .text:0000018c $t
-     /tmp/ccuxFkVJ.s:537    .text:0000018c DAC_GetFlagStatus
-     /tmp/ccuxFkVJ.s:561    .text:000001a0 $d
-     /tmp/ccuxFkVJ.s:565    .text:000001a4 $t
-     /tmp/ccuxFkVJ.s:570    .text:000001a4 DAC_ClearFlag
-     /tmp/ccuxFkVJ.s:587    .text:000001b0 $d
-     /tmp/ccuxFkVJ.s:591    .text:000001b4 $t
-     /tmp/ccuxFkVJ.s:596    .text:000001b4 DAC_GetITStatus
-     /tmp/ccuxFkVJ.s:628    .text:000001cc $d
-     /tmp/ccuxFkVJ.s:632    .text:000001d0 $t
-     /tmp/ccuxFkVJ.s:637    .text:000001d0 DAC_ClearITPendingBit
-     /tmp/ccuxFkVJ.s:654    .text:000001dc $d
+     /tmp/cc9uRy8B.s:20     .text:00000000 $t
+     /tmp/cc9uRy8B.s:25     .text:00000000 DAC_DeInit
+     /tmp/cc9uRy8B.s:58     .text:0000001a DAC_Init
+     /tmp/cc9uRy8B.s:103    .text:00000044 $d
+     /tmp/cc9uRy8B.s:107    .text:00000048 $t
+     /tmp/cc9uRy8B.s:112    .text:00000048 DAC_StructInit
+     /tmp/cc9uRy8B.s:138    .text:00000054 DAC_Cmd
+     /tmp/cc9uRy8B.s:169    .text:00000070 $d
+     /tmp/cc9uRy8B.s:173    .text:00000074 $t
+     /tmp/cc9uRy8B.s:178    .text:00000074 DAC_SoftwareTriggerCmd
+     /tmp/cc9uRy8B.s:211    .text:00000090 $d
+     /tmp/cc9uRy8B.s:215    .text:00000094 $t
+     /tmp/cc9uRy8B.s:220    .text:00000094 DAC_DualSoftwareTriggerCmd
+     /tmp/cc9uRy8B.s:245    .text:000000a8 $d
+     /tmp/cc9uRy8B.s:249    .text:000000ac $t
+     /tmp/cc9uRy8B.s:254    .text:000000ac DAC_WaveGenerationCmd
+     /tmp/cc9uRy8B.s:284    .text:000000c4 $d
+     /tmp/cc9uRy8B.s:288    .text:000000c8 $t
+     /tmp/cc9uRy8B.s:293    .text:000000c8 DAC_SetChannel1Data
+     /tmp/cc9uRy8B.s:326    .text:000000e4 $d
+     /tmp/cc9uRy8B.s:330    .text:000000e8 $t
+     /tmp/cc9uRy8B.s:335    .text:000000e8 DAC_SetChannel2Data
+     /tmp/cc9uRy8B.s:368    .text:00000104 $d
+     /tmp/cc9uRy8B.s:372    .text:00000108 $t
+     /tmp/cc9uRy8B.s:377    .text:00000108 DAC_SetDualChannelData
+     /tmp/cc9uRy8B.s:402    .text:0000011c $d
+     /tmp/cc9uRy8B.s:406    .text:00000120 $t
+     /tmp/cc9uRy8B.s:411    .text:00000120 DAC_GetDataOutputValue
+     /tmp/cc9uRy8B.s:445    .text:00000140 $d
+     /tmp/cc9uRy8B.s:449    .text:00000144 $t
+     /tmp/cc9uRy8B.s:454    .text:00000144 DAC_DMACmd
+     /tmp/cc9uRy8B.s:485    .text:00000160 $d
+     /tmp/cc9uRy8B.s:489    .text:00000164 $t
+     /tmp/cc9uRy8B.s:494    .text:00000164 DAC_ITConfig
+     /tmp/cc9uRy8B.s:524    .text:0000017c $d
+     /tmp/cc9uRy8B.s:528    .text:00000180 $t
+     /tmp/cc9uRy8B.s:533    .text:00000180 DAC_GetFlagStatus
+     /tmp/cc9uRy8B.s:557    .text:00000190 $d
+     /tmp/cc9uRy8B.s:561    .text:00000194 $t
+     /tmp/cc9uRy8B.s:566    .text:00000194 DAC_ClearFlag
+     /tmp/cc9uRy8B.s:583    .text:0000019c $d
+     /tmp/cc9uRy8B.s:587    .text:000001a0 $t
+     /tmp/cc9uRy8B.s:592    .text:000001a0 DAC_GetITStatus
+     /tmp/cc9uRy8B.s:624    .text:000001b8 $d
+     /tmp/cc9uRy8B.s:628    .text:000001bc $t
+     /tmp/cc9uRy8B.s:633    .text:000001bc DAC_ClearITPendingBit
+     /tmp/cc9uRy8B.s:650    .text:000001c4 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a

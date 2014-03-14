@@ -223,9 +223,9 @@
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CR |= (uint32_t)0x00000001;
   33              		.loc 1 192 0
   34 0000 114B     		ldr	r3, .L2
-  35 0002 1A68     		ldr	r2, [r3, #0]
+  35 0002 1A68     		ldr	r2, [r3]
   36 0004 42F00102 		orr	r2, r2, #1
-  37 0008 1A60     		str	r2, [r3, #0]
+  37 0008 1A60     		str	r2, [r3]
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Reset SW[1:0], HPRE[3:0], PPRE[2:0] and MCOSEL[2:0] bits */
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR &= (uint32_t)0xF8FFC000;
@@ -238,17 +238,17 @@
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Reset HSEON, CSSON and PLLON bits */
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CR &= (uint32_t)0xFEF6FFFF;
   43              		.loc 1 198 0
-  44 0012 1A68     		ldr	r2, [r3, #0]
+  44 0012 1A68     		ldr	r2, [r3]
   45 0014 22F08472 		bic	r2, r2, #17301504
   46 0018 22F48032 		bic	r2, r2, #65536
-  47 001c 1A60     		str	r2, [r3, #0]
+  47 001c 1A60     		str	r2, [r3]
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Reset HSEBYP bit */
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CR &= (uint32_t)0xFFFBFFFF;
   48              		.loc 1 201 0
-  49 001e 1A68     		ldr	r2, [r3, #0]
+  49 001e 1A68     		ldr	r2, [r3]
   50 0020 22F48022 		bic	r2, r2, #262144
-  51 0024 1A60     		str	r2, [r3, #0]
+  51 0024 1A60     		str	r2, [r3]
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE bits */
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR &= (uint32_t)0xFF80FFFF;
@@ -331,12 +331,12 @@
   92              		.loc 1 242 0
   93 0054 024B     		ldr	r3, .L5
   94 0056 0022     		movs	r2, #0
-  95 0058 1A70     		strb	r2, [r3, #0]
+  95 0058 1A70     		strb	r2, [r3]
  243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set the new HSE configuration -------------------------------------------*/
  245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint8_t *) CR_BYTE2_ADDRESS = RCC_HSE;
   96              		.loc 1 245 0
-  97 005a 1870     		strb	r0, [r3, #0]
+  97 005a 1870     		strb	r0, [r3]
   98 005c 7047     		bx	lr
   99              	.L6:
  100 005e 00BF     		.align	2
@@ -415,7 +415,7 @@
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmpreg = RCC->CR;
  119              		.loc 1 302 0
  120 0064 034B     		ldr	r3, .L8
- 121 0066 1A68     		ldr	r2, [r3, #0]
+ 121 0066 1A68     		ldr	r2, [r3]
  122              	.LVL2:
  303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Clear HSITRIM[4:0] bits */
@@ -433,7 +433,7 @@
  310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Store the new value */
  311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CR = tmpreg;
  129              		.loc 1 311 0
- 130 0070 1860     		str	r0, [r3, #0]
+ 130 0070 1860     		str	r0, [r3]
  131 0072 7047     		bx	lr
  132              	.L9:
  133              		.align	2
@@ -478,7 +478,7 @@
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
  152              		.loc 1 334 0
  153 0078 014B     		ldr	r3, .L11
- 154 007a 1860     		str	r0, [r3, #0]
+ 154 007a 1860     		str	r0, [r3]
  155 007c 7047     		bx	lr
  156              	.L12:
  157 007e 00BF     		.align	2
@@ -637,7 +637,7 @@
  409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CSR_LSION_BB = (uint32_t)NewState;
  242              		.loc 1 409 0
  243 00bc 014B     		ldr	r3, .L20
- 244 00be 1860     		str	r0, [r3, #0]
+ 244 00be 1860     		str	r0, [r3]
  245 00c0 7047     		bx	lr
  246              	.L21:
  247 00c2 00BF     		.align	2
@@ -692,11 +692,11 @@
  437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR |= (uint32_t)(RCC_PLLSource | RCC_PLLMul);
  271              		.loc 1 437 0
  272 00d2 5A68     		ldr	r2, [r3, #4]
- 273 00d4 1043     		orrs	r0, r0, r2
+ 273 00d4 1143     		orrs	r1, r1, r2
  274              	.LVL12:
- 275 00d6 0143     		orrs	r1, r1, r0
+ 275 00d6 0843     		orrs	r0, r0, r1
  276              	.LVL13:
- 277 00d8 5960     		str	r1, [r3, #4]
+ 277 00d8 5860     		str	r0, [r3, #4]
  278 00da 7047     		bx	lr
  279              	.L24:
  280              		.align	2
@@ -737,7 +737,7 @@
  456:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CR_PLLON_BB = (uint32_t)NewState;
  299              		.loc 1 456 0
  300 00e0 014B     		ldr	r3, .L26
- 301 00e2 1860     		str	r0, [r3, #0]
+ 301 00e2 1860     		str	r0, [r3]
  302 00e4 7047     		bx	lr
  303              	.L27:
  304 00e6 00BF     		.align	2
@@ -834,7 +834,7 @@
  500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CR_CSSON_BB = (uint32_t)NewState;
  356              		.loc 1 500 0
  357 0100 014B     		ldr	r3, .L32
- 358 0102 1860     		str	r0, [r3, #0]
+ 358 0102 1860     		str	r0, [r3]
  359 0104 7047     		bx	lr
  360              	.L33:
  361 0106 00BF     		.align	2
@@ -880,7 +880,7 @@
  524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint8_t *) CFGR_BYTE3_ADDRESS =  RCC_MCOSource; 
  380              		.loc 1 524 0
  381 010c 014B     		ldr	r3, .L35
- 382 010e 1870     		strb	r0, [r3, #0]
+ 382 010e 1870     		strb	r0, [r3]
  383 0110 7047     		bx	lr
  384              	.L36:
  385 0112 00BF     		.align	2
@@ -1324,117 +1324,118 @@
  800:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get SYSCLK source -------------------------------------------------------*/
  801:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
  560              		.loc 1 801 0
- 561 0178 944B     		ldr	r3, .L105
- 562 017a 5A68     		ldr	r2, [r3, #4]
+ 561 0178 924B     		ldr	r3, .L106
+ 562 017a 5968     		ldr	r1, [r3, #4]
  563              	.LVL38:
- 564 017c 02F00C02 		and	r2, r2, #12
+ 564 017c 01F00C01 		and	r1, r1, #12
  565              	.LVL39:
  802:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  803:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   switch (tmp)
  566              		.loc 1 803 0
- 567 0180 042A     		cmp	r2, #4
+ 567 0180 0429     		cmp	r1, #4
  796:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
  568              		.loc 1 796 0
- 569 0182 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 569 0182 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
  570              	.LCFI0:
- 571              		.cfi_def_cfa_offset 28
- 572              		.cfi_offset 4, -28
- 573              		.cfi_offset 5, -24
- 574              		.cfi_offset 6, -20
- 575              		.cfi_offset 7, -16
- 576              		.cfi_offset 8, -12
- 577              		.cfi_offset 9, -8
- 578              		.cfi_offset 14, -4
- 579              		.loc 1 803 0
- 580 0186 05D0     		beq	.L55
- 581 0188 082A     		cmp	r2, #8
- 582 018a 06D0     		beq	.L56
- 583 018c 904B     		ldr	r3, .L105+4
+ 571              		.cfi_def_cfa_offset 24
+ 572              		.cfi_offset 4, -24
+ 573              		.cfi_offset 5, -20
+ 574              		.cfi_offset 6, -16
+ 575              		.cfi_offset 7, -12
+ 576              		.cfi_offset 8, -8
+ 577              		.cfi_offset 14, -4
+ 578              		.loc 1 803 0
+ 579 0186 05D0     		beq	.L54
+ 580 0188 0829     		cmp	r1, #8
+ 581 018a 06D0     		beq	.L55
+ 582 018c 8E4A     		ldr	r2, .L106+4
  804:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  805:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x00:  /* HSI used as system clock */
  806:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC_Clocks->SYSCLK_Frequency = HSI_VALUE;
- 584              		.loc 1 806 0
- 585 018e 0360     		str	r3, [r0, #0]
+ 583              		.loc 1 806 0
+ 584 018e 0260     		str	r2, [r0]
  803:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   switch (tmp)
- 586              		.loc 1 803 0
- 587 0190 B2B9     		cbnz	r2, .L98
+ 585              		.loc 1 803 0
+ 586 0190 B9B9     		cbnz	r1, .L98
+ 587 0192 17E0     		b	.L57
+ 588              	.L54:
  807:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
- 588              		.loc 1 807 0
- 589 0192 16E0     		b	.L57
- 590              	.L55:
  808:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x04:  /* HSE used as system clock */
  809:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC_Clocks->SYSCLK_Frequency = HSE_VALUE;
- 591              		.loc 1 809 0
- 592 0194 8E4B     		ldr	r3, .L105+4
- 593 0196 0360     		str	r3, [r0, #0]
- 594 0198 12E0     		b	.L98
- 595              	.L56:
+ 589              		.loc 1 809 0
+ 590 0194 8C4A     		ldr	r2, .L106+4
+ 591 0196 0260     		str	r2, [r0]
+ 592 0198 13E0     		b	.L98
+ 593              	.L55:
  810:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
  811:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x08:  /* PLL used as system clock */
  812:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       /* Get PLL clock source and multiplication factor ----------------------*/
  813:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       pllmull = RCC->CFGR & RCC_CFGR_PLLMULL;
- 596              		.loc 1 813 0
- 597 019a 5968     		ldr	r1, [r3, #4]
- 598              	.LVL40:
+ 594              		.loc 1 813 0
+ 595 019a 5A68     		ldr	r2, [r3, #4]
+ 596              	.LVL40:
  814:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
- 599              		.loc 1 814 0
- 600 019c 5C68     		ldr	r4, [r3, #4]
- 601              	.LVL41:
+ 597              		.loc 1 814 0
+ 598 019c 5C68     		ldr	r4, [r3, #4]
+ 599              	.LVL41:
  815:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       pllmull = ( pllmull >> 18) + 2;
- 602              		.loc 1 815 0
- 603 019e C1F38341 		ubfx	r1, r1, #18, #4
- 604              	.LVL42:
- 605 01a2 0231     		adds	r1, r1, #2
- 606              	.LVL43:
+ 600              		.loc 1 815 0
+ 601 019e C2F38342 		ubfx	r2, r2, #18, #4
+ 602              	.LVL42:
  816:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       
  817:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       if (pllsource == 0x00)
- 607              		.loc 1 817 0
- 608 01a4 E603     		lsls	r6, r4, #15
- 609 01a6 01D4     		bmi	.L58
+ 603              		.loc 1 817 0
+ 604 01a2 E103     		lsls	r1, r4, #15
+ 605              	.LVL43:
+ 815:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       pllmull = ( pllmull >> 18) + 2;
+ 606              		.loc 1 815 0
+ 607 01a4 02F10202 		add	r2, r2, #2
+ 608              	.LVL44:
+ 609              		.loc 1 817 0
+ 610 01a8 01D4     		bmi	.L58
  818:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       {
  819:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         /* HSI oscillator clock divided by 2 selected as PLL clock entry */
  820:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         pllclk = (HSI_VALUE >> 1) * pllmull;
- 610              		.loc 1 820 0
- 611 01a8 8A4A     		ldr	r2, .L105+8
- 612              	.LVL44:
- 613 01aa 06E0     		b	.L99
- 614              	.LVL45:
- 615              	.L58:
+ 611              		.loc 1 820 0
+ 612 01aa 8849     		ldr	r1, .L106+8
+ 613 01ac 06E0     		b	.L99
+ 614              	.L58:
  821:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       }
  822:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       else
  823:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       {
  824:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
- 616              		.loc 1 824 0
- 617 01ac DA6A     		ldr	r2, [r3, #44]
- 618              	.LVL46:
+ 615              		.loc 1 824 0
+ 616 01ae D96A     		ldr	r1, [r3, #44]
+ 617              	.LVL45:
  825:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         /* HSE oscillator clock selected as PREDIV1 clock entry */
  826:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         pllclk = (HSE_VALUE / prediv1factor) * pllmull; 
- 619              		.loc 1 826 0
- 620 01ae 884B     		ldr	r3, .L105+4
+ 618              		.loc 1 826 0
+ 619 01b0 854C     		ldr	r4, .L106+4
+ 620              	.LVL46:
  824:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****         prediv1factor = (RCC->CFGR2 & RCC_CFGR2_PREDIV1) + 1;
  621              		.loc 1 824 0
- 622 01b0 02F00F02 		and	r2, r2, #15
+ 622 01b2 01F00F01 		and	r1, r1, #15
  623              	.LVL47:
- 624 01b4 0132     		adds	r2, r2, #1
+ 624 01b6 0131     		adds	r1, r1, #1
  625              	.LVL48:
  626              		.loc 1 826 0
- 627 01b6 B3FBF2F2 		udiv	r2, r3, r2
+ 627 01b8 B4FBF1F1 		udiv	r1, r4, r1
  628              	.LVL49:
  629              	.L99:
- 630 01ba 4A43     		muls	r2, r1, r2
+ 630 01bc 5143     		muls	r1, r2, r1
  631              	.LVL50:
  827:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       }
  828:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC_Clocks->SYSCLK_Frequency = pllclk;      
  632              		.loc 1 828 0
- 633 01bc 0260     		str	r2, [r0, #0]
+ 633 01be 0160     		str	r1, [r0]
  829:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
  634              		.loc 1 829 0
- 635 01be 00E0     		b	.L57
+ 635 01c0 00E0     		b	.L57
  636              	.LVL51:
  637              	.L98:
  797:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0, pllmull = 0, pllsource = 0, prediv1factor = 0, presc = 0, pllclk = 0;
  638              		.loc 1 797 0
- 639 01c0 0022     		movs	r2, #0
+ 639 01c2 0021     		movs	r1, #0
  640              	.LVL52:
  641              	.L57:
  830:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     default: /* HSI used as system clock */
@@ -1445,574 +1446,562 @@
  835:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get HCLK prescaler */
  836:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR & RCC_CFGR_HPRE;
  642              		.loc 1 836 0
- 643 01c2 824D     		ldr	r5, .L105
+ 643 01c4 5A68     		ldr	r2, [r3, #4]
+ 644              	.LVL53:
  837:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 4;
  838:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   ahbpresc = APBAHBPrescTable[tmp]; 
- 644              		.loc 1 838 0
- 645 01c4 844C     		ldr	r4, .L105+12
- 836:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR & RCC_CFGR_HPRE;
- 646              		.loc 1 836 0
- 647 01c6 6B68     		ldr	r3, [r5, #4]
- 648              	.LVL53:
+ 645              		.loc 1 838 0
+ 646 01c6 824D     		ldr	r5, .L106+12
  837:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 4;
- 649              		.loc 1 837 0
- 650 01c8 C3F30313 		ubfx	r3, r3, #4, #4
- 651              	.LVL54:
- 652              		.loc 1 838 0
- 653 01cc E75C     		ldrb	r7, [r4, r3]	@ zero_extendqisi2
- 654              	.LVL55:
+ 647              		.loc 1 837 0
+ 648 01c8 C2F30312 		ubfx	r2, r2, #4, #4
+ 649              	.LVL54:
+ 650              		.loc 1 838 0
+ 651 01cc AF5C     		ldrb	r7, [r5, r2]	@ zero_extendqisi2
  839:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* HCLK clock frequency */
  840:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC_Clocks->HCLK_Frequency = RCC_Clocks->SYSCLK_Frequency >> ahbpresc;
- 655              		.loc 1 840 0
- 656 01ce 0368     		ldr	r3, [r0, #0]
+ 652              		.loc 1 840 0
+ 653 01ce 0268     		ldr	r2, [r0]
+ 654              	.LVL55:
+ 838:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   ahbpresc = APBAHBPrescTable[tmp]; 
+ 655              		.loc 1 838 0
+ 656 01d0 FFB2     		uxtb	r7, r7
  657              	.LVL56:
- 658 01d0 23FA07F6 		lsr	r6, r3, r7
- 659 01d4 4660     		str	r6, [r0, #4]
+ 658              		.loc 1 840 0
+ 659 01d2 22FA07F6 		lsr	r6, r2, r7
+ 660 01d6 4660     		str	r6, [r0, #4]
  841:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  842:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get PCLK1 prescaler */
  843:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR & RCC_CFGR_PPRE1;
- 660              		.loc 1 843 0
- 661 01d6 6968     		ldr	r1, [r5, #4]
- 662              	.LVL57:
+ 661              		.loc 1 843 0
+ 662 01d8 5C68     		ldr	r4, [r3, #4]
+ 663              	.LVL57:
  844:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 8;
- 663              		.loc 1 844 0
- 664 01d8 C1F30221 		ubfx	r1, r1, #8, #3
- 665              	.LVL58:
+ 664              		.loc 1 844 0
+ 665 01da C4F30224 		ubfx	r4, r4, #8, #3
+ 666              	.LVL58:
  845:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   presc = APBAHBPrescTable[tmp];
- 666              		.loc 1 845 0
- 667 01dc 615C     		ldrb	r1, [r4, r1]	@ zero_extendqisi2
- 668              	.LVL59:
+ 667              		.loc 1 845 0
+ 668 01de 2C5D     		ldrb	r4, [r5, r4]	@ zero_extendqisi2
+ 669              	.LVL59:
  846:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* PCLK1 clock frequency */
  847:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC_Clocks->PCLK1_Frequency = RCC_Clocks->HCLK_Frequency >> presc;
- 669              		.loc 1 847 0
- 670 01de 26FA01F1 		lsr	r1, r6, r1
- 671              	.LVL60:
- 672 01e2 8160     		str	r1, [r0, #8]
+ 670              		.loc 1 847 0
+ 671 01e0 26FA04F4 		lsr	r4, r6, r4
+ 672              	.LVL60:
+ 673 01e4 8460     		str	r4, [r0, #8]
  848:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  849:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get PCLK2 prescaler */
  850:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR & RCC_CFGR_PPRE2;
- 673              		.loc 1 850 0
- 674 01e4 D5F804C0 		ldr	ip, [r5, #4]
- 675              	.LVL61:
+ 674              		.loc 1 850 0
+ 675 01e6 D3F804C0 		ldr	ip, [r3, #4]
+ 676              	.LVL61:
  851:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 11;
- 676              		.loc 1 851 0
- 677 01e8 CCF3C22C 		ubfx	ip, ip, #11, #3
- 678              	.LVL62:
+ 677              		.loc 1 851 0
+ 678 01ea CCF3C22C 		ubfx	ip, ip, #11, #3
+ 679              	.LVL62:
  852:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   apb2presc = APBAHBPrescTable[tmp];
- 679              		.loc 1 852 0
- 680 01ec 14F80CC0 		ldrb	ip, [r4, ip]	@ zero_extendqisi2
- 681              	.LVL63:
+ 680              		.loc 1 852 0
+ 681 01ee 15F80CC0 		ldrb	ip, [r5, ip]	@ zero_extendqisi2
+ 682              	.LVL63:
+ 683 01f2 5FFA8CFC 		uxtb	ip, ip
+ 684              	.LVL64:
  853:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* PCLK2 clock frequency */
  854:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC_Clocks->PCLK2_Frequency = RCC_Clocks->HCLK_Frequency >> apb2presc;
- 682              		.loc 1 854 0
- 683 01f0 26FA0CF6 		lsr	r6, r6, ip
- 684 01f4 C660     		str	r6, [r0, #12]
+ 685              		.loc 1 854 0
+ 686 01f6 26FA0CF6 		lsr	r6, r6, ip
+ 687 01fa C660     		str	r6, [r0, #12]
  855:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  856:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get ADC12CLK prescaler */
  857:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR2 & RCC_CFGR2_ADCPRE12;
- 685              		.loc 1 857 0
- 686 01f6 D5F82C80 		ldr	r8, [r5, #44]
- 687              	.LVL64:
- 858:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 4;
- 688              		.loc 1 858 0
- 689 01fa C8F30418 		ubfx	r8, r8, #4, #5
+ 688              		.loc 1 857 0
+ 689 01fc D3F82C80 		ldr	r8, [r3, #44]
  690              	.LVL65:
- 859:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   presc = ADCPrescTable[tmp];
- 691              		.loc 1 859 0
- 692 01fe 04EB4808 		add	r8, r4, r8, lsl #1
+ 858:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 4;
+ 691              		.loc 1 858 0
+ 692 0200 C8F30418 		ubfx	r8, r8, #4, #5
  693              	.LVL66:
- 694 0202 B8F81080 		ldrh	r8, [r8, #16]
- 695 0206 1FFA88F8 		uxth	r8, r8
+ 859:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   presc = ADCPrescTable[tmp];
+ 694              		.loc 1 859 0
+ 695 0204 05EB4808 		add	r8, r5, r8, lsl #1
  696              	.LVL67:
+ 697 0208 B8F81080 		ldrh	r8, [r8, #16]
+ 698 020c 1FFA88F8 		uxth	r8, r8
+ 699              	.LVL68:
  860:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if ((presc & 0x10) != 0)
- 697              		.loc 1 860 0
- 698 020a 08F01009 		and	r9, r8, #16
- 699 020e 1FFA89F9 		uxth	r9, r9
- 700 0212 B9F1000F 		cmp	r9, #0
- 701 0216 04D0     		beq	.L60
+ 700              		.loc 1 860 0
+ 701 0210 18F0100F 		tst	r8, #16
  861:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  862:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      /* ADC12CLK clock frequency is derived from PLL clock */
  863:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      RCC_Clocks->ADC12CLK_Frequency = pllclk / presc;
  702              		.loc 1 863 0
- 703 0218 B2FBF8F8 		udiv	r8, r2, r8
- 704              	.LVL68:
- 705 021c C0F81080 		str	r8, [r0, #16]
- 706 0220 00E0     		b	.L61
- 707              	.LVL69:
- 708              	.L60:
+ 703 0214 1ABF     		itte	ne
+ 704 0216 B1FBF8F8 		udivne	r8, r1, r8
+ 705              	.LVL69:
+ 706 021a C0F81080 		strne	r8, [r0, #16]
  864:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  865:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  866:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  867:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****    /* ADC12CLK clock frequency is AHB clock */
  868:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      RCC_Clocks->ADC12CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 709              		.loc 1 868 0
- 710 0222 0361     		str	r3, [r0, #16]
- 711              	.LVL70:
- 712              	.L61:
+ 707              		.loc 1 868 0
+ 708 021e 0261     		streq	r2, [r0, #16]
  869:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  870:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  871:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get ADC34CLK prescaler */
  872:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC->CFGR2 & RCC_CFGR2_ADCPRE34;
- 713              		.loc 1 872 0
- 714 0224 ED6A     		ldr	r5, [r5, #44]
- 715              	.LVL71:
+ 709              		.loc 1 872 0
+ 710 0220 D3F82C80 		ldr	r8, [r3, #44]
+ 711              	.LVL70:
  873:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = tmp >> 9;
- 716              		.loc 1 873 0
- 717 0226 C5F34425 		ubfx	r5, r5, #9, #5
- 718              	.LVL72:
+ 712              		.loc 1 873 0
+ 713 0224 C8F34428 		ubfx	r8, r8, #9, #5
+ 714              	.LVL71:
  874:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   presc = ADCPrescTable[tmp];
- 719              		.loc 1 874 0
- 720 022a 04EB4504 		add	r4, r4, r5, lsl #1
- 721 022e 248A     		ldrh	r4, [r4, #16]
- 722 0230 A4B2     		uxth	r4, r4
- 723              	.LVL73:
+ 715              		.loc 1 874 0
+ 716 0228 05EB4805 		add	r5, r5, r8, lsl #1
+ 717 022c 2D8A     		ldrh	r5, [r5, #16]
+ 718 022e ADB2     		uxth	r5, r5
+ 719              	.LVL72:
  875:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if ((presc & 0x10) != 0)
- 724              		.loc 1 875 0
- 725 0232 04F01005 		and	r5, r4, #16
- 726              	.LVL74:
- 727 0236 ADB2     		uxth	r5, r5
- 728 0238 1DB1     		cbz	r5, .L62
+ 720              		.loc 1 875 0
+ 721 0230 15F0100F 		tst	r5, #16
  876:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  877:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      /* ADC34CLK clock frequency is derived from PLL clock */
  878:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      RCC_Clocks->ADC34CLK_Frequency = pllclk / presc;
- 729              		.loc 1 878 0
- 730 023a B2FBF4F4 		udiv	r4, r2, r4
- 731              	.LVL75:
- 732 023e 4461     		str	r4, [r0, #20]
- 733 0240 00E0     		b	.L63
- 734              	.LVL76:
- 735              	.L62:
+ 722              		.loc 1 878 0
+ 723 0234 1ABF     		itte	ne
+ 724 0236 B1FBF5F5 		udivne	r5, r1, r5
+ 725              	.LVL73:
+ 726 023a 4561     		strne	r5, [r0, #20]
  879:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  880:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  881:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  882:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****    /* ADC34CLK clock frequency is AHB clock */
  883:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      RCC_Clocks->ADC34CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 736              		.loc 1 883 0
- 737 0242 4361     		str	r3, [r0, #20]
- 738              	.LVL77:
- 739              	.L63:
+ 727              		.loc 1 883 0
+ 728 023c 4261     		streq	r2, [r0, #20]
  884:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  885:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  886:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* I2C1CLK clock frequency */
  887:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_I2C1SW) != RCC_CFGR3_I2C1SW)
- 740              		.loc 1 887 0
- 741 0244 614C     		ldr	r4, .L105
- 742 0246 256B     		ldr	r5, [r4, #48]
- 743 0248 ED06     		lsls	r5, r5, #27
+ 729              		.loc 1 887 0
+ 730 023e 1D6B     		ldr	r5, [r3, #48]
+ 731 0240 ED06     		lsls	r5, r5, #27
  888:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  889:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* I2C1 Clock is HSI Osc. */
  890:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C1CLK_Frequency = HSI_VALUE;
- 744              		.loc 1 890 0
- 745 024a 56BF     		itet	pl
- 746 024c 604D     		ldrpl	r5, .L105+4
+ 732              		.loc 1 890 0
+ 733 0242 5ABF     		itte	pl
+ 734 0244 604D     		ldrpl	r5, .L106+4
+ 735 0246 8561     		strpl	r5, [r0, #24]
  891:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  892:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  893:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  894:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* I2C1 Clock is System Clock */
  895:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C1CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 747              		.loc 1 895 0
- 748 024e 8361     		strmi	r3, [r0, #24]
- 890:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C1CLK_Frequency = HSI_VALUE;
- 749              		.loc 1 890 0
- 750 0250 8561     		strpl	r5, [r0, #24]
+ 736              		.loc 1 895 0
+ 737 0248 8261     		strmi	r2, [r0, #24]
  896:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  897:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  898:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* I2C2CLK clock frequency */
  899:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_I2C2SW) != RCC_CFGR3_I2C2SW)
- 751              		.loc 1 899 0
- 752 0252 246B     		ldr	r4, [r4, #48]
- 753 0254 A406     		lsls	r4, r4, #26
+ 738              		.loc 1 899 0
+ 739 024a 1D6B     		ldr	r5, [r3, #48]
+ 740 024c AD06     		lsls	r5, r5, #26
  900:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  901:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* I2C2 Clock is HSI Osc. */
  902:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C2CLK_Frequency = HSI_VALUE;
- 754              		.loc 1 902 0
- 755 0256 56BF     		itet	pl
- 756 0258 5D4C     		ldrpl	r4, .L105+4
+ 741              		.loc 1 902 0
+ 742 024e 5ABF     		itte	pl
+ 743 0250 5D4D     		ldrpl	r5, .L106+4
+ 744 0252 C561     		strpl	r5, [r0, #28]
  903:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  904:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  905:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  906:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* I2C2 Clock is System Clock */
  907:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C2CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 757              		.loc 1 907 0
- 758 025a C361     		strmi	r3, [r0, #28]
- 902:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->I2C2CLK_Frequency = HSI_VALUE;
- 759              		.loc 1 902 0
- 760 025c C461     		strpl	r4, [r0, #28]
+ 745              		.loc 1 907 0
+ 746 0254 C261     		strmi	r2, [r0, #28]
  908:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  909:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  910:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM1CLK clock frequency */
  911:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if(((RCC->CFGR3 & RCC_CFGR3_TIM1SW) == RCC_CFGR3_TIM1SW)&& (RCC_Clocks->SYSCLK_Frequency == pllcl
- 761              		.loc 1 911 0
- 762 025e 5B4C     		ldr	r4, .L105
- 763 0260 256B     		ldr	r5, [r4, #48]
- 764 0262 15F4807F 		tst	r5, #256
- 765 0266 06D0     		beq	.L68
- 766              		.loc 1 911 0 is_stmt 0 discriminator 1
- 767 0268 9342     		cmp	r3, r2
- 768 026a 04D1     		bne	.L68
+ 747              		.loc 1 911 0
+ 748 0256 1D6B     		ldr	r5, [r3, #48]
+ 749 0258 ED05     		lsls	r5, r5, #23
+ 750 025a 06D5     		bpl	.L68
+ 751              		.loc 1 911 0 is_stmt 0 discriminator 1
+ 752 025c 8A42     		cmp	r2, r1
+ 753 025e 04D1     		bne	.L68
  912:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   && (apb2presc == ahbpresc)) 
- 769              		.loc 1 912 0 is_stmt 1
- 770 026c BC45     		cmp	ip, r7
- 771 026e 02D1     		bne	.L68
+ 754              		.loc 1 912 0 is_stmt 1
+ 755 0260 BC45     		cmp	ip, r7
+ 756 0262 02D1     		bne	.L68
  913:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  914:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM1 Clock is 2 * pllclk */
  915:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->TIM1CLK_Frequency = pllclk * 2;
- 772              		.loc 1 915 0
- 773 0270 5D00     		lsls	r5, r3, #1
- 774 0272 0562     		str	r5, [r0, #32]
- 775 0274 00E0     		b	.L69
- 776              	.L68:
+ 757              		.loc 1 915 0
+ 758 0264 5500     		lsls	r5, r2, #1
+ 759 0266 0562     		str	r5, [r0, #32]
+ 760 0268 00E0     		b	.L69
+ 761              	.L68:
  916:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  917:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  918:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  919:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM1 Clock is APB2 clock. */
  920:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->TIM1CLK_Frequency = RCC_Clocks->PCLK2_Frequency;
- 777              		.loc 1 920 0
- 778 0276 0662     		str	r6, [r0, #32]
- 779              	.L69:
+ 762              		.loc 1 920 0
+ 763 026a 0662     		str	r6, [r0, #32]
+ 764              	.L69:
  921:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  922:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  923:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM8CLK clock frequency */
  924:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if(((RCC->CFGR3 & RCC_CFGR3_TIM8SW) == RCC_CFGR3_TIM8SW)&& (RCC_Clocks->SYSCLK_Frequency == pllcl
- 780              		.loc 1 924 0
- 781 0278 246B     		ldr	r4, [r4, #48]
- 782 027a A405     		lsls	r4, r4, #22
- 783 027c 06D5     		bpl	.L70
- 784              		.loc 1 924 0 is_stmt 0 discriminator 1
- 785 027e 9342     		cmp	r3, r2
- 786 0280 04D1     		bne	.L70
+ 765              		.loc 1 924 0
+ 766 026c 1D6B     		ldr	r5, [r3, #48]
+ 767 026e AD05     		lsls	r5, r5, #22
+ 768 0270 06D5     		bpl	.L70
+ 769              		.loc 1 924 0 is_stmt 0 discriminator 1
+ 770 0272 8A42     		cmp	r2, r1
+ 771 0274 04D1     		bne	.L70
  925:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   && (apb2presc == ahbpresc))
- 787              		.loc 1 925 0 is_stmt 1
- 788 0282 BC45     		cmp	ip, r7
- 789 0284 02D1     		bne	.L70
+ 772              		.loc 1 925 0 is_stmt 1
+ 773 0276 BC45     		cmp	ip, r7
+ 774 0278 02D1     		bne	.L70
  926:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  927:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM8 Clock is 2 * pllclk */
  928:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->TIM8CLK_Frequency = pllclk * 2;
- 790              		.loc 1 928 0
- 791 0286 5A00     		lsls	r2, r3, #1
- 792              	.LVL78:
- 793 0288 4262     		str	r2, [r0, #36]
- 794 028a 00E0     		b	.L71
- 795              	.LVL79:
- 796              	.L70:
+ 775              		.loc 1 928 0
+ 776 027a 5100     		lsls	r1, r2, #1
+ 777              	.LVL74:
+ 778 027c 4162     		str	r1, [r0, #36]
+ 779 027e 00E0     		b	.L71
+ 780              	.LVL75:
+ 781              	.L70:
  929:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  930:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
  931:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  932:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* TIM8 Clock is APB2 clock. */
  933:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->TIM8CLK_Frequency = RCC_Clocks->PCLK2_Frequency;
- 797              		.loc 1 933 0
- 798 028c 4662     		str	r6, [r0, #36]
- 799              	.LVL80:
- 800              	.L71:
+ 782              		.loc 1 933 0
+ 783 0280 4662     		str	r6, [r0, #36]
+ 784              	.LVL76:
+ 785              	.L71:
  934:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  935:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
  936:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* USART1CLK clock frequency */
  937:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_USART1SW) == 0x0)
- 801              		.loc 1 937 0
- 802 028e 4F4A     		ldr	r2, .L105
- 803 0290 146B     		ldr	r4, [r2, #48]
- 804 0292 A407     		lsls	r4, r4, #30
- 805 0294 01D1     		bne	.L72
+ 786              		.loc 1 937 0
+ 787 0282 1D6B     		ldr	r5, [r3, #48]
+ 788 0284 4F49     		ldr	r1, .L106
+ 789 0286 AD07     		lsls	r5, r5, #30
+ 790 0288 01D1     		bne	.L72
  938:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  939:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is PCLK */
  940:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART1CLK_Frequency = RCC_Clocks->PCLK2_Frequency;
- 806              		.loc 1 940 0
- 807 0296 8662     		str	r6, [r0, #40]
- 808 0298 15E0     		b	.L73
- 809              	.L72:
+ 791              		.loc 1 940 0
+ 792 028a 8662     		str	r6, [r0, #40]
+ 793 028c 15E0     		b	.L73
+ 794              	.L72:
  941:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  942:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART1SW) == RCC_CFGR3_USART1SW_0)
- 810              		.loc 1 942 0
- 811 029a 146B     		ldr	r4, [r2, #48]
- 812 029c 04F00304 		and	r4, r4, #3
- 813 02a0 012C     		cmp	r4, #1
- 814 02a2 01D1     		bne	.L74
+ 795              		.loc 1 942 0
+ 796 028e 0D6B     		ldr	r5, [r1, #48]
+ 797 0290 05F00305 		and	r5, r5, #3
+ 798 0294 012D     		cmp	r5, #1
+ 799 0296 01D1     		bne	.L74
  943:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  944:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is System Clock */
  945:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART1CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 815              		.loc 1 945 0
- 816 02a4 8362     		str	r3, [r0, #40]
- 817 02a6 0EE0     		b	.L73
- 818              	.L74:
+ 800              		.loc 1 945 0
+ 801 0298 8262     		str	r2, [r0, #40]
+ 802 029a 0EE0     		b	.L73
+ 803              	.L74:
  946:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  947:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART1SW) == RCC_CFGR3_USART1SW_1)
- 819              		.loc 1 947 0
- 820 02a8 146B     		ldr	r4, [r2, #48]
- 821 02aa 04F00304 		and	r4, r4, #3
- 822 02ae 022C     		cmp	r4, #2
- 823 02b0 02D1     		bne	.L75
+ 804              		.loc 1 947 0
+ 805 029c 0D6B     		ldr	r5, [r1, #48]
+ 806 029e 05F00305 		and	r5, r5, #3
+ 807 02a2 022D     		cmp	r5, #2
+ 808 02a4 02D1     		bne	.L75
  948:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  949:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is LSE Osc. */
  950:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART1CLK_Frequency = LSE_VALUE;
- 824              		.loc 1 950 0
- 825 02b2 4FF40044 		mov	r4, #32768
- 826 02b6 05E0     		b	.L100
- 827              	.L75:
+ 809              		.loc 1 950 0
+ 810 02a6 4FF40041 		mov	r1, #32768
+ 811 02aa 05E0     		b	.L100
+ 812              	.L75:
  951:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  952:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART1SW) == RCC_CFGR3_USART1SW)
- 828              		.loc 1 952 0
- 829 02b8 146B     		ldr	r4, [r2, #48]
- 830 02ba 04F00304 		and	r4, r4, #3
- 831 02be 032C     		cmp	r4, #3
- 832 02c0 01D1     		bne	.L73
+ 813              		.loc 1 952 0
+ 814 02ac 096B     		ldr	r1, [r1, #48]
+ 815 02ae 01F00301 		and	r1, r1, #3
+ 816 02b2 0329     		cmp	r1, #3
+ 817 02b4 01D1     		bne	.L73
  953:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  954:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is HSI Osc. */
  955:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART1CLK_Frequency = HSI_VALUE;
- 833              		.loc 1 955 0
- 834 02c2 434C     		ldr	r4, .L105+4
- 835              	.L100:
- 836 02c4 8462     		str	r4, [r0, #40]
- 837              	.L73:
+ 818              		.loc 1 955 0
+ 819 02b6 4449     		ldr	r1, .L106+4
+ 820              	.L100:
+ 821 02b8 8162     		str	r1, [r0, #40]
+ 822              	.L73:
  956:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  957:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  958:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* USART2CLK clock frequency */
  959:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_USART2SW) == 0x0)
- 838              		.loc 1 959 0
- 839 02c6 126B     		ldr	r2, [r2, #48]
- 840 02c8 404C     		ldr	r4, .L105
- 841 02ca 12F4403F 		tst	r2, #196608
- 842 02ce 01D1     		bne	.L76
+ 823              		.loc 1 959 0
+ 824 02ba 1D6B     		ldr	r5, [r3, #48]
+ 825 02bc 4149     		ldr	r1, .L106
+ 826 02be 15F4403F 		tst	r5, #196608
+ 827 02c2 01D1     		bne	.L76
  960:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  961:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is PCLK */
  962:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART2CLK_Frequency = RCC_Clocks->PCLK1_Frequency;
- 843              		.loc 1 962 0
- 844 02d0 C162     		str	r1, [r0, #44]
- 845 02d2 18E0     		b	.L77
- 846              	.L76:
+ 828              		.loc 1 962 0
+ 829 02c4 C462     		str	r4, [r0, #44]
+ 830 02c6 18E0     		b	.L77
+ 831              	.L76:
  963:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  964:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART2SW) == RCC_CFGR3_USART2SW_0)
- 847              		.loc 1 964 0
- 848 02d4 226B     		ldr	r2, [r4, #48]
- 849 02d6 02F44032 		and	r2, r2, #196608
- 850 02da B2F5803F 		cmp	r2, #65536
- 851 02de 01D1     		bne	.L78
+ 832              		.loc 1 964 0
+ 833 02c8 0D6B     		ldr	r5, [r1, #48]
+ 834 02ca 05F44035 		and	r5, r5, #196608
+ 835 02ce B5F5803F 		cmp	r5, #65536
+ 836 02d2 01D1     		bne	.L78
  965:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  966:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is System Clock */
  967:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART2CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 852              		.loc 1 967 0
- 853 02e0 C362     		str	r3, [r0, #44]
- 854 02e2 10E0     		b	.L77
- 855              	.L78:
+ 837              		.loc 1 967 0
+ 838 02d4 C262     		str	r2, [r0, #44]
+ 839 02d6 10E0     		b	.L77
+ 840              	.L78:
  968:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  969:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART2SW) == RCC_CFGR3_USART2SW_1)
- 856              		.loc 1 969 0
- 857 02e4 226B     		ldr	r2, [r4, #48]
- 858 02e6 02F44032 		and	r2, r2, #196608
- 859 02ea B2F5003F 		cmp	r2, #131072
- 860 02ee 02D1     		bne	.L79
+ 841              		.loc 1 969 0
+ 842 02d8 0D6B     		ldr	r5, [r1, #48]
+ 843 02da 05F44035 		and	r5, r5, #196608
+ 844 02de B5F5003F 		cmp	r5, #131072
+ 845 02e2 02D1     		bne	.L79
  970:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  971:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is LSE Osc. */
  972:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART2CLK_Frequency = LSE_VALUE;
- 861              		.loc 1 972 0
- 862 02f0 4FF40042 		mov	r2, #32768
- 863 02f4 06E0     		b	.L101
- 864              	.L79:
+ 846              		.loc 1 972 0
+ 847 02e4 4FF40041 		mov	r1, #32768
+ 848 02e8 06E0     		b	.L101
+ 849              	.L79:
  973:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  974:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART2SW) == RCC_CFGR3_USART2SW)
- 865              		.loc 1 974 0
- 866 02f6 226B     		ldr	r2, [r4, #48]
- 867 02f8 02F44032 		and	r2, r2, #196608
- 868 02fc B2F5403F 		cmp	r2, #196608
- 869 0300 01D1     		bne	.L77
+ 850              		.loc 1 974 0
+ 851 02ea 096B     		ldr	r1, [r1, #48]
+ 852 02ec 01F44031 		and	r1, r1, #196608
+ 853 02f0 B1F5403F 		cmp	r1, #196608
+ 854 02f4 01D1     		bne	.L77
  975:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  976:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is HSI Osc. */
  977:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART2CLK_Frequency = HSI_VALUE;
- 870              		.loc 1 977 0
- 871 0302 334A     		ldr	r2, .L105+4
- 872              	.L101:
- 873 0304 C262     		str	r2, [r0, #44]
- 874              	.L77:
+ 855              		.loc 1 977 0
+ 856 02f6 3449     		ldr	r1, .L106+4
+ 857              	.L101:
+ 858 02f8 C162     		str	r1, [r0, #44]
+ 859              	.L77:
  978:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }    
  979:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
  980:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* USART3CLK clock frequency */
  981:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_USART3SW) == 0x0)
- 875              		.loc 1 981 0
- 876 0306 314A     		ldr	r2, .L105
- 877 0308 146B     		ldr	r4, [r2, #48]
- 878 030a 14F4402F 		tst	r4, #786432
- 879 030e 01D1     		bne	.L80
+ 860              		.loc 1 981 0
+ 861 02fa 1D6B     		ldr	r5, [r3, #48]
+ 862 02fc 3149     		ldr	r1, .L106
+ 863 02fe 15F4402F 		tst	r5, #786432
+ 864 0302 01D1     		bne	.L80
  982:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  983:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is PCLK */
  984:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART3CLK_Frequency = RCC_Clocks->PCLK1_Frequency;
- 880              		.loc 1 984 0
- 881 0310 0163     		str	r1, [r0, #48]
- 882 0312 18E0     		b	.L81
- 883              	.L80:
+ 865              		.loc 1 984 0
+ 866 0304 0463     		str	r4, [r0, #48]
+ 867 0306 18E0     		b	.L81
+ 868              	.L80:
  985:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  986:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART3SW) == RCC_CFGR3_USART3SW_0)
- 884              		.loc 1 986 0
- 885 0314 146B     		ldr	r4, [r2, #48]
- 886 0316 04F44024 		and	r4, r4, #786432
- 887 031a B4F5802F 		cmp	r4, #262144
- 888 031e 01D1     		bne	.L82
+ 869              		.loc 1 986 0
+ 870 0308 0D6B     		ldr	r5, [r1, #48]
+ 871 030a 05F44025 		and	r5, r5, #786432
+ 872 030e B5F5802F 		cmp	r5, #262144
+ 873 0312 01D1     		bne	.L82
  987:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  988:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is System Clock */
  989:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART3CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 889              		.loc 1 989 0
- 890 0320 0363     		str	r3, [r0, #48]
- 891 0322 10E0     		b	.L81
- 892              	.L82:
+ 874              		.loc 1 989 0
+ 875 0314 0263     		str	r2, [r0, #48]
+ 876 0316 10E0     		b	.L81
+ 877              	.L82:
  990:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  991:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART3SW) == RCC_CFGR3_USART3SW_1)
- 893              		.loc 1 991 0
- 894 0324 146B     		ldr	r4, [r2, #48]
- 895 0326 04F44024 		and	r4, r4, #786432
- 896 032a B4F5002F 		cmp	r4, #524288
- 897 032e 02D1     		bne	.L83
+ 878              		.loc 1 991 0
+ 879 0318 0D6B     		ldr	r5, [r1, #48]
+ 880 031a 05F44025 		and	r5, r5, #786432
+ 881 031e B5F5002F 		cmp	r5, #524288
+ 882 0322 02D1     		bne	.L83
  992:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  993:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is LSE Osc. */
  994:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART3CLK_Frequency = LSE_VALUE;
- 898              		.loc 1 994 0
- 899 0330 4FF40044 		mov	r4, #32768
- 900 0334 06E0     		b	.L102
- 901              	.L83:
+ 883              		.loc 1 994 0
+ 884 0324 4FF40041 		mov	r1, #32768
+ 885 0328 06E0     		b	.L102
+ 886              	.L83:
  995:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
  996:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_USART3SW) == RCC_CFGR3_USART3SW)
- 902              		.loc 1 996 0
- 903 0336 146B     		ldr	r4, [r2, #48]
- 904 0338 04F44024 		and	r4, r4, #786432
- 905 033c B4F5402F 		cmp	r4, #786432
- 906 0340 01D1     		bne	.L81
+ 887              		.loc 1 996 0
+ 888 032a 096B     		ldr	r1, [r1, #48]
+ 889 032c 01F44021 		and	r1, r1, #786432
+ 890 0330 B1F5402F 		cmp	r1, #786432
+ 891 0334 01D1     		bne	.L81
  997:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
  998:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is HSI Osc. */
  999:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->USART3CLK_Frequency = HSI_VALUE;
- 907              		.loc 1 999 0
- 908 0342 234C     		ldr	r4, .L105+4
- 909              	.L102:
- 910 0344 0463     		str	r4, [r0, #48]
- 911              	.L81:
+ 892              		.loc 1 999 0
+ 893 0336 2449     		ldr	r1, .L106+4
+ 894              	.L102:
+ 895 0338 0163     		str	r1, [r0, #48]
+ 896              	.L81:
 1000:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1001:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1002:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* UART4CLK clock frequency */
 1003:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_UART4SW) == 0x0)
- 912              		.loc 1 1003 0
- 913 0346 126B     		ldr	r2, [r2, #48]
- 914 0348 204C     		ldr	r4, .L105
- 915 034a 12F4401F 		tst	r2, #3145728
- 916 034e 01D1     		bne	.L84
+ 897              		.loc 1 1003 0
+ 898 033a 1D6B     		ldr	r5, [r3, #48]
+ 899 033c 2149     		ldr	r1, .L106
+ 900 033e 15F4401F 		tst	r5, #3145728
+ 901 0342 01D1     		bne	.L84
 1004:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1005:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is PCLK */
 1006:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART4CLK_Frequency = RCC_Clocks->PCLK1_Frequency;
- 917              		.loc 1 1006 0
- 918 0350 4163     		str	r1, [r0, #52]
- 919 0352 18E0     		b	.L85
- 920              	.L84:
+ 902              		.loc 1 1006 0
+ 903 0344 4463     		str	r4, [r0, #52]
+ 904 0346 18E0     		b	.L85
+ 905              	.L84:
 1007:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1008:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART4SW) == RCC_CFGR3_UART4SW_0)
- 921              		.loc 1 1008 0
- 922 0354 226B     		ldr	r2, [r4, #48]
- 923 0356 02F44012 		and	r2, r2, #3145728
- 924 035a B2F5801F 		cmp	r2, #1048576
- 925 035e 01D1     		bne	.L86
+ 906              		.loc 1 1008 0
+ 907 0348 0D6B     		ldr	r5, [r1, #48]
+ 908 034a 05F44015 		and	r5, r5, #3145728
+ 909 034e B5F5801F 		cmp	r5, #1048576
+ 910 0352 01D1     		bne	.L86
 1009:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1010:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is System Clock */
 1011:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART4CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
- 926              		.loc 1 1011 0
- 927 0360 4363     		str	r3, [r0, #52]
- 928 0362 10E0     		b	.L85
- 929              	.L86:
+ 911              		.loc 1 1011 0
+ 912 0354 4263     		str	r2, [r0, #52]
+ 913 0356 10E0     		b	.L85
+ 914              	.L86:
 1012:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1013:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART4SW) == RCC_CFGR3_UART4SW_1)
- 930              		.loc 1 1013 0
- 931 0364 226B     		ldr	r2, [r4, #48]
- 932 0366 02F44012 		and	r2, r2, #3145728
- 933 036a B2F5001F 		cmp	r2, #2097152
- 934 036e 02D1     		bne	.L87
+ 915              		.loc 1 1013 0
+ 916 0358 0D6B     		ldr	r5, [r1, #48]
+ 917 035a 05F44015 		and	r5, r5, #3145728
+ 918 035e B5F5001F 		cmp	r5, #2097152
+ 919 0362 02D1     		bne	.L87
 1014:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1015:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is LSE Osc. */
 1016:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART4CLK_Frequency = LSE_VALUE;
- 935              		.loc 1 1016 0
- 936 0370 4FF40042 		mov	r2, #32768
- 937 0374 06E0     		b	.L103
- 938              	.L87:
+ 920              		.loc 1 1016 0
+ 921 0364 4FF40041 		mov	r1, #32768
+ 922 0368 06E0     		b	.L103
+ 923              	.L87:
 1017:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1018:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART4SW) == RCC_CFGR3_UART4SW)
- 939              		.loc 1 1018 0
- 940 0376 226B     		ldr	r2, [r4, #48]
- 941 0378 02F44012 		and	r2, r2, #3145728
- 942 037c B2F5401F 		cmp	r2, #3145728
- 943 0380 01D1     		bne	.L85
+ 924              		.loc 1 1018 0
+ 925 036a 096B     		ldr	r1, [r1, #48]
+ 926 036c 01F44011 		and	r1, r1, #3145728
+ 927 0370 B1F5401F 		cmp	r1, #3145728
+ 928 0374 01D1     		bne	.L85
 1019:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1020:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is HSI Osc. */
 1021:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART4CLK_Frequency = HSI_VALUE;
- 944              		.loc 1 1021 0
- 945 0382 134A     		ldr	r2, .L105+4
- 946              	.L103:
- 947 0384 4263     		str	r2, [r0, #52]
- 948              	.L85:
+ 929              		.loc 1 1021 0
+ 930 0376 1449     		ldr	r1, .L106+4
+ 931              	.L103:
+ 932 0378 4163     		str	r1, [r0, #52]
+ 933              	.L85:
 1022:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }   
 1023:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1024:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* UART5CLK clock frequency */
 1025:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if((RCC->CFGR3 & RCC_CFGR3_UART5SW) == 0x0)
- 949              		.loc 1 1025 0
- 950 0386 114A     		ldr	r2, .L105
- 951 0388 146B     		ldr	r4, [r2, #48]
- 952 038a 14F4400F 		tst	r4, #12582912
- 953 038e 02D1     		bne	.L88
+ 934              		.loc 1 1025 0
+ 935 037a 1B6B     		ldr	r3, [r3, #48]
+ 936 037c 1149     		ldr	r1, .L106
+ 937 037e 13F4400F 		tst	r3, #12582912
+ 938 0382 02D1     		bne	.L88
 1026:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1027:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is PCLK */
 1028:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART5CLK_Frequency = RCC_Clocks->PCLK1_Frequency;
- 954              		.loc 1 1028 0
- 955 0390 8163     		str	r1, [r0, #56]
- 956 0392 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 957              	.L88:
+ 939              		.loc 1 1028 0
+ 940 0384 8463     		str	r4, [r0, #56]
+ 941 0386 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 942              	.LVL77:
+ 943              	.L88:
 1029:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1030:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART5SW) == RCC_CFGR3_UART5SW_0)
- 958              		.loc 1 1030 0
- 959 0396 116B     		ldr	r1, [r2, #48]
- 960 0398 01F44001 		and	r1, r1, #12582912
- 961 039c B1F5800F 		cmp	r1, #4194304
- 962 03a0 00D1     		bne	.L90
- 963 03a2 0FE0     		b	.L104
- 964              	.L90:
+ 944              		.loc 1 1030 0
+ 945 038a 0B6B     		ldr	r3, [r1, #48]
+ 946 038c 03F44003 		and	r3, r3, #12582912
+ 947 0390 B3F5800F 		cmp	r3, #4194304
+ 948 0394 02D1     		bne	.L90
 1031:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1032:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is System Clock */
 1033:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART5CLK_Frequency = RCC_Clocks->SYSCLK_Frequency;
+ 949              		.loc 1 1033 0
+ 950 0396 8263     		str	r2, [r0, #56]
+ 951 0398 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 952              	.LVL78:
+ 953              	.L90:
 1034:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1035:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART5SW) == RCC_CFGR3_UART5SW_1)
- 965              		.loc 1 1035 0
- 966 03a4 136B     		ldr	r3, [r2, #48]
- 967 03a6 03F44003 		and	r3, r3, #12582912
- 968 03aa B3F5000F 		cmp	r3, #8388608
- 969 03ae 02D1     		bne	.L91
+ 954              		.loc 1 1035 0
+ 955 039c 0B6B     		ldr	r3, [r1, #48]
+ 956 039e 03F44003 		and	r3, r3, #12582912
+ 957 03a2 B3F5000F 		cmp	r3, #8388608
+ 958 03a6 02D1     		bne	.L91
 1036:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1037:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is LSE Osc. */
 1038:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART5CLK_Frequency = LSE_VALUE;
- 970              		.loc 1 1038 0
- 971 03b0 4FF40043 		mov	r3, #32768
- 972 03b4 06E0     		b	.L104
- 973              	.L91:
+ 959              		.loc 1 1038 0
+ 960 03a8 4FF40043 		mov	r3, #32768
+ 961 03ac 06E0     		b	.L104
+ 962              	.L91:
 1039:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1040:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if((RCC->CFGR3 & RCC_CFGR3_UART5SW) == RCC_CFGR3_UART5SW)
- 974              		.loc 1 1040 0
- 975 03b6 136B     		ldr	r3, [r2, #48]
- 976 03b8 03F44003 		and	r3, r3, #12582912
- 977 03bc B3F5400F 		cmp	r3, #12582912
- 978 03c0 01D1     		bne	.L52
+ 963              		.loc 1 1040 0
+ 964 03ae 0B6B     		ldr	r3, [r1, #48]
+ 965 03b0 03F44003 		and	r3, r3, #12582912
+ 966 03b4 B3F5400F 		cmp	r3, #12582912
+ 967 03b8 01D1     		bne	.L52
 1041:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1042:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* USART Clock is HSI Osc. */
 1043:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC_Clocks->UART5CLK_Frequency = HSI_VALUE;
- 979              		.loc 1 1043 0
- 980 03c2 034B     		ldr	r3, .L105+4
- 981              	.L104:
- 982 03c4 8363     		str	r3, [r0, #56]
- 983              	.L52:
- 984 03c6 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 985              	.L106:
- 986 03ca 00BF     		.align	2
- 987              	.L105:
- 988 03cc 00100240 		.word	1073876992
- 989 03d0 00127A00 		.word	8000000
- 990 03d4 00093D00 		.word	4000000
- 991 03d8 00000000 		.word	.LANCHOR0
- 992              		.cfi_endproc
- 993              	.LFE129:
- 995              		.align	1
- 996              		.global	RCC_ADCCLKConfig
- 997              		.thumb
- 998              		.thumb_func
- 1000              	RCC_ADCCLKConfig:
- 1001              	.LFB130:
+ 968              		.loc 1 1043 0
+ 969 03ba 034B     		ldr	r3, .L106+4
+ 970              	.L104:
+ 971 03bc 8363     		str	r3, [r0, #56]
+ 972              	.L52:
+ 973 03be BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 974              	.LVL79:
+ 975              	.L107:
+ 976 03c2 00BF     		.align	2
+ 977              	.L106:
+ 978 03c4 00100240 		.word	1073876992
+ 979 03c8 00127A00 		.word	8000000
+ 980 03cc 00093D00 		.word	4000000
+ 981 03d0 00000000 		.word	.LANCHOR0
+ 982              		.cfi_endproc
+ 983              	.LFE129:
+ 985              		.align	1
+ 986              		.global	RCC_ADCCLKConfig
+ 987              		.thumb
+ 988              		.thumb_func
+ 990              	RCC_ADCCLKConfig:
+ 991              	.LFB130:
 1044:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   } 
 1045:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1046:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2077,12 +2066,12 @@
 1105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_ADCCLKConfig(uint32_t RCC_PLLCLK)
 1107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1002              		.loc 1 1107 0
- 1003              		.cfi_startproc
- 1004              		@ args = 0, pretend = 0, frame = 0
- 1005              		@ frame_needed = 0, uses_anonymous_args = 0
- 1006              		@ link register save eliminated.
- 1007              	.LVL81:
+ 992              		.loc 1 1107 0
+ 993              		.cfi_startproc
+ 994              		@ args = 0, pretend = 0, frame = 0
+ 995              		@ frame_needed = 0, uses_anonymous_args = 0
+ 996              		@ link register save eliminated.
+ 997              	.LVL80:
 1108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0;
 1109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
@@ -2092,44 +2081,44 @@
 1114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Clears ADCPRE34 bits */
 1116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (tmp != 0)
- 1008              		.loc 1 1116 0
- 1009 03dc 030F     		lsrs	r3, r0, #28
- 1010 03de 064B     		ldr	r3, .L111
+ 998              		.loc 1 1116 0
+ 999 03d4 030F     		lsrs	r3, r0, #28
+ 1000 03d6 064B     		ldr	r3, .L112
 1117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR2 &= ~RCC_CFGR2_ADCPRE34;
- 1011              		.loc 1 1118 0
- 1012 03e0 DA6A     		ldr	r2, [r3, #44]
- 1013 03e2 14BF     		ite	ne
- 1014 03e4 22F47852 		bicne	r2, r2, #15872
+ 1001              		.loc 1 1118 0
+ 1002 03d8 DA6A     		ldr	r2, [r3, #44]
+ 1003 03da 14BF     		ite	ne
+ 1004 03dc 22F47852 		bicne	r2, r2, #15872
 1119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****    /* Clears ADCPRE12 bits */
 1121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR2 &= ~RCC_CFGR2_ADCPRE12;
- 1015              		.loc 1 1123 0
- 1016 03e8 22F4F872 		biceq	r2, r2, #496
- 1017 03ec DA62     		str	r2, [r3, #44]
+ 1005              		.loc 1 1123 0
+ 1006 03e0 22F4F872 		biceq	r2, r2, #496
+ 1007 03e4 DA62     		str	r2, [r3, #44]
 1124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set ADCPRE bits according to RCC_PLLCLK value */
 1126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR2 |= RCC_PLLCLK;
- 1018              		.loc 1 1126 0
- 1019 03ee DA6A     		ldr	r2, [r3, #44]
- 1020 03f0 1043     		orrs	r0, r0, r2
- 1021              	.LVL82:
- 1022 03f2 D862     		str	r0, [r3, #44]
- 1023 03f4 7047     		bx	lr
- 1024              	.L112:
- 1025 03f6 00BF     		.align	2
- 1026              	.L111:
- 1027 03f8 00100240 		.word	1073876992
- 1028              		.cfi_endproc
- 1029              	.LFE130:
- 1031              		.align	1
- 1032              		.global	RCC_I2CCLKConfig
- 1033              		.thumb
- 1034              		.thumb_func
- 1036              	RCC_I2CCLKConfig:
- 1037              	.LFB131:
+ 1008              		.loc 1 1126 0
+ 1009 03e6 DA6A     		ldr	r2, [r3, #44]
+ 1010 03e8 1043     		orrs	r0, r0, r2
+ 1011              	.LVL81:
+ 1012 03ea D862     		str	r0, [r3, #44]
+ 1013 03ec 7047     		bx	lr
+ 1014              	.L113:
+ 1015 03ee 00BF     		.align	2
+ 1016              	.L112:
+ 1017 03f0 00100240 		.word	1073876992
+ 1018              		.cfi_endproc
+ 1019              	.LFE130:
+ 1021              		.align	1
+ 1022              		.global	RCC_I2CCLKConfig
+ 1023              		.thumb
+ 1024              		.thumb_func
+ 1026              	RCC_I2CCLKConfig:
+ 1027              	.LFB131:
 1127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2144,12 +2133,12 @@
 1138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_I2CCLKConfig(uint32_t RCC_I2CCLK)
 1140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** { 
- 1038              		.loc 1 1140 0
- 1039              		.cfi_startproc
- 1040              		@ args = 0, pretend = 0, frame = 0
- 1041              		@ frame_needed = 0, uses_anonymous_args = 0
- 1042              		@ link register save eliminated.
- 1043              	.LVL83:
+ 1028              		.loc 1 1140 0
+ 1029              		.cfi_startproc
+ 1030              		@ args = 0, pretend = 0, frame = 0
+ 1031              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1032              		@ link register save eliminated.
+ 1033              	.LVL82:
 1141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0;
 1142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
@@ -2159,43 +2148,43 @@
 1147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Clear I2CSW bit */
 1149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (tmp != 0)
- 1044              		.loc 1 1149 0
- 1045 03fc 030F     		lsrs	r3, r0, #28
- 1046 03fe 064B     		ldr	r3, .L117
+ 1034              		.loc 1 1149 0
+ 1035 03f4 030F     		lsrs	r3, r0, #28
+ 1036 03f6 064B     		ldr	r3, .L118
 1150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR3 &= ~RCC_CFGR3_I2C2SW;
- 1047              		.loc 1 1151 0
- 1048 0400 1A6B     		ldr	r2, [r3, #48]
- 1049 0402 14BF     		ite	ne
- 1050 0404 22F02002 		bicne	r2, r2, #32
+ 1037              		.loc 1 1151 0
+ 1038 03f8 1A6B     		ldr	r2, [r3, #48]
+ 1039 03fa 14BF     		ite	ne
+ 1040 03fc 22F02002 		bicne	r2, r2, #32
 1152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR3 &= ~RCC_CFGR3_I2C1SW;
- 1051              		.loc 1 1155 0
- 1052 0408 22F01002 		biceq	r2, r2, #16
- 1053 040c 1A63     		str	r2, [r3, #48]
+ 1041              		.loc 1 1155 0
+ 1042 0400 22F01002 		biceq	r2, r2, #16
+ 1043 0404 1A63     		str	r2, [r3, #48]
 1156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set I2CSW bits according to RCC_I2CCLK value */
 1158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR3 |= RCC_I2CCLK;
- 1054              		.loc 1 1158 0
- 1055 040e 1A6B     		ldr	r2, [r3, #48]
- 1056 0410 1043     		orrs	r0, r0, r2
- 1057              	.LVL84:
- 1058 0412 1863     		str	r0, [r3, #48]
- 1059 0414 7047     		bx	lr
- 1060              	.L118:
- 1061 0416 00BF     		.align	2
- 1062              	.L117:
- 1063 0418 00100240 		.word	1073876992
- 1064              		.cfi_endproc
- 1065              	.LFE131:
- 1067              		.align	1
- 1068              		.global	RCC_TIMCLKConfig
- 1069              		.thumb
- 1070              		.thumb_func
- 1072              	RCC_TIMCLKConfig:
- 1073              	.LFB132:
+ 1044              		.loc 1 1158 0
+ 1045 0406 1A6B     		ldr	r2, [r3, #48]
+ 1046 0408 1043     		orrs	r0, r0, r2
+ 1047              	.LVL83:
+ 1048 040a 1863     		str	r0, [r3, #48]
+ 1049 040c 7047     		bx	lr
+ 1050              	.L119:
+ 1051 040e 00BF     		.align	2
+ 1052              	.L118:
+ 1053 0410 00100240 		.word	1073876992
+ 1054              		.cfi_endproc
+ 1055              	.LFE131:
+ 1057              		.align	1
+ 1058              		.global	RCC_TIMCLKConfig
+ 1059              		.thumb
+ 1060              		.thumb_func
+ 1062              	RCC_TIMCLKConfig:
+ 1063              	.LFB132:
 1159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2214,12 +2203,12 @@
 1174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_TIMCLKConfig(uint32_t RCC_TIMCLK)
 1176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** { 
- 1074              		.loc 1 1176 0
- 1075              		.cfi_startproc
- 1076              		@ args = 0, pretend = 0, frame = 0
- 1077              		@ frame_needed = 0, uses_anonymous_args = 0
- 1078              		@ link register save eliminated.
- 1079              	.LVL85:
+ 1064              		.loc 1 1176 0
+ 1065              		.cfi_startproc
+ 1066              		@ args = 0, pretend = 0, frame = 0
+ 1067              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1068              		@ link register save eliminated.
+ 1069              	.LVL84:
 1177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0;
 1178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
@@ -2229,43 +2218,43 @@
 1183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Clear I2CSW bit */
 1185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (tmp != 0)
- 1080              		.loc 1 1185 0
- 1081 041c 030F     		lsrs	r3, r0, #28
- 1082 041e 064B     		ldr	r3, .L123
+ 1070              		.loc 1 1185 0
+ 1071 0414 030F     		lsrs	r3, r0, #28
+ 1072 0416 064B     		ldr	r3, .L124
 1186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR3 &= ~RCC_CFGR3_TIM8SW;
- 1083              		.loc 1 1187 0
- 1084 0420 1A6B     		ldr	r2, [r3, #48]
- 1085 0422 14BF     		ite	ne
- 1086 0424 22F40072 		bicne	r2, r2, #512
+ 1073              		.loc 1 1187 0
+ 1074 0418 1A6B     		ldr	r2, [r3, #48]
+ 1075 041a 14BF     		ite	ne
+ 1076 041c 22F40072 		bicne	r2, r2, #512
 1188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->CFGR3 &= ~RCC_CFGR3_TIM1SW;
- 1087              		.loc 1 1191 0
- 1088 0428 22F48072 		biceq	r2, r2, #256
- 1089 042c 1A63     		str	r2, [r3, #48]
+ 1077              		.loc 1 1191 0
+ 1078 0420 22F48072 		biceq	r2, r2, #256
+ 1079 0424 1A63     		str	r2, [r3, #48]
 1192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set I2CSW bits according to RCC_TIMCLK value */
 1194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR3 |= RCC_TIMCLK;
- 1090              		.loc 1 1194 0
- 1091 042e 1A6B     		ldr	r2, [r3, #48]
- 1092 0430 1043     		orrs	r0, r0, r2
- 1093              	.LVL86:
- 1094 0432 1863     		str	r0, [r3, #48]
- 1095 0434 7047     		bx	lr
- 1096              	.L124:
- 1097 0436 00BF     		.align	2
- 1098              	.L123:
- 1099 0438 00100240 		.word	1073876992
- 1100              		.cfi_endproc
- 1101              	.LFE132:
- 1103              		.align	1
- 1104              		.global	RCC_USARTCLKConfig
- 1105              		.thumb
- 1106              		.thumb_func
- 1108              	RCC_USARTCLKConfig:
- 1109              	.LFB133:
+ 1080              		.loc 1 1194 0
+ 1081 0426 1A6B     		ldr	r2, [r3, #48]
+ 1082 0428 1043     		orrs	r0, r0, r2
+ 1083              	.LVL85:
+ 1084 042a 1863     		str	r0, [r3, #48]
+ 1085 042c 7047     		bx	lr
+ 1086              	.L125:
+ 1087 042e 00BF     		.align	2
+ 1088              	.L124:
+ 1089 0430 00100240 		.word	1073876992
+ 1090              		.cfi_endproc
+ 1091              	.LFE132:
+ 1093              		.align	1
+ 1094              		.global	RCC_USARTCLKConfig
+ 1095              		.thumb
+ 1096              		.thumb_func
+ 1098              	RCC_USARTCLKConfig:
+ 1099              	.LFB133:
 1195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2282,81 +2271,81 @@
 1208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_USARTCLKConfig(uint32_t RCC_USARTCLK)
 1210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** { 
- 1110              		.loc 1 1210 0
- 1111              		.cfi_startproc
- 1112              		@ args = 0, pretend = 0, frame = 0
- 1113              		@ frame_needed = 0, uses_anonymous_args = 0
- 1114              		@ link register save eliminated.
- 1115              	.LVL87:
+ 1100              		.loc 1 1210 0
+ 1101              		.cfi_startproc
+ 1102              		@ args = 0, pretend = 0, frame = 0
+ 1103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1104              		@ link register save eliminated.
+ 1105              	.LVL86:
 1211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0;
 1212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_USARTCLK(RCC_USARTCLK));
 1215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = (RCC_USARTCLK >> 28);
- 1116              		.loc 1 1216 0
- 1117 043c 020F     		lsrs	r2, r0, #28
- 1118              	.LVL88:
+ 1106              		.loc 1 1216 0
+ 1107 0434 020F     		lsrs	r2, r0, #28
+ 1108              	.LVL87:
 1217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Clear USARTSW[1:0] bit */
 1219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   switch (tmp)
- 1119              		.loc 1 1219 0
- 1120 043e 013A     		subs	r2, r2, #1
- 1121              	.LVL89:
- 1122 0440 0F4B     		ldr	r3, .L134
- 1123 0442 042A     		cmp	r2, #4
- 1124 0444 18D8     		bhi	.L126
- 1125 0446 DFE802F0 		tbb	[pc, r2]
- 1126              	.L132:
- 1127 044a 03       		.byte	(.L127-.L132)/2
- 1128 044b 07       		.byte	(.L128-.L132)/2
- 1129 044c 0B       		.byte	(.L129-.L132)/2
- 1130 044d 0F       		.byte	(.L130-.L132)/2
- 1131 044e 13       		.byte	(.L131-.L132)/2
- 1132 044f 00       		.align	1
- 1133              	.L127:
+ 1109              		.loc 1 1219 0
+ 1110 0436 013A     		subs	r2, r2, #1
+ 1111              	.LVL88:
+ 1112 0438 0F4B     		ldr	r3, .L135
+ 1113 043a 042A     		cmp	r2, #4
+ 1114 043c 18D8     		bhi	.L127
+ 1115 043e DFE802F0 		tbb	[pc, r2]
+ 1116              	.L129:
+ 1117 0442 03       		.byte	(.L128-.L129)/2
+ 1118 0443 07       		.byte	(.L130-.L129)/2
+ 1119 0444 0B       		.byte	(.L131-.L129)/2
+ 1120 0445 0F       		.byte	(.L132-.L129)/2
+ 1121 0446 13       		.byte	(.L133-.L129)/2
+ 1122 0447 00       		.align	1
+ 1123              	.L128:
 1220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x01:  /* clear USART1SW */
 1222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC->CFGR3 &= ~RCC_CFGR3_USART1SW;
- 1134              		.loc 1 1222 0
- 1135 0450 1A6B     		ldr	r2, [r3, #48]
- 1136              	.LVL90:
- 1137 0452 22F00302 		bic	r2, r2, #3
- 1138 0456 0EE0     		b	.L133
- 1139              	.L128:
+ 1124              		.loc 1 1222 0
+ 1125 0448 1A6B     		ldr	r2, [r3, #48]
+ 1126              	.LVL89:
+ 1127 044a 22F00302 		bic	r2, r2, #3
+ 1128 044e 0EE0     		b	.L134
+ 1129              	.L130:
 1223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
 1224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x02:  /* clear USART2SW */
 1225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC->CFGR3 &= ~RCC_CFGR3_USART2SW;
- 1140              		.loc 1 1225 0
- 1141 0458 1A6B     		ldr	r2, [r3, #48]
- 1142 045a 22F44032 		bic	r2, r2, #196608
- 1143 045e 0AE0     		b	.L133
- 1144              	.L129:
+ 1130              		.loc 1 1225 0
+ 1131 0450 1A6B     		ldr	r2, [r3, #48]
+ 1132 0452 22F44032 		bic	r2, r2, #196608
+ 1133 0456 0AE0     		b	.L134
+ 1134              	.L131:
 1226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
 1227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x03:  /* clear USART3SW */
 1228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC->CFGR3 &= ~RCC_CFGR3_USART3SW;
- 1145              		.loc 1 1228 0
- 1146 0460 1A6B     		ldr	r2, [r3, #48]
- 1147 0462 22F44022 		bic	r2, r2, #786432
- 1148 0466 06E0     		b	.L133
- 1149              	.L130:
+ 1135              		.loc 1 1228 0
+ 1136 0458 1A6B     		ldr	r2, [r3, #48]
+ 1137 045a 22F44022 		bic	r2, r2, #786432
+ 1138 045e 06E0     		b	.L134
+ 1139              	.L132:
 1229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
 1230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x04:  /* clear UART4SW */
 1231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC->CFGR3 &= ~RCC_CFGR3_UART4SW;
- 1150              		.loc 1 1231 0
- 1151 0468 1A6B     		ldr	r2, [r3, #48]
- 1152 046a 22F44012 		bic	r2, r2, #3145728
- 1153 046e 02E0     		b	.L133
- 1154              	.L131:
+ 1140              		.loc 1 1231 0
+ 1141 0460 1A6B     		ldr	r2, [r3, #48]
+ 1142 0462 22F44012 		bic	r2, r2, #3145728
+ 1143 0466 02E0     		b	.L134
+ 1144              	.L133:
 1232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
 1233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     case 0x05:  /* clear UART5SW */
 1234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       RCC->CFGR3 &= ~RCC_CFGR3_UART5SW;
- 1155              		.loc 1 1234 0
- 1156 0470 1A6B     		ldr	r2, [r3, #48]
- 1157 0472 22F44002 		bic	r2, r2, #12582912
- 1158              	.L133:
- 1159 0476 1A63     		str	r2, [r3, #48]
- 1160              	.L126:
+ 1145              		.loc 1 1234 0
+ 1146 0468 1A6B     		ldr	r2, [r3, #48]
+ 1147 046a 22F44002 		bic	r2, r2, #12582912
+ 1148              	.L134:
+ 1149 046e 1A63     		str	r2, [r3, #48]
+ 1150              	.L127:
 1235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
 1236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     default:
 1237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****       break;
@@ -2364,24 +2353,24 @@
 1239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set USARTSW bits according to RCC_USARTCLK value */
 1241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CFGR3 |= RCC_USARTCLK;
- 1161              		.loc 1 1241 0
- 1162 0478 1A6B     		ldr	r2, [r3, #48]
- 1163 047a 1043     		orrs	r0, r0, r2
- 1164              	.LVL91:
- 1165 047c 1863     		str	r0, [r3, #48]
- 1166 047e 7047     		bx	lr
- 1167              	.L135:
- 1168              		.align	2
- 1169              	.L134:
- 1170 0480 00100240 		.word	1073876992
- 1171              		.cfi_endproc
- 1172              	.LFE133:
- 1174              		.align	1
- 1175              		.global	RCC_USBCLKConfig
- 1176              		.thumb
- 1177              		.thumb_func
- 1179              	RCC_USBCLKConfig:
- 1180              	.LFB134:
+ 1151              		.loc 1 1241 0
+ 1152 0470 1A6B     		ldr	r2, [r3, #48]
+ 1153 0472 1043     		orrs	r0, r0, r2
+ 1154              	.LVL90:
+ 1155 0474 1863     		str	r0, [r3, #48]
+ 1156 0476 7047     		bx	lr
+ 1157              	.L136:
+ 1158              		.align	2
+ 1159              	.L135:
+ 1160 0478 00100240 		.word	1073876992
+ 1161              		.cfi_endproc
+ 1162              	.LFE133:
+ 1164              		.align	1
+ 1165              		.global	RCC_USBCLKConfig
+ 1166              		.thumb
+ 1167              		.thumb_func
+ 1169              	RCC_USBCLKConfig:
+ 1170              	.LFB134:
 1242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2396,32 +2385,32 @@
 1253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_USBCLKConfig(uint32_t RCC_USBCLKSource)
 1255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1181              		.loc 1 1255 0
- 1182              		.cfi_startproc
- 1183              		@ args = 0, pretend = 0, frame = 0
- 1184              		@ frame_needed = 0, uses_anonymous_args = 0
- 1185              		@ link register save eliminated.
- 1186              	.LVL92:
+ 1171              		.loc 1 1255 0
+ 1172              		.cfi_startproc
+ 1173              		@ args = 0, pretend = 0, frame = 0
+ 1174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1175              		@ link register save eliminated.
+ 1176              	.LVL91:
 1256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_USBCLK_SOURCE(RCC_USBCLKSource));
 1258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CFGR_USBPRE_BB = RCC_USBCLKSource;
- 1187              		.loc 1 1259 0
- 1188 0484 014B     		ldr	r3, .L137
- 1189 0486 1860     		str	r0, [r3, #0]
- 1190 0488 7047     		bx	lr
- 1191              	.L138:
- 1192 048a 00BF     		.align	2
- 1193              	.L137:
- 1194 048c D8004242 		.word	1111621848
- 1195              		.cfi_endproc
- 1196              	.LFE134:
- 1198              		.align	1
- 1199              		.global	RCC_RTCCLKConfig
- 1200              		.thumb
- 1201              		.thumb_func
- 1203              	RCC_RTCCLKConfig:
- 1204              	.LFB135:
+ 1177              		.loc 1 1259 0
+ 1178 047c 014B     		ldr	r3, .L138
+ 1179 047e 1860     		str	r0, [r3]
+ 1180 0480 7047     		bx	lr
+ 1181              	.L139:
+ 1182 0482 00BF     		.align	2
+ 1183              	.L138:
+ 1184 0484 D8004242 		.word	1111621848
+ 1185              		.cfi_endproc
+ 1186              	.LFE134:
+ 1188              		.align	1
+ 1189              		.global	RCC_RTCCLKConfig
+ 1190              		.thumb
+ 1191              		.thumb_func
+ 1193              	RCC_RTCCLKConfig:
+ 1194              	.LFB135:
 1260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2449,36 +2438,36 @@
 1284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_RTCCLKConfig(uint32_t RCC_RTCCLKSource)
 1286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1205              		.loc 1 1286 0
- 1206              		.cfi_startproc
- 1207              		@ args = 0, pretend = 0, frame = 0
- 1208              		@ frame_needed = 0, uses_anonymous_args = 0
- 1209              		@ link register save eliminated.
- 1210              	.LVL93:
+ 1195              		.loc 1 1286 0
+ 1196              		.cfi_startproc
+ 1197              		@ args = 0, pretend = 0, frame = 0
+ 1198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1199              		@ link register save eliminated.
+ 1200              	.LVL92:
 1287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_RTCCLK_SOURCE(RCC_RTCCLKSource));
 1289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Select the RTC clock source */
 1291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->BDCR |= RCC_RTCCLKSource;
- 1211              		.loc 1 1291 0
- 1212 0490 024B     		ldr	r3, .L140
- 1213 0492 1A6A     		ldr	r2, [r3, #32]
- 1214 0494 1043     		orrs	r0, r0, r2
- 1215              	.LVL94:
- 1216 0496 1862     		str	r0, [r3, #32]
- 1217 0498 7047     		bx	lr
- 1218              	.L141:
- 1219 049a 00BF     		.align	2
- 1220              	.L140:
- 1221 049c 00100240 		.word	1073876992
- 1222              		.cfi_endproc
- 1223              	.LFE135:
- 1225              		.align	1
- 1226              		.global	RCC_I2SCLKConfig
- 1227              		.thumb
- 1228              		.thumb_func
- 1230              	RCC_I2SCLKConfig:
- 1231              	.LFB136:
+ 1201              		.loc 1 1291 0
+ 1202 0488 024B     		ldr	r3, .L141
+ 1203 048a 1A6A     		ldr	r2, [r3, #32]
+ 1204 048c 1043     		orrs	r0, r0, r2
+ 1205              	.LVL93:
+ 1206 048e 1862     		str	r0, [r3, #32]
+ 1207 0490 7047     		bx	lr
+ 1208              	.L142:
+ 1209 0492 00BF     		.align	2
+ 1210              	.L141:
+ 1211 0494 00100240 		.word	1073876992
+ 1212              		.cfi_endproc
+ 1213              	.LFE135:
+ 1215              		.align	1
+ 1216              		.global	RCC_I2SCLKConfig
+ 1217              		.thumb
+ 1218              		.thumb_func
+ 1220              	RCC_I2SCLKConfig:
+ 1221              	.LFB136:
 1292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2493,32 +2482,32 @@
 1303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource)
 1305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1232              		.loc 1 1305 0
- 1233              		.cfi_startproc
- 1234              		@ args = 0, pretend = 0, frame = 0
- 1235              		@ frame_needed = 0, uses_anonymous_args = 0
- 1236              		@ link register save eliminated.
- 1237              	.LVL95:
+ 1222              		.loc 1 1305 0
+ 1223              		.cfi_startproc
+ 1224              		@ args = 0, pretend = 0, frame = 0
+ 1225              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1226              		@ link register save eliminated.
+ 1227              	.LVL94:
 1306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_I2SCLK_SOURCE(RCC_I2SCLKSource));
 1308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) CFGR_I2SSRC_BB = RCC_I2SCLKSource;
- 1238              		.loc 1 1309 0
- 1239 04a0 014B     		ldr	r3, .L143
- 1240 04a2 1860     		str	r0, [r3, #0]
- 1241 04a4 7047     		bx	lr
- 1242              	.L144:
- 1243 04a6 00BF     		.align	2
- 1244              	.L143:
- 1245 04a8 DC004242 		.word	1111621852
- 1246              		.cfi_endproc
- 1247              	.LFE136:
- 1249              		.align	1
- 1250              		.global	RCC_RTCCLKCmd
- 1251              		.thumb
- 1252              		.thumb_func
- 1254              	RCC_RTCCLKCmd:
- 1255              	.LFB137:
+ 1228              		.loc 1 1309 0
+ 1229 0498 014B     		ldr	r3, .L144
+ 1230 049a 1860     		str	r0, [r3]
+ 1231 049c 7047     		bx	lr
+ 1232              	.L145:
+ 1233 049e 00BF     		.align	2
+ 1234              	.L144:
+ 1235 04a0 DC004242 		.word	1111621852
+ 1236              		.cfi_endproc
+ 1237              	.LFE136:
+ 1239              		.align	1
+ 1240              		.global	RCC_RTCCLKCmd
+ 1241              		.thumb
+ 1242              		.thumb_func
+ 1244              	RCC_RTCCLKCmd:
+ 1245              	.LFB137:
 1310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2531,32 +2520,32 @@
 1319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_RTCCLKCmd(FunctionalState NewState)
 1321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1256              		.loc 1 1321 0
- 1257              		.cfi_startproc
- 1258              		@ args = 0, pretend = 0, frame = 0
- 1259              		@ frame_needed = 0, uses_anonymous_args = 0
- 1260              		@ link register save eliminated.
- 1261              	.LVL96:
+ 1246              		.loc 1 1321 0
+ 1247              		.cfi_startproc
+ 1248              		@ args = 0, pretend = 0, frame = 0
+ 1249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1250              		@ link register save eliminated.
+ 1251              	.LVL95:
 1322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
 1324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) BDCR_RTCEN_BB = (uint32_t)NewState;
- 1262              		.loc 1 1325 0
- 1263 04ac 014B     		ldr	r3, .L146
- 1264 04ae 1860     		str	r0, [r3, #0]
- 1265 04b0 7047     		bx	lr
- 1266              	.L147:
- 1267 04b2 00BF     		.align	2
- 1268              	.L146:
- 1269 04b4 3C044242 		.word	1111622716
- 1270              		.cfi_endproc
- 1271              	.LFE137:
- 1273              		.align	1
- 1274              		.global	RCC_BackupResetCmd
- 1275              		.thumb
- 1276              		.thumb_func
- 1278              	RCC_BackupResetCmd:
- 1279              	.LFB138:
+ 1252              		.loc 1 1325 0
+ 1253 04a4 014B     		ldr	r3, .L147
+ 1254 04a6 1860     		str	r0, [r3]
+ 1255 04a8 7047     		bx	lr
+ 1256              	.L148:
+ 1257 04aa 00BF     		.align	2
+ 1258              	.L147:
+ 1259 04ac 3C044242 		.word	1111622716
+ 1260              		.cfi_endproc
+ 1261              	.LFE137:
+ 1263              		.align	1
+ 1264              		.global	RCC_BackupResetCmd
+ 1265              		.thumb
+ 1266              		.thumb_func
+ 1268              	RCC_BackupResetCmd:
+ 1269              	.LFB138:
 1326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2569,32 +2558,32 @@
 1335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_BackupResetCmd(FunctionalState NewState)
 1337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1280              		.loc 1 1337 0
- 1281              		.cfi_startproc
- 1282              		@ args = 0, pretend = 0, frame = 0
- 1283              		@ frame_needed = 0, uses_anonymous_args = 0
- 1284              		@ link register save eliminated.
- 1285              	.LVL97:
+ 1270              		.loc 1 1337 0
+ 1271              		.cfi_startproc
+ 1272              		@ args = 0, pretend = 0, frame = 0
+ 1273              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1274              		@ link register save eliminated.
+ 1275              	.LVL96:
 1338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
 1340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint32_t *) BDCR_BDRST_BB = (uint32_t)NewState;
- 1286              		.loc 1 1341 0
- 1287 04b8 014B     		ldr	r3, .L149
- 1288 04ba 1860     		str	r0, [r3, #0]
- 1289 04bc 7047     		bx	lr
- 1290              	.L150:
- 1291 04be 00BF     		.align	2
- 1292              	.L149:
- 1293 04c0 40044242 		.word	1111622720
- 1294              		.cfi_endproc
- 1295              	.LFE138:
- 1297              		.align	1
- 1298              		.global	RCC_AHBPeriphClockCmd
- 1299              		.thumb
- 1300              		.thumb_func
- 1302              	RCC_AHBPeriphClockCmd:
- 1303              	.LFB139:
+ 1276              		.loc 1 1341 0
+ 1277 04b0 014B     		ldr	r3, .L150
+ 1278 04b2 1860     		str	r0, [r3]
+ 1279 04b4 7047     		bx	lr
+ 1280              	.L151:
+ 1281 04b6 00BF     		.align	2
+ 1282              	.L150:
+ 1283 04b8 40044242 		.word	1111622720
+ 1284              		.cfi_endproc
+ 1285              	.LFE138:
+ 1287              		.align	1
+ 1288              		.global	RCC_AHBPeriphClockCmd
+ 1289              		.thumb
+ 1290              		.thumb_func
+ 1292              	RCC_AHBPeriphClockCmd:
+ 1293              	.LFB139:
 1342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -2624,13 +2613,13 @@
 1368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_AHBPeriphClockCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState)
 1370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1304              		.loc 1 1370 0
- 1305              		.cfi_startproc
- 1306              		@ args = 0, pretend = 0, frame = 0
- 1307              		@ frame_needed = 0, uses_anonymous_args = 0
- 1308              		@ link register save eliminated.
- 1309              	.LVL98:
- 1310 04c4 044B     		ldr	r3, .L155
+ 1294              		.loc 1 1370 0
+ 1295              		.cfi_startproc
+ 1296              		@ args = 0, pretend = 0, frame = 0
+ 1297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1298              		@ link register save eliminated.
+ 1299              	.LVL97:
+ 1300 04bc 044B     		ldr	r3, .L156
 1371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_AHB_PERIPH(RCC_AHBPeriph));
 1373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -2638,39 +2627,39 @@
 1375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->AHBENR |= RCC_AHBPeriph;
- 1311              		.loc 1 1377 0
- 1312 04c6 5A69     		ldr	r2, [r3, #20]
+ 1301              		.loc 1 1377 0
+ 1302 04be 5A69     		ldr	r2, [r3, #20]
 1375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1313              		.loc 1 1375 0
- 1314 04c8 09B1     		cbz	r1, .L152
- 1315              		.loc 1 1377 0
- 1316 04ca 1043     		orrs	r0, r0, r2
- 1317              	.LVL99:
- 1318 04cc 01E0     		b	.L154
- 1319              	.LVL100:
- 1320              	.L152:
+ 1303              		.loc 1 1375 0
+ 1304 04c0 09B1     		cbz	r1, .L153
+ 1305              		.loc 1 1377 0
+ 1306 04c2 1043     		orrs	r0, r0, r2
+ 1307              	.LVL98:
+ 1308 04c4 01E0     		b	.L155
+ 1309              	.LVL99:
+ 1310              	.L153:
 1378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->AHBENR &= ~RCC_AHBPeriph;
- 1321              		.loc 1 1381 0
- 1322 04ce 22EA0000 		bic	r0, r2, r0
- 1323              	.LVL101:
- 1324              	.L154:
- 1325 04d2 5861     		str	r0, [r3, #20]
- 1326 04d4 7047     		bx	lr
- 1327              	.L156:
- 1328 04d6 00BF     		.align	2
- 1329              	.L155:
- 1330 04d8 00100240 		.word	1073876992
- 1331              		.cfi_endproc
- 1332              	.LFE139:
- 1334              		.align	1
- 1335              		.global	RCC_APB2PeriphClockCmd
- 1336              		.thumb
- 1337              		.thumb_func
- 1339              	RCC_APB2PeriphClockCmd:
- 1340              	.LFB140:
+ 1311              		.loc 1 1381 0
+ 1312 04c6 22EA0000 		bic	r0, r2, r0
+ 1313              	.LVL100:
+ 1314              	.L155:
+ 1315 04ca 5861     		str	r0, [r3, #20]
+ 1316 04cc 7047     		bx	lr
+ 1317              	.L157:
+ 1318 04ce 00BF     		.align	2
+ 1319              	.L156:
+ 1320 04d0 00100240 		.word	1073876992
+ 1321              		.cfi_endproc
+ 1322              	.LFE139:
+ 1324              		.align	1
+ 1325              		.global	RCC_APB2PeriphClockCmd
+ 1326              		.thumb
+ 1327              		.thumb_func
+ 1329              	RCC_APB2PeriphClockCmd:
+ 1330              	.LFB140:
 1382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2695,13 +2684,13 @@
 1403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)
 1405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1341              		.loc 1 1405 0
- 1342              		.cfi_startproc
- 1343              		@ args = 0, pretend = 0, frame = 0
- 1344              		@ frame_needed = 0, uses_anonymous_args = 0
- 1345              		@ link register save eliminated.
- 1346              	.LVL102:
- 1347 04dc 044B     		ldr	r3, .L161
+ 1331              		.loc 1 1405 0
+ 1332              		.cfi_startproc
+ 1333              		@ args = 0, pretend = 0, frame = 0
+ 1334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1335              		@ link register save eliminated.
+ 1336              	.LVL101:
+ 1337 04d4 044B     		ldr	r3, .L162
 1406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_APB2_PERIPH(RCC_APB2Periph));
 1408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -2709,39 +2698,39 @@
 1410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB2ENR |= RCC_APB2Periph;
- 1348              		.loc 1 1412 0
- 1349 04de 9A69     		ldr	r2, [r3, #24]
+ 1338              		.loc 1 1412 0
+ 1339 04d6 9A69     		ldr	r2, [r3, #24]
 1410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1350              		.loc 1 1410 0
- 1351 04e0 09B1     		cbz	r1, .L158
- 1352              		.loc 1 1412 0
- 1353 04e2 1043     		orrs	r0, r0, r2
- 1354              	.LVL103:
- 1355 04e4 01E0     		b	.L160
- 1356              	.LVL104:
- 1357              	.L158:
+ 1340              		.loc 1 1410 0
+ 1341 04d8 09B1     		cbz	r1, .L159
+ 1342              		.loc 1 1412 0
+ 1343 04da 1043     		orrs	r0, r0, r2
+ 1344              	.LVL102:
+ 1345 04dc 01E0     		b	.L161
+ 1346              	.LVL103:
+ 1347              	.L159:
 1413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB2ENR &= ~RCC_APB2Periph;
- 1358              		.loc 1 1416 0
- 1359 04e6 22EA0000 		bic	r0, r2, r0
- 1360              	.LVL105:
- 1361              	.L160:
- 1362 04ea 9861     		str	r0, [r3, #24]
- 1363 04ec 7047     		bx	lr
- 1364              	.L162:
- 1365 04ee 00BF     		.align	2
- 1366              	.L161:
- 1367 04f0 00100240 		.word	1073876992
- 1368              		.cfi_endproc
- 1369              	.LFE140:
- 1371              		.align	1
- 1372              		.global	RCC_APB1PeriphClockCmd
- 1373              		.thumb
- 1374              		.thumb_func
- 1376              	RCC_APB1PeriphClockCmd:
- 1377              	.LFB141:
+ 1348              		.loc 1 1416 0
+ 1349 04de 22EA0000 		bic	r0, r2, r0
+ 1350              	.LVL104:
+ 1351              	.L161:
+ 1352 04e2 9861     		str	r0, [r3, #24]
+ 1353 04e4 7047     		bx	lr
+ 1354              	.L163:
+ 1355 04e6 00BF     		.align	2
+ 1356              	.L162:
+ 1357 04e8 00100240 		.word	1073876992
+ 1358              		.cfi_endproc
+ 1359              	.LFE140:
+ 1361              		.align	1
+ 1362              		.global	RCC_APB1PeriphClockCmd
+ 1363              		.thumb
+ 1364              		.thumb_func
+ 1366              	RCC_APB1PeriphClockCmd:
+ 1367              	.LFB141:
 1417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2776,13 +2765,13 @@
 1448:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1449:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)
 1450:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1378              		.loc 1 1450 0
- 1379              		.cfi_startproc
- 1380              		@ args = 0, pretend = 0, frame = 0
- 1381              		@ frame_needed = 0, uses_anonymous_args = 0
- 1382              		@ link register save eliminated.
- 1383              	.LVL106:
- 1384 04f4 044B     		ldr	r3, .L167
+ 1368              		.loc 1 1450 0
+ 1369              		.cfi_startproc
+ 1370              		@ args = 0, pretend = 0, frame = 0
+ 1371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1372              		@ link register save eliminated.
+ 1373              	.LVL105:
+ 1374 04ec 044B     		ldr	r3, .L168
 1451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1452:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
 1453:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -2790,39 +2779,39 @@
 1455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1456:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB1ENR |= RCC_APB1Periph;
- 1385              		.loc 1 1457 0
- 1386 04f6 DA69     		ldr	r2, [r3, #28]
+ 1375              		.loc 1 1457 0
+ 1376 04ee DA69     		ldr	r2, [r3, #28]
 1455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1387              		.loc 1 1455 0
- 1388 04f8 09B1     		cbz	r1, .L164
- 1389              		.loc 1 1457 0
- 1390 04fa 1043     		orrs	r0, r0, r2
- 1391              	.LVL107:
- 1392 04fc 01E0     		b	.L166
- 1393              	.LVL108:
- 1394              	.L164:
+ 1377              		.loc 1 1455 0
+ 1378 04f0 09B1     		cbz	r1, .L165
+ 1379              		.loc 1 1457 0
+ 1380 04f2 1043     		orrs	r0, r0, r2
+ 1381              	.LVL106:
+ 1382 04f4 01E0     		b	.L167
+ 1383              	.LVL107:
+ 1384              	.L165:
 1458:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1461:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB1ENR &= ~RCC_APB1Periph;
- 1395              		.loc 1 1461 0
- 1396 04fe 22EA0000 		bic	r0, r2, r0
- 1397              	.LVL109:
- 1398              	.L166:
- 1399 0502 D861     		str	r0, [r3, #28]
- 1400 0504 7047     		bx	lr
- 1401              	.L168:
- 1402 0506 00BF     		.align	2
- 1403              	.L167:
- 1404 0508 00100240 		.word	1073876992
- 1405              		.cfi_endproc
- 1406              	.LFE141:
- 1408              		.align	1
- 1409              		.global	RCC_AHBPeriphResetCmd
- 1410              		.thumb
- 1411              		.thumb_func
- 1413              	RCC_AHBPeriphResetCmd:
- 1414              	.LFB142:
+ 1385              		.loc 1 1461 0
+ 1386 04f6 22EA0000 		bic	r0, r2, r0
+ 1387              	.LVL108:
+ 1388              	.L167:
+ 1389 04fa D861     		str	r0, [r3, #28]
+ 1390 04fc 7047     		bx	lr
+ 1391              	.L169:
+ 1392 04fe 00BF     		.align	2
+ 1393              	.L168:
+ 1394 0500 00100240 		.word	1073876992
+ 1395              		.cfi_endproc
+ 1396              	.LFE141:
+ 1398              		.align	1
+ 1399              		.global	RCC_AHBPeriphResetCmd
+ 1400              		.thumb
+ 1401              		.thumb_func
+ 1403              	RCC_AHBPeriphResetCmd:
+ 1404              	.LFB142:
 1462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1463:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1464:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2845,13 +2834,13 @@
 1481:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1482:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_AHBPeriphResetCmd(uint32_t RCC_AHBPeriph, FunctionalState NewState)
 1483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1415              		.loc 1 1483 0
- 1416              		.cfi_startproc
- 1417              		@ args = 0, pretend = 0, frame = 0
- 1418              		@ frame_needed = 0, uses_anonymous_args = 0
- 1419              		@ link register save eliminated.
- 1420              	.LVL110:
- 1421 050c 044B     		ldr	r3, .L173
+ 1405              		.loc 1 1483 0
+ 1406              		.cfi_startproc
+ 1407              		@ args = 0, pretend = 0, frame = 0
+ 1408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1409              		@ link register save eliminated.
+ 1410              	.LVL109:
+ 1411 0504 044B     		ldr	r3, .L174
 1484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_AHB_RST_PERIPH(RCC_AHBPeriph));
 1486:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -2859,39 +2848,39 @@
 1488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1489:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1490:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->AHBRSTR |= RCC_AHBPeriph;
- 1422              		.loc 1 1490 0
- 1423 050e 9A6A     		ldr	r2, [r3, #40]
+ 1412              		.loc 1 1490 0
+ 1413 0506 9A6A     		ldr	r2, [r3, #40]
 1488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1424              		.loc 1 1488 0
- 1425 0510 09B1     		cbz	r1, .L170
- 1426              		.loc 1 1490 0
- 1427 0512 1043     		orrs	r0, r0, r2
- 1428              	.LVL111:
- 1429 0514 01E0     		b	.L172
- 1430              	.LVL112:
- 1431              	.L170:
+ 1414              		.loc 1 1488 0
+ 1415 0508 09B1     		cbz	r1, .L171
+ 1416              		.loc 1 1490 0
+ 1417 050a 1043     		orrs	r0, r0, r2
+ 1418              	.LVL110:
+ 1419 050c 01E0     		b	.L173
+ 1420              	.LVL111:
+ 1421              	.L171:
 1491:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1492:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1493:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->AHBRSTR &= ~RCC_AHBPeriph;
- 1432              		.loc 1 1494 0
- 1433 0516 22EA0000 		bic	r0, r2, r0
- 1434              	.LVL113:
- 1435              	.L172:
- 1436 051a 9862     		str	r0, [r3, #40]
- 1437 051c 7047     		bx	lr
- 1438              	.L174:
- 1439 051e 00BF     		.align	2
- 1440              	.L173:
- 1441 0520 00100240 		.word	1073876992
- 1442              		.cfi_endproc
- 1443              	.LFE142:
- 1445              		.align	1
- 1446              		.global	RCC_APB2PeriphResetCmd
- 1447              		.thumb
- 1448              		.thumb_func
- 1450              	RCC_APB2PeriphResetCmd:
- 1451              	.LFB143:
+ 1422              		.loc 1 1494 0
+ 1423 050e 22EA0000 		bic	r0, r2, r0
+ 1424              	.LVL112:
+ 1425              	.L173:
+ 1426 0512 9862     		str	r0, [r3, #40]
+ 1427 0514 7047     		bx	lr
+ 1428              	.L175:
+ 1429 0516 00BF     		.align	2
+ 1430              	.L174:
+ 1431 0518 00100240 		.word	1073876992
+ 1432              		.cfi_endproc
+ 1433              	.LFE142:
+ 1435              		.align	1
+ 1436              		.global	RCC_APB2PeriphResetCmd
+ 1437              		.thumb
+ 1438              		.thumb_func
+ 1440              	RCC_APB2PeriphResetCmd:
+ 1441              	.LFB143:
 1495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1496:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2913,13 +2902,13 @@
 1513:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1514:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)
 1515:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1452              		.loc 1 1515 0
- 1453              		.cfi_startproc
- 1454              		@ args = 0, pretend = 0, frame = 0
- 1455              		@ frame_needed = 0, uses_anonymous_args = 0
- 1456              		@ link register save eliminated.
- 1457              	.LVL114:
- 1458 0524 044B     		ldr	r3, .L179
+ 1442              		.loc 1 1515 0
+ 1443              		.cfi_startproc
+ 1444              		@ args = 0, pretend = 0, frame = 0
+ 1445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1446              		@ link register save eliminated.
+ 1447              	.LVL113:
+ 1448 051c 044B     		ldr	r3, .L180
 1516:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1517:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_APB2_PERIPH(RCC_APB2Periph));
 1518:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -2927,39 +2916,39 @@
 1520:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1521:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1522:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB2RSTR |= RCC_APB2Periph;
- 1459              		.loc 1 1522 0
- 1460 0526 DA68     		ldr	r2, [r3, #12]
+ 1449              		.loc 1 1522 0
+ 1450 051e DA68     		ldr	r2, [r3, #12]
 1520:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1461              		.loc 1 1520 0
- 1462 0528 09B1     		cbz	r1, .L176
- 1463              		.loc 1 1522 0
- 1464 052a 1043     		orrs	r0, r0, r2
- 1465              	.LVL115:
- 1466 052c 01E0     		b	.L178
- 1467              	.LVL116:
- 1468              	.L176:
+ 1451              		.loc 1 1520 0
+ 1452 0520 09B1     		cbz	r1, .L177
+ 1453              		.loc 1 1522 0
+ 1454 0522 1043     		orrs	r0, r0, r2
+ 1455              	.LVL114:
+ 1456 0524 01E0     		b	.L179
+ 1457              	.LVL115:
+ 1458              	.L177:
 1523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1526:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB2RSTR &= ~RCC_APB2Periph;
- 1469              		.loc 1 1526 0
- 1470 052e 22EA0000 		bic	r0, r2, r0
- 1471              	.LVL117:
- 1472              	.L178:
- 1473 0532 D860     		str	r0, [r3, #12]
- 1474 0534 7047     		bx	lr
- 1475              	.L180:
- 1476 0536 00BF     		.align	2
- 1477              	.L179:
- 1478 0538 00100240 		.word	1073876992
- 1479              		.cfi_endproc
- 1480              	.LFE143:
- 1482              		.align	1
- 1483              		.global	RCC_APB1PeriphResetCmd
- 1484              		.thumb
- 1485              		.thumb_func
- 1487              	RCC_APB1PeriphResetCmd:
- 1488              	.LFB144:
+ 1459              		.loc 1 1526 0
+ 1460 0526 22EA0000 		bic	r0, r2, r0
+ 1461              	.LVL116:
+ 1462              	.L179:
+ 1463 052a D860     		str	r0, [r3, #12]
+ 1464 052c 7047     		bx	lr
+ 1465              	.L181:
+ 1466 052e 00BF     		.align	2
+ 1467              	.L180:
+ 1468 0530 00100240 		.word	1073876992
+ 1469              		.cfi_endproc
+ 1470              	.LFE143:
+ 1472              		.align	1
+ 1473              		.global	RCC_APB1PeriphResetCmd
+ 1474              		.thumb
+ 1475              		.thumb_func
+ 1477              	RCC_APB1PeriphResetCmd:
+ 1478              	.LFB144:
 1527:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1529:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -2991,13 +2980,13 @@
 1555:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1556:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)
 1557:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1489              		.loc 1 1557 0
- 1490              		.cfi_startproc
- 1491              		@ args = 0, pretend = 0, frame = 0
- 1492              		@ frame_needed = 0, uses_anonymous_args = 0
- 1493              		@ link register save eliminated.
- 1494              	.LVL118:
- 1495 053c 044B     		ldr	r3, .L185
+ 1479              		.loc 1 1557 0
+ 1480              		.cfi_startproc
+ 1481              		@ args = 0, pretend = 0, frame = 0
+ 1482              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1483              		@ link register save eliminated.
+ 1484              	.LVL117:
+ 1485 0534 044B     		ldr	r3, .L186
 1558:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1559:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
 1560:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -3005,39 +2994,39 @@
 1562:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
 1563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1564:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB1RSTR |= RCC_APB1Periph;
- 1496              		.loc 1 1564 0
- 1497 053e 1A69     		ldr	r2, [r3, #16]
+ 1486              		.loc 1 1564 0
+ 1487 0536 1A69     		ldr	r2, [r3, #16]
 1562:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1498              		.loc 1 1562 0
- 1499 0540 09B1     		cbz	r1, .L182
- 1500              		.loc 1 1564 0
- 1501 0542 1043     		orrs	r0, r0, r2
- 1502              	.LVL119:
- 1503 0544 01E0     		b	.L184
- 1504              	.LVL120:
- 1505              	.L182:
+ 1488              		.loc 1 1562 0
+ 1489 0538 09B1     		cbz	r1, .L183
+ 1490              		.loc 1 1564 0
+ 1491 053a 1043     		orrs	r0, r0, r2
+ 1492              	.LVL118:
+ 1493 053c 01E0     		b	.L185
+ 1494              	.LVL119:
+ 1495              	.L183:
 1565:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1566:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1567:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1568:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     RCC->APB1RSTR &= ~RCC_APB1Periph;
- 1506              		.loc 1 1568 0
- 1507 0546 22EA0000 		bic	r0, r2, r0
- 1508              	.LVL121:
- 1509              	.L184:
- 1510 054a 1861     		str	r0, [r3, #16]
- 1511 054c 7047     		bx	lr
- 1512              	.L186:
- 1513 054e 00BF     		.align	2
- 1514              	.L185:
- 1515 0550 00100240 		.word	1073876992
- 1516              		.cfi_endproc
- 1517              	.LFE144:
- 1519              		.align	1
- 1520              		.global	RCC_ITConfig
- 1521              		.thumb
- 1522              		.thumb_func
- 1524              	RCC_ITConfig:
- 1525              	.LFB145:
+ 1496              		.loc 1 1568 0
+ 1497 053e 22EA0000 		bic	r0, r2, r0
+ 1498              	.LVL120:
+ 1499              	.L185:
+ 1500 0542 1861     		str	r0, [r3, #16]
+ 1501 0544 7047     		bx	lr
+ 1502              	.L187:
+ 1503 0546 00BF     		.align	2
+ 1504              	.L186:
+ 1505 0548 00100240 		.word	1073876992
+ 1506              		.cfi_endproc
+ 1507              	.LFE144:
+ 1509              		.align	1
+ 1510              		.global	RCC_ITConfig
+ 1511              		.thumb
+ 1512              		.thumb_func
+ 1514              	RCC_ITConfig:
+ 1515              	.LFB145:
 1569:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1570:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1571:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -3078,13 +3067,13 @@
 1606:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1607:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_ITConfig(uint8_t RCC_IT, FunctionalState NewState)
 1608:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1526              		.loc 1 1608 0
- 1527              		.cfi_startproc
- 1528              		@ args = 0, pretend = 0, frame = 0
- 1529              		@ frame_needed = 0, uses_anonymous_args = 0
- 1530              		@ link register save eliminated.
- 1531              	.LVL122:
- 1532 0554 044B     		ldr	r3, .L191
+ 1516              		.loc 1 1608 0
+ 1517              		.cfi_startproc
+ 1518              		@ args = 0, pretend = 0, frame = 0
+ 1519              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1520              		@ link register save eliminated.
+ 1521              	.LVL121:
+ 1522 054c 044B     		ldr	r3, .L192
 1609:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1610:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_IT(RCC_IT));
 1611:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -3093,40 +3082,40 @@
 1614:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1615:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* Perform Byte access to RCC_CIR[13:8] bits to enable the selected interrupts */
 1616:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     *(__IO uint8_t *) CIR_BYTE2_ADDRESS |= RCC_IT;
- 1533              		.loc 1 1616 0
- 1534 0556 1A78     		ldrb	r2, [r3, #0]	@ zero_extendqisi2
+ 1523              		.loc 1 1616 0
+ 1524 054e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
 1613:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (NewState != DISABLE)
- 1535              		.loc 1 1613 0
- 1536 0558 09B1     		cbz	r1, .L188
- 1537              		.loc 1 1616 0
- 1538 055a 1043     		orrs	r0, r0, r2
- 1539              	.LVL123:
- 1540 055c 01E0     		b	.L190
- 1541              	.LVL124:
- 1542              	.L188:
+ 1525              		.loc 1 1613 0
+ 1526 0550 09B1     		cbz	r1, .L189
+ 1527              		.loc 1 1616 0
+ 1528 0552 1043     		orrs	r0, r0, r2
+ 1529              	.LVL122:
+ 1530 0554 01E0     		b	.L191
+ 1531              	.LVL123:
+ 1532              	.L189:
 1617:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else
 1619:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1620:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     /* Perform Byte access to RCC_CIR[13:8] bits to disable the selected interrupts */
 1621:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     *(__IO uint8_t *) CIR_BYTE2_ADDRESS &= (uint8_t)~RCC_IT;
- 1543              		.loc 1 1621 0
- 1544 055e 22EA0000 		bic	r0, r2, r0
- 1545              	.LVL125:
- 1546              	.L190:
- 1547 0562 1870     		strb	r0, [r3, #0]
- 1548 0564 7047     		bx	lr
- 1549              	.L192:
- 1550 0566 00BF     		.align	2
- 1551              	.L191:
- 1552 0568 09100240 		.word	1073877001
- 1553              		.cfi_endproc
- 1554              	.LFE145:
- 1556              		.align	1
- 1557              		.global	RCC_GetFlagStatus
- 1558              		.thumb
- 1559              		.thumb_func
- 1561              	RCC_GetFlagStatus:
- 1562              	.LFB146:
+ 1533              		.loc 1 1621 0
+ 1534 0556 22EA0000 		bic	r0, r2, r0
+ 1535              	.LVL124:
+ 1536              	.L191:
+ 1537 055a 1870     		strb	r0, [r3]
+ 1538 055c 7047     		bx	lr
+ 1539              	.L193:
+ 1540 055e 00BF     		.align	2
+ 1541              	.L192:
+ 1542 0560 09100240 		.word	1073877001
+ 1543              		.cfi_endproc
+ 1544              	.LFE145:
+ 1546              		.align	1
+ 1547              		.global	RCC_GetFlagStatus
+ 1548              		.thumb
+ 1549              		.thumb_func
+ 1551              	RCC_GetFlagStatus:
+ 1552              	.LFB146:
 1622:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1623:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1624:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
@@ -3151,12 +3140,12 @@
 1643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1644:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** FlagStatus RCC_GetFlagStatus(uint8_t RCC_FLAG)
 1645:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1563              		.loc 1 1645 0
- 1564              		.cfi_startproc
- 1565              		@ args = 0, pretend = 0, frame = 0
- 1566              		@ frame_needed = 0, uses_anonymous_args = 0
- 1567              		@ link register save eliminated.
- 1568              	.LVL126:
+ 1553              		.loc 1 1645 0
+ 1554              		.cfi_startproc
+ 1555              		@ args = 0, pretend = 0, frame = 0
+ 1556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1557              		@ link register save eliminated.
+ 1558              	.LVL125:
 1646:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t tmp = 0;
 1647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   uint32_t statusreg = 0;
 1648:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   FlagStatus bitstatus = RESET;
@@ -3168,60 +3157,60 @@
 1654:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC_FLAG >> 5;
 1655:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1656:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****    if (tmp == 0)               /* The flag to check is in CR register */
- 1569              		.loc 1 1656 0
- 1570 056c 4309     		lsrs	r3, r0, #5
- 1571              	.LVL127:
- 1572 056e 094A     		ldr	r2, .L198
- 1573 0570 01D1     		bne	.L194
+ 1559              		.loc 1 1656 0
+ 1560 0564 4309     		lsrs	r3, r0, #5
+ 1561              	.LVL126:
+ 1562 0566 094A     		ldr	r2, .L199
+ 1563 0568 01D1     		bne	.L195
 1657:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1658:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     statusreg = RCC->CR;
- 1574              		.loc 1 1658 0
- 1575 0572 1368     		ldr	r3, [r2, #0]
- 1576              	.LVL128:
- 1577 0574 07E0     		b	.L195
- 1578              	.LVL129:
- 1579              	.L194:
+ 1564              		.loc 1 1658 0
+ 1565 056a 1368     		ldr	r3, [r2]
+ 1566              	.LVL127:
+ 1567 056c 07E0     		b	.L196
+ 1568              	.LVL128:
+ 1569              	.L195:
 1659:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1660:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if (tmp == 1)          /* The flag to check is in BDCR register */
- 1580              		.loc 1 1660 0
- 1581 0576 012B     		cmp	r3, #1
- 1582 0578 01D1     		bne	.L196
+ 1570              		.loc 1 1660 0
+ 1571 056e 012B     		cmp	r3, #1
+ 1572 0570 01D1     		bne	.L197
 1661:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1662:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     statusreg = RCC->BDCR;
- 1583              		.loc 1 1662 0
- 1584 057a 136A     		ldr	r3, [r2, #32]
- 1585              	.LVL130:
- 1586 057c 03E0     		b	.L195
- 1587              	.LVL131:
- 1588              	.L196:
+ 1573              		.loc 1 1662 0
+ 1574 0572 136A     		ldr	r3, [r2, #32]
+ 1575              	.LVL129:
+ 1576 0574 03E0     		b	.L196
+ 1577              	.LVL130:
+ 1578              	.L197:
 1663:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1664:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else if (tmp == 4)          /* The flag to check is in CFGR register */
- 1589              		.loc 1 1664 0
- 1590 057e 042B     		cmp	r3, #4
+ 1579              		.loc 1 1664 0
+ 1580 0576 042B     		cmp	r3, #4
 1665:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1666:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     statusreg = RCC->CFGR;
- 1591              		.loc 1 1666 0
- 1592 0580 0CBF     		ite	eq
- 1593 0582 5368     		ldreq	r3, [r2, #4]
- 1594              	.LVL132:
+ 1581              		.loc 1 1666 0
+ 1582 0578 0CBF     		ite	eq
+ 1583 057a 5368     		ldreq	r3, [r2, #4]
+ 1584              	.LVL131:
 1667:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1668:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   else                       /* The flag to check is in CSR register */
 1669:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1670:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     statusreg = RCC->CSR;
- 1595              		.loc 1 1670 0
- 1596 0584 536A     		ldrne	r3, [r2, #36]
- 1597              	.LVL133:
- 1598              	.L195:
+ 1585              		.loc 1 1670 0
+ 1586 057c 536A     		ldrne	r3, [r2, #36]
+ 1587              	.LVL132:
+ 1588              	.L196:
 1671:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
 1672:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1673:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Get the flag position */
 1674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   tmp = RCC_FLAG & FLAG_MASK;
 1675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1676:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if ((statusreg & ((uint32_t)1 << tmp)) != (uint32_t)RESET)
- 1599              		.loc 1 1676 0
- 1600 0586 00F01F00 		and	r0, r0, #31
- 1601              	.LVL134:
- 1602 058a 23FA00F0 		lsr	r0, r3, r0
+ 1589              		.loc 1 1676 0
+ 1590 057e 00F01F00 		and	r0, r0, #31
+ 1591              	.LVL133:
+ 1592 0582 23FA00F0 		lsr	r0, r3, r0
 1677:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1678:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     bitstatus = SET;
 1679:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
@@ -3232,81 +3221,80 @@
 1684:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Return the flag status */
 1685:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   return bitstatus;
 1686:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
- 1603              		.loc 1 1686 0
- 1604 058e 00F00100 		and	r0, r0, #1
- 1605 0592 7047     		bx	lr
- 1606              	.L199:
- 1607              		.align	2
- 1608              	.L198:
- 1609 0594 00100240 		.word	1073876992
- 1610              		.cfi_endproc
- 1611              	.LFE146:
- 1613              		.align	1
- 1614              		.global	RCC_WaitForHSEStartUp
- 1615              		.thumb
- 1616              		.thumb_func
- 1618              	RCC_WaitForHSEStartUp:
- 1619              	.LFB113:
+ 1593              		.loc 1 1686 0
+ 1594 0586 00F00100 		and	r0, r0, #1
+ 1595 058a 7047     		bx	lr
+ 1596              	.L200:
+ 1597              		.align	2
+ 1598              	.L199:
+ 1599 058c 00100240 		.word	1073876992
+ 1600              		.cfi_endproc
+ 1601              	.LFE146:
+ 1603              		.align	1
+ 1604              		.global	RCC_WaitForHSEStartUp
+ 1605              		.thumb
+ 1606              		.thumb_func
+ 1608              	RCC_WaitForHSEStartUp:
+ 1609              	.LFB113:
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1620              		.loc 1 262 0
- 1621              		.cfi_startproc
- 1622              		@ args = 0, pretend = 0, frame = 8
- 1623              		@ frame_needed = 0, uses_anonymous_args = 0
- 1624 0598 07B5     		push	{r0, r1, r2, lr}
- 1625              	.LCFI1:
- 1626              		.cfi_def_cfa_offset 16
- 1627              		.cfi_offset 0, -16
- 1628              		.cfi_offset 1, -12
- 1629              		.cfi_offset 2, -8
- 1630              		.cfi_offset 14, -4
+ 1610              		.loc 1 262 0
+ 1611              		.cfi_startproc
+ 1612              		@ args = 0, pretend = 0, frame = 8
+ 1613              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1614 0590 07B5     		push	{r0, r1, r2, lr}
+ 1615              	.LCFI1:
+ 1616              		.cfi_def_cfa_offset 16
+ 1617              		.cfi_offset 0, -16
+ 1618              		.cfi_offset 1, -12
+ 1619              		.cfi_offset 2, -8
+ 1620              		.cfi_offset 14, -4
  263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   __IO uint32_t StartUpCounter = 0;
- 1631              		.loc 1 263 0
- 1632 059a 0023     		movs	r3, #0
- 1633 059c 0193     		str	r3, [sp, #4]
- 1634              	.LVL135:
- 1635              	.L202:
+ 1621              		.loc 1 263 0
+ 1622 0592 0023     		movs	r3, #0
+ 1623 0594 0193     		str	r3, [sp, #4]
+ 1624              	.LVL134:
+ 1625              	.L203:
  270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     HSEStatus = RCC_GetFlagStatus(RCC_FLAG_HSERDY);
- 1636              		.loc 1 270 0 discriminator 1
- 1637 059e 1120     		movs	r0, #17
- 1638 05a0 FFF7FEFF 		bl	RCC_GetFlagStatus
- 1639              	.LVL136:
+ 1626              		.loc 1 270 0 discriminator 1
+ 1627 0596 1120     		movs	r0, #17
+ 1628 0598 FFF7FEFF 		bl	RCC_GetFlagStatus
+ 1629              	.LVL135:
  271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     StartUpCounter++;  
- 1640              		.loc 1 271 0 discriminator 1
- 1641 05a4 019B     		ldr	r3, [sp, #4]
- 1642 05a6 0133     		adds	r3, r3, #1
- 1643              	.LVL137:
- 1644 05a8 0193     		str	r3, [sp, #4]
- 1645              	.LVL138:
+ 1630              		.loc 1 271 0 discriminator 1
+ 1631 059c 019B     		ldr	r3, [sp, #4]
+ 1632 059e 0133     		adds	r3, r3, #1
+ 1633 05a0 0193     		str	r3, [sp, #4]
  272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   } while((StartUpCounter != HSE_STARTUP_TIMEOUT) && (HSEStatus == RESET));
- 1646              		.loc 1 272 0 discriminator 1
- 1647 05aa 019B     		ldr	r3, [sp, #4]
- 1648              	.LVL139:
- 1649 05ac B3F5A06F 		cmp	r3, #1280
- 1650 05b0 01D0     		beq	.L201
- 1651 05b2 0028     		cmp	r0, #0
- 1652 05b4 F3D0     		beq	.L202
- 1653              	.L201:
+ 1634              		.loc 1 272 0 discriminator 1
+ 1635 05a2 019B     		ldr	r3, [sp, #4]
+ 1636 05a4 B3F5A06F 		cmp	r3, #1280
+ 1637 05a8 01D0     		beq	.L202
+ 1638 05aa 0028     		cmp	r0, #0
+ 1639 05ac F3D0     		beq	.L203
+ 1640              	.L202:
  274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if (RCC_GetFlagStatus(RCC_FLAG_HSERDY) != RESET)
- 1654              		.loc 1 274 0
- 1655 05b6 1120     		movs	r0, #17
- 1656              	.LVL140:
- 1657 05b8 FFF7FEFF 		bl	RCC_GetFlagStatus
- 1658              	.LVL141:
+ 1641              		.loc 1 274 0
+ 1642 05ae 1120     		movs	r0, #17
+ 1643              	.LVL136:
+ 1644 05b0 FFF7FEFF 		bl	RCC_GetFlagStatus
+ 1645              	.LVL137:
  283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
- 1659              		.loc 1 283 0
- 1660 05bc 0030     		adds	r0, r0, #0
- 1661              	.LVL142:
- 1662 05be 18BF     		it	ne
- 1663 05c0 0120     		movne	r0, #1
- 1664 05c2 0EBD     		pop	{r1, r2, r3, pc}
- 1665              		.cfi_endproc
- 1666              	.LFE113:
- 1668              		.align	1
- 1669              		.global	RCC_ClearFlag
- 1670              		.thumb
- 1671              		.thumb_func
- 1673              	RCC_ClearFlag:
- 1674              	.LFB147:
+ 1646              		.loc 1 283 0
+ 1647 05b4 0030     		adds	r0, r0, #0
+ 1648              	.LVL138:
+ 1649 05b6 18BF     		it	ne
+ 1650 05b8 0120     		movne	r0, #1
+ 1651 05ba 03B0     		add	sp, sp, #12
+ 1652              		@ sp needed
+ 1653 05bc 5DF804FB 		ldr	pc, [sp], #4
+ 1654              		.cfi_endproc
+ 1655              	.LFE113:
+ 1657              		.align	1
+ 1658              		.global	RCC_ClearFlag
+ 1659              		.thumb
+ 1660              		.thumb_func
+ 1662              	RCC_ClearFlag:
+ 1663              	.LFB147:
 1687:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1688:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
 1689:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   * @brief  Clears the RCC reset flags.
@@ -3317,31 +3305,31 @@
 1694:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1695:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_ClearFlag(void)
 1696:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1675              		.loc 1 1696 0
- 1676              		.cfi_startproc
- 1677              		@ args = 0, pretend = 0, frame = 0
- 1678              		@ frame_needed = 0, uses_anonymous_args = 0
- 1679              		@ link register save eliminated.
+ 1664              		.loc 1 1696 0
+ 1665              		.cfi_startproc
+ 1666              		@ args = 0, pretend = 0, frame = 0
+ 1667              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1668              		@ link register save eliminated.
 1697:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Set RMVF bit to clear the reset flags */
 1698:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   RCC->CSR |= RCC_CSR_RMVF;
- 1680              		.loc 1 1698 0
- 1681 05c4 024B     		ldr	r3, .L211
- 1682 05c6 5A6A     		ldr	r2, [r3, #36]
- 1683 05c8 42F08072 		orr	r2, r2, #16777216
- 1684 05cc 5A62     		str	r2, [r3, #36]
- 1685 05ce 7047     		bx	lr
- 1686              	.L212:
- 1687              		.align	2
- 1688              	.L211:
- 1689 05d0 00100240 		.word	1073876992
- 1690              		.cfi_endproc
- 1691              	.LFE147:
- 1693              		.align	1
- 1694              		.global	RCC_GetITStatus
- 1695              		.thumb
- 1696              		.thumb_func
- 1698              	RCC_GetITStatus:
- 1699              	.LFB148:
+ 1669              		.loc 1 1698 0
+ 1670 05c0 024B     		ldr	r3, .L208
+ 1671 05c2 5A6A     		ldr	r2, [r3, #36]
+ 1672 05c4 42F08072 		orr	r2, r2, #16777216
+ 1673 05c8 5A62     		str	r2, [r3, #36]
+ 1674 05ca 7047     		bx	lr
+ 1675              	.L209:
+ 1676              		.align	2
+ 1677              	.L208:
+ 1678 05cc 00100240 		.word	1073876992
+ 1679              		.cfi_endproc
+ 1680              	.LFE147:
+ 1682              		.align	1
+ 1683              		.global	RCC_GetITStatus
+ 1684              		.thumb
+ 1685              		.thumb_func
+ 1687              	RCC_GetITStatus:
+ 1688              	.LFB148:
 1699:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
 1700:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1701:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
@@ -3358,12 +3346,12 @@
 1712:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1713:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** ITStatus RCC_GetITStatus(uint8_t RCC_IT)
 1714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1700              		.loc 1 1714 0
- 1701              		.cfi_startproc
- 1702              		@ args = 0, pretend = 0, frame = 0
- 1703              		@ frame_needed = 0, uses_anonymous_args = 0
- 1704              		@ link register save eliminated.
- 1705              	.LVL143:
+ 1689              		.loc 1 1714 0
+ 1690              		.cfi_startproc
+ 1691              		@ args = 0, pretend = 0, frame = 0
+ 1692              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1693              		@ link register save eliminated.
+ 1694              	.LVL139:
 1715:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   ITStatus bitstatus = RESET;
 1716:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1717:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
@@ -3371,11 +3359,11 @@
 1719:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1720:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the status of the specified RCC interrupt */
 1721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   if ((RCC->CIR & RCC_IT) != (uint32_t)RESET)
- 1706              		.loc 1 1721 0
- 1707 05d4 034B     		ldr	r3, .L214
- 1708 05d6 9B68     		ldr	r3, [r3, #8]
- 1709              	.LVL144:
- 1710 05d8 1842     		tst	r0, r3
+ 1695              		.loc 1 1721 0
+ 1696 05d0 034B     		ldr	r3, .L211
+ 1697 05d2 9B68     		ldr	r3, [r3, #8]
+ 1698              	.LVL140:
+ 1699 05d4 1842     		tst	r0, r3
 1722:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   {
 1723:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****     bitstatus = SET;
 1724:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   }
@@ -3386,24 +3374,24 @@
 1729:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Return the RCC_IT status */
 1730:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   return  bitstatus;
 1731:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** }
- 1711              		.loc 1 1731 0
- 1712 05da 0CBF     		ite	eq
- 1713 05dc 0020     		moveq	r0, #0
- 1714 05de 0120     		movne	r0, #1
- 1715              	.LVL145:
- 1716 05e0 7047     		bx	lr
- 1717              	.L215:
- 1718 05e2 00BF     		.align	2
- 1719              	.L214:
- 1720 05e4 00100240 		.word	1073876992
- 1721              		.cfi_endproc
- 1722              	.LFE148:
- 1724              		.align	1
- 1725              		.global	RCC_ClearITPendingBit
- 1726              		.thumb
- 1727              		.thumb_func
- 1729              	RCC_ClearITPendingBit:
- 1730              	.LFB149:
+ 1700              		.loc 1 1731 0
+ 1701 05d6 0CBF     		ite	eq
+ 1702 05d8 0020     		moveq	r0, #0
+ 1703 05da 0120     		movne	r0, #1
+ 1704              	.LVL141:
+ 1705 05dc 7047     		bx	lr
+ 1706              	.L212:
+ 1707 05de 00BF     		.align	2
+ 1708              	.L211:
+ 1709 05e0 00100240 		.word	1073876992
+ 1710              		.cfi_endproc
+ 1711              	.LFE148:
+ 1713              		.align	1
+ 1714              		.global	RCC_ClearITPendingBit
+ 1715              		.thumb
+ 1716              		.thumb_func
+ 1718              	RCC_ClearITPendingBit:
+ 1719              	.LFB149:
 1732:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** 
 1733:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** /**
 1734:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   * @brief  Clears the RCC's interrupt pending bits.
@@ -3419,196 +3407,200 @@
 1744:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   */
 1745:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** void RCC_ClearITPendingBit(uint8_t RCC_IT)
 1746:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c **** {
- 1731              		.loc 1 1746 0
- 1732              		.cfi_startproc
- 1733              		@ args = 0, pretend = 0, frame = 0
- 1734              		@ frame_needed = 0, uses_anonymous_args = 0
- 1735              		@ link register save eliminated.
- 1736              	.LVL146:
+ 1720              		.loc 1 1746 0
+ 1721              		.cfi_startproc
+ 1722              		@ args = 0, pretend = 0, frame = 0
+ 1723              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1724              		@ link register save eliminated.
+ 1725              	.LVL142:
 1747:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Check the parameters */
 1748:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   assert_param(IS_RCC_CLEAR_IT(RCC_IT));
 1749:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   
 1750:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   /* Perform Byte access to RCC_CIR[23:16] bits to clear the selected interrupt
 1751:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****      pending bits */
 1752:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c ****   *(__IO uint8_t *) CIR_BYTE3_ADDRESS = RCC_IT;
- 1737              		.loc 1 1752 0
- 1738 05e8 014B     		ldr	r3, .L217
- 1739 05ea 1870     		strb	r0, [r3, #0]
- 1740 05ec 7047     		bx	lr
- 1741              	.L218:
- 1742 05ee 00BF     		.align	2
- 1743              	.L217:
- 1744 05f0 0A100240 		.word	1073877002
- 1745              		.cfi_endproc
- 1746              	.LFE149:
- 1748              		.data
- 1749              		.align	1
- 1750              		.set	.LANCHOR0,. + 0
- 1753              	APBAHBPrescTable:
- 1754 0000 00       		.byte	0
- 1755 0001 00       		.byte	0
- 1756 0002 00       		.byte	0
- 1757 0003 00       		.byte	0
- 1758 0004 01       		.byte	1
- 1759 0005 02       		.byte	2
- 1760 0006 03       		.byte	3
- 1761 0007 04       		.byte	4
- 1762 0008 01       		.byte	1
- 1763 0009 02       		.byte	2
- 1764 000a 03       		.byte	3
- 1765 000b 04       		.byte	4
- 1766 000c 06       		.byte	6
- 1767 000d 07       		.byte	7
- 1768 000e 08       		.byte	8
- 1769 000f 09       		.byte	9
- 1772              	ADCPrescTable:
- 1773 0010 0000     		.short	0
- 1774 0012 0100     		.short	1
- 1775 0014 0200     		.short	2
- 1776 0016 0400     		.short	4
- 1777 0018 0600     		.short	6
- 1778 001a 0800     		.short	8
- 1779 001c 0A00     		.short	10
- 1780 001e 0C00     		.short	12
- 1781 0020 1000     		.short	16
- 1782 0022 2000     		.short	32
- 1783 0024 4000     		.short	64
- 1784 0026 8000     		.short	128
- 1785 0028 0001     		.short	256
- 1786              		.text
- 1787              	.Letext0:
- 1788              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 1789              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 1790              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 1791              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 1726              		.loc 1 1752 0
+ 1727 05e4 014B     		ldr	r3, .L214
+ 1728 05e6 1870     		strb	r0, [r3]
+ 1729 05e8 7047     		bx	lr
+ 1730              	.L215:
+ 1731 05ea 00BF     		.align	2
+ 1732              	.L214:
+ 1733 05ec 0A100240 		.word	1073877002
+ 1734              		.cfi_endproc
+ 1735              	.LFE149:
+ 1737              		.data
+ 1738              		.align	1
+ 1739              		.set	.LANCHOR0,. + 0
+ 1742              	APBAHBPrescTable:
+ 1743 0000 00       		.byte	0
+ 1744 0001 00       		.byte	0
+ 1745 0002 00       		.byte	0
+ 1746 0003 00       		.byte	0
+ 1747 0004 01       		.byte	1
+ 1748 0005 02       		.byte	2
+ 1749 0006 03       		.byte	3
+ 1750 0007 04       		.byte	4
+ 1751 0008 01       		.byte	1
+ 1752 0009 02       		.byte	2
+ 1753 000a 03       		.byte	3
+ 1754 000b 04       		.byte	4
+ 1755 000c 06       		.byte	6
+ 1756 000d 07       		.byte	7
+ 1757 000e 08       		.byte	8
+ 1758 000f 09       		.byte	9
+ 1761              	ADCPrescTable:
+ 1762 0010 0000     		.short	0
+ 1763 0012 0100     		.short	1
+ 1764 0014 0200     		.short	2
+ 1765 0016 0400     		.short	4
+ 1766 0018 0600     		.short	6
+ 1767 001a 0800     		.short	8
+ 1768 001c 0A00     		.short	10
+ 1769 001e 0C00     		.short	12
+ 1770 0020 1000     		.short	16
+ 1771 0022 2000     		.short	32
+ 1772 0024 4000     		.short	64
+ 1773 0026 8000     		.short	128
+ 1774 0028 0001     		.short	256
+ 1775              		.text
+ 1776              	.Letext0:
+ 1777              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 1778              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 1779              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1780              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_rcc.c
-     /tmp/cc3rgW2J.s:20     .text:00000000 $t
-     /tmp/cc3rgW2J.s:25     .text:00000000 RCC_DeInit
-     /tmp/cc3rgW2J.s:73     .text:00000048 $d
-     /tmp/cc3rgW2J.s:79     .text:00000054 $t
-     /tmp/cc3rgW2J.s:84     .text:00000054 RCC_HSEConfig
-     /tmp/cc3rgW2J.s:102    .text:00000060 $d
-     /tmp/cc3rgW2J.s:106    .text:00000064 $t
-     /tmp/cc3rgW2J.s:111    .text:00000064 RCC_AdjustHSICalibrationValue
-     /tmp/cc3rgW2J.s:135    .text:00000074 $d
-     /tmp/cc3rgW2J.s:139    .text:00000078 $t
-     /tmp/cc3rgW2J.s:144    .text:00000078 RCC_HSICmd
-     /tmp/cc3rgW2J.s:159    .text:00000080 $d
-     /tmp/cc3rgW2J.s:163    .text:00000084 $t
-     /tmp/cc3rgW2J.s:168    .text:00000084 RCC_LSEConfig
-     /tmp/cc3rgW2J.s:194    .text:000000a0 $d
-     /tmp/cc3rgW2J.s:198    .text:000000a4 $t
-     /tmp/cc3rgW2J.s:203    .text:000000a4 RCC_LSEDriveConfig
-     /tmp/cc3rgW2J.s:225    .text:000000b8 $d
-     /tmp/cc3rgW2J.s:229    .text:000000bc $t
-     /tmp/cc3rgW2J.s:234    .text:000000bc RCC_LSICmd
-     /tmp/cc3rgW2J.s:249    .text:000000c4 $d
-     /tmp/cc3rgW2J.s:253    .text:000000c8 $t
-     /tmp/cc3rgW2J.s:258    .text:000000c8 RCC_PLLConfig
-     /tmp/cc3rgW2J.s:282    .text:000000dc $d
-     /tmp/cc3rgW2J.s:286    .text:000000e0 $t
-     /tmp/cc3rgW2J.s:291    .text:000000e0 RCC_PLLCmd
-     /tmp/cc3rgW2J.s:306    .text:000000e8 $d
-     /tmp/cc3rgW2J.s:310    .text:000000ec $t
-     /tmp/cc3rgW2J.s:315    .text:000000ec RCC_PREDIV1Config
-     /tmp/cc3rgW2J.s:339    .text:000000fc $d
-     /tmp/cc3rgW2J.s:343    .text:00000100 $t
-     /tmp/cc3rgW2J.s:348    .text:00000100 RCC_ClockSecuritySystemCmd
-     /tmp/cc3rgW2J.s:363    .text:00000108 $d
-     /tmp/cc3rgW2J.s:367    .text:0000010c $t
-     /tmp/cc3rgW2J.s:372    .text:0000010c RCC_MCOConfig
-     /tmp/cc3rgW2J.s:387    .text:00000114 $d
-     /tmp/cc3rgW2J.s:391    .text:00000118 $t
-     /tmp/cc3rgW2J.s:396    .text:00000118 RCC_SYSCLKConfig
-     /tmp/cc3rgW2J.s:420    .text:00000128 $d
-     /tmp/cc3rgW2J.s:424    .text:0000012c $t
-     /tmp/cc3rgW2J.s:429    .text:0000012c RCC_GetSYSCLKSource
-     /tmp/cc3rgW2J.s:445    .text:00000138 $d
-     /tmp/cc3rgW2J.s:449    .text:0000013c $t
-     /tmp/cc3rgW2J.s:454    .text:0000013c RCC_HCLKConfig
-     /tmp/cc3rgW2J.s:478    .text:0000014c $d
-     /tmp/cc3rgW2J.s:482    .text:00000150 $t
-     /tmp/cc3rgW2J.s:487    .text:00000150 RCC_PCLK1Config
-     /tmp/cc3rgW2J.s:511    .text:00000160 $d
-     /tmp/cc3rgW2J.s:515    .text:00000164 $t
-     /tmp/cc3rgW2J.s:520    .text:00000164 RCC_PCLK2Config
-     /tmp/cc3rgW2J.s:544    .text:00000174 $d
-     /tmp/cc3rgW2J.s:548    .text:00000178 $t
-     /tmp/cc3rgW2J.s:553    .text:00000178 RCC_GetClocksFreq
-     /tmp/cc3rgW2J.s:988    .text:000003cc $d
-     /tmp/cc3rgW2J.s:995    .text:000003dc $t
-     /tmp/cc3rgW2J.s:1000   .text:000003dc RCC_ADCCLKConfig
-     /tmp/cc3rgW2J.s:1027   .text:000003f8 $d
-     /tmp/cc3rgW2J.s:1031   .text:000003fc $t
-     /tmp/cc3rgW2J.s:1036   .text:000003fc RCC_I2CCLKConfig
-     /tmp/cc3rgW2J.s:1063   .text:00000418 $d
-     /tmp/cc3rgW2J.s:1067   .text:0000041c $t
-     /tmp/cc3rgW2J.s:1072   .text:0000041c RCC_TIMCLKConfig
-     /tmp/cc3rgW2J.s:1099   .text:00000438 $d
-     /tmp/cc3rgW2J.s:1103   .text:0000043c $t
-     /tmp/cc3rgW2J.s:1108   .text:0000043c RCC_USARTCLKConfig
-     /tmp/cc3rgW2J.s:1127   .text:0000044a $d
-     /tmp/cc3rgW2J.s:1170   .text:00000480 $d
-     /tmp/cc3rgW2J.s:1174   .text:00000484 $t
-     /tmp/cc3rgW2J.s:1179   .text:00000484 RCC_USBCLKConfig
-     /tmp/cc3rgW2J.s:1194   .text:0000048c $d
-     /tmp/cc3rgW2J.s:1198   .text:00000490 $t
-     /tmp/cc3rgW2J.s:1203   .text:00000490 RCC_RTCCLKConfig
-     /tmp/cc3rgW2J.s:1221   .text:0000049c $d
-     /tmp/cc3rgW2J.s:1225   .text:000004a0 $t
-     /tmp/cc3rgW2J.s:1230   .text:000004a0 RCC_I2SCLKConfig
-     /tmp/cc3rgW2J.s:1245   .text:000004a8 $d
-     /tmp/cc3rgW2J.s:1249   .text:000004ac $t
-     /tmp/cc3rgW2J.s:1254   .text:000004ac RCC_RTCCLKCmd
-     /tmp/cc3rgW2J.s:1269   .text:000004b4 $d
-     /tmp/cc3rgW2J.s:1273   .text:000004b8 $t
-     /tmp/cc3rgW2J.s:1278   .text:000004b8 RCC_BackupResetCmd
-     /tmp/cc3rgW2J.s:1293   .text:000004c0 $d
-     /tmp/cc3rgW2J.s:1297   .text:000004c4 $t
-     /tmp/cc3rgW2J.s:1302   .text:000004c4 RCC_AHBPeriphClockCmd
-     /tmp/cc3rgW2J.s:1330   .text:000004d8 $d
-     /tmp/cc3rgW2J.s:1334   .text:000004dc $t
-     /tmp/cc3rgW2J.s:1339   .text:000004dc RCC_APB2PeriphClockCmd
-     /tmp/cc3rgW2J.s:1367   .text:000004f0 $d
-     /tmp/cc3rgW2J.s:1371   .text:000004f4 $t
-     /tmp/cc3rgW2J.s:1376   .text:000004f4 RCC_APB1PeriphClockCmd
-     /tmp/cc3rgW2J.s:1404   .text:00000508 $d
-     /tmp/cc3rgW2J.s:1408   .text:0000050c $t
-     /tmp/cc3rgW2J.s:1413   .text:0000050c RCC_AHBPeriphResetCmd
-     /tmp/cc3rgW2J.s:1441   .text:00000520 $d
-     /tmp/cc3rgW2J.s:1445   .text:00000524 $t
-     /tmp/cc3rgW2J.s:1450   .text:00000524 RCC_APB2PeriphResetCmd
-     /tmp/cc3rgW2J.s:1478   .text:00000538 $d
-     /tmp/cc3rgW2J.s:1482   .text:0000053c $t
-     /tmp/cc3rgW2J.s:1487   .text:0000053c RCC_APB1PeriphResetCmd
-     /tmp/cc3rgW2J.s:1515   .text:00000550 $d
-     /tmp/cc3rgW2J.s:1519   .text:00000554 $t
-     /tmp/cc3rgW2J.s:1524   .text:00000554 RCC_ITConfig
-     /tmp/cc3rgW2J.s:1552   .text:00000568 $d
-     /tmp/cc3rgW2J.s:1556   .text:0000056c $t
-     /tmp/cc3rgW2J.s:1561   .text:0000056c RCC_GetFlagStatus
-     /tmp/cc3rgW2J.s:1609   .text:00000594 $d
-     /tmp/cc3rgW2J.s:1613   .text:00000598 $t
-     /tmp/cc3rgW2J.s:1618   .text:00000598 RCC_WaitForHSEStartUp
-     /tmp/cc3rgW2J.s:1673   .text:000005c4 RCC_ClearFlag
-     /tmp/cc3rgW2J.s:1689   .text:000005d0 $d
-     /tmp/cc3rgW2J.s:1693   .text:000005d4 $t
-     /tmp/cc3rgW2J.s:1698   .text:000005d4 RCC_GetITStatus
-     /tmp/cc3rgW2J.s:1720   .text:000005e4 $d
-     /tmp/cc3rgW2J.s:1724   .text:000005e8 $t
-     /tmp/cc3rgW2J.s:1729   .text:000005e8 RCC_ClearITPendingBit
-     /tmp/cc3rgW2J.s:1744   .text:000005f0 $d
-     /tmp/cc3rgW2J.s:1749   .data:00000000 $d
-     /tmp/cc3rgW2J.s:1753   .data:00000000 APBAHBPrescTable
-     /tmp/cc3rgW2J.s:1772   .data:00000010 ADCPrescTable
+     /tmp/ccmAwEEU.s:20     .text:00000000 $t
+     /tmp/ccmAwEEU.s:25     .text:00000000 RCC_DeInit
+     /tmp/ccmAwEEU.s:73     .text:00000048 $d
+     /tmp/ccmAwEEU.s:79     .text:00000054 $t
+     /tmp/ccmAwEEU.s:84     .text:00000054 RCC_HSEConfig
+     /tmp/ccmAwEEU.s:102    .text:00000060 $d
+     /tmp/ccmAwEEU.s:106    .text:00000064 $t
+     /tmp/ccmAwEEU.s:111    .text:00000064 RCC_AdjustHSICalibrationValue
+     /tmp/ccmAwEEU.s:135    .text:00000074 $d
+     /tmp/ccmAwEEU.s:139    .text:00000078 $t
+     /tmp/ccmAwEEU.s:144    .text:00000078 RCC_HSICmd
+     /tmp/ccmAwEEU.s:159    .text:00000080 $d
+     /tmp/ccmAwEEU.s:163    .text:00000084 $t
+     /tmp/ccmAwEEU.s:168    .text:00000084 RCC_LSEConfig
+     /tmp/ccmAwEEU.s:194    .text:000000a0 $d
+     /tmp/ccmAwEEU.s:198    .text:000000a4 $t
+     /tmp/ccmAwEEU.s:203    .text:000000a4 RCC_LSEDriveConfig
+     /tmp/ccmAwEEU.s:225    .text:000000b8 $d
+     /tmp/ccmAwEEU.s:229    .text:000000bc $t
+     /tmp/ccmAwEEU.s:234    .text:000000bc RCC_LSICmd
+     /tmp/ccmAwEEU.s:249    .text:000000c4 $d
+     /tmp/ccmAwEEU.s:253    .text:000000c8 $t
+     /tmp/ccmAwEEU.s:258    .text:000000c8 RCC_PLLConfig
+     /tmp/ccmAwEEU.s:282    .text:000000dc $d
+     /tmp/ccmAwEEU.s:286    .text:000000e0 $t
+     /tmp/ccmAwEEU.s:291    .text:000000e0 RCC_PLLCmd
+     /tmp/ccmAwEEU.s:306    .text:000000e8 $d
+     /tmp/ccmAwEEU.s:310    .text:000000ec $t
+     /tmp/ccmAwEEU.s:315    .text:000000ec RCC_PREDIV1Config
+     /tmp/ccmAwEEU.s:339    .text:000000fc $d
+     /tmp/ccmAwEEU.s:343    .text:00000100 $t
+     /tmp/ccmAwEEU.s:348    .text:00000100 RCC_ClockSecuritySystemCmd
+     /tmp/ccmAwEEU.s:363    .text:00000108 $d
+     /tmp/ccmAwEEU.s:367    .text:0000010c $t
+     /tmp/ccmAwEEU.s:372    .text:0000010c RCC_MCOConfig
+     /tmp/ccmAwEEU.s:387    .text:00000114 $d
+     /tmp/ccmAwEEU.s:391    .text:00000118 $t
+     /tmp/ccmAwEEU.s:396    .text:00000118 RCC_SYSCLKConfig
+     /tmp/ccmAwEEU.s:420    .text:00000128 $d
+     /tmp/ccmAwEEU.s:424    .text:0000012c $t
+     /tmp/ccmAwEEU.s:429    .text:0000012c RCC_GetSYSCLKSource
+     /tmp/ccmAwEEU.s:445    .text:00000138 $d
+     /tmp/ccmAwEEU.s:449    .text:0000013c $t
+     /tmp/ccmAwEEU.s:454    .text:0000013c RCC_HCLKConfig
+     /tmp/ccmAwEEU.s:478    .text:0000014c $d
+     /tmp/ccmAwEEU.s:482    .text:00000150 $t
+     /tmp/ccmAwEEU.s:487    .text:00000150 RCC_PCLK1Config
+     /tmp/ccmAwEEU.s:511    .text:00000160 $d
+     /tmp/ccmAwEEU.s:515    .text:00000164 $t
+     /tmp/ccmAwEEU.s:520    .text:00000164 RCC_PCLK2Config
+     /tmp/ccmAwEEU.s:544    .text:00000174 $d
+     /tmp/ccmAwEEU.s:548    .text:00000178 $t
+     /tmp/ccmAwEEU.s:553    .text:00000178 RCC_GetClocksFreq
+     /tmp/ccmAwEEU.s:978    .text:000003c4 $d
+     /tmp/ccmAwEEU.s:985    .text:000003d4 $t
+     /tmp/ccmAwEEU.s:990    .text:000003d4 RCC_ADCCLKConfig
+     /tmp/ccmAwEEU.s:1017   .text:000003f0 $d
+     /tmp/ccmAwEEU.s:1021   .text:000003f4 $t
+     /tmp/ccmAwEEU.s:1026   .text:000003f4 RCC_I2CCLKConfig
+     /tmp/ccmAwEEU.s:1053   .text:00000410 $d
+     /tmp/ccmAwEEU.s:1057   .text:00000414 $t
+     /tmp/ccmAwEEU.s:1062   .text:00000414 RCC_TIMCLKConfig
+     /tmp/ccmAwEEU.s:1089   .text:00000430 $d
+     /tmp/ccmAwEEU.s:1093   .text:00000434 $t
+     /tmp/ccmAwEEU.s:1098   .text:00000434 RCC_USARTCLKConfig
+     /tmp/ccmAwEEU.s:1117   .text:00000442 $d
+     /tmp/ccmAwEEU.s:1160   .text:00000478 $d
+     /tmp/ccmAwEEU.s:1164   .text:0000047c $t
+     /tmp/ccmAwEEU.s:1169   .text:0000047c RCC_USBCLKConfig
+     /tmp/ccmAwEEU.s:1184   .text:00000484 $d
+     /tmp/ccmAwEEU.s:1188   .text:00000488 $t
+     /tmp/ccmAwEEU.s:1193   .text:00000488 RCC_RTCCLKConfig
+     /tmp/ccmAwEEU.s:1211   .text:00000494 $d
+     /tmp/ccmAwEEU.s:1215   .text:00000498 $t
+     /tmp/ccmAwEEU.s:1220   .text:00000498 RCC_I2SCLKConfig
+     /tmp/ccmAwEEU.s:1235   .text:000004a0 $d
+     /tmp/ccmAwEEU.s:1239   .text:000004a4 $t
+     /tmp/ccmAwEEU.s:1244   .text:000004a4 RCC_RTCCLKCmd
+     /tmp/ccmAwEEU.s:1259   .text:000004ac $d
+     /tmp/ccmAwEEU.s:1263   .text:000004b0 $t
+     /tmp/ccmAwEEU.s:1268   .text:000004b0 RCC_BackupResetCmd
+     /tmp/ccmAwEEU.s:1283   .text:000004b8 $d
+     /tmp/ccmAwEEU.s:1287   .text:000004bc $t
+     /tmp/ccmAwEEU.s:1292   .text:000004bc RCC_AHBPeriphClockCmd
+     /tmp/ccmAwEEU.s:1320   .text:000004d0 $d
+     /tmp/ccmAwEEU.s:1324   .text:000004d4 $t
+     /tmp/ccmAwEEU.s:1329   .text:000004d4 RCC_APB2PeriphClockCmd
+     /tmp/ccmAwEEU.s:1357   .text:000004e8 $d
+     /tmp/ccmAwEEU.s:1361   .text:000004ec $t
+     /tmp/ccmAwEEU.s:1366   .text:000004ec RCC_APB1PeriphClockCmd
+     /tmp/ccmAwEEU.s:1394   .text:00000500 $d
+     /tmp/ccmAwEEU.s:1398   .text:00000504 $t
+     /tmp/ccmAwEEU.s:1403   .text:00000504 RCC_AHBPeriphResetCmd
+     /tmp/ccmAwEEU.s:1431   .text:00000518 $d
+     /tmp/ccmAwEEU.s:1435   .text:0000051c $t
+     /tmp/ccmAwEEU.s:1440   .text:0000051c RCC_APB2PeriphResetCmd
+     /tmp/ccmAwEEU.s:1468   .text:00000530 $d
+     /tmp/ccmAwEEU.s:1472   .text:00000534 $t
+     /tmp/ccmAwEEU.s:1477   .text:00000534 RCC_APB1PeriphResetCmd
+     /tmp/ccmAwEEU.s:1505   .text:00000548 $d
+     /tmp/ccmAwEEU.s:1509   .text:0000054c $t
+     /tmp/ccmAwEEU.s:1514   .text:0000054c RCC_ITConfig
+     /tmp/ccmAwEEU.s:1542   .text:00000560 $d
+     /tmp/ccmAwEEU.s:1546   .text:00000564 $t
+     /tmp/ccmAwEEU.s:1551   .text:00000564 RCC_GetFlagStatus
+     /tmp/ccmAwEEU.s:1599   .text:0000058c $d
+     /tmp/ccmAwEEU.s:1603   .text:00000590 $t
+     /tmp/ccmAwEEU.s:1608   .text:00000590 RCC_WaitForHSEStartUp
+     /tmp/ccmAwEEU.s:1662   .text:000005c0 RCC_ClearFlag
+     /tmp/ccmAwEEU.s:1678   .text:000005cc $d
+     /tmp/ccmAwEEU.s:1682   .text:000005d0 $t
+     /tmp/ccmAwEEU.s:1687   .text:000005d0 RCC_GetITStatus
+     /tmp/ccmAwEEU.s:1709   .text:000005e0 $d
+     /tmp/ccmAwEEU.s:1713   .text:000005e4 $t
+     /tmp/ccmAwEEU.s:1718   .text:000005e4 RCC_ClearITPendingBit
+     /tmp/ccmAwEEU.s:1733   .text:000005ec $d
+     /tmp/ccmAwEEU.s:1738   .data:00000000 $d
+     /tmp/ccmAwEEU.s:1742   .data:00000000 APBAHBPrescTable
+     /tmp/ccmAwEEU.s:1761   .data:00000010 ADCPrescTable
                      .debug_frame:00000010 $d
-     /tmp/cc3rgW2J.s:1132   .text:0000044f $d
-     /tmp/cc3rgW2J.s:1132   .text:00000450 $t
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+     /tmp/ccmAwEEU.s:1122   .text:00000447 $d
+     /tmp/ccmAwEEU.s:1122   .text:00000448 $t
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a

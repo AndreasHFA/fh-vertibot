@@ -43,7 +43,7 @@
   32              	.LVL0:
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	filter->r = newMeasurement + filter->r - filter->filtered;
   33              		.loc 1 13 0
-  34 0000 0368     		ldr	r3, [r0, #0]
+  34 0000 0368     		ldr	r3, [r0]
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
   35              		.loc 1 12 0
   36 0002 10B5     		push	{r4, lr}
@@ -53,7 +53,7 @@
   40              		.cfi_offset 14, -4
   41              		.loc 1 13 0
   42 0004 4468     		ldr	r4, [r0, #4]
-  43 0006 D218     		adds	r2, r2, r3
+  43 0006 1A44     		add	r2, r2, r3
   44              	.LVL1:
   45 0008 121B     		subs	r2, r2, r4
   14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	filter->filtered = filter->r>>lowpassValue;
@@ -62,7 +62,7 @@
   48              	.LVL2:
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	filter->r = newMeasurement + filter->r - filter->filtered;
   49              		.loc 1 13 0
-  50 000e 0260     		str	r2, [r0, #0]
+  50 000e 0260     		str	r2, [r0]
   51              		.loc 1 14 0
   52 0010 4160     		str	r1, [r0, #4]
   53 0012 10BD     		pop	{r4, pc}
@@ -93,7 +93,7 @@
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	{
   23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		avg->avgArray[i] = 0;
   73              		.loc 1 23 0
-  74 0018 0360     		str	r3, [r0, #0]
+  74 0018 0360     		str	r3, [r0]
   75              	.LVL4:
   76 001a 4360     		str	r3, [r0, #4]
   77              	.LVL5:
@@ -121,280 +121,272 @@
   96              		.cfi_startproc
   97              		@ args = 0, pretend = 0, frame = 0
   98              		@ frame_needed = 0, uses_anonymous_args = 0
-  99              		@ link register save eliminated.
- 100              	.LVL9:
+  99              	.LVL9:
+ 100 0024 10B5     		push	{r4, lr}
+ 101              	.LCFI1:
+ 102              		.cfi_def_cfa_offset 8
+ 103              		.cfi_offset 4, -8
+ 104              		.cfi_offset 14, -4
   29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	int i = 0, result = 0;
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	avg->avgArray[avg->countValue] = newValue;
- 101              		.loc 1 31 0
- 102 0024 4369     		ldr	r3, [r0, #20]
- 103 0026 40F82310 		str	r1, [r0, r3, lsl #2]
- 104              	.LVL10:
+ 105              		.loc 1 31 0
+ 106 0026 4469     		ldr	r4, [r0, #20]
+ 107 0028 0023     		movs	r3, #0
+ 108 002a 40F82410 		str	r1, [r0, r4, lsl #2]
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	int i = 0, result = 0;
+ 109              		.loc 1 29 0
+ 110 002e 1A46     		mov	r2, r3
+ 111              	.LVL10:
+ 112              	.L5:
   32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0;i<MA_VALUE;i++)
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	{
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		result += avg->avgArray[i];
- 105              		.loc 1 34 0
- 106 002a 90E80600 		ldmia	r0, {r1, r2}
- 107              	.LVL11:
- 108 002e 8918     		adds	r1, r1, r2
- 109              	.LVL12:
- 110 0030 8268     		ldr	r2, [r0, #8]
- 111 0032 8918     		adds	r1, r1, r2
- 112              	.LVL13:
- 113 0034 C268     		ldr	r2, [r0, #12]
+ 113              		.loc 1 34 0 discriminator 2
+ 114 0030 C158     		ldr	r1, [r0, r3]
+ 115 0032 0433     		adds	r3, r3, #4
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0;i<MA_VALUE;i++)
+ 116              		.loc 1 32 0 discriminator 2
+ 117 0034 142B     		cmp	r3, #20
+ 118              		.loc 1 34 0 discriminator 2
+ 119 0036 0A44     		add	r2, r2, r1
+ 120              	.LVL11:
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0;i<MA_VALUE;i++)
+ 121              		.loc 1 32 0 discriminator 2
+ 122 0038 FAD1     		bne	.L5
   35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	}
   36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	avg->countValue++;
- 114              		.loc 1 36 0
- 115 0036 0133     		adds	r3, r3, #1
- 116              	.LVL14:
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		result += avg->avgArray[i];
- 117              		.loc 1 34 0
- 118 0038 8918     		adds	r1, r1, r2
- 119              	.LVL15:
+ 123              		.loc 1 36 0
+ 124 003a 0134     		adds	r4, r4, #1
+ 125              	.LVL12:
   37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	if (avg->countValue >= MA_VALUE)
- 120              		.loc 1 37 0
- 121 003a 042B     		cmp	r3, #4
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		result += avg->avgArray[i];
- 122              		.loc 1 34 0
- 123 003c 0269     		ldr	r2, [r0, #16]
+ 126              		.loc 1 37 0
+ 127 003c 042C     		cmp	r4, #4
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	{
   39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		avg->countValue = 0;
- 124              		.loc 1 39 0
- 125 003e C8BF     		it	gt
- 126 0040 0023     		movgt	r3, #0
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		result += avg->avgArray[i];
- 127              		.loc 1 34 0
- 128 0042 8A18     		adds	r2, r1, r2
- 129              	.LVL16:
- 130              		.loc 1 39 0
- 131 0044 4361     		str	r3, [r0, #20]
+ 128              		.loc 1 39 0
+ 129 003e CABF     		itet	gt
+ 130 0040 0023     		movgt	r3, #0
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	avg->countValue++;
+ 131              		.loc 1 36 0
+ 132 0042 4461     		strle	r4, [r0, #20]
+ 133              	.LVL13:
+ 134              		.loc 1 39 0
+ 135 0044 4361     		strgt	r3, [r0, #20]
   40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	}
   41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	return result/MA_VALUE;
   42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** }
- 132              		.loc 1 42 0
- 133 0046 0520     		movs	r0, #5
- 134              	.LVL17:
- 135 0048 92FBF0F0 		sdiv	r0, r2, r0
- 136 004c 7047     		bx	lr
- 137              		.cfi_endproc
- 138              	.LFE2:
- 140              		.align	1
- 141              		.global	quickSort
- 142              		.thumb
- 143              		.thumb_func
- 145              	quickSort:
- 146              	.LFB3:
+ 136              		.loc 1 42 0
+ 137 0046 0520     		movs	r0, #5
+ 138              	.LVL14:
+ 139 0048 92FBF0F0 		sdiv	r0, r2, r0
+ 140 004c 10BD     		pop	{r4, pc}
+ 141              		.cfi_endproc
+ 142              	.LFE2:
+ 144              		.align	1
+ 145              		.global	quickSort
+ 146              		.thumb
+ 147              		.thumb_func
+ 149              	quickSort:
+ 150              	.LFB3:
   43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void quickSort (int a[], int lo, int hi)
   46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
- 147              		.loc 1 46 0
- 148              		.cfi_startproc
- 149              		@ args = 0, pretend = 0, frame = 0
- 150              		@ frame_needed = 0, uses_anonymous_args = 0
- 151              	.LVL18:
- 152 004e 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 153              	.LCFI1:
- 154              		.cfi_def_cfa_offset 40
- 155              		.cfi_offset 3, -40
- 156              		.cfi_offset 4, -36
- 157              		.cfi_offset 5, -32
- 158              		.cfi_offset 6, -28
- 159              		.cfi_offset 7, -24
- 160              		.cfi_offset 8, -20
- 161              		.cfi_offset 9, -16
- 162              		.cfi_offset 10, -12
- 163              		.cfi_offset 11, -8
- 164              		.cfi_offset 14, -4
- 165              		.loc 1 46 0
- 166 0052 0546     		mov	r5, r0
- 167 0054 1646     		mov	r6, r2
+ 151              		.loc 1 46 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              	.LVL15:
+ 156 004e 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 157              	.LCFI2:
+ 158              		.cfi_def_cfa_offset 32
+ 159              		.cfi_offset 4, -32
+ 160              		.cfi_offset 5, -28
+ 161              		.cfi_offset 6, -24
+ 162              		.cfi_offset 7, -20
+ 163              		.cfi_offset 8, -16
+ 164              		.cfi_offset 9, -12
+ 165              		.cfi_offset 10, -8
+ 166              		.cfi_offset 14, -4
+ 167 0052 0646     		mov	r6, r0
+ 168 0054 1746     		mov	r7, r2
+ 169              	.LVL16:
+ 170              	.L18:
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** //  lo is the lower index, hi is the upper index
   48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** //  of the region of array a that is to be sorted
   49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     int i=lo, j=hi, h;
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     int x=a[(lo+hi)/2];
- 168              		.loc 1 50 0
- 169 0056 4FF00208 		mov	r8, #2
- 170              	.LVL19:
- 171              	.L14:
- 172 005a 8B19     		adds	r3, r1, r6
- 173 005c 93FBF8F3 		sdiv	r3, r3, r8
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void quickSort (int a[], int lo, int hi)
- 174              		.loc 1 45 0
- 175 0060 05EB8102 		add	r2, r5, r1, lsl #2
- 176              		.loc 1 50 0
- 177 0064 55F823A0 		ldr	sl, [r5, r3, lsl #2]
- 178              	.LVL20:
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void quickSort (int a[], int lo, int hi)
- 179              		.loc 1 45 0
- 180 0068 4C1C     		adds	r4, r1, #1
+ 171              		.loc 1 50 0
+ 172 0056 CA19     		adds	r2, r1, r7
+ 173 0058 0223     		movs	r3, #2
+ 174 005a 92FBF3F3 		sdiv	r3, r2, r3
+ 175 005e 4C1C     		adds	r4, r1, #1
+ 176 0060 56F82390 		ldr	r9, [r6, r3, lsl #2]
+ 177              	.LVL17:
+ 178 0064 06EB8102 		add	r2, r6, r1, lsl #2
   49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     int i=lo, j=hi, h;
- 181              		.loc 1 49 0
- 182 006a 3346     		mov	r3, r6
- 183 006c 00E0     		b	.L8
- 184              	.LVL21:
- 185              	.L9:
- 186 006e 0134     		adds	r4, r4, #1
- 187              	.LVL22:
- 188              	.L8:
+ 179              		.loc 1 49 0
+ 180 0068 3B46     		mov	r3, r7
+ 181              	.LVL18:
+ 182              	.L11:
   51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     //  partition
   53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     do
   54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     {
   55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****         while (a[i]<x) i++;
- 189              		.loc 1 55 0 discriminator 1
- 190 0070 52F804CB 		ldr	ip, [r2], #4
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void quickSort (int a[], int lo, int hi)
- 191              		.loc 1 45 0 discriminator 1
- 192 0074 671E     		subs	r7, r4, #1
- 193              	.LVL23:
- 194              		.loc 1 55 0 discriminator 1
- 195 0076 D445     		cmp	ip, sl
- 196 0078 F9DB     		blt	.L9
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void quickSort (int a[], int lo, int hi)
- 197              		.loc 1 45 0
- 198 007a 05EB8300 		add	r0, r5, r3, lsl #2
- 199 007e 00E0     		b	.L10
- 200              	.L11:
+ 183              		.loc 1 55 0 discriminator 1
+ 184 006a 52F804CB 		ldr	ip, [r2], #4
+ 185 006e CC45     		cmp	ip, r9
+ 186 0070 04F1FF35 		add	r5, r4, #-1
+ 187              	.LVL19:
+ 188 0074 01DA     		bge	.L19
+ 189              	.L12:
+ 190 0076 0134     		adds	r4, r4, #1
+ 191 0078 F7E7     		b	.L11
+ 192              	.L19:
+ 193 007a 06EB8300 		add	r0, r6, r3, lsl #2
+ 194              	.L13:
   56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****         while (a[j]>x) j--;
- 201              		.loc 1 56 0 discriminator 2
- 202 0080 013B     		subs	r3, r3, #1
- 203              	.LVL24:
- 204              	.L10:
- 205              		.loc 1 56 0 is_stmt 0 discriminator 1
- 206 0082 8346     		mov	fp, r0
- 207 0084 50F80499 		ldr	r9, [r0], #-4
- 208 0088 D145     		cmp	r9, sl
- 209 008a F9DC     		bgt	.L11
+ 195              		.loc 1 56 0 discriminator 1
+ 196 007e 8246     		mov	r10, r0
+ 197 0080 50F80489 		ldr	r8, [r0], #-4
+ 198 0084 C845     		cmp	r8, r9
+ 199 0086 01DD     		ble	.L20
+ 200              		.loc 1 56 0 is_stmt 0 discriminator 2
+ 201 0088 013B     		subs	r3, r3, #1
+ 202              	.LVL20:
+ 203 008a F8E7     		b	.L13
+ 204              	.L20:
   57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****         if (i<=j)
- 210              		.loc 1 57 0 is_stmt 1
- 211 008c 9F42     		cmp	r7, r3
- 212 008e 07DC     		bgt	.L12
- 213              	.LVL25:
+ 205              		.loc 1 57 0 is_stmt 1
+ 206 008c 9D42     		cmp	r5, r3
+ 207 008e 07DC     		bgt	.L15
+ 208              	.LVL21:
   58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****         {
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             h=a[i]; a[i]=a[j]; a[j]=h;
   60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             i++; j--;
- 214              		.loc 1 60 0
- 215 0090 013B     		subs	r3, r3, #1
- 216              	.LVL26:
+ 209              		.loc 1 60 0
+ 210 0090 013B     		subs	r3, r3, #1
+ 211              	.LVL22:
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****         }
   62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     } while (i<=j);
- 217              		.loc 1 62 0
- 218 0092 9C42     		cmp	r4, r3
+ 212              		.loc 1 62 0
+ 213 0092 9C42     		cmp	r4, r3
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             h=a[i]; a[i]=a[j]; a[j]=h;
+ 214              		.loc 1 59 0
+ 215 0094 42F8048C 		str	r8, [r2, #-4]
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             i++; j--;
+ 216              		.loc 1 60 0
+ 217 0098 2546     		mov	r5, r4
+ 218              	.LVL23:
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             h=a[i]; a[i]=a[j]; a[j]=h;
  219              		.loc 1 59 0
- 220 0094 42F8049C 		str	r9, [r2, #-4]
-  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             i++; j--;
- 221              		.loc 1 60 0
- 222 0098 2746     		mov	r7, r4
- 223              	.LVL27:
-  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****             h=a[i]; a[i]=a[j]; a[j]=h;
- 224              		.loc 1 59 0
- 225 009a CBF800C0 		str	ip, [fp, #0]
- 226              		.loc 1 62 0
- 227 009e E6DD     		ble	.L9
- 228              	.LVL28:
- 229              	.L12:
+ 220 009a CAF800C0 		str	ip, [r10]
+ 221              		.loc 1 62 0
+ 222 009e EADD     		ble	.L12
+ 223              	.LVL24:
+ 224              	.L15:
   63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     //  recursion
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     if (lo<j) quickSort(a, lo, j);
- 230              		.loc 1 65 0
- 231 00a0 9942     		cmp	r1, r3
- 232 00a2 03DA     		bge	.L13
- 233              		.loc 1 65 0 is_stmt 0 discriminator 1
- 234 00a4 2846     		mov	r0, r5
- 235 00a6 1A46     		mov	r2, r3
- 236 00a8 FFF7FEFF 		bl	quickSort
- 237              	.LVL29:
- 238              	.L13:
+ 225              		.loc 1 65 0
+ 226 00a0 9942     		cmp	r1, r3
+ 227 00a2 03DA     		bge	.L16
+ 228              		.loc 1 65 0 is_stmt 0 discriminator 1
+ 229 00a4 3046     		mov	r0, r6
+ 230 00a6 1A46     		mov	r2, r3
+ 231 00a8 FFF7FEFF 		bl	quickSort
+ 232              	.LVL25:
+ 233              	.L16:
   66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     if (i<hi) quickSort(a, i, hi);
- 239              		.loc 1 66 0 is_stmt 1
- 240 00ac B742     		cmp	r7, r6
- 241 00ae 3946     		mov	r1, r7
- 242 00b0 D3DB     		blt	.L14
- 243              	.LVL30:
+ 234              		.loc 1 66 0 is_stmt 1
+ 235 00ac BD42     		cmp	r5, r7
+ 236 00ae 01DA     		bge	.L10
+ 237 00b0 2946     		mov	r1, r5
+ 238 00b2 D0E7     		b	.L18
+ 239              	.L10:
+ 240 00b4 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 241              		.cfi_endproc
+ 242              	.LFE3:
+ 244              		.global	__aeabi_i2d
+ 245              		.global	__aeabi_d2iz
+ 246              		.align	1
+ 247              		.global	calcStdDev
+ 248              		.thumb
+ 249              		.thumb_func
+ 251              	calcStdDev:
+ 252              	.LFB4:
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** }
- 244              		.loc 1 67 0
- 245 00b2 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 246              		.cfi_endproc
- 247              	.LFE3:
- 249              		.global	__aeabi_i2d
- 250              		.global	__aeabi_d2iz
- 251              		.align	1
- 252              		.global	calcStdDev
- 253              		.thumb
- 254              		.thumb_func
- 256              	calcStdDev:
- 257              	.LFB4:
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** int calcStdDev (int a[], int index, int avgVal)
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
- 258              		.loc 1 72 0
- 259              		.cfi_startproc
- 260              		@ args = 0, pretend = 0, frame = 0
- 261              		@ frame_needed = 0, uses_anonymous_args = 0
- 262              	.LVL31:
+ 253              		.loc 1 72 0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257              	.LVL26:
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	int sum = 0, i = 0;
   74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0; i<index;i++)
- 263              		.loc 1 75 0
- 264 00b6 0023     		movs	r3, #0
+ 258              		.loc 1 75 0
+ 259 00b8 0023     		movs	r3, #0
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
- 265              		.loc 1 72 0
- 266 00b8 10B5     		push	{r4, lr}
- 267              	.LCFI2:
- 268              		.cfi_def_cfa_offset 8
- 269              		.cfi_offset 4, -8
- 270              		.cfi_offset 14, -4
+ 260              		.loc 1 72 0
+ 261 00ba 10B5     		push	{r4, lr}
+ 262              	.LCFI3:
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 4, -8
+ 265              		.cfi_offset 14, -4
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	int sum = 0, i = 0;
- 271              		.loc 1 73 0
- 272 00ba 1C46     		mov	r4, r3
- 273              		.loc 1 75 0
- 274 00bc 04E0     		b	.L17
- 275              	.LVL32:
- 276              	.L18:
+ 266              		.loc 1 73 0
+ 267 00bc 1C46     		mov	r4, r3
+ 268              	.LVL27:
+ 269              	.L22:
+ 270              		.loc 1 75 0 discriminator 1
+ 271 00be 8B42     		cmp	r3, r1
+ 272 00c0 05DA     		bge	.L24
   76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	{
   77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 		sum = (a[i]-avgVal)*(a[i]-avgVal);
- 277              		.loc 1 77 0 discriminator 2
- 278 00be 50F82340 		ldr	r4, [r0, r3, lsl #2]
- 279 00c2 A41A     		subs	r4, r4, r2
- 280 00c4 6443     		muls	r4, r4, r4
+ 273              		.loc 1 77 0 discriminator 2
+ 274 00c2 50F82340 		ldr	r4, [r0, r3, lsl #2]
+ 275 00c6 A41A     		subs	r4, r4, r2
+ 276 00c8 6443     		muls	r4, r4, r4
+ 277              	.LVL28:
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0; i<index;i++)
- 281              		.loc 1 75 0 discriminator 2
- 282 00c6 0133     		adds	r3, r3, #1
- 283              	.LVL33:
- 284              	.L17:
-  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	for(i = 0; i<index;i++)
- 285              		.loc 1 75 0 is_stmt 0 discriminator 1
- 286 00c8 8B42     		cmp	r3, r1
- 287 00ca F8DB     		blt	.L18
+ 278              		.loc 1 75 0 discriminator 2
+ 279 00ca 0133     		adds	r3, r3, #1
+ 280              	.LVL29:
+ 281 00cc F7E7     		b	.L22
+ 282              	.LVL30:
+ 283              	.L24:
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	}
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	return (sqrt(sum/(index-1)));
- 288              		.loc 1 79 0 is_stmt 1
- 289 00cc 481E     		subs	r0, r1, #1
- 290              	.LVL34:
- 291 00ce 94FBF0F0 		sdiv	r0, r4, r0
- 292 00d2 FFF7FEFF 		bl	__aeabi_i2d
- 293              	.LVL35:
- 294 00d6 41EC100B 		fmdrr	d0, r0, r1
- 295 00da FFF7FEFF 		bl	sqrt
- 296              	.LVL36:
- 297 00de 51EC100B 		fmrrd	r0, r1, d0
- 298 00e2 FFF7FEFF 		bl	__aeabi_d2iz
- 299              	.LVL37:
+ 284              		.loc 1 79 0
+ 285 00ce 481E     		subs	r0, r1, #1
+ 286              	.LVL31:
+ 287 00d0 94FBF0F0 		sdiv	r0, r4, r0
+ 288 00d4 FFF7FEFF 		bl	__aeabi_i2d
+ 289              	.LVL32:
+ 290 00d8 41EC100B 		fmdrr	d0, r0, r1
+ 291 00dc FFF7FEFF 		bl	sqrt
+ 292              	.LVL33:
+ 293 00e0 51EC100B 		fmrrd	r0, r1, d0
+ 294 00e4 FFF7FEFF 		bl	__aeabi_d2iz
+ 295              	.LVL34:
   80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** }
- 300              		.loc 1 80 0
- 301 00e6 10BD     		pop	{r4, pc}
- 302              		.cfi_endproc
- 303              	.LFE4:
- 305              		.align	1
- 306              		.global	floatFilterAcc1
- 307              		.thumb
- 308              		.thumb_func
- 310              	floatFilterAcc1:
- 311              	.LFB5:
+ 296              		.loc 1 80 0
+ 297 00e8 10BD     		pop	{r4, pc}
+ 298              		.cfi_endproc
+ 299              	.LFE4:
+ 301              		.align	1
+ 302              		.global	floatFilterAcc1
+ 303              		.thumb
+ 304              		.thumb_func
+ 306              	floatFilterAcc1:
+ 307              	.LFB5:
   81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** /*
@@ -403,92 +395,96 @@
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****  */
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void floatFilterAcc1(floatFilter *value, int newValue)
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
- 312              		.loc 1 88 0
- 313              		.cfi_startproc
- 314              		@ args = 0, pretend = 0, frame = 0
- 315              		@ frame_needed = 0, uses_anonymous_args = 0
- 316              		@ link register save eliminated.
- 317              	.LVL38:
+ 308              		.loc 1 88 0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312              		@ link register save eliminated.
+ 313              	.LVL35:
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *xv = &value->filter_xv[0];
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *yv = &value->filter_yv[0];
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[4] = (float)newValue / 2.674241096e+06 /*GAIN*/;
- 318              		.loc 1 92 0
- 319 00e8 07EE901A 		fmsr	s15, r1	@ int
- 320 00ec B8EEE77A 		fsitos	s14, s15
- 321 00f0 DFED237A 		flds	s15, .L20
- 322 00f4 C7EE277A 		fdivs	s15, s14, s15
+ 314              		.loc 1 92 0
+ 315 00ea 07EE901A 		fmsr	s15, r1	@ int
+ 316 00ee B8EEE77A 		fsitos	s14, s15
+ 317 00f2 DFED237A 		flds	s15, .L26
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 323              		.loc 1 91 0
- 324 00f8 90ED024A 		flds	s8, [r0, #8]
- 325 00fc D0ED044A 		flds	s9, [r0, #16]
- 326 0100 D0ED013A 		flds	s7, [r0, #4]
- 327 0104 90ED035A 		flds	s10, [r0, #12]
- 328 0108 C0ED034A 		fsts	s9, [r0, #12]
+ 318              		.loc 1 91 0
+ 319 00f6 D0ED014A 		flds	s9, [r0, #4]
+ 320 00fa D0ED023A 		flds	s7, [r0, #8]
+ 321 00fe 90ED044A 		flds	s8, [r0, #16]
+ 322 0102 90ED035A 		flds	s10, [r0, #12]
+ 323 0106 80ED034A 		fsts	s8, [r0, #12]
+ 324              		.loc 1 92 0
+ 325 010a C7EE277A 		fdivs	s15, s14, s15
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[4] =   (xv[0] + xv[4]) + 4 * (xv[1] + xv[3]) + 6 * xv[2]
- 329              		.loc 1 94 0
- 330 010c 74EE244A 		fadds	s9, s8, s9
-  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 331              		.loc 1 91 0
- 332 0110 C0ED003A 		fsts	s7, [r0, #0]
+ 326              		.loc 1 94 0
+ 327 010e 33EE844A 		fadds	s8, s7, s8
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[4] = (float)newValue / 2.674241096e+06 /*GAIN*/;
- 333              		.loc 1 92 0
- 334 0114 C0ED047A 		fsts	s15, [r0, #16]
- 335              		.loc 1 94 0
- 336 0118 73EEA77A 		fadds	s15, s7, s15
- 337 011c F1EE003A 		fconsts	s7, #16
- 338 0120 44EEA37A 		fmacs	s15, s9, s7
- 339 0124 F1EE084A 		fconsts	s9, #24
- 340 0128 45EE247A 		fmacs	s15, s10, s9
-  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 341              		.loc 1 93 0
- 342 012c D0ED065A 		flds	s11, [r0, #24]
+ 328              		.loc 1 92 0
+ 329 0112 C0ED047A 		fsts	s15, [r0, #16]
+ 330              		.loc 1 94 0
+ 331 0116 74EEA77A 		fadds	s15, s9, s15
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 343              		.loc 1 91 0
- 344 0130 80ED025A 		fsts	s10, [r0, #8]
+ 332              		.loc 1 91 0
+ 333 011a C0ED004A 		fsts	s9, [r0]
+ 334              		.loc 1 94 0
+ 335 011e F1EE004A 		fconsts	s9, #16
+ 336 0122 E4EE247A 		vfma.f32	s15, s8, s9
+ 337 0126 F1EE084A 		fconsts	s9, #24
+ 338 012a E5EE247A 		vfma.f32	s15, s10, s9
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
+ 339              		.loc 1 93 0
+ 340 012e D0ED065A 		flds	s11, [r0, #24]
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
+ 341              		.loc 1 91 0
+ 342 0132 80ED025A 		fsts	s10, [r0, #8]
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 				 + ( -0.8768965608 * yv[0]) + (  3.6227607596 * yv[1])
- 345              		.loc 1 95 0
- 346 0134 9FED135A 		flds	s10, .L20+4
- 347 0138 45EE857A 		fmacs	s15, s11, s10
+ 343              		.loc 1 95 0
+ 344 0136 9FED135A 		flds	s10, .L26+4
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 348              		.loc 1 93 0
- 349 013c 90ED076A 		flds	s12, [r0, #28]
- 350 0140 C0ED055A 		fsts	s11, [r0, #20]
- 351              		.loc 1 95 0
- 352 0144 DFED105A 		flds	s11, .L20+8
- 353 0148 46EE257A 		fmacs	s15, s12, s11
+ 345              		.loc 1 93 0
+ 346 013a 90ED076A 		flds	s12, [r0, #28]
+ 347 013e C0ED055A 		fsts	s11, [r0, #20]
+ 348              		.loc 1 95 0
+ 349 0142 E5EE857A 		vfma.f32	s15, s11, s10
+ 350 0146 DFED105A 		flds	s11, .L26+8
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 354              		.loc 1 93 0
- 355 014c D0ED086A 		flds	s13, [r0, #32]
- 356 0150 80ED066A 		fsts	s12, [r0, #24]
+ 351              		.loc 1 93 0
+ 352 014a D0ED086A 		flds	s13, [r0, #32]
+ 353 014e 80ED066A 		fsts	s12, [r0, #24]
+ 354              		.loc 1 95 0
+ 355 0152 E6EE257A 		vfma.f32	s15, s12, s11
   96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 				 + ( -5.6145268496 * yv[2]) + (  3.8686566679 * yv[3]);
- 357              		.loc 1 96 0
- 358 0154 9FED0D6A 		flds	s12, .L20+12
- 359 0158 46EE867A 		fmacs	s15, s13, s12
+ 356              		.loc 1 96 0
+ 357 0156 9FED0D6A 		flds	s12, .L26+12
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 360              		.loc 1 93 0
- 361 015c 90ED097A 		flds	s14, [r0, #36]
- 362 0160 C0ED076A 		fsts	s13, [r0, #28]
- 363              		.loc 1 96 0
- 364 0164 DFED0A6A 		flds	s13, .L20+16
- 365 0168 47EE267A 		fmacs	s15, s14, s13
+ 358              		.loc 1 93 0
+ 359 015a 90ED097A 		flds	s14, [r0, #36]
+ 360 015e C0ED076A 		fsts	s13, [r0, #28]
+ 361              		.loc 1 96 0
+ 362 0162 E6EE867A 		vfma.f32	s15, s13, s12
+ 363 0166 DFED0A6A 		flds	s13, .L26+16
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 366              		.loc 1 91 0
- 367 016c 80ED014A 		fsts	s8, [r0, #4]
+ 364              		.loc 1 91 0
+ 365 016a C0ED013A 		fsts	s7, [r0, #4]
+ 366              		.loc 1 96 0
+ 367 016e E7EE267A 		vfma.f32	s15, s14, s13
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
  368              		.loc 1 93 0
- 369 0170 80ED087A 		fsts	s14, [r0, #32]
+ 369 0172 80ED087A 		fsts	s14, [r0, #32]
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[4] =   (xv[0] + xv[4]) + 4 * (xv[1] + xv[3]) + 6 * xv[2]
  370              		.loc 1 94 0
- 371 0174 C0ED097A 		fsts	s15, [r0, #36]
+ 371 0176 C0ED097A 		fsts	s15, [r0, #36]
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	value->currentValue = yv[4];
  372              		.loc 1 97 0
- 373 0178 C0ED0A7A 		fsts	s15, [r0, #40]
- 374 017c 7047     		bx	lr
- 375              	.L21:
- 376 017e 00BF     		.align	2
- 377              	.L20:
+ 373 017a C0ED0A7A 		fsts	s15, [r0, #40]
+ 374 017e 7047     		bx	lr
+ 375              	.L27:
+ 376              		.align	2
+ 377              	.L26:
  378 0180 0439234A 		.word	1243822340
  379 0184 4B7C60BF 		.word	-1084195765
  380 0188 50DB6740 		.word	1080548176
@@ -511,52 +507,51 @@
  395              		@ args = 0, pretend = 0, frame = 0
  396              		@ frame_needed = 0, uses_anonymous_args = 0
  397              		@ link register save eliminated.
- 398              	.LVL39:
+ 398              	.LVL36:
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *xv = &value->filter_xv[0];
  103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *yv = &value->filter_yv[0];
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2];
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[2] = (float)newValue / 2.555570536e+04 /*GAIN*/;
  399              		.loc 1 105 0
  400 0194 07EE901A 		fmsr	s15, r1	@ int
- 401 0198 F8EEE76A 		fsitos	s13, s15
- 402 019c DFED147A 		flds	s15, .L23
- 403 01a0 C6EEA77A 		fdivs	s15, s13, s15
+ 401 0198 B8EEE77A 		fsitos	s14, s15
+ 402 019c DFED147A 		flds	s15, .L29
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2];
- 404              		.loc 1 104 0
- 405 01a4 D0ED015A 		flds	s11, [r0, #4]
- 406 01a8 90ED027A 		flds	s14, [r0, #8]
+ 403              		.loc 1 104 0
+ 404 01a0 D0ED015A 		flds	s11, [r0, #4]
+ 405 01a4 90ED026A 		flds	s12, [r0, #8]
+ 406 01a8 C0ED005A 		fsts	s11, [r0]
  407              		.loc 1 105 0
- 408 01ac C0ED027A 		fsts	s15, [r0, #8]
- 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2];
- 409              		.loc 1 104 0
- 410 01b0 80ED017A 		fsts	s14, [r0, #4]
+ 408 01ac C7EE277A 		fdivs	s15, s14, s15
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2];
+ 409              		.loc 1 106 0
+ 410 01b0 D0ED066A 		flds	s13, [r0, #24]
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[2] = (float)newValue / 2.555570536e+04 /*GAIN*/;
+ 411              		.loc 1 105 0
+ 412 01b4 C0ED027A 		fsts	s15, [r0, #8]
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[2] =   (xv[0] + xv[2]) + 2 * xv[1]
- 411              		.loc 1 107 0
- 412 01b4 75EEA77A 		fadds	s15, s11, s15
- 413 01b8 37EE077A 		fadds	s14, s14, s14
- 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2];
- 414              		.loc 1 106 0
- 415 01bc 90ED066A 		flds	s12, [r0, #24]
- 416              		.loc 1 107 0
- 417 01c0 77EE877A 		fadds	s15, s15, s14
+ 413              		.loc 1 107 0
+ 414 01b8 75EEA77A 		fadds	s15, s11, s15
+ 415 01bc F0EE005A 		fconsts	s11, #0
+ 416 01c0 E6EE257A 		vfma.f32	s15, s12, s11
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2];
+ 417              		.loc 1 104 0
+ 418 01c4 80ED016A 		fsts	s12, [r0, #4]
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****                  + ( -0.9823854506 * yv[0]) + (  1.9822289298 * yv[1]);
- 418              		.loc 1 108 0
- 419 01c4 9FED0B7A 		flds	s14, .L23+4
- 420 01c8 46EE077A 		fmacs	s15, s12, s14
+ 419              		.loc 1 108 0
+ 420 01c8 9FED0A6A 		flds	s12, .L29+4
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2];
  421              		.loc 1 106 0
- 422 01cc D0ED076A 		flds	s13, [r0, #28]
- 423              		.loc 1 108 0
- 424 01d0 9FED097A 		flds	s14, .L23+8
- 425 01d4 46EE877A 		fmacs	s15, s13, s14
- 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2];
- 426              		.loc 1 104 0
- 427 01d8 C0ED005A 		fsts	s11, [r0, #0]
+ 422 01cc 90ED077A 		flds	s14, [r0, #28]
+ 423 01d0 C0ED056A 		fsts	s13, [r0, #20]
+ 424              		.loc 1 108 0
+ 425 01d4 E6EE867A 		vfma.f32	s15, s13, s12
+ 426 01d8 DFED076A 		flds	s13, .L29+8
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2];
- 428              		.loc 1 106 0
- 429 01dc 80ED056A 		fsts	s12, [r0, #20]
- 430 01e0 C0ED066A 		fsts	s13, [r0, #24]
+ 427              		.loc 1 106 0
+ 428 01dc 80ED067A 		fsts	s14, [r0, #24]
+ 429              		.loc 1 108 0
+ 430 01e0 E7EE267A 		vfma.f32	s15, s14, s13
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[2] =   (xv[0] + xv[2]) + 2 * xv[1]
  431              		.loc 1 107 0
  432 01e4 C0ED077A 		fsts	s15, [r0, #28]
@@ -564,9 +559,9 @@
  433              		.loc 1 109 0
  434 01e8 C0ED0A7A 		fsts	s15, [r0, #40]
  435 01ec 7047     		bx	lr
- 436              	.L24:
+ 436              	.L30:
  437 01ee 00BF     		.align	2
- 438              	.L23:
+ 438              	.L29:
  439 01f0 69A7C746 		.word	1187489641
  440 01f4 9D7D7BBF 		.word	-1082425955
  441 01f8 ADB9FD3F 		.word	1073592749
@@ -593,7 +588,7 @@
  454              		@ args = 0, pretend = 0, frame = 0
  455              		@ frame_needed = 0, uses_anonymous_args = 0
  456              		@ link register save eliminated.
- 457              	.LVL40:
+ 457              	.LVL37:
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *xv = &value->filter_xv[0];
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *yv = &value->filter_yv[0];
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
@@ -610,78 +605,79 @@
  458              		.loc 1 132 0
  459 01fc 07EE901A 		fmsr	s15, r1	@ int
  460 0200 B8EEE77A 		fsitos	s14, s15
- 461 0204 DFED1B7A 		flds	s15, .L26
- 462 0208 C7EE277A 		fdivs	s15, s14, s15
+ 461 0204 DFED1B7A 		flds	s15, .L32
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3];
- 463              		.loc 1 131 0
- 464 020c 90ED025A 		flds	s10, [r0, #8]
- 465 0210 D0ED035A 		flds	s11, [r0, #12]
- 466 0214 D0ED014A 		flds	s9, [r0, #4]
- 467 0218 C0ED025A 		fsts	s11, [r0, #8]
+ 462              		.loc 1 131 0
+ 463 0208 D0ED015A 		flds	s11, [r0, #4]
+ 464 020c D0ED024A 		flds	s9, [r0, #8]
+ 465 0210 90ED035A 		flds	s10, [r0, #12]
+ 466 0214 C0ED005A 		fsts	s11, [r0]
+ 467              		.loc 1 132 0
+ 468 0218 C7EE277A 		fdivs	s15, s14, s15
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3];
+ 469              		.loc 1 131 0
+ 470 021c 80ED025A 		fsts	s10, [r0, #8]
+ 471              		.loc 1 132 0
+ 472 0220 C0ED037A 		fsts	s15, [r0, #12]
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3];
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[3] =   (xv[0] + xv[3]) + 3 * (xv[1] + xv[2])
- 468              		.loc 1 134 0
- 469 021c 75EE255A 		fadds	s11, s10, s11
- 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3];
- 470              		.loc 1 131 0
- 471 0220 C0ED004A 		fsts	s9, [r0, #0]
- 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     xv[3] = newValue / 1.429899908e+03;
- 472              		.loc 1 132 0
- 473 0224 C0ED037A 		fsts	s15, [r0, #12]
- 474              		.loc 1 134 0
- 475 0228 74EEA77A 		fadds	s15, s9, s15
- 476 022c F0EE084A 		fconsts	s9, #8
- 477 0230 45EEA47A 		fmacs	s15, s11, s9
+ 473              		.loc 1 134 0
+ 474 0224 34EE855A 		fadds	s10, s9, s10
+ 475 0228 75EEA77A 		fadds	s15, s11, s15
+ 476 022c F0EE085A 		fconsts	s11, #8
+ 477 0230 E5EE257A 		vfma.f32	s15, s10, s11
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3];
  478              		.loc 1 133 0
  479 0234 90ED066A 		flds	s12, [r0, #24]
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****                      + (  0.6855359773 * yv[0]) + ( -2.3146825811 * yv[1])
  480              		.loc 1 135 0
- 481 0238 DFED0F5A 		flds	s11, .L26+4
- 482 023c 46EE257A 		fmacs	s15, s12, s11
+ 481 0238 DFED0F5A 		flds	s11, .L32+4
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3];
- 483              		.loc 1 133 0
- 484 0240 D0ED076A 		flds	s13, [r0, #28]
- 485 0244 80ED056A 		fsts	s12, [r0, #20]
- 486              		.loc 1 135 0
- 487 0248 9FED0C6A 		flds	s12, .L26+8
- 488 024c 46EE867A 		fmacs	s15, s13, s12
+ 482              		.loc 1 133 0
+ 483 023c D0ED076A 		flds	s13, [r0, #28]
+ 484 0240 80ED056A 		fsts	s12, [r0, #20]
+ 485              		.loc 1 135 0
+ 486 0244 E6EE257A 		vfma.f32	s15, s12, s11
+ 487 0248 9FED0C6A 		flds	s12, .L32+8
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3];
- 489              		.loc 1 133 0
- 490 0250 90ED087A 		flds	s14, [r0, #32]
- 491 0254 C0ED066A 		fsts	s13, [r0, #24]
+ 488              		.loc 1 133 0
+ 489 024c 90ED087A 		flds	s14, [r0, #32]
+ 490 0250 C0ED066A 		fsts	s13, [r0, #24]
+ 491              		.loc 1 135 0
+ 492 0254 E6EE867A 		vfma.f32	s15, s13, s12
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****                      + (  2.6235518066 * yv[2]);
- 492              		.loc 1 136 0
- 493 0258 DFED096A 		flds	s13, .L26+12
- 494 025c 47EE267A 		fmacs	s15, s14, s13
+ 493              		.loc 1 136 0
+ 494 0258 DFED096A 		flds	s13, .L32+12
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3];
  495              		.loc 1 131 0
- 496 0260 80ED015A 		fsts	s10, [r0, #4]
+ 496 025c C0ED014A 		fsts	s9, [r0, #4]
+ 497              		.loc 1 136 0
+ 498 0260 E7EE267A 		vfma.f32	s15, s14, s13
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3];
- 497              		.loc 1 133 0
- 498 0264 80ED077A 		fsts	s14, [r0, #28]
+ 499              		.loc 1 133 0
+ 500 0264 80ED077A 		fsts	s14, [r0, #28]
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     yv[3] =   (xv[0] + xv[3]) + 3 * (xv[1] + xv[2])
- 499              		.loc 1 134 0
- 500 0268 C0ED087A 		fsts	s15, [r0, #32]
+ 501              		.loc 1 134 0
+ 502 0268 C0ED087A 		fsts	s15, [r0, #32]
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****     value->currentValue = yv[3];
- 501              		.loc 1 137 0
- 502 026c C0ED0A7A 		fsts	s15, [r0, #40]
- 503 0270 7047     		bx	lr
- 504              	.L27:
- 505 0272 00BF     		.align	2
- 506              	.L26:
- 507 0274 CCBCB244 		.word	1152564428
- 508 0278 497F2F3F 		.word	1060077385
- 509 027c C22314C0 		.word	-1072421950
- 510 0280 46E82740 		.word	1076357190
- 511              		.cfi_endproc
- 512              	.LFE7:
- 514              		.align	1
- 515              		.global	floatFilterGyro
- 516              		.thumb
- 517              		.thumb_func
- 519              	floatFilterGyro:
- 520              	.LFB8:
+ 503              		.loc 1 137 0
+ 504 026c C0ED0A7A 		fsts	s15, [r0, #40]
+ 505 0270 7047     		bx	lr
+ 506              	.L33:
+ 507 0272 00BF     		.align	2
+ 508              	.L32:
+ 509 0274 CCBCB244 		.word	1152564428
+ 510 0278 497F2F3F 		.word	1060077385
+ 511 027c C22314C0 		.word	-1072421950
+ 512 0280 46E82740 		.word	1076357190
+ 513              		.cfi_endproc
+ 514              	.LFE7:
+ 516              		.align	1
+ 517              		.global	floatFilterGyro
+ 518              		.thumb
+ 519              		.thumb_func
+ 521              	floatFilterGyro:
+ 522              	.LFB8:
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** }
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
@@ -692,133 +688,140 @@
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c ****  */
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** void floatFilterGyro(floatFilter *value, int newValue)
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** {
- 521              		.loc 1 147 0
- 522              		.cfi_startproc
- 523              		@ args = 0, pretend = 0, frame = 0
- 524              		@ frame_needed = 0, uses_anonymous_args = 0
- 525              		@ link register save eliminated.
- 526              	.LVL41:
+ 523              		.loc 1 147 0
+ 524              		.cfi_startproc
+ 525              		@ args = 0, pretend = 0, frame = 0
+ 526              		@ frame_needed = 0, uses_anonymous_args = 0
+ 527              		@ link register save eliminated.
+ 528              	.LVL38:
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *xv = &value->filter_xv[0];
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	float *yv = &value->filter_yv[0];
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[4] = (float)newValue / 2.310287053e+00;
- 527              		.loc 1 152 0
- 528 0284 07EE901A 		fmsr	s15, r1	@ int
- 529 0288 B8EEE77A 		fsitos	s14, s15
- 530 028c DFED237A 		flds	s15, .L29
- 531 0290 C7EE277A 		fdivs	s15, s14, s15
+ 529              		.loc 1 152 0
+ 530 0284 07EE901A 		fmsr	s15, r1	@ int
+ 531 0288 B8EEE77A 		fsitos	s14, s15
+ 532 028c DFED237A 		flds	s15, .L35
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 532              		.loc 1 151 0
- 533 0294 90ED024A 		flds	s8, [r0, #8]
- 534 0298 D0ED044A 		flds	s9, [r0, #16]
- 535 029c D0ED013A 		flds	s7, [r0, #4]
- 536 02a0 90ED035A 		flds	s10, [r0, #12]
- 537 02a4 C0ED034A 		fsts	s9, [r0, #12]
+ 533              		.loc 1 151 0
+ 534 0290 D0ED014A 		flds	s9, [r0, #4]
+ 535 0294 D0ED023A 		flds	s7, [r0, #8]
+ 536 0298 90ED044A 		flds	s8, [r0, #16]
+ 537 029c 90ED035A 		flds	s10, [r0, #12]
+ 538 02a0 80ED034A 		fsts	s8, [r0, #12]
+ 539              		.loc 1 152 0
+ 540 02a4 C7EE277A 		fdivs	s15, s14, s15
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[4] =   (xv[0] + xv[4]) + 4 * (xv[1] + xv[3]) + 6 * xv[2]
- 538              		.loc 1 154 0
- 539 02a8 74EE244A 		fadds	s9, s8, s9
- 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 540              		.loc 1 151 0
- 541 02ac C0ED003A 		fsts	s7, [r0, #0]
+ 541              		.loc 1 154 0
+ 542 02a8 33EE844A 		fadds	s8, s7, s8
  152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[4] = (float)newValue / 2.310287053e+00;
- 542              		.loc 1 152 0
- 543 02b0 C0ED047A 		fsts	s15, [r0, #16]
- 544              		.loc 1 154 0
- 545 02b4 73EEA77A 		fadds	s15, s7, s15
- 546 02b8 F1EE003A 		fconsts	s7, #16
- 547 02bc 44EEA37A 		fmacs	s15, s9, s7
- 548 02c0 F1EE084A 		fconsts	s9, #24
- 549 02c4 45EE247A 		fmacs	s15, s10, s9
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 550              		.loc 1 153 0
- 551 02c8 D0ED065A 		flds	s11, [r0, #24]
+ 543              		.loc 1 152 0
+ 544 02ac C0ED047A 		fsts	s15, [r0, #16]
+ 545              		.loc 1 154 0
+ 546 02b0 74EEA77A 		fadds	s15, s9, s15
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 552              		.loc 1 151 0
- 553 02cc 80ED025A 		fsts	s10, [r0, #8]
+ 547              		.loc 1 151 0
+ 548 02b4 C0ED004A 		fsts	s9, [r0]
+ 549              		.loc 1 154 0
+ 550 02b8 F1EE004A 		fconsts	s9, #16
+ 551 02bc E4EE247A 		vfma.f32	s15, s8, s9
+ 552 02c0 F1EE084A 		fconsts	s9, #24
+ 553 02c4 E5EE247A 		vfma.f32	s15, s10, s9
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
+ 554              		.loc 1 153 0
+ 555 02c8 D0ED065A 		flds	s11, [r0, #24]
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
+ 556              		.loc 1 151 0
+ 557 02cc 80ED025A 		fsts	s10, [r0, #8]
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 				 + ( -0.1873794924 * yv[0]) + ( -1.0546654059 * yv[1])
- 554              		.loc 1 155 0
- 555 02d0 9FED135A 		flds	s10, .L29+4
- 556 02d4 45EE857A 		fmacs	s15, s11, s10
+ 558              		.loc 1 155 0
+ 559 02d0 9FED135A 		flds	s10, .L35+4
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 557              		.loc 1 153 0
- 558 02d8 90ED076A 		flds	s12, [r0, #28]
- 559 02dc C0ED055A 		fsts	s11, [r0, #20]
- 560              		.loc 1 155 0
- 561 02e0 DFED105A 		flds	s11, .L29+8
- 562 02e4 46EE257A 		fmacs	s15, s12, s11
+ 560              		.loc 1 153 0
+ 561 02d4 90ED076A 		flds	s12, [r0, #28]
+ 562 02d8 C0ED055A 		fsts	s11, [r0, #20]
+ 563              		.loc 1 155 0
+ 564 02dc E5EE857A 		vfma.f32	s15, s11, s10
+ 565 02e0 DFED105A 		flds	s11, .L35+8
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 563              		.loc 1 153 0
- 564 02e8 D0ED086A 		flds	s13, [r0, #32]
- 565 02ec 80ED066A 		fsts	s12, [r0, #24]
+ 566              		.loc 1 153 0
+ 567 02e4 D0ED086A 		flds	s13, [r0, #32]
+ 568 02e8 80ED066A 		fsts	s12, [r0, #24]
+ 569              		.loc 1 155 0
+ 570 02ec E6EE257A 		vfma.f32	s15, s12, s11
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 				 + ( -2.3139884144 * yv[2]) + ( -2.3695130072 * yv[3]);
- 566              		.loc 1 156 0
- 567 02f0 9FED0D6A 		flds	s12, .L29+12
- 568 02f4 46EE867A 		fmacs	s15, s13, s12
+ 571              		.loc 1 156 0
+ 572 02f0 9FED0D6A 		flds	s12, .L35+12
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 569              		.loc 1 153 0
- 570 02f8 90ED097A 		flds	s14, [r0, #36]
- 571 02fc C0ED076A 		fsts	s13, [r0, #28]
- 572              		.loc 1 156 0
- 573 0300 DFED0A6A 		flds	s13, .L29+16
- 574 0304 47EE267A 		fmacs	s15, s14, s13
+ 573              		.loc 1 153 0
+ 574 02f4 90ED097A 		flds	s14, [r0, #36]
+ 575 02f8 C0ED076A 		fsts	s13, [r0, #28]
+ 576              		.loc 1 156 0
+ 577 02fc E6EE867A 		vfma.f32	s15, s13, s12
+ 578 0300 DFED0A6A 		flds	s13, .L35+16
  151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	xv[0] = xv[1]; xv[1] = xv[2]; xv[2] = xv[3]; xv[3] = xv[4];
- 575              		.loc 1 151 0
- 576 0308 80ED014A 		fsts	s8, [r0, #4]
+ 579              		.loc 1 151 0
+ 580 0304 C0ED013A 		fsts	s7, [r0, #4]
+ 581              		.loc 1 156 0
+ 582 0308 E7EE267A 		vfma.f32	s15, s14, s13
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[0] = yv[1]; yv[1] = yv[2]; yv[2] = yv[3]; yv[3] = yv[4];
- 577              		.loc 1 153 0
- 578 030c 80ED087A 		fsts	s14, [r0, #32]
+ 583              		.loc 1 153 0
+ 584 030c 80ED087A 		fsts	s14, [r0, #32]
  154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	yv[4] =   (xv[0] + xv[4]) + 4 * (xv[1] + xv[3]) + 6 * xv[2]
- 579              		.loc 1 154 0
- 580 0310 C0ED097A 		fsts	s15, [r0, #36]
+ 585              		.loc 1 154 0
+ 586 0310 C0ED097A 		fsts	s15, [r0, #36]
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/filter_Lib.c **** 	value->currentValue = yv[4];
- 581              		.loc 1 157 0
- 582 0314 C0ED0A7A 		fsts	s15, [r0, #40]
- 583 0318 7047     		bx	lr
- 584              	.L30:
- 585 031a 00BF     		.align	2
- 586              	.L29:
- 587 031c BEDB1340 		.word	1075043262
- 588 0320 69E03FBE 		.word	-1103110039
- 589 0324 47FF86BF 		.word	-1081671865
- 590 0328 631814C0 		.word	-1072424861
- 591 032c 1AA617C0 		.word	-1072191974
- 592              		.cfi_endproc
- 593              	.LFE8:
- 595              	.Letext0:
- 596              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/filter_Lib.h"
- 597              		.file 3 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 587              		.loc 1 157 0
+ 588 0314 C0ED0A7A 		fsts	s15, [r0, #40]
+ 589 0318 7047     		bx	lr
+ 590              	.L36:
+ 591 031a 00BF     		.align	2
+ 592              	.L35:
+ 593 031c BEDB1340 		.word	1075043262
+ 594 0320 69E03FBE 		.word	-1103110039
+ 595 0324 47FF86BF 		.word	-1081671865
+ 596 0328 631814C0 		.word	-1072424861
+ 597 032c 1AA617C0 		.word	-1072191974
+ 598              		.cfi_endproc
+ 599              	.LFE8:
+ 601              	.Letext0:
+ 602              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/filter_Lib.h"
+ 603              		.file 3 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/math.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 filter_Lib.c
-     /tmp/ccc9txwF.s:20     .text:00000000 $t
-     /tmp/ccc9txwF.s:25     .text:00000000 update_intFilter
-     /tmp/ccc9txwF.s:62     .text:00000014 initAvgValues
-     /tmp/ccc9txwF.s:93     .text:00000024 calcMovingAvg
-     /tmp/ccc9txwF.s:145    .text:0000004e quickSort
-     /tmp/ccc9txwF.s:256    .text:000000b6 calcStdDev
-     /tmp/ccc9txwF.s:310    .text:000000e8 floatFilterAcc1
-     /tmp/ccc9txwF.s:378    .text:00000180 $d
-     /tmp/ccc9txwF.s:386    .text:00000194 $t
-     /tmp/ccc9txwF.s:391    .text:00000194 floatFilterAcc2
-     /tmp/ccc9txwF.s:439    .text:000001f0 $d
-     /tmp/ccc9txwF.s:445    .text:000001fc $t
-     /tmp/ccc9txwF.s:450    .text:000001fc floatFilterAcc
-     /tmp/ccc9txwF.s:507    .text:00000274 $d
-     /tmp/ccc9txwF.s:514    .text:00000284 $t
-     /tmp/ccc9txwF.s:519    .text:00000284 floatFilterGyro
-     /tmp/ccc9txwF.s:587    .text:0000031c $d
+     /tmp/ccYj07Bk.s:20     .text:00000000 $t
+     /tmp/ccYj07Bk.s:25     .text:00000000 update_intFilter
+     /tmp/ccYj07Bk.s:62     .text:00000014 initAvgValues
+     /tmp/ccYj07Bk.s:93     .text:00000024 calcMovingAvg
+     /tmp/ccYj07Bk.s:149    .text:0000004e quickSort
+     /tmp/ccYj07Bk.s:251    .text:000000b8 calcStdDev
+     /tmp/ccYj07Bk.s:306    .text:000000ea floatFilterAcc1
+     /tmp/ccYj07Bk.s:378    .text:00000180 $d
+     /tmp/ccYj07Bk.s:386    .text:00000194 $t
+     /tmp/ccYj07Bk.s:391    .text:00000194 floatFilterAcc2
+     /tmp/ccYj07Bk.s:439    .text:000001f0 $d
+     /tmp/ccYj07Bk.s:445    .text:000001fc $t
+     /tmp/ccYj07Bk.s:450    .text:000001fc floatFilterAcc
+     /tmp/ccYj07Bk.s:509    .text:00000274 $d
+     /tmp/ccYj07Bk.s:516    .text:00000284 $t
+     /tmp/ccYj07Bk.s:521    .text:00000284 floatFilterGyro
+     /tmp/ccYj07Bk.s:593    .text:0000031c $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.filter_Lib.h.9.c3b4da84b619ff7a2d8e947a9cf27fbf
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stddef.h.39.daafd3d79fe2f3a84d2d73d7d4e706f8
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
 
 UNDEFINED SYMBOLS
 __aeabi_i2d

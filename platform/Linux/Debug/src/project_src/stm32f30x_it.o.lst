@@ -275,477 +275,491 @@
  134              		@ args = 0, pretend = 0, frame = 0
  135              		@ frame_needed = 0, uses_anonymous_args = 0
  136              		.loc 1 154 0
- 137 000c 08B5     		push	{r3, lr}
+ 137 000c 10B5     		push	{r4, lr}
  138              	.LCFI0:
  139              		.cfi_def_cfa_offset 8
- 140              		.cfi_offset 3, -8
+ 140              		.cfi_offset 4, -8
  141              		.cfi_offset 14, -4
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	// TODO: Timeout for Receive-Datas
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	/* Receive Data register not empty interrupt */
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
  142              		.loc 1 157 0
- 143 000e 2A48     		ldr	r0, .L31
- 144 0010 2A49     		ldr	r1, .L31+4
+ 143 000e 2C48     		ldr	r0, .L31
+ 144 0010 2C49     		ldr	r1, .L31+4
  145 0012 FFF7FEFF 		bl	USART_GetITStatus
  146              	.LVL0:
- 147 0016 28B3     		cbz	r0, .L12
+ 147 0016 48B3     		cbz	r0, .L12
  148              	.LBB2:
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	{
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		char Data = USART_ReceiveData(USART3);
  149              		.loc 1 159 0
- 150 0018 2748     		ldr	r0, .L31
+ 150 0018 2948     		ldr	r0, .L31
  151 001a FFF7FEFF 		bl	USART_ReceiveData
  152              	.LVL1:
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		if (It_Com.rxready == 0) {
  153              		.loc 1 161 0
- 154 001e 284B     		ldr	r3, .L31+8
+ 154 001e 2A4B     		ldr	r3, .L31+8
  155 0020 D3F80012 		ldr	r1, [r3, #512]
- 156 0024 D1B9     		cbnz	r1, .L13
+ 156 0024 1C46     		mov	r4, r3
+ 157 0026 E9B9     		cbnz	r1, .L13
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			It_Com.rxbuffer[It_Com.rxcnt] = Data;
- 157              		.loc 1 162 0
- 158 0026 D3F80822 		ldr	r2, [r3, #520]
+ 158              		.loc 1 162 0
+ 159 0028 D3F80822 		ldr	r2, [r3, #520]
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		char Data = USART_ReceiveData(USART3);
- 159              		.loc 1 159 0
- 160 002a C0B2     		uxtb	r0, r0
- 161              	.LVL2:
+ 160              		.loc 1 159 0
+ 161 002c C0B2     		uxtb	r0, r0
+ 162              	.LVL2:
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			switch (It_Com.rxcnt) {
- 162              		.loc 1 163 0
- 163 002c 012A     		cmp	r2, #1
+ 163              		.loc 1 163 0
+ 164 002e 012A     		cmp	r2, #1
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			It_Com.rxbuffer[It_Com.rxcnt] = Data;
- 164              		.loc 1 162 0
- 165 002e 9854     		strb	r0, [r3, r2]
- 166              		.loc 1 163 0
- 167 0030 07D0     		beq	.L16
- 168 0032 02D3     		bcc	.L15
- 169 0034 0F2A     		cmp	r2, #15
- 170 0036 0ED1     		bne	.L28
- 171 0038 07E0     		b	.L17
- 172              	.L15:
+ 165              		.loc 1 162 0
+ 166 0030 9854     		strb	r0, [r3, r2]
+ 167              		.loc 1 163 0
+ 168 0032 10D0     		beq	.L15
+ 169 0034 07D3     		bcc	.L16
+ 170 0036 0F2A     		cmp	r2, #15
+ 171 0038 11D1     		bne	.L30
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				/* Header LOW */
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				case 0:
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0xff) It_Com.rxcnt++;
- 173              		.loc 1 166 0
- 174 003a FF28     		cmp	r0, #255
- 175 003c 08D1     		bne	.L30
- 176              		.loc 1 166 0 is_stmt 0 discriminator 1
- 177 003e 0122     		movs	r2, #1
- 178 0040 0AE0     		b	.L29
- 179              	.L16:
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					else It_Com.rxcnt = 0;
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					break;
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				/* Header High */
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				case 1:
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0x7F) It_Com.rxcnt++;
- 180              		.loc 1 171 0 is_stmt 1
- 181 0042 7F28     		cmp	r0, #127
- 182 0044 04D1     		bne	.L30
- 183              		.loc 1 171 0 is_stmt 0 discriminator 1
- 184 0046 0222     		movs	r2, #2
- 185 0048 06E0     		b	.L29
- 186              	.L17:
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					else It_Com.rxcnt = 0;
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					break;
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				case 15:
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					It_Com.rxready = 1;
- 187              		.loc 1 175 0 is_stmt 1
- 188 004a 0122     		movs	r2, #1
- 189 004c C3F80022 		str	r2, [r3, #512]
- 190              	.L30:
+ 172              		.loc 1 175 0
+ 173 003a 0122     		movs	r2, #1
+ 174 003c C3F80022 		str	r2, [r3, #512]
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					It_Com.rxcnt = 0;
- 191              		.loc 1 176 0
- 192 0050 C3F80812 		str	r1, [r3, #520]
+ 175              		.loc 1 176 0
+ 176 0040 C3F80812 		str	r1, [r3, #520]
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					break;
- 193              		.loc 1 177 0
- 194 0054 02E0     		b	.L13
- 195              	.L28:
+ 177              		.loc 1 177 0
+ 178 0044 0EE0     		b	.L13
+ 179              	.L16:
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0xff) It_Com.rxcnt++;
+ 180              		.loc 1 166 0
+ 181 0046 FF28     		cmp	r0, #255
+ 182 0048 01D1     		bne	.L18
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0xff) It_Com.rxcnt++;
+ 183              		.loc 1 166 0 is_stmt 0 discriminator 1
+ 184 004a 0122     		movs	r2, #1
+ 185 004c 08E0     		b	.L28
+ 186              	.L18:
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					else It_Com.rxcnt = 0;
+ 187              		.loc 1 167 0 is_stmt 1
+ 188 004e 0023     		movs	r3, #0
+ 189 0050 C4F80832 		str	r3, [r4, #520]
+ 190 0054 06E0     		b	.L13
+ 191              	.L15:
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0x7F) It_Com.rxcnt++;
+ 192              		.loc 1 171 0
+ 193 0056 7F28     		cmp	r0, #127
+ 194 0058 F9D1     		bne	.L18
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					if (It_Com.rxbuffer[It_Com.rxcnt] == 0x7F) It_Com.rxcnt++;
+ 195              		.loc 1 171 0 is_stmt 0 discriminator 1
+ 196 005a 0222     		movs	r2, #2
+ 197 005c 00E0     		b	.L28
+ 198              	.L30:
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				default:
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					It_Com.rxcnt ++;
- 196              		.loc 1 179 0
- 197 0056 0132     		adds	r2, r2, #1
- 198              	.L29:
- 199 0058 C3F80822 		str	r2, [r3, #520]
- 200              	.L13:
+ 199              		.loc 1 179 0 is_stmt 1
+ 200 005e 0132     		adds	r2, r2, #1
+ 201              	.L28:
+ 202 0060 C3F80822 		str	r2, [r3, #520]
+ 203              	.L13:
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 					break;
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			}
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		}
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	    USART_ClearFlag(USART3, USART_IT_RXNE);
- 201              		.loc 1 183 0
- 202 005c 1648     		ldr	r0, .L31
- 203 005e 1749     		ldr	r1, .L31+4
- 204 0060 FFF7FEFF 		bl	USART_ClearFlag
- 205              	.LVL3:
- 206              	.L12:
- 207              	.LBE2:
+ 204              		.loc 1 183 0
+ 205 0064 1648     		ldr	r0, .L31
+ 206 0066 1749     		ldr	r1, .L31+4
+ 207 0068 FFF7FEFF 		bl	USART_ClearFlag
+ 208              	.LVL3:
+ 209              	.L12:
+ 210              	.LBE2:
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	}
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	// Transmit Data Register empty interrupt
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****     if(USART_GetITStatus(USART3, USART_IT_TXE) != RESET)
- 208              		.loc 1 187 0
- 209 0064 1448     		ldr	r0, .L31
- 210 0066 1749     		ldr	r1, .L31+12
- 211 0068 FFF7FEFF 		bl	USART_GetITStatus
- 212              	.LVL4:
- 213 006c F0B1     		cbz	r0, .L20
+ 211              		.loc 1 187 0
+ 212 006c 1448     		ldr	r0, .L31
+ 213 006e 1749     		ldr	r1, .L31+12
+ 214 0070 FFF7FEFF 		bl	USART_GetITStatus
+ 215              	.LVL4:
+ 216 0074 F0B1     		cbz	r0, .L19
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   	{
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		USART_ClearITPendingBit(USART3, USART_IT_TXE);
- 214              		.loc 1 189 0
- 215 006e 1549     		ldr	r1, .L31+12
- 216 0070 1148     		ldr	r0, .L31
- 217 0072 FFF7FEFF 		bl	USART_ClearITPendingBit
- 218              	.LVL5:
+ 217              		.loc 1 189 0
+ 218 0076 1549     		ldr	r1, .L31+12
+ 219 0078 1148     		ldr	r0, .L31
+ 220 007a FFF7FEFF 		bl	USART_ClearITPendingBit
+ 221              	.LVL5:
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		//if(ModbusData.txcnt <= ModbusData.txlen)
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		if(It_Com.txcnt <= (It_Com.txlen-1))
- 219              		.loc 1 192 0
- 220 0076 124B     		ldr	r3, .L31+8
- 221 0078 D3F81012 		ldr	r1, [r3, #528]
- 222 007c D3F80C22 		ldr	r2, [r3, #524]
- 223 0080 0139     		subs	r1, r1, #1
- 224 0082 8A42     		cmp	r2, r1
- 225 0084 09D8     		bhi	.L21
+ 222              		.loc 1 192 0
+ 223 007e 124B     		ldr	r3, .L31+8
+ 224 0080 D3F81012 		ldr	r1, [r3, #528]
+ 225 0084 D3F80C22 		ldr	r2, [r3, #524]
+ 226 0088 0139     		subs	r1, r1, #1
+ 227 008a 8A42     		cmp	r2, r1
+ 228 008c 09D8     		bhi	.L20
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		{
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****             USART_SendData(USART3,It_Com.txbuffer[It_Com.txcnt++]);
- 226              		.loc 1 194 0
- 227 0086 9918     		adds	r1, r3, r2
- 228 0088 0B48     		ldr	r0, .L31
- 229 008a 91F80011 		ldrb	r1, [r1, #256]	@ zero_extendqisi2
- 230 008e 0132     		adds	r2, r2, #1
- 231 0090 C3F80C22 		str	r2, [r3, #524]
- 232 0094 FFF7FEFF 		bl	USART_SendData
- 233              	.LVL6:
- 234 0098 08E0     		b	.L20
- 235              	.L21:
+ 229              		.loc 1 194 0
+ 230 008e 511C     		adds	r1, r2, #1
+ 231 0090 C3F80C12 		str	r1, [r3, #524]
+ 232 0094 1344     		add	r3, r3, r2
+ 233 0096 0A48     		ldr	r0, .L31
+ 234 0098 93F80011 		ldrb	r1, [r3, #256]	@ zero_extendqisi2
+ 235 009c FFF7FEFF 		bl	USART_SendData
+ 236              	.LVL6:
+ 237 00a0 08E0     		b	.L19
+ 238              	.L20:
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		}
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		else
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		{
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   			It_Com.txcnt = 0;
- 236              		.loc 1 198 0
- 237 009a 0022     		movs	r2, #0
+ 239              		.loc 1 198 0
+ 240 00a2 0022     		movs	r2, #0
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   			It_Com.txready = 0;
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		    //USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		    USART_ITConfig(USART3, USART_IT_TXE, DISABLE);
- 238              		.loc 1 201 0
- 239 009c 0648     		ldr	r0, .L31
- 240 009e 0949     		ldr	r1, .L31+12
+ 241              		.loc 1 201 0
+ 242 00a4 0648     		ldr	r0, .L31
+ 243 00a6 0949     		ldr	r1, .L31+12
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   			It_Com.txcnt = 0;
- 241              		.loc 1 198 0
- 242 00a0 C3F80C22 		str	r2, [r3, #524]
+ 244              		.loc 1 198 0
+ 245 00a8 C3F80C22 		str	r2, [r3, #524]
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   			It_Com.txready = 0;
- 243              		.loc 1 199 0
- 244 00a4 C3F80422 		str	r2, [r3, #516]
- 245              		.loc 1 201 0
- 246 00a8 FFF7FEFF 		bl	USART_ITConfig
- 247              	.LVL7:
- 248              	.L20:
+ 246              		.loc 1 199 0
+ 247 00ac C3F80422 		str	r2, [r3, #516]
+ 248              		.loc 1 201 0
+ 249 00b0 FFF7FEFF 		bl	USART_ITConfig
+ 250              	.LVL7:
+ 251              	.L19:
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   		}
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c ****   	}
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	USART_ClearITPendingBit(USART3, USART_IT_RXNE);
- 249              		.loc 1 204 0
- 250 00ac 0248     		ldr	r0, .L31
- 251 00ae 0349     		ldr	r1, .L31+4
+ 252              		.loc 1 204 0
+ 253 00b4 0248     		ldr	r0, .L31
+ 254 00b6 0349     		ldr	r1, .L31+4
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** }
- 252              		.loc 1 205 0
- 253 00b0 BDE80840 		pop	{r3, lr}
+ 255              		.loc 1 205 0
+ 256 00b8 BDE81040 		pop	{r4, lr}
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	USART_ClearITPendingBit(USART3, USART_IT_RXNE);
- 254              		.loc 1 204 0
- 255 00b4 FFF7FEBF 		b	USART_ClearITPendingBit
- 256              	.LVL8:
- 257              	.L32:
- 258              		.align	2
- 259              	.L31:
- 260 00b8 00480040 		.word	1073760256
- 261 00bc 05010500 		.word	327941
- 262 00c0 00000000 		.word	It_Com
- 263 00c4 07010700 		.word	459015
- 264              		.cfi_endproc
- 265              	.LFE117:
- 267              		.align	1
- 268              		.global	USART2_IRQHandler
- 269              		.thumb
- 270              		.thumb_func
- 272              	USART2_IRQHandler:
- 273              	.LFB118:
+ 257              		.loc 1 204 0
+ 258 00bc FFF7FEBF 		b	USART_ClearITPendingBit
+ 259              	.LVL8:
+ 260              	.L32:
+ 261              		.align	2
+ 262              	.L31:
+ 263 00c0 00480040 		.word	1073760256
+ 264 00c4 05010500 		.word	327941
+ 265 00c8 00000000 		.word	It_Com
+ 266 00cc 07010700 		.word	459015
+ 267              		.cfi_endproc
+ 268              	.LFE117:
+ 270              		.align	1
+ 271              		.global	USART2_IRQHandler
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	USART2_IRQHandler:
+ 276              	.LFB118:
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** /*USART Reception*/
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** void USART2_IRQHandler(void)
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** {
- 274              		.loc 1 209 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278 00c8 38B5     		push	{r3, r4, r5, lr}
- 279              	.LCFI1:
- 280              		.cfi_def_cfa_offset 16
- 281              		.cfi_offset 3, -16
- 282              		.cfi_offset 4, -12
- 283              		.cfi_offset 5, -8
- 284              		.cfi_offset 14, -4
+ 277              		.loc 1 209 0
+ 278              		.cfi_startproc
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281 00d0 38B5     		push	{r3, r4, r5, lr}
+ 282              	.LCFI1:
+ 283              		.cfi_def_cfa_offset 16
+ 284              		.cfi_offset 3, -16
+ 285              		.cfi_offset 4, -12
+ 286              		.cfi_offset 5, -8
+ 287              		.cfi_offset 14, -4
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	static unsigned char rxBuffer[5];
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	static uint8_t i = 0;
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
- 285              		.loc 1 213 0
- 286 00ca 1648     		ldr	r0, .L41
- 287 00cc 1649     		ldr	r1, .L41+4
- 288 00ce FFF7FEFF 		bl	USART_GetITStatus
- 289              	.LVL9:
- 290 00d2 E0B1     		cbz	r0, .L34
+ 288              		.loc 1 213 0
+ 289 00d2 1648     		ldr	r0, .L41
+ 290 00d4 1649     		ldr	r1, .L41+4
+ 291 00d6 FFF7FEFF 		bl	USART_GetITStatus
+ 292              	.LVL9:
+ 293 00da E0B1     		cbz	r0, .L34
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	{
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		/* Read one byte from the receive data register */
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		rxBuffer[i] = USART_ReceiveData(USART2);
- 291              		.loc 1 216 0
- 292 00d4 154C     		ldr	r4, .L41+8
- 293 00d6 1348     		ldr	r0, .L41
- 294 00d8 2578     		ldrb	r5, [r4, #0]	@ zero_extendqisi2
- 295 00da FFF7FEFF 		bl	USART_ReceiveData
- 296              	.LVL10:
+ 294              		.loc 1 216 0
+ 295 00dc 154C     		ldr	r4, .L41+8
+ 296 00de 1348     		ldr	r0, .L41
+ 297 00e0 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 298 00e2 FFF7FEFF 		bl	USART_ReceiveData
+ 299              	.LVL10:
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		if(i >= 4)
- 297              		.loc 1 217 0
- 298 00de 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
+ 300              		.loc 1 217 0
+ 301 00e6 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		rxBuffer[i] = USART_ReceiveData(USART2);
- 299              		.loc 1 216 0
- 300 00e0 6519     		adds	r5, r4, r5
- 301              		.loc 1 217 0
- 302 00e2 032B     		cmp	r3, #3
+ 302              		.loc 1 216 0
+ 303 00e8 2544     		add	r5, r5, r4
+ 304              		.loc 1 217 0
+ 305 00ea 032B     		cmp	r3, #3
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		rxBuffer[i] = USART_ReceiveData(USART2);
- 303              		.loc 1 216 0
- 304 00e4 6870     		strb	r0, [r5, #1]
- 305              		.loc 1 217 0
- 306 00e6 05D9     		bls	.L35
+ 306              		.loc 1 216 0
+ 307 00ec 6870     		strb	r0, [r5, #1]
+ 308              		.loc 1 217 0
+ 309 00ee 05D9     		bls	.L35
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		{
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			//xQueueSendFromISR( usartRxQueue, &msgPointer, &xYieldRequired );
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			CalcRXValues(&rxBuffer[0], 55);
- 307              		.loc 1 220 0
- 308 00e8 601C     		adds	r0, r4, #1
- 309 00ea 3721     		movs	r1, #55
- 310 00ec FFF7FEFF 		bl	CalcRXValues
- 311              	.LVL11:
+ 310              		.loc 1 220 0
+ 311 00f0 601C     		adds	r0, r4, #1
+ 312 00f2 3721     		movs	r1, #55
+ 313 00f4 FFF7FEFF 		bl	CalcRXValues
+ 314              	.LVL11:
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			i = 0;
- 312              		.loc 1 221 0
- 313 00f0 0023     		movs	r3, #0
- 314 00f2 03E0     		b	.L40
- 315              	.L35:
+ 315              		.loc 1 221 0
+ 316 00f8 0023     		movs	r3, #0
+ 317 00fa 03E0     		b	.L40
+ 318              	.L35:
  222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		}
  223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		else
  224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		{
  225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			if(rxBuffer[0] == 'A')
- 316              		.loc 1 225 0
- 317 00f4 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
- 318 00f6 412A     		cmp	r2, #65
- 319 00f8 02D1     		bne	.L36
+ 319              		.loc 1 225 0
+ 320 00fc 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 321 00fe 412A     		cmp	r2, #65
+ 322 0100 02D1     		bne	.L36
  226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			{
  227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				i++;
- 320              		.loc 1 227 0
- 321 00fa 0133     		adds	r3, r3, #1
- 322              	.L40:
- 323 00fc 2370     		strb	r3, [r4, #0]
- 324 00fe 06E0     		b	.L34
- 325              	.L36:
+ 323              		.loc 1 227 0
+ 324 0102 0133     		adds	r3, r3, #1
+ 325              	.L40:
+ 326 0104 2370     		strb	r3, [r4]
+ 327 0106 06E0     		b	.L34
+ 328              	.L36:
  228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			}
  229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			else
  230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			{
  231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				i = 0;
- 326              		.loc 1 231 0
- 327 0100 0023     		movs	r3, #0
- 328 0102 2370     		strb	r3, [r4, #0]
+ 329              		.loc 1 231 0
+ 330 0108 0023     		movs	r3, #0
+ 331 010a 2370     		strb	r3, [r4]
  232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				rxBuffer[0] = 0;
- 329              		.loc 1 232 0
- 330 0104 6370     		strb	r3, [r4, #1]
+ 332              		.loc 1 232 0
+ 333 010c 6370     		strb	r3, [r4, #1]
  233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				rxBuffer[1] = 0;
- 331              		.loc 1 233 0
- 332 0106 A370     		strb	r3, [r4, #2]
+ 334              		.loc 1 233 0
+ 335 010e A370     		strb	r3, [r4, #2]
  234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				rxBuffer[2] = 0;
- 333              		.loc 1 234 0
- 334 0108 E370     		strb	r3, [r4, #3]
+ 336              		.loc 1 234 0
+ 337 0110 E370     		strb	r3, [r4, #3]
  235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				rxBuffer[3] = 0;
- 335              		.loc 1 235 0
- 336 010a 2371     		strb	r3, [r4, #4]
+ 338              		.loc 1 235 0
+ 339 0112 2371     		strb	r3, [r4, #4]
  236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 				rxBuffer[4] = 0;
- 337              		.loc 1 236 0
- 338 010c 6371     		strb	r3, [r4, #5]
- 339              	.L34:
+ 340              		.loc 1 236 0
+ 341 0114 6371     		strb	r3, [r4, #5]
+ 342              	.L34:
  237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 			}
  238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 		}
  239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	}
  240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	USART_ClearITPendingBit(USART2, USART_IT_RXNE);
- 340              		.loc 1 240 0
- 341 010e 0548     		ldr	r0, .L41
- 342 0110 0549     		ldr	r1, .L41+4
- 343 0112 FFF7FEFF 		bl	USART_ClearITPendingBit
- 344              	.LVL12:
+ 343              		.loc 1 240 0
+ 344 0116 0548     		ldr	r0, .L41
+ 345 0118 0549     		ldr	r1, .L41+4
+ 346 011a FFF7FEFF 		bl	USART_ClearITPendingBit
+ 347              	.LVL12:
  241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	USART_ClearFlag(USART2, USART_IT_RXNE);
- 345              		.loc 1 241 0
- 346 0116 0348     		ldr	r0, .L41
- 347 0118 0349     		ldr	r1, .L41+4
+ 348              		.loc 1 241 0
+ 349 011e 0348     		ldr	r0, .L41
+ 350 0120 0349     		ldr	r1, .L41+4
  242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** }
- 348              		.loc 1 242 0
- 349 011a BDE83840 		pop	{r3, r4, r5, lr}
+ 351              		.loc 1 242 0
+ 352 0122 BDE83840 		pop	{r3, r4, r5, lr}
  241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	USART_ClearFlag(USART2, USART_IT_RXNE);
- 350              		.loc 1 241 0
- 351 011e FFF7FEBF 		b	USART_ClearFlag
- 352              	.LVL13:
- 353              	.L42:
- 354 0122 00BF     		.align	2
- 355              	.L41:
- 356 0124 00440040 		.word	1073759232
- 357 0128 05010500 		.word	327941
- 358 012c 00000000 		.word	.LANCHOR0
- 359              		.cfi_endproc
- 360              	.LFE118:
- 362              		.align	1
- 363              		.global	disableEXTI
- 364              		.thumb
- 365              		.thumb_func
- 367              	disableEXTI:
- 368              	.LFB119:
+ 353              		.loc 1 241 0
+ 354 0126 FFF7FEBF 		b	USART_ClearFlag
+ 355              	.LVL13:
+ 356              	.L42:
+ 357 012a 00BF     		.align	2
+ 358              	.L41:
+ 359 012c 00440040 		.word	1073759232
+ 360 0130 05010500 		.word	327941
+ 361 0134 00000000 		.word	.LANCHOR0
+ 362              		.cfi_endproc
+ 363              	.LFE118:
+ 365              		.align	1
+ 366              		.global	disableEXTI
+ 367              		.thumb
+ 368              		.thumb_func
+ 370              	disableEXTI:
+ 371              	.LFB119:
  243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** void disableEXTI(uint32_t EXTINr)
  245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** {
- 369              		.loc 1 245 0
- 370              		.cfi_startproc
- 371              		@ args = 0, pretend = 0, frame = 0
- 372              		@ frame_needed = 0, uses_anonymous_args = 0
- 373              	.LVL14:
- 374 0130 10B5     		push	{r4, lr}
- 375              	.LCFI2:
- 376              		.cfi_def_cfa_offset 8
- 377              		.cfi_offset 4, -8
- 378              		.cfi_offset 14, -4
- 379              		.loc 1 245 0
- 380 0132 0446     		mov	r4, r0
+ 372              		.loc 1 245 0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376              	.LVL14:
+ 377 0138 10B5     		push	{r4, lr}
+ 378              	.LCFI2:
+ 379              		.cfi_def_cfa_offset 8
+ 380              		.cfi_offset 4, -8
+ 381              		.cfi_offset 14, -4
+ 382              		.loc 1 245 0
+ 383 013a 0446     		mov	r4, r0
  246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	getEXTI_Config()->EXTI_Line = EXTINr;
- 381              		.loc 1 246 0
- 382 0134 FFF7FEFF 		bl	getEXTI_Config
- 383              	.LVL15:
- 384 0138 0460     		str	r4, [r0, #0]
+ 384              		.loc 1 246 0
+ 385 013c FFF7FEFF 		bl	getEXTI_Config
+ 386              	.LVL15:
+ 387 0140 0460     		str	r4, [r0]
  247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	getEXTI_Config()->EXTI_LineCmd = DISABLE;
- 385              		.loc 1 247 0
- 386 013a FFF7FEFF 		bl	getEXTI_Config
- 387              	.LVL16:
- 388 013e 0023     		movs	r3, #0
- 389 0140 8371     		strb	r3, [r0, #6]
+ 388              		.loc 1 247 0
+ 389 0142 FFF7FEFF 		bl	getEXTI_Config
+ 390              	.LVL16:
+ 391 0146 0023     		movs	r3, #0
+ 392 0148 8371     		strb	r3, [r0, #6]
  248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	EXTI_Init(getEXTI_Config());
- 390              		.loc 1 248 0
- 391 0142 FFF7FEFF 		bl	getEXTI_Config
- 392              	.LVL17:
+ 393              		.loc 1 248 0
+ 394 014a FFF7FEFF 		bl	getEXTI_Config
+ 395              	.LVL17:
  249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** }
- 393              		.loc 1 249 0
- 394 0146 BDE81040 		pop	{r4, lr}
+ 396              		.loc 1 249 0
+ 397 014e BDE81040 		pop	{r4, lr}
+ 398              	.LVL18:
  248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	EXTI_Init(getEXTI_Config());
- 395              		.loc 1 248 0
- 396 014a FFF7FEBF 		b	EXTI_Init
- 397              	.LVL18:
- 398              		.cfi_endproc
- 399              	.LFE119:
- 401              		.align	1
- 402              		.global	enableEXTI
- 403              		.thumb
- 404              		.thumb_func
- 406              	enableEXTI:
- 407              	.LFB120:
+ 399              		.loc 1 248 0
+ 400 0152 FFF7FEBF 		b	EXTI_Init
+ 401              	.LVL19:
+ 402              		.cfi_endproc
+ 403              	.LFE119:
+ 405              		.align	1
+ 406              		.global	enableEXTI
+ 407              		.thumb
+ 408              		.thumb_func
+ 410              	enableEXTI:
+ 411              	.LFB120:
  250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** void enableEXTI(uint32_t EXTINr)
  252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** {
- 408              		.loc 1 252 0
- 409              		.cfi_startproc
- 410              		@ args = 0, pretend = 0, frame = 0
- 411              		@ frame_needed = 0, uses_anonymous_args = 0
- 412              	.LVL19:
- 413 014e 10B5     		push	{r4, lr}
- 414              	.LCFI3:
- 415              		.cfi_def_cfa_offset 8
- 416              		.cfi_offset 4, -8
- 417              		.cfi_offset 14, -4
- 418              		.loc 1 252 0
- 419 0150 0446     		mov	r4, r0
+ 412              		.loc 1 252 0
+ 413              		.cfi_startproc
+ 414              		@ args = 0, pretend = 0, frame = 0
+ 415              		@ frame_needed = 0, uses_anonymous_args = 0
+ 416              	.LVL20:
+ 417 0156 10B5     		push	{r4, lr}
+ 418              	.LCFI3:
+ 419              		.cfi_def_cfa_offset 8
+ 420              		.cfi_offset 4, -8
+ 421              		.cfi_offset 14, -4
+ 422              		.loc 1 252 0
+ 423 0158 0446     		mov	r4, r0
  253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	getEXTI_Config()->EXTI_Line = EXTINr;
- 420              		.loc 1 253 0
- 421 0152 FFF7FEFF 		bl	getEXTI_Config
- 422              	.LVL20:
- 423 0156 0460     		str	r4, [r0, #0]
- 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	getEXTI_Config()->EXTI_LineCmd = ENABLE;
- 424              		.loc 1 254 0
- 425 0158 FFF7FEFF 		bl	getEXTI_Config
+ 424              		.loc 1 253 0
+ 425 015a FFF7FEFF 		bl	getEXTI_Config
  426              	.LVL21:
- 427 015c 0123     		movs	r3, #1
- 428 015e 8371     		strb	r3, [r0, #6]
+ 427 015e 0460     		str	r4, [r0]
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	getEXTI_Config()->EXTI_LineCmd = ENABLE;
+ 428              		.loc 1 254 0
+ 429 0160 FFF7FEFF 		bl	getEXTI_Config
+ 430              	.LVL22:
+ 431 0164 0123     		movs	r3, #1
+ 432 0166 8371     		strb	r3, [r0, #6]
  255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	EXTI_Init(getEXTI_Config());
- 429              		.loc 1 255 0
- 430 0160 FFF7FEFF 		bl	getEXTI_Config
- 431              	.LVL22:
+ 433              		.loc 1 255 0
+ 434 0168 FFF7FEFF 		bl	getEXTI_Config
+ 435              	.LVL23:
  256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** }
- 432              		.loc 1 256 0
- 433 0164 BDE81040 		pop	{r4, lr}
+ 436              		.loc 1 256 0
+ 437 016c BDE81040 		pop	{r4, lr}
+ 438              	.LVL24:
  255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 	EXTI_Init(getEXTI_Config());
- 434              		.loc 1 255 0
- 435 0168 FFF7FEBF 		b	EXTI_Init
- 436              	.LVL23:
- 437              		.cfi_endproc
- 438              	.LFE120:
- 440              		.align	1
- 441              		.global	EXTI15_10_IRQHandler
- 442              		.thumb
- 443              		.thumb_func
- 445              	EXTI15_10_IRQHandler:
- 446              	.LFB121:
+ 439              		.loc 1 255 0
+ 440 0170 FFF7FEBF 		b	EXTI_Init
+ 441              	.LVL25:
+ 442              		.cfi_endproc
+ 443              	.LFE120:
+ 445              		.align	1
+ 446              		.global	EXTI15_10_IRQHandler
+ 447              		.thumb
+ 448              		.thumb_func
+ 450              	EXTI15_10_IRQHandler:
+ 451              	.LFB121:
  257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** 
  258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** /* Interupt Handlers */
  259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** void EXTI15_10_IRQHandler(void)
  260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/stm32f30x_it.c **** {
- 447              		.loc 1 260 0
- 448              		.cfi_startproc
- 449              		@ args = 0, pretend = 0, frame = 0
- 450              		@ frame_needed = 0, uses_anonymous_args = 0
- 451              		@ link register save eliminated.
- 452 016c 7047     		bx	lr
- 453              		.cfi_endproc
- 454              	.LFE121:
- 456              		.comm	It_Com,532,4
- 457              		.bss
- 458              		.set	.LANCHOR0,. + 0
- 461              	i.8606:
- 462 0000 00       		.space	1
- 465              	rxBuffer.8605:
- 466 0001 00000000 		.space	5
- 466      00
- 467              		.text
- 468              	.Letext0:
- 469              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 470              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 471              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 472              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
- 473              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 474              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 475              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/remote_control.h"
- 476              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/stm32_configuration.h"
+ 452              		.loc 1 260 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456              		@ link register save eliminated.
+ 457 0174 7047     		bx	lr
+ 458              		.cfi_endproc
+ 459              	.LFE121:
+ 461              		.comm	It_Com,532,4
+ 462              		.bss
+ 463              		.set	.LANCHOR0,. + 0
+ 466              	i.8597:
+ 467 0000 00       		.space	1
+ 470              	rxBuffer.8596:
+ 471 0001 00000000 		.space	5
+ 471      00
+ 472              		.text
+ 473              	.Letext0:
+ 474              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 475              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 476              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 477              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
+ 478              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 479              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 480              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/remote_control.h"
+ 481              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/stm32_configuration.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_it.c
-     /tmp/ccd2MIYp.s:20     .text:00000000 $t
-     /tmp/ccd2MIYp.s:25     .text:00000000 NMI_Handler
-     /tmp/ccd2MIYp.s:42     .text:00000002 HardFault_Handler
-     /tmp/ccd2MIYp.s:60     .text:00000004 MemManage_Handler
-     /tmp/ccd2MIYp.s:78     .text:00000006 BusFault_Handler
-     /tmp/ccd2MIYp.s:96     .text:00000008 UsageFault_Handler
-     /tmp/ccd2MIYp.s:114    .text:0000000a DebugMon_Handler
-     /tmp/ccd2MIYp.s:130    .text:0000000c USART3_IRQHandler
-     /tmp/ccd2MIYp.s:260    .text:000000b8 $d
+     /tmp/ccrtsUB0.s:20     .text:00000000 $t
+     /tmp/ccrtsUB0.s:25     .text:00000000 NMI_Handler
+     /tmp/ccrtsUB0.s:42     .text:00000002 HardFault_Handler
+     /tmp/ccrtsUB0.s:60     .text:00000004 MemManage_Handler
+     /tmp/ccrtsUB0.s:78     .text:00000006 BusFault_Handler
+     /tmp/ccrtsUB0.s:96     .text:00000008 UsageFault_Handler
+     /tmp/ccrtsUB0.s:114    .text:0000000a DebugMon_Handler
+     /tmp/ccrtsUB0.s:130    .text:0000000c USART3_IRQHandler
+     /tmp/ccrtsUB0.s:263    .text:000000c0 $d
                             *COM*:00000214 It_Com
-     /tmp/ccd2MIYp.s:267    .text:000000c8 $t
-     /tmp/ccd2MIYp.s:272    .text:000000c8 USART2_IRQHandler
-     /tmp/ccd2MIYp.s:356    .text:00000124 $d
-     /tmp/ccd2MIYp.s:362    .text:00000130 $t
-     /tmp/ccd2MIYp.s:367    .text:00000130 disableEXTI
-     /tmp/ccd2MIYp.s:406    .text:0000014e enableEXTI
-     /tmp/ccd2MIYp.s:445    .text:0000016c EXTI15_10_IRQHandler
-     /tmp/ccd2MIYp.s:461    .bss:00000000 i.8606
-     /tmp/ccd2MIYp.s:462    .bss:00000000 $d
-     /tmp/ccd2MIYp.s:465    .bss:00000001 rxBuffer.8605
+     /tmp/ccrtsUB0.s:270    .text:000000d0 $t
+     /tmp/ccrtsUB0.s:275    .text:000000d0 USART2_IRQHandler
+     /tmp/ccrtsUB0.s:359    .text:0000012c $d
+     /tmp/ccrtsUB0.s:365    .text:00000138 $t
+     /tmp/ccrtsUB0.s:370    .text:00000138 disableEXTI
+     /tmp/ccrtsUB0.s:410    .text:00000156 enableEXTI
+     /tmp/ccrtsUB0.s:450    .text:00000174 EXTI15_10_IRQHandler
+     /tmp/ccrtsUB0.s:466    .bss:00000000 i.8597
+     /tmp/ccrtsUB0.s:467    .bss:00000000 $d
+     /tmp/ccrtsUB0.s:470    .bss:00000001 rxBuffer.8596
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
@@ -765,28 +779,26 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
                            .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
                            .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
-                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.stdio.h.31.7c0e28c411445f3f9c5b11accf882760
+                           .group:00000000 wm4.stddef.h.184.159df79b4ca79c76561572a55985524c
                            .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.stddef.h.39.7e3d906ac58942e0b374c527445f5de5
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
                            .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
-                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
                            .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
-                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.types.h.80.5759fe41f87f5211a5952dfb1fc64f19
                            .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
-                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
-                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
-                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.stdio.h.64.0f05fa42cfe2db7fc44729a52d3ba948
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.158.a7efb00f6cbc6f43213b50e183c9830c
                            .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
-                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
-                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
+                           .group:00000000 wm4.stdlib.h.51.fdf1045aaa750fe709619c2027b96513
+                           .group:00000000 wm4.ctype.h.2.807cf8b53e92f83ce947ab40213cf812
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
                            .group:00000000 wm4.usart.h.2.334fafcea22e35c991473487ab5a0c1a
 
 UNDEFINED SYMBOLS
