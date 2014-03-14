@@ -230,16 +230,16 @@
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPIx == SPI1)
   38              		.loc 1 195 0
-  39 0002 154B     		ldr	r3, .L6
+  39 0002 154B     		ldr	r3, .L7
   40 0004 9842     		cmp	r0, r3
   41 0006 0BD1     		bne	.L2
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable SPI1 reset state */
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, ENABLE);
   42              		.loc 1 198 0
-  43 0008 0121     		movs	r1, #1
-  44 000a 4FF48050 		mov	r0, #4096
-  45              	.LVL1:
+  43 0008 4FF48050 		mov	r0, #4096
+  44              	.LVL1:
+  45 000c 0121     		movs	r1, #1
   46 000e FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
   47              	.LVL2:
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Release SPI1 from reset state */
@@ -275,7 +275,7 @@
   56              	.L2:
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else if (SPIx == SPI2)
   57              		.loc 1 202 0
-  58 0020 0E4B     		ldr	r3, .L6+4
+  58 0020 0E4B     		ldr	r3, .L7+4
   59 0022 9842     		cmp	r0, r3
   60 0024 07D1     		bne	.L3
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, ENABLE);
@@ -293,7 +293,7 @@
   71              	.L3:
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     if (SPIx == SPI3)
   72              		.loc 1 211 0
-  73 0036 0A4B     		ldr	r3, .L6+8
+  73 0036 0A4B     		ldr	r3, .L7+8
   74 0038 9842     		cmp	r0, r3
   75 003a 0BD1     		bne	.L1
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE);
@@ -316,9 +316,9 @@
   90              	.LVL9:
   91              	.L1:
   92 0054 08BD     		pop	{r3, pc}
-  93              	.L7:
+  93              	.L8:
   94 0056 00BF     		.align	2
-  95              	.L6:
+  95              	.L7:
   96 0058 00300140 		.word	1073819648
   97 005c 00380040 		.word	1073756160
   98 0060 003C0040 		.word	1073757184
@@ -349,7 +349,7 @@
  230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPI_InitStruct->SPI_Direction = SPI_Direction_2Lines_FullDuplex;
  115              		.loc 1 230 0
  116 0064 0023     		movs	r3, #0
- 117 0066 0380     		strh	r3, [r0, #0]	@ movhi
+ 117 0066 0380     		strh	r3, [r0]	@ movhi
  231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Initialize the SPI_Mode member */
  232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPI_InitStruct->SPI_Mode = SPI_Mode_Slave;
  118              		.loc 1 232 0
@@ -413,6 +413,17 @@
  151              		@ args = 0, pretend = 0, frame = 0
  152              		@ frame_needed = 0, uses_anonymous_args = 0
  153              	.LVL11:
+ 154 0080 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 155              	.LCFI1:
+ 156              		.cfi_def_cfa_offset 32
+ 157              		.cfi_offset 4, -32
+ 158              		.cfi_offset 5, -28
+ 159              		.cfi_offset 6, -24
+ 160              		.cfi_offset 7, -20
+ 161              		.cfi_offset 8, -16
+ 162              		.cfi_offset 9, -12
+ 163              		.cfi_offset 10, -8
+ 164              		.cfi_offset 14, -4
  259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint16_t tmpreg = 0;
  260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* check the parameters */
@@ -431,19 +442,17 @@
  274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Configuring the SPI in master mode */
  276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if(SPI_InitStruct->SPI_Mode == SPI_Mode_Master)
- 154              		.loc 1 276 0
- 155 0080 4A88     		ldrh	r2, [r1, #2]
- 156 0082 B2F5827F 		cmp	r2, #260
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 157              		.loc 1 258 0
- 158 0086 30B5     		push	{r4, r5, lr}
- 159              	.LCFI1:
- 160              		.cfi_def_cfa_offset 12
- 161              		.cfi_offset 4, -12
- 162              		.cfi_offset 5, -8
- 163              		.cfi_offset 14, -4
- 164              		.loc 1 276 0
- 165 0088 1AD1     		bne	.L10
+ 165              		.loc 1 276 0
+ 166 0084 B1F80290 		ldrh	r9, [r1, #2]
+ 167 0088 B1F80080 		ldrh	r8, [r1]
+ 168 008c B1F806C0 		ldrh	ip, [r1, #6]
+ 169 0090 0F89     		ldrh	r7, [r1, #8]
+ 170 0092 4E89     		ldrh	r6, [r1, #10]
+ 171 0094 8D89     		ldrh	r5, [r1, #12]
+ 172 0096 CC89     		ldrh	r4, [r1, #14]
+ 173 0098 B1F804A0 		ldrh	r10, [r1, #4]
+ 174 009c B9F5827F 		cmp	r9, #260
+ 175 00a0 18D1     		bne	.L11
  277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*---------------------------- SPIx CR1 Configuration ------------------------*/
  279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the SPIx CR1 value */
@@ -459,73 +468,64 @@
  289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set CPOL bit according to SPI_CPOL value */
  290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set CPHA bit according to SPI_CPHA value */
  291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) |
- 166              		.loc 1 291 0
- 167 008a 0C88     		ldrh	r4, [r1, #0]
- 168 008c CB88     		ldrh	r3, [r1, #6]
- 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg = SPIx->CR1;
- 169              		.loc 1 280 0
- 170 008e 0288     		ldrh	r2, [r0, #0]
- 171              	.LVL12:
- 172              		.loc 1 291 0
- 173 0090 2343     		orrs	r3, r3, r4
+ 176              		.loc 1 291 0
+ 177 00a2 48EA0C0C 		orr	ip, r8, ip
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_CPOL | SPI_InitStruct->SPI_CPHA)
  293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_NSS | SPI_InitStruct->SPI_BaudRa
- 174              		.loc 1 293 0
- 175 0092 0C89     		ldrh	r4, [r1, #8]
- 176 0094 43F48273 		orr	r3, r3, #260
- 177 0098 2343     		orrs	r3, r3, r4
+ 178              		.loc 1 293 0
+ 179 00a6 4CF4827C 		orr	ip, ip, #260
+ 180 00aa 4CEA0707 		orr	r7, ip, r7
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg = SPIx->CR1;
+ 181              		.loc 1 280 0
+ 182 00ae 0388     		ldrh	r3, [r0]
+ 183              	.LVL12:
  292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_CPOL | SPI_InitStruct->SPI_CPHA)
- 178              		.loc 1 292 0
- 179 009a 4C89     		ldrh	r4, [r1, #10]
- 180 009c 2343     		orrs	r3, r3, r4
- 181 009e 8C89     		ldrh	r4, [r1, #12]
- 182 00a0 2343     		orrs	r3, r3, r4
- 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) |
- 183              		.loc 1 291 0
- 184 00a2 CC89     		ldrh	r4, [r1, #14]
+ 184              		.loc 1 292 0
+ 185 00b0 3E43     		orrs	r6, r6, r7
+ 186 00b2 3543     		orrs	r5, r5, r6
  282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= CR1_CLEAR_MASK;
- 185              		.loc 1 282 0
- 186 00a4 02F44152 		and	r2, r2, #12352
- 187              	.LVL13:
+ 187              		.loc 1 282 0
+ 188 00b4 03F44153 		and	r3, r3, #12352
+ 189              	.LVL13:
  291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) |
- 188              		.loc 1 291 0
- 189 00a8 2343     		orrs	r3, r3, r4
- 190 00aa 1343     		orrs	r3, r3, r2
- 191              	.LVL14:
+ 190              		.loc 1 291 0
+ 191 00b8 2C43     		orrs	r4, r4, r5
+ 192 00ba 1C43     		orrs	r4, r4, r3
+ 193 00bc A4B2     		uxth	r4, r4
+ 194              	.LVL14:
  294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          SPI_InitStruct->SPI_FirstBit)));
  295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Write to SPIx CR1 */
  296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 = tmpreg;
- 192              		.loc 1 296 0
- 193 00ac 0380     		strh	r3, [r0, #0]	@ movhi
+ 195              		.loc 1 296 0
+ 196 00be 0480     		strh	r4, [r0]	@ movhi
  297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /*-------------------------Data Size Configuration -----------------------*/
  298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the SPIx CR2 value */
  299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg = SPIx->CR2;
- 194              		.loc 1 299 0
- 195 00ae 8388     		ldrh	r3, [r0, #4]
- 196              	.LVL15:
+ 197              		.loc 1 299 0
+ 198 00c0 8288     		ldrh	r2, [r0, #4]
+ 199              	.LVL15:
  300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Clear DS[3:0] bits */
  301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= (uint16_t)~SPI_CR2_DS;
+ 200              		.loc 1 301 0
+ 201 00c2 22F47062 		bic	r2, r2, #3840
+ 202              	.LVL16:
+ 203 00c6 1204     		lsls	r2, r2, #16
+ 204 00c8 120C     		lsrs	r2, r2, #16
+ 205              	.LVL17:
  302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Configure SPIx: Data Size */
  303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)(SPI_InitStruct->SPI_DataSize);
- 197              		.loc 1 303 0
- 198 00b0 8A88     		ldrh	r2, [r1, #4]
- 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= (uint16_t)~SPI_CR2_DS;
- 199              		.loc 1 301 0
- 200 00b2 23F47063 		bic	r3, r3, #3840
- 201              	.LVL16:
- 202 00b6 1B04     		lsls	r3, r3, #16
- 203 00b8 1B0C     		lsrs	r3, r3, #16
- 204              	.LVL17:
- 205              		.loc 1 303 0
- 206 00ba 1343     		orrs	r3, r3, r2
- 207              	.LVL18:
+ 206              		.loc 1 303 0
+ 207 00ca 42EA0A02 		orr	r2, r2, r10
+ 208              	.LVL18:
+ 209 00ce 92B2     		uxth	r2, r2
+ 210              	.LVL19:
  304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Write to SPIx CR2 */
  305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 = tmpreg;
- 208              		.loc 1 305 0
- 209 00bc 8380     		strh	r3, [r0, #4]	@ movhi
- 210 00be 18E0     		b	.L11
- 211              	.LVL19:
- 212              	.L10:
+ 211              		.loc 1 305 0
+ 212 00d0 8280     		strh	r2, [r0, #4]	@ movhi
+ 213 00d2 17E0     		b	.L12
+ 214              	.LVL20:
+ 215              	.L11:
  306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Configuring the SPI in slave mode */
  308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
@@ -533,15 +533,22 @@
  310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*---------------------------- Data size Configuration -----------------------*/
  311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the SPIx CR2 value */
  312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg = SPIx->CR2;
- 213              		.loc 1 312 0
- 214 00c0 8388     		ldrh	r3, [r0, #4]
- 215              	.LVL20:
+ 216              		.loc 1 312 0
+ 217 00d4 8388     		ldrh	r3, [r0, #4]
+ 218              	.LVL21:
  313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Clear DS[3:0] bits */
  314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= (uint16_t)~SPI_CR2_DS;
+ 219              		.loc 1 314 0
+ 220 00d6 23F47063 		bic	r3, r3, #3840
+ 221              	.LVL22:
+ 222 00da 1B04     		lsls	r3, r3, #16
+ 223 00dc 1B0C     		lsrs	r3, r3, #16
+ 224              	.LVL23:
  315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Configure SPIx: Data Size */
  316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)(SPI_InitStruct->SPI_DataSize);
- 216              		.loc 1 316 0
- 217 00c2 8C88     		ldrh	r4, [r1, #4]
+ 225              		.loc 1 316 0
+ 226 00de 43EA0A03 		orr	r3, r3, r10
+ 227              	.LVL24:
  317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Write to SPIx CR2 */
  318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 = tmpreg;
  319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*---------------------------- SPIx CR1 Configuration ------------------------*/
@@ -558,92 +565,73 @@
  330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set CPOL bit according to SPI_CPOL value */
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set CPHA bit according to SPI_CPHA value */
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) | 
+ 228              		.loc 1 332 0
+ 229 00e2 49EA0808 		orr	r8, r9, r8
+ 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)(SPI_InitStruct->SPI_DataSize);
+ 230              		.loc 1 316 0
+ 231 00e6 9BB2     		uxth	r3, r3
+ 232              	.LVL25:
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_CPOL | SPI_InitStruct->SPI_CPHA)
  334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_NSS | SPI_InitStruct->SPI_BaudRa
- 218              		.loc 1 334 0
- 219 00c4 CD88     		ldrh	r5, [r1, #6]
- 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= (uint16_t)~SPI_CR2_DS;
- 220              		.loc 1 314 0
- 221 00c6 23F47063 		bic	r3, r3, #3840
- 222              	.LVL21:
- 223 00ca 1B04     		lsls	r3, r3, #16
- 224 00cc 1B0C     		lsrs	r3, r3, #16
- 225              	.LVL22:
- 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)(SPI_InitStruct->SPI_DataSize);
- 226              		.loc 1 316 0
- 227 00ce 2343     		orrs	r3, r3, r4
- 228              	.LVL23:
+ 233              		.loc 1 334 0
+ 234 00e8 48EA0C0C 		orr	ip, r8, ip
  318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 = tmpreg;
- 229              		.loc 1 318 0
- 230 00d0 8380     		strh	r3, [r0, #4]	@ movhi
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) | 
- 231              		.loc 1 332 0
- 232 00d2 0B88     		ldrh	r3, [r1, #0]
- 233              	.LVL24:
+ 235              		.loc 1 318 0
+ 236 00ec 8380     		strh	r3, [r0, #4]	@ movhi
+ 237              		.loc 1 334 0
+ 238 00ee 4CEA0707 		orr	r7, ip, r7
  321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg = SPIx->CR1;
- 234              		.loc 1 321 0
- 235 00d4 0488     		ldrh	r4, [r0, #0]
- 236              	.LVL25:
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) | 
- 237              		.loc 1 332 0
- 238 00d6 1343     		orrs	r3, r3, r2
- 239              		.loc 1 334 0
- 240 00d8 2B43     		orrs	r3, r3, r5
- 241 00da 0D89     		ldrh	r5, [r1, #8]
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) | 
- 242              		.loc 1 332 0
- 243 00dc CA89     		ldrh	r2, [r1, #14]
- 244              		.loc 1 334 0
- 245 00de 2B43     		orrs	r3, r3, r5
+ 239              		.loc 1 321 0
+ 240 00f2 0388     		ldrh	r3, [r0]
+ 241              	.LVL26:
  333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          (uint16_t)((uint16_t)(SPI_InitStruct->SPI_CPOL | SPI_InitStruct->SPI_CPHA)
- 246              		.loc 1 333 0
- 247 00e0 4D89     		ldrh	r5, [r1, #10]
- 248 00e2 2B43     		orrs	r3, r3, r5
- 249 00e4 8D89     		ldrh	r5, [r1, #12]
- 250 00e6 2B43     		orrs	r3, r3, r5
+ 242              		.loc 1 333 0
+ 243 00f4 3E43     		orrs	r6, r6, r7
+ 244 00f6 3543     		orrs	r5, r5, r6
  323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg &= CR1_CLEAR_MASK;
- 251              		.loc 1 323 0
- 252 00e8 04F44154 		and	r4, r4, #12352
- 253              	.LVL26:
+ 245              		.loc 1 323 0
+ 246 00f8 03F44153 		and	r3, r3, #12352
+ 247              	.LVL27:
  332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmpreg |= (uint16_t)((uint16_t)(SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode) | 
- 254              		.loc 1 332 0
- 255 00ec 1343     		orrs	r3, r3, r2
- 256 00ee 2343     		orrs	r3, r3, r4
- 257              	.LVL27:
+ 248              		.loc 1 332 0
+ 249 00fc 2C43     		orrs	r4, r4, r5
+ 250 00fe 1C43     		orrs	r4, r4, r3
+ 251 0100 A4B2     		uxth	r4, r4
+ 252              	.LVL28:
  335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                          SPI_InitStruct->SPI_FirstBit)));
  336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Write to SPIx CR1 */
  338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 = tmpreg;
- 258              		.loc 1 338 0
- 259 00f0 0380     		strh	r3, [r0, #0]	@ movhi
- 260              	.LVL28:
- 261              	.L11:
+ 253              		.loc 1 338 0
+ 254 0102 0480     		strh	r4, [r0]	@ movhi
+ 255              	.LVL29:
+ 256              	.L12:
  339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Activate the SPI mode (Reset I2SMOD bit in I2SCFGR register) */
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->I2SCFGR &= (uint16_t)~((uint16_t)SPI_I2SCFGR_I2SMOD);
- 262              		.loc 1 342 0
- 263 00f2 838B     		ldrh	r3, [r0, #28]
- 264 00f4 23F40063 		bic	r3, r3, #2048
- 265 00f8 1B04     		lsls	r3, r3, #16
- 266 00fa 1B0C     		lsrs	r3, r3, #16
- 267 00fc 8383     		strh	r3, [r0, #28]	@ movhi
+ 257              		.loc 1 342 0
+ 258 0104 838B     		ldrh	r3, [r0, #28]
+ 259 0106 23F40063 		bic	r3, r3, #2048
+ 260 010a 1B04     		lsls	r3, r3, #16
+ 261 010c 1B0C     		lsrs	r3, r3, #16
+ 262 010e 8383     		strh	r3, [r0, #28]	@ movhi
  343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*---------------------------- SPIx CRCPOLY Configuration --------------------*/
  345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Write to SPIx CRCPOLY */
  346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CRCPR = SPI_InitStruct->SPI_CRCPolynomial;
- 268              		.loc 1 346 0
- 269 00fe 0B8A     		ldrh	r3, [r1, #16]
- 270 0100 0382     		strh	r3, [r0, #16]	@ movhi
- 271 0102 30BD     		pop	{r4, r5, pc}
- 272              		.cfi_endproc
- 273              	.LFE113:
- 275              		.align	1
- 276              		.global	I2S_StructInit
- 277              		.thumb
- 278              		.thumb_func
- 280              	I2S_StructInit:
- 281              	.LFB114:
+ 263              		.loc 1 346 0
+ 264 0110 0B8A     		ldrh	r3, [r1, #16]
+ 265 0112 0382     		strh	r3, [r0, #16]	@ movhi
+ 266 0114 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 267              		.cfi_endproc
+ 268              	.LFE113:
+ 270              		.align	1
+ 271              		.global	I2S_StructInit
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	I2S_StructInit:
+ 276              	.LFB114:
  347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
@@ -653,17 +641,17 @@
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct)
  355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 282              		.loc 1 355 0
- 283              		.cfi_startproc
- 284              		@ args = 0, pretend = 0, frame = 0
- 285              		@ frame_needed = 0, uses_anonymous_args = 0
- 286              		@ link register save eliminated.
- 287              	.LVL29:
+ 277              		.loc 1 355 0
+ 278              		.cfi_startproc
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281              		@ link register save eliminated.
+ 282              	.LVL30:
  356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*--------------- Reset I2S init structure parameters values -----------------*/
  357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Initialize the I2S_Mode member */
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_Mode = I2S_Mode_SlaveTx;
- 288              		.loc 1 358 0
- 289 0104 0023     		movs	r3, #0
+ 283              		.loc 1 358 0
+ 284 0118 0023     		movs	r3, #0
  359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Initialize the I2S_Standard member */
  361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_Standard = I2S_Standard_Phillips;
@@ -676,36 +664,36 @@
  368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Initialize the I2S_AudioFreq member */
  370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_AudioFreq = I2S_AudioFreq_Default;
- 290              		.loc 1 370 0
- 291 0106 0222     		movs	r2, #2
+ 285              		.loc 1 370 0
+ 286 011a 0222     		movs	r2, #2
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_Mode = I2S_Mode_SlaveTx;
- 292              		.loc 1 358 0
- 293 0108 0380     		strh	r3, [r0, #0]	@ movhi
+ 287              		.loc 1 358 0
+ 288 011c 0380     		strh	r3, [r0]	@ movhi
  361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_Standard = I2S_Standard_Phillips;
- 294              		.loc 1 361 0
- 295 010a 4380     		strh	r3, [r0, #2]	@ movhi
+ 289              		.loc 1 361 0
+ 290 011e 4380     		strh	r3, [r0, #2]	@ movhi
  364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_DataFormat = I2S_DataFormat_16b;
- 296              		.loc 1 364 0
- 297 010c 8380     		strh	r3, [r0, #4]	@ movhi
+ 291              		.loc 1 364 0
+ 292 0120 8380     		strh	r3, [r0, #4]	@ movhi
  367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_MCLKOutput = I2S_MCLKOutput_Disable;
- 298              		.loc 1 367 0
- 299 010e C380     		strh	r3, [r0, #6]	@ movhi
- 300              		.loc 1 370 0
- 301 0110 8260     		str	r2, [r0, #8]
+ 293              		.loc 1 367 0
+ 294 0122 C380     		strh	r3, [r0, #6]	@ movhi
+ 295              		.loc 1 370 0
+ 296 0124 8260     		str	r2, [r0, #8]
  371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Initialize the I2S_CPOL member */
  373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2S_InitStruct->I2S_CPOL = I2S_CPOL_Low;
- 302              		.loc 1 373 0
- 303 0112 8381     		strh	r3, [r0, #12]	@ movhi
- 304 0114 7047     		bx	lr
- 305              		.cfi_endproc
- 306              	.LFE114:
- 308              		.align	1
- 309              		.global	I2S_Init
- 310              		.thumb
- 311              		.thumb_func
- 313              	I2S_Init:
- 314              	.LFB115:
+ 297              		.loc 1 373 0
+ 298 0126 8381     		strh	r3, [r0, #12]	@ movhi
+ 299 0128 7047     		bx	lr
+ 300              		.cfi_endproc
+ 301              	.LFE114:
+ 303              		.align	1
+ 304              		.global	I2S_Init
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	I2S_Init:
+ 309              	.LFB115:
  374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
@@ -725,11 +713,11 @@
  390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 315              		.loc 1 392 0
- 316              		.cfi_startproc
- 317              		@ args = 0, pretend = 0, frame = 64
- 318              		@ frame_needed = 0, uses_anonymous_args = 0
- 319              	.LVL30:
+ 310              		.loc 1 392 0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 64
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314              	.LVL31:
  393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint16_t tmpreg = 0, i2sdiv = 2, i2sodd = 0, packetlength = 1;
  394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint32_t tmp = 0;
  395:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   RCC_ClocksTypeDef RCC_Clocks;
@@ -747,53 +735,56 @@
  407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*----------------------- SPIx I2SCFGR & I2SPR Configuration -----------------*/
  408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear I2SMOD, I2SE, I2SCFG, PCMSYNC, I2SSTD, CKPOL, DATLEN and CHLEN bits */
  409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->I2SCFGR &= I2SCFGR_CLEAR_MASK; 
- 320              		.loc 1 409 0
- 321 0116 838B     		ldrh	r3, [r0, #28]
- 322 0118 23F47B63 		bic	r3, r3, #4016
- 323 011c 23F00F03 		bic	r3, r3, #15
- 324 0120 1B04     		lsls	r3, r3, #16
+ 315              		.loc 1 409 0
+ 316 012a 838B     		ldrh	r3, [r0, #28]
+ 317 012c 23F47B63 		bic	r3, r3, #4016
+ 318 0130 23F00F03 		bic	r3, r3, #15
+ 319 0134 1B04     		lsls	r3, r3, #16
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 325              		.loc 1 392 0
- 326 0122 F0B5     		push	{r4, r5, r6, r7, lr}
- 327              	.LCFI2:
- 328              		.cfi_def_cfa_offset 20
- 329              		.cfi_offset 4, -20
- 330              		.cfi_offset 5, -16
- 331              		.cfi_offset 6, -12
- 332              		.cfi_offset 7, -8
- 333              		.cfi_offset 14, -4
- 334              		.loc 1 409 0
- 335 0124 1B0C     		lsrs	r3, r3, #16
- 336 0126 8383     		strh	r3, [r0, #28]	@ movhi
+ 320              		.loc 1 392 0
+ 321 0136 F0B5     		push	{r4, r5, r6, r7, lr}
+ 322              	.LCFI2:
+ 323              		.cfi_def_cfa_offset 20
+ 324              		.cfi_offset 4, -20
+ 325              		.cfi_offset 5, -16
+ 326              		.cfi_offset 6, -12
+ 327              		.cfi_offset 7, -8
+ 328              		.cfi_offset 14, -4
+ 329              		.loc 1 409 0
+ 330 0138 1B0C     		lsrs	r3, r3, #16
+ 331 013a 8383     		strh	r3, [r0, #28]	@ movhi
  410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->I2SPR = 0x0002;
- 337              		.loc 1 410 0
- 338 0128 0223     		movs	r3, #2
- 339 012a 0384     		strh	r3, [r0, #32]	@ movhi
+ 332              		.loc 1 410 0
+ 333 013c 0223     		movs	r3, #2
+ 334 013e 0384     		strh	r3, [r0, #32]	@ movhi
  411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the I2SCFGR register value */
  413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = SPIx->I2SCFGR;
  414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* If the default value has to be written, reinitialize i2sdiv and i2sodd*/
  416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if(I2S_InitStruct->I2S_AudioFreq == I2S_AudioFreq_Default)
- 340              		.loc 1 416 0
- 341 012c 8B68     		ldr	r3, [r1, #8]
+ 335              		.loc 1 416 0
+ 336 0140 8B68     		ldr	r3, [r1, #8]
  413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = SPIx->I2SCFGR;
- 342              		.loc 1 413 0
- 343 012e 868B     		ldrh	r6, [r0, #28]
- 344              	.LVL31:
- 345              		.loc 1 416 0
- 346 0130 022B     		cmp	r3, #2
+ 337              		.loc 1 413 0
+ 338 0142 868B     		ldrh	r6, [r0, #28]
+ 339              		.loc 1 416 0
+ 340 0144 022B     		cmp	r3, #2
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 347              		.loc 1 392 0
- 348 0132 91B0     		sub	sp, sp, #68
- 349              	.LCFI3:
- 350              		.cfi_def_cfa_offset 88
+ 341              		.loc 1 392 0
+ 342 0146 91B0     		sub	sp, sp, #68
+ 343              	.LCFI3:
+ 344              		.cfi_def_cfa_offset 88
  392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 351              		.loc 1 392 0
- 352 0134 0546     		mov	r5, r0
- 353 0136 0C46     		mov	r4, r1
- 354              		.loc 1 416 0
- 355 0138 23D0     		beq	.L19
+ 345              		.loc 1 392 0
+ 346 0148 0546     		mov	r5, r0
+ 347 014a 0C46     		mov	r4, r1
+ 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = SPIx->I2SCFGR;
+ 348              		.loc 1 413 0
+ 349 014c B6B2     		uxth	r6, r6
+ 350              	.LVL32:
+ 351              		.loc 1 416 0
+ 352 014e 23D0     		beq	.L20
  417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = (uint16_t)0;
  419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sdiv = (uint16_t)2;   
@@ -803,6 +794,8 @@
  423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Check the frame length (For the Prescaler computing) */
  425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     if(I2S_InitStruct->I2S_DataFormat == I2S_DataFormat_16b)
+ 353              		.loc 1 425 0
+ 354 0150 8B88     		ldrh	r3, [r1, #4]
  426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     {
  427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       /* Packet length is 16 bits */
  428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       packetlength = 1;
@@ -815,173 +808,174 @@
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* I2S Clock source is System clock: Get System Clock frequency */
  437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     RCC_GetClocksFreq(&RCC_Clocks);      
- 356              		.loc 1 437 0
- 357 013a 01A8     		add	r0, sp, #4
- 358              	.LVL32:
+ 355              		.loc 1 437 0
+ 356 0152 01A8     		add	r0, sp, #4
+ 357              	.LVL33:
  425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     if(I2S_InitStruct->I2S_DataFormat == I2S_DataFormat_16b)
- 359              		.loc 1 425 0
- 360 013c 8F88     		ldrh	r7, [r1, #4]
- 361              		.loc 1 437 0
- 362 013e FFF7FEFF 		bl	RCC_GetClocksFreq
- 363              	.LVL33:
+ 358              		.loc 1 425 0
+ 359 0154 002B     		cmp	r3, #0
+ 428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       packetlength = 1;
+ 360              		.loc 1 428 0
+ 361 0156 14BF     		ite	ne
+ 362 0158 0227     		movne	r7, #2
+ 363 015a 0127     		moveq	r7, #1
+ 364              	.LVL34:
+ 365              		.loc 1 437 0
+ 366 015c FFF7FEFF 		bl	RCC_GetClocksFreq
+ 367              	.LVL35:
  438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  439:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the source clock value: based on System Clock value */
  440:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     sourceclock = RCC_Clocks.SYSCLK_Frequency;    
  441:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  442:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Compute the Real divider depending on the MCLK output state with a floating point */
  443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     if(I2S_InitStruct->I2S_MCLKOutput == I2S_MCLKOutput_Enable)
- 364              		.loc 1 443 0
- 365 0142 E388     		ldrh	r3, [r4, #6]
+ 368              		.loc 1 443 0
+ 369 0160 E388     		ldrh	r3, [r4, #6]
  440:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     sourceclock = RCC_Clocks.SYSCLK_Frequency;    
- 366              		.loc 1 440 0
- 367 0144 019A     		ldr	r2, [sp, #4]
- 428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       packetlength = 1;
- 368              		.loc 1 428 0
- 369 0146 002F     		cmp	r7, #0
- 370 0148 14BF     		ite	ne
- 371 014a 0227     		movne	r7, #2
- 372 014c 0127     		moveq	r7, #1
- 373              	.LVL34:
+ 370              		.loc 1 440 0
+ 371 0162 0199     		ldr	r1, [sp, #4]
+ 372              	.LVL36:
+ 373 0164 A268     		ldr	r2, [r4, #8]
  374              		.loc 1 443 0
- 375 014e B3F5007F 		cmp	r3, #512
- 376 0152 4FF00A03 		mov	r3, #10
- 377 0156 01D1     		bne	.L16
+ 375 0166 B3F5007F 		cmp	r3, #512
  444:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     {
  445:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       /* MCLK output is enabled */
  446:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       tmp = (uint16_t)(((((sourceclock / 256) * 10) / I2S_InitStruct->I2S_AudioFreq)) + 5);
- 378              		.loc 1 446 0
- 379 0158 120A     		lsrs	r2, r2, #8
- 380              	.LVL35:
- 381 015a 02E0     		b	.L22
- 382              	.LVL36:
- 383              	.L16:
  447:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     }
  448:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     else
  449:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     {
  450:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       /* MCLK output is disabled */
  451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       tmp = (uint16_t)(((((sourceclock / (32 * packetlength)) *10 ) / I2S_InitStruct->I2S_AudioFreq
- 384              		.loc 1 451 0
- 385 015c 7F01     		lsls	r7, r7, #5
- 386              	.LVL37:
- 387 015e B2FBF7F2 		udiv	r2, r2, r7
- 388              	.LVL38:
- 389              	.L22:
- 390 0162 A168     		ldr	r1, [r4, #8]
- 391 0164 5343     		muls	r3, r2, r3
- 392 0166 B3FBF1F3 		udiv	r3, r3, r1
- 393 016a 0533     		adds	r3, r3, #5
+ 376              		.loc 1 451 0
+ 377 016a 18BF     		it	ne
+ 378 016c 7F01     		lslne	r7, r7, #5
+ 379              	.LVL37:
+ 380 016e 4FF00A03 		mov	r3, #10
+ 446:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       tmp = (uint16_t)(((((sourceclock / 256) * 10) / I2S_InitStruct->I2S_AudioFreq)) + 5);
+ 381              		.loc 1 446 0
+ 382 0172 0CBF     		ite	eq
+ 383 0174 090A     		lsreq	r1, r1, #8
+ 384              	.LVL38:
+ 385              		.loc 1 451 0
+ 386 0176 B1FBF7F1 		udivne	r1, r1, r7
+ 387 017a 4B43     		muls	r3, r1, r3
+ 388 017c B3FBF2F3 		udiv	r3, r3, r2
+ 389 0180 0533     		adds	r3, r3, #5
  452:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     }
  453:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     
  454:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Remove the floating point */
  455:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmp = tmp / 10;
- 394              		.loc 1 455 0
- 395 016c 0A22     		movs	r2, #10
+ 390              		.loc 1 455 0
+ 391 0182 0A22     		movs	r2, #10
  451:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       tmp = (uint16_t)(((((sourceclock / (32 * packetlength)) *10 ) / I2S_InitStruct->I2S_AudioFreq
- 396              		.loc 1 451 0
- 397 016e 9BB2     		uxth	r3, r3
- 398              	.LVL39:
- 399              		.loc 1 455 0
- 400 0170 B3FBF2F3 		udiv	r3, r3, r2
- 401              	.LVL40:
+ 392              		.loc 1 451 0
+ 393 0184 9BB2     		uxth	r3, r3
+ 394              	.LVL39:
+ 395              		.loc 1 455 0
+ 396 0186 B3FBF2F3 		udiv	r3, r3, r2
+ 397              	.LVL40:
  456:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  457:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Check the parity of the divider */
  458:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = (uint16_t)(tmp & (uint16_t)0x0001);
  459:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  460:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Compute the i2sdiv prescaler */
  461:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sdiv = (uint16_t)((tmp - i2sodd) / 2);
- 402              		.loc 1 461 0
- 403 0174 03F00102 		and	r2, r3, #1
+ 398              		.loc 1 461 0
+ 399 018a 03F00102 		and	r2, r3, #1
  462:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  463:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the Mask for the Odd bit (SPI_I2SPR[8]) register */
  464:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = (uint16_t) (i2sodd << 8);
- 404              		.loc 1 464 0
- 405 0178 1202     		lsls	r2, r2, #8
+ 400              		.loc 1 464 0
+ 401 018e 1202     		lsls	r2, r2, #8
  461:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sdiv = (uint16_t)((tmp - i2sodd) / 2);
- 406              		.loc 1 461 0
- 407 017a C3F34F03 		ubfx	r3, r3, #1, #16
- 408              	.LVL41:
- 409              		.loc 1 464 0
- 410 017e 92B2     		uxth	r2, r2
- 411              	.LVL42:
- 412 0180 00E0     		b	.L14
- 413              	.LVL43:
- 414              	.L19:
+ 402              		.loc 1 461 0
+ 403 0190 C3F34F03 		ubfx	r3, r3, #1, #16
+ 404              	.LVL41:
+ 405              		.loc 1 464 0
+ 406 0194 92B2     		uxth	r2, r2
+ 407              	.LVL42:
+ 408 0196 00E0     		b	.L15
+ 409              	.LVL43:
+ 410              	.L20:
  418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = (uint16_t)0;
- 415              		.loc 1 418 0
- 416 0182 0022     		movs	r2, #0
- 417              	.LVL44:
- 418              	.L14:
+ 411              		.loc 1 418 0
+ 412 0198 0022     		movs	r2, #0
+ 413              	.LVL44:
+ 414              	.L15:
  465:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  466:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  467:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Test if the divider is 1 or 0 or greater than 0xFF */
  468:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((i2sdiv < 2) || (i2sdiv > 0xFF))
- 419              		.loc 1 468 0
- 420 0184 991E     		subs	r1, r3, #2
- 421 0186 89B2     		uxth	r1, r1
+ 415              		.loc 1 468 0
+ 416 019a 991E     		subs	r1, r3, #2
+ 417 019c 89B2     		uxth	r1, r1
  469:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  470:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set the default values */
  471:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sdiv = 2;
  472:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = 0;
- 422              		.loc 1 472 0
- 423 0188 FE29     		cmp	r1, #254
- 424 018a 28BF     		it	cs
- 425 018c 0022     		movcs	r2, #0
- 426              	.LVL45:
+ 418              		.loc 1 472 0
+ 419 019e FE29     		cmp	r1, #254
+ 420 01a0 28BF     		it	cs
+ 421 01a2 0022     		movcs	r2, #0
+ 422              	.LVL45:
  473:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  474:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  475:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Write to SPIx I2SPR register the computed value */
  476:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->I2SPR = (uint16_t)(i2sdiv | (uint16_t)(i2sodd | (uint16_t)I2S_InitStruct->I2S_MCLKOutput));
- 427              		.loc 1 476 0
- 428 018e E188     		ldrh	r1, [r4, #6]
+ 423              		.loc 1 476 0
+ 424 01a4 E188     		ldrh	r1, [r4, #6]
  472:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     i2sodd = 0;
- 429              		.loc 1 472 0
- 430 0190 28BF     		it	cs
- 431 0192 0223     		movcs	r3, #2
- 432              	.LVL46:
- 433              		.loc 1 476 0
- 434 0194 1343     		orrs	r3, r3, r2
- 435              	.LVL47:
- 436 0196 0B43     		orrs	r3, r3, r1
- 437 0198 2B84     		strh	r3, [r5, #32]	@ movhi
+ 425              		.loc 1 472 0
+ 426 01a6 28BF     		it	cs
+ 427 01a8 0223     		movcs	r3, #2
+ 428              	.LVL46:
+ 429              		.loc 1 476 0
+ 430 01aa 1343     		orrs	r3, r3, r2
+ 431              	.LVL47:
+ 432 01ac 0B43     		orrs	r3, r3, r1
+ 433 01ae 9BB2     		uxth	r3, r3
+ 434 01b0 2B84     		strh	r3, [r5, #32]	@ movhi
  477:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  478:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Configure the I2S with the SPI_InitStruct values */
  479:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)(SPI_I2SCFGR_I2SMOD | I2S_InitStruct->I2S_Mode) | \
  480:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                        (uint16_t)((uint16_t)((uint16_t)(I2S_InitStruct->I2S_Standard |I2S_InitStruc
- 438              		.loc 1 480 0
- 439 019a 2388     		ldrh	r3, [r4, #0]
+ 435              		.loc 1 480 0
+ 436 01b2 2388     		ldrh	r3, [r4]
  479:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)(SPI_I2SCFGR_I2SMOD | I2S_InitStruct->I2S_Mode) | \
- 440              		.loc 1 479 0
- 441 019c 6288     		ldrh	r2, [r4, #2]
- 442              	.LVL48:
- 443              		.loc 1 480 0
- 444 019e 3343     		orrs	r3, r3, r6
- 445 01a0 43F40063 		orr	r3, r3, #2048
+ 437              		.loc 1 479 0
+ 438 01b4 6288     		ldrh	r2, [r4, #2]
+ 439              	.LVL48:
+ 440              		.loc 1 480 0
+ 441 01b6 3343     		orrs	r3, r3, r6
+ 442 01b8 43F40063 		orr	r3, r3, #2048
  479:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)(SPI_I2SCFGR_I2SMOD | I2S_InitStruct->I2S_Mode) | \
- 446              		.loc 1 479 0
- 447 01a4 1343     		orrs	r3, r3, r2
- 448 01a6 A288     		ldrh	r2, [r4, #4]
- 449 01a8 1343     		orrs	r3, r3, r2
- 450 01aa A289     		ldrh	r2, [r4, #12]
- 451 01ac 1343     		orrs	r3, r3, r2
- 452              	.LVL49:
+ 443              		.loc 1 479 0
+ 444 01bc 1343     		orrs	r3, r3, r2
+ 445 01be A288     		ldrh	r2, [r4, #4]
+ 446 01c0 1343     		orrs	r3, r3, r2
+ 447 01c2 A289     		ldrh	r2, [r4, #12]
+ 448 01c4 1343     		orrs	r3, r3, r2
+ 449 01c6 9BB2     		uxth	r3, r3
+ 450              	.LVL49:
  481:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                        I2S_InitStruct->I2S_CPOL)));
  482:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Write to SPIx I2SCFGR */
  484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->I2SCFGR = tmpreg;
- 453              		.loc 1 484 0
- 454 01ae AB83     		strh	r3, [r5, #28]	@ movhi
+ 451              		.loc 1 484 0
+ 452 01c8 AB83     		strh	r3, [r5, #28]	@ movhi
  485:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
- 455              		.loc 1 485 0
- 456 01b0 11B0     		add	sp, sp, #68
- 457 01b2 F0BD     		pop	{r4, r5, r6, r7, pc}
- 458              		.cfi_endproc
- 459              	.LFE115:
- 461              		.align	1
- 462              		.global	SPI_Cmd
- 463              		.thumb
- 464              		.thumb_func
- 466              	SPI_Cmd:
- 467              	.LFB116:
+ 453              		.loc 1 485 0
+ 454 01ca 11B0     		add	sp, sp, #68
+ 455              		@ sp needed
+ 456 01cc F0BD     		pop	{r4, r5, r6, r7, pc}
+ 457              		.cfi_endproc
+ 458              	.LFE115:
+ 460              		.align	1
+ 461              		.global	SPI_Cmd
+ 462              		.thumb
+ 463              		.thumb_func
+ 465              	SPI_Cmd:
+ 466              	.LFB116:
  486:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  487:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
  488:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   * @brief  Enables or disables the specified SPI peripheral.
@@ -992,12 +986,12 @@
  493:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  494:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
  495:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 468              		.loc 1 495 0
- 469              		.cfi_startproc
- 470              		@ args = 0, pretend = 0, frame = 0
- 471              		@ frame_needed = 0, uses_anonymous_args = 0
- 472              		@ link register save eliminated.
- 473              	.LVL50:
+ 467              		.loc 1 495 0
+ 468              		.cfi_startproc
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 471              		@ link register save eliminated.
+ 472              	.LVL50:
  496:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  497:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
  498:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -1006,36 +1000,36 @@
  501:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  502:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI peripheral */
  503:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 |= SPI_CR1_SPE;
- 474              		.loc 1 503 0
- 475 01b4 0388     		ldrh	r3, [r0, #0]
+ 473              		.loc 1 503 0
+ 474 01ce 0388     		ldrh	r3, [r0]
  500:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
- 476              		.loc 1 500 0
- 477 01b6 19B1     		cbz	r1, .L24
- 478              		.loc 1 503 0
- 479 01b8 9BB2     		uxth	r3, r3
- 480 01ba 43F04003 		orr	r3, r3, #64
- 481 01be 03E0     		b	.L26
- 482              	.L24:
+ 475              		.loc 1 500 0
+ 476 01d0 19B1     		cbz	r1, .L25
+ 477              		.loc 1 503 0
+ 478 01d2 9BB2     		uxth	r3, r3
+ 479 01d4 43F04003 		orr	r3, r3, #64
+ 480 01d8 03E0     		b	.L27
+ 481              	.L25:
  504:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  505:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  506:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  507:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI peripheral */
  508:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 &= (uint16_t)~((uint16_t)SPI_CR1_SPE);
- 483              		.loc 1 508 0
- 484 01c0 23F04003 		bic	r3, r3, #64
- 485 01c4 1B04     		lsls	r3, r3, #16
- 486 01c6 1B0C     		lsrs	r3, r3, #16
- 487              	.L26:
- 488 01c8 0380     		strh	r3, [r0, #0]	@ movhi
- 489 01ca 7047     		bx	lr
- 490              		.cfi_endproc
- 491              	.LFE116:
- 493              		.align	1
- 494              		.global	SPI_TIModeCmd
- 495              		.thumb
- 496              		.thumb_func
- 498              	SPI_TIModeCmd:
- 499              	.LFB117:
+ 482              		.loc 1 508 0
+ 483 01da 23F04003 		bic	r3, r3, #64
+ 484 01de 1B04     		lsls	r3, r3, #16
+ 485 01e0 1B0C     		lsrs	r3, r3, #16
+ 486              	.L27:
+ 487 01e2 0380     		strh	r3, [r0]	@ movhi
+ 488 01e4 7047     		bx	lr
+ 489              		.cfi_endproc
+ 490              	.LFE116:
+ 492              		.align	1
+ 493              		.global	SPI_TIModeCmd
+ 494              		.thumb
+ 495              		.thumb_func
+ 497              	SPI_TIModeCmd:
+ 498              	.LFB117:
  509:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  510:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  511:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1053,12 +1047,12 @@
  523:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  524:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_TIModeCmd(SPI_TypeDef* SPIx, FunctionalState NewState)
  525:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 500              		.loc 1 525 0
- 501              		.cfi_startproc
- 502              		@ args = 0, pretend = 0, frame = 0
- 503              		@ frame_needed = 0, uses_anonymous_args = 0
- 504              		@ link register save eliminated.
- 505              	.LVL51:
+ 499              		.loc 1 525 0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 0
+ 502              		@ frame_needed = 0, uses_anonymous_args = 0
+ 503              		@ link register save eliminated.
+ 504              	.LVL51:
  526:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  527:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
  528:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -1067,36 +1061,36 @@
  531:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  532:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the TI mode for the selected SPI peripheral */
  533:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 |= SPI_CR2_FRF;
- 506              		.loc 1 533 0
- 507 01cc 8388     		ldrh	r3, [r0, #4]
+ 505              		.loc 1 533 0
+ 506 01e6 8388     		ldrh	r3, [r0, #4]
  530:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
- 508              		.loc 1 530 0
- 509 01ce 19B1     		cbz	r1, .L28
- 510              		.loc 1 533 0
- 511 01d0 9BB2     		uxth	r3, r3
- 512 01d2 43F01003 		orr	r3, r3, #16
- 513 01d6 03E0     		b	.L30
- 514              	.L28:
+ 507              		.loc 1 530 0
+ 508 01e8 19B1     		cbz	r1, .L29
+ 509              		.loc 1 533 0
+ 510 01ea 9BB2     		uxth	r3, r3
+ 511 01ec 43F01003 		orr	r3, r3, #16
+ 512 01f0 03E0     		b	.L31
+ 513              	.L29:
  534:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  535:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  536:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  537:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the TI mode for the selected SPI peripheral */
  538:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 &= (uint16_t)~((uint16_t)SPI_CR2_FRF);
- 515              		.loc 1 538 0
- 516 01d8 23F01003 		bic	r3, r3, #16
- 517 01dc 1B04     		lsls	r3, r3, #16
- 518 01de 1B0C     		lsrs	r3, r3, #16
- 519              	.L30:
- 520 01e0 8380     		strh	r3, [r0, #4]	@ movhi
- 521 01e2 7047     		bx	lr
- 522              		.cfi_endproc
- 523              	.LFE117:
- 525              		.align	1
- 526              		.global	I2S_Cmd
- 527              		.thumb
- 528              		.thumb_func
- 530              	I2S_Cmd:
- 531              	.LFB118:
+ 514              		.loc 1 538 0
+ 515 01f2 23F01003 		bic	r3, r3, #16
+ 516 01f6 1B04     		lsls	r3, r3, #16
+ 517 01f8 1B0C     		lsrs	r3, r3, #16
+ 518              	.L31:
+ 519 01fa 8380     		strh	r3, [r0, #4]	@ movhi
+ 520 01fc 7047     		bx	lr
+ 521              		.cfi_endproc
+ 522              	.LFE117:
+ 524              		.align	1
+ 525              		.global	I2S_Cmd
+ 526              		.thumb
+ 527              		.thumb_func
+ 529              	I2S_Cmd:
+ 530              	.LFB118:
  539:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  540:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  541:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1110,12 +1104,12 @@
  549:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  550:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
  551:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 532              		.loc 1 551 0
- 533              		.cfi_startproc
- 534              		@ args = 0, pretend = 0, frame = 0
- 535              		@ frame_needed = 0, uses_anonymous_args = 0
- 536              		@ link register save eliminated.
- 537              	.LVL52:
+ 531              		.loc 1 551 0
+ 532              		.cfi_startproc
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 536              	.LVL52:
  552:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  553:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_23_PERIPH_EXT(SPIx));
  554:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -1123,36 +1117,36 @@
  556:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  557:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI peripheral in I2S mode */
  558:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->I2SCFGR |= SPI_I2SCFGR_I2SE;
- 538              		.loc 1 558 0
- 539 01e4 838B     		ldrh	r3, [r0, #28]
+ 537              		.loc 1 558 0
+ 538 01fe 838B     		ldrh	r3, [r0, #28]
  555:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
- 540              		.loc 1 555 0
- 541 01e6 19B1     		cbz	r1, .L32
- 542              		.loc 1 558 0
- 543 01e8 9BB2     		uxth	r3, r3
- 544 01ea 43F48063 		orr	r3, r3, #1024
- 545 01ee 03E0     		b	.L34
- 546              	.L32:
+ 539              		.loc 1 555 0
+ 540 0200 19B1     		cbz	r1, .L33
+ 541              		.loc 1 558 0
+ 542 0202 9BB2     		uxth	r3, r3
+ 543 0204 43F48063 		orr	r3, r3, #1024
+ 544 0208 03E0     		b	.L35
+ 545              	.L33:
  559:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  560:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  561:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  562:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI peripheral in I2S mode */
  563:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->I2SCFGR &= (uint16_t)~((uint16_t)SPI_I2SCFGR_I2SE);
- 547              		.loc 1 563 0
- 548 01f0 23F48063 		bic	r3, r3, #1024
- 549 01f4 1B04     		lsls	r3, r3, #16
- 550 01f6 1B0C     		lsrs	r3, r3, #16
- 551              	.L34:
- 552 01f8 8383     		strh	r3, [r0, #28]	@ movhi
- 553 01fa 7047     		bx	lr
- 554              		.cfi_endproc
- 555              	.LFE118:
- 557              		.align	1
- 558              		.global	SPI_DataSizeConfig
- 559              		.thumb
- 560              		.thumb_func
- 562              	SPI_DataSizeConfig:
- 563              	.LFB119:
+ 546              		.loc 1 563 0
+ 547 020a 23F48063 		bic	r3, r3, #1024
+ 548 020e 1B04     		lsls	r3, r3, #16
+ 549 0210 1B0C     		lsrs	r3, r3, #16
+ 550              	.L35:
+ 551 0212 8383     		strh	r3, [r0, #28]	@ movhi
+ 552 0214 7047     		bx	lr
+ 553              		.cfi_endproc
+ 554              	.LFE118:
+ 556              		.align	1
+ 557              		.global	SPI_DataSizeConfig
+ 558              		.thumb
+ 559              		.thumb_func
+ 561              	SPI_DataSizeConfig:
+ 562              	.LFB119:
  564:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  565:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  566:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1178,12 +1172,12 @@
  586:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  587:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize)
  588:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 564              		.loc 1 588 0
- 565              		.cfi_startproc
- 566              		@ args = 0, pretend = 0, frame = 0
- 567              		@ frame_needed = 0, uses_anonymous_args = 0
- 568              		@ link register save eliminated.
- 569              	.LVL53:
+ 563              		.loc 1 588 0
+ 564              		.cfi_startproc
+ 565              		@ args = 0, pretend = 0, frame = 0
+ 566              		@ frame_needed = 0, uses_anonymous_args = 0
+ 567              		@ link register save eliminated.
+ 568              	.LVL53:
  589:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint16_t tmpreg = 0;
  590:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  591:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
@@ -1191,34 +1185,34 @@
  593:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_DATA_SIZE(SPI_DataSize));
  594:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Read the CR2 register */
  595:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = SPIx->CR2;
- 570              		.loc 1 595 0
- 571 01fc 8388     		ldrh	r3, [r0, #4]
- 572              	.LVL54:
+ 569              		.loc 1 595 0
+ 570 0216 8388     		ldrh	r3, [r0, #4]
+ 571              	.LVL54:
  596:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear DS[3:0] bits */
  597:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg &= (uint16_t)~SPI_CR2_DS;
- 573              		.loc 1 597 0
- 574 01fe 23F47063 		bic	r3, r3, #3840
- 575              	.LVL55:
- 576 0202 1B04     		lsls	r3, r3, #16
- 577 0204 1B0C     		lsrs	r3, r3, #16
- 578              	.LVL56:
+ 572              		.loc 1 597 0
+ 573 0218 23F47063 		bic	r3, r3, #3840
+ 574              	.LVL55:
+ 575 021c 1B04     		lsls	r3, r3, #16
+ 576 021e 1B0C     		lsrs	r3, r3, #16
+ 577              	.LVL56:
  598:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Set new DS[3:0] bits value */
  599:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= SPI_DataSize;
- 579              		.loc 1 599 0
- 580 0206 1943     		orrs	r1, r1, r3
- 581              	.LVL57:
+ 578              		.loc 1 599 0
+ 579 0220 1943     		orrs	r1, r1, r3
+ 580              	.LVL57:
  600:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR2 = tmpreg;
- 582              		.loc 1 600 0
- 583 0208 8180     		strh	r1, [r0, #4]	@ movhi
- 584 020a 7047     		bx	lr
- 585              		.cfi_endproc
- 586              	.LFE119:
- 588              		.align	1
- 589              		.global	SPI_RxFIFOThresholdConfig
- 590              		.thumb
- 591              		.thumb_func
- 593              	SPI_RxFIFOThresholdConfig:
- 594              	.LFB120:
+ 581              		.loc 1 600 0
+ 582 0222 8180     		strh	r1, [r0, #4]	@ movhi
+ 583 0224 7047     		bx	lr
+ 584              		.cfi_endproc
+ 585              	.LFE119:
+ 587              		.align	1
+ 588              		.global	SPI_RxFIFOThresholdConfig
+ 589              		.thumb
+ 590              		.thumb_func
+ 592              	SPI_RxFIFOThresholdConfig:
+ 593              	.LFB120:
  601:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  602:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  603:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
@@ -1234,42 +1228,42 @@
  613:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  614:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_RxFIFOThresholdConfig(SPI_TypeDef* SPIx, uint16_t SPI_RxFIFOThreshold)
  615:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 595              		.loc 1 615 0
- 596              		.cfi_startproc
- 597              		@ args = 0, pretend = 0, frame = 0
- 598              		@ frame_needed = 0, uses_anonymous_args = 0
- 599              		@ link register save eliminated.
- 600              	.LVL58:
+ 594              		.loc 1 615 0
+ 595              		.cfi_startproc
+ 596              		@ args = 0, pretend = 0, frame = 0
+ 597              		@ frame_needed = 0, uses_anonymous_args = 0
+ 598              		@ link register save eliminated.
+ 599              	.LVL58:
  616:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  617:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
  618:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_RX_FIFO_THRESHOLD(SPI_RxFIFOThreshold));
  619:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  620:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear FRXTH bit */
  621:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR2 &= (uint16_t)~((uint16_t)SPI_CR2_FRXTH);
- 601              		.loc 1 621 0
- 602 020c 8388     		ldrh	r3, [r0, #4]
- 603 020e 23F48053 		bic	r3, r3, #4096
- 604 0212 1B04     		lsls	r3, r3, #16
- 605 0214 1B0C     		lsrs	r3, r3, #16
- 606 0216 8380     		strh	r3, [r0, #4]	@ movhi
+ 600              		.loc 1 621 0
+ 601 0226 8388     		ldrh	r3, [r0, #4]
+ 602 0228 23F48053 		bic	r3, r3, #4096
+ 603 022c 1B04     		lsls	r3, r3, #16
+ 604 022e 1B0C     		lsrs	r3, r3, #16
+ 605 0230 8380     		strh	r3, [r0, #4]	@ movhi
  622:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  623:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Set new FRXTH bit value */
  624:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR2 |= SPI_RxFIFOThreshold;
- 607              		.loc 1 624 0
- 608 0218 8388     		ldrh	r3, [r0, #4]
- 609 021a 9BB2     		uxth	r3, r3
- 610 021c 1943     		orrs	r1, r1, r3
- 611              	.LVL59:
- 612 021e 8180     		strh	r1, [r0, #4]	@ movhi
- 613 0220 7047     		bx	lr
- 614              		.cfi_endproc
- 615              	.LFE120:
- 617              		.align	1
- 618              		.global	SPI_BiDirectionalLineConfig
- 619              		.thumb
- 620              		.thumb_func
- 622              	SPI_BiDirectionalLineConfig:
- 623              	.LFB121:
+ 606              		.loc 1 624 0
+ 607 0232 8388     		ldrh	r3, [r0, #4]
+ 608 0234 9BB2     		uxth	r3, r3
+ 609 0236 1943     		orrs	r1, r1, r3
+ 610              	.LVL59:
+ 611 0238 8180     		strh	r1, [r0, #4]	@ movhi
+ 612 023a 7047     		bx	lr
+ 613              		.cfi_endproc
+ 614              	.LFE120:
+ 616              		.align	1
+ 617              		.global	SPI_BiDirectionalLineConfig
+ 618              		.thumb
+ 619              		.thumb_func
+ 621              	SPI_BiDirectionalLineConfig:
+ 622              	.LFB121:
  625:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  626:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  627:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
@@ -1283,51 +1277,51 @@
  635:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  636:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction)
  637:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 624              		.loc 1 637 0
- 625              		.cfi_startproc
- 626              		@ args = 0, pretend = 0, frame = 0
- 627              		@ frame_needed = 0, uses_anonymous_args = 0
- 628              		@ link register save eliminated.
- 629              	.LVL60:
+ 623              		.loc 1 637 0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627              		@ link register save eliminated.
+ 628              	.LVL60:
  638:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  639:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
  640:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_DIRECTION(SPI_Direction));
  641:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPI_Direction == SPI_Direction_Tx)
- 630              		.loc 1 641 0
- 631 0222 B1F5804F 		cmp	r1, #16384
+ 629              		.loc 1 641 0
+ 630 023c B1F5804F 		cmp	r1, #16384
  642:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  643:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set the Tx only mode */
  644:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 |= SPI_Direction_Tx;
- 632              		.loc 1 644 0
- 633 0226 0388     		ldrh	r3, [r0, #0]
+ 631              		.loc 1 644 0
+ 632 0240 0388     		ldrh	r3, [r0]
  641:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPI_Direction == SPI_Direction_Tx)
- 634              		.loc 1 641 0
- 635 0228 03D1     		bne	.L38
- 636              		.loc 1 644 0
- 637 022a 9BB2     		uxth	r3, r3
- 638 022c 43F48043 		orr	r3, r3, #16384
- 639 0230 03E0     		b	.L40
- 640              	.L38:
+ 633              		.loc 1 641 0
+ 634 0242 03D1     		bne	.L39
+ 635              		.loc 1 644 0
+ 636 0244 9BB2     		uxth	r3, r3
+ 637 0246 43F48043 		orr	r3, r3, #16384
+ 638 024a 03E0     		b	.L41
+ 639              	.L39:
  645:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  646:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  647:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  648:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set the Rx only mode */
  649:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 &= SPI_Direction_Rx;
- 641              		.loc 1 649 0
- 642 0232 23F48043 		bic	r3, r3, #16384
- 643 0236 1B04     		lsls	r3, r3, #16
- 644 0238 1B0C     		lsrs	r3, r3, #16
- 645              	.L40:
- 646 023a 0380     		strh	r3, [r0, #0]	@ movhi
- 647 023c 7047     		bx	lr
- 648              		.cfi_endproc
- 649              	.LFE121:
- 651              		.align	1
- 652              		.global	SPI_NSSInternalSoftwareConfig
- 653              		.thumb
- 654              		.thumb_func
- 656              	SPI_NSSInternalSoftwareConfig:
- 657              	.LFB122:
+ 640              		.loc 1 649 0
+ 641 024c 23F48043 		bic	r3, r3, #16384
+ 642 0250 1B04     		lsls	r3, r3, #16
+ 643 0252 1B0C     		lsrs	r3, r3, #16
+ 644              	.L41:
+ 645 0254 0380     		strh	r3, [r0]	@ movhi
+ 646 0256 7047     		bx	lr
+ 647              		.cfi_endproc
+ 648              	.LFE121:
+ 650              		.align	1
+ 651              		.global	SPI_NSSInternalSoftwareConfig
+ 652              		.thumb
+ 653              		.thumb_func
+ 655              	SPI_NSSInternalSoftwareConfig:
+ 656              	.LFB122:
  650:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  651:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  652:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1344,53 +1338,53 @@
  663:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  664:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft)
  665:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 658              		.loc 1 665 0
- 659              		.cfi_startproc
- 660              		@ args = 0, pretend = 0, frame = 0
- 661              		@ frame_needed = 0, uses_anonymous_args = 0
- 662              		@ link register save eliminated.
- 663              	.LVL61:
+ 657              		.loc 1 665 0
+ 658              		.cfi_startproc
+ 659              		@ args = 0, pretend = 0, frame = 0
+ 660              		@ frame_needed = 0, uses_anonymous_args = 0
+ 661              		@ link register save eliminated.
+ 662              	.LVL61:
  666:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the parameters */
  667:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
  668:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   assert_param(IS_SPI_NSS_INTERNAL(SPI_NSSInternalSoft));
  669:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  670:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPI_NSSInternalSoft != SPI_NSSInternalSoft_Reset)
- 664              		.loc 1 670 0
- 665 023e 4FF6FF63 		movw	r3, #65279
- 666 0242 9942     		cmp	r1, r3
+ 663              		.loc 1 670 0
+ 664 0258 4FF6FF63 		movw	r3, #65279
+ 665 025c 9942     		cmp	r1, r3
  671:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  672:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Set NSS pin internally by software */
  673:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 |= SPI_NSSInternalSoft_Set;
- 667              		.loc 1 673 0
- 668 0244 0388     		ldrh	r3, [r0, #0]
+ 666              		.loc 1 673 0
+ 667 025e 0388     		ldrh	r3, [r0]
  670:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPI_NSSInternalSoft != SPI_NSSInternalSoft_Reset)
- 669              		.loc 1 670 0
- 670 0246 03D0     		beq	.L42
- 671              		.loc 1 673 0
- 672 0248 9BB2     		uxth	r3, r3
- 673 024a 43F48073 		orr	r3, r3, #256
- 674 024e 03E0     		b	.L44
- 675              	.L42:
+ 668              		.loc 1 670 0
+ 669 0260 03D0     		beq	.L43
+ 670              		.loc 1 673 0
+ 671 0262 9BB2     		uxth	r3, r3
+ 672 0264 43F48073 		orr	r3, r3, #256
+ 673 0268 03E0     		b	.L45
+ 674              	.L43:
  674:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  675:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  676:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  677:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Reset NSS pin internally by software */
  678:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 &= SPI_NSSInternalSoft_Reset;
- 676              		.loc 1 678 0
- 677 0250 23F48073 		bic	r3, r3, #256
- 678 0254 1B04     		lsls	r3, r3, #16
- 679 0256 1B0C     		lsrs	r3, r3, #16
- 680              	.L44:
- 681 0258 0380     		strh	r3, [r0, #0]	@ movhi
- 682 025a 7047     		bx	lr
- 683              		.cfi_endproc
- 684              	.LFE122:
- 686              		.align	1
- 687              		.global	I2S_FullDuplexConfig
- 688              		.thumb
- 689              		.thumb_func
- 691              	I2S_FullDuplexConfig:
- 692              	.LFB123:
+ 675              		.loc 1 678 0
+ 676 026a 23F48073 		bic	r3, r3, #256
+ 677 026e 1B04     		lsls	r3, r3, #16
+ 678 0270 1B0C     		lsrs	r3, r3, #16
+ 679              	.L45:
+ 680 0272 0380     		strh	r3, [r0]	@ movhi
+ 681 0274 7047     		bx	lr
+ 682              		.cfi_endproc
+ 683              	.LFE122:
+ 685              		.align	1
+ 686              		.global	I2S_FullDuplexConfig
+ 687              		.thumb
+ 688              		.thumb_func
+ 690              	I2S_FullDuplexConfig:
+ 691              	.LFB123:
  679:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  680:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  681:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1415,11 +1409,11 @@
  700:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
  701:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
  702:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 693              		.loc 1 702 0
- 694              		.cfi_startproc
- 695              		@ args = 0, pretend = 0, frame = 0
- 696              		@ frame_needed = 0, uses_anonymous_args = 0
- 697              	.LVL62:
+ 692              		.loc 1 702 0
+ 693              		.cfi_startproc
+ 694              		@ args = 0, pretend = 0, frame = 0
+ 695              		@ frame_needed = 0, uses_anonymous_args = 0
+ 696              	.LVL62:
  703:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint16_t tmpreg = 0, tmp = 0;
  704:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  705:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the I2S parameters */
@@ -1432,61 +1426,46 @@
  712:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /*----------------------- SPIx I2SCFGR & I2SPR Configuration -----------------*/
  713:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear I2SMOD, I2SE, I2SCFG, PCMSYNC, I2SSTD, CKPOL, DATLEN and CHLEN bits */
  714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2Sxext->I2SCFGR &= I2SCFGR_CLEAR_MASK; 
- 698              		.loc 1 714 0
- 699 025c 838B     		ldrh	r3, [r0, #28]
- 700 025e 23F47B63 		bic	r3, r3, #4016
- 701 0262 23F00F03 		bic	r3, r3, #15
- 702 0266 1B04     		lsls	r3, r3, #16
- 703 0268 1B0C     		lsrs	r3, r3, #16
- 704 026a 8383     		strh	r3, [r0, #28]	@ movhi
+ 697              		.loc 1 714 0
+ 698 0276 838B     		ldrh	r3, [r0, #28]
  715:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2Sxext->I2SPR = 0x0002;
- 705              		.loc 1 715 0
- 706 026c 0223     		movs	r3, #2
- 707 026e 0384     		strh	r3, [r0, #32]	@ movhi
  716:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  717:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the I2SCFGR register value */
  718:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = I2Sxext->I2SCFGR;
  719:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  720:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the mode to be configured for the extended I2S */
  721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterTx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Slav
- 708              		.loc 1 721 0
- 709 0270 0B88     		ldrh	r3, [r1, #0]
+ 699              		.loc 1 721 0
+ 700 0278 0A88     		ldrh	r2, [r1]
+ 714:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2Sxext->I2SCFGR &= I2SCFGR_CLEAR_MASK; 
+ 701              		.loc 1 714 0
+ 702 027a 23F47B63 		bic	r3, r3, #4016
+ 703 027e 23F00F03 		bic	r3, r3, #15
+ 704 0282 1B04     		lsls	r3, r3, #16
+ 705 0284 1B0C     		lsrs	r3, r3, #16
+ 706 0286 8383     		strh	r3, [r0, #28]	@ movhi
+ 715:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2Sxext->I2SPR = 0x0002;
+ 707              		.loc 1 715 0
+ 708 0288 0223     		movs	r3, #2
+ 709 028a 0384     		strh	r3, [r0, #32]	@ movhi
  718:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = I2Sxext->I2SCFGR;
  710              		.loc 1 718 0
- 711 0272 828B     		ldrh	r2, [r0, #28]
- 712              	.LVL63:
- 713              		.loc 1 721 0
- 714 0274 B3F5007F 		cmp	r3, #512
+ 711 028c 838B     		ldrh	r3, [r0, #28]
  702:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 715              		.loc 1 702 0
- 716 0278 10B5     		push	{r4, lr}
- 717              	.LCFI4:
- 718              		.cfi_def_cfa_offset 8
- 719              		.cfi_offset 4, -8
- 720              		.cfi_offset 14, -4
- 721              		.loc 1 721 0
- 722 027a 02D1     		bne	.L46
- 723              	.L48:
+ 712              		.loc 1 702 0
+ 713 028e 10B5     		push	{r4, lr}
+ 714              	.LCFI4:
+ 715              		.cfi_def_cfa_offset 8
+ 716              		.cfi_offset 4, -8
+ 717              		.cfi_offset 14, -4
  722:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  723:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmp = I2S_Mode_SlaveRx;
- 724              		.loc 1 723 0
- 725 027c 4FF48073 		mov	r3, #256
- 726 0280 02E0     		b	.L47
- 727              	.L46:
- 721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterTx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Slav
- 728              		.loc 1 721 0 discriminator 1
- 729 0282 002B     		cmp	r3, #0
- 730 0284 FAD0     		beq	.L48
  724:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  725:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  726:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  727:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterRx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Sl
  728:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     {
  729:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****       tmp = I2S_Mode_SlaveTx;
- 731              		.loc 1 729 0
- 732 0286 0023     		movs	r3, #0
- 733              	.L47:
- 734              	.LVL64:
  730:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     }
  731:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  732:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -1494,31 +1473,55 @@
  734:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Configure the I2S with the SPI_InitStruct values */
  735:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)SPI_I2SCFGR_I2SMOD | (uint16_t)(tmp | \
  736:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                   (uint16_t)(I2S_InitStruct->I2S_Standard | (uint16_t)(I2S_InitStruct->I2S_DataForm
- 735              		.loc 1 736 0
- 736 0288 4C88     		ldrh	r4, [r1, #2]
- 737 028a 2243     		orrs	r2, r2, r4
- 738              	.LVL65:
+ 718              		.loc 1 736 0
+ 719 0290 4C88     		ldrh	r4, [r1, #2]
+ 718:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg = I2Sxext->I2SCFGR;
+ 720              		.loc 1 718 0
+ 721 0292 9BB2     		uxth	r3, r3
+ 722              	.LVL63:
+ 723              		.loc 1 736 0
+ 724 0294 2343     		orrs	r3, r3, r4
+ 725              	.LVL64:
  735:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)SPI_I2SCFGR_I2SMOD | (uint16_t)(tmp | \
- 739              		.loc 1 735 0
- 740 028c 8C88     		ldrh	r4, [r1, #4]
- 741 028e 8989     		ldrh	r1, [r1, #12]
- 742              	.LVL66:
- 743              		.loc 1 736 0
- 744 0290 42F40062 		orr	r2, r2, #2048
+ 726              		.loc 1 735 0
+ 727 0296 8C88     		ldrh	r4, [r1, #4]
+ 728 0298 8989     		ldrh	r1, [r1, #12]
+ 729              	.LVL65:
+ 721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterTx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Slav
+ 730              		.loc 1 721 0
+ 731 029a 22F40072 		bic	r2, r2, #512
+ 732              		.loc 1 736 0
+ 733 029e 43F40063 		orr	r3, r3, #2048
+ 721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterTx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Slav
+ 734              		.loc 1 721 0
+ 735 02a2 92B2     		uxth	r2, r2
  735:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)SPI_I2SCFGR_I2SMOD | (uint16_t)(tmp | \
- 745              		.loc 1 735 0
- 746 0294 2243     		orrs	r2, r2, r4
- 747 0296 0A43     		orrs	r2, r2, r1
- 748 0298 92B2     		uxth	r2, r2
- 749 029a 1343     		orrs	r3, r3, r2
+ 736              		.loc 1 735 0
+ 737 02a4 2343     		orrs	r3, r3, r4
+ 721:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((I2S_InitStruct->I2S_Mode == I2S_Mode_MasterTx) || (I2S_InitStruct->I2S_Mode == I2S_Mode_Slav
+ 738              		.loc 1 721 0
+ 739 02a6 002A     		cmp	r2, #0
+ 735:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)SPI_I2SCFGR_I2SMOD | (uint16_t)(tmp | \
+ 740              		.loc 1 735 0
+ 741 02a8 43EA0103 		orr	r3, r3, r1
+ 723:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     tmp = I2S_Mode_SlaveRx;
+ 742              		.loc 1 723 0
+ 743 02ac 14BF     		ite	ne
+ 744 02ae 0022     		movne	r2, #0
+ 745 02b0 4FF48072 		moveq	r2, #256
+ 746              	.LVL66:
+ 735:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   tmpreg |= (uint16_t)((uint16_t)SPI_I2SCFGR_I2SMOD | (uint16_t)(tmp | \
+ 747              		.loc 1 735 0
+ 748 02b4 9BB2     		uxth	r3, r3
+ 749 02b6 1343     		orrs	r3, r3, r2
  750              	.LVL67:
  737:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****                   (uint16_t)I2S_InitStruct->I2S_CPOL))));
  738:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****  
  739:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Write to SPIx I2SCFGR */  
  740:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   I2Sxext->I2SCFGR = tmpreg;
  751              		.loc 1 740 0
- 752 029c 8383     		strh	r3, [r0, #28]	@ movhi
- 753 029e 10BD     		pop	{r4, pc}
+ 752 02b8 8383     		strh	r3, [r0, #28]	@ movhi
+ 753 02ba 10BD     		pop	{r4, pc}
  754              		.cfi_endproc
  755              	.LFE123:
  757              		.align	1
@@ -1554,27 +1557,27 @@
  759:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI SS output */
  760:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 |= (uint16_t)SPI_CR2_SSOE;
  770              		.loc 1 760 0
- 771 02a0 8388     		ldrh	r3, [r0, #4]
+ 771 02bc 8388     		ldrh	r3, [r0, #4]
  757:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
  772              		.loc 1 757 0
- 773 02a2 19B1     		cbz	r1, .L53
+ 773 02be 19B1     		cbz	r1, .L50
  774              		.loc 1 760 0
- 775 02a4 9BB2     		uxth	r3, r3
- 776 02a6 43F00403 		orr	r3, r3, #4
- 777 02aa 03E0     		b	.L55
- 778              	.L53:
+ 775 02c0 9BB2     		uxth	r3, r3
+ 776 02c2 43F00403 		orr	r3, r3, #4
+ 777 02c6 03E0     		b	.L52
+ 778              	.L50:
  761:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  762:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  763:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  764:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI SS output */
  765:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 &= (uint16_t)~((uint16_t)SPI_CR2_SSOE);
  779              		.loc 1 765 0
- 780 02ac 23F00403 		bic	r3, r3, #4
- 781 02b0 1B04     		lsls	r3, r3, #16
- 782 02b2 1B0C     		lsrs	r3, r3, #16
- 783              	.L55:
- 784 02b4 8380     		strh	r3, [r0, #4]	@ movhi
- 785 02b6 7047     		bx	lr
+ 780 02c8 23F00403 		bic	r3, r3, #4
+ 781 02cc 1B04     		lsls	r3, r3, #16
+ 782 02ce 1B0C     		lsrs	r3, r3, #16
+ 783              	.L52:
+ 784 02d0 8380     		strh	r3, [r0, #4]	@ movhi
+ 785 02d2 7047     		bx	lr
  786              		.cfi_endproc
  787              	.LFE124:
  789              		.align	1
@@ -1615,27 +1618,27 @@
  789:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the NSS pulse management mode */
  790:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 |= SPI_CR2_NSSP;
  802              		.loc 1 790 0
- 803 02b8 8388     		ldrh	r3, [r0, #4]
+ 803 02d4 8388     		ldrh	r3, [r0, #4]
  787:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
  804              		.loc 1 787 0
- 805 02ba 19B1     		cbz	r1, .L57
+ 805 02d6 19B1     		cbz	r1, .L54
  806              		.loc 1 790 0
- 807 02bc 9BB2     		uxth	r3, r3
- 808 02be 43F00803 		orr	r3, r3, #8
- 809 02c2 03E0     		b	.L59
- 810              	.L57:
+ 807 02d8 9BB2     		uxth	r3, r3
+ 808 02da 43F00803 		orr	r3, r3, #8
+ 809 02de 03E0     		b	.L56
+ 810              	.L54:
  791:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  792:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  793:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  794:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the NSS pulse management mode */
  795:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 &= (uint16_t)~((uint16_t)SPI_CR2_NSSP);    
  811              		.loc 1 795 0
- 812 02c4 23F00803 		bic	r3, r3, #8
- 813 02c8 1B04     		lsls	r3, r3, #16
- 814 02ca 1B0C     		lsrs	r3, r3, #16
- 815              	.L59:
- 816 02cc 8380     		strh	r3, [r0, #4]	@ movhi
- 817 02ce 7047     		bx	lr
+ 812 02e0 23F00803 		bic	r3, r3, #8
+ 813 02e4 1B04     		lsls	r3, r3, #16
+ 814 02e6 1B0C     		lsrs	r3, r3, #16
+ 815              	.L56:
+ 816 02e8 8380     		strh	r3, [r0, #4]	@ movhi
+ 817 02ea 7047     		bx	lr
  818              		.cfi_endproc
  819              	.LFE125:
  821              		.align	1
@@ -1696,8 +1699,8 @@
  839:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  840:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   *(__IO uint8_t *) spixbase = Data;
  834              		.loc 1 840 0
- 835 02d0 0173     		strb	r1, [r0, #12]
- 836 02d2 7047     		bx	lr
+ 835 02ec 0173     		strb	r1, [r0, #12]
+ 836 02ee 7047     		bx	lr
  837              		.cfi_endproc
  838              	.LFE126:
  840              		.align	1
@@ -1728,8 +1731,8 @@
  854:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  855:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->DR = (uint16_t)Data;
  853              		.loc 1 855 0
- 854 02d4 8181     		strh	r1, [r0, #12]	@ movhi
- 855 02d6 7047     		bx	lr
+ 854 02f0 8181     		strh	r1, [r0, #12]	@ movhi
+ 855 02f2 7047     		bx	lr
  856              		.cfi_endproc
  857              	.LFE127:
  859              		.align	1
@@ -1763,11 +1766,11 @@
  872:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  873:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return *(__IO uint8_t *) spixbase;
  872              		.loc 1 873 0
- 873 02d8 007B     		ldrb	r0, [r0, #12]	@ zero_extendqisi2
+ 873 02f4 007B     		ldrb	r0, [r0, #12]	@ zero_extendqisi2
  874              	.LVL73:
  874:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  875              		.loc 1 874 0
- 876 02da 7047     		bx	lr
+ 876 02f6 7047     		bx	lr
  877              		.cfi_endproc
  878              	.LFE128:
  880              		.align	1
@@ -1796,12 +1799,12 @@
  886:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   
  887:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return SPIx->DR;
  893              		.loc 1 887 0
- 894 02dc 8089     		ldrh	r0, [r0, #12]
+ 894 02f8 8089     		ldrh	r0, [r0, #12]
  895              	.LVL75:
  888:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  896              		.loc 1 888 0
- 897 02de 80B2     		uxth	r0, r0
- 898 02e0 7047     		bx	lr
+ 897 02fa 80B2     		uxth	r0, r0
+ 898 02fc 7047     		bx	lr
  899              		.cfi_endproc
  900              	.LFE129:
  902              		.align	1
@@ -1900,21 +1903,21 @@
  970:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear CRCL bit */
  971:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR1 &= (uint16_t)~((uint16_t)SPI_CR1_CRCL);
  915              		.loc 1 971 0
- 916 02e2 0388     		ldrh	r3, [r0, #0]
- 917 02e4 23F40063 		bic	r3, r3, #2048
- 918 02e8 1B04     		lsls	r3, r3, #16
- 919 02ea 1B0C     		lsrs	r3, r3, #16
- 920 02ec 0380     		strh	r3, [r0, #0]	@ movhi
+ 916 02fe 0388     		ldrh	r3, [r0]
+ 917 0300 23F40063 		bic	r3, r3, #2048
+ 918 0304 1B04     		lsls	r3, r3, #16
+ 919 0306 1B0C     		lsrs	r3, r3, #16
+ 920 0308 0380     		strh	r3, [r0]	@ movhi
  972:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
  973:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Set new CRCL bit value */
  974:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR1 |= SPI_CRCLength;
  921              		.loc 1 974 0
- 922 02ee 0388     		ldrh	r3, [r0, #0]
- 923 02f0 9BB2     		uxth	r3, r3
- 924 02f2 1943     		orrs	r1, r1, r3
+ 922 030a 0388     		ldrh	r3, [r0]
+ 923 030c 9BB2     		uxth	r3, r3
+ 924 030e 1943     		orrs	r1, r1, r3
  925              	.LVL77:
- 926 02f4 0180     		strh	r1, [r0, #0]	@ movhi
- 927 02f6 7047     		bx	lr
+ 926 0310 0180     		strh	r1, [r0]	@ movhi
+ 927 0312 7047     		bx	lr
  928              		.cfi_endproc
  929              	.LFE130:
  931              		.align	1
@@ -1949,27 +1952,27 @@
  992:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI CRC calculation */
  993:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 |= SPI_CR1_CRCEN;
  944              		.loc 1 993 0
- 945 02f8 0388     		ldrh	r3, [r0, #0]
+ 945 0314 0388     		ldrh	r3, [r0]
  990:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
  946              		.loc 1 990 0
- 947 02fa 19B1     		cbz	r1, .L66
+ 947 0316 19B1     		cbz	r1, .L63
  948              		.loc 1 993 0
- 949 02fc 9BB2     		uxth	r3, r3
- 950 02fe 43F40053 		orr	r3, r3, #8192
- 951 0302 03E0     		b	.L68
- 952              	.L66:
+ 949 0318 9BB2     		uxth	r3, r3
+ 950 031a 43F40053 		orr	r3, r3, #8192
+ 951 031e 03E0     		b	.L65
+ 952              	.L63:
  994:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
  995:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
  996:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
  997:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI CRC calculation */
  998:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR1 &= (uint16_t)~((uint16_t)SPI_CR1_CRCEN);
  953              		.loc 1 998 0
- 954 0304 23F40053 		bic	r3, r3, #8192
- 955 0308 1B04     		lsls	r3, r3, #16
- 956 030a 1B0C     		lsrs	r3, r3, #16
- 957              	.L68:
- 958 030c 0380     		strh	r3, [r0, #0]	@ movhi
- 959 030e 7047     		bx	lr
+ 954 0320 23F40053 		bic	r3, r3, #8192
+ 955 0324 1B04     		lsls	r3, r3, #16
+ 956 0326 1B0C     		lsrs	r3, r3, #16
+ 957              	.L65:
+ 958 0328 0380     		strh	r3, [r0]	@ movhi
+ 959 032a 7047     		bx	lr
  960              		.cfi_endproc
  961              	.LFE131:
  963              		.align	1
@@ -2000,11 +2003,11 @@
 1012:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Enable the selected SPI CRC transmission */
 1013:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR1 |= SPI_CR1_CRCNEXT;
  976              		.loc 1 1013 0
- 977 0310 0388     		ldrh	r3, [r0, #0]
- 978 0312 9BB2     		uxth	r3, r3
- 979 0314 43F48053 		orr	r3, r3, #4096
- 980 0318 0380     		strh	r3, [r0, #0]	@ movhi
- 981 031a 7047     		bx	lr
+ 977 032c 0388     		ldrh	r3, [r0]
+ 978 032e 9BB2     		uxth	r3, r3
+ 979 0330 43F48053 		orr	r3, r3, #4096
+ 980 0334 0380     		strh	r3, [r0]	@ movhi
+ 981 0336 7047     		bx	lr
  982              		.cfi_endproc
  983              	.LFE132:
  985              		.align	1
@@ -2039,13 +2042,13 @@
 1031:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1032:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (SPI_CRC != SPI_CRC_Rx)
  998              		.loc 1 1032 0
- 999 031c 0129     		cmp	r1, #1
+ 999 0338 0129     		cmp	r1, #1
 1033:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1034:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the Tx CRC register */
 1035:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     crcreg = SPIx->TXCRCR;
  1000              		.loc 1 1035 0
- 1001 031e 14BF     		ite	ne
- 1002 0320 008B     		ldrhne	r0, [r0, #24]
+ 1001 033a 14BF     		ite	ne
+ 1002 033c 008B     		ldrhne	r0, [r0, #24]
  1003              	.LVL81:
 1036:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
 1037:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
@@ -2053,15 +2056,15 @@
 1039:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Get the Rx CRC register */
 1040:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     crcreg = SPIx->RXCRCR;
  1004              		.loc 1 1040 0
- 1005 0322 808A     		ldrheq	r0, [r0, #20]
- 1006 0324 80B2     		uxth	r0, r0
+ 1005 033e 808A     		ldrheq	r0, [r0, #20]
+ 1006 0340 80B2     		uxth	r0, r0
  1007              	.LVL82:
 1041:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
 1042:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Return the selected CRC register */
 1043:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return crcreg;
 1044:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  1008              		.loc 1 1044 0
- 1009 0326 7047     		bx	lr
+ 1009 0342 7047     		bx	lr
  1010              		.cfi_endproc
  1011              	.LFE133:
  1013              		.align	1
@@ -2090,12 +2093,12 @@
 1056:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Return the CRC polynomial register */
 1057:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return SPIx->CRCPR;
  1026              		.loc 1 1057 0
- 1027 0328 008A     		ldrh	r0, [r0, #16]
+ 1027 0344 008A     		ldrh	r0, [r0, #16]
  1028              	.LVL84:
 1058:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  1029              		.loc 1 1058 0
- 1030 032a 80B2     		uxth	r0, r0
- 1031 032c 7047     		bx	lr
+ 1030 0346 80B2     		uxth	r0, r0
+ 1031 0348 7047     		bx	lr
  1032              		.cfi_endproc
  1033              	.LFE134:
  1035              		.align	1
@@ -2151,28 +2154,28 @@
 1097:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI DMA requests */
 1098:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 |= SPI_I2S_DMAReq;
  1048              		.loc 1 1098 0
- 1049 032e 8388     		ldrh	r3, [r0, #4]
- 1050 0330 9BB2     		uxth	r3, r3
+ 1049 034a 8388     		ldrh	r3, [r0, #4]
+ 1050 034c 9BB2     		uxth	r3, r3
 1095:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
  1051              		.loc 1 1095 0
- 1052 0332 0AB1     		cbz	r2, .L76
+ 1052 034e 0AB1     		cbz	r2, .L73
  1053              		.loc 1 1098 0
- 1054 0334 1943     		orrs	r1, r1, r3
+ 1054 0350 1943     		orrs	r1, r1, r3
  1055              	.LVL86:
- 1056 0336 01E0     		b	.L78
+ 1056 0352 01E0     		b	.L75
  1057              	.LVL87:
- 1058              	.L76:
+ 1058              	.L73:
 1099:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
 1100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
 1101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI DMA requests */
 1103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 &= (uint16_t)~SPI_I2S_DMAReq;
  1059              		.loc 1 1103 0
- 1060 0338 23EA0101 		bic	r1, r3, r1
+ 1060 0354 23EA0101 		bic	r1, r3, r1
  1061              	.LVL88:
- 1062              	.L78:
- 1063 033c 8180     		strh	r1, [r0, #4]	@ movhi
- 1064 033e 7047     		bx	lr
+ 1062              	.L75:
+ 1063 0358 8180     		strh	r1, [r0, #4]	@ movhi
+ 1064 035a 7047     		bx	lr
  1065              		.cfi_endproc
  1066              	.LFE135:
  1068              		.align	1
@@ -2217,21 +2220,21 @@
 1131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear LDMA_TX and LDMA_RX bits */
 1132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR2 &= CR2_LDMA_MASK;
  1081              		.loc 1 1132 0
- 1082 0340 8388     		ldrh	r3, [r0, #4]
- 1083 0342 23F4C043 		bic	r3, r3, #24576
- 1084 0346 1B04     		lsls	r3, r3, #16
- 1085 0348 1B0C     		lsrs	r3, r3, #16
- 1086 034a 8380     		strh	r3, [r0, #4]	@ movhi
+ 1082 035c 8388     		ldrh	r3, [r0, #4]
+ 1083 035e 23F4C043 		bic	r3, r3, #24576
+ 1084 0362 1B04     		lsls	r3, r3, #16
+ 1085 0364 1B0C     		lsrs	r3, r3, #16
+ 1086 0366 8380     		strh	r3, [r0, #4]	@ movhi
 1133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Set new LDMA_TX and LDMA_RX bits value */
 1135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->CR2 |= SPI_LastDMATransfer; 
  1087              		.loc 1 1135 0
- 1088 034c 8388     		ldrh	r3, [r0, #4]
- 1089 034e 9BB2     		uxth	r3, r3
- 1090 0350 1943     		orrs	r1, r1, r3
+ 1088 0368 8388     		ldrh	r3, [r0, #4]
+ 1089 036a 9BB2     		uxth	r3, r3
+ 1090 036c 1943     		orrs	r1, r1, r3
  1091              	.LVL90:
- 1092 0352 8180     		strh	r1, [r0, #4]	@ movhi
- 1093 0354 7047     		bx	lr
+ 1092 036e 8180     		strh	r1, [r0, #4]	@ movhi
+ 1093 0370 7047     		bx	lr
  1094              		.cfi_endproc
  1095              	.LFE136:
  1097              		.align	1
@@ -2349,41 +2352,41 @@
 1236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Set the IT mask */
 1237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   itmask = (uint16_t)1 << (uint16_t)itpos;
  1110              		.loc 1 1237 0
- 1111 0356 0909     		lsrs	r1, r1, #4
+ 1111 0372 0909     		lsrs	r1, r1, #4
  1112              	.LVL92:
- 1113 0358 0123     		movs	r3, #1
- 1114 035a 03FA01F3 		lsl	r3, r3, r1
- 1115 035e 9BB2     		uxth	r3, r3
+ 1113 0374 0123     		movs	r3, #1
+ 1114 0376 8B40     		lsls	r3, r3, r1
+ 1115 0378 9BB2     		uxth	r3, r3
  1116              	.LVL93:
 1238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (NewState != DISABLE)
  1117              		.loc 1 1239 0
- 1118 0360 1AB1     		cbz	r2, .L81
+ 1118 037a 1AB1     		cbz	r2, .L78
 1240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Enable the selected SPI interrupt */
 1242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 |= itmask;
  1119              		.loc 1 1242 0
- 1120 0362 8288     		ldrh	r2, [r0, #4]
+ 1120 037c 8288     		ldrh	r2, [r0, #4]
  1121              	.LVL94:
- 1122 0364 92B2     		uxth	r2, r2
- 1123 0366 1343     		orrs	r3, r3, r2
+ 1122 037e 92B2     		uxth	r2, r2
+ 1123 0380 1343     		orrs	r3, r3, r2
  1124              	.LVL95:
- 1125 0368 03E0     		b	.L83
+ 1125 0382 03E0     		b	.L80
  1126              	.LVL96:
- 1127              	.L81:
+ 1127              	.L78:
 1243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
 1244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
 1245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* Disable the selected SPI interrupt */
 1247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     SPIx->CR2 &= (uint16_t)~itmask;
  1128              		.loc 1 1247 0
- 1129 036a 8288     		ldrh	r2, [r0, #4]
+ 1129 0384 8288     		ldrh	r2, [r0, #4]
  1130              	.LVL97:
- 1131 036c 92B2     		uxth	r2, r2
- 1132 036e 22EA0303 		bic	r3, r2, r3
- 1133              	.L83:
- 1134 0372 8380     		strh	r3, [r0, #4]	@ movhi
- 1135 0374 7047     		bx	lr
+ 1131 0386 92B2     		uxth	r2, r2
+ 1132 0388 22EA0303 		bic	r3, r2, r3
+ 1133              	.L80:
+ 1134 038c 8380     		strh	r3, [r0, #4]	@ movhi
+ 1135 038e 7047     		bx	lr
  1136              		.cfi_endproc
  1137              	.LFE137:
  1139              		.align	1
@@ -2415,12 +2418,12 @@
 1262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the SPIx Transmission FIFO level bits */
 1263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return (uint16_t)((SPIx->SR & SPI_SR_FTLVL));
  1152              		.loc 1 1263 0
- 1153 0376 0089     		ldrh	r0, [r0, #8]
+ 1153 0390 0089     		ldrh	r0, [r0, #8]
  1154              	.LVL99:
 1264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  1155              		.loc 1 1264 0
- 1156 0378 00F4C050 		and	r0, r0, #6144
- 1157 037c 7047     		bx	lr
+ 1156 0392 00F4C050 		and	r0, r0, #6144
+ 1157 0396 7047     		bx	lr
  1158              		.cfi_endproc
  1159              	.LFE138:
  1161              		.align	1
@@ -2450,12 +2453,12 @@
 1277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the SPIx Reception FIFO level bits */
 1278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return (uint16_t)((SPIx->SR & SPI_SR_FRLVL));
  1174              		.loc 1 1278 0
- 1175 037e 0089     		ldrh	r0, [r0, #8]
+ 1175 0398 0089     		ldrh	r0, [r0, #8]
  1176              	.LVL101:
 1279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  1177              		.loc 1 1279 0
- 1178 0380 00F4C060 		and	r0, r0, #1536
- 1179 0384 7047     		bx	lr
+ 1178 039a 00F4C060 		and	r0, r0, #1536
+ 1179 039e 7047     		bx	lr
  1180              		.cfi_endproc
  1181              	.LFE139:
  1183              		.align	1
@@ -2498,9 +2501,9 @@
 1305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the status of the specified SPI flag */
 1306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if ((SPIx->SR & SPI_I2S_FLAG) != (uint16_t)RESET)
  1196              		.loc 1 1306 0
- 1197 0386 0389     		ldrh	r3, [r0, #8]
+ 1197 03a0 0389     		ldrh	r3, [r0, #8]
  1198              	.LVL103:
- 1199 0388 1942     		tst	r1, r3
+ 1199 03a2 1942     		tst	r1, r3
 1307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* SPI_I2S_FLAG is set */
 1309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     bitstatus = SET;
@@ -2514,11 +2517,11 @@
 1317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return  bitstatus;
 1318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
  1200              		.loc 1 1318 0
- 1201 038a 0CBF     		ite	eq
- 1202 038c 0020     		moveq	r0, #0
- 1203 038e 0120     		movne	r0, #1
+ 1201 03a4 0CBF     		ite	eq
+ 1202 03a6 0020     		moveq	r0, #0
+ 1203 03a8 0120     		movne	r0, #1
  1204              	.LVL104:
- 1205 0390 7047     		bx	lr
+ 1205 03aa 7047     		bx	lr
  1206              		.cfi_endproc
  1207              	.LFE140:
  1209              		.align	1
@@ -2557,18 +2560,19 @@
 1340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Clear the selected SPI CRC Error (CRCERR) flag */
 1341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   SPIx->SR = (uint16_t)~SPI_I2S_FLAG;
  1222              		.loc 1 1341 0
- 1223 0392 C943     		mvns	r1, r1
+ 1223 03ac C943     		mvns	r1, r1
  1224              	.LVL106:
- 1225 0394 0181     		strh	r1, [r0, #8]	@ movhi
- 1226 0396 7047     		bx	lr
- 1227              		.cfi_endproc
- 1228              	.LFE141:
- 1230              		.align	1
- 1231              		.global	SPI_I2S_GetITStatus
- 1232              		.thumb
- 1233              		.thumb_func
- 1235              	SPI_I2S_GetITStatus:
- 1236              	.LFB142:
+ 1225 03ae 89B2     		uxth	r1, r1
+ 1226 03b0 0181     		strh	r1, [r0, #8]	@ movhi
+ 1227 03b2 7047     		bx	lr
+ 1228              		.cfi_endproc
+ 1229              	.LFE141:
+ 1231              		.align	1
+ 1232              		.global	SPI_I2S_GetITStatus
+ 1233              		.thumb
+ 1234              		.thumb_func
+ 1236              	SPI_I2S_GetITStatus:
+ 1237              	.LFB142:
 1342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
 1343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** /**
@@ -2587,16 +2591,16 @@
 1357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   */
 1358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
 1359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** {
- 1237              		.loc 1 1359 0
- 1238              		.cfi_startproc
- 1239              		@ args = 0, pretend = 0, frame = 0
- 1240              		@ frame_needed = 0, uses_anonymous_args = 0
- 1241              	.LVL107:
- 1242 0398 10B5     		push	{r4, lr}
- 1243              	.LCFI5:
- 1244              		.cfi_def_cfa_offset 8
- 1245              		.cfi_offset 4, -8
- 1246              		.cfi_offset 14, -4
+ 1238              		.loc 1 1359 0
+ 1239              		.cfi_startproc
+ 1240              		@ args = 0, pretend = 0, frame = 0
+ 1241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1242              	.LVL107:
+ 1243 03b4 10B5     		push	{r4, lr}
+ 1244              	.LCFI5:
+ 1245              		.cfi_def_cfa_offset 8
+ 1246              		.cfi_offset 4, -8
+ 1247              		.cfi_offset 14, -4
 1360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   ITStatus bitstatus = RESET;
 1361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   uint16_t itpos = 0, itmask = 0, enablestatus = 0;
 1362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
@@ -2615,47 +2619,47 @@
 1375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Get the SPI_I2S_IT enable bit status */
 1377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   enablestatus = (SPIx->CR2 & itmask) ;
- 1247              		.loc 1 1377 0
- 1248 039a 8488     		ldrh	r4, [r0, #4]
+ 1248              		.loc 1 1377 0
+ 1249 03b6 8488     		ldrh	r4, [r0, #4]
 1378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** 
 1379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Check the status of the specified SPI interrupt */
 1380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   if (((SPIx->SR & itpos) != (uint16_t)RESET) && enablestatus)
- 1249              		.loc 1 1380 0
- 1250 039c 0089     		ldrh	r0, [r0, #8]
- 1251              	.LVL108:
+ 1250              		.loc 1 1380 0
+ 1251 03b8 0089     		ldrh	r0, [r0, #8]
+ 1252              	.LVL108:
 1368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   itpos = 0x01 << (SPI_I2S_IT & 0x0F);
- 1252              		.loc 1 1368 0
- 1253 039e 0123     		movs	r3, #1
- 1254 03a0 01F00F02 		and	r2, r1, #15
- 1255              		.loc 1 1380 0
- 1256 03a4 80B2     		uxth	r0, r0
+ 1253              		.loc 1 1368 0
+ 1254 03ba 01F00F02 		and	r2, r1, #15
+ 1255 03be 0123     		movs	r3, #1
+ 1256              		.loc 1 1380 0
+ 1257 03c0 80B2     		uxth	r0, r0
 1368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   itpos = 0x01 << (SPI_I2S_IT & 0x0F);
- 1257              		.loc 1 1368 0
- 1258 03a6 03FA02F2 		lsl	r2, r3, r2
- 1259              		.loc 1 1380 0
- 1260 03aa 1040     		ands	r0, r0, r2
+ 1258              		.loc 1 1368 0
+ 1259 03c2 03FA02F2 		lsl	r2, r3, r2
+ 1260              		.loc 1 1380 0
+ 1261 03c6 1040     		ands	r0, r0, r2
 1377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   enablestatus = (SPIx->CR2 & itmask) ;
- 1261              		.loc 1 1377 0
- 1262 03ac A4B2     		uxth	r4, r4
- 1263              	.LVL109:
- 1264              		.loc 1 1380 0
- 1265 03ae 06D0     		beq	.L89
+ 1262              		.loc 1 1377 0
+ 1263 03c8 A4B2     		uxth	r4, r4
+ 1264              	.LVL109:
+ 1265              		.loc 1 1380 0
+ 1266 03ca 05D0     		beq	.L86
 1374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   itmask = 0x01 << itmask;
- 1266              		.loc 1 1374 0 discriminator 1
- 1267 03b0 0909     		lsrs	r1, r1, #4
- 1268              	.LVL110:
- 1269 03b2 03FA01F3 		lsl	r3, r3, r1
- 1270              		.loc 1 1380 0 discriminator 1
- 1271 03b6 1C42     		tst	r4, r3
+ 1267              		.loc 1 1374 0 discriminator 1
+ 1268 03cc 0909     		lsrs	r1, r1, #4
+ 1269              	.LVL110:
+ 1270 03ce 8B40     		lsls	r3, r3, r1
+ 1271              		.loc 1 1380 0 discriminator 1
+ 1272 03d0 1C42     		tst	r4, r3
 1381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
 1382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     /* SPI_I2S_IT is set */
 1383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****     bitstatus = SET;
- 1272              		.loc 1 1383 0 discriminator 1
- 1273 03b8 0CBF     		ite	eq
- 1274 03ba 0020     		moveq	r0, #0
- 1275 03bc 0120     		movne	r0, #1
- 1276              	.L89:
- 1277              	.LVL111:
+ 1273              		.loc 1 1383 0 discriminator 1
+ 1274 03d2 0CBF     		ite	eq
+ 1275 03d4 0020     		moveq	r0, #0
+ 1276 03d6 0120     		movne	r0, #1
+ 1277              	.L86:
+ 1278              	.LVL111:
 1384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   }
 1385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   else
 1386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   {
@@ -2665,58 +2669,62 @@
 1390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   /* Return the SPI_I2S_IT status */
 1391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c ****   return bitstatus;
 1392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_spi.c **** }
- 1278              		.loc 1 1392 0
- 1279 03be 10BD     		pop	{r4, pc}
- 1280              		.cfi_endproc
- 1281              	.LFE142:
- 1283              	.Letext0:
- 1284              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 1285              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 1286              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 1287              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
- 1288              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 1279              		.loc 1 1392 0
+ 1280 03d8 10BD     		pop	{r4, pc}
+ 1281              		.cfi_endproc
+ 1282              	.LFE142:
+ 1284              	.Letext0:
+ 1285              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 1286              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 1287              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1288              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
+ 1289              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_spi.c
-     /tmp/ccT9NzGj.s:20     .text:00000000 $t
-     /tmp/ccT9NzGj.s:25     .text:00000000 SPI_I2S_DeInit
-     /tmp/ccT9NzGj.s:96     .text:00000058 $d
-     /tmp/ccT9NzGj.s:102    .text:00000064 $t
-     /tmp/ccT9NzGj.s:107    .text:00000064 SPI_StructInit
-     /tmp/ccT9NzGj.s:147    .text:00000080 SPI_Init
-     /tmp/ccT9NzGj.s:280    .text:00000104 I2S_StructInit
-     /tmp/ccT9NzGj.s:313    .text:00000116 I2S_Init
-     /tmp/ccT9NzGj.s:466    .text:000001b4 SPI_Cmd
-     /tmp/ccT9NzGj.s:498    .text:000001cc SPI_TIModeCmd
-     /tmp/ccT9NzGj.s:530    .text:000001e4 I2S_Cmd
-     /tmp/ccT9NzGj.s:562    .text:000001fc SPI_DataSizeConfig
-     /tmp/ccT9NzGj.s:593    .text:0000020c SPI_RxFIFOThresholdConfig
-     /tmp/ccT9NzGj.s:622    .text:00000222 SPI_BiDirectionalLineConfig
-     /tmp/ccT9NzGj.s:656    .text:0000023e SPI_NSSInternalSoftwareConfig
-     /tmp/ccT9NzGj.s:691    .text:0000025c I2S_FullDuplexConfig
-     /tmp/ccT9NzGj.s:762    .text:000002a0 SPI_SSOutputCmd
-     /tmp/ccT9NzGj.s:794    .text:000002b8 SPI_NSSPulseModeCmd
-     /tmp/ccT9NzGj.s:826    .text:000002d0 SPI_SendData8
-     /tmp/ccT9NzGj.s:845    .text:000002d4 SPI_I2S_SendData16
-     /tmp/ccT9NzGj.s:864    .text:000002d8 SPI_ReceiveData8
-     /tmp/ccT9NzGj.s:885    .text:000002dc SPI_I2S_ReceiveData16
-     /tmp/ccT9NzGj.s:907    .text:000002e2 SPI_CRCLengthConfig
-     /tmp/ccT9NzGj.s:936    .text:000002f8 SPI_CalculateCRC
-     /tmp/ccT9NzGj.s:968    .text:00000310 SPI_TransmitCRC
-     /tmp/ccT9NzGj.s:990    .text:0000031c SPI_GetCRC
-     /tmp/ccT9NzGj.s:1018   .text:00000328 SPI_GetCRCPolynomial
-     /tmp/ccT9NzGj.s:1040   .text:0000032e SPI_I2S_DMACmd
-     /tmp/ccT9NzGj.s:1073   .text:00000340 SPI_LastDMATransferCmd
-     /tmp/ccT9NzGj.s:1102   .text:00000356 SPI_I2S_ITConfig
-     /tmp/ccT9NzGj.s:1144   .text:00000376 SPI_GetTransmissionFIFOStatus
-     /tmp/ccT9NzGj.s:1166   .text:0000037e SPI_GetReceptionFIFOStatus
-     /tmp/ccT9NzGj.s:1188   .text:00000386 SPI_I2S_GetFlagStatus
-     /tmp/ccT9NzGj.s:1214   .text:00000392 SPI_I2S_ClearFlag
-     /tmp/ccT9NzGj.s:1235   .text:00000398 SPI_I2S_GetITStatus
+     /tmp/cc5b85W9.s:20     .text:00000000 $t
+     /tmp/cc5b85W9.s:25     .text:00000000 SPI_I2S_DeInit
+     /tmp/cc5b85W9.s:96     .text:00000058 $d
+     /tmp/cc5b85W9.s:102    .text:00000064 $t
+     /tmp/cc5b85W9.s:107    .text:00000064 SPI_StructInit
+     /tmp/cc5b85W9.s:147    .text:00000080 SPI_Init
+     /tmp/cc5b85W9.s:275    .text:00000118 I2S_StructInit
+     /tmp/cc5b85W9.s:308    .text:0000012a I2S_Init
+     /tmp/cc5b85W9.s:465    .text:000001ce SPI_Cmd
+     /tmp/cc5b85W9.s:497    .text:000001e6 SPI_TIModeCmd
+     /tmp/cc5b85W9.s:529    .text:000001fe I2S_Cmd
+     /tmp/cc5b85W9.s:561    .text:00000216 SPI_DataSizeConfig
+     /tmp/cc5b85W9.s:592    .text:00000226 SPI_RxFIFOThresholdConfig
+     /tmp/cc5b85W9.s:621    .text:0000023c SPI_BiDirectionalLineConfig
+     /tmp/cc5b85W9.s:655    .text:00000258 SPI_NSSInternalSoftwareConfig
+     /tmp/cc5b85W9.s:690    .text:00000276 I2S_FullDuplexConfig
+     /tmp/cc5b85W9.s:762    .text:000002bc SPI_SSOutputCmd
+     /tmp/cc5b85W9.s:794    .text:000002d4 SPI_NSSPulseModeCmd
+     /tmp/cc5b85W9.s:826    .text:000002ec SPI_SendData8
+     /tmp/cc5b85W9.s:845    .text:000002f0 SPI_I2S_SendData16
+     /tmp/cc5b85W9.s:864    .text:000002f4 SPI_ReceiveData8
+     /tmp/cc5b85W9.s:885    .text:000002f8 SPI_I2S_ReceiveData16
+     /tmp/cc5b85W9.s:907    .text:000002fe SPI_CRCLengthConfig
+     /tmp/cc5b85W9.s:936    .text:00000314 SPI_CalculateCRC
+     /tmp/cc5b85W9.s:968    .text:0000032c SPI_TransmitCRC
+     /tmp/cc5b85W9.s:990    .text:00000338 SPI_GetCRC
+     /tmp/cc5b85W9.s:1018   .text:00000344 SPI_GetCRCPolynomial
+     /tmp/cc5b85W9.s:1040   .text:0000034a SPI_I2S_DMACmd
+     /tmp/cc5b85W9.s:1073   .text:0000035c SPI_LastDMATransferCmd
+     /tmp/cc5b85W9.s:1102   .text:00000372 SPI_I2S_ITConfig
+     /tmp/cc5b85W9.s:1144   .text:00000390 SPI_GetTransmissionFIFOStatus
+     /tmp/cc5b85W9.s:1166   .text:00000398 SPI_GetReceptionFIFOStatus
+     /tmp/cc5b85W9.s:1188   .text:000003a0 SPI_I2S_GetFlagStatus
+     /tmp/cc5b85W9.s:1214   .text:000003ac SPI_I2S_ClearFlag
+     /tmp/cc5b85W9.s:1236   .text:000003b4 SPI_I2S_GetITStatus
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a

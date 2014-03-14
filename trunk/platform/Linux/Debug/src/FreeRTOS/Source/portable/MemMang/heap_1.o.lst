@@ -25,111 +25,102 @@
   26              	.LFB0:
   27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*
-   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS V7.4.0 - Copyright (C) 2013 Real Time Engineers Ltd.
-   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FEATURES AND PORTS ARE ADDED TO FREERTOS ALL THE TIME.  PLEASE VISIT
-   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS V7.5.3 - Copyright (C) 2013 Real Time Engineers Ltd. 
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     All rights reserved
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
    6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    FreeRTOS tutorial books are available in pdf and paperback.        *
-  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Complete, revised, and edited pdf reference manuals are also       *
-  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    available.                                                         *
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    robust, strictly quality controlled, supported, and cross          *
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    platform software that has become a de facto standard.             *
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Purchasing FreeRTOS documentation will not only help you, by       *
-  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    ensuring you get running as quickly as possible and with an        *
-  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    in-depth knowledge of how to use FreeRTOS, it will also help       *
-  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    the FreeRTOS project to continue with its mission of providing     *
-  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    professional grade, cross platform, de facto standard solutions    *
-  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    for microcontrollers - completely free of charge!                  *
-  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
-  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Thank you for using FreeRTOS, and thank you for your support!      *
-  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
-  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Help yourself get started quickly and support the FreeRTOS         *
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    project by purchasing a FreeRTOS tutorial book, reference          *
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    manual, or both from: http://www.FreeRTOS.org/Documentation        *
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Thank you!                                                         *
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     This file is part of the FreeRTOS distribution.
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     the terms of the GNU General Public License (version 2) as published by the
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
   26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     This file is part of the FreeRTOS distribution.
-  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
-  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     the terms of the GNU General Public License (version 2) as published by the
-  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     Free Software Foundation AND MODIFIED BY the FreeRTOS exception.
-  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     >>>>>>NOTE<<<<<< The modification to the GPL is included to allow you to
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     distribute a combined work that includes FreeRTOS without being obliged to
-  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     provide the source code for proprietary components outside of the FreeRTOS
-  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     kernel.
-  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
-  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     details. You should have received a copy of the GNU General Public License
-  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     and the FreeRTOS license exception along with FreeRTOS; if not itcan be
-  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     viewed here: http://www.freertos.org/a00114.html and also obtained by
-  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     writing to Real Time Engineers Ltd., contact details for whom are available
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     on the FreeRTOS WEB site.
-  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     1 tab == 4 spaces!
-  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
-  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
-  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    not run, what could be wrong?"                                     *
-  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
-  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
-  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
-  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     >>! NOTE: The modification to the GPL is included to allow you to distribute
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     >>! a combined work that includes FreeRTOS without being obliged to provide
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     >>! the source code for proprietary components outside of the FreeRTOS
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     >>! kernel.
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     FOR A PARTICULAR PURPOSE.  Full license text is available from the following
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     link: http://www.freertos.org/a00114.html
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     1 tab == 4 spaces!
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    not run, what could be wrong?"                                     *
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****      *                                                                       *
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     ***************************************************************************
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     license and Real Time Engineers Ltd. contact details.
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     Integrity Systems to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     licenses offer ticketed support, indemnification and middleware.
   58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
-  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     license and Real Time Engineers Ltd. contact details.
-  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
-  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     including FreeRTOS+Trace - an indispensable productivity tool, and our new
-  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     fully thread aware and reentrant UDP/IP stack.
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     engineered and independently SIL3 certified version for use in safety and
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     mission critical applications that require provable dependability.
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     1 tab == 4 spaces!
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** */
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
-  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     Integrity Systems, who sell the code with commercial support, 
-  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     indemnification and middleware, under the OpenRTOS brand.
-  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     
-  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
-  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     engineered and independently SIL3 certified version for use in safety and 
-  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****     mission critical applications that require provable dependability.
-  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** */
-  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * The simplest possible implementation of pvPortMalloc().  Note that this
+  69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * implementation does NOT allow allocated memory to be freed again.
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  *
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * See heap_2.c, heap_3.c and heap_4.c for alternative implementations, and the
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * memory management pages of http://www.FreeRTOS.org for more information.
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  */
+  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include <stdlib.h>
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*
-  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * The simplest possible implementation of pvPortMalloc().  Note that this
-  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * implementation does NOT allow allocated memory to be freed again.
-  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  *
-  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * See heap_2.c, heap_3.c and heap_4.c for alternative implementations, and the
-  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  * memory management pages of http://www.FreeRTOS.org for more information.
-  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c ****  */
-  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include <stdlib.h>
-  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* Defining MPU_WRAPPERS_INCLUDED_FROM_API_FILE prevents task.h from redefining
-  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** all the API functions to use the MPU wrappers.  That should only be done when
-  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** task.h is included from an application file. */
-  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #define MPU_WRAPPERS_INCLUDED_FROM_API_FILE
-  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include "FreeRTOS.h"
-  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include "task.h"
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* Defining MPU_WRAPPERS_INCLUDED_FROM_API_FILE prevents task.h from redefining
+  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** all the API functions to use the MPU wrappers.  That should only be done when
+  78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** task.h is included from an application file. */
+  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #define MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include "FreeRTOS.h"
+  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #include "task.h"
+  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* A few bytes might be lost to byte aligning the heap start address. */
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #define configADJUSTED_HEAP_SIZE	( configTOTAL_HEAP_SIZE - portBYTE_ALIGNMENT )
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* Allocate the memory for the heap. */
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static unsigned char ucHeap[ configTOTAL_HEAP_SIZE ];
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static size_t xNextFreeByte = ( size_t ) 0;
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* A few bytes might be lost to byte aligning the heap start address. */
-  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** #define configADJUSTED_HEAP_SIZE	( configTOTAL_HEAP_SIZE - portBYTE_ALIGNMENT )
-  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
-  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /* Allocate the memory for the heap. */
-  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static unsigned char ucHeap[ configTOTAL_HEAP_SIZE ];
- 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static size_t xNextFreeByte = ( size_t ) 0;
- 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
- 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvPortMalloc( size_t xWantedSize )
- 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
-  28              		.loc 1 105 0
+  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvPortMalloc( size_t xWantedSize )
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
+  28              		.loc 1 96 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -141,119 +132,121 @@
   37              		.cfi_offset 4, -12
   38              		.cfi_offset 5, -8
   39              		.cfi_offset 14, -4
- 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvReturn = NULL;
- 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static unsigned char *pucAlignedHeap = NULL;
- 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Ensure that blocks are always aligned to the required number of bytes. */
- 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#if portBYTE_ALIGNMENT != 1
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( xWantedSize & portBYTE_ALIGNMENT_MASK )
-  40              		.loc 1 111 0
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvReturn = NULL;
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** static unsigned char *pucAlignedHeap = NULL;
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Ensure that blocks are always aligned to the required number of bytes. */
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#if portBYTE_ALIGNMENT != 1
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( xWantedSize & portBYTE_ALIGNMENT_MASK )
+  40              		.loc 1 102 0
   41 0002 4307     		lsls	r3, r0, #29
- 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
-  42              		.loc 1 105 0
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
+  42              		.loc 1 96 0
   43 0004 0546     		mov	r5, r0
- 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
- 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Byte alignment required. */
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MASK ) );
-  44              		.loc 1 114 0
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Byte alignment required. */
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MASK ) );
+  44              		.loc 1 105 0
   45 0006 1CBF     		itt	ne
   46 0008 20F00705 		bicne	r5, r0, #7
   47 000c 0835     		addne	r5, r5, #8
   48              	.LVL1:
- 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
- 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#endif
- 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	vTaskSuspendAll();
-  49              		.loc 1 118 0
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#endif
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	vTaskSuspendAll();
+  49              		.loc 1 109 0
   50 000e FFF7FEFF 		bl	vTaskSuspendAll
   51              	.LVL2:
- 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	{
- 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( pucAlignedHeap == NULL )
-  52              		.loc 1 120 0
-  53 0012 104B     		ldr	r3, .L11
-  54 0014 1A68     		ldr	r2, [r3, #0]
-  55 0016 22B9     		cbnz	r2, .L3
- 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
- 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Ensure the heap starts on a correctly aligned boundary. */
- 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pucAlignedHeap = ( unsigned char * ) ( ( ( portPOINTER_SIZE_TYPE ) &ucHeap[ portBYTE_ALIGNMENT ]
-  56              		.loc 1 123 0
-  57 0018 03F10C02 		add	r2, r3, #12
-  58 001c 22F00702 		bic	r2, r2, #7
-  59 0020 1A60     		str	r2, [r3, #0]
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	{
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( pucAlignedHeap == NULL )
+  52              		.loc 1 111 0
+  53 0012 0F4A     		ldr	r2, .L12
+  54 0014 1368     		ldr	r3, [r2]
+  55 0016 23B9     		cbnz	r3, .L3
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Ensure the heap starts on a correctly aligned boundary. */
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pucAlignedHeap = ( unsigned char * ) ( ( ( portPOINTER_SIZE_TYPE ) &ucHeap[ portBYTE_ALIGNMENT ]
+  56              		.loc 1 114 0
+  57 0018 02F10C03 		add	r3, r2, #12
+  58 001c 23F00703 		bic	r3, r3, #7
+  59 0020 1360     		str	r3, [r2]
   60              	.L3:
- 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
- 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		/* Check there is enough room left for the allocation. */
- 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( ( ( xNextFreeByte + xWantedSize ) < configADJUSTED_HEAP_SIZE ) &&
-  61              		.loc 1 127 0
-  62 0022 0D4A     		ldr	r2, .L11+4
-  63 0024 D2F81436 		ldr	r3, [r2, #1556]
-  64 0028 42F2F771 		movw	r1, #10231
-  65 002c ED18     		adds	r5, r5, r3
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		/* Check there is enough room left for the allocation. */
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( ( ( xNextFreeByte + xWantedSize ) < configADJUSTED_HEAP_SIZE ) &&
+  61              		.loc 1 118 0
+  62 0022 0C49     		ldr	r1, .L12+4
+  63 0024 D1F81436 		ldr	r3, [r1, #1556]
+  64 0028 42F2F770 		movw	r0, #10231
+  65 002c 1D44     		add	r5, r5, r3
   66              	.LVL3:
-  67 002e 8D42     		cmp	r5, r1
-  68 0030 07D8     		bhi	.L7
-  69              		.loc 1 127 0 is_stmt 0 discriminator 1
+  67 002e 8542     		cmp	r5, r0
+  68 0030 06D8     		bhi	.L7
+  69              		.loc 1 118 0 is_stmt 0 discriminator 1
   70 0032 9D42     		cmp	r5, r3
-  71 0034 05D9     		bls	.L7
- 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			( ( xNextFreeByte + xWantedSize ) > xNextFreeByte )	)/* Check for overflow. */
- 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
- 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Return the next free byte then increment the index past this
- 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			block. */
- 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pvReturn = pucAlignedHeap + xNextFreeByte;
-  72              		.loc 1 132 0 is_stmt 1
-  73 0036 0749     		ldr	r1, .L11
- 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			xNextFreeByte += xWantedSize;
-  74              		.loc 1 133 0
-  75 0038 C2F81456 		str	r5, [r2, #1556]
- 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pvReturn = pucAlignedHeap + xNextFreeByte;
-  76              		.loc 1 132 0
-  77 003c 0C68     		ldr	r4, [r1, #0]
-  78 003e E418     		adds	r4, r4, r3
-  79              	.LVL4:
-  80 0040 00E0     		b	.L4
-  81              	.LVL5:
-  82              	.L7:
- 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvReturn = NULL;
-  83              		.loc 1 106 0
-  84 0042 0024     		movs	r4, #0
-  85              	.LVL6:
-  86              	.L4:
- 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
- 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	}
- 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	xTaskResumeAll();
-  87              		.loc 1 136 0
-  88 0044 FFF7FEFF 		bl	xTaskResumeAll
-  89              	.LVL7:
- 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
- 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	{
- 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( pvReturn == NULL )
-  90              		.loc 1 140 0
-  91 0048 0CB9     		cbnz	r4, .L5
+  71 0034 04D9     		bls	.L7
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			( ( xNextFreeByte + xWantedSize ) > xNextFreeByte )	)/* Check for overflow. */
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			/* Return the next free byte then increment the index past this
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			block. */
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pvReturn = pucAlignedHeap + xNextFreeByte;
+  72              		.loc 1 123 0 is_stmt 1
+  73 0036 1468     		ldr	r4, [r2]
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			xNextFreeByte += xWantedSize;
+  74              		.loc 1 124 0
+  75 0038 C1F81456 		str	r5, [r1, #1556]
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			pvReturn = pucAlignedHeap + xNextFreeByte;
+  76              		.loc 1 123 0
+  77 003c 1C44     		add	r4, r4, r3
+  78              	.LVL4:
+  79 003e 00E0     		b	.L4
+  80              	.LVL5:
+  81              	.L7:
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void *pvReturn = NULL;
+  82              		.loc 1 97 0
+  83 0040 0024     		movs	r4, #0
+  84              	.LVL6:
+  85              	.L4:
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		traceMALLOC( pvReturn, xWantedSize );
+ 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	}	
+ 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	xTaskResumeAll();
+  86              		.loc 1 129 0
+  87 0042 FFF7FEFF 		bl	xTaskResumeAll
+  88              	.LVL7:
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
+ 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	{
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		if( pvReturn == NULL )
+  89              		.loc 1 133 0
+  90 0046 0CB9     		cbnz	r4, .L5
+  91              	.LVL8:
   92              	.LBB2:
- 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
- 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			extern void vApplicationMallocFailedHook( void );
- 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			vApplicationMallocFailedHook();
-  93              		.loc 1 143 0
-  94 004a FFF7FEFF 		bl	vApplicationMallocFailedHook
-  95              	.LVL8:
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		{
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			extern void vApplicationMallocFailedHook( void );
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 			vApplicationMallocFailedHook();
+  93              		.loc 1 136 0
+  94 0048 FFF7FEFF 		bl	vApplicationMallocFailedHook
+  95              	.LVL9:
   96              	.L5:
   97              	.LBE2:
- 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
- 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	}
- 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#endif
- 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	return pvReturn;
- 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
-  98              		.loc 1 149 0
-  99 004e 2046     		mov	r0, r4
- 100 0050 38BD     		pop	{r3, r4, r5, pc}
- 101              	.L12:
- 102 0052 00BF     		.align	2
- 103              	.L11:
- 104 0054 00000000 		.word	.LANCHOR0
- 105 0058 F0210000 		.word	.LANCHOR1
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 		}
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	}
+ 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	#endif
+ 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	return pvReturn;
+ 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
+  98              		.loc 1 142 0
+  99 004c 2046     		mov	r0, r4
+ 100 004e 38BD     		pop	{r3, r4, r5, pc}
+ 101              	.L13:
+ 102              		.align	2
+ 103              	.L12:
+ 104 0050 00000000 		.word	.LANCHOR0
+ 105 0054 F0210000 		.word	.LANCHOR1
  106              		.cfi_endproc
  107              	.LFE0:
  109              		.align	1
@@ -262,37 +255,37 @@
  112              		.thumb_func
  114              	vPortFree:
  115              	.LFB1:
- 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
- 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void vPortFree( void *pv )
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
- 116              		.loc 1 153 0
+ 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void vPortFree( void *pv )
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
+ 116              		.loc 1 146 0
  117              		.cfi_startproc
  118              		@ args = 0, pretend = 0, frame = 0
  119              		@ frame_needed = 0, uses_anonymous_args = 0
- 120              	.LVL9:
- 121 005c 08B5     		push	{r3, lr}
+ 120              	.LVL10:
+ 121 0058 08B5     		push	{r3, lr}
  122              	.LCFI1:
  123              		.cfi_def_cfa_offset 8
  124              		.cfi_offset 3, -8
  125              		.cfi_offset 14, -4
- 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Memory cannot be freed using this scheme.  See heap_2.c, heap_3.c and
- 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	heap_4.c for alternative implementations, and the memory management pages of
- 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	http://www.FreeRTOS.org for more information. */
- 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	( void ) pv;
- 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Force an assert as it is invalid to call this function. */
- 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	configASSERT( pv == NULL );
- 126              		.loc 1 160 0
- 127 005e 10B1     		cbz	r0, .L13
- 128              		.loc 1 160 0 is_stmt 0 discriminator 1
- 129 0060 FFF7FEFF 		bl	ulPortSetInterruptMask
- 130              	.LVL10:
- 131              	.L15:
- 132 0064 FEE7     		b	.L15
- 133              	.LVL11:
- 134              	.L13:
- 135 0066 08BD     		pop	{r3, pc}
+ 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Memory cannot be freed using this scheme.  See heap_2.c, heap_3.c and
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	heap_4.c for alternative implementations, and the memory management pages of
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	http://www.FreeRTOS.org for more information. */
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	( void ) pv;
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Force an assert as it is invalid to call this function. */
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	configASSERT( pv == NULL );
+ 126              		.loc 1 153 0
+ 127 005a 10B1     		cbz	r0, .L14
+ 128              		.loc 1 153 0 is_stmt 0 discriminator 1
+ 129 005c FFF7FEFF 		bl	ulPortSetInterruptMask
+ 130              	.LVL11:
+ 131              	.L16:
+ 132 0060 FEE7     		b	.L16
+ 133              	.LVL12:
+ 134              	.L14:
+ 135 0062 08BD     		pop	{r3, pc}
  136              		.cfi_endproc
  137              	.LFE1:
  139              		.align	1
@@ -301,27 +294,27 @@
  142              		.thumb_func
  144              	vPortInitialiseBlocks:
  145              	.LFB2:
- 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
- 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
- 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void vPortInitialiseBlocks( void )
- 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
- 146              		.loc 1 165 0 is_stmt 1
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** void vPortInitialiseBlocks( void )
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
+ 146              		.loc 1 158 0 is_stmt 1
  147              		.cfi_startproc
  148              		@ args = 0, pretend = 0, frame = 0
  149              		@ frame_needed = 0, uses_anonymous_args = 0
  150              		@ link register save eliminated.
- 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Only required when static memory is not cleared. */
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	xNextFreeByte = ( size_t ) 0;
- 151              		.loc 1 167 0
- 152 0068 024B     		ldr	r3, .L17
- 153 006a 0022     		movs	r2, #0
- 154 006c C3F81426 		str	r2, [r3, #1556]
- 155 0070 7047     		bx	lr
- 156              	.L18:
- 157 0072 00BF     		.align	2
- 158              	.L17:
- 159 0074 F0210000 		.word	.LANCHOR1
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	/* Only required when static memory is not cleared. */
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	xNextFreeByte = ( size_t ) 0;
+ 151              		.loc 1 160 0
+ 152 0064 024B     		ldr	r3, .L18
+ 153 0066 0022     		movs	r2, #0
+ 154 0068 C3F81426 		str	r2, [r3, #1556]
+ 155 006c 7047     		bx	lr
+ 156              	.L19:
+ 157 006e 00BF     		.align	2
+ 158              	.L18:
+ 159 0070 F0210000 		.word	.LANCHOR1
  160              		.cfi_endproc
  161              	.LFE2:
  163              		.align	1
@@ -330,36 +323,36 @@
  166              		.thumb_func
  168              	xPortGetFreeHeapSize:
  169              	.LFB3:
- 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
- 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
- 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** size_t xPortGetFreeHeapSize( void )
- 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
- 170              		.loc 1 172 0
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** /*-----------------------------------------------------------*/
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** size_t xPortGetFreeHeapSize( void )
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** {
+ 170              		.loc 1 165 0
  171              		.cfi_startproc
  172              		@ args = 0, pretend = 0, frame = 0
  173              		@ frame_needed = 0, uses_anonymous_args = 0
  174              		@ link register save eliminated.
- 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	return ( configADJUSTED_HEAP_SIZE - xNextFreeByte );
- 175              		.loc 1 173 0
- 176 0078 034B     		ldr	r3, .L20
- 177 007a D3F81406 		ldr	r0, [r3, #1556]
- 178 007e C0F51F50 		rsb	r0, r0, #10176
- 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
- 179              		.loc 1 174 0
- 180 0082 3830     		adds	r0, r0, #56
- 181 0084 7047     		bx	lr
- 182              	.L21:
- 183 0086 00BF     		.align	2
- 184              	.L20:
- 185 0088 F0210000 		.word	.LANCHOR1
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** 	return ( configADJUSTED_HEAP_SIZE - xNextFreeByte );
+ 175              		.loc 1 166 0
+ 176 0074 034B     		ldr	r3, .L21
+ 177 0076 D3F81406 		ldr	r0, [r3, #1556]
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/MemMang/heap_1.c **** }
+ 178              		.loc 1 167 0
+ 179 007a C0F51F50 		rsb	r0, r0, #10176
+ 180 007e 3830     		adds	r0, r0, #56
+ 181 0080 7047     		bx	lr
+ 182              	.L22:
+ 183 0082 00BF     		.align	2
+ 184              	.L21:
+ 185 0084 F0210000 		.word	.LANCHOR1
  186              		.cfi_endproc
  187              	.LFE3:
  189              		.bss
  190              		.align	2
  191              		.set	.LANCHOR0,. + 0
  192              		.set	.LANCHOR1,. + 8688
- 195              	pucAlignedHeap.4835:
+ 195              	pucAlignedHeap.4842:
  196 0000 00000000 		.space	4
  199              	ucHeap:
  200 0004 00000000 		.space	10240
@@ -373,45 +366,47 @@
  206              	.Letext0:
  207              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
  208              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
- 209              		.file 4 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 209              		.file 4 "/home/user/gcc-arm-none-eabi-4_8-2013q4/lib/gcc/arm-none-eabi/4.8.3/include/stddef.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 heap_1.c
-     /tmp/ccjuuhQi.s:20     .text:00000000 $t
-     /tmp/ccjuuhQi.s:25     .text:00000000 pvPortMalloc
-     /tmp/ccjuuhQi.s:104    .text:00000054 $d
-     /tmp/ccjuuhQi.s:109    .text:0000005c $t
-     /tmp/ccjuuhQi.s:114    .text:0000005c vPortFree
-     /tmp/ccjuuhQi.s:144    .text:00000068 vPortInitialiseBlocks
-     /tmp/ccjuuhQi.s:159    .text:00000074 $d
-     /tmp/ccjuuhQi.s:163    .text:00000078 $t
-     /tmp/ccjuuhQi.s:168    .text:00000078 xPortGetFreeHeapSize
-     /tmp/ccjuuhQi.s:185    .text:00000088 $d
-     /tmp/ccjuuhQi.s:190    .bss:00000000 $d
-     /tmp/ccjuuhQi.s:195    .bss:00000000 pucAlignedHeap.4835
-     /tmp/ccjuuhQi.s:199    .bss:00000004 ucHeap
-     /tmp/ccjuuhQi.s:203    .bss:00002804 xNextFreeByte
+     /tmp/ccxMHk1a.s:20     .text:00000000 $t
+     /tmp/ccxMHk1a.s:25     .text:00000000 pvPortMalloc
+     /tmp/ccxMHk1a.s:104    .text:00000050 $d
+     /tmp/ccxMHk1a.s:109    .text:00000058 $t
+     /tmp/ccxMHk1a.s:114    .text:00000058 vPortFree
+     /tmp/ccxMHk1a.s:144    .text:00000064 vPortInitialiseBlocks
+     /tmp/ccxMHk1a.s:159    .text:00000070 $d
+     /tmp/ccxMHk1a.s:163    .text:00000074 $t
+     /tmp/ccxMHk1a.s:168    .text:00000074 xPortGetFreeHeapSize
+     /tmp/ccxMHk1a.s:185    .text:00000084 $d
+     /tmp/ccxMHk1a.s:190    .bss:00000000 $d
+     /tmp/ccxMHk1a.s:195    .bss:00000000 pucAlignedHeap.4842
+     /tmp/ccxMHk1a.s:199    .bss:00000004 ucHeap
+     /tmp/ccxMHk1a.s:203    .bss:00002804 xNextFreeByte
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
-                           .group:00000000 wm4.stddef.h.187.40b3a084f9bc2c020a9e00b9eabe9c14
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.184.aa65fb7281d578229bbad41b91862635
+                           .group:00000000 wm4.stddef.h.39.d0197034aa5fd947cae140b9289e6734
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
                            .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
-                           .group:00000000 wm4.stdlib.h.55.22eafe60f8565d898cbb44515781114b
-                           .group:00000000 wm4.stddef.h.40.b60a1c1ee3f272eef5327a730cbabca6
-                           .group:00000000 wm4.projdefs.h.76.214f319a5937dae232f0ee2912b07e1d
+                           .group:00000000 wm4.stdlib.h.51.fdf1045aaa750fe709619c2027b96513
+                           .group:00000000 wm4.projdefs.h.67.e147d0bb14773a90ce9490c5c93d4b17
                            .group:00000000 wm4.FreeRTOSConfig.h.79.5ce50f1f04ae36d94916fa991aa4b8d7
-                           .group:00000000 wm4.portmacro.h.77.0810e0eb8c6edf5adf0d27242484a945
-                           .group:00000000 wm4.portable.h.332.e25bf3f97ebf50a0f90736144cb8c3f8
-                           .group:00000000 wm4.mpu_wrappers.h.76.3abcfc7ebb6d78909ee0b4ad2f20f282
-                           .group:00000000 wm4.FreeRTOS.h.159.741cbf33489b2c951994722716e9692e
-                           .group:00000000 wm4.list.h.105.6a6307ce3396638a078c02ff83387dc6
-                           .group:00000000 wm4.task.h.94.33ec4de8c3f825901c54e6cf58507761
+                           .group:00000000 wm4.portmacro.h.68.6a65242bb09b79c298caf96e860eebfc
+                           .group:00000000 wm4.portable.h.323.74480596d2f6d1d8387fc23ab95d1e43
+                           .group:00000000 wm4.mpu_wrappers.h.67.4bcfd12ce15e5313ce3efd77400f8168
+                           .group:00000000 wm4.FreeRTOS.h.150.cc84f37778a1fad138e88914409bc9ad
+                           .group:00000000 wm4.list.h.96.3fa6b36eff50c0aca81a4cee845ec2dc
+                           .group:00000000 wm4.task.h.84.f228f660597151d3901b6cf328174595
 
 UNDEFINED SYMBOLS
 vTaskSuspendAll

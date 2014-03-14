@@ -25,1071 +25,1026 @@
   26              	.LFB0:
   27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
-   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS V7.4.0 - Copyright (C) 2013 Real Time Engineers Ltd.
-   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FEATURES AND PORTS ARE ADDED TO FREERTOS ALL THE TIME.  PLEASE VISIT
-   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS V7.5.3 - Copyright (C) 2013 Real Time Engineers Ltd. 
+   3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     All rights reserved
+   4:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+   5:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
    6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    FreeRTOS tutorial books are available in pdf and paperback.        *
-  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Complete, revised, and edited pdf reference manuals are also       *
-  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    available.                                                         *
+   9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    robust, strictly quality controlled, supported, and cross          *
+  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    platform software that has become a de facto standard.             *
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Purchasing FreeRTOS documentation will not only help you, by       *
-  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    ensuring you get running as quickly as possible and with an        *
-  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    in-depth knowledge of how to use FreeRTOS, it will also help       *
-  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    the FreeRTOS project to continue with its mission of providing     *
-  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    professional grade, cross platform, de facto standard solutions    *
-  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    for microcontrollers - completely free of charge!                  *
-  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
-  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Thank you for using FreeRTOS, and thank you for your support!      *
-  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
-  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Help yourself get started quickly and support the FreeRTOS         *
+  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    project by purchasing a FreeRTOS tutorial book, reference          *
+  15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    manual, or both from: http://www.FreeRTOS.org/Documentation        *
+  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
+  17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Thank you!                                                         *
+  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     This file is part of the FreeRTOS distribution.
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     the terms of the GNU General Public License (version 2) as published by the
+  25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
   26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     This file is part of the FreeRTOS distribution.
-  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
-  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     the terms of the GNU General Public License (version 2) as published by the
-  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     Free Software Foundation AND MODIFIED BY the FreeRTOS exception.
-  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     >>>>>>NOTE<<<<<< The modification to the GPL is included to allow you to
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     distribute a combined work that includes FreeRTOS without being obliged to
-  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     provide the source code for proprietary components outside of the FreeRTOS
-  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     kernel.
-  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
-  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     details. You should have received a copy of the GNU General Public License
-  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     and the FreeRTOS license exception along with FreeRTOS; if not itcan be
-  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     viewed here: http://www.freertos.org/a00114.html and also obtained by
-  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     writing to Real Time Engineers Ltd., contact details for whom are available
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     on the FreeRTOS WEB site.
-  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     1 tab == 4 spaces!
-  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
-  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
-  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    not run, what could be wrong?"                                     *
-  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
-  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
-  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
-  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     >>! NOTE: The modification to the GPL is included to allow you to distribute
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     >>! a combined work that includes FreeRTOS without being obliged to provide
+  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     >>! the source code for proprietary components outside of the FreeRTOS
+  30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     >>! kernel.
+  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     FOR A PARTICULAR PURPOSE.  Full license text is available from the following
+  35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     link: http://www.freertos.org/a00114.html
+  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     1 tab == 4 spaces!
+  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    Having a problem?  Start by reading the FAQ "My application does   *
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    not run, what could be wrong?"                                     *
+  43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
+  44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *    http://www.FreeRTOS.org/FAQHelp.html                               *
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****      *                                                                       *
+  46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     ***************************************************************************
+  47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+  49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     license and Real Time Engineers Ltd. contact details.
+  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     Integrity Systems to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     licenses offer ticketed support, indemnification and middleware.
   58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.FreeRTOS.org - Documentation, books, training, latest versions,
-  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     license and Real Time Engineers Ltd. contact details.
-  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
-  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     including FreeRTOS+Trace - an indispensable productivity tool, and our new
-  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     fully thread aware and reentrant UDP/IP stack.
+  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     engineered and independently SIL3 certified version for use in safety and
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     mission critical applications that require provable dependability.
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     1 tab == 4 spaces!
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** */
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
-  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     Integrity Systems, who sell the code with commercial support,
-  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     indemnification and middleware, under the OpenRTOS brand.
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "FreeRTOS.h"
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "task.h"
+  68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "croutine.h"
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
-  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     engineered and independently SIL3 certified version for use in safety and
-  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****     mission critical applications that require provable dependability.
-  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** */
-  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "FreeRTOS.h"
-  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "task.h"
-  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #include "croutine.h"
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Some kernel aware debuggers require data to be viewed to be global, rather
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * than file scope.
+  73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
+  74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #ifdef portREMOVE_STATIC_QUALIFIER
+  75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	#define static
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #endif
+  77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
-  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Some kernel aware debuggers require data to be viewed to be global, rather
-  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * than file scope.
-  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
-  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #ifdef portREMOVE_STATIC_QUALIFIER
-  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	#define static
-  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #endif
+  79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* Lists for ready and blocked co-routines. --------------------*/
+  80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList pxReadyCoRoutineLists[ configMAX_CO_ROUTINE_PRIORITIES ];	/*< Prioritised ready co-rou
+  81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xDelayedCoRoutineList1;									/*< Delayed co-routines. */
+  82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xDelayedCoRoutineList2;									/*< Delayed co-routines (two lists are used - one for 
+  83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList * pxDelayedCoRoutineList;									/*< Points to the delayed co-routine list currently 
+  84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList * pxOverflowDelayedCoRoutineList;							/*< Points to the delayed co-routine list curr
+  85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xPendingReadyCoRoutineList;								/*< Holds co-routines that have been readied by an 
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* Lists for ready and blocked co-routines. --------------------*/
-  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList pxReadyCoRoutineLists[ configMAX_CO_ROUTINE_PRIORITIES ];	/*< Prioritised ready co-rou
-  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xDelayedCoRoutineList1;									/*< Delayed co-routines. */
-  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xDelayedCoRoutineList2;									/*< Delayed co-routines (two lists are used - one for 
-  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList * pxDelayedCoRoutineList;									/*< Points to the delayed co-routine list currently 
-  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList * pxOverflowDelayedCoRoutineList;							/*< Points to the delayed co-routine list curr
-  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static xList xPendingReadyCoRoutineList;								/*< Holds co-routines that have been readied by an 
-  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
-  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* Other file private variables. --------------------------------*/
-  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB * pxCurrentCoRoutine = NULL;
-  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static unsigned portBASE_TYPE uxTopCoRoutineReadyPriority = 0;
-  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static portTickType xCoRoutineTickCount = 0, xLastTickCount = 0, xPassedTicks = 0;
- 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* The initial state of the co-routine when it is created. */
- 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #define corINITIAL_STATE	( 0 )
- 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
- 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Place the co-routine represented by pxCRCB into the appropriate ready queue
- 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * for the priority.  It is inserted at the end of the list.
- 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  *
- 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * This macro accesses the co-routine ready lists and therefore must not be
- 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * used from within an ISR.
- 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #define prvAddCoRoutineToReadyQueue( pxCRCB )																		\
- 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {																													\
- 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxCRCB->uxPriority > uxTopCoRoutineReadyPriority )															\
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{																												\
- 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		uxTopCoRoutineReadyPriority = pxCRCB->uxPriority;															\
- 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}																												\
- 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInsertEnd( ( xList * ) &( pxReadyCoRoutineLists[ pxCRCB->uxPriority ] ), &( pxCRCB->xGenericL
- 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
- 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Utility to ready all the lists used by the scheduler.  This is called
- 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * automatically upon the creation of the first co-routine.
- 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
- 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvInitialiseCoRoutineLists( void );
- 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
- 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Co-routines that are readied by an interrupt cannot be placed directly into
- 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * the ready lists (there is no mutual exclusion).  Instead they are placed in
- 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * in the pending ready list in order that they can later be moved to the ready
- 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * list by the co-routine scheduler.
- 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
- 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckPendingReadyList( void );
- 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
- 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Macro that looks at the list of co-routines that are currently delayed to
- 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * see if any require waking.
- 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  *
- 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Co-routines are stored in the queue in the order of their wake time -
- 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * meaning once one co-routine has been found whose timer has not expired
- 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * we need not look any further down the list.
- 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
- 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckDelayedList( void );
- 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
- 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xCoRoutineCreate( crCOROUTINE_CODE pxCoRoutineCode, unsigned portBASE_TYPE uxP
- 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
-  28              		.loc 1 147 0
+  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* Other file private variables. --------------------------------*/
+  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB * pxCurrentCoRoutine = NULL;
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static unsigned portBASE_TYPE uxTopCoRoutineReadyPriority = 0;
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static portTickType xCoRoutineTickCount = 0, xLastTickCount = 0, xPassedTicks = 0;
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /* The initial state of the co-routine when it is created. */
+  93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #define corINITIAL_STATE	( 0 )
+  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+  95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
+  96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Place the co-routine represented by pxCRCB into the appropriate ready queue
+  97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * for the priority.  It is inserted at the end of the list.
+  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  *
+  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * This macro accesses the co-routine ready lists and therefore must not be
+ 100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * used from within an ISR.
+ 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
+ 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** #define prvAddCoRoutineToReadyQueue( pxCRCB )																		\
+ 103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {																													\
+ 104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxCRCB->uxPriority > uxTopCoRoutineReadyPriority )															\
+ 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{																												\
+ 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		uxTopCoRoutineReadyPriority = pxCRCB->uxPriority;															\
+ 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}																												\
+ 108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInsertEnd( ( xList * ) &( pxReadyCoRoutineLists[ pxCRCB->uxPriority ] ), &( pxCRCB->xGenericL
+ 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Utility to ready all the lists used by the scheduler.  This is called
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * automatically upon the creation of the first co-routine.
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
+ 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvInitialiseCoRoutineLists( void );
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
+ 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Co-routines that are readied by an interrupt cannot be placed directly into
+ 119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * the ready lists (there is no mutual exclusion).  Instead they are placed in
+ 120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * in the pending ready list in order that they can later be moved to the ready
+ 121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * list by the co-routine scheduler.
+ 122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
+ 123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckPendingReadyList( void );
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Macro that looks at the list of co-routines that are currently delayed to
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * see if any require waking.
+ 128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  *
+ 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * Co-routines are stored in the queue in the order of their wake time -
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * meaning once one co-routine has been found whose timer has not expired
+ 131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  * we need not look any further down the list.
+ 132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c ****  */
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckDelayedList( void );
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xCoRoutineCreate( crCOROUTINE_CODE pxCoRoutineCode, unsigned portBASE_TYPE uxP
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+  28              		.loc 1 138 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              	.LVL0:
-  33 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, sl, lr}
+  33 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 32
-  36              		.cfi_offset 4, -32
-  37              		.cfi_offset 5, -28
-  38              		.cfi_offset 6, -24
-  39              		.cfi_offset 7, -20
-  40              		.cfi_offset 8, -16
-  41              		.cfi_offset 9, -12
-  42              		.cfi_offset 10, -8
-  43              		.cfi_offset 14, -4
-  44              		.loc 1 147 0
-  45 0004 8046     		mov	r8, r0
- 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xReturn;
- 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxCoRoutine;
- 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Allocate the memory that will store the co-routine control block. */
- 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxCoRoutine = ( corCRCB * ) pvPortMalloc( sizeof( corCRCB ) );
-  46              		.loc 1 152 0
-  47 0006 3820     		movs	r0, #56
-  48              	.LVL1:
- 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
-  49              		.loc 1 147 0
-  50 0008 8A46     		mov	sl, r1
-  51 000a 9146     		mov	r9, r2
-  52              		.loc 1 152 0
-  53 000c FFF7FEFF 		bl	pvPortMalloc
-  54              	.LVL2:
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxCoRoutine )
-  55              		.loc 1 153 0
-  56 0010 0446     		mov	r4, r0
-  57 0012 0028     		cmp	r0, #0
-  58 0014 44D0     		beq	.L5
- 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* If pxCurrentCoRoutine is NULL then this is the first co-routine to
- 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		be created and the co-routine data structures need initialising. */
- 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( pxCurrentCoRoutine == NULL )
-  59              		.loc 1 157 0
-  60 0016 244D     		ldr	r5, .L6
-  61 0018 2B68     		ldr	r3, [r5, #0]
-  62 001a C3B9     		cbnz	r3, .L3
- 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCurrentCoRoutine = pxCoRoutine;
-  63              		.loc 1 159 0
-  64 001c 2846     		mov	r0, r5
-  65              	.LVL3:
-  66              	.LBB4:
-  67              	.LBB5:
- 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvInitialiseCoRoutineLists();
- 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Check the priority is within limits. */
- 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxPriority >= configMAX_CO_ROUTINE_PRIORITIES )
- 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			uxPriority = configMAX_CO_ROUTINE_PRIORITIES - 1;
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Fill out the co-routine control block from the function parameters. */
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxState = corINITIAL_STATE;
- 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxPriority = uxPriority;
- 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxIndex = uxIndex;
- 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
- 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Initialise all the other co-routine control block parameters. */
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xGenericListItem ) );
- 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xEventListItem ) );
+  35              		.cfi_def_cfa_offset 40
+  36              		.cfi_offset 3, -40
+  37              		.cfi_offset 4, -36
+  38              		.cfi_offset 5, -32
+  39              		.cfi_offset 6, -28
+  40              		.cfi_offset 7, -24
+  41              		.cfi_offset 8, -20
+  42              		.cfi_offset 9, -16
+  43              		.cfi_offset 10, -12
+  44              		.cfi_offset 11, -8
+  45              		.cfi_offset 14, -4
+  46              		.loc 1 138 0
+  47 0004 8246     		mov	r10, r0
+ 139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xReturn;
+ 140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxCoRoutine;
+ 141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Allocate the memory that will store the co-routine control block. */
+ 143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxCoRoutine = ( corCRCB * ) pvPortMalloc( sizeof( corCRCB ) );
+  48              		.loc 1 143 0
+  49 0006 3820     		movs	r0, #56
+  50              	.LVL1:
+ 138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+  51              		.loc 1 138 0
+  52 0008 8846     		mov	r8, r1
+  53 000a 9346     		mov	fp, r2
+  54              		.loc 1 143 0
+  55 000c FFF7FEFF 		bl	pvPortMalloc
+  56              	.LVL2:
+ 144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxCoRoutine )
+  57              		.loc 1 144 0
+  58 0010 0446     		mov	r4, r0
+  59 0012 0028     		cmp	r0, #0
+  60 0014 47D0     		beq	.L5
+ 145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* If pxCurrentCoRoutine is NULL then this is the first co-routine to
+ 147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		be created and the co-routine data structures need initialising. */
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( pxCurrentCoRoutine == NULL )
+  61              		.loc 1 148 0
+  62 0016 264D     		ldr	r5, .L7
+  63 0018 2B68     		ldr	r3, [r5]
+  64 001a 2F1D     		adds	r7, r5, #4
+  65 001c C3B9     		cbnz	r3, .L3
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCurrentCoRoutine = pxCoRoutine;
+  66              		.loc 1 150 0
+  67 001e 2860     		str	r0, [r5]
+  68              	.LVL3:
+  69              	.LBB4:
+  70              	.LBB5:
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvInitialiseCoRoutineLists();
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Check the priority is within limits. */
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxPriority >= configMAX_CO_ROUTINE_PRIORITIES )
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			uxPriority = configMAX_CO_ROUTINE_PRIORITIES - 1;
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Fill out the co-routine control block from the function parameters. */
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxState = corINITIAL_STATE;
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxPriority = uxPriority;
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxIndex = uxIndex;
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Initialise all the other co-routine control block parameters. */
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xGenericListItem ) );
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xEventListItem ) );
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Set the co-routine control block as a link back from the xListItem.
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		This is so we can get back to the containing CRCB from a generic item
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		in a list. */
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xGenericListItem ), pxCoRoutine );
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xEventListItem ), pxCoRoutine );
+ 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Event lists are always in priority order. */
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Set the co-routine control block as a link back from the xListItem.
- 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		This is so we can get back to the containing CRCB from a generic item
- 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		in a list. */
- 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xGenericListItem ), pxCoRoutine );
- 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xEventListItem ), pxCoRoutine );
- 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Event lists are always in priority order. */
- 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
- 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Now the co-routine has been initialised it can be added to the ready
- 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		list at the correct priority. */
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
- 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdPASS;
- 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
- 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
- 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return xReturn;
- 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
- 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** void vCoRoutineAddToDelayedList( portTickType xTicksToDelay, xList *pxEventList )
- 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** portTickType xTimeToWake;
+ 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Now the co-routine has been initialised it can be added to the ready
+ 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		list at the correct priority. */
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdPASS;
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
+ 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
+ 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return xReturn;
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** void vCoRoutineAddToDelayedList( portTickType xTicksToDelay, xList *pxEventList )
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** portTickType xTimeToWake;
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Calculate the time to wake - this may overflow but this is
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	not a problem. */
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xTimeToWake = xCoRoutineTickCount + xTicksToDelay;
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* We must remove ourselves from the ready list before adding
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	ourselves to the blocked list as the same list item is used for
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	both lists. */
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( void ) uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Calculate the time to wake - this may overflow but this is
- 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	not a problem. */
- 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xTimeToWake = xCoRoutineTickCount + xTicksToDelay;
- 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* We must remove ourselves from the ready list before adding
- 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	ourselves to the blocked list as the same list item is used for
- 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	both lists. */
- 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
- 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* The list item will be inserted in wake time order. */
- 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
- 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
- 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Wake time has overflowed.  Place this item in the
- 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		overflow list. */
- 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxOverflowDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->x
- 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
- 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* The wake time has not overflowed, so we can use the
- 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		current block list. */
- 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
- 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* The list item will be inserted in wake time order. */
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Wake time has overflowed.  Place this item in the
+ 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		overflow list. */
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxOverflowDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->x
+ 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
+ 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* The wake time has not overflowed, so we can use the
+ 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		current block list. */
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
+ 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxEventList )
+ 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Also add the co-routine to an event list.  If this is done then the
+ 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		function must be called with interrupts disabled. */
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
+ 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
  231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxEventList )
- 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* Also add the co-routine to an event list.  If this is done then the
- 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		function must be called with interrupts disabled. */
- 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
- 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckPendingReadyList( void )
+ 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Are there any co-routines waiting to get moved to the ready list?  These
+ 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	are co-routines that have been readied by an ISR.  The ISR cannot access
+ 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	the	ready lists itself. */
+ 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &xPendingReadyCoRoutineList ) == pdFALSE )
+ 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		corCRCB *pxUnblockedCRCB;
  240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckPendingReadyList( void )
- 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Are there any co-routines waiting to get moved to the ready list?  These
- 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	are co-routines that have been readied by an ISR.  The ISR cannot access
- 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	the	ready lists itself. */
- 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &xPendingReadyCoRoutineList ) == pdFALSE )
- 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		corCRCB *pxUnblockedCRCB;
- 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* The pending ready list can be accessed by an ISR. */
- 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portDISABLE_INTERRUPTS();
- 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( (&xPendingReadyCoRoutineList) );
- 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
- 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portENABLE_INTERRUPTS();
- 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
- 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxUnblockedCRCB );
- 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
- 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckDelayedList( void )
- 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxCRCB;
- 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xPassedTicks = xTaskGetTickCount() - xLastTickCount;
- 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( xPassedTicks )
- 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
- 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
- 273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* If the tick count has overflowed we need to swap the ready lists. */
- 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( xCoRoutineTickCount == 0 )
- 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			xList * pxTemp;
- 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			/* Tick count has overflowed so we need to swap the delay lists.  If there are
- 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			any items in pxDelayedCoRoutineList here then there is an error! */
- 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxTemp = pxDelayedCoRoutineList;
- 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxDelayedCoRoutineList = pxOverflowDelayedCoRoutineList;
- 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxOverflowDelayedCoRoutineList = pxTemp;
- 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* See if this tick has made a timeout expire. */
- 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		while( listLIST_IS_EMPTY( pxDelayedCoRoutineList ) == pdFALSE )
- 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxDelayedCoRoutineList );
- 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			if( xCoRoutineTickCount < listGET_LIST_ITEM_VALUE( &( pxCRCB->xGenericListItem ) ) )
- 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			{
- 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* Timeout not yet expired. */
- 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				break;
- 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			}
+ 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* The pending ready list can be accessed by an ISR. */
+ 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portDISABLE_INTERRUPTS();
+ 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( (&xPendingReadyCoRoutineList) );
+ 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			( void ) uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
+ 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portENABLE_INTERRUPTS();
+ 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		( void ) uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxUnblockedCRCB );
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvCheckDelayedList( void )
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxCRCB;
+ 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xPassedTicks = xTaskGetTickCount() - xLastTickCount;
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( xPassedTicks )
+ 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
+ 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* If the tick count has overflowed we need to swap the ready lists. */
+ 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( xCoRoutineTickCount == 0 )
+ 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			xList * pxTemp;
+ 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			/* Tick count has overflowed so we need to swap the delay lists.  If there are
+ 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			any items in pxDelayedCoRoutineList here then there is an error! */
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxTemp = pxDelayedCoRoutineList;
+ 273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxDelayedCoRoutineList = pxOverflowDelayedCoRoutineList;
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxOverflowDelayedCoRoutineList = pxTemp;
+ 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		/* See if this tick has made a timeout expire. */
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		while( listLIST_IS_EMPTY( pxDelayedCoRoutineList ) == pdFALSE )
+ 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxDelayedCoRoutineList );
+ 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			if( xCoRoutineTickCount < listGET_LIST_ITEM_VALUE( &( pxCRCB->xGenericListItem ) ) )
+ 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			{
+ 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* Timeout not yet expired. */
+ 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				break;
+ 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			}
+ 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portDISABLE_INTERRUPTS();
+ 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			{
+ 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* The event could have occurred just before this critical
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				section.  If this is the case then the generic list item will
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				have been moved to the pending ready list and the following
+ 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				line is still valid.  Also the pvContainer parameter will have
+ 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				been set to NULL so the following lines are also valid. */
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
  296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portDISABLE_INTERRUPTS();
- 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			{
- 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* The event could have occurred just before this critical
- 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				section.  If this is the case then the generic list item will
- 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				have been moved to the pending ready list and the following
- 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				line is still valid.  Also the pvContainer parameter will have
- 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				been set to NULL so the following lines are also valid. */
- 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
- 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* Is the co-routine waiting on an event also? */
- 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				if( pxCRCB->xEventListItem.pvContainer )
- 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				{
- 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 					uxListRemove( &( pxCRCB->xEventListItem ) );
- 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				}
- 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			}
- 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portENABLE_INTERRUPTS();
- 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvAddCoRoutineToReadyQueue( pxCRCB );
- 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				/* Is the co-routine waiting on an event also? */
+ 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				if( pxCRCB->xEventListItem.pvContainer )
+ 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				{
+ 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 					( void ) uxListRemove( &( pxCRCB->xEventListItem ) );
+ 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				}
+ 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			}
+ 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portENABLE_INTERRUPTS();
+ 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvAddCoRoutineToReadyQueue( pxCRCB );
+ 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xLastTickCount = xCoRoutineTickCount;
+ 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** void vCoRoutineSchedule( void )
+ 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* See if any co-routines readied by events need moving to the ready lists. */
+ 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	prvCheckPendingReadyList();
  317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xLastTickCount = xCoRoutineTickCount;
- 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
- 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** void vCoRoutineSchedule( void )
- 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* See if any co-routines readied by events need moving to the ready lists. */
- 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	prvCheckPendingReadyList();
- 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* See if any delayed co-routines have timed out. */
- 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	prvCheckDelayedList();
- 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Find the highest priority queue that contains ready co-routines. */
- 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxTopCoRoutineReadyPriority == 0 )
- 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
- 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			/* No more co-routines to check. */
- 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			return;
- 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
- 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		--uxTopCoRoutineReadyPriority;
- 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* listGET_OWNER_OF_NEXT_ENTRY walks through the list, so the co-routines
- 342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	 of the	same priority get an equal share of the processor time. */
- 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listGET_OWNER_OF_NEXT_ENTRY( pxCurrentCoRoutine, &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPrio
- 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Call the co-routine. */
- 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( pxCurrentCoRoutine->pxCoRoutineFunction )( pxCurrentCoRoutine, pxCurrentCoRoutine->uxIndex );
- 347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return;
- 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* See if any delayed co-routines have timed out. */
+ 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	prvCheckDelayedList();
+ 320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Find the highest priority queue that contains ready co-routines. */
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
+ 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxTopCoRoutineReadyPriority == 0 )
+ 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		{
+ 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			/* No more co-routines to check. */
+ 327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			return;
+ 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		}
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		--uxTopCoRoutineReadyPriority;
+ 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* listGET_OWNER_OF_NEXT_ENTRY walks through the list, so the co-routines
+ 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	 of the	same priority get an equal share of the processor time. */
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listGET_OWNER_OF_NEXT_ENTRY( pxCurrentCoRoutine, &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPrio
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Call the co-routine. */
+ 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( pxCurrentCoRoutine->pxCoRoutineFunction )( pxCurrentCoRoutine, pxCurrentCoRoutine->uxIndex );
+ 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return;
+ 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvInitialiseCoRoutineLists( void )
+ 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** unsigned portBASE_TYPE uxPriority;
+ 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	for( uxPriority = 0; uxPriority < configMAX_CO_ROUTINE_PRIORITIES; uxPriority++ )
+ 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialise( ( xList * ) &( pxReadyCoRoutineLists[ uxPriority ] ) );
+  71              		.loc 1 349 0
+  72 0020 3846     		mov	r0, r7
+  73              	.LVL4:
+  74 0022 FFF7FEFF 		bl	vListInitialise
+  75              	.LVL5:
+ 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** static void prvInitialiseCoRoutineLists( void )
- 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** unsigned portBASE_TYPE uxPriority;
+ 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList1 );
+  76              		.loc 1 352 0
+  77 0026 05F12C09 		add	r9, r5, #44
+ 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialise( ( xList * ) &( pxReadyCoRoutineLists[ uxPriority ] ) );
+  78              		.loc 1 349 0
+  79 002a 05F11800 		add	r0, r5, #24
+  80 002e FFF7FEFF 		bl	vListInitialise
+  81              	.LVL6:
+ 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList2 );
+  82              		.loc 1 353 0
+  83 0032 05F14006 		add	r6, r5, #64
+ 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList1 );
+  84              		.loc 1 352 0
+  85 0036 4846     		mov	r0, r9
+  86 0038 FFF7FEFF 		bl	vListInitialise
+  87              	.LVL7:
+  88              		.loc 1 353 0
+  89 003c 3046     		mov	r0, r6
+  90 003e FFF7FEFF 		bl	vListInitialise
+  91              	.LVL8:
+ 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xPendingReadyCoRoutineList );
+  92              		.loc 1 354 0
+  93 0042 05F15400 		add	r0, r5, #84
+  94 0046 FFF7FEFF 		bl	vListInitialise
+  95              	.LVL9:
  355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	for( uxPriority = 0; uxPriority < configMAX_CO_ROUTINE_PRIORITIES; uxPriority++ )
- 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialise( ( xList * ) &( pxReadyCoRoutineLists[ uxPriority ] ) );
- 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList1 );
-  68              		.loc 1 361 0
-  69 001e 05F12C06 		add	r6, r5, #44
-  70              	.LBE5:
-  71              	.LBE4:
- 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCurrentCoRoutine = pxCoRoutine;
-  72              		.loc 1 159 0
-  73 0022 40F8044B 		str	r4, [r0], #4
-  74              	.LVL4:
-  75              	.LBB7:
-  76              	.LBB6:
- 358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialise( ( xList * ) &( pxReadyCoRoutineLists[ uxPriority ] ) );
-  77              		.loc 1 358 0
-  78 0026 FFF7FEFF 		bl	vListInitialise
-  79              	.LVL5:
-  80 002a 05F11800 		add	r0, r5, #24
-  81 002e FFF7FEFF 		bl	vListInitialise
-  82              	.LVL6:
- 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList2 );
-  83              		.loc 1 362 0
-  84 0032 05F14007 		add	r7, r5, #64
- 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xDelayedCoRoutineList1 );
-  85              		.loc 1 361 0
-  86 0036 3046     		mov	r0, r6
-  87 0038 FFF7FEFF 		bl	vListInitialise
-  88              	.LVL7:
-  89              		.loc 1 362 0
-  90 003c 3846     		mov	r0, r7
-  91 003e FFF7FEFF 		bl	vListInitialise
-  92              	.LVL8:
- 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInitialise( ( xList * ) &xPendingReadyCoRoutineList );
-  93              		.loc 1 363 0
-  94 0042 05F15400 		add	r0, r5, #84
-  95 0046 FFF7FEFF 		bl	vListInitialise
-  96              	.LVL9:
- 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Start with pxDelayedCoRoutineList using list1 and the
- 366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxOverflowDelayedCoRoutineList using list2. */
- 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxDelayedCoRoutineList = &xDelayedCoRoutineList1;
-  97              		.loc 1 367 0
-  98 004a AE66     		str	r6, [r5, #104]
- 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxOverflowDelayedCoRoutineList = &xDelayedCoRoutineList2;
-  99              		.loc 1 368 0
- 100 004c EF66     		str	r7, [r5, #108]
- 101              	.LVL10:
- 102              	.L3:
- 103              	.LBE6:
- 104              	.LBE7:
- 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
- 105              		.loc 1 173 0
- 106 004e 2546     		mov	r5, r4
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxState = corINITIAL_STATE;
- 107              		.loc 1 170 0
- 108 0050 0023     		movs	r3, #0
- 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
- 109              		.loc 1 173 0
- 110 0052 45F8048B 		str	r8, [r5], #4
- 111 0056 BAF1010F 		cmp	sl, #1
- 112 005a 34BF     		ite	cc
- 113 005c 5646     		movcc	r6, sl
- 114 005e 0126     		movcs	r6, #1
- 115              	.LVL11:
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxState = corINITIAL_STATE;
- 116              		.loc 1 170 0
- 117 0060 A386     		strh	r3, [r4, #52]	@ movhi
- 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxPriority = uxPriority;
- 118              		.loc 1 171 0
- 119 0062 E662     		str	r6, [r4, #44]
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xGenericListItem ) );
- 120              		.loc 1 176 0
- 121 0064 2846     		mov	r0, r5
- 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxIndex = uxIndex;
- 122              		.loc 1 172 0
- 123 0066 C4F83090 		str	r9, [r4, #48]
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xGenericListItem ) );
- 124              		.loc 1 176 0
- 125 006a FFF7FEFF 		bl	vListInitialiseItem
- 126              	.LVL12:
- 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xEventListItem ) );
+ 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* Start with pxDelayedCoRoutineList using list1 and the
+ 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxOverflowDelayedCoRoutineList using list2. */
+ 358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxDelayedCoRoutineList = &xDelayedCoRoutineList1;
+  96              		.loc 1 358 0
+  97 004a C5F86890 		str	r9, [r5, #104]
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxOverflowDelayedCoRoutineList = &xDelayedCoRoutineList2;
+  98              		.loc 1 359 0
+  99 004e EE66     		str	r6, [r5, #108]
+ 100              	.LVL10:
+ 101              	.L3:
+ 102              	.LBE5:
+ 103              	.LBE4:
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
+ 104              		.loc 1 164 0
+ 105 0050 2646     		mov	r6, r4
+ 106 0052 B8F1010F 		cmp	r8, #1
+ 107 0056 28BF     		it	cs
+ 108 0058 4FF00108 		movcs	r8, #1
+ 109              	.LVL11:
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxState = corINITIAL_STATE;
+ 110              		.loc 1 161 0
+ 111 005c 0023     		movs	r3, #0
+ 112 005e A386     		strh	r3, [r4, #52]	@ movhi
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxPriority = uxPriority;
+ 113              		.loc 1 162 0
+ 114 0060 C4F82C80 		str	r8, [r4, #44]
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->uxIndex = uxIndex;
+ 115              		.loc 1 163 0
+ 116 0064 C4F830B0 		str	fp, [r4, #48]
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		pxCoRoutine->pxCoRoutineFunction = pxCoRoutineCode;
+ 117              		.loc 1 164 0
+ 118 0068 46F804AB 		str	r10, [r6], #4
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xGenericListItem ) );
+ 119              		.loc 1 167 0
+ 120 006c 3046     		mov	r0, r6
+ 121 006e FFF7FEFF 		bl	vListInitialiseItem
+ 122              	.LVL12:
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInitialiseItem( &( pxCoRoutine->xEventListItem ) );
+ 123              		.loc 1 168 0
+ 124 0072 04F11800 		add	r0, r4, #24
+ 125 0076 FFF7FEFF 		bl	vListInitialiseItem
+ 126              	.LVL13:
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
  127              		.loc 1 177 0
- 128 006e 04F11800 		add	r0, r4, #24
- 129 0072 FFF7FEFF 		bl	vListInitialiseItem
- 130              	.LVL13:
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
- 131              		.loc 1 190 0
- 132 0076 0C4A     		ldr	r2, .L6
- 133 0078 E36A     		ldr	r3, [r4, #44]
- 134 007a 116F     		ldr	r1, [r2, #112]
- 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xGenericListItem ), pxCoRoutine );
- 135              		.loc 1 182 0
- 136 007c 2461     		str	r4, [r4, #16]
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
- 137              		.loc 1 190 0
- 138 007e 8B42     		cmp	r3, r1
- 139 0080 88BF     		it	hi
- 140 0082 1367     		strhi	r3, [r2, #112]
- 141 0084 094A     		ldr	r2, .L6+4
- 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xEventListItem ), pxCoRoutine );
- 142              		.loc 1 183 0
- 143 0086 6462     		str	r4, [r4, #36]
- 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
- 144              		.loc 1 186 0
- 145 0088 C6F10506 		rsb	r6, r6, #5
- 146              	.LVL14:
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
- 147              		.loc 1 190 0
- 148 008c 1420     		movs	r0, #20
- 149 008e 00FB0320 		mla	r0, r0, r3, r2
- 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
- 150              		.loc 1 186 0
- 151 0092 A661     		str	r6, [r4, #24]
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
- 152              		.loc 1 190 0
- 153 0094 2946     		mov	r1, r5
- 154 0096 FFF7FEFF 		bl	vListInsertEnd
- 155              	.LVL15:
- 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdPASS;
- 156              		.loc 1 192 0
- 157 009a 0120     		movs	r0, #1
- 158 009c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
- 159              	.LVL16:
- 160              	.L5:
- 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
- 161              		.loc 1 196 0
- 162 00a0 4FF0FF30 		mov	r0, #-1
- 163              	.LVL17:
- 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 164              		.loc 1 200 0
- 165 00a4 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
- 166              	.L7:
- 167              		.align	2
- 168              	.L6:
- 169 00a8 00000000 		.word	.LANCHOR0
- 170 00ac 04000000 		.word	.LANCHOR0+4
- 171              		.cfi_endproc
- 172              	.LFE0:
- 174              		.align	1
- 175              		.global	vCoRoutineAddToDelayedList
- 176              		.thumb
- 177              		.thumb_func
- 179              	vCoRoutineAddToDelayedList:
- 180              	.LFB1:
- 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 181              		.loc 1 204 0
- 182              		.cfi_startproc
- 183              		@ args = 0, pretend = 0, frame = 0
- 184              		@ frame_needed = 0, uses_anonymous_args = 0
- 185              	.LVL18:
- 186 00b0 70B5     		push	{r4, r5, r6, lr}
- 187              	.LCFI1:
- 188              		.cfi_def_cfa_offset 16
- 189              		.cfi_offset 4, -16
- 190              		.cfi_offset 5, -12
- 191              		.cfi_offset 6, -8
- 192              		.cfi_offset 14, -4
- 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xTimeToWake = xCoRoutineTickCount + xTicksToDelay;
- 193              		.loc 1 209 0
- 194 00b2 0D4C     		ldr	r4, .L13
- 195 00b4 666F     		ldr	r6, [r4, #116]
- 196 00b6 8619     		adds	r6, r0, r6
- 197              	.LVL19:
- 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
- 198              		.loc 1 214 0
- 199 00b8 2068     		ldr	r0, [r4, #0]
- 200              	.LVL20:
- 201 00ba 0430     		adds	r0, r0, #4
- 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 202              		.loc 1 204 0
- 203 00bc 0D46     		mov	r5, r1
- 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
- 204              		.loc 1 214 0
- 205 00be FFF7FEFF 		bl	uxListRemove
- 206              	.LVL21:
- 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
- 207              		.loc 1 219 0
- 208 00c2 636F     		ldr	r3, [r4, #116]
- 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
- 209              		.loc 1 217 0
- 210 00c4 2168     		ldr	r1, [r4, #0]
- 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
- 211              		.loc 1 219 0
- 212 00c6 9E42     		cmp	r6, r3
- 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxOverflowDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->x
- 213              		.loc 1 223 0
- 214 00c8 34BF     		ite	cc
- 215 00ca E06E     		ldrcc	r0, [r4, #108]
- 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
- 216              		.loc 1 229 0
- 217 00cc A06E     		ldrcs	r0, [r4, #104]
- 217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
- 218              		.loc 1 217 0
- 219 00ce 41F8046F 		str	r6, [r1, #4]!
- 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
- 220              		.loc 1 229 0
- 221 00d2 FFF7FEFF 		bl	vListInsert
- 222              	.LVL22:
- 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxEventList )
- 223              		.loc 1 232 0
- 224 00d6 35B1     		cbz	r5, .L8
- 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
- 225              		.loc 1 236 0
- 226 00d8 2168     		ldr	r1, [r4, #0]
- 227 00da 2846     		mov	r0, r5
- 228 00dc 1831     		adds	r1, r1, #24
- 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 229              		.loc 1 238 0
- 230 00de BDE87040 		pop	{r4, r5, r6, lr}
- 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
- 231              		.loc 1 236 0
- 232 00e2 FFF7FEBF 		b	vListInsert
- 233              	.LVL23:
- 234              	.L8:
- 235 00e6 70BD     		pop	{r4, r5, r6, pc}
- 236              	.L14:
- 237              		.align	2
- 238              	.L13:
- 239 00e8 00000000 		.word	.LANCHOR0
- 240              		.cfi_endproc
- 241              	.LFE1:
- 243              		.align	1
- 244              		.global	vCoRoutineSchedule
- 245              		.thumb
- 246              		.thumb_func
- 248              	vCoRoutineSchedule:
- 249              	.LFB4:
- 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 250              		.loc 1 323 0
- 251              		.cfi_startproc
- 252              		@ args = 0, pretend = 0, frame = 0
- 253              		@ frame_needed = 0, uses_anonymous_args = 0
- 254 00ec 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 255              	.LCFI2:
- 256              		.cfi_def_cfa_offset 24
- 257              		.cfi_offset 4, -24
- 258              		.cfi_offset 5, -20
- 259              		.cfi_offset 6, -16
- 260              		.cfi_offset 7, -12
- 261              		.cfi_offset 8, -8
- 262              		.cfi_offset 14, -4
- 263              	.LBB15:
- 264              	.LBB16:
- 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &xPendingReadyCoRoutineList ) == pdFALSE )
- 265              		.loc 1 246 0
- 266 00f0 414D     		ldr	r5, .L38
- 267              	.LBB17:
- 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxUnblockedCRCB );
- 268              		.loc 1 259 0
- 269 00f2 4FF01408 		mov	r8, #20
- 270 00f6 2F1D     		adds	r7, r5, #4
- 271 00f8 18E0     		b	.L16
- 272              	.L18:
- 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portDISABLE_INTERRUPTS();
- 273              		.loc 1 251 0
- 274 00fa FFF7FEFF 		bl	ulPortSetInterruptMask
- 275              	.LVL24:
- 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( (&xPendingReadyCoRoutineList) );
- 276              		.loc 1 253 0
- 277 00fe 2B6E     		ldr	r3, [r5, #96]
- 278 0100 DC68     		ldr	r4, [r3, #12]
- 279              	.LVL25:
- 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
- 280              		.loc 1 254 0
- 281 0102 04F11800 		add	r0, r4, #24
- 282 0106 FFF7FEFF 		bl	uxListRemove
- 283              	.LVL26:
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
- 284              		.loc 1 258 0
- 285 010a 261D     		adds	r6, r4, #4
- 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portENABLE_INTERRUPTS();
- 286              		.loc 1 256 0
- 287 010c 0020     		movs	r0, #0
- 288 010e FFF7FEFF 		bl	vPortClearInterruptMask
- 289              	.LVL27:
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
- 290              		.loc 1 258 0
- 291 0112 3046     		mov	r0, r6
- 292 0114 FFF7FEFF 		bl	uxListRemove
- 293              	.LVL28:
- 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxUnblockedCRCB );
- 294              		.loc 1 259 0
- 295 0118 E06A     		ldr	r0, [r4, #44]
- 296 011a 2A6F     		ldr	r2, [r5, #112]
- 297 011c 9042     		cmp	r0, r2
- 298 011e 88BF     		it	hi
- 299 0120 2867     		strhi	r0, [r5, #112]
- 300 0122 3146     		mov	r1, r6
- 301 0124 08FB0070 		mla	r0, r8, r0, r7
- 302 0128 FFF7FEFF 		bl	vListInsertEnd
- 303              	.LVL29:
- 304              	.L16:
- 305              	.LBE17:
- 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &xPendingReadyCoRoutineList ) == pdFALSE )
- 306              		.loc 1 246 0
- 307 012c 6B6D     		ldr	r3, [r5, #84]
- 308 012e 324C     		ldr	r4, .L38
- 309 0130 002B     		cmp	r3, #0
- 310 0132 E2D1     		bne	.L18
- 311              	.LBE16:
- 312              	.LBE15:
- 313              	.LBB18:
- 314              	.LBB19:
- 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xPassedTicks = xTaskGetTickCount() - xLastTickCount;
- 315              		.loc 1 268 0
- 316 0134 FFF7FEFF 		bl	xTaskGetTickCount
- 317              	.LVL30:
- 318 0138 E36F     		ldr	r3, [r4, #124]
- 319 013a C01A     		subs	r0, r0, r3
- 320 013c A067     		str	r0, [r4, #120]
- 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvAddCoRoutineToReadyQueue( pxCRCB );
- 321              		.loc 1 314 0
- 322 013e 271D     		adds	r7, r4, #4
- 323 0140 30E0     		b	.L36
- 324              	.L25:
- 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
- 325              		.loc 1 271 0
- 326 0142 626F     		ldr	r2, [r4, #116]
- 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
- 327              		.loc 1 272 0
- 328 0144 013B     		subs	r3, r3, #1
- 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
- 329              		.loc 1 271 0
- 330 0146 0132     		adds	r2, r2, #1
- 331 0148 6267     		str	r2, [r4, #116]
- 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
+ 128 007a C8F10503 		rsb	r3, r8, #5
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
+ 129              		.loc 1 181 0
+ 130 007e 2A6F     		ldr	r2, [r5, #112]
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_VALUE( &( pxCoRoutine->xEventListItem ), configMAX_PRIORITIES - ( portTickType 
+ 131              		.loc 1 177 0
+ 132 0080 A361     		str	r3, [r4, #24]
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
+ 133              		.loc 1 181 0
+ 134 0082 E36A     		ldr	r3, [r4, #44]
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xGenericListItem ), pxCoRoutine );
+ 135              		.loc 1 173 0
+ 136 0084 2461     		str	r4, [r4, #16]
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
+ 137              		.loc 1 181 0
+ 138 0086 9342     		cmp	r3, r2
+ 139 0088 88BF     		it	hi
+ 140 008a 094A     		ldrhi	r2, .L7
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		listSET_LIST_ITEM_OWNER( &( pxCoRoutine->xEventListItem ), pxCoRoutine );
+ 141              		.loc 1 174 0
+ 142 008c 6462     		str	r4, [r4, #36]
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxCoRoutine );
+ 143              		.loc 1 181 0
+ 144 008e 4FF01400 		mov	r0, #20
+ 145 0092 00FB0370 		mla	r0, r0, r3, r7
+ 146 0096 3146     		mov	r1, r6
+ 147 0098 88BF     		it	hi
+ 148 009a 1367     		strhi	r3, [r2, #112]
+ 149 009c FFF7FEFF 		bl	vListInsertEnd
+ 150              	.LVL14:
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdPASS;
+ 151              		.loc 1 183 0
+ 152 00a0 0120     		movs	r0, #1
+ 153 00a2 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 154              	.LVL15:
+ 155              	.L5:
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
+ 156              		.loc 1 187 0
+ 157 00a6 4FF0FF30 		mov	r0, #-1
+ 158              	.LVL16:
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 159              		.loc 1 191 0
+ 160 00aa BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 161              	.LVL17:
+ 162              	.L8:
+ 163 00ae 00BF     		.align	2
+ 164              	.L7:
+ 165 00b0 00000000 		.word	.LANCHOR0
+ 166              		.cfi_endproc
+ 167              	.LFE0:
+ 169              		.align	1
+ 170              		.global	vCoRoutineAddToDelayedList
+ 171              		.thumb
+ 172              		.thumb_func
+ 174              	vCoRoutineAddToDelayedList:
+ 175              	.LFB1:
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 176              		.loc 1 195 0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              	.LVL18:
+ 181 00b4 70B5     		push	{r4, r5, r6, lr}
+ 182              	.LCFI1:
+ 183              		.cfi_def_cfa_offset 16
+ 184              		.cfi_offset 4, -16
+ 185              		.cfi_offset 5, -12
+ 186              		.cfi_offset 6, -8
+ 187              		.cfi_offset 14, -4
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xTimeToWake = xCoRoutineTickCount + xTicksToDelay;
+ 188              		.loc 1 200 0
+ 189 00b6 0D4C     		ldr	r4, .L14
+ 190 00b8 666F     		ldr	r6, [r4, #116]
+ 191 00ba 0644     		add	r6, r6, r0
+ 192              	.LVL19:
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( void ) uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
+ 193              		.loc 1 205 0
+ 194 00bc 2068     		ldr	r0, [r4]
+ 195              	.LVL20:
+ 196 00be 0430     		adds	r0, r0, #4
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 197              		.loc 1 195 0
+ 198 00c0 0D46     		mov	r5, r1
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( void ) uxListRemove( ( xListItem * ) &( pxCurrentCoRoutine->xGenericListItem ) );
+ 199              		.loc 1 205 0
+ 200 00c2 FFF7FEFF 		bl	uxListRemove
+ 201              	.LVL21:
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
+ 202              		.loc 1 210 0
+ 203 00c6 636F     		ldr	r3, [r4, #116]
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
+ 204              		.loc 1 208 0
+ 205 00c8 2168     		ldr	r1, [r4]
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( xTimeToWake < xCoRoutineTickCount )
+ 206              		.loc 1 210 0
+ 207 00ca 9E42     		cmp	r6, r3
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxOverflowDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->x
+ 208              		.loc 1 214 0
+ 209 00cc 34BF     		ite	cc
+ 210 00ce E06E     		ldrcc	r0, [r4, #108]
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
+ 211              		.loc 1 220 0
+ 212 00d0 A06E     		ldrcs	r0, [r4, #104]
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listSET_LIST_ITEM_VALUE( &( pxCurrentCoRoutine->xGenericListItem ), xTimeToWake );
+ 213              		.loc 1 208 0
+ 214 00d2 41F8046F 		str	r6, [r1, #4]!
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( ( xList * ) pxDelayedCoRoutineList, ( xListItem * ) &( pxCurrentCoRoutine->xGenericL
+ 215              		.loc 1 220 0
+ 216 00d6 FFF7FEFF 		bl	vListInsert
+ 217              	.LVL22:
+ 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxEventList )
+ 218              		.loc 1 223 0
+ 219 00da 35B1     		cbz	r5, .L9
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
+ 220              		.loc 1 227 0
+ 221 00dc 2168     		ldr	r1, [r4]
+ 222 00de 2846     		mov	r0, r5
+ 223 00e0 1831     		adds	r1, r1, #24
+ 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 224              		.loc 1 229 0
+ 225 00e2 BDE87040 		pop	{r4, r5, r6, lr}
+ 226              	.LVL23:
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		vListInsert( pxEventList, &( pxCurrentCoRoutine->xEventListItem ) );
+ 227              		.loc 1 227 0
+ 228 00e6 FFF7FEBF 		b	vListInsert
+ 229              	.LVL24:
+ 230              	.L9:
+ 231 00ea 70BD     		pop	{r4, r5, r6, pc}
+ 232              	.LVL25:
+ 233              	.L15:
+ 234              		.align	2
+ 235              	.L14:
+ 236 00ec 00000000 		.word	.LANCHOR0
+ 237              		.cfi_endproc
+ 238              	.LFE1:
+ 240              		.align	1
+ 241              		.global	vCoRoutineSchedule
+ 242              		.thumb
+ 243              		.thumb_func
+ 245              	vCoRoutineSchedule:
+ 246              	.LFB4:
+ 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 247              		.loc 1 314 0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251 00f0 70B5     		push	{r4, r5, r6, lr}
+ 252              	.LCFI2:
+ 253              		.cfi_def_cfa_offset 16
+ 254              		.cfi_offset 4, -16
+ 255              		.cfi_offset 5, -12
+ 256              		.cfi_offset 6, -8
+ 257              		.cfi_offset 14, -4
+ 258              	.L17:
+ 259              	.LBB13:
+ 260              	.LBB14:
+ 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &xPendingReadyCoRoutineList ) == pdFALSE )
+ 261              		.loc 1 237 0
+ 262 00f2 404D     		ldr	r5, .L42
+ 263 00f4 6B6D     		ldr	r3, [r5, #84]
+ 264 00f6 2C46     		mov	r4, r5
+ 265 00f8 DBB1     		cbz	r3, .L40
+ 266              	.LBB15:
+ 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portDISABLE_INTERRUPTS();
+ 267              		.loc 1 242 0
+ 268 00fa FFF7FEFF 		bl	ulPortSetInterruptMask
+ 269              	.LVL26:
+ 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( (&xPendingReadyCoRoutineList) );
+ 270              		.loc 1 244 0
+ 271 00fe 2B6E     		ldr	r3, [r5, #96]
+ 272 0100 DC68     		ldr	r4, [r3, #12]
+ 273              	.LVL27:
+ 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			( void ) uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
+ 274              		.loc 1 245 0
+ 275 0102 04F11800 		add	r0, r4, #24
+ 276 0106 FFF7FEFF 		bl	uxListRemove
+ 277              	.LVL28:
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		( void ) uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
+ 278              		.loc 1 249 0
+ 279 010a 261D     		adds	r6, r4, #4
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		portENABLE_INTERRUPTS();
+ 280              		.loc 1 247 0
+ 281 010c 0020     		movs	r0, #0
+ 282 010e FFF7FEFF 		bl	vPortClearInterruptMask
+ 283              	.LVL29:
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		( void ) uxListRemove( &( pxUnblockedCRCB->xGenericListItem ) );
+ 284              		.loc 1 249 0
+ 285 0112 3046     		mov	r0, r6
+ 286 0114 FFF7FEFF 		bl	uxListRemove
+ 287              	.LVL30:
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		prvAddCoRoutineToReadyQueue( pxUnblockedCRCB );
+ 288              		.loc 1 250 0
+ 289 0118 E36A     		ldr	r3, [r4, #44]
+ 290 011a 2A6F     		ldr	r2, [r5, #112]
+ 291 011c 9342     		cmp	r3, r2
+ 292 011e 364A     		ldr	r2, .L42+4
+ 293 0120 88BF     		it	hi
+ 294 0122 2B67     		strhi	r3, [r5, #112]
+ 295 0124 1420     		movs	r0, #20
+ 296 0126 00FB0320 		mla	r0, r0, r3, r2
+ 297 012a 3146     		mov	r1, r6
+ 298 012c FFF7FEFF 		bl	vListInsertEnd
+ 299              	.LVL31:
+ 300 0130 DFE7     		b	.L17
+ 301              	.LVL32:
+ 302              	.L40:
+ 303              	.LBE15:
+ 304              	.LBE14:
+ 305              	.LBE13:
+ 306              	.LBB16:
+ 307              	.LBB17:
+ 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xPassedTicks = xTaskGetTickCount() - xLastTickCount;
+ 308              		.loc 1 259 0
+ 309 0132 FFF7FEFF 		bl	xTaskGetTickCount
+ 310              	.LVL33:
+ 311 0136 EB6F     		ldr	r3, [r5, #124]
+ 312 0138 C01A     		subs	r0, r0, r3
+ 313 013a A867     		str	r0, [r5, #120]
+ 314              	.L20:
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( xPassedTicks )
+ 315              		.loc 1 260 0
+ 316 013c A26F     		ldr	r2, [r4, #120]
+ 317 013e 2D4B     		ldr	r3, .L42
+ 318 0140 002A     		cmp	r2, #0
+ 319 0142 32D0     		beq	.L41
+ 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
+ 320              		.loc 1 262 0
+ 321 0144 596F     		ldr	r1, [r3, #116]
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
+ 322              		.loc 1 263 0
+ 323 0146 013A     		subs	r2, r2, #1
+ 262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xCoRoutineTickCount++;
+ 324              		.loc 1 262 0
+ 325 0148 0131     		adds	r1, r1, #1
+ 326 014a 5967     		str	r1, [r3, #116]
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xPassedTicks--;
+ 327              		.loc 1 263 0
+ 328 014c 9A67     		str	r2, [r3, #120]
+ 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( xCoRoutineTickCount == 0 )
+ 329              		.loc 1 266 0
+ 330 014e 39BB     		cbnz	r1, .L22
+ 331              	.LBB18:
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxTemp = pxDelayedCoRoutineList;
  332              		.loc 1 272 0
- 333 014a A367     		str	r3, [r4, #120]
- 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( xCoRoutineTickCount == 0 )
- 334              		.loc 1 275 0
- 335 014c 22BB     		cbnz	r2, .L21
- 336              	.LBB20:
- 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxTemp = pxDelayedCoRoutineList;
- 337              		.loc 1 281 0
- 338 014e A26E     		ldr	r2, [r4, #104]
- 339              	.LVL31:
- 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxDelayedCoRoutineList = pxOverflowDelayedCoRoutineList;
- 340              		.loc 1 282 0
- 341 0150 E36E     		ldr	r3, [r4, #108]
- 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxOverflowDelayedCoRoutineList = pxTemp;
- 342              		.loc 1 283 0
- 343 0152 E266     		str	r2, [r4, #108]
- 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxDelayedCoRoutineList = pxOverflowDelayedCoRoutineList;
- 344              		.loc 1 282 0
- 345 0154 A366     		str	r3, [r4, #104]
- 346 0156 1FE0     		b	.L21
- 347              	.LVL32:
- 348              	.L24:
- 349              	.LBE20:
- 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxDelayedCoRoutineList );
- 350              		.loc 1 289 0
- 351 0158 DB68     		ldr	r3, [r3, #12]
- 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			if( xCoRoutineTickCount < listGET_LIST_ITEM_VALUE( &( pxCRCB->xGenericListItem ) ) )
- 352              		.loc 1 291 0
- 353 015a 626F     		ldr	r2, [r4, #116]
- 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxDelayedCoRoutineList );
- 354              		.loc 1 289 0
- 355 015c DD68     		ldr	r5, [r3, #12]
- 356              	.LVL33:
- 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			if( xCoRoutineTickCount < listGET_LIST_ITEM_VALUE( &( pxCRCB->xGenericListItem ) ) )
- 357              		.loc 1 291 0
- 358 015e 6B68     		ldr	r3, [r5, #4]
- 359 0160 9A42     		cmp	r2, r3
- 360 0162 1FD3     		bcc	.L36
- 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
- 361              		.loc 1 304 0
- 362 0164 2E1D     		adds	r6, r5, #4
- 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portDISABLE_INTERRUPTS();
- 363              		.loc 1 297 0
- 364 0166 FFF7FEFF 		bl	ulPortSetInterruptMask
- 365              	.LVL34:
- 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
- 366              		.loc 1 304 0
- 367 016a 3046     		mov	r0, r6
- 368 016c FFF7FEFF 		bl	uxListRemove
- 369              	.LVL35:
- 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				if( pxCRCB->xEventListItem.pvContainer )
- 370              		.loc 1 307 0
- 371 0170 AB6A     		ldr	r3, [r5, #40]
- 372 0172 1BB1     		cbz	r3, .L22
- 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 					uxListRemove( &( pxCRCB->xEventListItem ) );
- 373              		.loc 1 309 0
- 374 0174 05F11800 		add	r0, r5, #24
- 375 0178 FFF7FEFF 		bl	uxListRemove
- 376              	.LVL36:
- 377              	.L22:
- 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portENABLE_INTERRUPTS();
- 378              		.loc 1 312 0
- 379 017c 0020     		movs	r0, #0
- 380 017e FFF7FEFF 		bl	vPortClearInterruptMask
- 381              	.LVL37:
- 314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvAddCoRoutineToReadyQueue( pxCRCB );
- 382              		.loc 1 314 0
- 383 0182 E86A     		ldr	r0, [r5, #44]
- 384 0184 226F     		ldr	r2, [r4, #112]
- 385 0186 9042     		cmp	r0, r2
- 386 0188 88BF     		it	hi
- 387 018a 2067     		strhi	r0, [r4, #112]
- 388 018c 3146     		mov	r1, r6
- 389 018e 08FB0070 		mla	r0, r8, r0, r7
- 390 0192 FFF7FEFF 		bl	vListInsertEnd
- 391              	.LVL38:
- 392 0196 01E0     		b	.L37
- 393              	.LVL39:
- 394              	.L21:
- 395 0198 4FF01408 		mov	r8, #20
- 396              	.L37:
- 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		while( listLIST_IS_EMPTY( pxDelayedCoRoutineList ) == pdFALSE )
- 397              		.loc 1 287 0
- 398 019c A36E     		ldr	r3, [r4, #104]
- 399 019e 1A68     		ldr	r2, [r3, #0]
- 400 01a0 002A     		cmp	r2, #0
- 401 01a2 D9D1     		bne	.L24
- 402              	.L36:
- 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( xPassedTicks )
- 403              		.loc 1 269 0
- 404 01a4 A36F     		ldr	r3, [r4, #120]
- 405 01a6 144A     		ldr	r2, .L38
- 406 01a8 002B     		cmp	r3, #0
- 407 01aa CAD1     		bne	.L25
- 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xLastTickCount = xCoRoutineTickCount;
- 408              		.loc 1 318 0
- 409 01ac 536F     		ldr	r3, [r2, #116]
- 410              	.LBE19:
- 411              	.LBE18:
- 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
- 412              		.loc 1 331 0
- 413 01ae 1425     		movs	r5, #20
- 414              	.LBB22:
- 415              	.LBB21:
- 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xLastTickCount = xCoRoutineTickCount;
- 416              		.loc 1 318 0
- 417 01b0 D367     		str	r3, [r2, #124]
- 418 01b2 136F     		ldr	r3, [r2, #112]
- 419 01b4 04E0     		b	.L26
- 420              	.L29:
- 421              	.LBE21:
- 422              	.LBE22:
- 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxTopCoRoutineReadyPriority == 0 )
- 423              		.loc 1 333 0
- 424 01b6 13B9     		cbnz	r3, .L27
- 425 01b8 0B67     		str	r3, [r1, #112]
- 426 01ba BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 427              	.L27:
- 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		--uxTopCoRoutineReadyPriority;
- 428              		.loc 1 338 0
- 429 01be 013B     		subs	r3, r3, #1
- 430              	.L26:
- 331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
- 431              		.loc 1 331 0 discriminator 1
- 432 01c0 05FB03F0 		mul	r0, r5, r3
- 433 01c4 1418     		adds	r4, r2, r0
- 434 01c6 0C49     		ldr	r1, .L38
- 435 01c8 6468     		ldr	r4, [r4, #4]
- 436 01ca 002C     		cmp	r4, #0
- 437 01cc F3D0     		beq	.L29
- 438 01ce 0B67     		str	r3, [r1, #112]
- 439              	.LBB23:
- 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listGET_OWNER_OF_NEXT_ENTRY( pxCurrentCoRoutine, &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPrio
- 440              		.loc 1 343 0
- 441 01d0 0B1D     		adds	r3, r1, #4
- 442 01d2 1B18     		adds	r3, r3, r0
- 443              	.LVL40:
- 444 01d4 03F10801 		add	r1, r3, #8
- 445 01d8 5A68     		ldr	r2, [r3, #4]
- 446 01da 5268     		ldr	r2, [r2, #4]
- 447 01dc 8A42     		cmp	r2, r1
- 448 01de 5A60     		str	r2, [r3, #4]
- 449 01e0 04BF     		itt	eq
- 450 01e2 5268     		ldreq	r2, [r2, #4]
- 451 01e4 5A60     		streq	r2, [r3, #4]
- 452 01e6 5B68     		ldr	r3, [r3, #4]
- 453              	.LVL41:
- 454 01e8 D868     		ldr	r0, [r3, #12]
- 455 01ea 034B     		ldr	r3, .L38
- 456              	.LBE23:
- 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( pxCurrentCoRoutine->pxCoRoutineFunction )( pxCurrentCoRoutine, pxCurrentCoRoutine->uxIndex );
- 457              		.loc 1 346 0
- 458 01ec 016B     		ldr	r1, [r0, #48]
- 459              	.LVL42:
- 460              	.LBB24:
- 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listGET_OWNER_OF_NEXT_ENTRY( pxCurrentCoRoutine, &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPrio
- 461              		.loc 1 343 0
- 462 01ee 1860     		str	r0, [r3, #0]
- 463              	.LBE24:
- 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( pxCurrentCoRoutine->pxCoRoutineFunction )( pxCurrentCoRoutine, pxCurrentCoRoutine->uxIndex );
- 464              		.loc 1 346 0
- 465 01f0 0368     		ldr	r3, [r0, #0]
- 466              	.LVL43:
- 467 01f2 9847     		blx	r3
- 468              	.LVL44:
- 469 01f4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 470              	.L39:
- 471              		.align	2
- 472              	.L38:
- 473 01f8 00000000 		.word	.LANCHOR0
- 474              		.cfi_endproc
- 475              	.LFE4:
- 477              		.align	1
- 478              		.global	xCoRoutineRemoveFromEventList
- 479              		.thumb
- 480              		.thumb_func
- 482              	xCoRoutineRemoveFromEventList:
- 483              	.LFB6:
- 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
- 371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xCoRoutineRemoveFromEventList( const xList *pxEventList )
- 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 484              		.loc 1 373 0
- 485              		.cfi_startproc
- 486              		@ args = 0, pretend = 0, frame = 0
- 487              		@ frame_needed = 0, uses_anonymous_args = 0
- 488              	.LVL45:
- 374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxUnblockedCRCB;
- 375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xReturn;
- 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* This function is called from within an interrupt.  It can only access
- 378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	event lists and the pending ready list.  This function assumes that a
- 379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	check has already been made to ensure pxEventList is not empty. */
- 380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxEventList );
- 489              		.loc 1 380 0
- 490 01fc C368     		ldr	r3, [r0, #12]
- 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
- 491              		.loc 1 373 0
- 492 01fe 70B5     		push	{r4, r5, r6, lr}
- 493              	.LCFI3:
- 494              		.cfi_def_cfa_offset 16
- 495              		.cfi_offset 4, -16
- 496              		.cfi_offset 5, -12
- 497              		.cfi_offset 6, -8
- 498              		.cfi_offset 14, -4
- 499              		.loc 1 380 0
- 500 0200 DC68     		ldr	r4, [r3, #12]
- 501              	.LVL46:
- 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
- 382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInsertEnd( ( xList * ) &( xPendingReadyCoRoutineList ), &( pxUnblockedCRCB->xEventListItem ) 
- 502              		.loc 1 382 0
- 503 0202 094D     		ldr	r5, .L41
- 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
- 504              		.loc 1 381 0
- 505 0204 04F11806 		add	r6, r4, #24
- 506 0208 3046     		mov	r0, r6
- 507              	.LVL47:
- 508 020a FFF7FEFF 		bl	uxListRemove
- 509              	.LVL48:
- 510              		.loc 1 382 0
- 511 020e 05F15400 		add	r0, r5, #84
- 512 0212 3146     		mov	r1, r6
- 513 0214 FFF7FEFF 		bl	vListInsertEnd
- 514              	.LVL49:
+ 333 0150 996E     		ldr	r1, [r3, #104]
+ 334              	.LVL34:
+ 273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxDelayedCoRoutineList = pxOverflowDelayedCoRoutineList;
+ 335              		.loc 1 273 0
+ 336 0152 DA6E     		ldr	r2, [r3, #108]
+ 337 0154 9A66     		str	r2, [r3, #104]
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxOverflowDelayedCoRoutineList = pxTemp;
+ 338              		.loc 1 274 0
+ 339 0156 D966     		str	r1, [r3, #108]
+ 340 0158 22E0     		b	.L22
+ 341              	.LVL35:
+ 342              	.L26:
+ 343              	.LBE18:
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			pxCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxDelayedCoRoutineList );
+ 344              		.loc 1 280 0
+ 345 015a DB68     		ldr	r3, [r3, #12]
+ 346 015c DD68     		ldr	r5, [r3, #12]
+ 347              	.LVL36:
+ 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			if( xCoRoutineTickCount < listGET_LIST_ITEM_VALUE( &( pxCRCB->xGenericListItem ) ) )
+ 348              		.loc 1 282 0
+ 349 015e 254B     		ldr	r3, .L42
+ 350 0160 5A6F     		ldr	r2, [r3, #116]
+ 351 0162 6B68     		ldr	r3, [r5, #4]
+ 352 0164 9A42     		cmp	r2, r3
+ 353 0166 E9D3     		bcc	.L20
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
+ 354              		.loc 1 295 0
+ 355 0168 2E1D     		adds	r6, r5, #4
+ 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portDISABLE_INTERRUPTS();
+ 356              		.loc 1 288 0
+ 357 016a FFF7FEFF 		bl	ulPortSetInterruptMask
+ 358              	.LVL37:
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				uxListRemove( &( pxCRCB->xGenericListItem ) );
+ 359              		.loc 1 295 0
+ 360 016e 3046     		mov	r0, r6
+ 361 0170 FFF7FEFF 		bl	uxListRemove
+ 362              	.LVL38:
+ 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 				if( pxCRCB->xEventListItem.pvContainer )
+ 363              		.loc 1 298 0
+ 364 0174 AB6A     		ldr	r3, [r5, #40]
+ 365 0176 1BB1     		cbz	r3, .L24
+ 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 					( void ) uxListRemove( &( pxCRCB->xEventListItem ) );
+ 366              		.loc 1 300 0
+ 367 0178 05F11800 		add	r0, r5, #24
+ 368 017c FFF7FEFF 		bl	uxListRemove
+ 369              	.LVL39:
+ 370              	.L24:
+ 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			portENABLE_INTERRUPTS();
+ 371              		.loc 1 303 0
+ 372 0180 0020     		movs	r0, #0
+ 373 0182 FFF7FEFF 		bl	vPortClearInterruptMask
+ 374              	.LVL40:
+ 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 			prvAddCoRoutineToReadyQueue( pxCRCB );
+ 375              		.loc 1 305 0
+ 376 0186 226F     		ldr	r2, [r4, #112]
+ 377 0188 EB6A     		ldr	r3, [r5, #44]
+ 378 018a 9342     		cmp	r3, r2
+ 379 018c 84BF     		itt	hi
+ 380 018e 194A     		ldrhi	r2, .L42
+ 381 0190 1367     		strhi	r3, [r2, #112]
+ 382 0192 194A     		ldr	r2, .L42+4
+ 383 0194 1420     		movs	r0, #20
+ 384 0196 00FB0320 		mla	r0, r0, r3, r2
+ 385 019a 3146     		mov	r1, r6
+ 386 019c FFF7FEFF 		bl	vListInsertEnd
+ 387              	.LVL41:
+ 388              	.L22:
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		while( listLIST_IS_EMPTY( pxDelayedCoRoutineList ) == pdFALSE )
+ 389              		.loc 1 278 0
+ 390 01a0 A36E     		ldr	r3, [r4, #104]
+ 391 01a2 1A68     		ldr	r2, [r3]
+ 392 01a4 002A     		cmp	r2, #0
+ 393 01a6 D8D1     		bne	.L26
+ 394 01a8 C8E7     		b	.L20
+ 395              	.L41:
+ 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	xLastTickCount = xCoRoutineTickCount;
+ 396              		.loc 1 309 0
+ 397 01aa 5A6F     		ldr	r2, [r3, #116]
+ 398 01ac DA67     		str	r2, [r3, #124]
+ 399 01ae 1A6F     		ldr	r2, [r3, #112]
+ 400              	.LBE17:
+ 401              	.LBE16:
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
+ 402              		.loc 1 322 0
+ 403 01b0 1421     		movs	r1, #20
+ 404 01b2 01FB0230 		mla	r0, r1, r2, r3
+ 405 01b6 4068     		ldr	r0, [r0, #4]
+ 406 01b8 38B9     		cbnz	r0, .L28
+ 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		if( uxTopCoRoutineReadyPriority == 0 )
+ 407              		.loc 1 324 0
+ 408 01ba 22B1     		cbz	r2, .L29
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		--uxTopCoRoutineReadyPriority;
+ 409              		.loc 1 329 0
+ 410 01bc 013A     		subs	r2, r2, #1
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	while( listLIST_IS_EMPTY( &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPriority ] ) ) )
+ 411              		.loc 1 322 0
+ 412 01be 01FB0233 		mla	r3, r1, r2, r3
+ 413 01c2 5B68     		ldr	r3, [r3, #4]
+ 414 01c4 0BB9     		cbnz	r3, .L28
+ 415              	.L29:
+ 416 01c6 2267     		str	r2, [r4, #112]
+ 417 01c8 70BD     		pop	{r4, r5, r6, pc}
+ 418              	.L28:
+ 419              	.LBB19:
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	listGET_OWNER_OF_NEXT_ENTRY( pxCurrentCoRoutine, &( pxReadyCoRoutineLists[ uxTopCoRoutineReadyPrio
+ 420              		.loc 1 334 0
+ 421 01ca 0B4B     		ldr	r3, .L42+4
+ 422 01cc 2267     		str	r2, [r4, #112]
+ 423 01ce 1421     		movs	r1, #20
+ 424 01d0 01FB0232 		mla	r2, r1, r2, r3
+ 425              	.LVL42:
+ 426 01d4 02F10801 		add	r1, r2, #8
+ 427 01d8 5368     		ldr	r3, [r2, #4]
+ 428 01da 5B68     		ldr	r3, [r3, #4]
+ 429 01dc 5360     		str	r3, [r2, #4]
+ 430 01de 8B42     		cmp	r3, r1
+ 431 01e0 04BF     		itt	eq
+ 432 01e2 5B68     		ldreq	r3, [r3, #4]
+ 433 01e4 5360     		streq	r3, [r2, #4]
+ 434 01e6 5368     		ldr	r3, [r2, #4]
+ 435 01e8 D868     		ldr	r0, [r3, #12]
+ 436 01ea 2060     		str	r0, [r4]
+ 437              	.LBE19:
+ 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( pxCurrentCoRoutine->pxCoRoutineFunction )( pxCurrentCoRoutine, pxCurrentCoRoutine->uxIndex );
+ 438              		.loc 1 337 0
+ 439 01ec 0368     		ldr	r3, [r0]
+ 440 01ee 016B     		ldr	r1, [r0, #48]
+ 441 01f0 9847     		blx	r3
+ 442              	.LVL43:
+ 443 01f2 70BD     		pop	{r4, r5, r6, pc}
+ 444              	.L43:
+ 445              		.align	2
+ 446              	.L42:
+ 447 01f4 00000000 		.word	.LANCHOR0
+ 448 01f8 04000000 		.word	.LANCHOR0+4
+ 449              		.cfi_endproc
+ 450              	.LFE4:
+ 452              		.align	1
+ 453              		.global	xCoRoutineRemoveFromEventList
+ 454              		.thumb
+ 455              		.thumb_func
+ 457              	xCoRoutineRemoveFromEventList:
+ 458              	.LFB6:
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** /*-----------------------------------------------------------*/
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xCoRoutineRemoveFromEventList( const xList *pxEventList )
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 459              		.loc 1 364 0
+ 460              		.cfi_startproc
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 463              	.LVL44:
+ 365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** corCRCB *pxUnblockedCRCB;
+ 366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** signed portBASE_TYPE xReturn;
+ 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	/* This function is called from within an interrupt.  It can only access
+ 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	event lists and the pending ready list.  This function assumes that a
+ 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	check has already been made to ensure pxEventList is not empty. */
+ 371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	pxUnblockedCRCB = ( corCRCB * ) listGET_OWNER_OF_HEAD_ENTRY( pxEventList );
+ 464              		.loc 1 371 0
+ 465 01fc C368     		ldr	r3, [r0, #12]
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** {
+ 466              		.loc 1 364 0
+ 467 01fe 70B5     		push	{r4, r5, r6, lr}
+ 468              	.LCFI3:
+ 469              		.cfi_def_cfa_offset 16
+ 470              		.cfi_offset 4, -16
+ 471              		.cfi_offset 5, -12
+ 472              		.cfi_offset 6, -8
+ 473              		.cfi_offset 14, -4
+ 474              		.loc 1 371 0
+ 475 0200 DC68     		ldr	r4, [r3, #12]
+ 476              	.LVL45:
+ 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( void ) uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
+ 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	vListInsertEnd( ( xList * ) &( xPendingReadyCoRoutineList ), &( pxUnblockedCRCB->xEventListItem ) 
+ 477              		.loc 1 373 0
+ 478 0202 094D     		ldr	r5, .L45
+ 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	( void ) uxListRemove( &( pxUnblockedCRCB->xEventListItem ) );
+ 479              		.loc 1 372 0
+ 480 0204 04F11806 		add	r6, r4, #24
+ 481 0208 3046     		mov	r0, r6
+ 482              	.LVL46:
+ 483 020a FFF7FEFF 		bl	uxListRemove
+ 484              	.LVL47:
+ 485              		.loc 1 373 0
+ 486 020e 05F15400 		add	r0, r5, #84
+ 487 0212 3146     		mov	r1, r6
+ 488 0214 FFF7FEFF 		bl	vListInsertEnd
+ 489              	.LVL48:
+ 374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
+ 375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxUnblockedCRCB->uxPriority >= pxCurrentCoRoutine->uxPriority )
+ 490              		.loc 1 375 0
+ 491 0218 2B68     		ldr	r3, [r5]
+ 492 021a E06A     		ldr	r0, [r4, #44]
+ 493 021c DB6A     		ldr	r3, [r3, #44]
+ 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdTRUE;
+ 378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
+ 379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
+ 380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
+ 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdFALSE;
+ 382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
  383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	if( pxUnblockedCRCB->uxPriority >= pxCurrentCoRoutine->uxPriority )
- 515              		.loc 1 384 0
- 516 0218 2B68     		ldr	r3, [r5, #0]
- 517 021a E06A     		ldr	r0, [r4, #44]
- 518 021c DB6A     		ldr	r3, [r3, #44]
- 385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdTRUE;
- 387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	else
- 389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	{
- 390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 		xReturn = pdFALSE;
- 391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	}
- 392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 
- 393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return xReturn;
- 394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
- 519              		.loc 1 394 0
- 520 021e 9842     		cmp	r0, r3
- 521 0220 34BF     		ite	cc
- 522 0222 0020     		movcc	r0, #0
- 523 0224 0120     		movcs	r0, #1
- 524 0226 70BD     		pop	{r4, r5, r6, pc}
- 525              	.L42:
- 526              		.align	2
- 527              	.L41:
- 528 0228 00000000 		.word	.LANCHOR0
- 529              		.cfi_endproc
- 530              	.LFE6:
- 532              		.global	pxCurrentCoRoutine
- 533              		.bss
- 534              		.align	2
- 535              		.set	.LANCHOR0,. + 0
- 538              	pxCurrentCoRoutine:
- 539 0000 00000000 		.space	4
- 542              	pxReadyCoRoutineLists:
- 543 0004 00000000 		.space	40
- 543      00000000 
- 543      00000000 
- 543      00000000 
- 543      00000000 
- 546              	xDelayedCoRoutineList1:
- 547 002c 00000000 		.space	20
- 547      00000000 
- 547      00000000 
- 547      00000000 
- 547      00000000 
- 550              	xDelayedCoRoutineList2:
- 551 0040 00000000 		.space	20
- 551      00000000 
- 551      00000000 
- 551      00000000 
- 551      00000000 
- 554              	xPendingReadyCoRoutineList:
- 555 0054 00000000 		.space	20
- 555      00000000 
- 555      00000000 
- 555      00000000 
- 555      00000000 
- 558              	pxDelayedCoRoutineList:
- 559 0068 00000000 		.space	4
- 562              	pxOverflowDelayedCoRoutineList:
- 563 006c 00000000 		.space	4
- 566              	uxTopCoRoutineReadyPriority:
- 567 0070 00000000 		.space	4
- 570              	xCoRoutineTickCount:
- 571 0074 00000000 		.space	4
- 574              	xPassedTicks:
- 575 0078 00000000 		.space	4
- 578              	xLastTickCount:
- 579 007c 00000000 		.space	4
- 580              		.text
- 581              	.Letext0:
- 582              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 583              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
- 584              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
- 585              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/croutine.h"
- 586              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
- 587              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
+ 384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** 	return xReturn;
+ 385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/croutine.c **** }
+ 494              		.loc 1 385 0
+ 495 021e 9842     		cmp	r0, r3
+ 496 0220 34BF     		ite	cc
+ 497 0222 0020     		movcc	r0, #0
+ 498 0224 0120     		movcs	r0, #1
+ 499 0226 70BD     		pop	{r4, r5, r6, pc}
+ 500              	.LVL49:
+ 501              	.L46:
+ 502              		.align	2
+ 503              	.L45:
+ 504 0228 00000000 		.word	.LANCHOR0
+ 505              		.cfi_endproc
+ 506              	.LFE6:
+ 508              		.global	pxCurrentCoRoutine
+ 509              		.bss
+ 510              		.align	2
+ 511              		.set	.LANCHOR0,. + 0
+ 514              	pxCurrentCoRoutine:
+ 515 0000 00000000 		.space	4
+ 518              	pxReadyCoRoutineLists:
+ 519 0004 00000000 		.space	40
+ 519      00000000 
+ 519      00000000 
+ 519      00000000 
+ 519      00000000 
+ 522              	xDelayedCoRoutineList1:
+ 523 002c 00000000 		.space	20
+ 523      00000000 
+ 523      00000000 
+ 523      00000000 
+ 523      00000000 
+ 526              	xDelayedCoRoutineList2:
+ 527 0040 00000000 		.space	20
+ 527      00000000 
+ 527      00000000 
+ 527      00000000 
+ 527      00000000 
+ 530              	xPendingReadyCoRoutineList:
+ 531 0054 00000000 		.space	20
+ 531      00000000 
+ 531      00000000 
+ 531      00000000 
+ 531      00000000 
+ 534              	pxDelayedCoRoutineList:
+ 535 0068 00000000 		.space	4
+ 538              	pxOverflowDelayedCoRoutineList:
+ 539 006c 00000000 		.space	4
+ 542              	uxTopCoRoutineReadyPriority:
+ 543 0070 00000000 		.space	4
+ 546              	xCoRoutineTickCount:
+ 547 0074 00000000 		.space	4
+ 550              	xPassedTicks:
+ 551 0078 00000000 		.space	4
+ 554              	xLastTickCount:
+ 555 007c 00000000 		.space	4
+ 556              		.text
+ 557              	.Letext0:
+ 558              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/lib/gcc/arm-none-eabi/4.8.3/include/stddef.h"
+ 559              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 560              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/list.h"
+ 561              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/croutine.h"
+ 562              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/portable.h"
+ 563              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 croutine.c
-     /tmp/ccuqkiRO.s:20     .text:00000000 $t
-     /tmp/ccuqkiRO.s:25     .text:00000000 xCoRoutineCreate
-     /tmp/ccuqkiRO.s:169    .text:000000a8 $d
-     /tmp/ccuqkiRO.s:174    .text:000000b0 $t
-     /tmp/ccuqkiRO.s:179    .text:000000b0 vCoRoutineAddToDelayedList
-     /tmp/ccuqkiRO.s:239    .text:000000e8 $d
-     /tmp/ccuqkiRO.s:243    .text:000000ec $t
-     /tmp/ccuqkiRO.s:248    .text:000000ec vCoRoutineSchedule
-     /tmp/ccuqkiRO.s:473    .text:000001f8 $d
-     /tmp/ccuqkiRO.s:477    .text:000001fc $t
-     /tmp/ccuqkiRO.s:482    .text:000001fc xCoRoutineRemoveFromEventList
-     /tmp/ccuqkiRO.s:528    .text:00000228 $d
-     /tmp/ccuqkiRO.s:538    .bss:00000000 pxCurrentCoRoutine
-     /tmp/ccuqkiRO.s:534    .bss:00000000 $d
-     /tmp/ccuqkiRO.s:542    .bss:00000004 pxReadyCoRoutineLists
-     /tmp/ccuqkiRO.s:546    .bss:0000002c xDelayedCoRoutineList1
-     /tmp/ccuqkiRO.s:550    .bss:00000040 xDelayedCoRoutineList2
-     /tmp/ccuqkiRO.s:554    .bss:00000054 xPendingReadyCoRoutineList
-     /tmp/ccuqkiRO.s:558    .bss:00000068 pxDelayedCoRoutineList
-     /tmp/ccuqkiRO.s:562    .bss:0000006c pxOverflowDelayedCoRoutineList
-     /tmp/ccuqkiRO.s:566    .bss:00000070 uxTopCoRoutineReadyPriority
-     /tmp/ccuqkiRO.s:570    .bss:00000074 xCoRoutineTickCount
-     /tmp/ccuqkiRO.s:574    .bss:00000078 xPassedTicks
-     /tmp/ccuqkiRO.s:578    .bss:0000007c xLastTickCount
+     /tmp/ccod8NnH.s:20     .text:00000000 $t
+     /tmp/ccod8NnH.s:25     .text:00000000 xCoRoutineCreate
+     /tmp/ccod8NnH.s:165    .text:000000b0 $d
+     /tmp/ccod8NnH.s:169    .text:000000b4 $t
+     /tmp/ccod8NnH.s:174    .text:000000b4 vCoRoutineAddToDelayedList
+     /tmp/ccod8NnH.s:236    .text:000000ec $d
+     /tmp/ccod8NnH.s:240    .text:000000f0 $t
+     /tmp/ccod8NnH.s:245    .text:000000f0 vCoRoutineSchedule
+     /tmp/ccod8NnH.s:447    .text:000001f4 $d
+     /tmp/ccod8NnH.s:452    .text:000001fc $t
+     /tmp/ccod8NnH.s:457    .text:000001fc xCoRoutineRemoveFromEventList
+     /tmp/ccod8NnH.s:504    .text:00000228 $d
+     /tmp/ccod8NnH.s:514    .bss:00000000 pxCurrentCoRoutine
+     /tmp/ccod8NnH.s:510    .bss:00000000 $d
+     /tmp/ccod8NnH.s:518    .bss:00000004 pxReadyCoRoutineLists
+     /tmp/ccod8NnH.s:522    .bss:0000002c xDelayedCoRoutineList1
+     /tmp/ccod8NnH.s:526    .bss:00000040 xDelayedCoRoutineList2
+     /tmp/ccod8NnH.s:530    .bss:00000054 xPendingReadyCoRoutineList
+     /tmp/ccod8NnH.s:534    .bss:00000068 pxDelayedCoRoutineList
+     /tmp/ccod8NnH.s:538    .bss:0000006c pxOverflowDelayedCoRoutineList
+     /tmp/ccod8NnH.s:542    .bss:00000070 uxTopCoRoutineReadyPriority
+     /tmp/ccod8NnH.s:546    .bss:00000074 xCoRoutineTickCount
+     /tmp/ccod8NnH.s:550    .bss:00000078 xPassedTicks
+     /tmp/ccod8NnH.s:554    .bss:0000007c xLastTickCount
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
-                           .group:00000000 wm4.stddef.h.40.50cf36416e06376af8a9dca28536f2e4
-                           .group:00000000 wm4.projdefs.h.76.214f319a5937dae232f0ee2912b07e1d
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
+                           .group:00000000 wm4.stddef.h.39.daafd3d79fe2f3a84d2d73d7d4e706f8
+                           .group:00000000 wm4.projdefs.h.67.e147d0bb14773a90ce9490c5c93d4b17
                            .group:00000000 wm4.FreeRTOSConfig.h.79.5ce50f1f04ae36d94916fa991aa4b8d7
-                           .group:00000000 wm4.portmacro.h.77.0810e0eb8c6edf5adf0d27242484a945
-                           .group:00000000 wm4.portable.h.332.e25bf3f97ebf50a0f90736144cb8c3f8
-                           .group:00000000 wm4.mpu_wrappers.h.76.3abcfc7ebb6d78909ee0b4ad2f20f282
-                           .group:00000000 wm4.FreeRTOS.h.159.741cbf33489b2c951994722716e9692e
-                           .group:00000000 wm4.list.h.105.6a6307ce3396638a078c02ff83387dc6
-                           .group:00000000 wm4.task.h.94.33ec4de8c3f825901c54e6cf58507761
-                           .group:00000000 wm4.croutine.h.76.348a46e106a704888b711d08f2a8ea48
+                           .group:00000000 wm4.portmacro.h.68.6a65242bb09b79c298caf96e860eebfc
+                           .group:00000000 wm4.portable.h.323.74480596d2f6d1d8387fc23ab95d1e43
+                           .group:00000000 wm4.mpu_wrappers.h.67.4bcfd12ce15e5313ce3efd77400f8168
+                           .group:00000000 wm4.FreeRTOS.h.150.cc84f37778a1fad138e88914409bc9ad
+                           .group:00000000 wm4.list.h.96.3fa6b36eff50c0aca81a4cee845ec2dc
+                           .group:00000000 wm4.task.h.84.f228f660597151d3901b6cf328174595
+                           .group:00000000 wm4.croutine.h.67.a67ac56b9022b6112912e5be1cbfa749
 
 UNDEFINED SYMBOLS
 pvPortMalloc

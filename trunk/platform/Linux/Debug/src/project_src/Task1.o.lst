@@ -1,27 +1,29 @@
    1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"Task1.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.align	1
-  19              		.global	Init_PositionController
-  20              		.thumb
-  21              		.thumb_func
-  23              	Init_PositionController:
-  24              	.LFB111:
-  25              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c"
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 4
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.file	"Task1.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.align	1
+  21              		.global	Init_PositionController
+  22              		.thumb
+  23              		.thumb_func
+  25              	Init_PositionController:
+  26              	.LFB111:
+  27              		.file 1 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c"
    1:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /*
    2:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c ****  *
    3:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c ****  */
@@ -67,376 +69,342 @@
   43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** void Init_PositionController(){
-  26              		.loc 1 45 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
-  31              	.LCFI0:
-  32              		.cfi_def_cfa_offset 24
-  33              		.cfi_offset 0, -24
-  34              		.cfi_offset 1, -20
-  35              		.cfi_offset 2, -16
-  36              		.cfi_offset 3, -12
-  37              		.cfi_offset 4, -8
-  38              		.cfi_offset 14, -4
+  28              		.loc 1 45 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
   46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	init_PID(DT_S, 	GlobalSettings.PID_rollPitch.PID_kp,
-  39              		.loc 1 47 0
-  40 0002 0D4C     		ldr	r4, .L2
-  41 0004 0D48     		ldr	r0, .L2+4
-  42 0006 636B     		ldr	r3, [r4, #52]	@ float
-  43 0008 A16A     		ldr	r1, [r4, #40]	@ float
-  44 000a 0093     		str	r3, [sp, #0]	@ float
-  45 000c 0C4B     		ldr	r3, .L2+8
-  46 000e E26A     		ldr	r2, [r4, #44]	@ float
-  47 0010 0193     		str	r3, [sp, #4]
-  48 0012 236B     		ldr	r3, [r4, #48]	@ float
-  49 0014 FFF7FEFF 		bl	init_PID
-  50              	.LVL0:
+  37              		.loc 1 47 0
+  38 0002 104C     		ldr	r4, .L2
+  39 0004 9FED100A 		flds	s0, .L2+4
+  40 0008 D4ED0A0A 		flds	s1, [r4, #40]
+  41 000c 94ED0B1A 		flds	s2, [r4, #44]
+  42 0010 D4ED0C1A 		flds	s3, [r4, #48]
+  43 0014 94ED0D2A 		flds	s4, [r4, #52]
+  44 0018 0C48     		ldr	r0, .L2+8
+  45 001a FFF7FEFF 		bl	init_PID
+  46              	.LVL0:
   48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					GlobalSettings.PID_rollPitch.PID_ki,
   49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					GlobalSettings.PID_rollPitch.PID_kd,
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					GlobalSettings.PID_rollPitch.PID_kn, &PID_Position);
   51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	init_SmithPredictor(GlobalSettings.SmithPrediktor_rollPitch.a1, GlobalSettings.SmithPrediktor_roll
-  51              		.loc 1 53 0
-  52 0018 A36D     		ldr	r3, [r4, #88]	@ float
-  53 001a 226D     		ldr	r2, [r4, #80]	@ float
-  54 001c 0093     		str	r3, [sp, #0]	@ float
-  55 001e E36D     		ldr	r3, [r4, #92]	@ float
-  56 0020 A06C     		ldr	r0, [r4, #72]	@ float
-  57 0022 0193     		str	r3, [sp, #4]	@ float
-  58 0024 074B     		ldr	r3, .L2+12
-  59 0026 E16C     		ldr	r1, [r4, #76]	@ float
-  60 0028 0293     		str	r3, [sp, #8]
-  61 002a 636D     		ldr	r3, [r4, #84]	@ float
-  62 002c FFF7FEFF 		bl	init_SmithPredictor
-  63              	.LVL1:
+  47              		.loc 1 53 0
+  48 001e 94ED120A 		flds	s0, [r4, #72]
+  49 0022 D4ED130A 		flds	s1, [r4, #76]
+  50 0026 94ED141A 		flds	s2, [r4, #80]
+  51 002a D4ED151A 		flds	s3, [r4, #84]
+  52 002e 94ED162A 		flds	s4, [r4, #88]
+  53 0032 D4ED172A 		flds	s5, [r4, #92]
+  54 0036 0648     		ldr	r0, .L2+12
+  55 0038 FFF7FEFF 		bl	init_SmithPredictor
+  56              	.LVL1:
   54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 						GlobalSettings.SmithPrediktor_rollPitch.b1, GlobalSettings.SmithPrediktor_rollPitch.b2,
   55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 						GlobalSettings.SmithPrediktor_rollPitch.b3, GlobalSettings.SmithPrediktor_rollPitch.gain,
   56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 						&Smith_Position);
   57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	CtrlStates.pitch = 0.0f;
-  64              		.loc 1 58 0
-  65 0030 054B     		ldr	r3, .L2+16
-  66 0032 0022     		movs	r2, #0
-  67 0034 1A60     		str	r2, [r3, #0]	@ float
+  57              		.loc 1 58 0
+  58 003c 054B     		ldr	r3, .L2+16
+  59 003e 0022     		movs	r2, #0
+  60 0040 1A60     		str	r2, [r3]	@ float
+  61 0042 10BD     		pop	{r4, pc}
+  62              	.L3:
+  63              		.align	2
+  64              	.L2:
+  65 0044 00000000 		.word	GlobalSettings
+  66 0048 6F12033B 		.word	990057071
+  67 004c 00000000 		.word	PID_Position
+  68 0050 00000000 		.word	Smith_Position
+  69 0054 00000000 		.word	CtrlStates
+  70              		.cfi_endproc
+  71              	.LFE111:
+  73              		.global	__aeabi_f2d
+  74              		.global	__aeabi_dsub
+  75              		.global	__aeabi_d2f
+  76              		.align	1
+  77              		.global	Init_IMU
+  78              		.thumb
+  79              		.thumb_func
+  81              	Init_IMU:
+  82              	.LFB112:
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
-  68              		.loc 1 60 0
-  69 0036 1FBD     		pop	{r0, r1, r2, r3, r4, pc}
-  70              	.L3:
-  71              		.align	2
-  72              	.L2:
-  73 0038 00000000 		.word	GlobalSettings
-  74 003c 0AD7A33B 		.word	1000593162
-  75 0040 00000000 		.word	PID_Position
-  76 0044 00000000 		.word	Smith_Position
-  77 0048 00000000 		.word	CtrlStates
-  78              		.cfi_endproc
-  79              	.LFE111:
-  81              		.global	__aeabi_i2f
-  82              		.global	__aeabi_fmul
-  83              		.global	__aeabi_fadd
-  84              		.global	__aeabi_fcmpgt
-  85              		.global	__aeabi_fcmplt
-  86              		.global	__aeabi_f2d
-  87              		.global	__aeabi_dsub
-  88              		.global	__aeabi_d2f
-  89              		.global	__aeabi_fsub
-  90              		.align	1
-  91              		.global	Init_IMU
-  92              		.thumb
-  93              		.thumb_func
-  95              	Init_IMU:
-  96              	.LFB112:
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** void Init_IMU(){
-  97              		.loc 1 62 0
-  98              		.cfi_startproc
-  99              		@ args = 0, pretend = 0, frame = 8
- 100              		@ frame_needed = 0, uses_anonymous_args = 0
- 101 004c 2DE9F74F 		push	{r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 102              	.LCFI1:
- 103              		.cfi_def_cfa_offset 48
- 104              		.cfi_offset 0, -48
- 105              		.cfi_offset 1, -44
- 106              		.cfi_offset 2, -40
- 107              		.cfi_offset 4, -36
- 108              		.cfi_offset 5, -32
- 109              		.cfi_offset 6, -28
- 110              		.cfi_offset 7, -24
- 111              		.cfi_offset 8, -20
- 112              		.cfi_offset 9, -16
- 113              		.cfi_offset 10, -12
- 114              		.cfi_offset 11, -8
- 115              		.cfi_offset 14, -4
+  83              		.loc 1 62 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87 0058 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  88              	.LCFI1:
+  89              		.cfi_def_cfa_offset 32
+  90              		.cfi_offset 3, -32
+  91              		.cfi_offset 4, -28
+  92              		.cfi_offset 5, -24
+  93              		.cfi_offset 6, -20
+  94              		.cfi_offset 7, -16
+  95              		.cfi_offset 8, -12
+  96              		.cfi_offset 9, -8
+  97              		.cfi_offset 14, -4
   63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&xGyroFiltered_float, 0, sizeof(xGyroFiltered_float));
- 116              		.loc 1 65 0
- 117 0050 0021     		movs	r1, #0
- 118 0052 2C22     		movs	r2, #44
- 119 0054 9248     		ldr	r0, .L39+8
- 120 0056 FFF7FEFF 		bl	memset
- 121              	.LVL2:
+  98              		.loc 1 65 0
+  99 005c 0021     		movs	r1, #0
+ 100 005e 2C22     		movs	r2, #44
+ 101 0060 9F48     		ldr	r0, .L39+8
   66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&yGyroFiltered_float, 0, sizeof(yGyroFiltered_float));
- 122              		.loc 1 66 0
- 123 005a 0021     		movs	r1, #0
- 124 005c 2C22     		movs	r2, #44
- 125 005e 9148     		ldr	r0, .L39+12
- 126 0060 FFF7FEFF 		bl	memset
- 127              	.LVL3:
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&zGyroFiltered_float, 0, sizeof(zGyroFiltered_float));
- 128              		.loc 1 67 0
- 129 0064 0021     		movs	r1, #0
- 130 0066 2C22     		movs	r2, #44
- 131 0068 8F48     		ldr	r0, .L39+16
- 132 006a FFF7FEFF 		bl	memset
- 133              	.LVL4:
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&xAccFiltered_float, 0, sizeof(xAccFiltered_float));
- 134              		.loc 1 70 0
- 135 006e 0021     		movs	r1, #0
- 136 0070 2C22     		movs	r2, #44
- 137 0072 8E48     		ldr	r0, .L39+20
- 138 0074 FFF7FEFF 		bl	memset
- 139              	.LVL5:
   71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&yAccFiltered_float, 0, sizeof(yAccFiltered_float));
- 140              		.loc 1 71 0
- 141 0078 0021     		movs	r1, #0
- 142 007a 2C22     		movs	r2, #44
- 143 007c 8C48     		ldr	r0, .L39+24
- 144 007e FFF7FEFF 		bl	memset
- 145              	.LVL6:
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&zAccFiltered_float, 0, sizeof(zAccFiltered_float));
- 146              		.loc 1 72 0
- 147 0082 0021     		movs	r1, #0
- 148 0084 2C22     		movs	r2, #44
- 149 0086 8B48     		ldr	r0, .L39+28
- 150 0088 FFF7FEFF 		bl	memset
- 151              	.LVL7:
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	/*Initialize the DCM-variables*/
   76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	IMU_init(&IMU, DT_S);
- 152              		.loc 1 76 0
- 153 008c 8A48     		ldr	r0, .L39+32
- 154 008e 8B49     		ldr	r1, .L39+36
- 155 0090 FFF7FEFF 		bl	IMU_init
- 156              	.LVL8:
   77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if(GlobalSettings.enableDriftCorrection)
- 157              		.loc 1 78 0
- 158 0094 8A4B     		ldr	r3, .L39+40
- 159 0096 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 160 0098 1BB1     		cbz	r3, .L17
+ 102              		.loc 1 78 0
+ 103 0062 A04E     		ldr	r6, .L39+12
+ 104 0064 A04D     		ldr	r5, .L39+16
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&xGyroFiltered_float, 0, sizeof(xGyroFiltered_float));
+ 105              		.loc 1 65 0
+ 106 0066 FFF7FEFF 		bl	memset
+ 107              	.LVL2:
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&yGyroFiltered_float, 0, sizeof(yGyroFiltered_float));
+ 108              		.loc 1 66 0
+ 109 006a 0021     		movs	r1, #0
+ 110 006c 2C22     		movs	r2, #44
+ 111 006e 9F48     		ldr	r0, .L39+20
+ 112 0070 FFF7FEFF 		bl	memset
+ 113              	.LVL3:
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&zGyroFiltered_float, 0, sizeof(zGyroFiltered_float));
+ 114              		.loc 1 67 0
+ 115 0074 0021     		movs	r1, #0
+ 116 0076 2C22     		movs	r2, #44
+ 117 0078 9D48     		ldr	r0, .L39+24
+ 118 007a FFF7FEFF 		bl	memset
+ 119              	.LVL4:
+  70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&xAccFiltered_float, 0, sizeof(xAccFiltered_float));
+ 120              		.loc 1 70 0
+ 121 007e 0021     		movs	r1, #0
+ 122 0080 2C22     		movs	r2, #44
+ 123 0082 9C48     		ldr	r0, .L39+28
+ 124 0084 FFF7FEFF 		bl	memset
+ 125              	.LVL5:
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&yAccFiltered_float, 0, sizeof(yAccFiltered_float));
+ 126              		.loc 1 71 0
+ 127 0088 0021     		movs	r1, #0
+ 128 008a 2C22     		movs	r2, #44
+ 129 008c 9A48     		ldr	r0, .L39+32
+ 130 008e FFF7FEFF 		bl	memset
+ 131              	.LVL6:
+  72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	memset(&zAccFiltered_float, 0, sizeof(zAccFiltered_float));
+ 132              		.loc 1 72 0
+ 133 0092 0021     		movs	r1, #0
+ 134 0094 2C22     		movs	r2, #44
+ 135 0096 9948     		ldr	r0, .L39+36
+ 136 0098 FFF7FEFF 		bl	memset
+ 137              	.LVL7:
+  76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	IMU_init(&IMU, DT_S);
+ 138              		.loc 1 76 0
+ 139 009c 9248     		ldr	r0, .L39+16
+ 140 009e 9FED980A 		flds	s0, .L39+40
+ 141 00a2 FFF7FEFF 		bl	IMU_init
+ 142              	.LVL8:
+ 143              		.loc 1 78 0
+ 144 00a6 B37A     		ldrb	r3, [r6, #10]	@ zero_extendqisi2
+ 145 00a8 23B1     		cbz	r3, .L17
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
   80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_init_drift_correction(&IMU, 0.00040f);  //0.00020f/*kp-value*/);
- 161              		.loc 1 80 0
- 162 009a 8748     		ldr	r0, .L39+32
- 163 009c 8949     		ldr	r1, .L39+44
- 164 009e FFF7FEFF 		bl	IMU_init_drift_correction
- 165              	.LVL9:
- 166              	.L17:
- 167 00a2 0026     		movs	r6, #0
- 168              	.L37:
+ 146              		.loc 1 80 0
+ 147 00aa 2846     		mov	r0, r5
+ 148 00ac 9FED950A 		flds	s0, .L39+44
+ 149 00b0 FFF7FEFF 		bl	IMU_init_drift_correction
+ 150              	.LVL9:
+ 151              	.L17:
   81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
   82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	while(1)
   84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Gyro_calibrate(&gyroOffset);
- 169              		.loc 1 85 0
- 170 00a4 884C     		ldr	r4, .L39+48
- 171 00a6 2046     		mov	r0, r4
- 172 00a8 FFF7FEFF 		bl	Gyro_calibrate
- 173              	.LVL10:
+ 152              		.loc 1 85 0
+ 153 00b4 944F     		ldr	r7, .L39+48
+ 154 00b6 3846     		mov	r0, r7
+ 155 00b8 FFF7FEFF 		bl	Gyro_calibrate
+ 156              	.LVL10:
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		for (i = 0;i<5000;i++)
- 174              		.loc 1 86 0
- 175 00ac 0023     		movs	r3, #0
- 176 00ae 3BE0     		b	.L38
- 177              	.L7:
+ 157              		.loc 1 86 0
+ 158 00bc 0023     		movs	r3, #0
+ 159 00be FB80     		strh	r3, [r7, #6]	@ movhi
+ 160              	.L6:
+ 161              		.loc 1 86 0 is_stmt 0 discriminator 1
+ 162 00c0 FA88     		ldrh	r2, [r7, #6]
+ 163 00c2 914C     		ldr	r4, .L39+48
+ 164 00c4 41F28733 		movw	r3, #4999
+ 165 00c8 9A42     		cmp	r2, r3
+ 166 00ca 3DD8     		bhi	.L38
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			Gyro_readValues(&gyroXYZ);
- 178              		.loc 1 88 0 discriminator 2
- 179 00b0 8648     		ldr	r0, .L39+52
- 180 00b2 FFF7FEFF 		bl	Gyro_readValues
- 181              	.LVL11:
+ 167              		.loc 1 88 0 is_stmt 1 discriminator 2
+ 168 00cc 04F10800 		add	r0, r4, #8
+ 169 00d0 FFF7FEFF 		bl	Gyro_readValues
+ 170              	.LVL11:
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 182              		.loc 1 89 0 discriminator 2
- 183 00b6 2089     		ldrh	r0, [r4, #8]
- 184 00b8 2388     		ldrh	r3, [r4, #0]
+ 171              		.loc 1 89 0 discriminator 2
+ 172 00d4 2289     		ldrh	r2, [r4, #8]
+ 173 00d6 2388     		ldrh	r3, [r4]
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
- 185              		.loc 1 90 0 discriminator 2
- 186 00ba 6289     		ldrh	r2, [r4, #10]
-  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 187              		.loc 1 89 0 discriminator 2
- 188 00bc C01A     		subs	r0, r0, r3
- 189              		.loc 1 90 0 discriminator 2
- 190 00be 6388     		ldrh	r3, [r4, #2]
-  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 191              		.loc 1 89 0 discriminator 2
- 192 00c0 2081     		strh	r0, [r4, #8]	@ movhi
- 193              		.loc 1 90 0 discriminator 2
- 194 00c2 D31A     		subs	r3, r2, r3
- 195 00c4 6381     		strh	r3, [r4, #10]	@ movhi
+ 174              		.loc 1 90 0 discriminator 2
+ 175 00d8 6189     		ldrh	r1, [r4, #10]
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
- 196              		.loc 1 91 0 discriminator 2
- 197 00c6 A289     		ldrh	r2, [r4, #12]
- 198 00c8 A388     		ldrh	r3, [r4, #4]
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] += ((float)gyroXYZ.gyroValueX*GYROC
- 199              		.loc 1 93 0 discriminator 2
- 200 00ca 00B2     		sxth	r0, r0
+ 176              		.loc 1 93 0 discriminator 2
+ 177 00da DFED8C7A 		flds	s15, .L39+52
+ 178 00de 9FED887A 		flds	s14, .L39+40
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 179              		.loc 1 89 0 discriminator 2
+ 180 00e2 D21A     		subs	r2, r2, r3
+  90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 181              		.loc 1 90 0 discriminator 2
+ 182 00e4 6388     		ldrh	r3, [r4, #2]
+ 183 00e6 CB1A     		subs	r3, r1, r3
+ 184 00e8 6381     		strh	r3, [r4, #10]	@ movhi
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
- 201              		.loc 1 91 0 discriminator 2
- 202 00cc D31A     		subs	r3, r2, r3
- 203 00ce A381     		strh	r3, [r4, #12]	@ movhi
- 204              		.loc 1 93 0 discriminator 2
- 205 00d0 FFF7FEFF 		bl	__aeabi_i2f
- 206              	.LVL12:
- 207 00d4 7E49     		ldr	r1, .L39+56
- 208 00d6 FFF7FEFF 		bl	__aeabi_fmul
- 209              	.LVL13:
- 210 00da 7849     		ldr	r1, .L39+36
- 211 00dc FFF7FEFF 		bl	__aeabi_fmul
- 212              	.LVL14:
- 213 00e0 774F     		ldr	r7, .L39+40
- 214 00e2 754D     		ldr	r5, .L39+32
- 215 00e4 97F80490 		ldrb	r9, [r7, #4]	@ zero_extendqisi2
- 216 00e8 8046     		mov	r8, r0
- 217 00ea 09F10A09 		add	r9, r9, #10
- 218 00ee 55F82900 		ldr	r0, [r5, r9, lsl #2]	@ float
- 219 00f2 4146     		mov	r1, r8
- 220 00f4 FFF7FEFF 		bl	__aeabi_fadd
- 221              	.LVL15:
- 222 00f8 45F82900 		str	r0, [r5, r9, lsl #2]	@ float
+ 185              		.loc 1 91 0 discriminator 2
+ 186 00ea A189     		ldrh	r1, [r4, #12]
+ 187 00ec A388     		ldrh	r3, [r4, #4]
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 188              		.loc 1 89 0 discriminator 2
+ 189 00ee 92B2     		uxth	r2, r2
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 190              		.loc 1 91 0 discriminator 2
+ 191 00f0 CB1A     		subs	r3, r1, r3
+  89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 192              		.loc 1 89 0 discriminator 2
+ 193 00f2 2281     		strh	r2, [r4, #8]	@ movhi
+ 194              		.loc 1 93 0 discriminator 2
+ 195 00f4 12B2     		sxth	r2, r2
+  91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 196              		.loc 1 91 0 discriminator 2
+ 197 00f6 A381     		strh	r3, [r4, #12]	@ movhi
+ 198              		.loc 1 93 0 discriminator 2
+ 199 00f8 06EE902A 		fmsr	s13, r2	@ int
+ 200 00fc 3379     		ldrb	r3, [r6, #4]	@ zero_extendqisi2
+ 201 00fe F8EEE66A 		fsitos	s13, s13
+ 202 0102 0A33     		adds	r3, r3, #10
+ 203 0104 05EB8303 		add	r3, r5, r3, lsl #2
+ 204 0108 66EEA76A 		fmuls	s13, s13, s15
+ 205 010c D3ED007A 		flds	s15, [r3]
+ 206 0110 E6EE877A 		vfma.f32	s15, s13, s14
+ 207 0114 C3ED007A 		fsts	s15, [r3]
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] += ((float)gyroXYZ.gyroValueX*GYROC
- 223              		.loc 1 94 0 discriminator 2
- 224 00fc 97F80590 		ldrb	r9, [r7, #5]	@ zero_extendqisi2
- 225 0100 4146     		mov	r1, r8
- 226 0102 09F10A09 		add	r9, r9, #10
- 227 0106 55F82900 		ldr	r0, [r5, r9, lsl #2]	@ float
- 228 010a FFF7FEFF 		bl	__aeabi_fadd
- 229              	.LVL16:
+ 208              		.loc 1 94 0 discriminator 2
+ 209 0118 7379     		ldrb	r3, [r6, #5]	@ zero_extendqisi2
+ 210 011a 0A33     		adds	r3, r3, #10
+ 211 011c 05EB8303 		add	r3, r5, r3, lsl #2
+ 212 0120 D3ED007A 		flds	s15, [r3]
+ 213 0124 E6EE877A 		vfma.f32	s15, s13, s14
+ 214 0128 C3ED007A 		fsts	s15, [r3]
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] += ((float)gyroXYZ.gyroValueX*GYROC
- 230              		.loc 1 95 0 discriminator 2
- 231 010e BF79     		ldrb	r7, [r7, #6]	@ zero_extendqisi2
-  94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] += ((float)gyroXYZ.gyroValueX*GYROC
- 232              		.loc 1 94 0 discriminator 2
- 233 0110 45F82900 		str	r0, [r5, r9, lsl #2]	@ float
- 234              		.loc 1 95 0 discriminator 2
- 235 0114 0A37     		adds	r7, r7, #10
- 236 0116 55F82700 		ldr	r0, [r5, r7, lsl #2]	@ float
- 237 011a 4146     		mov	r1, r8
- 238 011c FFF7FEFF 		bl	__aeabi_fadd
- 239              	.LVL17:
+ 215              		.loc 1 95 0 discriminator 2
+ 216 012c B379     		ldrb	r3, [r6, #6]	@ zero_extendqisi2
+ 217 012e 0A33     		adds	r3, r3, #10
+ 218 0130 05EB8303 		add	r3, r5, r3, lsl #2
+ 219 0134 D3ED007A 		flds	s15, [r3]
+ 220 0138 E6EE877A 		vfma.f32	s15, s13, s14
+ 221 013c C3ED007A 		fsts	s15, [r3]
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		for (i = 0;i<5000;i++)
- 240              		.loc 1 86 0 discriminator 2
- 241 0120 E388     		ldrh	r3, [r4, #6]
- 242              		.loc 1 95 0 discriminator 2
- 243 0122 45F82700 		str	r0, [r5, r7, lsl #2]	@ float
-  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		for (i = 0;i<5000;i++)
- 244              		.loc 1 86 0 discriminator 2
- 245 0126 0133     		adds	r3, r3, #1
- 246              	.L38:
- 247 0128 E380     		strh	r3, [r4, #6]	@ movhi
- 248 012a E288     		ldrh	r2, [r4, #6]
- 249 012c 41F28733 		movw	r3, #4999
- 250 0130 9A42     		cmp	r2, r3
- 251 0132 BDD9     		bls	.L7
+ 222              		.loc 1 86 0 discriminator 2
+ 223 0140 E388     		ldrh	r3, [r4, #6]
+ 224 0142 0133     		adds	r3, r3, #1
+ 225 0144 E380     		strh	r3, [r4, #6]	@ movhi
+ 226 0146 BBE7     		b	.L6
+ 227              	.L38:
   96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//vTaskDelayUntil( &xNextWakeTime, DT );
   98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		GPIOC->ODR ^= GPIO_Pin_11;
- 252              		.loc 1 98 0
- 253 0134 674B     		ldr	r3, .L39+60
+ 228              		.loc 1 98 0
+ 229 0148 714B     		ldr	r3, .L39+56
+ 230 014a 9A8A     		ldrh	r2, [r3, #20]
+ 231 014c 92B2     		uxth	r2, r2
+ 232 014e 82F40062 		eor	r2, r2, #2048
+ 233 0152 9A82     		strh	r2, [r3, #20]	@ movhi
   99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		vTaskDelay( 1000 );
+ 234              		.loc 1 99 0
+ 235 0154 4FF47A70 		mov	r0, #1000
+ 236 0158 FFF7FEFF 		bl	vTaskDelay
+ 237              	.LVL12:
  100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if((IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 254              		.loc 1 101 0
- 255 0136 624D     		ldr	r5, .L39+40
-  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		GPIOC->ODR ^= GPIO_Pin_11;
- 256              		.loc 1 98 0
- 257 0138 9A8A     		ldrh	r2, [r3, #20]
-  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		vTaskDelay( 1000 );
- 258              		.loc 1 99 0
- 259 013a 4FF47A70 		mov	r0, #1000
-  98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		GPIOC->ODR ^= GPIO_Pin_11;
- 260              		.loc 1 98 0
- 261 013e 92B2     		uxth	r2, r2
- 262 0140 82F40062 		eor	r2, r2, #2048
- 263 0144 9A82     		strh	r2, [r3, #20]	@ movhi
-  99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		vTaskDelay( 1000 );
- 264              		.loc 1 99 0
- 265 0146 FFF7FEFF 		bl	vTaskDelay
- 266              	.LVL18:
- 267              		.loc 1 101 0
- 268 014a 95F80480 		ldrb	r8, [r5, #4]	@ zero_extendqisi2
- 269 014e 5A4C     		ldr	r4, .L39+32
- 270 0150 08F10A0B 		add	fp, r8, #10
- 271 0154 54F82B90 		ldr	r9, [r4, fp, lsl #2]	@ float
- 272 0158 5F49     		ldr	r1, .L39+64
- 273 015a 4846     		mov	r0, r9
- 274 015c FFF7FEFF 		bl	__aeabi_fcmpgt
- 275              	.LVL19:
- 276 0160 0027     		movs	r7, #0
- 277 0162 78B3     		cbz	r0, .L8
- 278              		.loc 1 101 0 is_stmt 0 discriminator 1
- 279 0164 4846     		mov	r0, r9
- 280 0166 5D49     		ldr	r1, .L39+68
- 281 0168 FFF7FEFF 		bl	__aeabi_fcmplt
- 282              	.LVL20:
- 283 016c 50B3     		cbz	r0, .L8
+ 238              		.loc 1 101 0
+ 239 015c 3179     		ldrb	r1, [r6, #4]	@ zero_extendqisi2
+ 240 015e 9FED6D7A 		flds	s14, .L39+60
+ 241 0162 604A     		ldr	r2, .L39+12
+ 242 0164 6048     		ldr	r0, .L39+16
+ 243 0166 0A31     		adds	r1, r1, #10
+ 244 0168 05EB8108 		add	r8, r5, r1, lsl #2
+ 245 016c D8ED006A 		flds	s13, [r8]
+ 246 0170 F4EEC76A 		fcmpes	s13, s14
+ 247 0174 F1EE10FA 		fmstat
+ 248 0178 4FF00003 		mov	r3, #0
+ 249 017c 38DD     		ble	.L8
+ 250              		.loc 1 101 0 is_stmt 0 discriminator 1
+ 251 017e DFED667A 		flds	s15, .L39+64
+ 252 0182 F4EEE76A 		fcmpes	s13, s15
+ 253 0186 F1EE10FA 		fmstat
+ 254 018a 31D5     		bpl	.L8
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		   (IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 284              		.loc 1 102 0 is_stmt 1 discriminator 1
- 285 016e 95F805A0 		ldrb	sl, [r5, #5]	@ zero_extendqisi2
+ 255              		.loc 1 102 0 is_stmt 1 discriminator 1
+ 256 018c 92F805C0 		ldrb	ip, [r2, #5]	@ zero_extendqisi2
+ 257 0190 0CF10A0C 		add	ip, ip, #10
+ 258 0194 00EB8C0C 		add	ip, r0, ip, lsl #2
+ 259 0198 DCED006A 		flds	s13, [ip]
  101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if((IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 286              		.loc 1 101 0 discriminator 1
- 287 0172 5949     		ldr	r1, .L39+64
- 288              		.loc 1 102 0 discriminator 1
- 289 0174 0AF10A0A 		add	sl, sl, #10
- 290 0178 54F82A90 		ldr	r9, [r4, sl, lsl #2]	@ float
- 101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if((IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 291              		.loc 1 101 0 discriminator 1
- 292 017c 4846     		mov	r0, r9
- 293 017e FFF7FEFF 		bl	__aeabi_fcmpgt
- 294              	.LVL21:
- 295 0182 F8B1     		cbz	r0, .L8
- 296              		.loc 1 102 0
- 297 0184 4846     		mov	r0, r9
- 298 0186 5549     		ldr	r1, .L39+68
- 299 0188 FFF7FEFF 		bl	__aeabi_fcmplt
- 300              	.LVL22:
- 301 018c D0B1     		cbz	r0, .L8
+ 260              		.loc 1 101 0 discriminator 1
+ 261 019c F4EEC76A 		fcmpes	s13, s14
+ 262 01a0 F1EE10FA 		fmstat
+ 263 01a4 24DD     		ble	.L8
+ 264              		.loc 1 102 0
+ 265 01a6 F4EEE76A 		fcmpes	s13, s15
+ 266 01aa F1EE10FA 		fmstat
+ 267 01ae 1FD5     		bpl	.L8
  103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		   (IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 302              		.loc 1 103 0 discriminator 1
- 303 018e 95F80690 		ldrb	r9, [r5, #6]	@ zero_extendqisi2
+ 268              		.loc 1 103 0 discriminator 1
+ 269 01b0 92F80690 		ldrb	r9, [r2, #6]	@ zero_extendqisi2
+ 270 01b4 09F10A09 		add	r9, r9, #10
+ 271 01b8 00EB8900 		add	r0, r0, r9, lsl #2
+ 272 01bc D0ED006A 		flds	s13, [r0]
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		   (IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 304              		.loc 1 102 0 discriminator 1
- 305 0192 5149     		ldr	r1, .L39+64
- 306              		.loc 1 103 0 discriminator 1
- 307 0194 09F10A09 		add	r9, r9, #10
- 308 0198 54F82930 		ldr	r3, [r4, r9, lsl #2]	@ float
- 102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		   (IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] > -MAX_GYRO_ERROR) && (IMU.veloc
- 309              		.loc 1 102 0 discriminator 1
- 310 019c 1846     		mov	r0, r3
- 311 019e 0193     		str	r3, [sp, #4]
- 312 01a0 FFF7FEFF 		bl	__aeabi_fcmpgt
- 313              	.LVL23:
- 314 01a4 019B     		ldr	r3, [sp, #4]
- 315 01a6 68B1     		cbz	r0, .L8
- 316              		.loc 1 103 0
- 317 01a8 1846     		mov	r0, r3
- 318 01aa 4C49     		ldr	r1, .L39+68
- 319 01ac FFF7FEFF 		bl	__aeabi_fcmplt
- 320              	.LVL24:
- 321 01b0 40B1     		cbz	r0, .L8
+ 273              		.loc 1 102 0 discriminator 1
+ 274 01c0 F4EEC76A 		fcmpes	s13, s14
+ 275 01c4 F1EE10FA 		fmstat
+ 276 01c8 12DD     		ble	.L8
+ 277              		.loc 1 103 0
+ 278 01ca F4EEE76A 		fcmpes	s13, s15
+ 279 01ce F1EE10FA 		fmstat
+ 280 01d2 0DD5     		bpl	.L8
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
+ 281              		.loc 1 105 0
+ 282 01d4 C8F80030 		str	r3, [r8]	@ float
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
+ 283              		.loc 1 106 0
+ 284 01d8 CCF80030 		str	r3, [ip]	@ float
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
+ 285              		.loc 1 107 0
+ 286 01dc 0360     		str	r3, [r0]	@ float
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			break;
  109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
  110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
@@ -446,179 +414,148 @@
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if(GlobalSettings.enableACC)
- 322              		.loc 1 116 0
- 323 01b2 EB7A     		ldrb	r3, [r5, #11]	@ zero_extendqisi2
- 105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
- 324              		.loc 1 105 0
- 325 01b4 44F82B70 		str	r7, [r4, fp, lsl #2]	@ float
- 106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
- 326              		.loc 1 106 0
- 327 01b8 44F82A70 		str	r7, [r4, sl, lsl #2]	@ float
- 107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
- 328              		.loc 1 107 0
- 329 01bc 44F82970 		str	r7, [r4, r9, lsl #2]	@ float
- 330              		.loc 1 116 0
- 331 01c0 B3B1     		cbz	r3, .L16
- 332 01c2 11E0     		b	.L15
- 333              	.L8:
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
- 334              		.loc 1 111 0
- 335 01c4 3E4A     		ldr	r2, .L39+40
- 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
- 336              		.loc 1 110 0
- 337 01c6 3C4B     		ldr	r3, .L39+32
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
- 338              		.loc 1 111 0
- 339 01c8 5179     		ldrb	r1, [r2, #5]	@ zero_extendqisi2
- 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
- 340              		.loc 1 112 0
- 341 01ca 9279     		ldrb	r2, [r2, #6]	@ zero_extendqisi2
- 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
- 342              		.loc 1 110 0
- 343 01cc 08F10A08 		add	r8, r8, #10
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
- 344              		.loc 1 111 0
- 345 01d0 0A31     		adds	r1, r1, #10
- 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
- 346              		.loc 1 112 0
- 347 01d2 0A32     		adds	r2, r2, #10
- 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		printf("Error Gyro Test!\n\r");
- 348              		.loc 1 113 0
- 349 01d4 4248     		ldr	r0, .L39+72
- 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
- 350              		.loc 1 110 0
- 351 01d6 43F82860 		str	r6, [r3, r8, lsl #2]	@ float
- 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
- 352              		.loc 1 111 0
- 353 01da 43F82160 		str	r6, [r3, r1, lsl #2]	@ float
- 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
- 354              		.loc 1 112 0
- 355 01de 43F82260 		str	r6, [r3, r2, lsl #2]	@ float
- 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		printf("Error Gyro Test!\n\r");
- 356              		.loc 1 113 0
- 357 01e2 FFF7FEFF 		bl	printf
- 358              	.LVL25:
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
- 359              		.loc 1 114 0
- 360 01e6 5DE7     		b	.L37
- 361              	.L15:
+ 287              		.loc 1 116 0
+ 288 01de D37A     		ldrb	r3, [r2, #11]	@ zero_extendqisi2
+ 289 01e0 ABB1     		cbz	r3, .L16
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//ADXL345_calibrate(GlobalSettings.accMaxGOverflow, &accXYZ);
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		LSM303DLHC_ACC_calibrate(GlobalSettings.accMaxGOverflow, &accXYZ);
- 362              		.loc 1 119 0
- 363 01e8 6869     		ldr	r0, [r5, #20]	@ float
- 364 01ea 3E49     		ldr	r1, .L39+76
- 365 01ec FFF7FEFF 		bl	LSM303DLHC_ACC_calibrate
- 366              	.LVL26:
- 367              	.L16:
+ 290              		.loc 1 119 0
+ 291 01e2 92ED050A 		flds	s0, [r2, #20]
+ 292 01e6 04F11000 		add	r0, r4, #16
+ 293 01ea FFF7FEFF 		bl	LSM303DLHC_ACC_calibrate
+ 294              	.LVL13:
+ 295 01ee 0EE0     		b	.L16
+ 296              	.L8:
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
+ 297              		.loc 1 111 0
+ 298 01f0 7279     		ldrb	r2, [r6, #5]	@ zero_extendqisi2
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		printf("Error Gyro Test!\n\r");
+ 299              		.loc 1 113 0
+ 300 01f2 4A48     		ldr	r0, .L39+68
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
+ 301              		.loc 1 111 0
+ 302 01f4 05EB8202 		add	r2, r5, r2, lsl #2
+ 110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = 0;
+ 303              		.loc 1 110 0
+ 304 01f8 05EB8101 		add	r1, r5, r1, lsl #2
+ 305 01fc 0B60     		str	r3, [r1]	@ float
+ 111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = 0;
+ 306              		.loc 1 111 0
+ 307 01fe 9362     		str	r3, [r2, #40]	@ float
+ 112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = 0;
+ 308              		.loc 1 112 0
+ 309 0200 B279     		ldrb	r2, [r6, #6]	@ zero_extendqisi2
+ 310 0202 05EB8202 		add	r2, r5, r2, lsl #2
+ 311 0206 9362     		str	r3, [r2, #40]	@ float
+ 113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		printf("Error Gyro Test!\n\r");
+ 312              		.loc 1 113 0
+ 313 0208 FFF7FEFF 		bl	printf
+ 314              	.LVL14:
+ 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
+ 315              		.loc 1 114 0
+ 316 020c 52E7     		b	.L17
+ 317              	.L16:
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if(GlobalSettings.enableMAG)
- 368              		.loc 1 122 0
- 369 01f0 334B     		ldr	r3, .L39+40
- 370 01f2 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
- 371 01f4 002B     		cmp	r3, #0
- 372 01f6 48D0     		beq	.L18
+ 318              		.loc 1 122 0
+ 319 020e 337E     		ldrb	r3, [r6, #24]	@ zero_extendqisi2
+ 320 0210 434E     		ldr	r6, .L39+72
+ 321 0212 002B     		cmp	r3, #0
+ 322 0214 58D0     		beq	.L18
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Mag_calibrate();
+ 323              		.loc 1 124 0
+ 324 0216 FFF7FEFF 		bl	Mag_calibrate
+ 325              	.LVL15:
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		vTaskDelay( 200 );
+ 326              		.loc 1 125 0
+ 327 021a C820     		movs	r0, #200
+ 328 021c FFF7FEFF 		bl	vTaskDelay
+ 329              	.LVL16:
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Mag_readValues(&magXYZ);
- 373              		.loc 1 126 0
- 374 01f8 334E     		ldr	r6, .L39+48
- 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Mag_calibrate();
- 375              		.loc 1 124 0
- 376 01fa FFF7FEFF 		bl	Mag_calibrate
- 377              	.LVL27:
- 125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		vTaskDelay( 200 );
- 378              		.loc 1 125 0
- 379 01fe C820     		movs	r0, #200
- 380 0200 FFF7FEFF 		bl	vTaskDelay
- 381              	.LVL28:
- 382              		.loc 1 126 0
- 383 0204 06F11C00 		add	r0, r6, #28
- 384 0208 FFF7FEFF 		bl	Mag_readValues
- 385              	.LVL29:
+ 330              		.loc 1 126 0
+ 331 0220 4048     		ldr	r0, .L39+76
+ 332 0222 FFF7FEFF 		bl	Mag_readValues
+ 333              	.LVL17:
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		eulerTemp.yaw = atan2((float)(-magXYZ.magValueX),(float)(magXYZ.magValueY))-1.5707;
- 386              		.loc 1 127 0
- 387 020c B6F91C00 		ldrsh	r0, [r6, #28]
- 388 0210 4042     		negs	r0, r0
- 389 0212 FFF7FEFF 		bl	__aeabi_i2f
- 390              	.LVL30:
- 391 0216 FFF7FEFF 		bl	__aeabi_f2d
- 392              	.LVL31:
- 393 021a 0446     		mov	r4, r0
- 394 021c B6F91E00 		ldrsh	r0, [r6, #30]
- 395 0220 0D46     		mov	r5, r1
- 396 0222 FFF7FEFF 		bl	__aeabi_i2f
- 397              	.LVL32:
- 398 0226 FFF7FEFF 		bl	__aeabi_f2d
- 399              	.LVL33:
- 400 022a 0246     		mov	r2, r0
- 401 022c 0B46     		mov	r3, r1
- 402 022e 2046     		mov	r0, r4
- 403 0230 2946     		mov	r1, r5
- 404 0232 FFF7FEFF 		bl	atan2
- 405              	.LVL34:
- 406 0236 18A3     		adr	r3, .L39
- 407 0238 D3E90023 		ldrd	r2, [r3]
- 408 023c FFF7FEFF 		bl	__aeabi_dsub
- 409              	.LVL35:
- 410 0240 FFF7FEFF 		bl	__aeabi_d2f
- 411              	.LVL36:
- 412 0244 284B     		ldr	r3, .L39+80
+ 334              		.loc 1 127 0
+ 335 0226 B7F91C00 		ldrsh	r0, [r7, #28]
+ 336 022a 4042     		negs	r0, r0
+ 337 022c 07EE900A 		fmsr	s15, r0	@ int
+ 338 0230 F8EEE77A 		fsitos	s15, s15
+ 339 0234 17EE900A 		fmrs	r0, s15
+ 340 0238 FFF7FEFF 		bl	__aeabi_f2d
+ 341              	.LVL18:
+ 342 023c 0446     		mov	r4, r0
+ 343 023e B7F91E00 		ldrsh	r0, [r7, #30]
+ 344 0242 07EE900A 		fmsr	s15, r0	@ int
+ 345 0246 F8EEE77A 		fsitos	s15, s15
+ 346 024a 0D46     		mov	r5, r1
+ 347 024c 17EE900A 		fmrs	r0, s15
+ 348 0250 FFF7FEFF 		bl	__aeabi_f2d
+ 349              	.LVL19:
+ 350 0254 45EC104B 		fmdrr	d0, r4, r5
+ 351 0258 41EC110B 		fmdrr	d1, r0, r1
+ 352 025c FFF7FEFF 		bl	atan2
+ 353              	.LVL20:
+ 354 0260 1DA3     		adr	r3, .L39
+ 355 0262 D3E90023 		ldrd	r2, [r3]
+ 356 0266 51EC100B 		fmrrd	r0, r1, d0
+ 357 026a FFF7FEFF 		bl	__aeabi_dsub
+ 358              	.LVL21:
+ 359 026e FFF7FEFF 		bl	__aeabi_d2f
+ 360              	.LVL22:
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		CtrlStates.yaw = -eulerTemp.yaw*(180/M_PI);
- 413              		.loc 1 128 0
- 414 0246 2949     		ldr	r1, .L39+84
+ 361              		.loc 1 128 0
+ 362 0272 9FED2D7A 		flds	s14, .L39+80
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		eulerTemp.yaw = atan2((float)(-magXYZ.magValueX),(float)(magXYZ.magValueY))-1.5707;
- 415              		.loc 1 127 0
- 416 0248 9860     		str	r0, [r3, #8]	@ float
- 417              		.loc 1 128 0
- 418 024a 00F10040 		add	r0, r0, #-2147483648
- 419 024e FFF7FEFF 		bl	__aeabi_fmul
- 420              	.LVL37:
- 421 0252 274C     		ldr	r4, .L39+88
+ 363              		.loc 1 127 0
+ 364 0276 2D4B     		ldr	r3, .L39+84
+ 365 0278 07EE900A 		fmsr	s15, r0
+ 366              		.loc 1 128 0
+ 367 027c 67EEC77A 		fnmuls	s15, s15, s14
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* The yaw value needs a special handling */
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(CtrlStates.yaw > 180) CtrlStates.yaw -= 360;
- 422              		.loc 1 130 0
- 423 0254 2749     		ldr	r1, .L39+92
+ 368              		.loc 1 130 0
+ 369 0280 9FED2B7A 		flds	s14, .L39+88
+ 127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		eulerTemp.yaw = atan2((float)(-magXYZ.magValueX),(float)(magXYZ.magValueY))-1.5707;
+ 370              		.loc 1 127 0
+ 371 0284 9860     		str	r0, [r3, #8]	@ float
+ 372              		.loc 1 130 0
+ 373 0286 F4EEC77A 		fcmpes	s15, s14
+ 374 028a F1EE10FA 		fmstat
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		CtrlStates.yaw = -eulerTemp.yaw*(180/M_PI);
- 424              		.loc 1 128 0
- 425 0256 6060     		str	r0, [r4, #4]	@ float
- 426 0258 0546     		mov	r5, r0
- 427              		.loc 1 130 0
- 428 025a FFF7FEFF 		bl	__aeabi_fcmpgt
- 429              	.LVL38:
- 430 025e 20B1     		cbz	r0, .L19
- 431              		.loc 1 130 0 is_stmt 0 discriminator 1
- 432 0260 2846     		mov	r0, r5
- 433 0262 2549     		ldr	r1, .L39+96
- 434 0264 FFF7FEFF 		bl	__aeabi_fsub
- 435              	.LVL39:
- 436 0268 6060     		str	r0, [r4, #4]	@ float
- 437              	.L19:
+ 375              		.loc 1 128 0
+ 376 028e C6ED017A 		fsts	s15, [r6, #4]
+ 377              		.loc 1 130 0
+ 378 0292 05DD     		ble	.L19
+ 379              		.loc 1 130 0 is_stmt 0 discriminator 1
+ 380 0294 9FED277A 		flds	s14, .L39+92
+ 381 0298 77EEC77A 		fsubs	s15, s15, s14
+ 382 029c C6ED017A 		fsts	s15, [r6, #4]
+ 383              	.L19:
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(CtrlStates.yaw < -180) CtrlStates.yaw += 360;
- 438              		.loc 1 131 0 is_stmt 1
- 439 026a 6468     		ldr	r4, [r4, #4]	@ float
- 440 026c 2349     		ldr	r1, .L39+100
- 441 026e 2046     		mov	r0, r4
- 442 0270 FFF7FEFF 		bl	__aeabi_fcmplt
- 443              	.LVL40:
- 444 0274 28B1     		cbz	r0, .L21
- 445              		.loc 1 131 0 is_stmt 0 discriminator 1
- 446 0276 2046     		mov	r0, r4
- 447 0278 1F49     		ldr	r1, .L39+96
- 448 027a FFF7FEFF 		bl	__aeabi_fadd
- 449              	.LVL41:
- 450 027e 1C4B     		ldr	r3, .L39+88
- 451 0280 5860     		str	r0, [r3, #4]	@ float
- 452              	.L21:
+ 384              		.loc 1 131 0 is_stmt 1
+ 385 02a0 D6ED017A 		flds	s15, [r6, #4]
+ 386 02a4 9FED247A 		flds	s14, .L39+96
+ 387 02a8 F4EEC77A 		fcmpes	s15, s14
+ 388 02ac F1EE10FA 		fmstat
+ 389 02b0 06D5     		bpl	.L21
+ 390              		.loc 1 131 0 is_stmt 0 discriminator 1
+ 391 02b2 9FED207A 		flds	s14, .L39+92
+ 392 02b6 1A4B     		ldr	r3, .L39+72
+ 393 02b8 77EE877A 		fadds	s15, s15, s14
+ 394 02bc C3ED017A 		fsts	s15, [r3, #4]
+ 395              	.L21:
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_Euler_to_DCM(&IMU, &eulerTemp);
- 453              		.loc 1 132 0 is_stmt 1
- 454 0282 0D48     		ldr	r0, .L39+32
- 455 0284 1849     		ldr	r1, .L39+80
- 456 0286 FFF7FEFF 		bl	IMU_Euler_to_DCM
- 457              	.LVL42:
- 458              	.L18:
+ 396              		.loc 1 132 0 is_stmt 1
+ 397 02c0 0948     		ldr	r0, .L39+16
+ 398 02c2 1A49     		ldr	r1, .L39+84
+ 399 02c4 FFF7FEFF 		bl	IMU_Euler_to_DCM
+ 400              	.LVL23:
+ 401              	.L18:
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	/* Set the START Flag! */
@@ -628,1170 +565,1138 @@
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	/* Set the DRIVE Flag! */
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	CtrlStates.copterStatus |= ARMED_FLAG;
- 459              		.loc 1 141 0
- 460 028a 194B     		ldr	r3, .L39+88
- 461 028c 1A7A     		ldrb	r2, [r3, #8]	@ zero_extendqisi2
- 462 028e 42F00302 		orr	r2, r2, #3
- 463 0292 1A72     		strb	r2, [r3, #8]
+ 402              		.loc 1 141 0
+ 403 02c8 337A     		ldrb	r3, [r6, #8]	@ zero_extendqisi2
+ 404 02ca 43F00303 		orr	r3, r3, #3
+ 405 02ce 3372     		strb	r3, [r6, #8]
+ 406 02d0 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 407              	.L40:
+ 408 02d4 AFF30080 		.align	3
+ 409              	.L39:
+ 410 02d8 00000060 		.word	1610612736
+ 411 02dc 9621F93F 		.word	1073291670
+ 412 02e0 00000000 		.word	xGyroFiltered_float
+ 413 02e4 00000000 		.word	GlobalSettings
+ 414 02e8 00000000 		.word	IMU
+ 415 02ec 00000000 		.word	yGyroFiltered_float
+ 416 02f0 00000000 		.word	zGyroFiltered_float
+ 417 02f4 00000000 		.word	xAccFiltered_float
+ 418 02f8 00000000 		.word	yAccFiltered_float
+ 419 02fc 00000000 		.word	zAccFiltered_float
+ 420 0300 6F12033B 		.word	990057071
+ 421 0304 17B7D139 		.word	970045207
+ 422 0308 00000000 		.word	.LANCHOR0
+ 423 030c 295C8F3D 		.word	1032805417
+ 424 0310 00080048 		.word	1207961600
+ 425 0314 9A9919BE 		.word	-1105618534
+ 426 0318 9A99193E 		.word	1041865114
+ 427 031c 00000000 		.word	.LC0
+ 428 0320 00000000 		.word	CtrlStates
+ 429 0324 1C000000 		.word	.LANCHOR0+28
+ 430 0328 E02E6542 		.word	1113927392
+ 431 032c 00000000 		.word	eulerTemp
+ 432 0330 00003443 		.word	1127481344
+ 433 0334 0000B443 		.word	1135869952
+ 434 0338 000034C3 		.word	-1020002304
+ 435              		.cfi_endproc
+ 436              	.LFE112:
+ 438              		.align	1
+ 439              		.global	IMU_Calculation
+ 440              		.thumb
+ 441              		.thumb_func
+ 443              	IMU_Calculation:
+ 444              	.LFB113:
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
- 464              		.loc 1 143 0
- 465 0294 BDE8FE8F 		pop	{r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 466              	.L40:
- 467              		.align	3
- 468              	.L39:
- 469 0298 00000060 		.word	1610612736
- 470 029c 9621F93F 		.word	1073291670
- 471 02a0 00000000 		.word	xGyroFiltered_float
- 472 02a4 00000000 		.word	yGyroFiltered_float
- 473 02a8 00000000 		.word	zGyroFiltered_float
- 474 02ac 00000000 		.word	xAccFiltered_float
- 475 02b0 00000000 		.word	yAccFiltered_float
- 476 02b4 00000000 		.word	zAccFiltered_float
- 477 02b8 00000000 		.word	IMU
- 478 02bc 0AD7A33B 		.word	1000593162
- 479 02c0 00000000 		.word	GlobalSettings
- 480 02c4 17B7D139 		.word	970045207
- 481 02c8 00000000 		.word	.LANCHOR0
- 482 02cc 08000000 		.word	.LANCHOR0+8
- 483 02d0 295C8F3D 		.word	1032805417
- 484 02d4 00080048 		.word	1207961600
- 485 02d8 9A9919BE 		.word	-1105618534
- 486 02dc 9A99193E 		.word	1041865114
- 487 02e0 00000000 		.word	.LC0
- 488 02e4 10000000 		.word	.LANCHOR0+16
- 489 02e8 00000000 		.word	eulerTemp
- 490 02ec E02E6542 		.word	1113927392
- 491 02f0 00000000 		.word	CtrlStates
- 492 02f4 00003443 		.word	1127481344
- 493 02f8 0000B443 		.word	1135869952
- 494 02fc 000034C3 		.word	-1020002304
- 495              		.cfi_endproc
- 496              	.LFE112:
- 498              		.global	__aeabi_f2iz
- 499              		.align	1
- 500              		.global	IMU_Calculation
- 501              		.thumb
- 502              		.thumb_func
- 504              	IMU_Calculation:
- 505              	.LFB113:
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** void IMU_Calculation()
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** {
- 506              		.loc 1 147 0
- 507              		.cfi_startproc
- 508              		@ args = 0, pretend = 0, frame = 0
- 509              		@ frame_needed = 0, uses_anonymous_args = 0
- 510 0300 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 511              	.LCFI2:
- 512              		.cfi_def_cfa_offset 40
- 513              		.cfi_offset 3, -40
- 514              		.cfi_offset 4, -36
- 515              		.cfi_offset 5, -32
- 516              		.cfi_offset 6, -28
- 517              		.cfi_offset 7, -24
- 518              		.cfi_offset 8, -20
- 519              		.cfi_offset 9, -16
- 520              		.cfi_offset 10, -12
- 521              		.cfi_offset 11, -8
- 522              		.cfi_offset 14, -4
- 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	/*!
- 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	 *  IMU - Calculation Process
- 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	 */
- 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Gyro_readValues(&gyroXYZ);
- 523              		.loc 1 151 0
- 524 0304 854C     		ldr	r4, .L77
- 525 0306 04F10800 		add	r0, r4, #8
- 526 030a FFF7FEFF 		bl	Gyro_readValues
- 527              	.LVL43:
- 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 528              		.loc 1 152 0
- 529 030e 2589     		ldrh	r5, [r4, #8]
- 530 0310 2388     		ldrh	r3, [r4, #0]
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
- 531              		.loc 1 153 0
- 532 0312 6089     		ldrh	r0, [r4, #10]
- 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 533              		.loc 1 152 0
- 534 0314 ED1A     		subs	r5, r5, r3
- 535              		.loc 1 153 0
- 536 0316 6388     		ldrh	r3, [r4, #2]
- 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
- 537              		.loc 1 154 0
- 538 0318 A189     		ldrh	r1, [r4, #12]
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
- 539              		.loc 1 153 0
- 540 031a C01A     		subs	r0, r0, r3
- 541              		.loc 1 154 0
- 542 031c A388     		ldrh	r3, [r4, #4]
- 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
- 543              		.loc 1 152 0
- 544 031e 2581     		strh	r5, [r4, #8]	@ movhi
- 545              		.loc 1 154 0
- 546 0320 C91A     		subs	r1, r1, r3
- 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Cut-off the lower values to reduce noise and fail-integration*/
- 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueX > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueX < GlobalSettings.g
- 547              		.loc 1 157 0
- 548 0322 7F4B     		ldr	r3, .L77+4
- 549 0324 2DB2     		sxth	r5, r5
- 550 0326 1B88     		ldrh	r3, [r3, #0]
- 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
- 551              		.loc 1 153 0
- 552 0328 6081     		strh	r0, [r4, #10]	@ movhi
- 553              		.loc 1 157 0
- 554 032a 5A42     		negs	r2, r3
- 555 032c 9542     		cmp	r5, r2
- 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
- 556              		.loc 1 154 0
- 557 032e A181     		strh	r1, [r4, #12]	@ movhi
- 558              		.loc 1 157 0
- 559 0330 03DD     		ble	.L42
- 560              		.loc 1 157 0 is_stmt 0 discriminator 1
- 561 0332 9D42     		cmp	r5, r3
- 562 0334 01DA     		bge	.L42
- 563 0336 0025     		movs	r5, #0
- 564 0338 2581     		strh	r5, [r4, #8]	@ movhi
- 565              	.L42:
- 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueY > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueY < GlobalSettings.g
- 566              		.loc 1 158 0 is_stmt 1
- 567 033a 00B2     		sxth	r0, r0
- 568 033c 9042     		cmp	r0, r2
- 569 033e 03DD     		ble	.L43
- 570              		.loc 1 158 0 is_stmt 0 discriminator 1
- 571 0340 9842     		cmp	r0, r3
- 572 0342 01DA     		bge	.L43
- 573 0344 0020     		movs	r0, #0
- 574 0346 6081     		strh	r0, [r4, #10]	@ movhi
- 575              	.L43:
- 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueZ > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueZ < GlobalSettings.g
- 576              		.loc 1 159 0 is_stmt 1
- 577 0348 09B2     		sxth	r1, r1
- 578 034a 9142     		cmp	r1, r2
- 579 034c 734C     		ldr	r4, .L77
- 580 034e 03DD     		ble	.L44
- 581              		.loc 1 159 0 is_stmt 0 discriminator 1
- 582 0350 9942     		cmp	r1, r3
- 583 0352 01DA     		bge	.L44
- 584 0354 0023     		movs	r3, #0
- 585 0356 A381     		strh	r3, [r4, #12]	@ movhi
- 586              	.L44:
- 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
- 587              		.loc 1 161 0 is_stmt 1
- 588 0358 DFF8EC91 		ldr	r9, .L77+44
- 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&yGyroFiltered_float, gyroXYZ.gyroValueY);
- 589              		.loc 1 162 0
- 590 035c DFF8EC81 		ldr	r8, .L77+48
- 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
- 591              		.loc 1 161 0
- 592 0360 4846     		mov	r0, r9
- 593 0362 B4F90810 		ldrsh	r1, [r4, #8]
- 594 0366 FFF7FEFF 		bl	floatFilterGyro
- 595              	.LVL44:
- 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&zGyroFiltered_float, gyroXYZ.gyroValueZ);
- 596              		.loc 1 163 0
- 597 036a 6E4F     		ldr	r7, .L77+8
- 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&yGyroFiltered_float, gyroXYZ.gyroValueY);
- 598              		.loc 1 162 0
- 599 036c 4046     		mov	r0, r8
- 600 036e B4F90A10 		ldrsh	r1, [r4, #10]
- 601 0372 FFF7FEFF 		bl	floatFilterGyro
- 602              	.LVL45:
- 603              		.loc 1 163 0
- 604 0376 B4F90C10 		ldrsh	r1, [r4, #12]
- 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = GlobalSettings.gyroDir.sensDirecti
- 605              		.loc 1 165 0
- 606 037a 694C     		ldr	r4, .L77+4
- 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&zGyroFiltered_float, gyroXYZ.gyroValueZ);
- 607              		.loc 1 163 0
- 608 037c 3846     		mov	r0, r7
- 609 037e FFF7FEFF 		bl	floatFilterGyro
- 610              	.LVL46:
- 611              		.loc 1 165 0
- 612 0382 94F90700 		ldrsb	r0, [r4, #7]
- 613 0386 FFF7FEFF 		bl	__aeabi_i2f
- 614              	.LVL47:
- 615 038a 6749     		ldr	r1, .L77+12
- 616 038c 8346     		mov	fp, r0
- 617 038e D9F82800 		ldr	r0, [r9, #40]	@ float
- 618 0392 FFF7FEFF 		bl	__aeabi_fmul
- 619              	.LVL48:
- 620 0396 0146     		mov	r1, r0
- 621 0398 5846     		mov	r0, fp
- 622 039a FFF7FEFF 		bl	__aeabi_fmul
- 623              	.LVL49:
- 624 039e 6349     		ldr	r1, .L77+16
- 625 03a0 FFF7FEFF 		bl	__aeabi_fmul
- 626              	.LVL50:
- 627 03a4 94F804A0 		ldrb	sl, [r4, #4]	@ zero_extendqisi2
- 628 03a8 614D     		ldr	r5, .L77+20
- 629 03aa 0AF10A0A 		add	sl, sl, #10
- 630 03ae 45F82A00 		str	r0, [r5, sl, lsl #2]	@ float
- 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
- 631              		.loc 1 166 0
- 632 03b2 94F90800 		ldrsb	r0, [r4, #8]
- 633 03b6 FFF7FEFF 		bl	__aeabi_i2f
- 634              	.LVL51:
- 635 03ba 5B49     		ldr	r1, .L77+12
- 636 03bc 8246     		mov	sl, r0
- 637 03be D8F82800 		ldr	r0, [r8, #40]	@ float
- 638 03c2 FFF7FEFF 		bl	__aeabi_fmul
- 639              	.LVL52:
- 640 03c6 0146     		mov	r1, r0
- 641 03c8 5046     		mov	r0, sl
- 642 03ca FFF7FEFF 		bl	__aeabi_fmul
- 643              	.LVL53:
- 644 03ce 5749     		ldr	r1, .L77+16
- 645 03d0 FFF7FEFF 		bl	__aeabi_fmul
- 646              	.LVL54:
- 647 03d4 94F80590 		ldrb	r9, [r4, #5]	@ zero_extendqisi2
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = GlobalSettings.gyroDir.sensDirecti
- 648              		.loc 1 167 0
- 649 03d8 94F80680 		ldrb	r8, [r4, #6]	@ zero_extendqisi2
- 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
- 650              		.loc 1 166 0
- 651 03dc 09F10A09 		add	r9, r9, #10
- 652 03e0 45F82900 		str	r0, [r5, r9, lsl #2]	@ float
- 653              		.loc 1 167 0
- 654 03e4 94F90900 		ldrsb	r0, [r4, #9]
- 655 03e8 FFF7FEFF 		bl	__aeabi_i2f
- 656              	.LVL55:
- 657 03ec 4E49     		ldr	r1, .L77+12
- 658 03ee 8146     		mov	r9, r0
- 659 03f0 B86A     		ldr	r0, [r7, #40]	@ float
- 660 03f2 FFF7FEFF 		bl	__aeabi_fmul
- 661              	.LVL56:
- 662 03f6 0146     		mov	r1, r0
- 663 03f8 4846     		mov	r0, r9
- 664 03fa FFF7FEFF 		bl	__aeabi_fmul
- 665              	.LVL57:
- 666 03fe 4B49     		ldr	r1, .L77+16
- 667 0400 FFF7FEFF 		bl	__aeabi_fmul
- 668              	.LVL58:
- 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*Here the ACC-Compensation, we do this in every tenth round*/
- 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(GlobalSettings.enableACC)
- 669              		.loc 1 170 0
- 670 0404 E37A     		ldrb	r3, [r4, #11]	@ zero_extendqisi2
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = GlobalSettings.gyroDir.sensDirecti
- 671              		.loc 1 167 0
- 672 0406 08F10A08 		add	r8, r8, #10
- 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
- 673              		.loc 1 161 0
- 674 040a 444E     		ldr	r6, .L77
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = GlobalSettings.gyroDir.sensDirecti
- 675              		.loc 1 167 0
- 676 040c 45F82800 		str	r0, [r5, r8, lsl #2]	@ float
- 677              		.loc 1 170 0
- 678 0410 002B     		cmp	r3, #0
- 679 0412 00F0BD80 		beq	.L45
- 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
- 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(accCount >= 5)
- 680              		.loc 1 172 0
- 681 0416 96F82230 		ldrb	r3, [r6, #34]	@ zero_extendqisi2
- 682 041a 042B     		cmp	r3, #4
- 683 041c 40F2B280 		bls	.L46
- 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			{
- 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//ADXL345_readValues(&accXYZ);
- 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//LSM303DLHC_ACC_readValues(&accXYZ);
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
- 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//ADC_AutoInjectedConvCmd(ADC2,ENABLE);
- 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				ADC_StartConversion(ADC2);
- 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				/* wait for ADRDY */
- 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC));
- 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				ADC_StartInjectedConversion(ADC2);
- 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //
- 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueX = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_2)-1700;
- 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueZ = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_1)-1700;
- 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueY = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_3)-1700;
- 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&xAccFiltered_float, accXYZ.accValueX);
- 684              		.loc 1 188 0
- 685 0420 DFF82C91 		ldr	r9, .L77+52
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
- 686              		.loc 1 176 0
- 687 0424 06F11000 		add	r0, r6, #16
- 688 0428 4249     		ldr	r1, .L77+24
- 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&yAccFiltered_float, accXYZ.accValueY);
- 689              		.loc 1 189 0
- 690 042a DFF82881 		ldr	r8, .L77+56
- 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
- 691              		.loc 1 176 0
- 692 042e FFF7FEFF 		bl	LSM303DLHC_ACC_readValuesDMA
- 693              	.LVL59:
- 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&zAccFiltered_float, accXYZ.accValueZ);
- 694              		.loc 1 190 0
- 695 0432 414F     		ldr	r7, .L77+28
- 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&xAccFiltered_float, accXYZ.accValueX);
- 696              		.loc 1 188 0
- 697 0434 4846     		mov	r0, r9
- 698 0436 B6F91010 		ldrsh	r1, [r6, #16]
- 699 043a FFF7FEFF 		bl	floatFilterAcc
- 700              	.LVL60:
- 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&yAccFiltered_float, accXYZ.accValueY);
- 701              		.loc 1 189 0
- 702 043e B6F91210 		ldrsh	r1, [r6, #18]
- 703 0442 4046     		mov	r0, r8
- 704 0444 FFF7FEFF 		bl	floatFilterAcc
- 705              	.LVL61:
- 706              		.loc 1 190 0
- 707 0448 B6F91410 		ldrsh	r1, [r6, #20]
- 708 044c 3846     		mov	r0, r7
- 709 044e FFF7FEFF 		bl	floatFilterAcc
- 710              	.LVL62:
- 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if((xAccFiltered_float.currentValue < accXYZ.accGValue) && (xAccFiltered_float.currentValue > -
- 711              		.loc 1 192 0
- 712 0452 D9F82890 		ldr	r9, [r9, #40]	@ float
- 713 0456 B669     		ldr	r6, [r6, #24]	@ float
- 714 0458 4846     		mov	r0, r9
- 715 045a 3146     		mov	r1, r6
- 716 045c FFF7FEFF 		bl	__aeabi_fcmplt
- 717              	.LVL63:
- 718 0460 0028     		cmp	r0, #0
- 719 0462 79D0     		beq	.L47
- 720              		.loc 1 192 0 is_stmt 0 discriminator 1
- 721 0464 06F1004A 		add	sl, r6, #-2147483648
- 722 0468 4846     		mov	r0, r9
- 723 046a 5146     		mov	r1, sl
- 724 046c FFF7FEFF 		bl	__aeabi_fcmpgt
- 725              	.LVL64:
- 726 0470 0028     		cmp	r0, #0
- 727 0472 71D0     		beq	.L47
- 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (yAccFiltered_float.currentValue < accXYZ.accGValue) && (yAccFiltered_float.currentValue > -
- 728              		.loc 1 193 0 is_stmt 1 discriminator 1
- 729 0474 D8F82880 		ldr	r8, [r8, #40]	@ float
- 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if((xAccFiltered_float.currentValue < accXYZ.accGValue) && (xAccFiltered_float.currentValue > -
- 730              		.loc 1 192 0 discriminator 1
- 731 0478 3146     		mov	r1, r6
- 732 047a 4046     		mov	r0, r8
- 733 047c FFF7FEFF 		bl	__aeabi_fcmplt
- 734              	.LVL65:
- 735 0480 0028     		cmp	r0, #0
- 736 0482 69D0     		beq	.L47
- 737              		.loc 1 193 0
- 738 0484 4046     		mov	r0, r8
- 739 0486 5146     		mov	r1, sl
- 740 0488 FFF7FEFF 		bl	__aeabi_fcmpgt
- 741              	.LVL66:
- 742 048c 0028     		cmp	r0, #0
- 743 048e 63D0     		beq	.L47
- 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (zAccFiltered_float.currentValue < accXYZ.accGValue) && (zAccFiltered_float.currentValue > -
- 744              		.loc 1 194 0 discriminator 1
- 745 0490 BF6A     		ldr	r7, [r7, #40]	@ float
- 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (yAccFiltered_float.currentValue < accXYZ.accGValue) && (yAccFiltered_float.currentValue > -
- 746              		.loc 1 193 0 discriminator 1
- 747 0492 3146     		mov	r1, r6
- 748 0494 3846     		mov	r0, r7
- 749 0496 FFF7FEFF 		bl	__aeabi_fcmplt
- 750              	.LVL67:
- 751 049a 0028     		cmp	r0, #0
- 752 049c 5CD0     		beq	.L47
- 753              		.loc 1 194 0
- 754 049e 3846     		mov	r0, r7
- 755 04a0 5146     		mov	r1, sl
- 756 04a2 FFF7FEFF 		bl	__aeabi_fcmpgt
- 757              	.LVL68:
- 758 04a6 0028     		cmp	r0, #0
- 759 04a8 56D0     		beq	.L47
- 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
- 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					/*Direction setup is the same as above*/
- 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
- 760              		.loc 1 197 0
- 761 04aa 94F90F00 		ldrsb	r0, [r4, #15]
- 762 04ae FFF7FEFF 		bl	__aeabi_i2f
- 763              	.LVL69:
- 764 04b2 4946     		mov	r1, r9
- 765 04b4 FFF7FEFF 		bl	__aeabi_fmul
- 766              	.LVL70:
- 767 04b8 94F80CA0 		ldrb	sl, [r4, #12]	@ zero_extendqisi2
- 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
- 768              		.loc 1 198 0
- 769 04bc 667B     		ldrb	r6, [r4, #13]	@ zero_extendqisi2
- 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
- 770              		.loc 1 197 0
- 771 04be 0AF10C0A 		add	sl, sl, #12
- 772 04c2 05EB8A0A 		add	sl, r5, sl, lsl #2
- 773 04c6 CAF80400 		str	r0, [sl, #4]	@ float
- 774              		.loc 1 198 0
- 775 04ca 94F91000 		ldrsb	r0, [r4, #16]
- 776 04ce FFF7FEFF 		bl	__aeabi_i2f
- 777              	.LVL71:
- 778 04d2 4146     		mov	r1, r8
- 779 04d4 FFF7FEFF 		bl	__aeabi_fmul
- 780              	.LVL72:
- 781 04d8 0C36     		adds	r6, r6, #12
- 782 04da 05EB8606 		add	r6, r5, r6, lsl #2
- 783 04de 7060     		str	r0, [r6, #4]	@ float
- 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensZ]] = GlobalSettings.accDir.sensDirection
- 784              		.loc 1 199 0
- 785 04e0 94F91100 		ldrsb	r0, [r4, #17]
- 786 04e4 FFF7FEFF 		bl	__aeabi_i2f
- 787              	.LVL73:
- 788 04e8 3946     		mov	r1, r7
- 789 04ea FFF7FEFF 		bl	__aeabi_fmul
- 790              	.LVL74:
- 791 04ee A37B     		ldrb	r3, [r4, #14]	@ zero_extendqisi2
- 792 04f0 0746     		mov	r7, r0
- 793 04f2 05EB8305 		add	r5, r5, r3, lsl #2
- 794 04f6 6863     		str	r0, [r5, #52]	@ float
- 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					xTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]];
- 795              		.loc 1 201 0
- 796 04f8 DAF80400 		ldr	r0, [sl, #4]	@ float
- 797 04fc FFF7FEFF 		bl	__aeabi_f2iz
- 798              	.LVL75:
- 799 0500 0E4B     		ldr	r3, .L77+32
- 800 0502 1860     		str	r0, [r3, #0]
- 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]];
- 801              		.loc 1 202 0
- 802 0504 7068     		ldr	r0, [r6, #4]	@ float
- 803 0506 FFF7FEFF 		bl	__aeabi_f2iz
- 804              	.LVL76:
- 805 050a 0D4B     		ldr	r3, .L77+36
- 806 050c 1860     		str	r0, [r3, #0]
- 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					zTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensZ]];
- 807              		.loc 1 203 0
- 808 050e 3846     		mov	r0, r7
- 809 0510 FFF7FEFF 		bl	__aeabi_f2iz
- 810              	.LVL77:
- 811 0514 0B4B     		ldr	r3, .L77+40
- 812 0516 1860     		str	r0, [r3, #0]
- 813 0518 2AE0     		b	.L54
- 814              	.L78:
- 815 051a 00BF     		.align	2
- 816              	.L77:
- 817 051c 00000000 		.word	.LANCHOR0
- 818 0520 00000000 		.word	GlobalSettings
- 819 0524 00000000 		.word	zGyroFiltered_float
- 820 0528 295C8F3D 		.word	1032805417
- 821 052c 35FA8E3C 		.word	1016003125
- 822 0530 00000000 		.word	IMU
- 823 0534 00000000 		.word	accBuffer
- 824 0538 00000000 		.word	zAccFiltered_float
- 825 053c 00000000 		.word	xTemp
- 826 0540 00000000 		.word	yTemp
- 827 0544 00000000 		.word	zTemp
- 828 0548 00000000 		.word	xGyroFiltered_float
- 829 054c 00000000 		.word	yGyroFiltered_float
- 830 0550 00000000 		.word	xAccFiltered_float
- 831 0554 00000000 		.word	yAccFiltered_float
- 832              	.L47:
- 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
- 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				else
- 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
- 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[0] = 0;
- 833              		.loc 1 207 0
- 834 0558 374B     		ldr	r3, .L79
- 835 055a 0022     		movs	r2, #0
- 836 055c 1A66     		str	r2, [r3, #96]	@ float
- 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[1] = 0;
- 837              		.loc 1 208 0
- 838 055e 5A66     		str	r2, [r3, #100]	@ float
- 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[2] = 0;
- 839              		.loc 1 209 0
- 840 0560 9A66     		str	r2, [r3, #104]	@ float
- 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					xTemp = 0;
- 841              		.loc 1 211 0
- 842 0562 364A     		ldr	r2, .L79+4
- 843 0564 0023     		movs	r3, #0
- 844 0566 1360     		str	r3, [r2, #0]
- 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = 0;
- 845              		.loc 1 212 0
- 846 0568 354A     		ldr	r2, .L79+8
- 847 056a 1360     		str	r3, [r2, #0]
- 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					zTemp = 0;
- 848              		.loc 1 213 0
- 849 056c 354A     		ldr	r2, .L79+12
- 850 056e 1360     		str	r3, [r2, #0]
- 851              	.L54:
- 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
- 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//printf("%d %d %d\n\r", (int)(IMU.accel_vector[0]*30),(int)(IMU.accel_vector[1]*30), (int)(IMU
+ 445              		.loc 1 147 0
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 449 033c 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 450              	.LCFI2:
+ 451              		.cfi_def_cfa_offset 40
+ 452              		.cfi_offset 3, -40
+ 453              		.cfi_offset 4, -36
+ 454              		.cfi_offset 5, -32
+ 455              		.cfi_offset 6, -28
+ 456              		.cfi_offset 7, -24
+ 457              		.cfi_offset 8, -20
+ 458              		.cfi_offset 9, -16
+ 459              		.cfi_offset 10, -12
+ 460              		.cfi_offset 11, -8
+ 461              		.cfi_offset 14, -4
+ 148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	/*!
+ 150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	 *  IMU - Calculation Process
+ 151:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	 *
+ 152:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	 */
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Gyro_readValues(&gyroXYZ);
+ 462              		.loc 1 153 0
+ 463 0340 BB4C     		ldr	r4, .L77
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Cut-off the lower values to reduce noise and fail-integration*/
+ 159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueX > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueX < GlobalSettings.g
+ 464              		.loc 1 159 0
+ 465 0342 BC4E     		ldr	r6, .L77+4
+ 153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Gyro_readValues(&gyroXYZ);
+ 466              		.loc 1 153 0
+ 467 0344 04F10800 		add	r0, r4, #8
+ 468 0348 FFF7FEFF 		bl	Gyro_readValues
+ 469              	.LVL24:
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 470              		.loc 1 154 0
+ 471 034c 2589     		ldrh	r5, [r4, #8]
+ 472 034e 2388     		ldrh	r3, [r4]
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 473              		.loc 1 155 0
+ 474 0350 6089     		ldrh	r0, [r4, #10]
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 475              		.loc 1 156 0
+ 476 0352 A189     		ldrh	r1, [r4, #12]
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 477              		.loc 1 154 0
+ 478 0354 ED1A     		subs	r5, r5, r3
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 479              		.loc 1 155 0
+ 480 0356 6388     		ldrh	r3, [r4, #2]
+ 481 0358 C01A     		subs	r0, r0, r3
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 482              		.loc 1 156 0
+ 483 035a A388     		ldrh	r3, [r4, #4]
+ 484 035c C91A     		subs	r1, r1, r3
+ 485              		.loc 1 159 0
+ 486 035e 3388     		ldrh	r3, [r6]
+ 154:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueX = ((gyroXYZ.gyroValueX-gyroOffset.gyroValueX));
+ 487              		.loc 1 154 0
+ 488 0360 ADB2     		uxth	r5, r5
+ 489 0362 2581     		strh	r5, [r4, #8]	@ movhi
+ 490              		.loc 1 159 0
+ 491 0364 5A42     		negs	r2, r3
+ 492 0366 2DB2     		sxth	r5, r5
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 493              		.loc 1 155 0
+ 494 0368 80B2     		uxth	r0, r0
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 495              		.loc 1 156 0
+ 496 036a 89B2     		uxth	r1, r1
+ 497              		.loc 1 159 0
+ 498 036c 9542     		cmp	r5, r2
+ 155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueY = ((gyroXYZ.gyroValueY-gyroOffset.gyroValueY));
+ 499              		.loc 1 155 0
+ 500 036e 6081     		strh	r0, [r4, #10]	@ movhi
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		gyroXYZ.gyroValueZ = ((gyroXYZ.gyroValueZ-gyroOffset.gyroValueZ));
+ 501              		.loc 1 156 0
+ 502 0370 A181     		strh	r1, [r4, #12]	@ movhi
+ 503              		.loc 1 159 0
+ 504 0372 03DD     		ble	.L42
+ 505              		.loc 1 159 0 is_stmt 0 discriminator 1
+ 506 0374 9D42     		cmp	r5, r3
+ 507 0376 BCBF     		itt	lt
+ 508 0378 0025     		movlt	r5, #0
+ 509 037a 2581     		strhlt	r5, [r4, #8]	@ movhi
+ 510              	.L42:
+ 160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueY > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueY < GlobalSettings.g
+ 511              		.loc 1 160 0 is_stmt 1
+ 512 037c 00B2     		sxth	r0, r0
+ 513 037e 9042     		cmp	r0, r2
+ 514 0380 03DD     		ble	.L43
+ 515              		.loc 1 160 0 is_stmt 0 discriminator 1
+ 516 0382 9842     		cmp	r0, r3
+ 517 0384 BCBF     		itt	lt
+ 518 0386 0020     		movlt	r0, #0
+ 519 0388 6081     		strhlt	r0, [r4, #10]	@ movhi
+ 520              	.L43:
+ 161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(gyroXYZ.gyroValueZ > -GlobalSettings.gyroSensTreshold && gyroXYZ.gyroValueZ < GlobalSettings.g
+ 521              		.loc 1 161 0 is_stmt 1
+ 522 038a 09B2     		sxth	r1, r1
+ 523 038c 9142     		cmp	r1, r2
+ 524 038e 03DD     		ble	.L44
+ 525              		.loc 1 161 0 is_stmt 0 discriminator 1
+ 526 0390 9942     		cmp	r1, r3
+ 527 0392 BCBF     		itt	lt
+ 528 0394 0023     		movlt	r3, #0
+ 529 0396 A381     		strhlt	r3, [r4, #12]	@ movhi
+ 530              	.L44:
+ 162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
+ 531              		.loc 1 163 0 is_stmt 1
+ 532 0398 DFF8BCB2 		ldr	fp, .L77+40
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&yGyroFiltered_float, gyroXYZ.gyroValueY);
+ 533              		.loc 1 164 0
+ 534 039c DFF8BCA2 		ldr	r10, .L77+44
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
+ 535              		.loc 1 163 0
+ 536 03a0 B4F90810 		ldrsh	r1, [r4, #8]
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&zGyroFiltered_float, gyroXYZ.gyroValueZ);
+ 537              		.loc 1 165 0
+ 538 03a4 DFF8B892 		ldr	r9, .L77+48
+ 166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = GlobalSettings.gyroDir.sensDirecti
+ 539              		.loc 1 167 0
+ 540 03a8 A34D     		ldr	r5, .L77+8
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
+ 541              		.loc 1 163 0
+ 542 03aa A14F     		ldr	r7, .L77
+ 543              		.loc 1 167 0
+ 544 03ac DFF88482 		ldr	r8, .L77+4
+ 163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&xGyroFiltered_float, gyroXYZ.gyroValueX);
+ 545              		.loc 1 163 0
+ 546 03b0 5846     		mov	r0, fp
+ 547 03b2 FFF7FEFF 		bl	floatFilterGyro
+ 548              	.LVL25:
+ 164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&yGyroFiltered_float, gyroXYZ.gyroValueY);
+ 549              		.loc 1 164 0
+ 550 03b6 5046     		mov	r0, r10
+ 551 03b8 B4F90A10 		ldrsh	r1, [r4, #10]
+ 552 03bc FFF7FEFF 		bl	floatFilterGyro
+ 553              	.LVL26:
+ 165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		floatFilterGyro(&zGyroFiltered_float, gyroXYZ.gyroValueZ);
+ 554              		.loc 1 165 0
+ 555 03c0 4846     		mov	r0, r9
+ 556 03c2 B4F90C10 		ldrsh	r1, [r4, #12]
+ 557 03c6 FFF7FEFF 		bl	floatFilterGyro
+ 558              	.LVL27:
+ 559              		.loc 1 167 0
+ 560 03ca 96F90720 		ldrsb	r2, [r6, #7]
+ 561 03ce 9FED9B7A 		flds	s14, .L77+12
+ 562 03d2 DBED0A7A 		flds	s15, [fp, #40]
+ 563 03d6 3379     		ldrb	r3, [r6, #4]	@ zero_extendqisi2
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
+ 564              		.loc 1 168 0
+ 565 03d8 96F908E0 		ldrsb	lr, [r6, #8]
+ 566 03dc 9AED0A6A 		flds	s12, [r10, #40]
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = GlobalSettings.gyroDir.sensDirecti
+ 567              		.loc 1 167 0
+ 568 03e0 06EE902A 		fmsr	s13, r2	@ int
+ 569 03e4 67EE877A 		fmuls	s15, s15, s14
+ 570 03e8 F8EEE66A 		fsitos	s13, s13
+ 571 03ec 05EB8303 		add	r3, r5, r3, lsl #2
+ 572 03f0 66EEA76A 		fmuls	s13, s13, s15
+ 573 03f4 DFED927A 		flds	s15, .L77+16
+ 169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensZ]] = GlobalSettings.gyroDir.sensDirecti
+ 574              		.loc 1 169 0
+ 575 03f8 96F90920 		ldrsb	r2, [r6, #9]
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = GlobalSettings.gyroDir.sensDirecti
+ 576              		.loc 1 167 0
+ 577 03fc 66EEA76A 		fmuls	s13, s13, s15
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
+ 578              		.loc 1 168 0
+ 579 0400 26EE076A 		fmuls	s12, s12, s14
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensX]] = GlobalSettings.gyroDir.sensDirecti
+ 580              		.loc 1 167 0
+ 581 0404 C3ED0A6A 		fsts	s13, [r3, #40]
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
+ 582              		.loc 1 168 0
+ 583 0408 06EE90EA 		fmsr	s13, lr	@ int
+ 584 040c F8EEE66A 		fsitos	s13, s13
+ 585 0410 7379     		ldrb	r3, [r6, #5]	@ zero_extendqisi2
+ 586 0412 66EE866A 		fmuls	s13, s13, s12
+ 587 0416 05EB8303 		add	r3, r5, r3, lsl #2
+ 588 041a 66EEA76A 		fmuls	s13, s13, s15
+ 589              		.loc 1 169 0
+ 590 041e 99ED0A6A 		flds	s12, [r9, #40]
+ 168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU.velocity_vector[GlobalSettings.gyroDir.sensOrder[sensY]] = GlobalSettings.gyroDir.sensDirecti
+ 591              		.loc 1 168 0
+ 592 0422 C3ED0A6A 		fsts	s13, [r3, #40]
+ 593              		.loc 1 169 0
+ 594 0426 06EE902A 		fmsr	s13, r2	@ int
+ 595 042a 26EE077A 		fmuls	s14, s12, s14
+ 596 042e F8EEE66A 		fsitos	s13, s13
+ 597 0432 B379     		ldrb	r3, [r6, #6]	@ zero_extendqisi2
+ 598 0434 26EE877A 		fmuls	s14, s13, s14
+ 599 0438 05EB8303 		add	r3, r5, r3, lsl #2
+ 600 043c 67EE277A 		fmuls	s15, s14, s15
+ 601 0440 C3ED0A7A 		fsts	s15, [r3, #40]
+ 170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*Here the ACC-Compensation, we do this in every tenth round*/
+ 172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(GlobalSettings.enableACC)
+ 602              		.loc 1 172 0
+ 603 0444 F37A     		ldrb	r3, [r6, #11]	@ zero_extendqisi2
+ 604 0446 002B     		cmp	r3, #0
+ 605 0448 00F09C80 		beq	.L45
+ 173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
+ 174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(accCount >= 5)
+ 606              		.loc 1 174 0
+ 607 044c 97F82230 		ldrb	r3, [r7, #34]	@ zero_extendqisi2
+ 608 0450 042B     		cmp	r3, #4
+ 609 0452 40F29280 		bls	.L46
+ 175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			{
+ 176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//ADXL345_readValues(&accXYZ);
+ 177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//LSM303DLHC_ACC_readValues(&accXYZ);
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
+ 179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//ADC_AutoInjectedConvCmd(ADC2,ENABLE);
+ 181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				ADC_StartConversion(ADC2);
+ 182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				/* wait for ADRDY */
+ 183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC));
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				ADC_StartInjectedConversion(ADC2);
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //
+ 186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueX = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_2)-1700;
+ 187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueZ = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_1)-1700;
+ 188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //				accXYZ.accValueY = ADC_GetInjectedConversionValue(ADC2,ADC_InjectedSequence_3)-1700;
+ 189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&xAccFiltered_float, accXYZ.accValueX);
+ 610              		.loc 1 190 0
+ 611 0456 DFF80CB2 		ldr	fp, .L77+52
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
+ 612              		.loc 1 178 0
+ 613 045a 7A49     		ldr	r1, .L77+20
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&yAccFiltered_float, accXYZ.accValueY);
+ 614              		.loc 1 191 0
+ 615 045c DFF808A2 		ldr	r10, .L77+56
+ 192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&zAccFiltered_float, accXYZ.accValueZ);
+ 616              		.loc 1 192 0
+ 617 0460 DFF80892 		ldr	r9, .L77+60
+ 178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				LSM303DLHC_ACC_readValuesDMA(&accXYZ, &accBuffer[0]);
+ 618              		.loc 1 178 0
+ 619 0464 07F11000 		add	r0, r7, #16
+ 620 0468 FFF7FEFF 		bl	LSM303DLHC_ACC_readValuesDMA
+ 621              	.LVL28:
+ 190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&xAccFiltered_float, accXYZ.accValueX);
+ 622              		.loc 1 190 0
+ 623 046c 5846     		mov	r0, fp
+ 624 046e B7F91010 		ldrsh	r1, [r7, #16]
+ 625 0472 FFF7FEFF 		bl	floatFilterAcc
+ 626              	.LVL29:
+ 191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				floatFilterAcc(&yAccFiltered_float, accXYZ.accValueY);
+ 627              		.loc 1 191 0
+ 628 0476 5046     		mov	r0, r10
+ 629 0478 B7F91210 		ldrsh	r1, [r7, #18]
+ 630 047c FFF7FEFF 		bl	floatFilterAcc
+ 631              	.LVL30:
+ 632              		.loc 1 192 0
+ 633 0480 4846     		mov	r0, r9
+ 634 0482 B7F91410 		ldrsh	r1, [r7, #20]
+ 635 0486 FFF7FEFF 		bl	floatFilterAcc
+ 636              	.LVL31:
+ 193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if((xAccFiltered_float.currentValue < accXYZ.accGValue) && (xAccFiltered_float.currentValue > -
+ 637              		.loc 1 194 0
+ 638 048a 9BED0A6A 		flds	s12, [fp, #40]
+ 639 048e D7ED067A 		flds	s15, [r7, #24]
+ 640 0492 6D48     		ldr	r0, .L77+24
+ 641 0494 6D49     		ldr	r1, .L77+28
+ 642 0496 6E4A     		ldr	r2, .L77+32
+ 643 0498 B4EEE76A 		fcmpes	s12, s15
+ 644 049c F1EE10FA 		fmstat
+ 645 04a0 5BD5     		bpl	.L47
+ 646              		.loc 1 194 0 is_stmt 0 discriminator 1
+ 647 04a2 F1EE675A 		fnegs	s11, s15
+ 648 04a6 B4EEE56A 		fcmpes	s12, s11
+ 649 04aa F1EE10FA 		fmstat
+ 650 04ae 54DD     		ble	.L47
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (yAccFiltered_float.currentValue < accXYZ.accGValue) && (yAccFiltered_float.currentValue > -
+ 651              		.loc 1 195 0 is_stmt 1 discriminator 1
+ 652 04b0 DAED0A6A 		flds	s13, [r10, #40]
+ 194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if((xAccFiltered_float.currentValue < accXYZ.accGValue) && (xAccFiltered_float.currentValue > -
+ 653              		.loc 1 194 0 discriminator 1
+ 654 04b4 F4EEE76A 		fcmpes	s13, s15
+ 655 04b8 F1EE10FA 		fmstat
+ 656 04bc 4DD5     		bpl	.L47
+ 657              		.loc 1 195 0
+ 658 04be F4EEE56A 		fcmpes	s13, s11
+ 659 04c2 F1EE10FA 		fmstat
+ 660 04c6 48DD     		ble	.L47
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (zAccFiltered_float.currentValue < accXYZ.accGValue) && (zAccFiltered_float.currentValue > -
+ 661              		.loc 1 196 0 discriminator 1
+ 662 04c8 99ED0A7A 		flds	s14, [r9, #40]
+ 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				   (yAccFiltered_float.currentValue < accXYZ.accGValue) && (yAccFiltered_float.currentValue > -
+ 663              		.loc 1 195 0 discriminator 1
+ 664 04cc B4EEE77A 		fcmpes	s14, s15
+ 665 04d0 F1EE10FA 		fmstat
+ 666 04d4 41D5     		bpl	.L47
+ 667              		.loc 1 196 0
+ 668 04d6 B4EEE57A 		fcmpes	s14, s11
+ 669 04da F1EE10FA 		fmstat
+ 670 04de 3CDD     		ble	.L47
+ 197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
+ 198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					/*Direction setup is the same as above*/
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 671              		.loc 1 199 0
+ 672 04e0 98F90F30 		ldrsb	r3, [r8, #15]
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 673              		.loc 1 200 0
+ 674 04e4 98F910E0 		ldrsb	lr, [r8, #16]
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 675              		.loc 1 199 0
+ 676 04e8 98F80C70 		ldrb	r7, [r8, #12]	@ zero_extendqisi2
+ 677 04ec 07EE903A 		fmsr	s15, r3	@ int
+ 678 04f0 F8EEE77A 		fsitos	s15, s15
+ 679              		.loc 1 200 0
+ 680 04f4 98F80D30 		ldrb	r3, [r8, #13]	@ zero_extendqisi2
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 681              		.loc 1 199 0
+ 682 04f8 27EE866A 		fmuls	s12, s15, s12
+ 683              		.loc 1 200 0
+ 684 04fc 07EE90EA 		fmsr	s15, lr	@ int
+ 201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensZ]] = GlobalSettings.accDir.sensDirection
+ 685              		.loc 1 201 0
+ 686 0500 98F911E0 		ldrsb	lr, [r8, #17]
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 687              		.loc 1 200 0
+ 688 0504 F8EEE77A 		fsitos	s15, s15
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 689              		.loc 1 199 0
+ 690 0508 0C37     		adds	r7, r7, #12
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 691              		.loc 1 200 0
+ 692 050a 67EEA66A 		fmuls	s13, s15, s13
+ 693              		.loc 1 201 0
+ 694 050e 07EE90EA 		fmsr	s15, lr	@ int
+ 695 0512 F8EEE77A 		fsitos	s15, s15
+ 696 0516 98F80EE0 		ldrb	lr, [r8, #14]	@ zero_extendqisi2
+ 697 051a 27EE877A 		fmuls	s14, s15, s14
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 698              		.loc 1 200 0
+ 699 051e 0C33     		adds	r3, r3, #12
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 700              		.loc 1 199 0
+ 701 0520 05EB8707 		add	r7, r5, r7, lsl #2
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 702              		.loc 1 200 0
+ 703 0524 05EB8303 		add	r3, r5, r3, lsl #2
+ 704              		.loc 1 201 0
+ 705 0528 05EB8E0E 		add	lr, r5, lr, lsl #2
+ 199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]] = GlobalSettings.accDir.sensDirection
+ 706              		.loc 1 199 0
+ 707 052c 87ED016A 		fsts	s12, [r7, #4]
+ 200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]] = GlobalSettings.accDir.sensDirection
+ 708              		.loc 1 200 0
+ 709 0530 C3ED016A 		fsts	s13, [r3, #4]
+ 710              		.loc 1 201 0
+ 711 0534 8EED0D7A 		fsts	s14, [lr, #52]
+ 202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					xTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]];
+ 712              		.loc 1 203 0
+ 713 0538 D7ED017A 		flds	s15, [r7, #4]
+ 714 053c FDEEE77A 		ftosizs	s15, s15
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]];
+ 205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					zTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensZ]];
+ 715              		.loc 1 205 0
+ 716 0540 BDEEC77A 		ftosizs	s14, s14
+ 203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					xTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensX]];
+ 717              		.loc 1 203 0
+ 718 0544 C0ED007A 		fsts	s15, [r0]	@ int
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]];
+ 719              		.loc 1 204 0
+ 720 0548 D3ED017A 		flds	s15, [r3, #4]
+ 721              		.loc 1 205 0
+ 722 054c 82ED007A 		fsts	s14, [r2]	@ int
+ 204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = (int)IMU.accel_vector[GlobalSettings.accDir.sensOrder[sensY]];
+ 723              		.loc 1 204 0
+ 724 0550 FDEEE77A 		ftosizs	s15, s15
+ 725 0554 C1ED007A 		fsts	s15, [r1]	@ int
+ 726              		.loc 1 205 0
+ 727 0558 07E0     		b	.L54
+ 728              	.L47:
+ 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
+ 207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				else
+ 208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
+ 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[0] = 0;
+ 729              		.loc 1 209 0
+ 730 055a 0023     		movs	r3, #0
+ 731 055c 2B66     		str	r3, [r5, #96]	@ float
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[1] = 0;
+ 732              		.loc 1 210 0
+ 733 055e 6B66     		str	r3, [r5, #100]	@ float
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU.kp_vector_ACC[2] = 0;
+ 734              		.loc 1 211 0
+ 735 0560 AB66     		str	r3, [r5, #104]	@ float
+ 212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					xTemp = 0;
+ 736              		.loc 1 213 0
+ 737 0562 0023     		movs	r3, #0
+ 738 0564 0360     		str	r3, [r0]
+ 214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					yTemp = 0;
+ 739              		.loc 1 214 0
+ 740 0566 0B60     		str	r3, [r1]
+ 215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					zTemp = 0;
+ 741              		.loc 1 215 0
+ 742 0568 1360     		str	r3, [r2]
+ 743              	.L54:
+ 216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if(GlobalSettings.enableDriftCorrection)
- 852              		.loc 1 218 0
- 853 0570 354B     		ldr	r3, .L79+16
- 854 0572 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 855 0574 13B1     		cbz	r3, .L55
- 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
- 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU_drift_correction_ACC(&IMU);
- 856              		.loc 1 220 0
- 857 0576 3048     		ldr	r0, .L79
- 858 0578 FFF7FEFF 		bl	IMU_drift_correction_ACC
- 859              	.LVL78:
- 860              	.L55:
- 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
- 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				accCount = 0;
- 861              		.loc 1 222 0
- 862 057c 334B     		ldr	r3, .L79+20
- 863 057e 0022     		movs	r2, #0
- 864 0580 83F82220 		strb	r2, [r3, #34]
- 865              	.L46:
- 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			}
- 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			accCount++;
- 866              		.loc 1 224 0
- 867 0584 314B     		ldr	r3, .L79+20
- 868 0586 93F82220 		ldrb	r2, [r3, #34]	@ zero_extendqisi2
- 869 058a 0132     		adds	r2, r2, #1
- 870 058c 83F82220 		strb	r2, [r3, #34]
- 871              	.L45:
- 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
- 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*Here the Mag-Compensation, we do this in every 45 round*/
- 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(GlobalSettings.enableMAG)
- 872              		.loc 1 228 0
- 873 0590 2D4C     		ldr	r4, .L79+16
- 874 0592 237E     		ldrb	r3, [r4, #24]	@ zero_extendqisi2
- 875 0594 002B     		cmp	r3, #0
- 876 0596 3FD0     		beq	.L56
- 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
- 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(magCount >= 45)
- 877              		.loc 1 230 0
- 878 0598 2C4D     		ldr	r5, .L79+20
- 879 059a 95F82330 		ldrb	r3, [r5, #35]	@ zero_extendqisi2
- 880 059e 2C2B     		cmp	r3, #44
- 881 05a0 34D9     		bls	.L57
- 231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			{
- 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				Mag_readValues(&magXYZ);
- 882              		.loc 1 232 0
- 883 05a2 05F11C00 		add	r0, r5, #28
- 884 05a6 FFF7FEFF 		bl	Mag_readValues
- 885              	.LVL79:
- 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				update_intFilter(&xMagFiltered, GlobalSettings.magLowpassValue, (magXYZ.magValueX));
- 886              		.loc 1 233 0
- 887 05aa 05F12400 		add	r0, r5, #36
- 888 05ae 218C     		ldrh	r1, [r4, #32]
- 889 05b0 B5F91C20 		ldrsh	r2, [r5, #28]
- 890 05b4 FFF7FEFF 		bl	update_intFilter
- 891              	.LVL80:
- 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				update_intFilter(&yMagFiltered, GlobalSettings.magLowpassValue, (magXYZ.magValueY));
- 892              		.loc 1 234 0
- 893 05b8 B5F91E20 		ldrsh	r2, [r5, #30]
- 894 05bc 218C     		ldrh	r1, [r4, #32]
- 895 05be 05F12C00 		add	r0, r5, #44
- 896 05c2 FFF7FEFF 		bl	update_intFilter
- 897              	.LVL81:
- 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				/*Direction setup is the same as above*/
- 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensX]] = GlobalSettings.magDir.sensDirection[se
- 898              		.loc 1 237 0
- 899 05c6 AB6A     		ldr	r3, [r5, #40]
- 900 05c8 94F91C00 		ldrsb	r0, [r4, #28]
- 901 05cc 677E     		ldrb	r7, [r4, #25]	@ zero_extendqisi2
- 902 05ce 5843     		muls	r0, r3, r0
- 903 05d0 FFF7FEFF 		bl	__aeabi_i2f
- 904              	.LVL82:
- 905 05d4 184E     		ldr	r6, .L79
- 906 05d6 1037     		adds	r7, r7, #16
- 907 05d8 46F82700 		str	r0, [r6, r7, lsl #2]	@ float
- 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensY]] = GlobalSettings.magDir.sensDirection[se
- 908              		.loc 1 238 0
- 909 05dc 94F91D30 		ldrsb	r3, [r4, #29]
- 910 05e0 286B     		ldr	r0, [r5, #48]
- 911 05e2 A77E     		ldrb	r7, [r4, #26]	@ zero_extendqisi2
- 912 05e4 5843     		muls	r0, r3, r0
- 913 05e6 FFF7FEFF 		bl	__aeabi_i2f
- 914              	.LVL83:
- 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensZ]] = GlobalSettings.magDir.sensDirection[
- 240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensZ]] = 0;
- 915              		.loc 1 240 0
- 916 05ea E37E     		ldrb	r3, [r4, #27]	@ zero_extendqisi2
- 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensY]] = GlobalSettings.magDir.sensDirection[se
- 917              		.loc 1 238 0
- 918 05ec 1037     		adds	r7, r7, #16
- 919              		.loc 1 240 0
- 920 05ee 1033     		adds	r3, r3, #16
- 921 05f0 0022     		movs	r2, #0
- 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensY]] = GlobalSettings.magDir.sensDirection[se
- 922              		.loc 1 238 0
- 923 05f2 46F82700 		str	r0, [r6, r7, lsl #2]	@ float
- 924              		.loc 1 240 0
- 925 05f6 46F82320 		str	r2, [r6, r3, lsl #2]	@ float
- 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if(GlobalSettings.enableDriftCorrection)
- 926              		.loc 1 242 0
- 927 05fa A37A     		ldrb	r3, [r4, #10]	@ zero_extendqisi2
- 928 05fc 13B1     		cbz	r3, .L58
- 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
- 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU_drift_correction_MAG(&IMU);
- 929              		.loc 1 244 0
- 930 05fe 3046     		mov	r0, r6
- 931 0600 FFF7FEFF 		bl	IMU_drift_correction_MAG
- 932              	.LVL84:
- 933              	.L58:
- 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
- 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				magCount = 0;
- 934              		.loc 1 246 0
- 935 0604 114B     		ldr	r3, .L79+20
- 936 0606 0022     		movs	r2, #0
- 937 0608 83F82320 		strb	r2, [r3, #35]
- 938              	.L57:
- 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//printf("%d,%d\n\r", (int)xMagFiltered.filtered, (int)yMagFiltered.filtered);
- 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			}
- 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			magCount++;
- 939              		.loc 1 249 0
- 940 060c 0F4B     		ldr	r3, .L79+20
- 941 060e 93F82320 		ldrb	r2, [r3, #35]	@ zero_extendqisi2
- 942 0612 0132     		adds	r2, r2, #1
- 943 0614 83F82320 		strb	r2, [r3, #35]
- 944              	.L56:
- 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
- 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*This functions here do the DCM-Algorithm stuff*/
- 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_update(&IMU);
- 945              		.loc 1 253 0
- 946 0618 0748     		ldr	r0, .L79
- 947 061a FFF7FEFF 		bl	IMU_update
- 948              	.LVL85:
- 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_ortho_adjust(&IMU);
- 949              		.loc 1 254 0
- 950 061e 0648     		ldr	r0, .L79
- 951 0620 FFF7FEFF 		bl	IMU_ortho_adjust
- 952              	.LVL86:
- 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_normalize(&IMU);
- 953              		.loc 1 255 0
- 954 0624 0448     		ldr	r0, .L79
- 955 0626 FFF7FEFF 		bl	IMU_normalize
- 956              	.LVL87:
- 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//Euler_angles(&DCM);
- 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//IMU_DCM_to_Euler_deg(&IMU, &euler);
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_DCM_to_XYZ(&IMU, &XYZ);
- 957              		.loc 1 258 0
- 958 062a 0348     		ldr	r0, .L79
- 959 062c 0849     		ldr	r1, .L79+24
- 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
- 960              		.loc 1 261 0
- 961 062e BDE8F84F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_DCM_to_XYZ(&IMU, &XYZ);
- 962              		.loc 1 258 0
- 963 0632 FFF7FEBF 		b	IMU_DCM_to_XYZ
- 964              	.LVL88:
- 965              	.L80:
- 966 0636 00BF     		.align	2
- 967              	.L79:
- 968 0638 00000000 		.word	IMU
- 969 063c 00000000 		.word	xTemp
- 970 0640 00000000 		.word	yTemp
- 971 0644 00000000 		.word	zTemp
- 972 0648 00000000 		.word	GlobalSettings
- 973 064c 00000000 		.word	.LANCHOR0
- 974 0650 00000000 		.word	XYZ
- 975              		.cfi_endproc
- 976              	.LFE113:
- 978              		.global	__aeabi_f2uiz
- 979              		.align	1
- 980              		.global	PositionController
- 981              		.thumb
- 982              		.thumb_func
- 984              	PositionController:
- 985              	.LFB114:
+ 218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//printf("%d %d %d\n\r", (int)(IMU.accel_vector[0]*30),(int)(IMU.accel_vector[1]*30), (int)(IMU
+ 219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if(GlobalSettings.enableDriftCorrection)
+ 744              		.loc 1 220 0
+ 745 056a B37A     		ldrb	r3, [r6, #10]	@ zero_extendqisi2
+ 746 056c 13B1     		cbz	r3, .L55
+ 221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
+ 222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU_drift_correction_ACC(&IMU);
+ 747              		.loc 1 222 0
+ 748 056e 3248     		ldr	r0, .L77+8
+ 749 0570 FFF7FEFF 		bl	IMU_drift_correction_ACC
+ 750              	.LVL32:
+ 751              	.L55:
+ 223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
+ 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				accCount = 0;
+ 752              		.loc 1 224 0
+ 753 0574 0023     		movs	r3, #0
+ 754 0576 84F82230 		strb	r3, [r4, #34]
+ 755              	.L46:
+ 225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			}
+ 226:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			accCount++;
+ 756              		.loc 1 226 0
+ 757 057a 94F82230 		ldrb	r3, [r4, #34]	@ zero_extendqisi2
+ 758 057e 0133     		adds	r3, r3, #1
+ 759 0580 84F82230 		strb	r3, [r4, #34]
+ 760              	.L45:
+ 227:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
+ 228:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 229:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*Here the Mag-Compensation, we do this in every 45 round*/
+ 230:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(GlobalSettings.enableMAG)
+ 761              		.loc 1 230 0
+ 762 0584 337E     		ldrb	r3, [r6, #24]	@ zero_extendqisi2
+ 763 0586 2B4F     		ldr	r7, .L77+4
+ 764 0588 002B     		cmp	r3, #0
+ 765 058a 42D0     		beq	.L56
+ 231:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
+ 232:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(magCount >= 45)
+ 766              		.loc 1 232 0
+ 767 058c 94F82330 		ldrb	r3, [r4, #35]	@ zero_extendqisi2
+ 768 0590 274E     		ldr	r6, .L77
+ 769 0592 2C2B     		cmp	r3, #44
+ 770 0594 38D9     		bls	.L57
+ 233:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			{
+ 234:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				Mag_readValues(&magXYZ);
+ 771              		.loc 1 234 0
+ 772 0596 06F11C00 		add	r0, r6, #28
+ 773 059a FFF7FEFF 		bl	Mag_readValues
+ 774              	.LVL33:
+ 235:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				update_intFilter(&xMagFiltered, GlobalSettings.magLowpassValue, (magXYZ.magValueX));
+ 775              		.loc 1 235 0
+ 776 059e 06F12400 		add	r0, r6, #36
+ 777 05a2 398C     		ldrh	r1, [r7, #32]
+ 778 05a4 B6F91C20 		ldrsh	r2, [r6, #28]
+ 779 05a8 FFF7FEFF 		bl	update_intFilter
+ 780              	.LVL34:
+ 236:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				update_intFilter(&yMagFiltered, GlobalSettings.magLowpassValue, (magXYZ.magValueY));
+ 781              		.loc 1 236 0
+ 782 05ac 398C     		ldrh	r1, [r7, #32]
+ 783 05ae B6F91E20 		ldrsh	r2, [r6, #30]
+ 784 05b2 06F12C00 		add	r0, r6, #44
+ 785 05b6 FFF7FEFF 		bl	update_intFilter
+ 786              	.LVL35:
+ 237:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 238:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				/*Direction setup is the same as above*/
+ 239:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensX]] = GlobalSettings.magDir.sensDirection[se
+ 787              		.loc 1 239 0
+ 788 05ba 97F91C10 		ldrsb	r1, [r7, #28]
+ 789 05be B36A     		ldr	r3, [r6, #40]
+ 790 05c0 7A7E     		ldrb	r2, [r7, #25]	@ zero_extendqisi2
+ 791 05c2 4B43     		muls	r3, r1, r3
+ 792 05c4 07EE103A 		fmsr	s14, r3	@ int
+ 793 05c8 F8EEC77A 		fsitos	s15, s14
+ 794 05cc 05EB8202 		add	r2, r5, r2, lsl #2
+ 795 05d0 C2ED107A 		fsts	s15, [r2, #64]
+ 240:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensY]] = GlobalSettings.magDir.sensDirection[se
+ 796              		.loc 1 240 0
+ 797 05d4 316B     		ldr	r1, [r6, #48]
+ 798 05d6 97F91D20 		ldrsb	r2, [r7, #29]
+ 799 05da BB7E     		ldrb	r3, [r7, #26]	@ zero_extendqisi2
+ 800 05dc 4A43     		muls	r2, r1, r2
+ 801 05de 07EE102A 		fmsr	s14, r2	@ int
+ 802 05e2 F8EEC77A 		fsitos	s15, s14
+ 803 05e6 05EB8303 		add	r3, r5, r3, lsl #2
+ 804 05ea C3ED107A 		fsts	s15, [r3, #64]
+ 241:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensZ]] = GlobalSettings.magDir.sensDirection[
+ 242:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				IMU.mag_vector[GlobalSettings.magDir.sensOrder[sensZ]] = 0;
+ 805              		.loc 1 242 0
+ 806 05ee FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
+ 807 05f0 05EB8305 		add	r5, r5, r3, lsl #2
+ 808 05f4 0023     		movs	r3, #0
+ 809 05f6 2B64     		str	r3, [r5, #64]	@ float
+ 243:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 244:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				if(GlobalSettings.enableDriftCorrection)
+ 810              		.loc 1 244 0
+ 811 05f8 BB7A     		ldrb	r3, [r7, #10]	@ zero_extendqisi2
+ 812 05fa 13B1     		cbz	r3, .L58
+ 245:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
+ 246:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					IMU_drift_correction_MAG(&IMU);
+ 813              		.loc 1 246 0
+ 814 05fc 0E48     		ldr	r0, .L77+8
+ 815 05fe FFF7FEFF 		bl	IMU_drift_correction_MAG
+ 816              	.LVL36:
+ 817              	.L58:
+ 247:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
+ 248:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				magCount = 0;
+ 818              		.loc 1 248 0
+ 819 0602 0023     		movs	r3, #0
+ 820 0604 84F82330 		strb	r3, [r4, #35]
+ 821              	.L57:
+ 249:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				//printf("%d,%d\n\r", (int)xMagFiltered.filtered, (int)yMagFiltered.filtered);
+ 250:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			}
+ 251:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			magCount++;
+ 822              		.loc 1 251 0
+ 823 0608 94F82330 		ldrb	r3, [r4, #35]	@ zero_extendqisi2
+ 824 060c 0133     		adds	r3, r3, #1
+ 825 060e 84F82330 		strb	r3, [r4, #35]
+ 826              	.L56:
+ 252:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
+ 253:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 254:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/*This functions here do the DCM-Algorithm stuff*/
+ 255:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_update(&IMU);
+ 827              		.loc 1 255 0
+ 828 0612 0948     		ldr	r0, .L77+8
+ 829 0614 FFF7FEFF 		bl	IMU_update
+ 830              	.LVL37:
+ 256:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_ortho_adjust(&IMU);
+ 831              		.loc 1 256 0
+ 832 0618 0748     		ldr	r0, .L77+8
+ 833 061a FFF7FEFF 		bl	IMU_ortho_adjust
+ 834              	.LVL38:
+ 257:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_normalize(&IMU);
+ 835              		.loc 1 257 0
+ 836 061e 0648     		ldr	r0, .L77+8
+ 837 0620 FFF7FEFF 		bl	IMU_normalize
+ 838              	.LVL39:
+ 258:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//Euler_angles(&DCM);
+ 259:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//IMU_DCM_to_Euler_deg(&IMU, &euler);
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_DCM_to_XYZ(&IMU, &XYZ);
+ 839              		.loc 1 260 0
+ 840 0624 0448     		ldr	r0, .L77+8
+ 841 0626 0B49     		ldr	r1, .L77+36
+ 261:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  262:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** float InPut[4];
- 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** void PositionController()
- 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** {
- 986              		.loc 1 265 0
- 987              		.cfi_startproc
- 988              		@ args = 0, pretend = 0, frame = 8
- 989              		@ frame_needed = 0, uses_anonymous_args = 0
- 990              	.LVL89:
- 991              	.LBB2:
- 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//** PID Calculation Test
- 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//if(CtrlStates.copterStatus & ARMED_FLAG )
- 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
- 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		float MiddelPos = 4.8f;
- 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		float Setpoint;
- 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 263:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
+ 842              		.loc 1 263 0
+ 843 0628 BDE8F84F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 260:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		IMU_DCM_to_XYZ(&IMU, &XYZ);
+ 844              		.loc 1 260 0
+ 845 062c FFF7FEBF 		b	IMU_DCM_to_XYZ
+ 846              	.LVL40:
+ 847              	.L78:
+ 848              		.align	2
+ 849              	.L77:
+ 850 0630 00000000 		.word	.LANCHOR0
+ 851 0634 00000000 		.word	GlobalSettings
+ 852 0638 00000000 		.word	IMU
+ 853 063c 295C8F3D 		.word	1032805417
+ 854 0640 35FA8E3C 		.word	1016003125
+ 855 0644 00000000 		.word	accBuffer
+ 856 0648 00000000 		.word	xTemp
+ 857 064c 00000000 		.word	yTemp
+ 858 0650 00000000 		.word	zTemp
+ 859 0654 00000000 		.word	XYZ
+ 860 0658 00000000 		.word	xGyroFiltered_float
+ 861 065c 00000000 		.word	yGyroFiltered_float
+ 862 0660 00000000 		.word	zGyroFiltered_float
+ 863 0664 00000000 		.word	xAccFiltered_float
+ 864 0668 00000000 		.word	yAccFiltered_float
+ 865 066c 00000000 		.word	zAccFiltered_float
+ 866              		.cfi_endproc
+ 867              	.LFE113:
+ 869              		.align	1
+ 870              		.global	PositionController
+ 871              		.thumb
+ 872              		.thumb_func
+ 874              	PositionController:
+ 875              	.LFB114:
+ 264:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** void PositionController(){
+ 876              		.loc 1 265 0
+ 877              		.cfi_startproc
+ 878              		@ args = 0, pretend = 0, frame = 8
+ 879              		@ frame_needed = 0, uses_anonymous_args = 0
+ 880 0670 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 881              	.LCFI3:
+ 882              		.cfi_def_cfa_offset 32
+ 883              		.cfi_offset 0, -32
+ 884              		.cfi_offset 1, -28
+ 885              		.cfi_offset 2, -24
+ 886              		.cfi_offset 3, -20
+ 887              		.cfi_offset 4, -16
+ 888              		.cfi_offset 5, -12
+ 889              		.cfi_offset 6, -8
+ 890              		.cfi_offset 14, -4
+ 266:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 267:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//** PID Calculation Test
+ 268:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 269:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if(CtrlStates.copterStatus & ARMED_FLAG )
+ 891              		.loc 1 269 0
+ 892 0672 3A4A     		ldr	r2, .L89
+ 893 0674 3A4D     		ldr	r5, .L89+4
+ 894 0676 107A     		ldrb	r0, [r2, #8]	@ zero_extendqisi2
+ 895 0678 3A4C     		ldr	r4, .L89+8
+ 896 067a 10F00106 		ands	r6, r0, #1
+ 897 067e 4ED0     		beq	.L80
+ 898              	.LVL41:
+ 899              	.LBB2:
+ 270:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
+ 271:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		float MiddelPos = 4.8f;
+ 272:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		float Setpoint;
  273:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Get Controll Values */
- 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(It_Com.rxready == 1)
- 992              		.loc 1 275 0
- 993 0654 2C4B     		ldr	r3, .L89
- 994              	.LBE2:
- 265:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** {
- 995              		.loc 1 265 0
- 996 0656 37B5     		push	{r0, r1, r2, r4, r5, lr}
- 997              	.LCFI3:
- 998              		.cfi_def_cfa_offset 24
- 999              		.cfi_offset 0, -24
- 1000              		.cfi_offset 1, -20
- 1001              		.cfi_offset 2, -16
- 1002              		.cfi_offset 4, -12
- 1003              		.cfi_offset 5, -8
- 1004              		.cfi_offset 14, -4
- 1005              	.LBB3:
- 1006              		.loc 1 275 0
- 1007 0658 D3F80022 		ldr	r2, [r3, #512]
- 1008 065c 012A     		cmp	r2, #1
- 1009 065e 07D1     		bne	.L82
- 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
- 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			It_Com.rxready = 0;
- 1010              		.loc 1 277 0
- 1011 0660 0022     		movs	r2, #0
- 1012 0662 C3F80022 		str	r2, [r3, #512]
- 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
- 1013              		.loc 1 278 0
- 1014 0666 5968     		ldr	r1, [r3, #4]	@ float
- 1015 0668 284A     		ldr	r2, .L89+4
- 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.yaw, &It_Com.rxbuffer[8], 4);
- 1016              		.loc 1 279 0
- 1017 066a 9B68     		ldr	r3, [r3, #8]	@ float
- 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
- 1018              		.loc 1 278 0
- 1019 066c 1160     		str	r1, [r2, #0]	@ float
- 1020              		.loc 1 279 0
- 1021 066e 5360     		str	r3, [r2, #4]	@ float
- 1022              	.L82:
- 1023              	.LVL90:
- 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
- 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Calc Setpoint */
- 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Setpoint = MiddelPos + CtrlStates.pitch;
- 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef  PID-Controller
- 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		calc_PID(XYZ.y, 4.8f, &PID_Position); // Hier stellt er sich auf 6° ein
- 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
- 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
- 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
- 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
- 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
- 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
- 296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// Disable Interrupts
- 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskENTER_CRITICAL();
- 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		yTemp = MOT0;
- 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, MOT0);
- 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, MOT1);
- 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskEXIT_CRITICAL();
- 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
- 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef PIDSmithPredictor-Controller
- 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//calc_PID_SmithPredictor(XYZ.y, 4.8f, &PID_Position, &Smith_Position);
- 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//calc_PID(XYZ.y, 4.8f, &PID_Position);
- 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 274:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 275:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Get Controll Values */
+ 276:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(It_Com.rxready == 1)
+ 900              		.loc 1 276 0
+ 901 0680 394B     		ldr	r3, .L89+12
+ 902 0682 D3F80012 		ldr	r1, [r3, #512]
+ 903 0686 0129     		cmp	r1, #1
+ 904 0688 06D1     		bne	.L81
+ 277:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		{
+ 278:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			It_Com.rxready = 0;
+ 905              		.loc 1 278 0
+ 906 068a 0021     		movs	r1, #0
+ 907 068c C3F80012 		str	r1, [r3, #512]
+ 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
+ 908              		.loc 1 279 0
+ 909 0690 5968     		ldr	r1, [r3, #4]	@ float
+ 280:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.yaw, &It_Com.rxbuffer[8], 4);
+ 910              		.loc 1 280 0
+ 911 0692 9B68     		ldr	r3, [r3, #8]	@ float
+ 279:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
+ 912              		.loc 1 279 0
+ 913 0694 1160     		str	r1, [r2]	@ float
+ 914              		.loc 1 280 0
+ 915 0696 5360     		str	r3, [r2, #4]	@ float
+ 916              	.L81:
+ 917              	.LVL42:
+ 281:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		}
+ 282:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Calc Setpoint */
+ 283:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		Setpoint = MiddelPos + CtrlStates.pitch;
+ 284:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef  PID-Controller
+ 286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 287:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		calc_PID(XYZ.y, 4.8f, &PID_Position); // Hier stellt er sich auf 6° ein
+ 288:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 289:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
+ 290:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
+ 291:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 292:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
+ 293:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
+ 294:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 295:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
+ 296:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
+ 297:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 298:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// Disable Interrupts
+ 299:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskENTER_CRITICAL();
+ 300:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 301:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		yTemp = MOT0;
+ 302:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 303:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, MOT0);
+ 304:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, MOT1);
+ 305:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 306:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskEXIT_CRITICAL();
+ 307:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
+ 308:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 309:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef PIDSmithPredictor-Controller
+ 310:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 311:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//calc_PID_SmithPredictor(XYZ.y, 4.8f, &PID_Position, &Smith_Position);
+ 312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		calc_PID(XYZ.y, 4.8f, &PID_Position);
+ 918              		.loc 1 313 0
+ 919 0698 344B     		ldr	r3, .L89+16
+ 920 069a 354E     		ldr	r6, .L89+20
+ 921 069c 93ED010A 		flds	s0, [r3, #4]
+ 922 06a0 DFED340A 		flds	s1, .L89+24
+ 923 06a4 3046     		mov	r0, r6
+ 924 06a6 FFF7FEFF 		bl	calc_PID
+ 925              	.LVL43:
  314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Get Angle */
- 317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		InPut[0] = XYZ.y;
- 1024              		.loc 1 317 0
- 1025 0670 274B     		ldr	r3, .L89+8
- 1026 0672 2848     		ldr	r0, .L89+12
- 1027 0674 5B68     		ldr	r3, [r3, #4]	@ float
- 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		/* Get Angle Acceleration */
- 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		InPut[1] = yGyroFiltered_float.currentValue;
+ 315:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//float Y = CalcDirektForm2(XYZ.y, 4.8f, &Smith_Position);
+ 316:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 318:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//if  (PID_Position.y > -5.0f && PID_Position.y < 5.0f )
+ 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//	NotLinear = 0.0f;
  320:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		float OutPut[1];
- 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//MyFirstFuzzy(&InPut, &OutPut);
- 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		fuzzy(&InPut, &OutPut);
- 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//float Y = CalcDirektForm2(XYZ.y, 4.8f, &Smith_Position);
+ 321:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
+ 926              		.loc 1 322 0
+ 927 06aa 6B8C     		ldrh	r3, [r5, #34]
+ 928 06ac 96ED017A 		flds	s14, [r6, #4]
+ 929 06b0 07EE903A 		fmsr	s15, r3	@ int
+ 930 06b4 F8EEE77A 		fsitos	s15, s15
+ 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
+ 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 325:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
+ 931              		.loc 1 325 0
+ 932 06b8 AB8C     		ldrh	r3, [r5, #36]
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
+ 933              		.loc 1 322 0
+ 934 06ba 77EEC77A 		fsubs	s15, s15, s14
+ 935 06be FCEEE77A 		ftouizs	s15, s15
+ 936 06c2 17EE902A 		fmrs	r2, s15	@ int
+ 937 06c6 92B2     		uxth	r2, r2
+ 938              		.loc 1 325 0
+ 939 06c8 9A42     		cmp	r2, r3
+ 940 06ca 38BF     		it	cc
+ 941 06cc 2549     		ldrcc	r1, .L89+8
+ 322:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
+ 942              		.loc 1 322 0
+ 943 06ce A286     		strh	r2, [r4, #52]	@ movhi
+ 944              		.loc 1 325 0
+ 945 06d0 38BF     		it	cc
+ 946 06d2 8B86     		strhcc	r3, [r1, #52]	@ movhi
+ 326:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
+ 947              		.loc 1 326 0
+ 948 06d4 A08E     		ldrh	r0, [r4, #52]
+ 949 06d6 E98C     		ldrh	r1, [r5, #38]
+ 323:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
+ 950              		.loc 1 323 0
+ 951 06d8 E286     		strh	r2, [r4, #54]	@ movhi
+ 952              		.loc 1 326 0
+ 953 06da 8842     		cmp	r0, r1
+ 954 06dc 84BF     		itt	hi
+ 955 06de 2148     		ldrhi	r0, .L89+8
+ 956 06e0 8186     		strhhi	r1, [r0, #52]	@ movhi
  327:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//if  (PID_Position.y > -5.0f && PID_Position.y < 5.0f )
- 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		//	NotLinear = 0.0f;
+ 328:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
+ 957              		.loc 1 328 0
+ 958 06e2 9A42     		cmp	r2, r3
+ 959 06e4 38BF     		it	cc
+ 960 06e6 E386     		strhcc	r3, [r4, #54]	@ movhi
+ 329:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
+ 330:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  331:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
- 1028              		.loc 1 333 0
- 1029 0676 284C     		ldr	r4, .L89+16
- 317:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		InPut[0] = XYZ.y;
- 1030              		.loc 1 317 0
- 1031 0678 0360     		str	r3, [r0, #0]	@ float
- 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		InPut[1] = yGyroFiltered_float.currentValue;
- 1032              		.loc 1 319 0
- 1033 067a 284B     		ldr	r3, .L89+20
- 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		fuzzy(&InPut, &OutPut);
- 1034              		.loc 1 324 0
- 1035 067c 01A9     		add	r1, sp, #4
- 319:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		InPut[1] = yGyroFiltered_float.currentValue;
- 1036              		.loc 1 319 0
- 1037 067e 9B6A     		ldr	r3, [r3, #40]	@ float
- 1038 0680 4360     		str	r3, [r0, #4]	@ float
- 324:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		fuzzy(&InPut, &OutPut);
- 1039              		.loc 1 324 0
- 1040 0682 FFF7FEFF 		bl	fuzzy
- 1041              	.LVL91:
- 1042              		.loc 1 333 0
- 1043 0686 608C     		ldrh	r0, [r4, #34]
- 1044 0688 FFF7FEFF 		bl	__aeabi_i2f
- 1045              	.LVL92:
- 1046 068c 244B     		ldr	r3, .L89+24
- 1047 068e 5968     		ldr	r1, [r3, #4]	@ float
- 1048 0690 FFF7FEFF 		bl	__aeabi_fsub
- 1049              	.LVL93:
- 1050 0694 FFF7FEFF 		bl	__aeabi_f2uiz
- 1051              	.LVL94:
- 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
- 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 < GlobalSettings.minSpeed) MOT0 = GlobalSettings.minSpeed;
- 1052              		.loc 1 336 0
- 1053 0698 A38C     		ldrh	r3, [r4, #36]
- 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
- 1054              		.loc 1 333 0
- 1055 069a 224A     		ldr	r2, .L89+28
- 1056 069c 81B2     		uxth	r1, r0
- 1057              		.loc 1 336 0
- 1058 069e 9942     		cmp	r1, r3
- 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT0 = GlobalSettings.stopSpeed - PID_Position.y;
- 1059              		.loc 1 333 0
- 1060 06a0 9086     		strh	r0, [r2, #52]	@ movhi
- 1061              		.loc 1 336 0
- 1062 06a2 38BF     		it	cc
- 1063 06a4 9386     		strhcc	r3, [r2, #52]	@ movhi
- 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = GlobalSettings.stopSpeed - PID_Position.y;
- 1064              		.loc 1 334 0
- 1065 06a6 D086     		strh	r0, [r2, #54]	@ movhi
- 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT0 > GlobalSettings.maxSpeed) MOT0 = GlobalSettings.maxSpeed;
- 1066              		.loc 1 337 0
- 1067 06a8 928E     		ldrh	r2, [r2, #52]
- 1068 06aa E08C     		ldrh	r0, [r4, #38]
- 1069 06ac 8242     		cmp	r2, r0
- 1070 06ae 84BF     		itt	hi
- 1071 06b0 1C4A     		ldrhi	r2, .L89+28
- 1072 06b2 9086     		strhhi	r0, [r2, #52]	@ movhi
- 1073 06b4 1B4A     		ldr	r2, .L89+28
- 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 < GlobalSettings.minSpeed) MOT1 = GlobalSettings.minSpeed;
- 1074              		.loc 1 339 0
- 1075 06b6 9942     		cmp	r1, r3
- 1076 06b8 38BF     		it	cc
- 1077 06ba D386     		strhcc	r3, [r2, #54]	@ movhi
- 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if(MOT1 > GlobalSettings.maxSpeed) MOT1 = GlobalSettings.maxSpeed;
- 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 332:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if ( MOT0 < 100 ) MOT0 -= 10;
+ 961              		.loc 1 332 0
+ 962 06e8 A38E     		ldrh	r3, [r4, #52]
+ 963 06ea 632B     		cmp	r3, #99
+ 964 06ec 02D8     		bhi	.L86
+ 965              		.loc 1 332 0 is_stmt 0 discriminator 1
+ 966 06ee 1D4A     		ldr	r2, .L89+8
+ 967 06f0 0A3B     		subs	r3, r3, #10
+ 968 06f2 9386     		strh	r3, [r2, #52]	@ movhi
+ 969              	.L86:
+ 333:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if ( MOT0 > 100 ) MOT0 += 10;
+ 970              		.loc 1 333 0 is_stmt 1
+ 971 06f4 A38E     		ldrh	r3, [r4, #52]
+ 972 06f6 642B     		cmp	r3, #100
+ 973 06f8 02D9     		bls	.L87
+ 974              		.loc 1 333 0 is_stmt 0 discriminator 1
+ 975 06fa 1A4A     		ldr	r2, .L89+8
+ 976 06fc 0A33     		adds	r3, r3, #10
+ 977 06fe 9386     		strh	r3, [r2, #52]	@ movhi
+ 978              	.L87:
+ 334:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 335:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = MOT0;
+ 979              		.loc 1 335 0 is_stmt 1
+ 980 0700 A38E     		ldrh	r3, [r4, #52]
+ 981 0702 E386     		strh	r3, [r4, #54]	@ movhi
+ 336:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 337:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// Disable Interrupts
+ 338:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskENTER_CRITICAL();
+ 982              		.loc 1 338 0
+ 983 0704 FFF7FEFF 		bl	vPortEnterCritical
+ 984              	.LVL44:
+ 339:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 340:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, MOT0);
+ 985              		.loc 1 340 0
+ 986 0708 A18E     		ldrh	r1, [r4, #52]
+ 987 070a 0020     		movs	r0, #0
+ 988 070c FFF7FEFF 		bl	PWM_Motor
+ 989              	.LVL45:
+ 341:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, MOT1);
+ 990              		.loc 1 341 0
+ 991 0710 0120     		movs	r0, #1
+ 992 0712 E18E     		ldrh	r1, [r4, #54]
+ 993 0714 FFF7FEFF 		bl	PWM_Motor
+ 994              	.LVL46:
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if ( MOT0 < 100 ) MOT0 -= 10;
- 1078              		.loc 1 343 0
- 1079 06bc 938E     		ldrh	r3, [r2, #52]
- 1080 06be 632B     		cmp	r3, #99
- 1081 06c0 02D8     		bhi	.L87
- 1082              		.loc 1 343 0 is_stmt 0 discriminator 1
- 1083 06c2 184A     		ldr	r2, .L89+28
- 1084 06c4 0A3B     		subs	r3, r3, #10
- 1085 06c6 9386     		strh	r3, [r2, #52]	@ movhi
- 1086              	.L87:
- 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		if ( MOT0 > 100 ) MOT0 += 10;
- 1087              		.loc 1 344 0 is_stmt 1
- 1088 06c8 164C     		ldr	r4, .L89+28
- 1089 06ca A38E     		ldrh	r3, [r4, #52]
- 1090 06cc 642B     		cmp	r3, #100
- 1091 06ce 01D9     		bls	.L88
- 1092              		.loc 1 344 0 is_stmt 0 discriminator 1
- 1093 06d0 0A33     		adds	r3, r3, #10
- 1094 06d2 A386     		strh	r3, [r4, #52]	@ movhi
- 1095              	.L88:
+ 343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		taskEXIT_CRITICAL();
+ 995              		.loc 1 343 0
+ 996 0718 FFF7FEFF 		bl	vPortExitCritical
+ 997              	.LVL47:
+ 998              	.LBE2:
+ 999 071c 0AE0     		b	.L88
+ 1000              	.LVL48:
+ 1001              	.L80:
+ 344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
  345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = MOT0;
- 1096              		.loc 1 346 0 is_stmt 1
- 1097 06d4 A18E     		ldrh	r1, [r4, #52]
+ 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef ForceMotorValues
  347:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// Disable Interrupts
- 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// taskENTER_CRITICAL();
- 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, MOT0);
- 1098              		.loc 1 351 0
- 1099 06d6 0020     		movs	r0, #0
- 346:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		MOT1 = MOT0;
- 1100              		.loc 1 346 0
- 1101 06d8 E186     		strh	r1, [r4, #54]	@ movhi
- 1102              	.LBE3:
- 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, MOT1);
- 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		// taskEXIT_CRITICAL();
- 355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
- 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #ifdef ForceMotorValues
+ 348:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(It_Com.rxready == 1)
+ 349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
+ 350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					It_Com.rxready = 0;
+ 351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//SendBufferedDataFrame(&It_Com ,&It_Com.rxbuffer[0], &It_Com.rxbuffer[4], &It_Com.rxbuffer[8]
+ 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//float fValue;
+ 353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
+ 354:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//CtrlStates.pitch = fValue;
+ 355:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					memcpy(&CtrlStates.yaw, &It_Com.rxbuffer[8], 4);
+ 356:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//CtrlStates.yaw = fValue;
+ 357:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
  358:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			if(It_Com.rxready == 1)
- 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				{
- 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					It_Com.rxready = 0;
- 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//SendBufferedDataFrame(&It_Com ,&It_Com.rxbuffer[0], &It_Com.rxbuffer[4], &It_Com.rxbuffer[8]
- 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//float fValue;
- 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					memcpy(&CtrlStates.pitch, &It_Com.rxbuffer[4], 4);
- 365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//CtrlStates.pitch = fValue;
- 366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					memcpy(&CtrlStates.yaw, &It_Com.rxbuffer[8], 4);
- 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 					//CtrlStates.yaw = fValue;
- 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				}
- 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			MOT0 = MOT1= GlobalSettings.stopSpeed + (int16_t) CtrlStates.pitch;
- 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				PWM_Motor(0, (uint16_t)MOT0);
- 374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				PWM_Motor(1, (uint16_t)MOT1);
+ 359:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 360:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 			MOT0 = MOT1= GlobalSettings.stopSpeed + (int16_t) CtrlStates.pitch;
+ 361:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 362:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				PWM_Motor(0, (uint16_t)MOT0);
+ 363:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 				PWM_Motor(1, (uint16_t)MOT1);
+ 364:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 365:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
+ 366:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 367:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
+ 368:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	else
+ 369:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
+ 370:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		resetIntegralValues_PID(&PID_Position);
+ 1002              		.loc 1 370 0
+ 1003 071e 1448     		ldr	r0, .L89+20
+ 1004 0720 FFF7FEFF 		bl	resetIntegralValues_PID
+ 1005              	.LVL49:
+ 371:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 372:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
+ 1006              		.loc 1 372 0
+ 1007 0724 3046     		mov	r0, r6
+ 1008 0726 698C     		ldrh	r1, [r5, #34]
+ 1009 0728 FFF7FEFF 		bl	PWM_Motor
+ 1010              	.LVL50:
+ 373:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
+ 1011              		.loc 1 373 0
+ 1012 072c 0120     		movs	r0, #1
+ 1013 072e 698C     		ldrh	r1, [r5, #34]
+ 1014 0730 FFF7FEFF 		bl	PWM_Motor
+ 1015              	.LVL51:
+ 1016              	.L88:
+ 374:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
  375:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** #endif
+ 376:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  377:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
- 379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //	else
- 380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	{
- 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		resetIntegralValues_PID(&PID_Position);
+ 378:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	uint32_t Header = 0xFF7F3F1F;
+ 1017              		.loc 1 378 0
+ 1018 0734 104B     		ldr	r3, .L89+28
+ 1019 0736 0293     		str	r3, [sp, #8]
+ 379:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 380:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	static uint16_t foo = 0;
+ 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	foo++;
+ 1020              		.loc 1 381 0
+ 1021 0738 238F     		ldrh	r3, [r4, #56]
  382:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, (uint16_t)GlobalSettings.stopSpeed);
- 1103              		.loc 1 383 0
- 1104 06da 0F4D     		ldr	r5, .L89+16
- 1105              	.LBB4:
- 351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(0, MOT0);
- 1106              		.loc 1 351 0
- 1107 06dc FFF7FEFF 		bl	PWM_Motor
- 1108              	.LVL95:
- 352:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, MOT1);
- 1109              		.loc 1 352 0
- 1110 06e0 E18E     		ldrh	r1, [r4, #54]
- 1111 06e2 0120     		movs	r0, #1
- 1112 06e4 FFF7FEFF 		bl	PWM_Motor
- 1113              	.LVL96:
- 1114              	.LBE4:
- 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		resetIntegralValues_PID(&PID_Position);
- 1115              		.loc 1 381 0
- 1116 06e8 0D48     		ldr	r0, .L89+24
- 1117 06ea FFF7FEFF 		bl	resetIntegralValues_PID
- 1118              	.LVL97:
- 1119              		.loc 1 383 0
- 1120 06ee 0020     		movs	r0, #0
- 1121 06f0 698C     		ldrh	r1, [r5, #34]
- 1122 06f2 FFF7FEFF 		bl	PWM_Motor
- 1123              	.LVL98:
- 384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		PWM_Motor(1, (uint16_t)GlobalSettings.stopSpeed);
- 1124              		.loc 1 384 0
- 1125 06f6 0120     		movs	r0, #1
- 1126 06f8 698C     		ldrh	r1, [r5, #34]
- 1127 06fa FFF7FEFF 		bl	PWM_Motor
- 1128              	.LVL99:
- 385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
- 386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	uint32_t foobar = MOT0;
+ 384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.Isum, &foobar, 12);
+ 386:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.e, &foobar, 12);
+ 1022              		.loc 1 386 0
+ 1023 073a 0B48     		ldr	r0, .L89+12
+ 1024 073c 0F4A     		ldr	r2, .L89+32
+ 381:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	foo++;
+ 1025              		.loc 1 381 0
+ 1026 073e 0133     		adds	r3, r3, #1
+ 1027 0740 2387     		strh	r3, [r4, #56]	@ movhi
+ 383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	uint32_t foobar = MOT0;
+ 1028              		.loc 1 383 0
+ 1029 0742 A38E     		ldrh	r3, [r4, #52]
+ 1030 0744 0393     		str	r3, [sp, #12]
+ 1031              		.loc 1 386 0
+ 1032 0746 03AB     		add	r3, sp, #12
+ 1033 0748 0093     		str	r3, [sp]
+ 1034 074a 0C23     		movs	r3, #12
+ 1035 074c 0193     		str	r3, [sp, #4]
+ 1036 074e 02A9     		add	r1, sp, #8
+ 1037 0750 0B4B     		ldr	r3, .L89+36
+ 1038 0752 FFF7FEFF 		bl	SendBufferedDataFrame
+ 1039              	.LVL52:
  387:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
  388:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	uint32_t Header = 0xFF7F3F1F;
- 390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	static uint16_t foo = 0;
- 392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	foo++;
- 1129              		.loc 1 392 0
- 1130 06fe 238F     		ldrh	r3, [r4, #56]
- 1131 0700 0133     		adds	r3, r3, #1
- 1132 0702 2387     		strh	r3, [r4, #56]	@ movhi
- 1133              	.LVL100:
- 393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	uint32_t foobar = MOT0;
+ 389:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /* CalcVirtualPlant Function Checked */
+ 390:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /*
+ 391:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float plantvalue = CalcVirtualPlant(&Smith_Position, 1.0f);
+ 392:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float tmp = 1.0f;
+ 393:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	SendBufferedDataFrame(&It_Com ,&Header, &plantvalue, &tmp, &foo, 12);
+ 394:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** */
  395:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.Isum, &foobar, 12);
- 397:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//SendBufferedDataFrame(&It_Com ,&Header, &XYZ.y, &PID_Position.e, &foobar, 12);
- 398:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** //	SendBufferedDataFrame(&It_Com, &Header, &InPut[0], &InPut[1], &foobar, 12);
+ 396:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /* Delay Function Checked */
+ 397:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /*
+ 398:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	static float tmp;
  399:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 400:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /* CalcVirtualPlant Function Checked */
- 403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /*
- 404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float plantvalue = CalcVirtualPlant(&Smith_Position, 1.0f);
- 405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float tmp = 1.0f;
- 406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	SendBufferedDataFrame(&It_Com ,&Header, &plantvalue, &tmp, &foo, 12);
- 407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** */
- 408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /* Delay Function Checked */
- 410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** /*
- 411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	static float tmp;
- 412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if (tmp >= 20) tmp = 0.0f;
- 414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	else tmp += 1.0f;
- 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float delayoutvalue;
- 417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if (tmp > 10 && tmp <= 20 ) {
- 419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		delayoutvalue = CalcDelay(&Smith_Position, 0.0f);
- 420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		foo = 0;
- 421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	} else {
- 422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		delayoutvalue = CalcDelay(&Smith_Position, 1.0f);
- 423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		foo = 1;
- 424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
- 425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	SendBufferedDataFrame(&It_Com ,&Header, &delayoutvalue, &tmp, &foo, 12);
- 426:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** */
- 427:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 428:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// Debug
- 429:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//if(It_Com.rxready == 1)
- 430:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//{
- 431:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//	It_Com.rxready = 0;
- 432:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//	SendBufferedDataFrame(&It_Com ,&It_Com.rxbuffer[0], &It_Com.rxbuffer[4], &It_Com.rxbuffer[8], &
- 433:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//}
- 434:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//float delayoutvalue = CalcDelay(&Smith_Position, 1.0f);
- 436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
- 437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// **** End Test
- 438:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
- 1134              		.loc 1 438 0
- 1135 0704 3EBD     		pop	{r1, r2, r3, r4, r5, pc}
- 1136              	.L90:
- 1137 0706 00BF     		.align	2
- 1138              	.L89:
- 1139 0708 00000000 		.word	It_Com
- 1140 070c 00000000 		.word	CtrlStates
- 1141 0710 00000000 		.word	XYZ
- 1142 0714 00000000 		.word	InPut
- 1143 0718 00000000 		.word	GlobalSettings
- 1144 071c 00000000 		.word	yGyroFiltered_float
- 1145 0720 00000000 		.word	PID_Position
- 1146 0724 00000000 		.word	.LANCHOR0
- 1147              		.cfi_endproc
- 1148              	.LFE114:
- 1150              		.comm	InPut,16,4
- 1151              		.comm	Smith_Position,100,4
- 1152              		.comm	PID_Position,40,4
- 1153              		.global	MOT1
- 1154              		.global	MOT0
- 1155              		.global	yMagFiltered
- 1156              		.global	xMagFiltered
- 1157              		.comm	eulerTemp,12,4
- 1158              		.global	magXYZ
- 1159              		.global	magCount
- 1160              		.comm	zAccFiltered_float,44,4
- 1161              		.comm	yAccFiltered_float,44,4
- 1162              		.comm	xAccFiltered_float,44,4
- 1163              		.global	accCount
- 1164              		.global	accXYZ
- 1165              		.comm	zGyroFiltered_float,44,4
- 1166              		.comm	yGyroFiltered_float,44,4
- 1167              		.comm	xGyroFiltered_float,44,4
- 1168              		.global	gyroXYZ
- 1169              		.global	gyroOffset
- 1170              		.comm	IMU,120,4
- 1171              		.global	i
- 1172              		.comm	loopcnt,4,4
- 1173              		.comm	zTemp,4,4
- 1174              		.comm	yTemp,4,4
- 1175              		.comm	xTemp,4,4
- 1176              		.comm	accBuffer,6,1
- 1177              		.comm	XYZ,12,4
- 1178              		.comm	CtrlStates,12,4
- 1179              		.comm	GlobalSettings,96,4
- 1180              		.comm	It_Com,532,4
- 1181              		.section	.rodata.str1.1,"aMS",%progbits,1
- 1182              	.LC0:
- 1183 0000 4572726F 		.ascii	"Error Gyro Test!\012\015\000"
- 1183      72204779 
- 1183      726F2054 
- 1183      65737421 
- 1183      0A0D00
- 1184              		.bss
- 1185              		.align	2
- 1186              		.set	.LANCHOR0,. + 0
- 1189              	gyroOffset:
- 1190 0000 00000000 		.space	6
- 1190      0000
- 1193              	i:
- 1194 0006 0000     		.space	2
- 1197              	gyroXYZ:
- 1198 0008 00000000 		.space	6
- 1198      0000
- 1199 000e 0000     		.space	2
- 1202              	accXYZ:
- 1203 0010 00000000 		.space	12
- 1203      00000000 
- 1203      00000000 
- 1206              	magXYZ:
- 1207 001c 00000000 		.space	6
- 1207      0000
- 1210              	accCount:
- 1211 0022 00       		.space	1
- 1214              	magCount:
- 1215 0023 00       		.space	1
- 1218              	xMagFiltered:
- 1219 0024 00000000 		.space	8
- 1219      00000000 
- 1222              	yMagFiltered:
- 1223 002c 00000000 		.space	8
- 1223      00000000 
- 1226              	MOT0:
- 1227 0034 0000     		.space	2
- 1230              	MOT1:
- 1231 0036 0000     		.space	2
- 1234              	foo.9361:
- 1235 0038 0000     		.space	2
- 1236 003a 0000     		.text
- 1237              	.Letext0:
- 1238              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 1239              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
- 1240              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
- 1241              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
- 1242              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
- 1243              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/filter_Lib.h"
- 1244              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
- 1245              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/L3GD20_Lib_SPI.h"
- 1246              		.file 10 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/LSM303DLHC_Lib_I2C.h"
- 1247              		.file 11 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h"
- 1248              		.file 12 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 1249              		.file 13 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Task1.h"
- 1250              		.file 14 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
- 1251              		.file 15 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.
- 1252              		.file 16 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.
- 1253              		.file 17 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h"
+ 400:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if (tmp >= 20) tmp = 0.0f;
+ 401:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	else tmp += 1.0f;
+ 402:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 403:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	float delayoutvalue;
+ 404:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 405:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	if (tmp > 10 && tmp <= 20 ) {
+ 406:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		delayoutvalue = CalcDelay(&Smith_Position, 0.0f);
+ 407:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		foo = 0;
+ 408:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	} else {
+ 409:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		delayoutvalue = CalcDelay(&Smith_Position, 1.0f);
+ 410:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 		foo = 1;
+ 411:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	}
+ 412:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	SendBufferedDataFrame(&It_Com ,&Header, &delayoutvalue, &tmp, &foo, 12);
+ 413:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** */
+ 414:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 415:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// Debug
+ 416:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//if(It_Com.rxready == 1)
+ 417:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//{
+ 418:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//	It_Com.rxready = 0;
+ 419:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//	SendBufferedDataFrame(&It_Com ,&It_Com.rxbuffer[0], &It_Com.rxbuffer[4], &It_Com.rxbuffer[8], &
+ 420:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//}
+ 421:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 422:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	//float delayoutvalue = CalcDelay(&Smith_Position, 1.0f);
+ 423:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 
+ 424:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** 	// **** End Test
+ 425:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/Task1.c **** }
+ 1040              		.loc 1 425 0
+ 1041 0756 04B0     		add	sp, sp, #16
+ 1042              		@ sp needed
+ 1043 0758 70BD     		pop	{r4, r5, r6, pc}
+ 1044              	.L90:
+ 1045 075a 00BF     		.align	2
+ 1046              	.L89:
+ 1047 075c 00000000 		.word	CtrlStates
+ 1048 0760 00000000 		.word	GlobalSettings
+ 1049 0764 00000000 		.word	.LANCHOR0
+ 1050 0768 00000000 		.word	It_Com
+ 1051 076c 00000000 		.word	XYZ
+ 1052 0770 00000000 		.word	PID_Position
+ 1053 0774 9A999940 		.word	1083808154
+ 1054 0778 1F3F7FFF 		.word	-8437985
+ 1055 077c 04000000 		.word	XYZ+4
+ 1056 0780 18000000 		.word	PID_Position+24
+ 1057              		.cfi_endproc
+ 1058              	.LFE114:
+ 1060              		.comm	Smith_Position,100,4
+ 1061              		.comm	PID_Position,40,4
+ 1062              		.global	MOT1
+ 1063              		.global	MOT0
+ 1064              		.global	yMagFiltered
+ 1065              		.global	xMagFiltered
+ 1066              		.comm	eulerTemp,12,4
+ 1067              		.global	magXYZ
+ 1068              		.global	magCount
+ 1069              		.comm	zAccFiltered_float,44,4
+ 1070              		.comm	yAccFiltered_float,44,4
+ 1071              		.comm	xAccFiltered_float,44,4
+ 1072              		.global	accCount
+ 1073              		.global	accXYZ
+ 1074              		.comm	zGyroFiltered_float,44,4
+ 1075              		.comm	yGyroFiltered_float,44,4
+ 1076              		.comm	xGyroFiltered_float,44,4
+ 1077              		.global	gyroXYZ
+ 1078              		.global	gyroOffset
+ 1079              		.comm	IMU,120,4
+ 1080              		.global	i
+ 1081              		.comm	loopcnt,4,4
+ 1082              		.comm	zTemp,4,4
+ 1083              		.comm	yTemp,4,4
+ 1084              		.comm	xTemp,4,4
+ 1085              		.comm	accBuffer,6,1
+ 1086              		.comm	XYZ,12,4
+ 1087              		.comm	CtrlStates,12,4
+ 1088              		.comm	GlobalSettings,96,4
+ 1089              		.comm	It_Com,532,4
+ 1090              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 1091              	.LC0:
+ 1092 0000 4572726F 		.ascii	"Error Gyro Test!\012\015\000"
+ 1092      72204779 
+ 1092      726F2054 
+ 1092      65737421 
+ 1092      0A0D00
+ 1093              		.bss
+ 1094              		.align	2
+ 1095              		.set	.LANCHOR0,. + 0
+ 1098              	gyroOffset:
+ 1099 0000 00000000 		.space	6
+ 1099      0000
+ 1102              	i:
+ 1103 0006 0000     		.space	2
+ 1106              	gyroXYZ:
+ 1107 0008 00000000 		.space	6
+ 1107      0000
+ 1108 000e 0000     		.space	2
+ 1111              	accXYZ:
+ 1112 0010 00000000 		.space	12
+ 1112      00000000 
+ 1112      00000000 
+ 1115              	magXYZ:
+ 1116 001c 00000000 		.space	6
+ 1116      0000
+ 1119              	accCount:
+ 1120 0022 00       		.space	1
+ 1123              	magCount:
+ 1124 0023 00       		.space	1
+ 1127              	xMagFiltered:
+ 1128 0024 00000000 		.space	8
+ 1128      00000000 
+ 1131              	yMagFiltered:
+ 1132 002c 00000000 		.space	8
+ 1132      00000000 
+ 1135              	MOT0:
+ 1136 0034 0000     		.space	2
+ 1139              	MOT1:
+ 1140 0036 0000     		.space	2
+ 1143              	foo.9366:
+ 1144 0038 0000     		.space	2
+ 1145 003a 0000     		.text
+ 1146              	.Letext0:
+ 1147              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 1148              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
+ 1149              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
+ 1150              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/portable/GCC/ARM_CM4F/p
+ 1151              		.file 6 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+ 1152              		.file 7 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/filter_Lib.h"
+ 1153              		.file 8 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
+ 1154              		.file 9 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/L3GD20_Lib_SPI.h"
+ 1155              		.file 10 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/LSM303DLHC_Lib_I2C.h"
+ 1156              		.file 11 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h"
+ 1157              		.file 12 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 1158              		.file 13 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Task1.h"
+ 1159              		.file 14 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/FreeRTOS/Source/include/task.h"
+ 1160              		.file 15 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdio.h"
+ 1161              		.file 16 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/math.h"
+ 1162              		.file 17 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Task1.c
-     /tmp/ccLNbO2d.s:18     .text:00000000 $t
-     /tmp/ccLNbO2d.s:23     .text:00000000 Init_PositionController
-     /tmp/ccLNbO2d.s:73     .text:00000038 $d
+     /tmp/ccFe5SsZ.s:20     .text:00000000 $t
+     /tmp/ccFe5SsZ.s:25     .text:00000000 Init_PositionController
+     /tmp/ccFe5SsZ.s:65     .text:00000044 $d
                             *COM*:00000060 GlobalSettings
                             *COM*:00000028 PID_Position
                             *COM*:00000064 Smith_Position
                             *COM*:0000000c CtrlStates
-     /tmp/ccLNbO2d.s:90     .text:0000004c $t
-     /tmp/ccLNbO2d.s:95     .text:0000004c Init_IMU
-     /tmp/ccLNbO2d.s:469    .text:00000298 $d
+     /tmp/ccFe5SsZ.s:76     .text:00000058 $t
+     /tmp/ccFe5SsZ.s:81     .text:00000058 Init_IMU
+     /tmp/ccFe5SsZ.s:410    .text:000002d8 $d
                             *COM*:0000002c xGyroFiltered_float
+                            *COM*:00000078 IMU
                             *COM*:0000002c yGyroFiltered_float
                             *COM*:0000002c zGyroFiltered_float
                             *COM*:0000002c xAccFiltered_float
                             *COM*:0000002c yAccFiltered_float
                             *COM*:0000002c zAccFiltered_float
-                            *COM*:00000078 IMU
                             *COM*:0000000c eulerTemp
-     /tmp/ccLNbO2d.s:499    .text:00000300 $t
-     /tmp/ccLNbO2d.s:504    .text:00000300 IMU_Calculation
-     /tmp/ccLNbO2d.s:817    .text:0000051c $d
+     /tmp/ccFe5SsZ.s:438    .text:0000033c $t
+     /tmp/ccFe5SsZ.s:443    .text:0000033c IMU_Calculation
+     /tmp/ccFe5SsZ.s:850    .text:00000630 $d
                             *COM*:00000006 accBuffer
                             *COM*:00000004 xTemp
                             *COM*:00000004 yTemp
                             *COM*:00000004 zTemp
-     /tmp/ccLNbO2d.s:834    .text:00000558 $t
-     /tmp/ccLNbO2d.s:968    .text:00000638 $d
                             *COM*:0000000c XYZ
-     /tmp/ccLNbO2d.s:979    .text:00000654 $t
-     /tmp/ccLNbO2d.s:984    .text:00000654 PositionController
-     /tmp/ccLNbO2d.s:1139   .text:00000708 $d
+     /tmp/ccFe5SsZ.s:869    .text:00000670 $t
+     /tmp/ccFe5SsZ.s:874    .text:00000670 PositionController
+     /tmp/ccFe5SsZ.s:1047   .text:0000075c $d
                             *COM*:00000214 It_Com
-                            *COM*:00000010 InPut
-     /tmp/ccLNbO2d.s:1230   .bss:00000036 MOT1
-     /tmp/ccLNbO2d.s:1226   .bss:00000034 MOT0
-     /tmp/ccLNbO2d.s:1222   .bss:0000002c yMagFiltered
-     /tmp/ccLNbO2d.s:1218   .bss:00000024 xMagFiltered
-     /tmp/ccLNbO2d.s:1206   .bss:0000001c magXYZ
-     /tmp/ccLNbO2d.s:1214   .bss:00000023 magCount
-     /tmp/ccLNbO2d.s:1210   .bss:00000022 accCount
-     /tmp/ccLNbO2d.s:1202   .bss:00000010 accXYZ
-     /tmp/ccLNbO2d.s:1197   .bss:00000008 gyroXYZ
-     /tmp/ccLNbO2d.s:1189   .bss:00000000 gyroOffset
-     /tmp/ccLNbO2d.s:1193   .bss:00000006 i
+     /tmp/ccFe5SsZ.s:1139   .bss:00000036 MOT1
+     /tmp/ccFe5SsZ.s:1135   .bss:00000034 MOT0
+     /tmp/ccFe5SsZ.s:1131   .bss:0000002c yMagFiltered
+     /tmp/ccFe5SsZ.s:1127   .bss:00000024 xMagFiltered
+     /tmp/ccFe5SsZ.s:1115   .bss:0000001c magXYZ
+     /tmp/ccFe5SsZ.s:1123   .bss:00000023 magCount
+     /tmp/ccFe5SsZ.s:1119   .bss:00000022 accCount
+     /tmp/ccFe5SsZ.s:1111   .bss:00000010 accXYZ
+     /tmp/ccFe5SsZ.s:1106   .bss:00000008 gyroXYZ
+     /tmp/ccFe5SsZ.s:1098   .bss:00000000 gyroOffset
+     /tmp/ccFe5SsZ.s:1102   .bss:00000006 i
                             *COM*:00000004 loopcnt
-     /tmp/ccLNbO2d.s:1185   .bss:00000000 $d
-     /tmp/ccLNbO2d.s:1234   .bss:00000038 foo.9361
+     /tmp/ccFe5SsZ.s:1094   .bss:00000000 $d
+     /tmp/ccFe5SsZ.s:1143   .bss:00000038 foo.9366
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.4549fa27c92e72ea66ffdb0399fbe8da
+     /tmp/ccFe5SsZ.s:1163   .text:00000784 $t
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
-                           .group:00000000 wm4.core_cm4.h.32.2441f2e49dd40451ba4254637c879d0c
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
@@ -1811,30 +1716,29 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
                            .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
                            .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
-                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.stdio.h.31.7c0e28c411445f3f9c5b11accf882760
+                           .group:00000000 wm4.stddef.h.184.159df79b4ca79c76561572a55985524c
                            .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.stddef.h.39.7e3d906ac58942e0b374c527445f5de5
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
                            .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
-                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
                            .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
-                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.types.h.80.5759fe41f87f5211a5952dfb1fc64f19
                            .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
-                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
-                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
-                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.stdio.h.64.0f05fa42cfe2db7fc44729a52d3ba948
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.158.a7efb00f6cbc6f43213b50e183c9830c
                            .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
-                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
-                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
-                           .group:00000000 wm4.string.h.8.ef946ad0bc9ad5c970c365dcd1fc4b0a
-                           .group:00000000 wm4.string.h.86.d5c872ff52e2712c985b588a0ef39f3c
+                           .group:00000000 wm4.stdlib.h.51.fdf1045aaa750fe709619c2027b96513
+                           .group:00000000 wm4.ctype.h.2.807cf8b53e92f83ce947ab40213cf812
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
+                           .group:00000000 wm4.cdefs.h.56.f411b57d64a46a132cc788f4ff08e67a
+                           .group:00000000 wm4.string.h.15.dab3980bf35408a4c507182805e2de3a
+                           .group:00000000 wm4.string.h.126.6ff3aa59129e7f66b2c273baf353e066
                            .group:00000000 wm4.usart.h.2.334fafcea22e35c991473487ab5a0c1a
                            .group:00000000 wm4.projdefs.h.76.214f319a5937dae232f0ee2912b07e1d
                            .group:00000000 wm4.FreeRTOSConfig.h.79.e16c6b63f558057e7547045dd4ba1322
@@ -1855,33 +1759,26 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.ADXL345_Lib.h.2.6f43829aa35c41174f5864ebbe83dc8a
                            .group:00000000 wm4.LSM303DLHC_Lib_I2C.h.9.6eee883489de0435d98b6cc9e289e091
                            .group:00000000 wm4.PID_control.h.2.bdb95992097dc3d9a377ee9d97492f02
-                           .group:00000000 wm4.Task1.h.38.f0bc67859f03905d44c82e4ee025fd35
+                           .group:00000000 wm4.Task1.h.38.95b72794fabb4fdac4b41303ae70ab29
 
 UNDEFINED SYMBOLS
 init_PID
 init_SmithPredictor
-__aeabi_i2f
-__aeabi_fmul
-__aeabi_fadd
-__aeabi_fcmpgt
-__aeabi_fcmplt
 __aeabi_f2d
 __aeabi_dsub
 __aeabi_d2f
-__aeabi_fsub
 memset
 IMU_init
 IMU_init_drift_correction
 Gyro_calibrate
 Gyro_readValues
 vTaskDelay
-printf
 LSM303DLHC_ACC_calibrate
+printf
 Mag_calibrate
 Mag_readValues
 atan2
 IMU_Euler_to_DCM
-__aeabi_f2iz
 floatFilterGyro
 LSM303DLHC_ACC_readValuesDMA
 floatFilterAcc
@@ -1892,7 +1789,9 @@ IMU_update
 IMU_ortho_adjust
 IMU_normalize
 IMU_DCM_to_XYZ
-__aeabi_f2uiz
-fuzzy
+calc_PID
+vPortEnterCritical
 PWM_Motor
+vPortExitCritical
 resetIntegralValues_PID
+SendBufferedDataFrame

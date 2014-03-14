@@ -50,7 +50,7 @@
   37 0002 4FF07E52 		mov	r2, #1065353216
   10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dt = dt;	
   38              		.loc 1 10 0
-  39 0006 80ED000A 		fsts	s0, [r0, #0]
+  39 0006 80ED000A 		fsts	s0, [r0]
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[0] = 1;
   40              		.loc 1 12 0
   41 000a 4260     		str	r2, [r0, #4]	@ float
@@ -195,272 +195,284 @@
   64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*dt-factor + addition of omega_vector, which holds the PI-Values*/
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[0] = (IMU->velocity_vector[0]*IMU->dt) - (IMU->kp_vector_ACC[0]) - (IMU->kp_v
  133              		.loc 1 65 0
- 134 004c 90ED007A 		flds	s14, [r0, #0]
+ 134 004c 90ED007A 		flds	s14, [r0]
  135 0050 D0ED0A6A 		flds	s13, [r0, #40]
  136 0054 D0ED187A 		flds	s15, [r0, #96]
- 137 0058 57EE267A 		fmscs	s15, s14, s13
- 138 005c D0ED1B6A 		flds	s13, [r0, #108]
- 139 0060 77EEE67A 		fsubs	s15, s15, s13
+ 137 0058 D6EE877A 		vfnms.f32	s15, s13, s14
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 140              		.loc 1 61 0
- 141 0064 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
- 142              	.LCFI0:
- 143              		.cfi_def_cfa_offset 32
- 144              		.cfi_offset 0, -32
- 145              		.cfi_offset 1, -28
- 146              		.cfi_offset 2, -24
- 147              		.cfi_offset 3, -20
- 148              		.cfi_offset 4, -16
- 149              		.cfi_offset 5, -12
- 150              		.cfi_offset 6, -8
- 151              		.cfi_offset 14, -4
+ 138              		.loc 1 61 0
+ 139 005c 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 140              	.LCFI0:
+ 141              		.cfi_def_cfa_offset 32
+ 142              		.cfi_offset 0, -32
+ 143              		.cfi_offset 1, -28
+ 144              		.cfi_offset 2, -24
+ 145              		.cfi_offset 3, -20
+ 146              		.cfi_offset 4, -16
+ 147              		.cfi_offset 5, -12
+ 148              		.cfi_offset 6, -8
+ 149              		.cfi_offset 14, -4
+ 150              		.loc 1 65 0
+ 151 005e D0ED1B6A 		flds	s13, [r0, #108]
+ 152 0062 77EEE67A 		fsubs	s15, s15, s13
   66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[1] = (IMU->velocity_vector[1]*IMU->dt) - (IMU->kp_vector_ACC[1]) - (IMU->kp_v
- 152              		.loc 1 66 0
- 153 0066 D0ED0B6A 		flds	s13, [r0, #44]
+ 153              		.loc 1 66 0
+ 154 0066 D0ED0B6A 		flds	s13, [r0, #44]
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[0] = (IMU->velocity_vector[0]*IMU->dt) - (IMU->kp_vector_ACC[0]) - (IMU->kp_v
- 154              		.loc 1 65 0
- 155 006a C0ED0A7A 		fsts	s15, [r0, #40]
- 156              		.loc 1 66 0
+ 155              		.loc 1 65 0
+ 156 006a C0ED0A7A 		fsts	s15, [r0, #40]
  157 006e D0ED197A 		flds	s15, [r0, #100]
- 158 0072 57EE267A 		fmscs	s15, s14, s13
- 159 0076 D0ED1C6A 		flds	s13, [r0, #112]
- 160 007a 77EEE67A 		fsubs	s15, s15, s13
+ 158              		.loc 1 66 0
+ 159 0072 D6EE877A 		vfnms.f32	s15, s13, s14
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[2] = (IMU->velocity_vector[2]*IMU->dt) - (IMU->kp_vector_ACC[2]) - (IMU->kp_v
- 161              		.loc 1 67 0
- 162 007e D0ED0C6A 		flds	s13, [r0, #48]
-  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[1] = (IMU->velocity_vector[1]*IMU->dt) - (IMU->kp_vector_ACC[1]) - (IMU->kp_v
- 163              		.loc 1 66 0
- 164 0082 C0ED0B7A 		fsts	s15, [r0, #44]
- 165              		.loc 1 67 0
- 166 0086 D0ED1A7A 		flds	s15, [r0, #104]
- 167 008a 57EE267A 		fmscs	s15, s14, s13
- 168 008e 90ED1D7A 		flds	s14, [r0, #116]
- 169 0092 77EEC77A 		fsubs	s15, s15, s14
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Update of the first dcm-line (xe)*/
   70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorCrossProduct(result, IMU->dcm_xe_line, IMU->velocity_vector);
- 170              		.loc 1 70 0
- 171 0096 061D     		adds	r6, r0, #4
- 172 0098 00F12805 		add	r5, r0, #40
+ 160              		.loc 1 70 0
+ 161 0076 061D     		adds	r6, r0, #4
+ 162 0078 00F12805 		add	r5, r0, #40
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[1] = (IMU->velocity_vector[1]*IMU->dt) - (IMU->kp_vector_ACC[1]) - (IMU->kp_v
+ 163              		.loc 1 66 0
+ 164 007c D0ED1C6A 		flds	s13, [r0, #112]
+ 165 0080 77EEE67A 		fsubs	s15, s15, s13
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[2] = (IMU->velocity_vector[2]*IMU->dt) - (IMU->kp_vector_ACC[2]) - (IMU->kp_v
- 173              		.loc 1 67 0
- 174 009c C0ED0C7A 		fsts	s15, [r0, #48]
+ 166              		.loc 1 67 0
+ 167 0084 D0ED0C6A 		flds	s13, [r0, #48]
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[1] = (IMU->velocity_vector[1]*IMU->dt) - (IMU->kp_vector_ACC[1]) - (IMU->kp_v
+ 168              		.loc 1 66 0
+ 169 0088 C0ED0B7A 		fsts	s15, [r0, #44]
+ 170 008c D0ED1A7A 		flds	s15, [r0, #104]
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[2] = (IMU->velocity_vector[2]*IMU->dt) - (IMU->kp_vector_ACC[2]) - (IMU->kp_v
+ 171              		.loc 1 67 0
+ 172 0090 D6EE877A 		vfnms.f32	s15, s13, s14
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 175              		.loc 1 61 0
- 176 00a0 0446     		mov	r4, r0
- 177              		.loc 1 70 0
- 178 00a2 3146     		mov	r1, r6
- 179 00a4 01A8     		add	r0, sp, #4
- 180              	.LVL3:
- 181 00a6 2A46     		mov	r2, r5
- 182 00a8 FFF7FEFF 		bl	VectorCrossProduct
- 183              	.LVL4:
+ 173              		.loc 1 61 0
+ 174 0094 0446     		mov	r4, r0
+ 175              		.loc 1 70 0
+ 176 0096 3146     		mov	r1, r6
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[2] = (IMU->velocity_vector[2]*IMU->dt) - (IMU->kp_vector_ACC[2]) - (IMU->kp_v
+ 177              		.loc 1 67 0
+ 178 0098 90ED1D7A 		flds	s14, [r0, #116]
+ 179 009c 77EEC77A 		fsubs	s15, s15, s14
+ 180              		.loc 1 70 0
+ 181 00a0 2A46     		mov	r2, r5
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->velocity_vector[2] = (IMU->velocity_vector[2]*IMU->dt) - (IMU->kp_vector_ACC[2]) - (IMU->kp_v
+ 182              		.loc 1 67 0
+ 183 00a2 C0ED0C7A 		fsts	s15, [r0, #48]
+ 184              		.loc 1 70 0
+ 185 00a6 01A8     		add	r0, sp, #4
+ 186              	.LVL3:
+ 187 00a8 FFF7FEFF 		bl	VectorCrossProduct
+ 188              	.LVL4:
   71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_xe_line, IMU->dcm_xe_line, result);
- 184              		.loc 1 71 0
- 185 00ac 3046     		mov	r0, r6
- 186 00ae 3146     		mov	r1, r6
- 187 00b0 01AA     		add	r2, sp, #4
+ 189              		.loc 1 71 0
+ 190 00ac 3046     		mov	r0, r6
+ 191 00ae 3146     		mov	r1, r6
+ 192 00b0 01AA     		add	r2, sp, #4
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Update of the second dcm-line(ye)*/
   74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorCrossProduct(result, IMU->dcm_ye_line, IMU->velocity_vector);
- 188              		.loc 1 74 0
- 189 00b2 04F11006 		add	r6, r4, #16
-  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_xe_line, IMU->dcm_xe_line, result);
- 190              		.loc 1 71 0
- 191 00b6 FFF7FEFF 		bl	VectorAdd
- 192              	.LVL5:
  193              		.loc 1 74 0
- 194 00ba 01A8     		add	r0, sp, #4
- 195 00bc 3146     		mov	r1, r6
- 196 00be 2A46     		mov	r2, r5
- 197 00c0 FFF7FEFF 		bl	VectorCrossProduct
- 198              	.LVL6:
+ 194 00b2 04F11006 		add	r6, r4, #16
+  71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_xe_line, IMU->dcm_xe_line, result);
+ 195              		.loc 1 71 0
+ 196 00b6 FFF7FEFF 		bl	VectorAdd
+ 197              	.LVL5:
+ 198              		.loc 1 74 0
+ 199 00ba 01A8     		add	r0, sp, #4
+ 200 00bc 3146     		mov	r1, r6
+ 201 00be 2A46     		mov	r2, r5
+ 202 00c0 FFF7FEFF 		bl	VectorCrossProduct
+ 203              	.LVL6:
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_ye_line, IMU->dcm_ye_line, result);
   76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Update of the second dcm-line(ze)*/
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorCrossProduct(result, IMU->dcm_ze_line, IMU->velocity_vector);
- 199              		.loc 1 78 0
- 200 00c4 1C34     		adds	r4, r4, #28
- 201              	.LVL7:
+ 204              		.loc 1 78 0
+ 205 00c4 1C34     		adds	r4, r4, #28
+ 206              	.LVL7:
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_ye_line, IMU->dcm_ye_line, result);
- 202              		.loc 1 75 0
- 203 00c6 3046     		mov	r0, r6
- 204 00c8 3146     		mov	r1, r6
- 205 00ca 01AA     		add	r2, sp, #4
- 206 00cc FFF7FEFF 		bl	VectorAdd
- 207              	.LVL8:
- 208              		.loc 1 78 0
- 209 00d0 01A8     		add	r0, sp, #4
- 210 00d2 2146     		mov	r1, r4
- 211 00d4 2A46     		mov	r2, r5
- 212 00d6 FFF7FEFF 		bl	VectorCrossProduct
- 213              	.LVL9:
+ 207              		.loc 1 75 0
+ 208 00c6 3046     		mov	r0, r6
+ 209 00c8 3146     		mov	r1, r6
+ 210 00ca 01AA     		add	r2, sp, #4
+ 211 00cc FFF7FEFF 		bl	VectorAdd
+ 212              	.LVL8:
+ 213              		.loc 1 78 0
+ 214 00d0 01A8     		add	r0, sp, #4
+ 215 00d2 2146     		mov	r1, r4
+ 216 00d4 2A46     		mov	r2, r5
+ 217 00d6 FFF7FEFF 		bl	VectorCrossProduct
+ 218              	.LVL9:
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(IMU->dcm_ze_line, IMU->dcm_ze_line, result);
- 214              		.loc 1 79 0
- 215 00da 2046     		mov	r0, r4
- 216 00dc 2146     		mov	r1, r4
- 217 00de 01AA     		add	r2, sp, #4
- 218 00e0 FFF7FEFF 		bl	VectorAdd
- 219              	.LVL10:
+ 219              		.loc 1 79 0
+ 220 00da 2046     		mov	r0, r4
+ 221 00dc 2146     		mov	r1, r4
+ 222 00de 01AA     		add	r2, sp, #4
+ 223 00e0 FFF7FEFF 		bl	VectorAdd
+ 224              	.LVL10:
   80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 220              		.loc 1 80 0
- 221 00e4 7FBD     		pop	{r0, r1, r2, r3, r4, r5, r6, pc}
- 222              		.cfi_endproc
- 223              	.LFE2:
- 225              		.align	1
- 226              		.global	IMU_normalize
- 227              		.thumb
- 228              		.thumb_func
- 230              	IMU_normalize:
- 231              	.LFB3:
+ 225              		.loc 1 80 0
+ 226 00e4 04B0     		add	sp, sp, #16
+ 227              		@ sp needed
+ 228 00e6 70BD     		pop	{r4, r5, r6, pc}
+ 229              		.cfi_endproc
+ 230              	.LFE2:
+ 232              		.align	1
+ 233              		.global	IMU_normalize
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	IMU_normalize:
+ 238              	.LFB3:
   81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! Normalization of the vectors
   84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_normalize(struct IMU_values *IMU)
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 232              		.loc 1 85 0
- 233              		.cfi_startproc
- 234              		@ args = 0, pretend = 0, frame = 0
- 235              		@ frame_needed = 0, uses_anonymous_args = 0
- 236              	.LVL11:
+ 239              		.loc 1 85 0
+ 240              		.cfi_startproc
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243              	.LVL11:
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float normfactor;
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	normfactor = sqrtf(IMU->dcm_xe_line[0]*IMU->dcm_xe_line[0] + IMU->dcm_xe_line[1]*IMU->dcm_xe_line[
- 237              		.loc 1 87 0
- 238 00e6 90ED020A 		flds	s0, [r0, #8]
- 239 00ea 90ED017A 		flds	s14, [r0, #4]
- 240 00ee 20EE000A 		fmuls	s0, s0, s0
- 241 00f2 07EE070A 		fmacs	s0, s14, s14
- 242 00f6 D0ED037A 		flds	s15, [r0, #12]
+ 244              		.loc 1 87 0
+ 245 00e8 90ED020A 		flds	s0, [r0, #8]
+ 246 00ec 90ED017A 		flds	s14, [r0, #4]
+ 247 00f0 D0ED037A 		flds	s15, [r0, #12]
+ 248 00f4 20EE000A 		fmuls	s0, s0, s0
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 243              		.loc 1 85 0
- 244 00fa 10B5     		push	{r4, lr}
- 245              	.LCFI1:
- 246              		.cfi_def_cfa_offset 8
- 247              		.cfi_offset 4, -8
- 248              		.cfi_offset 14, -4
- 249              		.loc 1 87 0
- 250 00fc 07EEA70A 		fmacs	s0, s15, s15
+ 249              		.loc 1 85 0
+ 250 00f8 10B5     		push	{r4, lr}
+ 251              	.LCFI1:
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 4, -8
+ 254              		.cfi_offset 14, -4
+ 255              		.loc 1 87 0
+ 256 00fa A7EE070A 		vfma.f32	s0, s14, s14
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 251              		.loc 1 85 0
- 252 0100 0446     		mov	r4, r0
- 253              		.loc 1 87 0
- 254 0102 FFF7FEFF 		bl	sqrtf
- 255              	.LVL12:
+ 257              		.loc 1 85 0
+ 258 00fe 0446     		mov	r4, r0
+ 259              		.loc 1 87 0
+ 260 0100 A7EEA70A 		vfma.f32	s0, s15, s15
+ 261 0104 FFF7FEFF 		bl	sqrtf
+ 262              	.LVL12:
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[0] = IMU->dcm_xe_line[0]/normfactor;	
- 256              		.loc 1 88 0
- 257 0106 D4ED017A 		flds	s15, [r4, #4]
- 258 010a C7EE807A 		fdivs	s15, s15, s0
+ 263              		.loc 1 88 0
+ 264 0108 D4ED017A 		flds	s15, [r4, #4]
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[1] = IMU->dcm_xe_line[1]/normfactor;	
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = IMU->dcm_xe_line[2]/normfactor;	
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	normfactor = sqrtf(IMU->dcm_ye_line[0]*IMU->dcm_ye_line[0] + IMU->dcm_ye_line[1]*IMU->dcm_ye_line[
- 259              		.loc 1 92 0
- 260 010e 94ED047A 		flds	s14, [r4, #16]
+ 265              		.loc 1 92 0
+ 266 010c 94ED047A 		flds	s14, [r4, #16]
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[0] = IMU->dcm_xe_line[0]/normfactor;	
- 261              		.loc 1 88 0
- 262 0112 C4ED017A 		fsts	s15, [r4, #4]
+ 267              		.loc 1 88 0
+ 268 0110 C7EE807A 		fdivs	s15, s15, s0
+ 269 0114 C4ED017A 		fsts	s15, [r4, #4]
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[1] = IMU->dcm_xe_line[1]/normfactor;	
- 263              		.loc 1 89 0
- 264 0116 D4ED027A 		flds	s15, [r4, #8]
- 265 011a C7EE807A 		fdivs	s15, s15, s0
- 266 011e C4ED027A 		fsts	s15, [r4, #8]
+ 270              		.loc 1 89 0
+ 271 0118 D4ED027A 		flds	s15, [r4, #8]
+ 272 011c C7EE807A 		fdivs	s15, s15, s0
+ 273 0120 C4ED027A 		fsts	s15, [r4, #8]
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = IMU->dcm_xe_line[2]/normfactor;	
- 267              		.loc 1 90 0
- 268 0122 D4ED037A 		flds	s15, [r4, #12]
- 269 0126 C7EE807A 		fdivs	s15, s15, s0
- 270              		.loc 1 92 0
- 271 012a 94ED050A 		flds	s0, [r4, #20]
- 272              	.LVL13:
- 273 012e 20EE000A 		fmuls	s0, s0, s0
- 274 0132 07EE070A 		fmacs	s0, s14, s14
+ 274              		.loc 1 90 0
+ 275 0124 D4ED037A 		flds	s15, [r4, #12]
+ 276 0128 87EE800A 		fdivs	s0, s15, s0
+ 277              	.LVL13:
+ 278              		.loc 1 92 0
+ 279 012c D4ED067A 		flds	s15, [r4, #24]
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = IMU->dcm_xe_line[2]/normfactor;	
- 275              		.loc 1 90 0
- 276 0136 C4ED037A 		fsts	s15, [r4, #12]
- 277              		.loc 1 92 0
- 278 013a D4ED067A 		flds	s15, [r4, #24]
- 279 013e 07EEA70A 		fmacs	s0, s15, s15
- 280 0142 FFF7FEFF 		bl	sqrtf
- 281              	.LVL14:
+ 280              		.loc 1 90 0
+ 281 0130 84ED030A 		fsts	s0, [r4, #12]
+ 282              		.loc 1 92 0
+ 283 0134 94ED050A 		flds	s0, [r4, #20]
+ 284 0138 20EE000A 		fmuls	s0, s0, s0
+ 285 013c A7EE070A 		vfma.f32	s0, s14, s14
+ 286 0140 A7EEA70A 		vfma.f32	s0, s15, s15
+ 287 0144 FFF7FEFF 		bl	sqrtf
+ 288              	.LVL14:
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[0] = IMU->dcm_ye_line[0]/normfactor;	
- 282              		.loc 1 93 0
- 283 0146 D4ED047A 		flds	s15, [r4, #16]
- 284 014a C7EE807A 		fdivs	s15, s15, s0
+ 289              		.loc 1 93 0
+ 290 0148 D4ED047A 		flds	s15, [r4, #16]
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = IMU->dcm_ye_line[1]/normfactor;	
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = IMU->dcm_ye_line[2]/normfactor;	
   96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	normfactor = sqrtf(IMU->dcm_ze_line[0]*IMU->dcm_ze_line[0] + IMU->dcm_ze_line[1]*IMU->dcm_ze_line[
- 285              		.loc 1 97 0
- 286 014e 94ED077A 		flds	s14, [r4, #28]
+ 291              		.loc 1 97 0
+ 292 014c 94ED077A 		flds	s14, [r4, #28]
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[0] = IMU->dcm_ye_line[0]/normfactor;	
- 287              		.loc 1 93 0
- 288 0152 C4ED047A 		fsts	s15, [r4, #16]
+ 293              		.loc 1 93 0
+ 294 0150 C7EE807A 		fdivs	s15, s15, s0
+ 295 0154 C4ED047A 		fsts	s15, [r4, #16]
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = IMU->dcm_ye_line[1]/normfactor;	
- 289              		.loc 1 94 0
- 290 0156 D4ED057A 		flds	s15, [r4, #20]
- 291 015a C7EE807A 		fdivs	s15, s15, s0
- 292 015e C4ED057A 		fsts	s15, [r4, #20]
+ 296              		.loc 1 94 0
+ 297 0158 D4ED057A 		flds	s15, [r4, #20]
+ 298 015c C7EE807A 		fdivs	s15, s15, s0
+ 299 0160 C4ED057A 		fsts	s15, [r4, #20]
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = IMU->dcm_ye_line[2]/normfactor;	
- 293              		.loc 1 95 0
- 294 0162 D4ED067A 		flds	s15, [r4, #24]
- 295 0166 C7EE807A 		fdivs	s15, s15, s0
- 296              		.loc 1 97 0
- 297 016a 94ED080A 		flds	s0, [r4, #32]
- 298              	.LVL15:
- 299 016e 20EE000A 		fmuls	s0, s0, s0
- 300 0172 07EE070A 		fmacs	s0, s14, s14
+ 300              		.loc 1 95 0
+ 301 0164 D4ED067A 		flds	s15, [r4, #24]
+ 302 0168 87EE800A 		fdivs	s0, s15, s0
+ 303              	.LVL15:
+ 304              		.loc 1 97 0
+ 305 016c D4ED097A 		flds	s15, [r4, #36]
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = IMU->dcm_ye_line[2]/normfactor;	
- 301              		.loc 1 95 0
- 302 0176 C4ED067A 		fsts	s15, [r4, #24]
- 303              		.loc 1 97 0
- 304 017a D4ED097A 		flds	s15, [r4, #36]
- 305 017e 07EEA70A 		fmacs	s0, s15, s15
- 306 0182 FFF7FEFF 		bl	sqrtf
- 307              	.LVL16:
+ 306              		.loc 1 95 0
+ 307 0170 84ED060A 		fsts	s0, [r4, #24]
+ 308              		.loc 1 97 0
+ 309 0174 94ED080A 		flds	s0, [r4, #32]
+ 310 0178 20EE000A 		fmuls	s0, s0, s0
+ 311 017c A7EE070A 		vfma.f32	s0, s14, s14
+ 312 0180 A7EEA70A 		vfma.f32	s0, s15, s15
+ 313 0184 FFF7FEFF 		bl	sqrtf
+ 314              	.LVL16:
   98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[0] = IMU->dcm_ze_line[0]/normfactor;	
- 308              		.loc 1 98 0
- 309 0186 D4ED077A 		flds	s15, [r4, #28]
- 310 018a C7EE807A 		fdivs	s15, s15, s0
- 311 018e C4ED077A 		fsts	s15, [r4, #28]
+ 315              		.loc 1 98 0
+ 316 0188 D4ED077A 		flds	s15, [r4, #28]
+ 317 018c C7EE807A 		fdivs	s15, s15, s0
+ 318 0190 C4ED077A 		fsts	s15, [r4, #28]
   99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[1] = IMU->dcm_ze_line[1]/normfactor;	
- 312              		.loc 1 99 0
- 313 0192 D4ED087A 		flds	s15, [r4, #32]
- 314 0196 C7EE807A 		fdivs	s15, s15, s0
- 315 019a C4ED087A 		fsts	s15, [r4, #32]
+ 319              		.loc 1 99 0
+ 320 0194 D4ED087A 		flds	s15, [r4, #32]
+ 321 0198 C7EE807A 		fdivs	s15, s15, s0
+ 322 019c C4ED087A 		fsts	s15, [r4, #32]
  100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[2] = IMU->dcm_ze_line[2]/normfactor;		
- 316              		.loc 1 100 0
- 317 019e D4ED097A 		flds	s15, [r4, #36]
- 318 01a2 C7EE807A 		fdivs	s15, s15, s0
- 319 01a6 C4ED097A 		fsts	s15, [r4, #36]
- 320 01aa 10BD     		pop	{r4, pc}
- 321              		.cfi_endproc
- 322              	.LFE3:
- 324              		.align	1
- 325              		.global	IMU_ortho_adjust
- 326              		.thumb
- 327              		.thumb_func
- 329              	IMU_ortho_adjust:
- 330              	.LFB4:
+ 323              		.loc 1 100 0
+ 324 01a0 D4ED097A 		flds	s15, [r4, #36]
+ 325 01a4 87EE800A 		fdivs	s0, s15, s0
+ 326              	.LVL17:
+ 327 01a8 84ED090A 		fsts	s0, [r4, #36]
+ 328 01ac 10BD     		pop	{r4, pc}
+ 329              		.cfi_endproc
+ 330              	.LFE3:
+ 332              		.align	1
+ 333              		.global	IMU_ortho_adjust
+ 334              		.thumb
+ 335              		.thumb_func
+ 337              	IMU_ortho_adjust:
+ 338              	.LFB4:
  101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! Keep the orthogonality
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_ortho_adjust(struct IMU_values *IMU)
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 331              		.loc 1 105 0
- 332              		.cfi_startproc
- 333              		@ args = 0, pretend = 0, frame = 24
- 334              		@ frame_needed = 0, uses_anonymous_args = 0
- 335              	.LVL17:
- 336 01ac 70B5     		push	{r4, r5, r6, lr}
- 337              	.LCFI2:
- 338              		.cfi_def_cfa_offset 16
- 339              		.cfi_offset 4, -16
- 340              		.cfi_offset 5, -12
- 341              		.cfi_offset 6, -8
- 342              		.cfi_offset 14, -4
- 343 01ae 2DED028B 		fstmfdd	sp!, {d8}
- 344              	.LCFI3:
- 345              		.cfi_def_cfa_offset 24
- 346              		.cfi_offset 80, -24
+ 339              		.loc 1 105 0
+ 340              		.cfi_startproc
+ 341              		@ args = 0, pretend = 0, frame = 24
+ 342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343              	.LVL18:
+ 344 01ae 70B5     		push	{r4, r5, r6, lr}
+ 345              	.LCFI2:
+ 346              		.cfi_def_cfa_offset 16
+ 347              		.cfi_offset 4, -16
+ 348              		.cfi_offset 5, -12
+ 349              		.cfi_offset 6, -8
+ 350              		.cfi_offset 14, -4
+ 351 01b0 2DED028B 		fstmfdd	sp!, {d8}
+ 352              	.LCFI3:
+ 353              		.cfi_def_cfa_offset 24
+ 354              		.cfi_offset 80, -24
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float ortho_error;
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float result_x[3];
@@ -468,163 +480,166 @@
  110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*calc the orthogonality error*/	
  112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	ortho_error = -VectorDotProduct(&IMU->dcm_xe_line[0], &IMU->dcm_ye_line[0])*0.5f;
- 347              		.loc 1 112 0
- 348 01b2 00F11004 		add	r4, r0, #16
- 349 01b6 051D     		adds	r5, r0, #4
+ 355              		.loc 1 112 0
+ 356 01b4 00F11004 		add	r4, r0, #16
+ 357 01b8 051D     		adds	r5, r0, #4
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 350              		.loc 1 105 0
- 351 01b8 86B0     		sub	sp, sp, #24
- 352              	.LCFI4:
- 353              		.cfi_def_cfa_offset 48
+ 358              		.loc 1 105 0
+ 359 01ba 86B0     		sub	sp, sp, #24
+ 360              	.LCFI4:
+ 361              		.cfi_def_cfa_offset 48
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 354              		.loc 1 105 0
- 355 01ba 0646     		mov	r6, r0
- 356              		.loc 1 112 0
- 357 01bc 2146     		mov	r1, r4
- 358 01be 2846     		mov	r0, r5
- 359              	.LVL18:
- 360 01c0 FFF7FEFF 		bl	VectorDotProduct
- 361              	.LVL19:
- 362 01c4 B6EE008A 		fconsts	s16, #96
- 363 01c8 20EE488A 		fnmuls	s16, s0, s16
- 364              	.LVL20:
+ 362              		.loc 1 105 0
+ 363 01bc 0646     		mov	r6, r0
+ 364              		.loc 1 112 0
+ 365 01be 2146     		mov	r1, r4
+ 366 01c0 2846     		mov	r0, r5
+ 367              	.LVL19:
+ 368 01c2 FFF7FEFF 		bl	VectorDotProduct
+ 369              	.LVL20:
+ 370 01c6 B6EE008A 		fconsts	s16, #96
+ 371 01ca 20EE488A 		fnmuls	s16, s0, s16
+ 372              	.LVL21:
  113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*add the half of the error to xe and ye*/
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&result_y[0],&IMU->dcm_ye_line[0],ortho_error);
- 365              		.loc 1 115 0
- 366 01cc 03A8     		add	r0, sp, #12
- 367 01ce 2146     		mov	r1, r4
- 368 01d0 B0EE480A 		fcpys	s0, s16
- 369 01d4 FFF7FEFF 		bl	VectorScale
- 370              	.LVL21:
+ 373              		.loc 1 115 0
+ 374 01ce 03A8     		add	r0, sp, #12
+ 375 01d0 2146     		mov	r1, r4
+ 376 01d2 B0EE480A 		fcpys	s0, s16
+ 377 01d6 FFF7FEFF 		bl	VectorScale
+ 378              	.LVL22:
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&result_x[0],&IMU->dcm_xe_line[0],ortho_error);
- 371              		.loc 1 116 0
- 372 01d8 B0EE480A 		fcpys	s0, s16
- 373 01dc 6846     		mov	r0, sp
- 374 01de 2946     		mov	r1, r5
- 375 01e0 FFF7FEFF 		bl	VectorScale
- 376              	.LVL22:
+ 379              		.loc 1 116 0
+ 380 01da B0EE480A 		fcpys	s0, s16
+ 381 01de 6846     		mov	r0, sp
+ 382 01e0 2946     		mov	r1, r5
+ 383 01e2 FFF7FEFF 		bl	VectorScale
+ 384              	.LVL23:
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(&IMU->dcm_xe_line[0], &IMU->dcm_xe_line[0], &result_y[0]);
- 377              		.loc 1 118 0
- 378 01e4 2846     		mov	r0, r5
- 379 01e6 2946     		mov	r1, r5
- 380 01e8 03AA     		add	r2, sp, #12
- 381 01ea FFF7FEFF 		bl	VectorAdd
- 382              	.LVL23:
+ 385              		.loc 1 118 0
+ 386 01e6 2846     		mov	r0, r5
+ 387 01e8 2946     		mov	r1, r5
+ 388 01ea 03AA     		add	r2, sp, #12
+ 389 01ec FFF7FEFF 		bl	VectorAdd
+ 390              	.LVL24:
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorAdd(&IMU->dcm_ye_line[0], &IMU->dcm_ye_line[0], &result_x[0]);
- 383              		.loc 1 119 0
- 384 01ee 2046     		mov	r0, r4
- 385 01f0 2146     		mov	r1, r4
- 386 01f2 6A46     		mov	r2, sp
- 387 01f4 FFF7FEFF 		bl	VectorAdd
- 388              	.LVL24:
+ 391              		.loc 1 119 0
+ 392 01f0 2046     		mov	r0, r4
+ 393 01f2 2146     		mov	r1, r4
+ 394 01f4 6A46     		mov	r2, sp
+ 395 01f6 FFF7FEFF 		bl	VectorAdd
+ 396              	.LVL25:
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*the ze-line will be recalculated with the crossproduct*/	
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorCrossProduct(&IMU->dcm_ze_line[0],&IMU->dcm_xe_line[0],&IMU->dcm_ye_line[0]);   
- 389              		.loc 1 122 0
- 390 01f8 06F11C00 		add	r0, r6, #28
- 391 01fc 2946     		mov	r1, r5
- 392 01fe 2246     		mov	r2, r4
- 393 0200 FFF7FEFF 		bl	VectorCrossProduct
- 394              	.LVL25:
+ 397              		.loc 1 122 0
+ 398 01fa 06F11C00 		add	r0, r6, #28
+ 399 01fe 2946     		mov	r1, r5
+ 400 0200 2246     		mov	r2, r4
+ 401 0202 FFF7FEFF 		bl	VectorCrossProduct
+ 402              	.LVL26:
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 395              		.loc 1 123 0
- 396 0204 06B0     		add	sp, sp, #24
- 397 0206 BDEC028B 		fldmfdd	sp!, {d8}
- 398 020a 70BD     		pop	{r4, r5, r6, pc}
- 399              		.cfi_endproc
- 400              	.LFE4:
- 402              		.align	1
- 403              		.global	IMU_drift_correction_ACC
- 404              		.thumb
- 405              		.thumb_func
- 407              	IMU_drift_correction_ACC:
- 408              	.LFB5:
+ 403              		.loc 1 123 0
+ 404 0206 06B0     		add	sp, sp, #24
+ 405              		@ sp needed
+ 406 0208 BDEC028B 		fldmfdd	sp!, {d8}
+ 407              	.LVL27:
+ 408 020c 70BD     		pop	{r4, r5, r6, pc}
+ 409              		.cfi_endproc
+ 410              	.LFE4:
+ 412              		.align	1
+ 413              		.global	IMU_drift_correction_ACC
+ 414              		.thumb
+ 415              		.thumb_func
+ 417              	IMU_drift_correction_ACC:
+ 418              	.LFB5:
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! Roll-pitch Drift-Correction with Accelerometer
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_drift_correction_ACC(struct IMU_values *IMU)
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 409              		.loc 1 128 0
- 410              		.cfi_startproc
- 411              		@ args = 0, pretend = 0, frame = 0
- 412              		@ frame_needed = 0, uses_anonymous_args = 0
- 413              	.LVL26:
+ 419              		.loc 1 128 0
+ 420              		.cfi_startproc
+ 421              		@ args = 0, pretend = 0, frame = 0
+ 422              		@ frame_needed = 0, uses_anonymous_args = 0
+ 423              	.LVL28:
  129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float normfactor;
  130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float error_absolute;
  131:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	normfactor = sqrtf((IMU->accel_vector[0]*IMU->accel_vector[0]) + (IMU->accel_vector[1]*IMU->accel_
- 414              		.loc 1 132 0
- 415 020c 90ED0E0A 		flds	s0, [r0, #56]
- 416 0210 90ED0D7A 		flds	s14, [r0, #52]
- 417 0214 20EE000A 		fmuls	s0, s0, s0
- 418 0218 07EE070A 		fmacs	s0, s14, s14
- 419 021c D0ED0F7A 		flds	s15, [r0, #60]
+ 424              		.loc 1 132 0
+ 425 020e 90ED0E0A 		flds	s0, [r0, #56]
+ 426 0212 90ED0D7A 		flds	s14, [r0, #52]
+ 427 0216 D0ED0F7A 		flds	s15, [r0, #60]
+ 428 021a 20EE000A 		fmuls	s0, s0, s0
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 420              		.loc 1 128 0
- 421 0220 38B5     		push	{r3, r4, r5, lr}
- 422              	.LCFI5:
- 423              		.cfi_def_cfa_offset 16
- 424              		.cfi_offset 3, -16
- 425              		.cfi_offset 4, -12
- 426              		.cfi_offset 5, -8
- 427              		.cfi_offset 14, -4
- 428              		.loc 1 132 0
- 429 0222 07EEA70A 		fmacs	s0, s15, s15
+ 429              		.loc 1 128 0
+ 430 021e 38B5     		push	{r3, r4, r5, lr}
+ 431              	.LCFI5:
+ 432              		.cfi_def_cfa_offset 16
+ 433              		.cfi_offset 3, -16
+ 434              		.cfi_offset 4, -12
+ 435              		.cfi_offset 5, -8
+ 436              		.cfi_offset 14, -4
+ 437              		.loc 1 132 0
+ 438 0220 A7EE070A 		vfma.f32	s0, s14, s14
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 430              		.loc 1 128 0
- 431 0226 0446     		mov	r4, r0
- 432              		.loc 1 132 0
- 433 0228 FFF7FEFF 		bl	sqrtf
- 434              	.LVL27:
+ 439              		.loc 1 128 0
+ 440 0224 0446     		mov	r4, r0
+ 441              		.loc 1 132 0
+ 442 0226 A7EEA70A 		vfma.f32	s0, s15, s15
+ 443 022a FFF7FEFF 		bl	sqrtf
+ 444              	.LVL29:
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	if(normfactor != 0)
- 435              		.loc 1 134 0
- 436 022c B5EE400A 		fcmpzs	s0
- 437 0230 F1EE10FA 		fmstat
- 438 0234 11D0     		beq	.L7
+ 445              		.loc 1 134 0
+ 446 022e B5EE400A 		fcmpzs	s0
+ 447 0232 F1EE10FA 		fmstat
+ 448 0236 11D0     		beq	.L7
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	{
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->accel_vector[0] = IMU->accel_vector[0]/normfactor;
- 439              		.loc 1 136 0
- 440 0236 D4ED0D7A 		flds	s15, [r4, #52]
- 441 023a C7EE807A 		fdivs	s15, s15, s0
- 442 023e C4ED0D7A 		fsts	s15, [r4, #52]
+ 449              		.loc 1 136 0
+ 450 0238 D4ED0D7A 		flds	s15, [r4, #52]
+ 451 023c C7EE807A 		fdivs	s15, s15, s0
+ 452 0240 C4ED0D7A 		fsts	s15, [r4, #52]
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->accel_vector[1] = IMU->accel_vector[1]/normfactor;
- 443              		.loc 1 137 0
- 444 0242 D4ED0E7A 		flds	s15, [r4, #56]
- 445 0246 C7EE807A 		fdivs	s15, s15, s0
- 446 024a C4ED0E7A 		fsts	s15, [r4, #56]
+ 453              		.loc 1 137 0
+ 454 0244 D4ED0E7A 		flds	s15, [r4, #56]
+ 455 0248 C7EE807A 		fdivs	s15, s15, s0
+ 456 024c C4ED0E7A 		fsts	s15, [r4, #56]
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->accel_vector[2] = IMU->accel_vector[2]/normfactor;
- 447              		.loc 1 138 0
- 448 024e D4ED0F7A 		flds	s15, [r4, #60]
- 449 0252 C7EE807A 		fdivs	s15, s15, s0
- 450 0256 C4ED0F7A 		fsts	s15, [r4, #60]
- 451              	.L7:
+ 457              		.loc 1 138 0
+ 458 0250 D4ED0F7A 		flds	s15, [r4, #60]
+ 459 0254 87EE800A 		fdivs	s0, s15, s0
+ 460              	.LVL30:
+ 461 0258 84ED0F0A 		fsts	s0, [r4, #60]
+ 462              	.L7:
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	}
  140:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Calc the error between the gyrobased calculations and the vector of the accelerometer, 
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	this will be done with the crossproduct of the two vectors*/
  143:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorCrossProduct(&IMU->error_rollpitch[0], &IMU->dcm_ze_line[0], &IMU->accel_vector[0]);
- 452              		.loc 1 143 0
- 453 025a 04F15005 		add	r5, r4, #80
- 454 025e 2846     		mov	r0, r5
- 455 0260 04F11C01 		add	r1, r4, #28
- 456 0264 04F13402 		add	r2, r4, #52
- 457 0268 FFF7FEFF 		bl	VectorCrossProduct
- 458              	.LVL28:
+ 463              		.loc 1 143 0
+ 464 025c 04F15005 		add	r5, r4, #80
+ 465 0260 2846     		mov	r0, r5
+ 466 0262 04F11C01 		add	r1, r4, #28
+ 467 0266 04F13402 		add	r2, r4, #52
+ 468 026a FFF7FEFF 		bl	VectorCrossProduct
+ 469              	.LVL31:
  144:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//VectorCrossProduct(&IMU->error_rollpitch[0], &IMU->dcm_ze_line[0], &test[0]);
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	error_absolute = sqrtf((IMU->error_rollpitch[0]*IMU->error_rollpitch[0]) + (IMU->error_rollpitch[1
- 459              		.loc 1 146 0
- 460 026c 94ED150A 		flds	s0, [r4, #84]
- 461 0270 94ED147A 		flds	s14, [r4, #80]
- 462 0274 20EE000A 		fmuls	s0, s0, s0
- 463 0278 07EE070A 		fmacs	s0, s14, s14
- 464 027c D4ED167A 		flds	s15, [r4, #88]
- 465 0280 07EEA70A 		fmacs	s0, s15, s15
- 466 0284 FFF7FEFF 		bl	sqrtf
- 467              	.LVL29:
+ 470              		.loc 1 146 0
+ 471 026e 94ED150A 		flds	s0, [r4, #84]
+ 472 0272 94ED147A 		flds	s14, [r4, #80]
+ 473 0276 D4ED167A 		flds	s15, [r4, #88]
+ 474 027a 20EE000A 		fmuls	s0, s0, s0
+ 475 027e A7EE070A 		vfma.f32	s0, s14, s14
+ 476 0282 A7EEA70A 		vfma.f32	s0, s15, s15
+ 477 0286 FFF7FEFF 		bl	sqrtf
+ 478              	.LVL32:
  147:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  148:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//printf("%3.1f %3.1f %3.1f %3.1f\n", IMU->accel_vector[0], IMU->accel_vector[1], IMU->accel_vecto
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//printf(" %3.1f ", error_absolute);
@@ -639,87 +654,89 @@
  158:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	}
  159:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	*/
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&IMU->kp_vector_ACC[0], &IMU->error_rollpitch[0], (IMU->kp+(IMU->kp*error_absolute)));
- 468              		.loc 1 160 0
- 469 0288 D4ED137A 		flds	s15, [r4, #76]
- 470 028c 47EE807A 		fmacs	s15, s15, s0
- 471 0290 04F16000 		add	r0, r4, #96
- 472 0294 2946     		mov	r1, r5
- 473 0296 B0EE670A 		fcpys	s0, s15
- 474              	.LVL30:
+ 479              		.loc 1 160 0
+ 480 028a D4ED137A 		flds	s15, [r4, #76]
+ 481 028e E7EE807A 		vfma.f32	s15, s15, s0
+ 482 0292 04F16000 		add	r0, r4, #96
+ 483 0296 2946     		mov	r1, r5
  161:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//printf("%f\n", (IMU->kp+(IMU->kp*error_absolute)));
  162:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 475              		.loc 1 162 0
- 476 029a BDE83840 		pop	{r3, r4, r5, lr}
+ 484              		.loc 1 162 0
+ 485 0298 BDE83840 		pop	{r3, r4, r5, lr}
+ 486              	.LVL33:
  160:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&IMU->kp_vector_ACC[0], &IMU->error_rollpitch[0], (IMU->kp+(IMU->kp*error_absolute)));
- 477              		.loc 1 160 0
- 478 029e FFF7FEBF 		b	VectorScale
- 479              	.LVL31:
- 480              		.cfi_endproc
- 481              	.LFE5:
- 483              		.align	1
- 484              		.global	IMU_drift_correction_MAG
- 485              		.thumb
- 486              		.thumb_func
- 488              	IMU_drift_correction_MAG:
- 489              	.LFB6:
+ 487              		.loc 1 160 0
+ 488 029c B0EE670A 		fcpys	s0, s15
+ 489              	.LVL34:
+ 490 02a0 FFF7FEBF 		b	VectorScale
+ 491              	.LVL35:
+ 492              		.cfi_endproc
+ 493              	.LFE5:
+ 495              		.align	1
+ 496              		.global	IMU_drift_correction_MAG
+ 497              		.thumb
+ 498              		.thumb_func
+ 500              	IMU_drift_correction_MAG:
+ 501              	.LFB6:
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! yaw Drift-Correction with Magnetometer
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_drift_correction_MAG(struct IMU_values *IMU)
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 490              		.loc 1 167 0
- 491              		.cfi_startproc
- 492              		@ args = 0, pretend = 0, frame = 0
- 493              		@ frame_needed = 0, uses_anonymous_args = 0
- 494              	.LVL32:
+ 502              		.loc 1 167 0
+ 503              		.cfi_startproc
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 506              	.LVL36:
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	float normfactor;
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//float error_absolute;
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	normfactor = sqrtf((IMU->mag_vector[0]*IMU->mag_vector[0]) + (IMU->mag_vector[1]*IMU->mag_vector[1
- 495              		.loc 1 171 0
- 496 02a2 90ED110A 		flds	s0, [r0, #68]
- 497 02a6 90ED107A 		flds	s14, [r0, #64]
- 498 02aa 20EE000A 		fmuls	s0, s0, s0
- 499 02ae 07EE070A 		fmacs	s0, s14, s14
- 500 02b2 D0ED127A 		flds	s15, [r0, #72]
- 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 501              		.loc 1 167 0
- 502 02b6 10B5     		push	{r4, lr}
- 503              	.LCFI6:
- 504              		.cfi_def_cfa_offset 8
- 505              		.cfi_offset 4, -8
- 506              		.cfi_offset 14, -4
  507              		.loc 1 171 0
- 508 02b8 07EEA70A 		fmacs	s0, s15, s15
+ 508 02a4 90ED110A 		flds	s0, [r0, #68]
+ 509 02a8 90ED107A 		flds	s14, [r0, #64]
+ 510 02ac D0ED127A 		flds	s15, [r0, #72]
+ 511 02b0 20EE000A 		fmuls	s0, s0, s0
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 509              		.loc 1 167 0
- 510 02bc 0446     		mov	r4, r0
- 511              		.loc 1 171 0
- 512 02be FFF7FEFF 		bl	sqrtf
- 513              	.LVL33:
+ 512              		.loc 1 167 0
+ 513 02b4 10B5     		push	{r4, lr}
+ 514              	.LCFI6:
+ 515              		.cfi_def_cfa_offset 8
+ 516              		.cfi_offset 4, -8
+ 517              		.cfi_offset 14, -4
+ 518              		.loc 1 171 0
+ 519 02b6 A7EE070A 		vfma.f32	s0, s14, s14
+ 167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
+ 520              		.loc 1 167 0
+ 521 02ba 0446     		mov	r4, r0
+ 522              		.loc 1 171 0
+ 523 02bc A7EEA70A 		vfma.f32	s0, s15, s15
+ 524 02c0 FFF7FEFF 		bl	sqrtf
+ 525              	.LVL37:
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	if(normfactor != 0)
- 514              		.loc 1 173 0
- 515 02c2 B5EE400A 		fcmpzs	s0
- 516 02c6 F1EE10FA 		fmstat
- 517 02ca 11D0     		beq	.L9
+ 526              		.loc 1 173 0
+ 527 02c4 B5EE400A 		fcmpzs	s0
+ 528 02c8 F1EE10FA 		fmstat
+ 529 02cc 11D0     		beq	.L10
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	{
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->mag_vector[0] = IMU->mag_vector[0]/normfactor;
- 518              		.loc 1 175 0
- 519 02cc D4ED107A 		flds	s15, [r4, #64]
- 520 02d0 C7EE807A 		fdivs	s15, s15, s0
- 521 02d4 C4ED107A 		fsts	s15, [r4, #64]
+ 530              		.loc 1 175 0
+ 531 02ce D4ED107A 		flds	s15, [r4, #64]
+ 532 02d2 C7EE807A 		fdivs	s15, s15, s0
+ 533 02d6 C4ED107A 		fsts	s15, [r4, #64]
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->mag_vector[1] = IMU->mag_vector[1]/normfactor;
- 522              		.loc 1 176 0
- 523 02d8 D4ED117A 		flds	s15, [r4, #68]
- 524 02dc C7EE807A 		fdivs	s15, s15, s0
- 525 02e0 C4ED117A 		fsts	s15, [r4, #68]
+ 534              		.loc 1 176 0
+ 535 02da D4ED117A 		flds	s15, [r4, #68]
+ 536 02de C7EE807A 		fdivs	s15, s15, s0
+ 537 02e2 C4ED117A 		fsts	s15, [r4, #68]
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 		IMU->mag_vector[2] = IMU->mag_vector[2]/normfactor;
- 526              		.loc 1 177 0
- 527 02e4 D4ED127A 		flds	s15, [r4, #72]
- 528 02e8 C7EE807A 		fdivs	s15, s15, s0
- 529 02ec C4ED127A 		fsts	s15, [r4, #72]
- 530              	.L9:
+ 538              		.loc 1 177 0
+ 539 02e6 D4ED127A 		flds	s15, [r4, #72]
+ 540 02ea 87EE800A 		fdivs	s0, s15, s0
+ 541              	.LVL38:
+ 542 02ee 84ED120A 		fsts	s0, [r4, #72]
+ 543              	.L10:
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	}
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Calc the error between the gyrobased calculations and the vector of the accelerometer,
@@ -727,351 +744,365 @@
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//VectorCrossProduct(&IMU->error_yaw[0], &IMU->dcm_xe_line[0], &IMU->mag_vector[0]);
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->error_yaw = (IMU->dcm_xe_line[0]*IMU->mag_vector[1]) - (IMU->dcm_ye_line[0]*IMU->mag_vector[0
- 531              		.loc 1 184 0
- 532 02f0 94ED046A 		flds	s12, [r4, #16]
- 533 02f4 D4ED107A 		flds	s15, [r4, #64]
- 534 02f8 D4ED016A 		flds	s13, [r4, #4]
- 535 02fc 94ED117A 		flds	s14, [r4, #68]
- 536 0300 66EE277A 		fmuls	s15, s12, s15
- 537 0304 56EE877A 		fmscs	s15, s13, s14
- 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&IMU->kp_vector_MAG[0], &IMU->dcm_ze_line[0], (IMU->kp*IMU->error_yaw));
- 538              		.loc 1 185 0
- 539 0308 94ED130A 		flds	s0, [r4, #76]
- 540              	.LVL34:
- 541 030c 27EE800A 		fmuls	s0, s15, s0
- 542 0310 04F16C00 		add	r0, r4, #108
- 543 0314 04F11C01 		add	r1, r4, #28
- 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->error_yaw = (IMU->dcm_xe_line[0]*IMU->mag_vector[1]) - (IMU->dcm_ye_line[0]*IMU->mag_vector[0
  544              		.loc 1 184 0
- 545 0318 C4ED177A 		fsts	s15, [r4, #92]
+ 545 02f2 94ED107A 		flds	s14, [r4, #64]
+ 546 02f6 D4ED047A 		flds	s15, [r4, #16]
+ 547 02fa D4ED016A 		flds	s13, [r4, #4]
+ 185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&IMU->kp_vector_MAG[0], &IMU->dcm_ze_line[0], (IMU->kp*IMU->error_yaw));
+ 548              		.loc 1 185 0
+ 549 02fe 94ED130A 		flds	s0, [r4, #76]
+ 550 0302 67EE677A 		fnmuls	s15, s14, s15
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->error_yaw = (IMU->dcm_xe_line[0]*IMU->mag_vector[1]) - (IMU->dcm_ye_line[0]*IMU->mag_vector[0
+ 551              		.loc 1 184 0
+ 552 0306 94ED117A 		flds	s14, [r4, #68]
+ 553 030a E6EE877A 		vfma.f32	s15, s13, s14
+ 554              		.loc 1 185 0
+ 555 030e 04F16C00 		add	r0, r4, #108
+ 556 0312 04F11C01 		add	r1, r4, #28
+ 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->error_yaw = (IMU->dcm_xe_line[0]*IMU->mag_vector[1]) - (IMU->dcm_ye_line[0]*IMU->mag_vector[0
+ 557              		.loc 1 184 0
+ 558 0316 C4ED177A 		fsts	s15, [r4, #92]
+ 559              		.loc 1 185 0
+ 560 031a 27EE800A 		fmuls	s0, s15, s0
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//VectorScale(&IMU->kp_vector_MAG[0], &IMU->error_yaw[0], IMU->kp);
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//printf("%f\n", (IMU->kp+(IMU->kp*error_absolute)));
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 546              		.loc 1 188 0
- 547 031c BDE81040 		pop	{r4, lr}
+ 561              		.loc 1 188 0
+ 562 031e BDE81040 		pop	{r4, lr}
+ 563              	.LVL39:
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	VectorScale(&IMU->kp_vector_MAG[0], &IMU->dcm_ze_line[0], (IMU->kp*IMU->error_yaw));
- 548              		.loc 1 185 0
- 549 0320 FFF7FEBF 		b	VectorScale
- 550              	.LVL35:
- 551              		.cfi_endproc
- 552              	.LFE6:
- 554              		.align	1
- 555              		.global	IMU_DCM_to_Euler_deg
- 556              		.thumb
- 557              		.thumb_func
- 559              	IMU_DCM_to_Euler_deg:
- 560              	.LFB7:
+ 564              		.loc 1 185 0
+ 565 0322 FFF7FEBF 		b	VectorScale
+ 566              	.LVL40:
+ 567              		.cfi_endproc
+ 568              	.LFE6:
+ 570              		.align	1
+ 571              		.global	IMU_DCM_to_Euler_deg
+ 572              		.thumb
+ 573              		.thumb_func
+ 575              	IMU_DCM_to_Euler_deg:
+ 576              	.LFB7:
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! DCM to EULER Angles
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_DCM_to_Euler_deg(struct IMU_values* IMU, struct EULER_angles *euler)
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 561              		.loc 1 193 0
- 562              		.cfi_startproc
- 563              		@ args = 0, pretend = 0, frame = 0
- 564              		@ frame_needed = 0, uses_anonymous_args = 0
- 565              	.LVL36:
- 566 0324 38B5     		push	{r3, r4, r5, lr}
- 567              	.LCFI7:
- 568              		.cfi_def_cfa_offset 16
- 569              		.cfi_offset 3, -16
- 570              		.cfi_offset 4, -12
- 571              		.cfi_offset 5, -8
- 572              		.cfi_offset 14, -4
+ 577              		.loc 1 193 0
+ 578              		.cfi_startproc
+ 579              		@ args = 0, pretend = 0, frame = 0
+ 580              		@ frame_needed = 0, uses_anonymous_args = 0
+ 581              	.LVL41:
+ 582 0326 38B5     		push	{r3, r4, r5, lr}
+ 583              	.LCFI7:
+ 584              		.cfi_def_cfa_offset 16
+ 585              		.cfi_offset 3, -16
+ 586              		.cfi_offset 4, -12
+ 587              		.cfi_offset 5, -8
+ 588              		.cfi_offset 14, -4
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->pitch = (asinf(-IMU->dcm_ze_line[0]))*(180/M_PI);
- 573              		.loc 1 194 0
- 574 0326 90ED070A 		flds	s0, [r0, #28]
+ 589              		.loc 1 194 0
+ 590 0328 90ED070A 		flds	s0, [r0, #28]
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 575              		.loc 1 193 0
- 576 032a 2DED028B 		fstmfdd	sp!, {d8}
- 577              	.LCFI8:
- 578              		.cfi_def_cfa_offset 24
- 579              		.cfi_offset 80, -24
- 580              		.loc 1 194 0
- 581 032e B1EE400A 		fnegs	s0, s0
+ 591              		.loc 1 193 0
+ 592 032c 2DED028B 		fstmfdd	sp!, {d8}
+ 593              	.LCFI8:
+ 594              		.cfi_def_cfa_offset 24
+ 595              		.cfi_offset 80, -24
+ 596              		.loc 1 194 0
+ 597 0330 B1EE400A 		fnegs	s0, s0
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 582              		.loc 1 193 0
- 583 0332 0446     		mov	r4, r0
- 584 0334 0D46     		mov	r5, r1
- 585              		.loc 1 194 0
- 586 0336 FFF7FEFF 		bl	asinf
- 587              	.LVL37:
- 588 033a 9FED0E8A 		flds	s16, .L11
- 589 033e 20EE080A 		fmuls	s0, s0, s16
+ 598              		.loc 1 193 0
+ 599 0334 0446     		mov	r4, r0
+ 600 0336 0D46     		mov	r5, r1
+ 601              		.loc 1 194 0
+ 602 0338 FFF7FEFF 		bl	asinf
+ 603              	.LVL42:
+ 604 033c 9FED0E8A 		flds	s16, .L12
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->roll = (atan2f(IMU->dcm_ze_line[1],IMU->dcm_ze_line[2]))*(180/M_PI);
- 590              		.loc 1 195 0
- 591 0342 D4ED090A 		flds	s1, [r4, #36]
+ 605              		.loc 1 195 0
+ 606 0340 D4ED090A 		flds	s1, [r4, #36]
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->pitch = (asinf(-IMU->dcm_ze_line[0]))*(180/M_PI);
- 592              		.loc 1 194 0
- 593 0346 85ED010A 		fsts	s0, [r5, #4]
- 594              		.loc 1 195 0
- 595 034a 94ED080A 		flds	s0, [r4, #32]
- 596 034e FFF7FEFF 		bl	atan2f
- 597              	.LVL38:
- 598 0352 20EE080A 		fmuls	s0, s0, s16
+ 607              		.loc 1 194 0
+ 608 0344 20EE080A 		fmuls	s0, s0, s16
+ 609 0348 85ED010A 		fsts	s0, [r5, #4]
+ 610              		.loc 1 195 0
+ 611 034c 94ED080A 		flds	s0, [r4, #32]
+ 612 0350 FFF7FEFF 		bl	atan2f
+ 613              	.LVL43:
+ 614 0354 20EE080A 		fmuls	s0, s0, s16
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->yaw = (atan2f(IMU->dcm_ye_line[0],IMU->dcm_xe_line[0]))*(180/M_PI);
- 599              		.loc 1 196 0
- 600 0356 D4ED010A 		flds	s1, [r4, #4]
+ 615              		.loc 1 196 0
+ 616 0358 D4ED010A 		flds	s1, [r4, #4]
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->roll = (atan2f(IMU->dcm_ze_line[1],IMU->dcm_ze_line[2]))*(180/M_PI);
- 601              		.loc 1 195 0
- 602 035a 85ED000A 		fsts	s0, [r5, #0]
- 603              		.loc 1 196 0
- 604 035e 94ED040A 		flds	s0, [r4, #16]
- 605 0362 FFF7FEFF 		bl	atan2f
- 606              	.LVL39:
- 607 0366 20EE080A 		fmuls	s0, s0, s16
- 608 036a 85ED020A 		fsts	s0, [r5, #8]
+ 617              		.loc 1 195 0
+ 618 035c 85ED000A 		fsts	s0, [r5]
+ 619              		.loc 1 196 0
+ 620 0360 94ED040A 		flds	s0, [r4, #16]
+ 621 0364 FFF7FEFF 		bl	atan2f
+ 622              	.LVL44:
+ 623 0368 20EE080A 		fmuls	s0, s0, s16
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	//printf("%3.1f  %3.1f  %3.1f\n", roll*(180/M_PI), pitch*(180/M_PI), yaw*(180/M_PI));
  198:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 609              		.loc 1 198 0
- 610 036e BDEC028B 		fldmfdd	sp!, {d8}
- 611 0372 38BD     		pop	{r3, r4, r5, pc}
- 612              	.L12:
- 613              		.align	2
- 614              	.L11:
- 615 0374 E02E6542 		.word	1113927392
- 616              		.cfi_endproc
- 617              	.LFE7:
- 619              		.align	1
- 620              		.global	IMU_Euler_to_DCM
- 621              		.thumb
- 622              		.thumb_func
- 624              	IMU_Euler_to_DCM:
- 625              	.LFB8:
+ 624              		.loc 1 198 0
+ 625 036c BDEC028B 		fldmfdd	sp!, {d8}
+ 196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	euler->yaw = (atan2f(IMU->dcm_ye_line[0],IMU->dcm_xe_line[0]))*(180/M_PI);
+ 626              		.loc 1 196 0
+ 627 0370 85ED020A 		fsts	s0, [r5, #8]
+ 628              		.loc 1 198 0
+ 629 0374 38BD     		pop	{r3, r4, r5, pc}
+ 630              	.LVL45:
+ 631              	.L13:
+ 632 0376 00BF     		.align	2
+ 633              	.L12:
+ 634 0378 E02E6542 		.word	1113927392
+ 635              		.cfi_endproc
+ 636              	.LFE7:
+ 638              		.align	1
+ 639              		.global	IMU_Euler_to_DCM
+ 640              		.thumb
+ 641              		.thumb_func
+ 643              	IMU_Euler_to_DCM:
+ 644              	.LFB8:
  199:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  200:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! EULER Angles to DCM
  201:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_Euler_to_DCM(struct IMU_values* IMU, struct EULER_angles *euler)
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 626              		.loc 1 202 0
- 627              		.cfi_startproc
- 628              		@ args = 0, pretend = 0, frame = 0
- 629              		@ frame_needed = 0, uses_anonymous_args = 0
- 630              	.LVL40:
- 631 0378 38B5     		push	{r3, r4, r5, lr}
- 632              	.LCFI9:
- 633              		.cfi_def_cfa_offset 16
- 634              		.cfi_offset 3, -16
- 635              		.cfi_offset 4, -12
- 636              		.cfi_offset 5, -8
- 637              		.cfi_offset 14, -4
- 638 037a 2DED088B 		fstmfdd	sp!, {d8, d9, d10, d11}
- 639              	.LCFI10:
- 640              		.cfi_def_cfa_offset 48
- 641              		.cfi_offset 80, -48
- 642              		.cfi_offset 82, -40
- 643              		.cfi_offset 84, -32
- 644              		.cfi_offset 86, -24
+ 645              		.loc 1 202 0
+ 646              		.cfi_startproc
+ 647              		@ args = 0, pretend = 0, frame = 0
+ 648              		@ frame_needed = 0, uses_anonymous_args = 0
+ 649              	.LVL46:
+ 650 037c 38B5     		push	{r3, r4, r5, lr}
+ 651              	.LCFI9:
+ 652              		.cfi_def_cfa_offset 16
+ 653              		.cfi_offset 3, -16
+ 654              		.cfi_offset 4, -12
+ 655              		.cfi_offset 5, -8
+ 656              		.cfi_offset 14, -4
+ 657 037e 2DED088B 		fstmfdd	sp!, {d8, d9, d10, d11}
+ 658              	.LCFI10:
+ 659              		.cfi_def_cfa_offset 48
+ 660              		.cfi_offset 80, -48
+ 661              		.cfi_offset 82, -40
+ 662              		.cfi_offset 84, -32
+ 663              		.cfi_offset 86, -24
  203:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*First line DCM Matrix*/
  204:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[0] = cosf(euler->pitch)*cosf(euler->yaw);
- 645              		.loc 1 204 0
- 646 037e 91ED01AA 		flds	s20, [r1, #4]
- 647 0382 B0EE4A0A 		fcpys	s0, s20
+ 664              		.loc 1 204 0
+ 665 0382 91ED01AA 		flds	s20, [r1, #4]
+ 666 0386 B0EE4A0A 		fcpys	s0, s20
  202:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 648              		.loc 1 202 0
- 649 0386 0446     		mov	r4, r0
- 650 0388 0D46     		mov	r5, r1
- 651              		.loc 1 204 0
- 652 038a FFF7FEFF 		bl	cosf
- 653              	.LVL41:
- 654 038e 95ED029A 		flds	s18, [r5, #8]
- 655 0392 F0EE408A 		fcpys	s17, s0
- 656 0396 B0EE490A 		fcpys	s0, s18
- 657 039a FFF7FEFF 		bl	cosf
- 658              	.LVL42:
- 659 039e 68EE807A 		fmuls	s15, s17, s0
- 660 03a2 B0EE408A 		fcpys	s16, s0
- 661 03a6 C4ED017A 		fsts	s15, [r4, #4]
+ 667              		.loc 1 202 0
+ 668 038a 0446     		mov	r4, r0
+ 669 038c 0D46     		mov	r5, r1
+ 670              		.loc 1 204 0
+ 671 038e FFF7FEFF 		bl	cosf
+ 672              	.LVL47:
+ 673 0392 95ED029A 		flds	s18, [r5, #8]
+ 674 0396 F0EE408A 		fcpys	s17, s0
+ 675 039a B0EE490A 		fcpys	s0, s18
+ 676 039e FFF7FEFF 		bl	cosf
+ 677              	.LVL48:
+ 678 03a2 68EE807A 		fmuls	s15, s17, s0
+ 679 03a6 B0EE408A 		fcpys	s16, s0
+ 680 03aa C4ED017A 		fsts	s15, [r4, #4]
  205:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[1] = (cosf(euler->pitch)*sinf(euler->yaw))+(sinf(euler->roll)*sinf(euler->pitch)*
- 662              		.loc 1 205 0
- 663 03aa B0EE490A 		fcpys	s0, s18
- 664 03ae FFF7FEFF 		bl	sinf
- 665              	.LVL43:
- 666 03b2 D5ED00BA 		flds	s23, [r5, #0]
- 667 03b6 F0EE409A 		fcpys	s19, s0
- 668 03ba 28EE80BA 		fmuls	s22, s17, s0
- 669 03be B0EE6B0A 		fcpys	s0, s23
- 670 03c2 FFF7FEFF 		bl	sinf
- 671              	.LVL44:
- 672 03c6 B0EE409A 		fcpys	s18, s0
- 673 03ca B0EE4A0A 		fcpys	s0, s20
- 674 03ce FFF7FEFF 		bl	sinf
- 675              	.LVL45:
- 676 03d2 69EE00AA 		fmuls	s21, s18, s0
- 677 03d6 F0EE4B7A 		fcpys	s15, s22
- 678 03da 4AEE887A 		fmacs	s15, s21, s16
- 679 03de B0EE40AA 		fcpys	s20, s0
- 680 03e2 C4ED027A 		fsts	s15, [r4, #8]
+ 681              		.loc 1 205 0
+ 682 03ae B0EE490A 		fcpys	s0, s18
+ 683 03b2 FFF7FEFF 		bl	sinf
+ 684              	.LVL49:
+ 685 03b6 D5ED00BA 		flds	s23, [r5]
+ 686 03ba F0EE409A 		fcpys	s19, s0
+ 687 03be 28EE80BA 		fmuls	s22, s17, s0
+ 688 03c2 B0EE6B0A 		fcpys	s0, s23
+ 689 03c6 FFF7FEFF 		bl	sinf
+ 690              	.LVL50:
+ 691 03ca B0EE409A 		fcpys	s18, s0
+ 692 03ce B0EE4A0A 		fcpys	s0, s20
+ 693 03d2 FFF7FEFF 		bl	sinf
+ 694              	.LVL51:
+ 695 03d6 69EE00AA 		fmuls	s21, s18, s0
+ 696 03da F0EE4B7A 		fcpys	s15, s22
+ 697 03de EAEE887A 		vfma.f32	s15, s21, s16
+ 698 03e2 B0EE40AA 		fcpys	s20, s0
+ 699 03e6 C4ED027A 		fsts	s15, [r4, #8]
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = (sinf(euler->roll)*sinf(euler->yaw))-(cosf(euler->roll)*sinf(euler->pitch)*c
- 681              		.loc 1 206 0
- 682 03e6 B0EE6B0A 		fcpys	s0, s23
- 683 03ea FFF7FEFF 		bl	cosf
- 684              	.LVL46:
- 685 03ee 60EE0A6A 		fmuls	s13, s0, s20
+ 700              		.loc 1 206 0
+ 701 03ea B0EE6B0A 		fcpys	s0, s23
+ 702 03ee FFF7FEFF 		bl	cosf
+ 703              	.LVL52:
+ 704 03f2 60EE0A6A 		fmuls	s13, s0, s20
+ 705 03f6 69EEEA7A 		fnmuls	s15, s19, s21
+ 706 03fa 28EE667A 		fnmuls	s14, s16, s13
  207:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  208:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Second line DCM Matrix*/
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[0] = -(cosf(euler->pitch)*sinf(euler->yaw));
- 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = (cosf(euler->roll)*cosf(euler->yaw))-(sinf(euler->roll)*sinf(euler->pitch)*s
- 686              		.loc 1 210 0
- 687 03f2 6AEEA97A 		fmuls	s15, s21, s19
+ 707              		.loc 1 209 0
+ 708 03fe B1EE4BBA 		fnegs	s22, s22
  206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = (sinf(euler->roll)*sinf(euler->yaw))-(cosf(euler->roll)*sinf(euler->pitch)*c
- 688              		.loc 1 206 0
- 689 03f6 26EE887A 		fmuls	s14, s13, s16
- 690 03fa 19EE297A 		fmscs	s14, s18, s19
- 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = (sinf(euler->roll)*cosf(euler->yaw)) + (cosf(euler->roll)*sinf(euler->pitch)
- 691              		.loc 1 211 0
- 692 03fe 66EEA99A 		fmuls	s19, s13, s19
- 693 0402 49EE089A 		fmacs	s19, s18, s16
+ 709              		.loc 1 206 0
+ 710 0402 A9EE297A 		vfma.f32	s14, s18, s19
  210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = (cosf(euler->roll)*cosf(euler->yaw))-(sinf(euler->roll)*sinf(euler->pitch)*s
- 694              		.loc 1 210 0
- 695 0406 50EE087A 		fmscs	s15, s0, s16
+ 211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = (sinf(euler->roll)*cosf(euler->yaw)) + (cosf(euler->roll)*sinf(euler->pitch)
+ 711              		.loc 1 211 0
+ 712 0406 66EEA99A 		fmuls	s19, s13, s19
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = (cosf(euler->roll)*cosf(euler->yaw))-(sinf(euler->roll)*sinf(euler->pitch)*s
+ 713              		.loc 1 210 0
+ 714 040a E0EE087A 		vfma.f32	s15, s0, s16
+ 715              		.loc 1 211 0
+ 716 040e E9EE089A 		vfma.f32	s19, s18, s16
  212:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  213:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	/*Third line DCM Matrix*/
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[0] = sinf(euler->pitch);
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[1] = -sinf(euler->roll)*cosf(euler->pitch);
- 696              		.loc 1 215 0
- 697 040a 29EE689A 		fnmuls	s18, s18, s17
+ 717              		.loc 1 215 0
+ 718 0412 29EE689A 		fnmuls	s18, s18, s17
  216:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[2] = cosf(euler->roll)*cosf(euler->pitch);
- 698              		.loc 1 216 0
- 699 040e 60EE288A 		fmuls	s17, s0, s17
+ 719              		.loc 1 216 0
+ 720 0416 60EE288A 		fmuls	s17, s0, s17
  209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[0] = -(cosf(euler->pitch)*sinf(euler->yaw));
- 700              		.loc 1 209 0
- 701 0412 B1EE4BBA 		fnegs	s22, s22
- 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = (sinf(euler->roll)*sinf(euler->yaw))-(cosf(euler->roll)*sinf(euler->pitch)*c
- 702              		.loc 1 206 0
- 703 0416 84ED037A 		fsts	s14, [r4, #12]
- 209:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[0] = -(cosf(euler->pitch)*sinf(euler->yaw));
- 704              		.loc 1 209 0
- 705 041a 84ED04BA 		fsts	s22, [r4, #16]
- 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = (cosf(euler->roll)*cosf(euler->yaw))-(sinf(euler->roll)*sinf(euler->pitch)*s
- 706              		.loc 1 210 0
- 707 041e C4ED057A 		fsts	s15, [r4, #20]
+ 721              		.loc 1 209 0
+ 722 041a 84ED04BA 		fsts	s22, [r4, #16]
  211:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[2] = (sinf(euler->roll)*cosf(euler->yaw)) + (cosf(euler->roll)*sinf(euler->pitch)
- 708              		.loc 1 211 0
- 709 0422 C4ED069A 		fsts	s19, [r4, #24]
+ 723              		.loc 1 211 0
+ 724 041e C4ED069A 		fsts	s19, [r4, #24]
  214:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[0] = sinf(euler->pitch);
- 710              		.loc 1 214 0
- 711 0426 84ED07AA 		fsts	s20, [r4, #28]
+ 725              		.loc 1 214 0
+ 726 0422 84ED07AA 		fsts	s20, [r4, #28]
  215:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ze_line[1] = -sinf(euler->roll)*cosf(euler->pitch);
- 712              		.loc 1 215 0
- 713 042a 84ED089A 		fsts	s18, [r4, #32]
- 714              		.loc 1 216 0
- 715 042e C4ED098A 		fsts	s17, [r4, #36]
+ 727              		.loc 1 215 0
+ 728 0426 84ED089A 		fsts	s18, [r4, #32]
+ 729              		.loc 1 216 0
+ 730 042a C4ED098A 		fsts	s17, [r4, #36]
  217:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 716              		.loc 1 217 0
- 717 0432 BDEC088B 		fldmfdd	sp!, {d8, d9, d10, d11}
- 718 0436 38BD     		pop	{r3, r4, r5, pc}
- 719              		.cfi_endproc
- 720              	.LFE8:
- 722              		.align	1
- 723              		.global	IMU_DCM_to_XYZ
- 724              		.thumb
- 725              		.thumb_func
- 727              	IMU_DCM_to_XYZ:
- 728              	.LFB9:
+ 731              		.loc 1 217 0
+ 732 042e BDEC088B 		fldmfdd	sp!, {d8-d11}
+ 206:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_xe_line[2] = (sinf(euler->roll)*sinf(euler->yaw))-(cosf(euler->roll)*sinf(euler->pitch)*c
+ 733              		.loc 1 206 0
+ 734 0432 84ED037A 		fsts	s14, [r4, #12]
+ 210:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	IMU->dcm_ye_line[1] = (cosf(euler->roll)*cosf(euler->yaw))-(sinf(euler->roll)*sinf(euler->pitch)*s
+ 735              		.loc 1 210 0
+ 736 0436 C4ED057A 		fsts	s15, [r4, #20]
+ 737              		.loc 1 217 0
+ 738 043a 38BD     		pop	{r3, r4, r5, pc}
+ 739              		.cfi_endproc
+ 740              	.LFE8:
+ 742              		.align	1
+ 743              		.global	IMU_DCM_to_XYZ
+ 744              		.thumb
+ 745              		.thumb_func
+ 747              	IMU_DCM_to_XYZ:
+ 748              	.LFB9:
  218:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 
  219:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** //! DCM to kartesic coordinates
  220:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** void IMU_DCM_to_XYZ(struct IMU_values* IMU, struct XYZ_angles *XYZ)
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 729              		.loc 1 221 0
- 730              		.cfi_startproc
- 731              		@ args = 0, pretend = 0, frame = 0
- 732              		@ frame_needed = 0, uses_anonymous_args = 0
- 733              	.LVL47:
- 734 0438 38B5     		push	{r3, r4, r5, lr}
- 735              	.LCFI11:
- 736              		.cfi_def_cfa_offset 16
- 737              		.cfi_offset 3, -16
- 738              		.cfi_offset 4, -12
- 739              		.cfi_offset 5, -8
- 740              		.cfi_offset 14, -4
+ 749              		.loc 1 221 0
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 0
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753              	.LVL53:
+ 754 043c 38B5     		push	{r3, r4, r5, lr}
+ 755              	.LCFI11:
+ 756              		.cfi_def_cfa_offset 16
+ 757              		.cfi_offset 3, -16
+ 758              		.cfi_offset 4, -12
+ 759              		.cfi_offset 5, -8
+ 760              		.cfi_offset 14, -4
  222:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	XYZ->x = asinf(-IMU->dcm_ze_line[0])*(180/M_PI);
- 741              		.loc 1 222 0
- 742 043a 90ED070A 		flds	s0, [r0, #28]
+ 761              		.loc 1 222 0
+ 762 043e 90ED070A 		flds	s0, [r0, #28]
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 743              		.loc 1 221 0
- 744 043e 2DED028B 		fstmfdd	sp!, {d8}
- 745              	.LCFI12:
- 746              		.cfi_def_cfa_offset 24
- 747              		.cfi_offset 80, -24
- 748              		.loc 1 222 0
- 749 0442 B1EE400A 		fnegs	s0, s0
+ 763              		.loc 1 221 0
+ 764 0442 2DED028B 		fstmfdd	sp!, {d8}
+ 765              	.LCFI12:
+ 766              		.cfi_def_cfa_offset 24
+ 767              		.cfi_offset 80, -24
+ 768              		.loc 1 222 0
+ 769 0446 B1EE400A 		fnegs	s0, s0
  221:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** {
- 750              		.loc 1 221 0
- 751 0446 0446     		mov	r4, r0
- 752 0448 0D46     		mov	r5, r1
- 753              		.loc 1 222 0
- 754 044a FFF7FEFF 		bl	asinf
- 755              	.LVL48:
- 756 044e 9FED0D8A 		flds	s16, .L15
- 757 0452 20EE080A 		fmuls	s0, s0, s16
- 758 0456 85ED000A 		fsts	s0, [r5, #0]
+ 770              		.loc 1 221 0
+ 771 044a 0446     		mov	r4, r0
+ 772 044c 0D46     		mov	r5, r1
+ 773              		.loc 1 222 0
+ 774 044e FFF7FEFF 		bl	asinf
+ 775              	.LVL54:
+ 776 0452 9FED0D8A 		flds	s16, .L16
+ 777 0456 20EE080A 		fmuls	s0, s0, s16
+ 778 045a 85ED000A 		fsts	s0, [r5]
  223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	XYZ->y = asinf(IMU->dcm_ze_line[1])*(180/M_PI);
- 759              		.loc 1 223 0
- 760 045a 94ED080A 		flds	s0, [r4, #32]
- 761 045e FFF7FEFF 		bl	asinf
- 762              	.LVL49:
- 763 0462 20EE080A 		fmuls	s0, s0, s16
+ 779              		.loc 1 223 0
+ 780 045e 94ED080A 		flds	s0, [r4, #32]
+ 781 0462 FFF7FEFF 		bl	asinf
+ 782              	.LVL55:
+ 783 0466 20EE080A 		fmuls	s0, s0, s16
  224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	XYZ->z = (atan2f(IMU->dcm_ye_line[0],IMU->dcm_xe_line[0]))*(180/M_PI);
- 764              		.loc 1 224 0
- 765 0466 D4ED010A 		flds	s1, [r4, #4]
+ 784              		.loc 1 224 0
+ 785 046a D4ED010A 		flds	s1, [r4, #4]
  223:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	XYZ->y = asinf(IMU->dcm_ze_line[1])*(180/M_PI);
- 766              		.loc 1 223 0
- 767 046a 85ED010A 		fsts	s0, [r5, #4]
- 768              		.loc 1 224 0
- 769 046e 94ED040A 		flds	s0, [r4, #16]
- 770 0472 FFF7FEFF 		bl	atan2f
- 771              	.LVL50:
- 772 0476 20EE080A 		fmuls	s0, s0, s16
- 773 047a 85ED020A 		fsts	s0, [r5, #8]
+ 786              		.loc 1 223 0
+ 787 046e 85ED010A 		fsts	s0, [r5, #4]
+ 788              		.loc 1 224 0
+ 789 0472 94ED040A 		flds	s0, [r4, #16]
+ 790 0476 FFF7FEFF 		bl	atan2f
+ 791              	.LVL56:
+ 792 047a 20EE080A 		fmuls	s0, s0, s16
  225:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** }
- 774              		.loc 1 225 0
- 775 047e BDEC028B 		fldmfdd	sp!, {d8}
- 776 0482 38BD     		pop	{r3, r4, r5, pc}
- 777              	.L16:
- 778              		.align	2
- 779              	.L15:
- 780 0484 E02E6542 		.word	1113927392
- 781              		.cfi_endproc
- 782              	.LFE9:
- 784              	.Letext0:
- 785              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
- 786              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Vector_math.h"
- 787              		.file 4 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 793              		.loc 1 225 0
+ 794 047e BDEC028B 		fldmfdd	sp!, {d8}
+ 224:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/IMU_algorithm.c **** 	XYZ->z = (atan2f(IMU->dcm_ye_line[0],IMU->dcm_xe_line[0]))*(180/M_PI);
+ 795              		.loc 1 224 0
+ 796 0482 85ED020A 		fsts	s0, [r5, #8]
+ 797              		.loc 1 225 0
+ 798 0486 38BD     		pop	{r3, r4, r5, pc}
+ 799              	.LVL57:
+ 800              	.L17:
+ 801              		.align	2
+ 802              	.L16:
+ 803 0488 E02E6542 		.word	1113927392
+ 804              		.cfi_endproc
+ 805              	.LFE9:
+ 807              	.Letext0:
+ 808              		.file 2 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+ 809              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/Vector_math.h"
+ 810              		.file 4 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/math.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 IMU_algorithm.c
-     /tmp/cckLKf5t.s:20     .text:00000000 $t
-     /tmp/cckLKf5t.s:25     .text:00000000 IMU_init
-     /tmp/cckLKf5t.s:73     .text:00000024 IMU_init_drift_correction
-     /tmp/cckLKf5t.s:126    .text:0000004c IMU_update
-     /tmp/cckLKf5t.s:230    .text:000000e6 IMU_normalize
-     /tmp/cckLKf5t.s:329    .text:000001ac IMU_ortho_adjust
-     /tmp/cckLKf5t.s:407    .text:0000020c IMU_drift_correction_ACC
-     /tmp/cckLKf5t.s:488    .text:000002a2 IMU_drift_correction_MAG
-     /tmp/cckLKf5t.s:559    .text:00000324 IMU_DCM_to_Euler_deg
-     /tmp/cckLKf5t.s:615    .text:00000374 $d
-     /tmp/cckLKf5t.s:619    .text:00000378 $t
-     /tmp/cckLKf5t.s:624    .text:00000378 IMU_Euler_to_DCM
-     /tmp/cckLKf5t.s:727    .text:00000438 IMU_DCM_to_XYZ
-     /tmp/cckLKf5t.s:780    .text:00000484 $d
+     /tmp/ccgUGRtl.s:20     .text:00000000 $t
+     /tmp/ccgUGRtl.s:25     .text:00000000 IMU_init
+     /tmp/ccgUGRtl.s:73     .text:00000024 IMU_init_drift_correction
+     /tmp/ccgUGRtl.s:126    .text:0000004c IMU_update
+     /tmp/ccgUGRtl.s:237    .text:000000e8 IMU_normalize
+     /tmp/ccgUGRtl.s:337    .text:000001ae IMU_ortho_adjust
+     /tmp/ccgUGRtl.s:417    .text:0000020e IMU_drift_correction_ACC
+     /tmp/ccgUGRtl.s:500    .text:000002a4 IMU_drift_correction_MAG
+     /tmp/ccgUGRtl.s:575    .text:00000326 IMU_DCM_to_Euler_deg
+     /tmp/ccgUGRtl.s:634    .text:00000378 $d
+     /tmp/ccgUGRtl.s:638    .text:0000037c $t
+     /tmp/ccgUGRtl.s:643    .text:0000037c IMU_Euler_to_DCM
+     /tmp/ccgUGRtl.s:747    .text:0000043c IMU_DCM_to_XYZ
+     /tmp/ccgUGRtl.s:803    .text:00000488 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stddef.h.39.daafd3d79fe2f3a84d2d73d7d4e706f8
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
-                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
-                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
+                           .group:00000000 wm4.stdio.h.27.3fc80220048df77954e38daec3bb9670
+                           .group:00000000 wm4.stddef.h.158.a7efb00f6cbc6f43213b50e183c9830c
                            .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
                            .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
-                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
                            .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
-                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.types.h.80.5759fe41f87f5211a5952dfb1fc64f19
                            .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
-                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
+                           .group:00000000 wm4.stdio.h.64.0f05fa42cfe2db7fc44729a52d3ba948
 
 UNDEFINED SYMBOLS
 VectorCrossProduct

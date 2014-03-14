@@ -38,121 +38,118 @@
   34 0000 82B0     		sub	sp, sp, #8
   35              	.LCFI0:
   36              		.cfi_def_cfa_offset 8
-  37              		.loc 1 5 0
-  38 0002 0190     		str	r0, [sp, #4]
+  37 0002 0190     		str	r0, [sp, #4]
+  38              	.L2:
    6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	while (delayCount > 0)
-  39              		.loc 1 6 0
-  40 0004 02E0     		b	.L2
-  41              	.L3:
+  39              		.loc 1 6 0 discriminator 1
+  40 0004 019B     		ldr	r3, [sp, #4]
+  41 0006 1BB1     		cbz	r3, .L5
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	{
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 		delayCount--;
   42              		.loc 1 8 0
-  43 0006 019B     		ldr	r3, [sp, #4]
-  44 0008 013B     		subs	r3, r3, #1
-  45              	.LVL1:
-  46 000a 0193     		str	r3, [sp, #4]
-  47              	.LVL2:
-  48              	.L2:
-   6:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	while (delayCount > 0)
-  49              		.loc 1 6 0 discriminator 1
-  50 000c 019B     		ldr	r3, [sp, #4]
-  51 000e 002B     		cmp	r3, #0
-  52 0010 F9D1     		bne	.L3
+  43 0008 019B     		ldr	r3, [sp, #4]
+  44 000a 013B     		subs	r3, r3, #1
+  45 000c 0193     		str	r3, [sp, #4]
+  46 000e F9E7     		b	.L2
+  47              	.L5:
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	}
   10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** }
-  53              		.loc 1 10 0
-  54 0012 02B0     		add	sp, sp, #8
-  55 0014 7047     		bx	lr
-  56              		.cfi_endproc
-  57              	.LFE111:
-  59              		.align	1
-  60              		.global	min
-  61              		.thumb
-  62              		.thumb_func
-  64              	min:
-  65              	.LFB112:
+  48              		.loc 1 10 0
+  49 0010 02B0     		add	sp, sp, #8
+  50              		@ sp needed
+  51 0012 7047     		bx	lr
+  52              		.cfi_endproc
+  53              	.LFE111:
+  55              		.align	1
+  56              		.global	min
+  57              		.thumb
+  58              		.thumb_func
+  60              	min:
+  61              	.LFB112:
   11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** //max( a, b ) ( ((a) > (b)) ? (a) : (b) )
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** float min(float a, float b)
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** {
-  66              		.loc 1 13 0
-  67              		.cfi_startproc
-  68              		@ args = 0, pretend = 0, frame = 0
-  69              		@ frame_needed = 0, uses_anonymous_args = 0
-  70              		@ link register save eliminated.
-  71              	.LVL3:
+  62              		.loc 1 13 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67              	.LVL1:
   14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	if( a < b ) return a;
-  72              		.loc 1 14 0
-  73 0016 B4EEE00A 		fcmpes	s0, s1
-  74 001a F1EE10FA 		fmstat
+  68              		.loc 1 14 0
+  69 0014 B4EEE00A 		fcmpes	s0, s1
+  70 0018 F1EE10FA 		fmstat
   15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	else return b;
   16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** }
-  75              		.loc 1 16 0
-  76 001e 58BF     		it	pl
-  77 0020 B0EE600A 		fcpyspl	s0, s1
-  78              	.LVL4:
-  79 0024 7047     		bx	lr
-  80              		.cfi_endproc
-  81              	.LFE112:
-  83              		.align	1
-  84              		.global	max
-  85              		.thumb
-  86              		.thumb_func
-  88              	max:
-  89              	.LFB113:
+  71              		.loc 1 16 0
+  72 001c 58BF     		it	pl
+  73 001e B0EE600A 		fcpyspl	s0, s1
+  74              	.LVL2:
+  75 0022 7047     		bx	lr
+  76              		.cfi_endproc
+  77              	.LFE112:
+  79              		.align	1
+  80              		.global	max
+  81              		.thumb
+  82              		.thumb_func
+  84              	max:
+  85              	.LFB113:
   17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 
   18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** float max(float a, float b)
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** {
-  90              		.loc 1 19 0
-  91              		.cfi_startproc
-  92              		@ args = 0, pretend = 0, frame = 0
-  93              		@ frame_needed = 0, uses_anonymous_args = 0
-  94              		@ link register save eliminated.
-  95              	.LVL5:
+  86              		.loc 1 19 0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  91              	.LVL3:
   20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	if( a > b ) return a;
-  96              		.loc 1 20 0
-  97 0026 B4EEE00A 		fcmpes	s0, s1
-  98 002a F1EE10FA 		fmstat
+  92              		.loc 1 20 0
+  93 0024 B4EEE00A 		fcmpes	s0, s1
+  94 0028 F1EE10FA 		fmstat
   21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** 	else return b;
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/helperFunctions.c **** }
-  99              		.loc 1 22 0
- 100 002e D8BF     		it	le
- 101 0030 B0EE600A 		fcpysle	s0, s1
- 102              	.LVL6:
- 103 0034 7047     		bx	lr
- 104              		.cfi_endproc
- 105              	.LFE113:
- 107              	.Letext0:
- 108              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 109              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+  95              		.loc 1 22 0
+  96 002c D8BF     		it	le
+  97 002e B0EE600A 		fcpysle	s0, s1
+  98              	.LVL4:
+  99 0032 7047     		bx	lr
+ 100              		.cfi_endproc
+ 101              	.LFE113:
+ 103              	.Letext0:
+ 104              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 105              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 helperFunctions.c
-     /tmp/ccR1IMBI.s:20     .text:00000000 $t
-     /tmp/ccR1IMBI.s:25     .text:00000000 Delay
-     /tmp/ccR1IMBI.s:64     .text:00000016 min
-     /tmp/ccR1IMBI.s:88     .text:00000026 max
+     /tmp/ccb68qgG.s:20     .text:00000000 $t
+     /tmp/ccb68qgG.s:25     .text:00000000 Delay
+     /tmp/ccb68qgG.s:60     .text:00000014 min
+     /tmp/ccb68qgG.s:84     .text:00000024 max
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
-                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdio.h.31.7c0e28c411445f3f9c5b11accf882760
+                           .group:00000000 wm4.stddef.h.184.159df79b4ca79c76561572a55985524c
                            .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.stddef.h.39.7e3d906ac58942e0b374c527445f5de5
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
                            .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
-                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
                            .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
-                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.types.h.80.5759fe41f87f5211a5952dfb1fc64f19
                            .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
-                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
-                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
-                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.stdio.h.64.0f05fa42cfe2db7fc44729a52d3ba948
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.158.a7efb00f6cbc6f43213b50e183c9830c
                            .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
-                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
-                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
+                           .group:00000000 wm4.stdlib.h.51.fdf1045aaa750fe709619c2027b96513
+                           .group:00000000 wm4.ctype.h.2.807cf8b53e92f83ce947ab40213cf812
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
                            .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
@@ -175,6 +172,6 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
                            .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
                            .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
 
 NO UNDEFINED SYMBOLS

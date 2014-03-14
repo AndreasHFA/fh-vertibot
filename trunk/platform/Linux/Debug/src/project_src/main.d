@@ -48,8 +48,7 @@ src/project_src/main.d: \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/ADXL345_Lib.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/LSM303DLHC_Lib_I2C.h \
  /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h \
- /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h \
- /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/fuzzy.h
+ /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32f30x.h:
 
@@ -148,5 +147,3 @@ src/project_src/main.d: \
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/MotorPWM.h:
 
 /home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/PID_control.h:
-
-/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/fuzzy.h:

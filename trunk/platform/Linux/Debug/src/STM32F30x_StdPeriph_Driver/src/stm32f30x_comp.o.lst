@@ -402,7 +402,7 @@
  285:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   COMP_InitStruct->COMP_InvertingInput = COMP_InvertingInput_1_4VREFINT;
  118              		.loc 1 285 0
  119 003c 0023     		movs	r3, #0
- 120 003e 0360     		str	r3, [r0, #0]
+ 120 003e 0360     		str	r3, [r0]
  286:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   COMP_InitStruct->COMP_NonInvertingInput = COMP_NonInvertingInput_IO1;
  121              		.loc 1 286 0
  122 0040 4360     		str	r3, [r0, #4]
@@ -457,7 +457,7 @@
  148              		@ frame_needed = 0, uses_anonymous_args = 0
  149              		@ link register save eliminated.
  150              	.LVL7:
- 151 0050 044B     		ldr	r3, .L12
+ 151 0050 044B     		ldr	r3, .L13
  312:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   /* Check the parameters */
  313:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   assert_param(IS_COMP_ALL_PERIPH(COMP_Selection));
  314:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -485,9 +485,9 @@
  162              	.L11:
  163 0060 C250     		str	r2, [r0, r3]
  164 0062 7047     		bx	lr
- 165              	.L13:
+ 165              	.L14:
  166              		.align	2
- 167              	.L12:
+ 167              	.L13:
  168 0064 1C000140 		.word	1073807388
  169              		.cfi_endproc
  170              	.LFE114:
@@ -520,7 +520,7 @@
  182              		@ frame_needed = 0, uses_anonymous_args = 0
  183              		@ link register save eliminated.
  184              	.LVL8:
- 185 0068 044B     		ldr	r3, .L18
+ 185 0068 044B     		ldr	r3, .L19
  342:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   /* Check the parameter */
  343:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  344:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c **** 
@@ -532,11 +532,11 @@
  187 006a C258     		ldr	r2, [r0, r3]
  345:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   if (NewState != DISABLE)
  188              		.loc 1 345 0
- 189 006c 11B1     		cbz	r1, .L15
+ 189 006c 11B1     		cbz	r1, .L16
  190              		.loc 1 348 0
  191 006e 42F00202 		orr	r2, r2, #2
- 192 0072 01E0     		b	.L17
- 193              	.L15:
+ 192 0072 01E0     		b	.L18
+ 193              	.L16:
  349:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   }
  350:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   else
  351:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   {
@@ -544,12 +544,12 @@
  353:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****     *(__IO uint32_t *) (COMP_BASE + COMP_Selection) &= (uint32_t)(~COMP_CSR_COMP1SW1);
  194              		.loc 1 353 0
  195 0074 22F00202 		bic	r2, r2, #2
- 196              	.L17:
+ 196              	.L18:
  197 0078 C250     		str	r2, [r0, r3]
  198 007a 7047     		bx	lr
- 199              	.L19:
+ 199              	.L20:
  200              		.align	2
- 201              	.L18:
+ 201              	.L19:
  202 007c 1C000140 		.word	1073807388
  203              		.cfi_endproc
  204              	.LFE115:
@@ -597,7 +597,7 @@
  383:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   /* Check if selected comparator output is high */
  384:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   if ((*(__IO uint32_t *) (COMP_BASE + COMP_Selection) & (COMP_CSR_COMPxOUT)) != 0)
  219              		.loc 1 384 0
- 220 0080 024B     		ldr	r3, .L23
+ 220 0080 024B     		ldr	r3, .L24
  221 0082 C058     		ldr	r0, [r0, r3]
  222              	.LVL10:
  385:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   {
@@ -615,9 +615,9 @@
  224 0084 00F08040 		and	r0, r0, #1073741824
  225              	.LVL11:
  226 0088 7047     		bx	lr
- 227              	.L24:
+ 227              	.L25:
  228 008a 00BF     		.align	2
- 229              	.L23:
+ 229              	.L24:
  230 008c 1C000140 		.word	1073807388
  231              		.cfi_endproc
  232              	.LFE116:
@@ -672,7 +672,7 @@
  244              		@ frame_needed = 0, uses_anonymous_args = 0
  245              		@ link register save eliminated.
  246              	.LVL12:
- 247 0090 044B     		ldr	r3, .L29
+ 247 0090 044B     		ldr	r3, .L30
  435:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   /* Check the parameters */
  436:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
  437:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   assert_param(IS_COMP_WINDOW(COMP_Selection));
@@ -685,11 +685,11 @@
  249 0092 C258     		ldr	r2, [r0, r3]
  439:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   if (NewState != DISABLE)
  250              		.loc 1 439 0
- 251 0094 11B1     		cbz	r1, .L26
+ 251 0094 11B1     		cbz	r1, .L27
  252              		.loc 1 442 0
  253 0096 42F40072 		orr	r2, r2, #512
- 254 009a 01E0     		b	.L28
- 255              	.L26:
+ 254 009a 01E0     		b	.L29
+ 255              	.L27:
  443:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   }
  444:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   else
  445:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   {
@@ -697,12 +697,12 @@
  447:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****     *(__IO uint32_t *) (COMP_BASE + COMP_Selection) &= (uint32_t)(~COMP_CSR_COMPxWNDWEN);
  256              		.loc 1 447 0
  257 009c 22F40072 		bic	r2, r2, #512
- 258              	.L28:
+ 258              	.L29:
  259 00a0 C250     		str	r2, [r0, r3]
  260 00a2 7047     		bx	lr
- 261              	.L30:
+ 261              	.L31:
  262              		.align	2
- 263              	.L29:
+ 263              	.L30:
  264 00a4 1C000140 		.word	1073807388
  265              		.cfi_endproc
  266              	.LFE117:
@@ -756,51 +756,55 @@
  483:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   /* Set the lock bit corresponding to selected comparator */
  484:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/src/stm32f30x_comp.c ****   *(__IO uint32_t *) (COMP_BASE + COMP_Selection) |= (uint32_t) (COMP_CSR_COMPxLOCK);
  281              		.loc 1 484 0
- 282 00a8 024B     		ldr	r3, .L32
+ 282 00a8 024B     		ldr	r3, .L33
  283 00aa C258     		ldr	r2, [r0, r3]
  284 00ac 42F00042 		orr	r2, r2, #-2147483648
  285 00b0 C250     		str	r2, [r0, r3]
  286 00b2 7047     		bx	lr
- 287              	.L33:
+ 287              	.L34:
  288              		.align	2
- 289              	.L32:
+ 289              	.L33:
  290 00b4 1C000140 		.word	1073807388
  291              		.cfi_endproc
  292              	.LFE118:
  294              	.Letext0:
- 295              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
+ 295              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
  296              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Device/ST/STM32F30x/Include/stm32
  297              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/STM32F30x_StdPeriph_Driver/inc/stm32f30
  298              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f30x_comp.c
-     /tmp/ccs33lWC.s:20     .text:00000000 $t
-     /tmp/ccs33lWC.s:25     .text:00000000 COMP_DeInit
-     /tmp/ccs33lWC.s:42     .text:00000008 $d
-     /tmp/ccs33lWC.s:46     .text:0000000c $t
-     /tmp/ccs33lWC.s:51     .text:0000000c COMP_Init
-     /tmp/ccs33lWC.s:101    .text:00000038 $d
-     /tmp/ccs33lWC.s:105    .text:0000003c $t
-     /tmp/ccs33lWC.s:110    .text:0000003c COMP_StructInit
-     /tmp/ccs33lWC.s:143    .text:00000050 COMP_Cmd
-     /tmp/ccs33lWC.s:168    .text:00000064 $d
-     /tmp/ccs33lWC.s:172    .text:00000068 $t
-     /tmp/ccs33lWC.s:177    .text:00000068 COMP_SwitchCmd
-     /tmp/ccs33lWC.s:202    .text:0000007c $d
-     /tmp/ccs33lWC.s:206    .text:00000080 $t
-     /tmp/ccs33lWC.s:211    .text:00000080 COMP_GetOutputLevel
-     /tmp/ccs33lWC.s:230    .text:0000008c $d
-     /tmp/ccs33lWC.s:234    .text:00000090 $t
-     /tmp/ccs33lWC.s:239    .text:00000090 COMP_WindowCmd
-     /tmp/ccs33lWC.s:264    .text:000000a4 $d
-     /tmp/ccs33lWC.s:268    .text:000000a8 $t
-     /tmp/ccs33lWC.s:273    .text:000000a8 COMP_LockConfig
-     /tmp/ccs33lWC.s:290    .text:000000b4 $d
+     /tmp/cclXhbeo.s:20     .text:00000000 $t
+     /tmp/cclXhbeo.s:25     .text:00000000 COMP_DeInit
+     /tmp/cclXhbeo.s:42     .text:00000008 $d
+     /tmp/cclXhbeo.s:46     .text:0000000c $t
+     /tmp/cclXhbeo.s:51     .text:0000000c COMP_Init
+     /tmp/cclXhbeo.s:101    .text:00000038 $d
+     /tmp/cclXhbeo.s:105    .text:0000003c $t
+     /tmp/cclXhbeo.s:110    .text:0000003c COMP_StructInit
+     /tmp/cclXhbeo.s:143    .text:00000050 COMP_Cmd
+     /tmp/cclXhbeo.s:168    .text:00000064 $d
+     /tmp/cclXhbeo.s:172    .text:00000068 $t
+     /tmp/cclXhbeo.s:177    .text:00000068 COMP_SwitchCmd
+     /tmp/cclXhbeo.s:202    .text:0000007c $d
+     /tmp/cclXhbeo.s:206    .text:00000080 $t
+     /tmp/cclXhbeo.s:211    .text:00000080 COMP_GetOutputLevel
+     /tmp/cclXhbeo.s:230    .text:0000008c $d
+     /tmp/cclXhbeo.s:234    .text:00000090 $t
+     /tmp/cclXhbeo.s:239    .text:00000090 COMP_WindowCmd
+     /tmp/cclXhbeo.s:264    .text:000000a4 $d
+     /tmp/cclXhbeo.s:268    .text:000000a8 $t
+     /tmp/cclXhbeo.s:273    .text:000000a8 COMP_LockConfig
+     /tmp/cclXhbeo.s:290    .text:000000b4 $d
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a

@@ -55,13 +55,13 @@
   34 0000 28B1     		cbz	r0, .L2
   23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         **str = c;
   35              		.loc 1 23 0
-  36 0002 0368     		ldr	r3, [r0, #0]
-  37 0004 1970     		strb	r1, [r3, #0]
+  36 0002 0368     		ldr	r3, [r0]
+  37 0004 1970     		strb	r1, [r3]
   24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         ++(*str);
   38              		.loc 1 24 0
-  39 0006 0368     		ldr	r3, [r0, #0]
+  39 0006 0368     		ldr	r3, [r0]
   40 0008 0133     		adds	r3, r3, #1
-  41 000a 0360     		str	r3, [r0, #0]
+  41 000a 0360     		str	r3, [r0]
   42 000c 7047     		bx	lr
   43              	.L2:
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
@@ -69,38 +69,37 @@
   44              		.loc 1 26 0
   45 000e C8B2     		uxtb	r0, r1
   46              	.LVL1:
+  47 0010 FFF7FEBF 		b	Usart2Put
+  48              	.LVL2:
+  49              		.cfi_endproc
+  50              	.LFE111:
+  52              		.align	1
+  53              		.thumb
+  54              		.thumb_func
+  56              	prints:
+  57              	.LFB112:
   27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
-  47              		.loc 1 27 0
-  26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     else (void)putchar(c);
-  48              		.loc 1 26 0
-  49 0010 FFF7FEBF 		b	Usart2Put
-  50              	.LVL2:
-  51              		.cfi_endproc
-  52              	.LFE111:
-  54              		.align	1
-  55              		.thumb
-  56              		.thumb_func
-  58              	prints:
-  59              	.LFB112:
   28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** #define PAD_RIGHT 1
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** #define PAD_ZERO 2
   31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** static int prints(char **out, const char *string, int width, int pad)
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
-  60              		.loc 1 33 0
-  61              		.cfi_startproc
-  62              		@ args = 0, pretend = 0, frame = 0
-  63              		@ frame_needed = 0, uses_anonymous_args = 0
-  64              	.LVL3:
-  65 0014 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  66              	.LCFI0:
-  67              		.cfi_def_cfa_offset 24
-  68              		.cfi_offset 4, -24
-  69              		.cfi_offset 5, -20
-  70              		.cfi_offset 6, -16
-  71              		.cfi_offset 7, -12
-  72              		.cfi_offset 8, -8
+  58              		.loc 1 33 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              	.LVL3:
+  63 0014 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  64              	.LCFI0:
+  65              		.cfi_def_cfa_offset 32
+  66              		.cfi_offset 3, -32
+  67              		.cfi_offset 4, -28
+  68              		.cfi_offset 5, -24
+  69              		.cfi_offset 6, -20
+  70              		.cfi_offset 7, -16
+  71              		.cfi_offset 8, -12
+  72              		.cfi_offset 9, -8
   73              		.cfi_offset 14, -4
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0, padchar = ' ';
   35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
@@ -109,421 +108,415 @@
   75 0018 141E     		subs	r4, r2, #0
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
   76              		.loc 1 33 0
-  77 001a 0746     		mov	r7, r0
-  78 001c 8846     		mov	r8, r1
+  77 001a 8046     		mov	r8, r0
+  78 001c 8946     		mov	r9, r1
   79              		.loc 1 36 0
-  80 001e 03DC     		bgt	.L17
-  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0, padchar = ' ';
-  81              		.loc 1 34 0
-  82 0020 2026     		movs	r6, #32
-  83 0022 10E0     		b	.L7
-  84              	.LVL4:
-  85              	.L8:
-  86              	.LBB2:
+  80 001e 10DD     		ble	.L18
+  81 0020 0022     		movs	r2, #0
+  82              	.LVL4:
+  83              	.L8:
+  84              	.LBB2:
   37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         register int len = 0;
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         register const char *ptr;
   39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         for (ptr = string; *ptr; ++ptr) ++len;
-  87              		.loc 1 39 0 discriminator 2
-  88 0024 0132     		adds	r2, r2, #1
-  89              	.LVL5:
-  90 0026 00E0     		b	.L6
-  91              	.LVL6:
-  92              	.L17:
-  93              	.LBE2:
-  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (width > 0) {
-  94              		.loc 1 36 0
-  95 0028 0022     		movs	r2, #0
-  96              	.LVL7:
-  97              	.L6:
-  98              	.LBB3:
-  99              		.loc 1 39 0 discriminator 1
- 100 002a 18F80210 		ldrb	r1, [r8, r2]	@ zero_extendqisi2
- 101 002e 0029     		cmp	r1, #0
- 102 0030 F8D1     		bne	.L8
+  85              		.loc 1 39 0 discriminator 1
+  86 0022 19F80210 		ldrb	r1, [r9, r2]	@ zero_extendqisi2
+  87 0026 09B1     		cbz	r1, .L22
+  88              		.loc 1 39 0 is_stmt 0 discriminator 2
+  89 0028 0132     		adds	r2, r2, #1
+  90              	.LVL5:
+  91 002a FAE7     		b	.L8
+  92              	.LVL6:
+  93              	.L22:
   40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if (len >= width) width = 0;
- 103              		.loc 1 40 0
- 104 0032 A242     		cmp	r2, r4
+  94              		.loc 1 40 0 is_stmt 1
+  95 002c A242     		cmp	r2, r4
   41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         else width -= len;
- 105              		.loc 1 41 0
- 106 0034 B4BF     		ite	lt
- 107 0036 C2EB0404 		rsblt	r4, r2, r4
- 108              	.LVL8:
+  96              		.loc 1 41 0
+  97 002e B4BF     		ite	lt
+  98 0030 C2EB0404 		rsblt	r4, r2, r4
+  99              	.LVL7:
   40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if (len >= width) width = 0;
- 109              		.loc 1 40 0
- 110 003a 0C46     		movge	r4, r1
+ 100              		.loc 1 40 0
+ 101 0034 0C46     		movge	r4, r1
+ 102              	.LVL8:
+ 103              	.LBE2:
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0, padchar = ' ';
+ 104              		.loc 1 34 0
+ 105 0036 13F0020F 		tst	r3, #2
+ 106 003a 14BF     		ite	ne
+ 107 003c 3027     		movne	r7, #48
+ 108 003e 2027     		moveq	r7, #32
+ 109              	.LBB3:
+ 110 0040 00E0     		b	.L7
  111              	.LVL9:
+ 112              	.L18:
+ 113              	.LBE3:
+ 114 0042 2027     		movs	r7, #32
+ 115              	.LVL10:
+ 116              	.L7:
   42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if (pad & PAD_ZERO) padchar = '0';
- 112              		.loc 1 42 0
- 113 003c 13F0020F 		tst	r3, #2
- 114 0040 0CBF     		ite	eq
- 115 0042 2026     		moveq	r6, #32
- 116 0044 3026     		movne	r6, #48
- 117              	.LVL10:
- 118              	.L7:
- 119              	.LBE3:
   43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (!(pad & PAD_RIGHT)) {
- 120              		.loc 1 44 0
- 121 0046 DB07     		lsls	r3, r3, #31
- 122              	.LVL11:
- 123 0048 0CD4     		bmi	.L20
- 124              		.loc 1 44 0 is_stmt 0 discriminator 1
- 125 004a 2546     		mov	r5, r4
- 126 004c 04E0     		b	.L11
- 127              	.LVL12:
- 128              	.L12:
+ 117              		.loc 1 44 0
+ 118 0044 DB07     		lsls	r3, r3, #31
+ 119              	.LVL11:
+ 120 0046 0CD4     		bmi	.L21
+ 121 0048 2546     		mov	r5, r4
+ 122              	.LVL12:
+ 123              	.L12:
   45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         for ( ; width > 0; --width) {
+ 124              		.loc 1 45 0 discriminator 1
+ 125 004a 002D     		cmp	r5, #0
+ 126 004c 05DD     		ble	.L23
   46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             printchar (out, padchar);
- 129              		.loc 1 46 0 is_stmt 1 discriminator 2
- 130 004e 3846     		mov	r0, r7
- 131 0050 3146     		mov	r1, r6
- 132 0052 FFF7D5FF 		bl	printchar
- 133              	.LVL13:
+ 127              		.loc 1 46 0 discriminator 2
+ 128 004e 4046     		mov	r0, r8
+ 129 0050 3946     		mov	r1, r7
+ 130 0052 FFF7D5FF 		bl	printchar
+ 131              	.LVL13:
   45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         for ( ; width > 0; --width) {
- 134              		.loc 1 45 0 discriminator 2
- 135 0056 013D     		subs	r5, r5, #1
- 136              	.LVL14:
- 137              	.L11:
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         for ( ; width > 0; --width) {
- 138              		.loc 1 45 0 is_stmt 0 discriminator 1
- 139 0058 002D     		cmp	r5, #0
- 140 005a F8DC     		bgt	.L12
-  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** static int prints(char **out, const char *string, int width, int pad)
- 141              		.loc 1 32 0 is_stmt 1
- 142 005c 24EAE475 		bic	r5, r4, r4, asr #31
- 143              	.LVL15:
- 144 0060 641B     		subs	r4, r4, r5
- 145 0062 00E0     		b	.L10
- 146              	.LVL16:
- 147              	.L20:
+ 132              		.loc 1 45 0 discriminator 2
+ 133 0056 013D     		subs	r5, r5, #1
+ 134              	.LVL14:
+ 135 0058 F7E7     		b	.L12
+ 136              	.L23:
+ 137 005a 24EAE476 		bic	r6, r4, r4, asr #31
+ 138 005e A41B     		subs	r4, r4, r6
+ 139 0060 00E0     		b	.L11
+ 140              	.LVL15:
+ 141              	.L21:
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0, padchar = ' ';
- 148              		.loc 1 34 0
- 149 0064 0025     		movs	r5, #0
- 150              	.LVL17:
- 151              	.L10:
-  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** static int prints(char **out, const char *string, int width, int pad)
- 152              		.loc 1 32 0 discriminator 1
- 153 0066 C5EB0808 		rsb	r8, r5, r8
- 154              	.LVL18:
- 155 006a 03E0     		b	.L13
- 156              	.LVL19:
- 157              	.L14:
+ 142              		.loc 1 34 0
+ 143 0062 0026     		movs	r6, #0
+ 144              	.LVL16:
+ 145              	.L11:
+  34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0, padchar = ' ';
+ 146              		.loc 1 34 0 is_stmt 0 discriminator 1
+ 147 0064 3546     		mov	r5, r6
+ 148              	.LVL17:
+ 149              	.L14:
+ 150 0066 C6EB0903 		rsb	r3, r6, r9
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++pc;
   48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         }
   49:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; *string ; ++string) {
+ 151              		.loc 1 50 0 is_stmt 1 discriminator 1
+ 152 006a 595D     		ldrb	r1, [r3, r5]	@ zero_extendqisi2
+ 153 006c 21B1     		cbz	r1, .L24
   51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         printchar (out, *string);
- 158              		.loc 1 51 0 discriminator 2
- 159 006c 3846     		mov	r0, r7
- 160 006e FFF7C7FF 		bl	printchar
- 161              	.LVL20:
+ 154              		.loc 1 51 0 discriminator 2
+ 155 006e 4046     		mov	r0, r8
+ 156 0070 FFF7C6FF 		bl	printchar
+ 157              	.LVL18:
   52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         ++pc;
- 162              		.loc 1 52 0 discriminator 2
- 163 0072 0135     		adds	r5, r5, #1
- 164              	.LVL21:
- 165              	.L13:
+ 158              		.loc 1 52 0 discriminator 2
+ 159 0074 0135     		adds	r5, r5, #1
+ 160              	.LVL19:
+ 161 0076 F6E7     		b	.L14
+ 162              	.LVL20:
+ 163              	.L24:
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; *string ; ++string) {
- 166              		.loc 1 50 0 discriminator 1
- 167 0074 18F80510 		ldrb	r1, [r8, r5]	@ zero_extendqisi2
- 168 0078 0029     		cmp	r1, #0
- 169 007a F7D1     		bne	.L14
-  50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; *string ; ++string) {
- 170              		.loc 1 50 0 is_stmt 0
- 171 007c A046     		mov	r8, r4
- 172 007e 05E0     		b	.L15
- 173              	.LVL22:
- 174              	.L16:
+ 164              		.loc 1 50 0
+ 165 0078 2646     		mov	r6, r4
+ 166              	.LVL21:
+ 167              	.L16:
   53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; width > 0; --width) {
+ 168              		.loc 1 54 0 discriminator 1
+ 169 007a 002E     		cmp	r6, #0
+ 170 007c 05DD     		ble	.L25
   55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         printchar (out, padchar);
- 175              		.loc 1 55 0 is_stmt 1 discriminator 2
- 176 0080 3846     		mov	r0, r7
- 177 0082 3146     		mov	r1, r6
- 178 0084 FFF7BCFF 		bl	printchar
- 179              	.LVL23:
+ 171              		.loc 1 55 0 discriminator 2
+ 172 007e 4046     		mov	r0, r8
+ 173 0080 3946     		mov	r1, r7
+ 174 0082 FFF7BDFF 		bl	printchar
+ 175              	.LVL22:
   54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; width > 0; --width) {
- 180              		.loc 1 54 0 discriminator 2
- 181 0088 08F1FF38 		add	r8, r8, #-1
- 182              	.LVL24:
- 183              	.L15:
-  54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for ( ; width > 0; --width) {
- 184              		.loc 1 54 0 is_stmt 0 discriminator 1
- 185 008c B8F1000F 		cmp	r8, #0
- 186 0090 F6DC     		bgt	.L16
+ 176              		.loc 1 54 0 discriminator 2
+ 177 0086 013E     		subs	r6, r6, #1
+ 178              	.LVL23:
+ 179 0088 F7E7     		b	.L16
+ 180              	.L25:
   56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         ++pc;
   57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     return pc;
   60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 187              		.loc 1 60 0 is_stmt 1
- 188 0092 002C     		cmp	r4, #0
- 189 0094 ACBF     		ite	ge
- 190 0096 2819     		addge	r0, r5, r4
- 191 0098 281C     		addlt	r0, r5, #0
- 192 009a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 193              		.cfi_endproc
- 194              	.LFE112:
- 196              		.align	1
- 197              		.thumb
- 198              		.thumb_func
- 200              	printi:
- 201              	.LFB113:
+ 181              		.loc 1 60 0
+ 182 008a 002C     		cmp	r4, #0
+ 183 008c ACBF     		ite	ge
+ 184 008e 2819     		addge	r0, r5, r4
+ 185 0090 281C     		addlt	r0, r5, #0
+ 186 0092 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 187              		.cfi_endproc
+ 188              	.LFE112:
+ 190              		.align	1
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	printi:
+ 195              	.LFB113:
   61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** /* the following should be enough for 32 bit int */
   63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** #define PRINT_BUF_LEN 12
   64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** static int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
   66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 202              		.loc 1 66 0
- 203              		.cfi_startproc
- 204              		@ args = 12, pretend = 0, frame = 16
- 205              		@ frame_needed = 0, uses_anonymous_args = 0
- 206              	.LVL25:
- 207 009e 2DE9FF47 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, lr}
- 208              	.LCFI1:
- 209              		.cfi_def_cfa_offset 48
- 210              		.cfi_offset 0, -48
- 211              		.cfi_offset 1, -44
- 212              		.cfi_offset 2, -40
- 213              		.cfi_offset 3, -36
- 214              		.cfi_offset 4, -32
- 215              		.cfi_offset 5, -28
- 216              		.cfi_offset 6, -24
- 217              		.cfi_offset 7, -20
- 218              		.cfi_offset 8, -16
- 219              		.cfi_offset 9, -12
- 220              		.cfi_offset 10, -8
- 221              		.cfi_offset 14, -4
- 222              		.loc 1 66 0
- 223 00a2 0C9E     		ldr	r6, [sp, #48]
- 224 00a4 DDF83480 		ldr	r8, [sp, #52]
- 225 00a8 8146     		mov	r9, r0
+ 196              		.loc 1 66 0
+ 197              		.cfi_startproc
+ 198              		@ args = 12, pretend = 0, frame = 16
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200              	.LVL24:
+ 201 0096 2DE9FF47 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, lr}
+ 202              	.LCFI1:
+ 203              		.cfi_def_cfa_offset 48
+ 204              		.cfi_offset 0, -48
+ 205              		.cfi_offset 1, -44
+ 206              		.cfi_offset 2, -40
+ 207              		.cfi_offset 3, -36
+ 208              		.cfi_offset 4, -32
+ 209              		.cfi_offset 5, -28
+ 210              		.cfi_offset 6, -24
+ 211              		.cfi_offset 7, -20
+ 212              		.cfi_offset 8, -16
+ 213              		.cfi_offset 9, -12
+ 214              		.cfi_offset 10, -8
+ 215              		.cfi_offset 14, -4
+ 216              		.loc 1 66 0
+ 217 009a 0C9E     		ldr	r6, [sp, #48]
+ 218 009c DDF83480 		ldr	r8, [sp, #52]
+ 219 00a0 8146     		mov	r9, r0
   67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     char print_buf[PRINT_BUF_LEN];
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register char *s;
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int t, neg = 0, pc = 0;
   70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register unsigned int u = i;
- 226              		.loc 1 70 0
- 227 00aa 0C46     		mov	r4, r1
- 228              	.LVL26:
+ 220              		.loc 1 70 0
+ 221 00a2 0C46     		mov	r4, r1
+ 222              	.LVL25:
   71:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   72:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (i == 0) {
- 229              		.loc 1 72 0
- 230 00ac 51B9     		cbnz	r1, .L22
+ 223              		.loc 1 72 0
+ 224 00a4 51B9     		cbnz	r1, .L27
   73:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         print_buf[0] = '0';
- 231              		.loc 1 73 0
- 232 00ae 3023     		movs	r3, #48
- 233              	.LVL27:
- 234 00b0 8DF80430 		strb	r3, [sp, #4]
+ 225              		.loc 1 73 0
+ 226 00a6 3023     		movs	r3, #48
+ 227              	.LVL26:
+ 228 00a8 8DF80430 		strb	r3, [sp, #4]
   74:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         print_buf[1] = '\0';
- 235              		.loc 1 74 0
- 236 00b4 8DF80510 		strb	r1, [sp, #5]
+ 229              		.loc 1 74 0
+ 230 00ac 8DF80510 		strb	r1, [sp, #5]
   75:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         return prints (out, print_buf, width, pad);
- 237              		.loc 1 75 0
- 238 00b8 3246     		mov	r2, r6
- 239              	.LVL28:
- 240 00ba 01A9     		add	r1, sp, #4
- 241              	.LVL29:
- 242 00bc 4346     		mov	r3, r8
- 243 00be FFF7A9FF 		bl	prints
- 244              	.LVL30:
- 245 00c2 37E0     		b	.L23
- 246              	.LVL31:
- 247              	.L22:
+ 231              		.loc 1 75 0
+ 232 00b0 3246     		mov	r2, r6
+ 233              	.LVL27:
+ 234 00b2 01A9     		add	r1, sp, #4
+ 235              	.LVL28:
+ 236 00b4 4346     		mov	r3, r8
+ 237 00b6 FFF7ADFF 		bl	prints
+ 238              	.LVL29:
+ 239 00ba 36E0     		b	.L28
+ 240              	.LVL30:
+ 241              	.L27:
   76:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   77:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   78:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (sg && b == 10 && i < 0) {
- 248              		.loc 1 78 0
- 249 00c4 33B1     		cbz	r3, .L32
- 250              		.loc 1 78 0 is_stmt 0 discriminator 1
- 251 00c6 0A2A     		cmp	r2, #10
- 252 00c8 04D1     		bne	.L32
- 253 00ca 0029     		cmp	r1, #0
- 254 00cc 02DA     		bge	.L32
- 255              	.LVL32:
+ 242              		.loc 1 78 0
+ 243 00bc 33B1     		cbz	r3, .L37
+ 244              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 245 00be 0A2A     		cmp	r2, #10
+ 246 00c0 04D1     		bne	.L37
+ 247 00c2 0029     		cmp	r1, #0
+ 248 00c4 02DA     		bge	.L37
+ 249              	.LVL31:
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         neg = 1;
   80:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         u = -i;
- 256              		.loc 1 80 0 is_stmt 1
- 257 00ce 4C42     		negs	r4, r1
- 258              	.LVL33:
+ 250              		.loc 1 80 0 is_stmt 1
+ 251 00c6 4C42     		negs	r4, r1
+ 252              	.LVL32:
   79:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         neg = 1;
- 259              		.loc 1 79 0
- 260 00d0 0127     		movs	r7, #1
- 261 00d2 00E0     		b	.L24
- 262              	.LVL34:
- 263              	.L32:
+ 253              		.loc 1 79 0
+ 254 00c8 0127     		movs	r7, #1
+ 255 00ca 00E0     		b	.L29
+ 256              	.LVL33:
+ 257              	.L37:
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int t, neg = 0, pc = 0;
- 264              		.loc 1 69 0
- 265 00d4 0027     		movs	r7, #0
- 266              	.LVL35:
- 267              	.L24:
+ 258              		.loc 1 69 0
+ 259 00cc 0027     		movs	r7, #0
+ 260              	.LVL34:
+ 261              	.L29:
   81:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   82:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   83:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     s = print_buf + PRINT_BUF_LEN-1;
   84:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     *s = '\0';
- 268              		.loc 1 84 0
- 269 00d6 04AD     		add	r5, sp, #16
- 270 00d8 0023     		movs	r3, #0
- 271              	.LVL36:
- 272 00da 05F8013D 		strb	r3, [r5, #-1]!
+ 262              		.loc 1 84 0
+ 263 00ce 04AD     		add	r5, sp, #16
+ 264 00d0 0023     		movs	r3, #0
+ 265              	.LVL35:
+ 266 00d2 05F8013D 		strb	r3, [r5, #-1]!
+ 267              	.LVL36:
+ 268              	.L30:
+ 269 00d6 AA46     		mov	r10, r5
+ 270              	.LVL37:
   85:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     while (u) {
+ 271              		.loc 1 86 0 discriminator 1
+ 272 00d8 74B1     		cbz	r4, .L45
   87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         t = u % b;
+ 273              		.loc 1 87 0
+ 274 00da B4FBF2F3 		udiv	r3, r4, r2
+ 275 00de 02FB1344 		mls	r4, r2, r3, r4
+ 276              	.LVL38:
   88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if( t >= 10 )
+ 277              		.loc 1 88 0
+ 278 00e2 092C     		cmp	r4, #9
+ 279 00e4 03DD     		ble	.L31
   89:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             t += letbase - '0' - 10;
- 273              		.loc 1 89 0
- 274 00de 0E9B     		ldr	r3, [sp, #56]
- 275 00e0 A3F13A01 		sub	r1, r3, #58
- 276              	.LVL37:
-  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     while (u) {
- 277              		.loc 1 86 0
- 278 00e4 0AE0     		b	.L25
- 279              	.LVL38:
- 280              	.L27:
-  87:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         t = u % b;
- 281              		.loc 1 87 0
- 282 00e6 B4FBF2F3 		udiv	r3, r4, r2
- 283 00ea 02FB1344 		mls	r4, r2, r3, r4
+ 280              		.loc 1 89 0
+ 281 00e6 0E98     		ldr	r0, [sp, #56]
+ 282 00e8 A0F13A01 		sub	r1, r0, #58
+ 283 00ec 0C44     		add	r4, r4, r1
  284              	.LVL39:
-  88:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if( t >= 10 )
- 285              		.loc 1 88 0
- 286 00ee 092C     		cmp	r4, #9
- 287              		.loc 1 89 0
- 288 00f0 C8BF     		it	gt
- 289 00f2 6418     		addgt	r4, r4, r1
- 290              	.LVL40:
+ 285              	.L31:
   90:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         *--s = t + '0';
- 291              		.loc 1 90 0
- 292 00f4 3034     		adds	r4, r4, #48
- 293              	.LVL41:
- 294 00f6 05F8014D 		strb	r4, [r5, #-1]!
- 295              	.LVL42:
+ 286              		.loc 1 90 0
+ 287 00ee 3034     		adds	r4, r4, #48
+ 288              	.LVL40:
+ 289 00f0 05F8014D 		strb	r4, [r5, #-1]!
+ 290              	.LVL41:
   91:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         u /= b;
- 296              		.loc 1 91 0
- 297 00fa 1C46     		mov	r4, r3
- 298              	.LVL43:
- 299              	.L25:
- 300 00fc AA46     		mov	sl, r5
- 301              	.LVL44:
-  86:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     while (u) {
- 302              		.loc 1 86 0 discriminator 1
- 303 00fe 002C     		cmp	r4, #0
- 304 0100 F1D1     		bne	.L27
+ 291              		.loc 1 91 0
+ 292 00f4 1C46     		mov	r4, r3
+ 293              	.LVL42:
+ 294 00f6 EEE7     		b	.L30
+ 295              	.LVL43:
+ 296              	.L45:
   92:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
   93:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
   94:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (neg) {
- 305              		.loc 1 94 0
- 306 0102 87B1     		cbz	r7, .L28
+ 297              		.loc 1 94 0
+ 298 00f8 87B1     		cbz	r7, .L33
   95:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if( width && (pad & PAD_ZERO) ) {
- 307              		.loc 1 95 0
- 308 0104 4EB1     		cbz	r6, .L29
- 309              		.loc 1 95 0 is_stmt 0 discriminator 1
- 310 0106 18F0020F 		tst	r8, #2
- 311 010a 06D0     		beq	.L29
+ 299              		.loc 1 95 0
+ 300 00fa 4EB1     		cbz	r6, .L34
+ 301              		.loc 1 95 0 is_stmt 0 discriminator 1
+ 302 00fc 18F0020F 		tst	r8, #2
+ 303 0100 06D0     		beq	.L34
   96:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             printchar (out, '-');
- 312              		.loc 1 96 0 is_stmt 1
- 313 010c 4846     		mov	r0, r9
- 314              	.LVL45:
- 315 010e 2D21     		movs	r1, #45
- 316 0110 FFF776FF 		bl	printchar
- 317              	.LVL46:
+ 304              		.loc 1 96 0 is_stmt 1
+ 305 0102 4846     		mov	r0, r9
+ 306 0104 2D21     		movs	r1, #45
+ 307 0106 FFF77BFF 		bl	printchar
+ 308              	.LVL44:
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++pc;
   98:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             --width;
- 318              		.loc 1 98 0
- 319 0114 013E     		subs	r6, r6, #1
- 320              	.LVL47:
+ 309              		.loc 1 98 0
+ 310 010a 013E     		subs	r6, r6, #1
+ 311              	.LVL45:
   97:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++pc;
- 321              		.loc 1 97 0
- 322 0116 0127     		movs	r7, #1
- 323              	.LVL48:
- 324              		.loc 1 98 0
- 325 0118 05E0     		b	.L28
- 326              	.LVL49:
- 327              	.L29:
+ 312              		.loc 1 97 0
+ 313 010c 0127     		movs	r7, #1
+ 314              	.LVL46:
+ 315              		.loc 1 98 0
+ 316 010e 05E0     		b	.L33
+ 317              	.LVL47:
+ 318              	.L34:
   99:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         }
  100:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         else {
  101:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             *--s = '-';
- 328              		.loc 1 101 0
- 329 011a 2D23     		movs	r3, #45
- 330 011c 05F1FF3A 		add	sl, r5, #-1
- 331              	.LVL50:
- 332 0120 05F8013C 		strb	r3, [r5, #-1]
+ 319              		.loc 1 101 0
+ 320 0110 2D23     		movs	r3, #45
+ 321 0112 05F1FF3A 		add	r10, r5, #-1
+ 322              	.LVL48:
+ 323 0116 05F8013C 		strb	r3, [r5, #-1]
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int t, neg = 0, pc = 0;
- 333              		.loc 1 69 0
- 334 0124 0027     		movs	r7, #0
- 335              	.LVL51:
- 336              	.L28:
+ 324              		.loc 1 69 0
+ 325 011a 0027     		movs	r7, #0
+ 326              	.LVL49:
+ 327              	.L33:
  102:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         }
  103:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
  104:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  105:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     return pc + prints (out, s, width, pad);
- 337              		.loc 1 105 0
- 338 0126 4846     		mov	r0, r9
- 339 0128 5146     		mov	r1, sl
- 340 012a 3246     		mov	r2, r6
- 341 012c 4346     		mov	r3, r8
- 342 012e FFF771FF 		bl	prints
- 343              	.LVL52:
- 344 0132 3818     		adds	r0, r7, r0
- 345              	.LVL53:
- 346              	.L23:
+ 328              		.loc 1 105 0
+ 329 011c 4846     		mov	r0, r9
+ 330 011e 5146     		mov	r1, r10
+ 331 0120 3246     		mov	r2, r6
+ 332 0122 4346     		mov	r3, r8
+ 333 0124 FFF776FF 		bl	prints
+ 334              	.LVL50:
+ 335 0128 3844     		add	r0, r0, r7
+ 336              	.LVL51:
+ 337              	.L28:
  106:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 347              		.loc 1 106 0
- 348 0134 04B0     		add	sp, sp, #16
- 349 0136 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
- 350              		.cfi_endproc
- 351              	.LFE113:
- 353              		.align	1
- 354              		.thumb
- 355              		.thumb_func
- 357              	print:
- 358              	.LFB114:
+ 338              		.loc 1 106 0
+ 339 012a 04B0     		add	sp, sp, #16
+ 340              		@ sp needed
+ 341 012c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 342              		.cfi_endproc
+ 343              	.LFE113:
+ 345              		.align	1
+ 346              		.thumb
+ 347              		.thumb_func
+ 349              	print:
+ 350              	.LFB114:
  107:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  108:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** static int print( char **out, const char *format, va_list args )
  109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 359              		.loc 1 109 0
- 360              		.cfi_startproc
- 361              		@ args = 0, pretend = 0, frame = 16
- 362              		@ frame_needed = 0, uses_anonymous_args = 0
- 363              	.LVL54:
- 364 013a 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, sl, lr}
- 365              	.LCFI2:
- 366              		.cfi_def_cfa_offset 32
- 367              		.cfi_offset 4, -32
- 368              		.cfi_offset 5, -28
- 369              		.cfi_offset 6, -24
- 370              		.cfi_offset 7, -20
- 371              		.cfi_offset 8, -16
- 372              		.cfi_offset 9, -12
- 373              		.cfi_offset 10, -8
- 374              		.cfi_offset 14, -4
- 375 013e 88B0     		sub	sp, sp, #32
- 376              	.LCFI3:
- 377              		.cfi_def_cfa_offset 64
+ 351              		.loc 1 109 0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 16
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              	.LVL52:
+ 356 0130 F0B5     		push	{r4, r5, r6, r7, lr}
+ 357              	.LCFI2:
+ 358              		.cfi_def_cfa_offset 20
+ 359              		.cfi_offset 4, -20
+ 360              		.cfi_offset 5, -16
+ 361              		.cfi_offset 6, -12
+ 362              		.cfi_offset 7, -8
+ 363              		.cfi_offset 14, -4
+ 364 0132 89B0     		sub	sp, sp, #36
+ 365              	.LCFI3:
+ 366              		.cfi_def_cfa_offset 56
+ 367              		.loc 1 109 0
+ 368 0134 0646     		mov	r6, r0
+ 369 0136 0D46     		mov	r5, r1
+ 370 0138 0592     		str	r2, [sp, #20]
  110:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int width, pad;
  111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     register int pc = 0;
- 378              		.loc 1 111 0
- 379 0140 0024     		movs	r4, #0
- 109:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 380              		.loc 1 109 0
- 381 0142 0646     		mov	r6, r0
- 382 0144 0D46     		mov	r5, r1
- 383 0146 0592     		str	r2, [sp, #20]
+ 371              		.loc 1 111 0
+ 372 013a 0024     		movs	r4, #0
+ 373              	.LVL53:
+ 374              	.L47:
  112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     char scr[2];
  113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for (; *format != 0; ++format) {
+ 375              		.loc 1 114 0 discriminator 1
+ 376 013c 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 377 013e 23B1     		cbz	r3, .L65
  115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if (*format == '%') {
+ 378              		.loc 1 115 0
+ 379 0140 252B     		cmp	r3, #37
+ 380 0142 79D1     		bne	.L48
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++format;
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             width = pad = 0;
  118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '\0') break;
+ 381              		.loc 1 118 0
+ 382 0144 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+ 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++format;
+ 383              		.loc 1 116 0
+ 384 0146 6A1C     		adds	r2, r5, #1
+ 385              	.LVL54:
+ 386              		.loc 1 118 0
+ 387 0148 2BB9     		cbnz	r3, .L49
+ 388              	.LVL55:
+ 389              	.L65:
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '%') goto out;
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '-') {
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 ++format;
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pad = PAD_RIGHT;
  123:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             }
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             while (*format == '0') {
- 384              		.loc 1 124 0
- 385 0148 2746     		mov	r7, r4
- 386              	.LBB4:
  125:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 ++format;
  126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pad |= PAD_ZERO;
  127:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             }
@@ -534,30 +527,6 @@
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 's' ) {
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 register char *s = (char *)va_arg( args, int );
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += prints (out, s?s:"(null)", width, pad);
- 387              		.loc 1 134 0
- 388 014a DFF81C81 		ldr	r8, .L67
- 389              	.LBE4:
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for (; *format != 0; ++format) {
- 390              		.loc 1 114 0
- 391 014e 7FE0     		b	.L41
- 392              	.LVL55:
- 393              	.L58:
- 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         if (*format == '%') {
- 394              		.loc 1 115 0
- 395 0150 252B     		cmp	r3, #37
- 396 0152 77D1     		bne	.L42
- 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '\0') break;
- 397              		.loc 1 118 0
- 398 0154 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
- 116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++format;
- 399              		.loc 1 116 0
- 400 0156 6A1C     		adds	r2, r5, #1
- 401              	.LVL56:
- 118:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '\0') break;
- 402              		.loc 1 118 0
- 403 0158 13B9     		cbnz	r3, .L43
- 404              	.LVL57:
- 405              	.L59:
  135:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 continue;
  136:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             }
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'd' ) {
@@ -591,451 +560,459 @@
  165:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         }
  166:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     }
  167:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     if (out) **out = '\0';
- 406              		.loc 1 167 0
- 407 015a 002E     		cmp	r6, #0
- 408 015c 7DD1     		bne	.L44
- 409 015e 7FE0     		b	.L45
- 410              	.LVL58:
- 411              	.L43:
+ 390              		.loc 1 167 0
+ 391 014a 002E     		cmp	r6, #0
+ 392 014c 7BD0     		beq	.L51
+ 393              		.loc 1 167 0 is_stmt 0 discriminator 1
+ 394 014e 3368     		ldr	r3, [r6]
+ 395 0150 0022     		movs	r2, #0
+ 396 0152 1A70     		strb	r2, [r3]
+ 397 0154 77E0     		b	.L51
+ 398              	.LVL56:
+ 399              	.L49:
  119:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '%') goto out;
- 412              		.loc 1 119 0
- 413 0160 252B     		cmp	r3, #37
- 414 0162 6ED0     		beq	.L60
+ 400              		.loc 1 119 0 is_stmt 1
+ 401 0156 252B     		cmp	r3, #37
+ 402 0158 6DD0     		beq	.L66
  120:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if (*format == '-') {
- 415              		.loc 1 120 0
- 416 0164 2D2B     		cmp	r3, #45
- 417 0166 02D1     		bne	.L61
+ 403              		.loc 1 120 0
+ 404 015a 2D2B     		cmp	r3, #45
  121:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 ++format;
- 418              		.loc 1 121 0
- 419 0168 AA1C     		adds	r2, r5, #2
- 420              	.LVL59:
+ 405              		.loc 1 121 0
+ 406 015c 06BF     		itte	eq
+ 407 015e AA1C     		addeq	r2, r5, #2
+ 408              	.LVL57:
  122:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pad = PAD_RIGHT;
- 421              		.loc 1 122 0
- 422 016a 0123     		movs	r3, #1
- 423 016c 03E0     		b	.L47
- 424              	.LVL60:
- 425              	.L61:
+ 409              		.loc 1 122 0
+ 410 0160 0123     		moveq	r3, #1
  117:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             width = pad = 0;
- 426              		.loc 1 117 0
- 427 016e 0023     		movs	r3, #0
- 428 0170 01E0     		b	.L47
- 429              	.LVL61:
- 430              	.L48:
- 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pad |= PAD_ZERO;
- 431              		.loc 1 126 0
- 432 0172 43F00203 		orr	r3, r3, #2
- 433              	.LVL62:
- 434              	.L47:
- 435 0176 1146     		mov	r1, r2
- 436              	.LVL63:
- 437 0178 0132     		adds	r2, r2, #1
+ 411              		.loc 1 117 0
+ 412 0162 0023     		movne	r3, #0
+ 413              	.LVL58:
+ 414              	.L53:
+ 415 0164 1746     		mov	r7, r2
+ 416              	.LVL59:
+ 417 0166 0132     		adds	r2, r2, #1
  124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             while (*format == '0') {
- 438              		.loc 1 124 0 discriminator 1
- 439 017a 0878     		ldrb	r0, [r1, #0]	@ zero_extendqisi2
- 440 017c 3028     		cmp	r0, #48
- 441 017e F8D0     		beq	.L48
- 442 0180 8C46     		mov	ip, r1
- 443 0182 0022     		movs	r2, #0
- 129:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 width *= 10;
- 444              		.loc 1 129 0 discriminator 1
- 445 0184 4FF00A0A 		mov	sl, #10
- 446 0188 01E0     		b	.L49
- 447              	.LVL64:
- 448              	.L50:
- 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 width += *format - '0';
- 449              		.loc 1 130 0 discriminator 2
- 450 018a 0AFB0202 		mla	r2, sl, r2, r0
- 451              	.LVL65:
- 452              	.L49:
- 453 018e 6546     		mov	r5, ip
- 454              	.LVL66:
- 455 0190 0CF1010C 		add	ip, ip, #1
+ 418              		.loc 1 124 0 discriminator 1
+ 419 0168 3978     		ldrb	r1, [r7]	@ zero_extendqisi2
+ 420 016a 3029     		cmp	r1, #48
+ 421 016c 02D1     		bne	.L74
+ 422              	.LVL60:
+ 126:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pad |= PAD_ZERO;
+ 423              		.loc 1 126 0
+ 424 016e 43F00203 		orr	r3, r3, #2
+ 425              	.LVL61:
+ 426 0172 F7E7     		b	.L53
+ 427              	.LVL62:
+ 428              	.L74:
+ 124:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             while (*format == '0') {
+ 429              		.loc 1 124 0
+ 430 0174 0022     		movs	r2, #0
+ 431              	.LVL63:
+ 432              	.L55:
  128:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             for ( ; *format >= '0' && *format <= '9'; ++format) {
- 456              		.loc 1 128 0 discriminator 1
- 457 0194 2978     		ldrb	r1, [r5, #0]	@ zero_extendqisi2
- 458 0196 A1F13000 		sub	r0, r1, #48
- 459 019a 5FFA80F9 		uxtb	r9, r0
- 460 019e B9F1090F 		cmp	r9, #9
- 461 01a2 F2D9     		bls	.L50
+ 433              		.loc 1 128 0 discriminator 1
+ 434 0176 3978     		ldrb	r1, [r7]	@ zero_extendqisi2
+ 435 0178 A1F13000 		sub	r0, r1, #48
+ 436 017c 5FFA80FC 		uxtb	ip, r0
+ 437 0180 BCF1090F 		cmp	ip, #9
+ 438 0184 3D46     		mov	r5, r7
+ 439              	.LVL64:
+ 440 0186 07F10107 		add	r7, r7, #1
+ 441 018a 03D8     		bhi	.L75
+ 442              	.LVL65:
+ 130:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 width += *format - '0';
+ 443              		.loc 1 130 0 discriminator 2
+ 444 018c 0A21     		movs	r1, #10
+ 445 018e 01FB0202 		mla	r2, r1, r2, r0
+ 446              	.LVL66:
+ 447 0192 F0E7     		b	.L55
+ 448              	.LVL67:
+ 449              	.L75:
  132:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 's' ) {
- 462              		.loc 1 132 0
- 463 01a4 7329     		cmp	r1, #115
- 464 01a6 08D1     		bne	.L51
- 465              	.LBB5:
+ 450              		.loc 1 132 0
+ 451 0194 7329     		cmp	r1, #115
+ 452 0196 09D1     		bne	.L57
+ 453              	.LBB4:
  133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 register char *s = (char *)va_arg( args, int );
- 466              		.loc 1 133 0
- 467 01a8 0599     		ldr	r1, [sp, #20]
- 468 01aa 081D     		adds	r0, r1, #4
- 469 01ac 0968     		ldr	r1, [r1, #0]
- 470              	.LVL67:
- 471 01ae 0590     		str	r0, [sp, #20]
+ 454              		.loc 1 133 0
+ 455 0198 0599     		ldr	r1, [sp, #20]
  134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += prints (out, s?s:"(null)", width, pad);
- 472              		.loc 1 134 0
- 473 01b0 0029     		cmp	r1, #0
- 474 01b2 08BF     		it	eq
- 475 01b4 4146     		moveq	r1, r8
- 476              	.LVL68:
- 477 01b6 3046     		mov	r0, r6
- 478 01b8 40E0     		b	.L65
- 479              	.LVL69:
- 480              	.L51:
- 481              	.LBE5:
+ 456              		.loc 1 134 0
+ 457 019a 2C4F     		ldr	r7, .L76
+ 133:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 register char *s = (char *)va_arg( args, int );
+ 458              		.loc 1 133 0
+ 459 019c 081D     		adds	r0, r1, #4
+ 460 019e 0968     		ldr	r1, [r1]
+ 461              	.LVL68:
+ 462 01a0 0590     		str	r0, [sp, #20]
+ 134:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += prints (out, s?s:"(null)", width, pad);
+ 463              		.loc 1 134 0
+ 464 01a2 0029     		cmp	r1, #0
+ 465 01a4 08BF     		it	eq
+ 466 01a6 3946     		moveq	r1, r7
+ 467              	.LVL69:
+ 468 01a8 3046     		mov	r0, r6
+ 469              	.LVL70:
+ 470 01aa 41E0     		b	.L72
+ 471              	.LVL71:
+ 472              	.L57:
+ 473              	.LBE4:
  137:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'd' ) {
- 482              		.loc 1 137 0
- 483 01ba 6429     		cmp	r1, #100
- 484 01bc 0ED1     		bne	.L54
+ 474              		.loc 1 137 0
+ 475 01ac 6429     		cmp	r1, #100
+ 476 01ae 0ED1     		bne	.L60
  138:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += printi (out, va_arg( args, int ), 10, 1, width, pad, 'a');
- 485              		.loc 1 138 0
- 486 01be 8DE80C00 		stmia	sp, {r2, r3}
- 487 01c2 0599     		ldr	r1, [sp, #20]
- 488 01c4 6123     		movs	r3, #97
- 489              	.LVL70:
- 490 01c6 0293     		str	r3, [sp, #8]
- 491 01c8 081D     		adds	r0, r1, #4
- 492 01ca 0968     		ldr	r1, [r1, #0]
- 493 01cc 0590     		str	r0, [sp, #20]
- 494 01ce 0A22     		movs	r2, #10
- 495              	.LVL71:
- 496 01d0 3046     		mov	r0, r6
- 497 01d2 0123     		movs	r3, #1
- 498              	.LVL72:
- 499              	.L63:
- 500 01d4 FFF763FF 		bl	printi
- 501              	.LVL73:
- 502              	.L62:
- 503 01d8 2418     		adds	r4, r4, r0
- 504              	.LVL74:
+ 477              		.loc 1 138 0
+ 478 01b0 8DE80C00 		stmia	sp, {r2, r3}
+ 479 01b4 0599     		ldr	r1, [sp, #20]
+ 480 01b6 6123     		movs	r3, #97
+ 481              	.LVL72:
+ 482 01b8 0293     		str	r3, [sp, #8]
+ 483 01ba 081D     		adds	r0, r1, #4
+ 484 01bc 0968     		ldr	r1, [r1]
+ 485 01be 0590     		str	r0, [sp, #20]
+ 486 01c0 0A22     		movs	r2, #10
+ 487              	.LVL73:
+ 488 01c2 3046     		mov	r0, r6
+ 489 01c4 0123     		movs	r3, #1
+ 490              	.LVL74:
+ 491              	.L70:
+ 492 01c6 FFF766FF 		bl	printi
+ 493              	.LVL75:
+ 494              	.L69:
+ 495 01ca 0444     		add	r4, r4, r0
+ 496              	.LVL76:
  139:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 continue;
- 505              		.loc 1 139 0
- 506 01da 38E0     		b	.L53
- 507              	.LVL75:
- 508              	.L54:
+ 497              		.loc 1 139 0
+ 498 01cc 39E0     		b	.L59
+ 499              	.LVL77:
+ 500              	.L60:
  141:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'x' ) {
- 509              		.loc 1 141 0
- 510 01dc 7829     		cmp	r1, #120
- 511 01de 06D1     		bne	.L55
+ 501              		.loc 1 141 0
+ 502 01ce 7829     		cmp	r1, #120
+ 503 01d0 06D1     		bne	.L61
  142:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'a');
- 512              		.loc 1 142 0
- 513 01e0 0599     		ldr	r1, [sp, #20]
- 514 01e2 081D     		adds	r0, r1, #4
- 515 01e4 8DE80C00 		stmia	sp, {r2, r3}
- 516 01e8 0590     		str	r0, [sp, #20]
- 517 01ea 6123     		movs	r3, #97
- 518              	.LVL76:
- 519 01ec 07E0     		b	.L66
- 520              	.LVL77:
- 521              	.L55:
+ 504              		.loc 1 142 0
+ 505 01d2 0599     		ldr	r1, [sp, #20]
+ 506 01d4 081D     		adds	r0, r1, #4
+ 507 01d6 8DE80C00 		stmia	sp, {r2, r3}
+ 508 01da 0590     		str	r0, [sp, #20]
+ 509 01dc 6123     		movs	r3, #97
+ 510              	.LVL78:
+ 511 01de 07E0     		b	.L73
+ 512              	.LVL79:
+ 513              	.L61:
  145:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'X' ) {
- 522              		.loc 1 145 0
- 523 01ee 5829     		cmp	r1, #88
- 524 01f0 0AD1     		bne	.L56
+ 514              		.loc 1 145 0
+ 515 01e0 5829     		cmp	r1, #88
+ 516 01e2 0AD1     		bne	.L62
  146:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += printi (out, va_arg( args, int ), 16, 0, width, pad, 'A');
- 525              		.loc 1 146 0
- 526 01f2 0599     		ldr	r1, [sp, #20]
- 527 01f4 081D     		adds	r0, r1, #4
- 528 01f6 8DE80C00 		stmia	sp, {r2, r3}
- 529 01fa 0590     		str	r0, [sp, #20]
- 530 01fc 4123     		movs	r3, #65
- 531              	.LVL78:
- 532              	.L66:
- 533 01fe 0293     		str	r3, [sp, #8]
- 534 0200 3046     		mov	r0, r6
- 535 0202 0968     		ldr	r1, [r1, #0]
- 536 0204 1022     		movs	r2, #16
- 537              	.LVL79:
- 538 0206 0BE0     		b	.L64
- 539              	.LVL80:
- 540              	.L56:
+ 517              		.loc 1 146 0
+ 518 01e4 0599     		ldr	r1, [sp, #20]
+ 519 01e6 081D     		adds	r0, r1, #4
+ 520 01e8 8DE80C00 		stmia	sp, {r2, r3}
+ 521 01ec 0590     		str	r0, [sp, #20]
+ 522 01ee 4123     		movs	r3, #65
+ 523              	.LVL80:
+ 524              	.L73:
+ 525 01f0 0293     		str	r3, [sp, #8]
+ 526 01f2 3046     		mov	r0, r6
+ 527 01f4 0968     		ldr	r1, [r1]
+ 528 01f6 1022     		movs	r2, #16
+ 529              	.LVL81:
+ 530 01f8 0BE0     		b	.L71
+ 531              	.LVL82:
+ 532              	.L62:
  149:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'u' ) {
- 541              		.loc 1 149 0
- 542 0208 7529     		cmp	r1, #117
- 543 020a 0BD1     		bne	.L57
+ 533              		.loc 1 149 0
+ 534 01fa 7529     		cmp	r1, #117
+ 535 01fc 0BD1     		bne	.L63
  150:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += printi (out, va_arg( args, int ), 10, 0, width, pad, 'a');
- 544              		.loc 1 150 0
- 545 020c 8DE80C00 		stmia	sp, {r2, r3}
- 546 0210 0599     		ldr	r1, [sp, #20]
- 547 0212 6123     		movs	r3, #97
- 548              	.LVL81:
- 549 0214 0293     		str	r3, [sp, #8]
- 550 0216 081D     		adds	r0, r1, #4
- 551 0218 0968     		ldr	r1, [r1, #0]
- 552 021a 0590     		str	r0, [sp, #20]
- 553 021c 0A22     		movs	r2, #10
- 554              	.LVL82:
- 555 021e 3046     		mov	r0, r6
- 556              	.LVL83:
- 557              	.L64:
- 558 0220 0023     		movs	r3, #0
- 559 0222 D7E7     		b	.L63
- 560              	.LVL84:
- 561              	.L57:
+ 536              		.loc 1 150 0
+ 537 01fe 8DE80C00 		stmia	sp, {r2, r3}
+ 538 0202 0599     		ldr	r1, [sp, #20]
+ 539 0204 6123     		movs	r3, #97
+ 540              	.LVL83:
+ 541 0206 0293     		str	r3, [sp, #8]
+ 542 0208 081D     		adds	r0, r1, #4
+ 543 020a 0968     		ldr	r1, [r1]
+ 544 020c 0590     		str	r0, [sp, #20]
+ 545 020e 0A22     		movs	r2, #10
+ 546              	.LVL84:
+ 547 0210 3046     		mov	r0, r6
+ 548              	.LVL85:
+ 549              	.L71:
+ 550 0212 0023     		movs	r3, #0
+ 551 0214 D7E7     		b	.L70
+ 552              	.LVL86:
+ 553              	.L63:
  153:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             if( *format == 'c' ) {
- 562              		.loc 1 153 0
- 563 0224 6329     		cmp	r1, #99
- 564 0226 12D1     		bne	.L53
+ 554              		.loc 1 153 0
+ 555 0216 6329     		cmp	r1, #99
+ 556 0218 13D1     		bne	.L59
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 scr[0] = (char)va_arg( args, int );
- 565              		.loc 1 155 0
- 566 0228 0599     		ldr	r1, [sp, #20]
+ 557              		.loc 1 155 0
+ 558 021a 0599     		ldr	r1, [sp, #20]
+ 559 021c 081D     		adds	r0, r1, #4
+ 560 021e 0968     		ldr	r1, [r1]
+ 561 0220 8DF81C10 		strb	r1, [sp, #28]
  156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 scr[1] = '\0';
- 567              		.loc 1 156 0
- 568 022a 8DF81D70 		strb	r7, [sp, #29]
+ 562              		.loc 1 156 0
+ 563 0224 0021     		movs	r1, #0
  155:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 scr[0] = (char)va_arg( args, int );
- 569              		.loc 1 155 0
- 570 022e 081D     		adds	r0, r1, #4
- 571 0230 0968     		ldr	r1, [r1, #0]
- 572 0232 0590     		str	r0, [sp, #20]
- 573 0234 8DF81C10 		strb	r1, [sp, #28]
+ 564              		.loc 1 155 0
+ 565 0226 0590     		str	r0, [sp, #20]
+ 156:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 scr[1] = '\0';
+ 566              		.loc 1 156 0
+ 567 0228 8DF81D10 		strb	r1, [sp, #29]
  157:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****                 pc += prints (out, scr, width, pad);
- 574              		.loc 1 157 0
- 575 0238 3046     		mov	r0, r6
- 576 023a 07A9     		add	r1, sp, #28
- 577              	.LVL85:
- 578              	.L65:
- 579 023c FFF7EAFE 		bl	prints
- 580              	.LVL86:
- 581 0240 CAE7     		b	.L62
- 582              	.LVL87:
- 583              	.L60:
+ 568              		.loc 1 157 0
+ 569 022c 3046     		mov	r0, r6
+ 570 022e 07A9     		add	r1, sp, #28
+ 571              	.LVL87:
+ 572              	.L72:
+ 573 0230 FFF7F0FE 		bl	prints
+ 574              	.LVL88:
+ 575 0234 C9E7     		b	.L69
+ 576              	.LVL89:
+ 577              	.L66:
  116:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++format;
- 584              		.loc 1 116 0
- 585 0242 1546     		mov	r5, r2
- 586              	.LVL88:
- 587              	.L42:
+ 578              		.loc 1 116 0
+ 579 0236 1546     		mov	r5, r2
+ 580              	.LVL90:
+ 581              	.L48:
  163:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             printchar (out, *format);
- 588              		.loc 1 163 0
- 589 0244 3046     		mov	r0, r6
- 590 0246 2978     		ldrb	r1, [r5, #0]	@ zero_extendqisi2
- 591 0248 FFF7DAFE 		bl	printchar
- 592              	.LVL89:
+ 582              		.loc 1 163 0
+ 583 0238 3046     		mov	r0, r6
+ 584 023a 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 585 023c FFF7E0FE 		bl	printchar
+ 586              	.LVL91:
  164:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****             ++pc;
- 593              		.loc 1 164 0
- 594 024c 0134     		adds	r4, r4, #1
- 595              	.LVL90:
- 596              	.L53:
+ 587              		.loc 1 164 0
+ 588 0240 0134     		adds	r4, r4, #1
+ 589              	.LVL92:
+ 590              	.L59:
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for (; *format != 0; ++format) {
- 597              		.loc 1 114 0
- 598 024e 0135     		adds	r5, r5, #1
- 599              	.LVL91:
- 600              	.L41:
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     for (; *format != 0; ++format) {
- 601              		.loc 1 114 0 is_stmt 0 discriminator 1
- 602 0250 2B78     		ldrb	r3, [r5, #0]	@ zero_extendqisi2
- 603 0252 002B     		cmp	r3, #0
- 604 0254 7FF47CAF 		bne	.L58
- 605 0258 7FE7     		b	.L59
- 606              	.LVL92:
- 607              	.L44:
- 608              		.loc 1 167 0 is_stmt 1 discriminator 1
- 609 025a 3368     		ldr	r3, [r6, #0]
- 610 025c 0022     		movs	r2, #0
- 611 025e 1A70     		strb	r2, [r3, #0]
- 612              	.L45:
+ 591              		.loc 1 114 0
+ 592 0242 0135     		adds	r5, r5, #1
+ 593              	.LVL93:
+ 594 0244 7AE7     		b	.L47
+ 595              	.LVL94:
+ 596              	.L51:
  168:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     va_end( args );
  169:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****     return pc;
  170:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 613              		.loc 1 170 0
- 614 0260 2046     		mov	r0, r4
- 615 0262 08B0     		add	sp, sp, #32
- 616 0264 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
- 617              	.L68:
- 618              		.align	2
- 619              	.L67:
- 620 0268 00000000 		.word	.LC0
- 621              		.cfi_endproc
- 622              	.LFE114:
- 624              		.align	1
- 625              		.global	printf
- 626              		.thumb
- 627              		.thumb_func
- 629              	printf:
- 630              	.LFB115:
+ 597              		.loc 1 170 0
+ 598 0246 2046     		mov	r0, r4
+ 599 0248 09B0     		add	sp, sp, #36
+ 600              		@ sp needed
+ 601 024a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 602              	.LVL95:
+ 603              	.L77:
+ 604              		.align	2
+ 605              	.L76:
+ 606 024c 00000000 		.word	.LC0
+ 607              		.cfi_endproc
+ 608              	.LFE114:
+ 610              		.align	1
+ 611              		.global	printf
+ 612              		.thumb
+ 613              		.thumb_func
+ 615              	printf:
+ 616              	.LFB115:
  171:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  172:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** int printf(const char *format, ...)
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 631              		.loc 1 173 0
- 632              		.cfi_startproc
- 633              		@ args = 4, pretend = 16, frame = 8
- 634              		@ frame_needed = 0, uses_anonymous_args = 1
- 635              	.LVL93:
- 636 026c 0FB4     		push	{r0, r1, r2, r3}
- 637              	.LCFI4:
- 638              		.cfi_def_cfa_offset 16
- 639              		.cfi_offset 0, -16
- 640              		.cfi_offset 1, -12
- 641              		.cfi_offset 2, -8
- 642              		.cfi_offset 3, -4
- 643 026e 07B5     		push	{r0, r1, r2, lr}
- 644              	.LCFI5:
- 645              		.cfi_def_cfa_offset 32
- 646              		.cfi_offset 0, -32
- 647              		.cfi_offset 1, -28
- 648              		.cfi_offset 2, -24
- 649              		.cfi_offset 14, -20
- 650              		.loc 1 173 0
- 651 0270 04AA     		add	r2, sp, #16
+ 617              		.loc 1 173 0
+ 618              		.cfi_startproc
+ 619              		@ args = 4, pretend = 16, frame = 8
+ 620              		@ frame_needed = 0, uses_anonymous_args = 1
+ 621              	.LVL96:
+ 622 0250 0FB4     		push	{r0, r1, r2, r3}
+ 623              	.LCFI4:
+ 624              		.cfi_def_cfa_offset 16
+ 625              		.cfi_offset 0, -16
+ 626              		.cfi_offset 1, -12
+ 627              		.cfi_offset 2, -8
+ 628              		.cfi_offset 3, -4
+ 629 0252 07B5     		push	{r0, r1, r2, lr}
+ 630              	.LCFI5:
+ 631              		.cfi_def_cfa_offset 32
+ 632              		.cfi_offset 0, -32
+ 633              		.cfi_offset 1, -28
+ 634              		.cfi_offset 2, -24
+ 635              		.cfi_offset 14, -20
+ 636              		.loc 1 173 0
+ 637 0254 04AA     		add	r2, sp, #16
  174:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_list args;
  175:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
  177:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         return print( 0, format, args );
- 652              		.loc 1 177 0
- 653 0272 0020     		movs	r0, #0
+ 638              		.loc 1 177 0
+ 639 0256 0020     		movs	r0, #0
  173:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 654              		.loc 1 173 0
- 655 0274 52F8041B 		ldr	r1, [r2], #4
+ 640              		.loc 1 173 0
+ 641 0258 52F8041B 		ldr	r1, [r2], #4
  176:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
- 656              		.loc 1 176 0
- 657 0278 0192     		str	r2, [sp, #4]
- 658              		.loc 1 177 0
- 659 027a FFF75EFF 		bl	print
- 660              	.LVL94:
+ 642              		.loc 1 176 0
+ 643 025c 0192     		str	r2, [sp, #4]
+ 644              		.loc 1 177 0
+ 645 025e FFF767FF 		bl	print
+ 646              	.LVL97:
  178:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 661              		.loc 1 178 0
- 662 027e BDE80E40 		pop	{r1, r2, r3, lr}
- 663 0282 04B0     		add	sp, sp, #16
- 664 0284 7047     		bx	lr
- 665              		.cfi_endproc
- 666              	.LFE115:
- 668              		.align	1
- 669              		.global	sprintf
- 670              		.thumb
- 671              		.thumb_func
- 673              	sprintf:
- 674              	.LFB116:
+ 647              		.loc 1 178 0
+ 648 0262 03B0     		add	sp, sp, #12
+ 649              		@ sp needed
+ 650 0264 5DF804EB 		ldr	lr, [sp], #4
+ 651 0268 04B0     		add	sp, sp, #16
+ 652 026a 7047     		bx	lr
+ 653              		.cfi_endproc
+ 654              	.LFE115:
+ 656              		.align	1
+ 657              		.global	sprintf
+ 658              		.thumb
+ 659              		.thumb_func
+ 661              	sprintf:
+ 662              	.LFB116:
  179:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  180:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** int sprintf(char *out, const char *format, ...)
  181:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 675              		.loc 1 181 0
- 676              		.cfi_startproc
- 677              		@ args = 4, pretend = 12, frame = 16
- 678              		@ frame_needed = 0, uses_anonymous_args = 1
- 679              	.LVL95:
- 680 0286 0EB4     		push	{r1, r2, r3}
- 681              	.LCFI6:
- 682              		.cfi_def_cfa_offset 12
- 683              		.cfi_offset 1, -12
- 684              		.cfi_offset 2, -8
- 685              		.cfi_offset 3, -4
- 686 0288 0FB5     		push	{r0, r1, r2, r3, lr}
- 687              	.LCFI7:
- 688              		.cfi_def_cfa_offset 32
- 689              		.cfi_offset 0, -32
- 690              		.cfi_offset 1, -28
- 691              		.cfi_offset 2, -24
- 692              		.cfi_offset 3, -20
- 693              		.cfi_offset 14, -16
- 694              		.loc 1 181 0
- 695 028a 05AA     		add	r2, sp, #20
- 696 028c 0190     		str	r0, [sp, #4]
- 697 028e 52F8041B 		ldr	r1, [r2], #4
+ 663              		.loc 1 181 0
+ 664              		.cfi_startproc
+ 665              		@ args = 4, pretend = 12, frame = 16
+ 666              		@ frame_needed = 0, uses_anonymous_args = 1
+ 667              	.LVL98:
+ 668 026c 0EB4     		push	{r1, r2, r3}
+ 669              	.LCFI6:
+ 670              		.cfi_def_cfa_offset 12
+ 671              		.cfi_offset 1, -12
+ 672              		.cfi_offset 2, -8
+ 673              		.cfi_offset 3, -4
+ 674 026e 0FB5     		push	{r0, r1, r2, r3, lr}
+ 675              	.LCFI7:
+ 676              		.cfi_def_cfa_offset 32
+ 677              		.cfi_offset 0, -32
+ 678              		.cfi_offset 1, -28
+ 679              		.cfi_offset 2, -24
+ 680              		.cfi_offset 3, -20
+ 681              		.cfi_offset 14, -16
+ 682              		.loc 1 181 0
+ 683 0270 05AA     		add	r2, sp, #20
+ 684 0272 0190     		str	r0, [sp, #4]
+ 685 0274 52F8041B 		ldr	r1, [r2], #4
  182:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_list args;
  183:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
+ 686              		.loc 1 184 0
+ 687 0278 0392     		str	r2, [sp, #12]
  185:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         return print( &out, format, args );
- 698              		.loc 1 185 0
- 699 0292 01A8     		add	r0, sp, #4
- 700              	.LVL96:
- 184:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
- 701              		.loc 1 184 0
- 702 0294 0392     		str	r2, [sp, #12]
- 703              		.loc 1 185 0
- 704 0296 FFF750FF 		bl	print
- 705              	.LVL97:
+ 688              		.loc 1 185 0
+ 689 027a 01A8     		add	r0, sp, #4
+ 690              	.LVL99:
+ 691 027c FFF758FF 		bl	print
+ 692              	.LVL100:
  186:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 706              		.loc 1 186 0
- 707 029a 04B0     		add	sp, sp, #16
- 708 029c 5DF804EB 		pop	{lr}
- 709 02a0 03B0     		add	sp, sp, #12
- 710 02a2 7047     		bx	lr
- 711              		.cfi_endproc
- 712              	.LFE116:
- 714              		.align	1
- 715              		.global	snprintf
- 716              		.thumb
- 717              		.thumb_func
- 719              	snprintf:
- 720              	.LFB117:
+ 693              		.loc 1 186 0
+ 694 0280 04B0     		add	sp, sp, #16
+ 695              		@ sp needed
+ 696 0282 5DF804EB 		ldr	lr, [sp], #4
+ 697 0286 03B0     		add	sp, sp, #12
+ 698 0288 7047     		bx	lr
+ 699              		.cfi_endproc
+ 700              	.LFE116:
+ 702              		.align	1
+ 703              		.global	snprintf
+ 704              		.thumb
+ 705              		.thumb_func
+ 707              	snprintf:
+ 708              	.LFB117:
  187:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  188:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  189:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** int snprintf( char *buf, unsigned int count, const char *format, ... )
  190:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** {
- 721              		.loc 1 190 0
- 722              		.cfi_startproc
- 723              		@ args = 4, pretend = 8, frame = 16
- 724              		@ frame_needed = 0, uses_anonymous_args = 1
- 725              	.LVL98:
- 726 02a4 0CB4     		push	{r2, r3}
- 727              	.LCFI8:
- 728              		.cfi_def_cfa_offset 8
- 729              		.cfi_offset 2, -8
- 730              		.cfi_offset 3, -4
- 731 02a6 1FB5     		push	{r0, r1, r2, r3, r4, lr}
- 732              	.LCFI9:
- 733              		.cfi_def_cfa_offset 32
- 734              		.cfi_offset 0, -32
- 735              		.cfi_offset 1, -28
- 736              		.cfi_offset 2, -24
- 737              		.cfi_offset 3, -20
- 738              		.cfi_offset 4, -16
- 739              		.cfi_offset 14, -12
- 740              		.loc 1 190 0
- 741 02a8 06AA     		add	r2, sp, #24
- 742 02aa 0190     		str	r0, [sp, #4]
- 743 02ac 52F8041B 		ldr	r1, [r2], #4
- 744              	.LVL99:
+ 709              		.loc 1 190 0
+ 710              		.cfi_startproc
+ 711              		@ args = 4, pretend = 8, frame = 16
+ 712              		@ frame_needed = 0, uses_anonymous_args = 1
+ 713              	.LVL101:
+ 714 028a 0CB4     		push	{r2, r3}
+ 715              	.LCFI8:
+ 716              		.cfi_def_cfa_offset 8
+ 717              		.cfi_offset 2, -8
+ 718              		.cfi_offset 3, -4
+ 719 028c 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+ 720              	.LCFI9:
+ 721              		.cfi_def_cfa_offset 32
+ 722              		.cfi_offset 0, -32
+ 723              		.cfi_offset 1, -28
+ 724              		.cfi_offset 2, -24
+ 725              		.cfi_offset 3, -20
+ 726              		.cfi_offset 4, -16
+ 727              		.cfi_offset 14, -12
+ 728              		.loc 1 190 0
+ 729 028e 06AA     		add	r2, sp, #24
+ 730 0290 0190     		str	r0, [sp, #4]
+ 731 0292 52F8041B 		ldr	r1, [r2], #4
+ 732              	.LVL102:
  191:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_list args;
  192:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  193:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         ( void ) count;
  194:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** 
  195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
+ 733              		.loc 1 195 0
+ 734 0296 0392     		str	r2, [sp, #12]
  196:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         return print( &buf, format, args );
- 745              		.loc 1 196 0
- 746 02b0 01A8     		add	r0, sp, #4
- 747              	.LVL100:
- 195:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c ****         va_start( args, format );
- 748              		.loc 1 195 0
- 749 02b2 0392     		str	r2, [sp, #12]
- 750              		.loc 1 196 0
- 751 02b4 FFF741FF 		bl	print
- 752              	.LVL101:
+ 735              		.loc 1 196 0
+ 736 0298 01A8     		add	r0, sp, #4
+ 737              	.LVL103:
+ 738 029a FFF749FF 		bl	print
+ 739              	.LVL104:
  197:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/printf_stdarg.c **** }
- 753              		.loc 1 197 0
- 754 02b8 05B0     		add	sp, sp, #20
- 755 02ba 5DF804EB 		pop	{lr}
- 756 02be 02B0     		add	sp, sp, #8
- 757 02c0 7047     		bx	lr
- 758              		.cfi_endproc
- 759              	.LFE117:
- 761              		.comm	It_Com,532,4
- 762              		.section	.rodata.str1.1,"aMS",%progbits,1
- 763              	.LC0:
- 764 0000 286E756C 		.ascii	"(null)\000"
- 764      6C2900
- 765              		.text
- 766              	.Letext0:
- 767              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 768              		.file 3 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 769              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
- 770              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
- 771              		.file 6 "<built-in>"
+ 740              		.loc 1 197 0
+ 741 029e 05B0     		add	sp, sp, #20
+ 742              		@ sp needed
+ 743 02a0 5DF804EB 		ldr	lr, [sp], #4
+ 744 02a4 02B0     		add	sp, sp, #8
+ 745 02a6 7047     		bx	lr
+ 746              		.cfi_endproc
+ 747              	.LFE117:
+ 749              		.comm	It_Com,532,4
+ 750              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 751              	.LC0:
+ 752 0000 286E756C 		.ascii	"(null)\000"
+ 752      6C2900
+ 753              		.text
+ 754              	.Letext0:
+ 755              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h"
+ 756              		.file 3 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 757              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/usart.h"
+ 758              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 759              		.file 6 "<built-in>"
 DEFINED SYMBOLS
                             *ABS*:00000000 printf_stdarg.c
-     /tmp/cc2iYEcH.s:20     .text:00000000 $t
-     /tmp/cc2iYEcH.s:24     .text:00000000 printchar
-     /tmp/cc2iYEcH.s:58     .text:00000014 prints
-     /tmp/cc2iYEcH.s:200    .text:0000009e printi
-     /tmp/cc2iYEcH.s:357    .text:0000013a print
-     /tmp/cc2iYEcH.s:620    .text:00000268 $d
-     /tmp/cc2iYEcH.s:624    .text:0000026c $t
-     /tmp/cc2iYEcH.s:629    .text:0000026c printf
-     /tmp/cc2iYEcH.s:673    .text:00000286 sprintf
-     /tmp/cc2iYEcH.s:719    .text:000002a4 snprintf
+     /tmp/ccRh9ef7.s:20     .text:00000000 $t
+     /tmp/ccRh9ef7.s:24     .text:00000000 printchar
+     /tmp/ccRh9ef7.s:56     .text:00000014 prints
+     /tmp/ccRh9ef7.s:194    .text:00000096 printi
+     /tmp/ccRh9ef7.s:349    .text:00000130 print
+     /tmp/ccRh9ef7.s:606    .text:0000024c $d
+     /tmp/ccRh9ef7.s:610    .text:00000250 $t
+     /tmp/ccRh9ef7.s:615    .text:00000250 printf
+     /tmp/ccRh9ef7.s:661    .text:0000026c sprintf
+     /tmp/ccRh9ef7.s:707    .text:0000028a snprintf
                             *COM*:00000214 It_Com
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
-                           .group:00000000 wm4.stdarg.h.31.b70f21342353634f7b44d85f85f13832
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
+                           .group:00000000 wm4.stdarg.h.31.72c3aa8d68b291953fa52b9471bcdff7
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a

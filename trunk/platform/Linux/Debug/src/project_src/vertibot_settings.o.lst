@@ -37,59 +37,91 @@
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              	.LVL0:
    8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroSensTreshold = 20;
+  33              		.loc 1 8 0
+  34 0000 1423     		movs	r3, #20
+  35 0002 0380     		strh	r3, [r0]	@ movhi
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensX] = -1;
   10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensY] = -1;
   11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensZ] = 1;
+  36              		.loc 1 11 0
+  37 0004 0123     		movs	r3, #1
+  38 0006 4372     		strb	r3, [r0, #9]
   12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensX] = 0;
-  33              		.loc 1 12 0
-  34 0000 0022     		movs	r2, #0
-  35 0002 0271     		strb	r2, [r0, #4]
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensY] = 2;
   14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensZ] = 1;
+  39              		.loc 1 14 0
+  40 0008 8371     		strb	r3, [r0, #6]
   15:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableDriftCorrection = 1;
+  41              		.loc 1 16 0
+  42 000a 8372     		strb	r3, [r0, #10]
   17:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableACC = 1;
+  43              		.loc 1 18 0
+  44 000c C372     		strb	r3, [r0, #11]
   19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensX] = -1;
   20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensY] = -1;
   21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensZ] = 1;
+  45              		.loc 1 21 0
+  46 000e 4374     		strb	r3, [r0, #17]
   22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensX] = 2;
   23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensY] = 0;
-  36              		.loc 1 23 0
-  37 0004 4273     		strb	r2, [r0, #13]
   24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensZ] = 1;
+  47              		.loc 1 24 0
+  48 0010 8373     		strb	r3, [r0, #14]
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accMaxGOverflow = 1.3;
   26:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableMAG = 0;
-  38              		.loc 1 27 0
-  39 0006 0276     		strb	r2, [r0, #24]
   28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magLowpassValue = 5;//20;
   29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensX] = 1;
+  49              		.loc 1 29 0
+  50 0012 0377     		strb	r3, [r0, #28]
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensY] = -1;
   31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensZ] = 1;
+  51              		.loc 1 31 0
+  52 0014 8377     		strb	r3, [r0, #30]
   32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensX] = 0;
-  40              		.loc 1 32 0
-  41 0008 4276     		strb	r2, [r0, #25]
   33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensY] = 1;
+  53              		.loc 1 33 0
+  54 0016 8376     		strb	r3, [r0, #26]
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensZ] = 2;
   35:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->stopSpeed = 100;	//*PRESCALEVALUE; 	//PRESCALEVALUE=6
+  55              		.loc 1 36 0
+  56 0018 6423     		movs	r3, #100
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensX] = 0;
+  57              		.loc 1 12 0
+  58 001a 0022     		movs	r2, #0
+  59              		.loc 1 36 0
+  60 001c 4384     		strh	r3, [r0, #34]	@ movhi
   37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->minSpeed = 0; 	//*PRESCALEVALUE;
-  42              		.loc 1 37 0
-  43 000a 8284     		strh	r2, [r0, #36]	@ movhi
   38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->maxSpeed = 200;	//*PRESCALEVALUE;
+  61              		.loc 1 38 0
+  62 001e C823     		movs	r3, #200
+  12:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensX] = 0;
+  63              		.loc 1 12 0
+  64 0020 0271     		strb	r2, [r0, #4]
+  23:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensY] = 0;
+  65              		.loc 1 23 0
+  66 0022 4273     		strb	r2, [r0, #13]
+  27:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableMAG = 0;
+  67              		.loc 1 27 0
+  68 0024 0276     		strb	r2, [r0, #24]
+  32:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensX] = 0;
+  69              		.loc 1 32 0
+  70 0026 4276     		strb	r2, [r0, #25]
+  37:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->minSpeed = 0; 	//*PRESCALEVALUE;
+  71              		.loc 1 37 0
+  72 0028 8284     		strh	r2, [r0, #36]	@ movhi
+  73              		.loc 1 38 0
+  74 002a C384     		strh	r3, [r0, #38]	@ movhi
   39:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
-  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kp = 1.0f;
-  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_ki = 0.0f;
-  44              		.loc 1 41 0
-  45 000c 0022     		movs	r2, #0
-  46 000e C263     		str	r2, [r0, #60]	@ float
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kp = 2.0f;
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_ki = 1.0f;
   42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kd = 0.0f;
-  47              		.loc 1 42 0
-  48 0010 0264     		str	r2, [r0, #64]	@ float
   43:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   44:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** /* PID Only */
-  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** #ifdef PID-Controller										// Matlab rob 0.6			//
+  45:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** #ifdef PIDController										// Matlab rob 0.6			//
   46:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kp = 19.847615688639f;		// 23.8526967116026  		// 22.7f;
   47:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_ki = 52.4488131557352f;		//    	// 0.8f;
   48:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kd = 1.2881940564086f; 	//		// 0.40f;
@@ -97,178 +129,141 @@
   50:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** #endif
   51:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   52:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
-  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** #ifdef PIDSmithPredictor-Controller
+  53:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** #ifdef PIDSmithPredictorController
   54:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   55:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	/* PID */
-  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kp = 21.115707268541f; //14.5478771127435f;    	//22.7f;
-  49              		.loc 1 56 0
-  50 0012 1B4A     		ldr	r2, .L2
-   8:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroSensTreshold = 20;
-  51              		.loc 1 8 0
-  52 0014 1423     		movs	r3, #20
-  53 0016 0380     		strh	r3, [r0, #0]	@ movhi
-  54              		.loc 1 56 0
-  55 0018 8262     		str	r2, [r0, #40]	@ float
-  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensZ] = 1;
-  56              		.loc 1 11 0
-  57 001a 0123     		movs	r3, #1
-  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_ki = 0.8405091086306f; //28.1211353951591f;  	//0.8f;
-  58              		.loc 1 57 0
-  59 001c 194A     		ldr	r2, .L2+4
-  11:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensZ] = 1;
-  60              		.loc 1 11 0
-  61 001e 4372     		strb	r3, [r0, #9]
+  56:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kp = 18.115707268541f; //14.5478771127435f;    	//22.7f;
+  75              		.loc 1 56 0
+  76 002c 144A     		ldr	r2, .L2
+  77 002e 8262     		str	r2, [r0, #40]	@ float
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kp = 2.0f;
+  78              		.loc 1 40 0
+  79 0030 4FF08043 		mov	r3, #1073741824
    7:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** {
-  62              		.loc 1 7 0
-  63 0020 30B5     		push	{r4, r5, lr}
-  64              	.LCFI0:
-  65              		.cfi_def_cfa_offset 12
-  66              		.cfi_offset 4, -12
-  67              		.cfi_offset 5, -8
-  68              		.cfi_offset 14, -4
-  14:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensZ] = 1;
-  69              		.loc 1 14 0
-  70 0022 8371     		strb	r3, [r0, #6]
-  16:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableDriftCorrection = 1;
-  71              		.loc 1 16 0
-  72 0024 8372     		strb	r3, [r0, #10]
-  18:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->enableACC = 1;
-  73              		.loc 1 18 0
-  74 0026 C372     		strb	r3, [r0, #11]
-  21:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensZ] = 1;
-  75              		.loc 1 21 0
-  76 0028 4374     		strb	r3, [r0, #17]
-  24:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensZ] = 1;
-  77              		.loc 1 24 0
-  78 002a 8373     		strb	r3, [r0, #14]
+  80              		.loc 1 7 0
+  81 0034 30B5     		push	{r4, r5, lr}
+  82              	.LCFI0:
+  83              		.cfi_def_cfa_offset 12
+  84              		.cfi_offset 4, -12
+  85              		.cfi_offset 5, -8
+  86              		.cfi_offset 14, -4
+  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kp = 2.0f;
+  87              		.loc 1 40 0
+  88 0036 8363     		str	r3, [r0, #56]	@ float
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accMaxGOverflow = 1.3;
-  79              		.loc 1 25 0
-  80 002c 164D     		ldr	r5, .L2+8
-  29:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensX] = 1;
-  81              		.loc 1 29 0
-  82 002e 0377     		strb	r3, [r0, #28]
-  31:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensZ] = 1;
-  83              		.loc 1 31 0
-  84 0030 8377     		strb	r3, [r0, #30]
-  33:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensY] = 1;
-  85              		.loc 1 33 0
-  86 0032 8376     		strb	r3, [r0, #26]
-  36:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->stopSpeed = 100;	//*PRESCALEVALUE; 	//PRESCALEVALUE=6
-  87              		.loc 1 36 0
-  88 0034 6423     		movs	r3, #100
-  89 0036 4384     		strh	r3, [r0, #34]	@ movhi
-  90              		.loc 1 57 0
-  91 0038 C262     		str	r2, [r0, #44]	@ float
-  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->maxSpeed = 200;	//*PRESCALEVALUE;
-  92              		.loc 1 38 0
-  93 003a C823     		movs	r3, #200
-  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kd = 0.4392517058174756f; //1.84575662912126f; 	//0.40f;
-  94              		.loc 1 58 0
-  95 003c 134A     		ldr	r2, .L2+12
+  89              		.loc 1 25 0
+  90 0038 124D     		ldr	r5, .L2+4
+  57:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_ki = 3.8405091086306f; //28.1211353951591f;  	//0.8f;
+  91              		.loc 1 57 0
+  92 003a 134A     		ldr	r2, .L2+8
   25:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accMaxGOverflow = 1.3;
-  96              		.loc 1 25 0
-  97 003e 4561     		str	r5, [r0, #20]	@ float
+  93              		.loc 1 25 0
+  94 003c 4561     		str	r5, [r0, #20]	@ float
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_ki = 1.0f;
+  95              		.loc 1 41 0
+  96 003e 4FF07E53 		mov	r3, #1065353216
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensX] = -1;
-  98              		.loc 1 9 0
-  99 0040 FF21     		movs	r1, #255
+  97              		.loc 1 9 0
+  98 0042 FF21     		movs	r1, #255
   13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensY] = 2;
- 100              		.loc 1 13 0
- 101 0042 0224     		movs	r4, #2
-  38:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->maxSpeed = 200;	//*PRESCALEVALUE;
- 102              		.loc 1 38 0
- 103 0044 C384     		strh	r3, [r0, #38]	@ movhi
-  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magLowpassValue = 5;//20;
- 104              		.loc 1 28 0
- 105 0046 0525     		movs	r5, #5
-  40:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kp = 1.0f;
- 106              		.loc 1 40 0
- 107 0048 4FF07E53 		mov	r3, #1065353216
- 108 004c 8363     		str	r3, [r0, #56]	@ float
+  99              		.loc 1 13 0
+ 100 0044 0224     		movs	r4, #2
+  41:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_ki = 1.0f;
+ 101              		.loc 1 41 0
+ 102 0046 C363     		str	r3, [r0, #60]	@ float
+ 103              		.loc 1 57 0
+ 104 0048 C262     		str	r2, [r0, #44]	@ float
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kd = 0.0f;
+ 105              		.loc 1 42 0
+ 106 004a 0023     		movs	r3, #0
+  58:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kd = 0.4392517058174756f; //1.84575662912126f; 	//0.40f;
+ 107              		.loc 1 58 0
+ 108 004c 0F4A     		ldr	r2, .L2+12
    9:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensX] = -1;
  109              		.loc 1 9 0
  110 004e C171     		strb	r1, [r0, #7]
-  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensY] = -1;
- 111              		.loc 1 10 0
- 112 0050 0172     		strb	r1, [r0, #8]
-  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensY] = 2;
- 113              		.loc 1 13 0
- 114 0052 4471     		strb	r4, [r0, #5]
-  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensX] = -1;
- 115              		.loc 1 19 0
- 116 0054 C173     		strb	r1, [r0, #15]
-  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensY] = -1;
- 117              		.loc 1 20 0
- 118 0056 0174     		strb	r1, [r0, #16]
-  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensX] = 2;
- 119              		.loc 1 22 0
- 120 0058 0473     		strb	r4, [r0, #12]
   28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magLowpassValue = 5;//20;
- 121              		.loc 1 28 0
- 122 005a 0584     		strh	r5, [r0, #32]	@ movhi
+ 111              		.loc 1 28 0
+ 112 0050 0525     		movs	r5, #5
+  10:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensDirection[sensY] = -1;
+ 113              		.loc 1 10 0
+ 114 0052 0172     		strb	r1, [r0, #8]
+  13:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->gyroDir.sensOrder[sensY] = 2;
+ 115              		.loc 1 13 0
+ 116 0054 4471     		strb	r4, [r0, #5]
+  19:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensX] = -1;
+ 117              		.loc 1 19 0
+ 118 0056 C173     		strb	r1, [r0, #15]
+  20:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensDirection[sensY] = -1;
+ 119              		.loc 1 20 0
+ 120 0058 0174     		strb	r1, [r0, #16]
+  22:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->accDir.sensOrder[sensX] = 2;
+ 121              		.loc 1 22 0
+ 122 005a 0473     		strb	r4, [r0, #12]
+  28:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magLowpassValue = 5;//20;
+ 123              		.loc 1 28 0
+ 124 005c 0584     		strh	r5, [r0, #32]	@ movhi
   30:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensDirection[sensY] = -1;
- 123              		.loc 1 30 0
- 124 005c 4177     		strb	r1, [r0, #29]
+ 125              		.loc 1 30 0
+ 126 005e 4177     		strb	r1, [r0, #29]
   34:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->magDir.sensOrder[sensZ] = 2;
- 125              		.loc 1 34 0
- 126 005e C476     		strb	r4, [r0, #27]
- 127              		.loc 1 58 0
- 128 0060 0263     		str	r2, [r0, #48]	@ float
-  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kn = 80.8259704631948f; //683.74924793257f;
-  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
-  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	/* Smith Predictor */
-  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.b1 = 1.0f;						//0.9753f;	// T1b
- 129              		.loc 1 62 0
- 130 0062 0365     		str	r3, [r0, #80]	@ float
-  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c ****     settings->SmithPrediktor_rollPitch.b2 = 0.024690087971871f;			//0.0f;
- 131              		.loc 1 63 0
- 132 0064 0A4B     		ldr	r3, .L2+16
+ 127              		.loc 1 34 0
+ 128 0060 C476     		strb	r4, [r0, #27]
+  42:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_yaw.PID_kd = 0.0f;
+ 129              		.loc 1 42 0
+ 130 0062 0364     		str	r3, [r0, #64]	@ float
+ 131              		.loc 1 58 0
+ 132 0064 0263     		str	r2, [r0, #48]	@ float
   59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kn = 80.8259704631948f; //683.74924793257f;
  133              		.loc 1 59 0
- 134 0066 0B4A     		ldr	r2, .L2+20
- 135              		.loc 1 63 0
- 136 0068 4365     		str	r3, [r0, #84]	@ float
-  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.b3 = -0.975309912028128f;		//0.0f;
- 137              		.loc 1 64 0
- 138 006a 0B4B     		ldr	r3, .L2+24
-  59:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->PID_rollPitch.PID_kn = 80.8259704631948f; //683.74924793257f;
- 139              		.loc 1 59 0
- 140 006c 4263     		str	r2, [r0, #52]	@ float
- 141              		.loc 1 64 0
- 142 006e 8365     		str	r3, [r0, #88]	@ float
-  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.a1 = 0.995023590034886f;			//0.02469f;	// T1a
- 143              		.loc 1 65 0
- 144 0070 0A4B     		ldr	r3, .L2+28
- 145 0072 8364     		str	r3, [r0, #72]	@ float
-  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.a2 = 0.003294688806972f;			//0.007f;		// T2a
- 146              		.loc 1 66 0
- 147 0074 0A4B     		ldr	r3, .L2+32
- 148 0076 C364     		str	r3, [r0, #76]	@ float
-  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.gain =  38.285739551944431f;		//0.0f;
- 149              		.loc 1 67 0
- 150 0078 0A4B     		ldr	r3, .L2+36
+ 134 0066 0A4A     		ldr	r2, .L2+16
+ 135 0068 4263     		str	r2, [r0, #52]	@ float
+  60:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
+  61:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	/* Smith Predictor */
+  62:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.b1 = 0.9753f;	// T1b
+ 136              		.loc 1 62 0
+ 137 006a 0A4A     		ldr	r2, .L2+20
+ 138 006c 0265     		str	r2, [r0, #80]	@ float
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c ****     settings->SmithPrediktor_rollPitch.b2 = 0.0f;
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.b3 = 0.0f;
+  65:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.a1 = 0.02469f;	// T1a
+ 139              		.loc 1 65 0
+ 140 006e 0A4A     		ldr	r2, .L2+24
+ 141 0070 8264     		str	r2, [r0, #72]	@ float
+  66:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.a2 = 0.007f;		// T2a
+ 142              		.loc 1 66 0
+ 143 0072 0A4A     		ldr	r2, .L2+28
+  63:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c ****     settings->SmithPrediktor_rollPitch.b2 = 0.0f;
+ 144              		.loc 1 63 0
+ 145 0074 4365     		str	r3, [r0, #84]	@ float
+  64:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.b3 = 0.0f;
+ 146              		.loc 1 64 0
+ 147 0076 8365     		str	r3, [r0, #88]	@ float
+ 148              		.loc 1 66 0
+ 149 0078 C264     		str	r2, [r0, #76]	@ float
+  67:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	settings->SmithPrediktor_rollPitch.gain = 0.0f;
+ 150              		.loc 1 67 0
  151 007a C365     		str	r3, [r0, #92]	@ float
  152 007c 30BD     		pop	{r4, r5, pc}
  153              	.L3:
  154 007e 00BF     		.align	2
  155              	.L2:
- 156 0080 F8ECA841 		.word	1101589752
- 157 0084 9B2B573F 		.word	1062677403
- 158 0088 6666A63F 		.word	1067869798
+ 156 0080 F8EC9041 		.word	1100016888
+ 157 0084 6666A63F 		.word	1067869798
+ 158 0088 E7CA7540 		.word	1081461479
  159 008c 99E5E03E 		.word	1054926233
- 160 0090 DE42CA3C 		.word	1019888350
- 161 0094 E6A6A142 		.word	1117890278
- 162 0098 E9AD79BF 		.word	-1082544663
- 163 009c DEB97E3F 		.word	1065269726
- 164 00a0 B5EB573B 		.word	995617717
- 165 00a4 99241942 		.word	1108944025
- 166              		.cfi_endproc
- 167              	.LFE111:
- 169              		.align	1
- 170              		.global	CTRLSTATES_init
- 171              		.thumb
- 172              		.thumb_func
- 174              	CTRLSTATES_init:
- 175              	.LFB112:
+ 160 0090 E6A6A142 		.word	1117890278
+ 161 0094 43AD793F 		.word	1064938819
+ 162 0098 AF42CA3C 		.word	1019888303
+ 163 009c 4260E53B 		.word	1004888130
+ 164              		.cfi_endproc
+ 165              	.LFE111:
+ 167              		.align	1
+ 168              		.global	CTRLSTATES_init
+ 169              		.thumb
+ 170              		.thumb_func
+ 172              	CTRLSTATES_init:
+ 173              	.LFB112:
   68:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   69:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
   70:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	/* Test Controller */
@@ -315,47 +310,47 @@
  111:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 
  112:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** void CTRLSTATES_init(CtrlStates_s *states)
  113:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** {
- 176              		.loc 1 113 0
- 177              		.cfi_startproc
- 178              		@ args = 0, pretend = 0, frame = 0
- 179              		@ frame_needed = 0, uses_anonymous_args = 0
- 180              		@ link register save eliminated.
- 181              	.LVL1:
+ 174              		.loc 1 113 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL1:
  114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	memset(states, 0, sizeof(CtrlStates_s));
- 182              		.loc 1 114 0
- 183 00a8 0021     		movs	r1, #0
- 184 00aa 0C22     		movs	r2, #12
- 115:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** }
- 185              		.loc 1 115 0
- 114:/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_src/vertibot_settings.c **** 	memset(states, 0, sizeof(CtrlStates_s));
- 186              		.loc 1 114 0
- 187 00ac FFF7FEBF 		b	memset
- 188              	.LVL2:
- 189              		.cfi_endproc
- 190              	.LFE112:
- 192              		.comm	XYZ,12,4
- 193              		.comm	CtrlStates,12,4
- 194              		.comm	GlobalSettings,96,4
- 195              	.Letext0:
- 196              		.file 2 "/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.2
- 197              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
- 198              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
- 199              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
+ 180              		.loc 1 114 0
+ 181 00a0 0021     		movs	r1, #0
+ 182 00a2 0C22     		movs	r2, #12
+ 183 00a4 FFF7FEBF 		b	memset
+ 184              	.LVL2:
+ 185              		.cfi_endproc
+ 186              	.LFE112:
+ 188              		.comm	XYZ,12,4
+ 189              		.comm	CtrlStates,12,4
+ 190              		.comm	GlobalSettings,96,4
+ 191              	.Letext0:
+ 192              		.file 2 "/home/user/gcc-arm-none-eabi-4_8-2013q4/arm-none-eabi/include/stdint.h"
+ 193              		.file 3 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/IMU_algorithm.h"
+ 194              		.file 4 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/project_inc/vertibot_settings.h"
+ 195              		.file 5 "/home/user/Desktop/STM32-Projekte/FH-Vertibot/src/CMSIS/Include/core_cm4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 vertibot_settings.c
-     /tmp/ccSRg6kZ.s:20     .text:00000000 $t
-     /tmp/ccSRg6kZ.s:25     .text:00000000 SETTINGS_init
-     /tmp/ccSRg6kZ.s:156    .text:00000080 $d
-     /tmp/ccSRg6kZ.s:169    .text:000000a8 $t
-     /tmp/ccSRg6kZ.s:174    .text:000000a8 CTRLSTATES_init
+     /tmp/ccz9d3Zb.s:20     .text:00000000 $t
+     /tmp/ccz9d3Zb.s:25     .text:00000000 SETTINGS_init
+     /tmp/ccz9d3Zb.s:156    .text:00000080 $d
+     /tmp/ccz9d3Zb.s:167    .text:000000a0 $t
+     /tmp/ccz9d3Zb.s:172    .text:000000a0 CTRLSTATES_init
                             *COM*:0000000c XYZ
                             *COM*:0000000c CtrlStates
                             *COM*:00000060 GlobalSettings
                      .debug_frame:00000010 $d
-                           .group:00000000 wm4.1.d481a9f4eba3ec0ceb0050fd0b2feec2
+                           .group:00000000 wm4.1.e41257821655b1beb88e1ee583b76eae
                            .group:00000000 wm4.stm32f30x.h.54.c7b24f715ee55ef38656f44540ae3be6
                            .group:00000000 wm4.core_cm4.h.32.1434cd257ff5806b1b03cd32ab0641e9
-                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.newlib.h.8.384a112feabb3bef7b573ae48cde2e3b
+                           .group:00000000 wm4.features.h.22.6a4ca7cd053637cc1d0db6c16f39b2d7
+                           .group:00000000 wm4.config.h.212.4163ef2871a828c674038d036b081cfd
+                           .group:00000000 wm4._ansi.h.23.5644b60c990a4800b02a6e654e88f93a
+                           .group:00000000 wm4.stdint.h.20.54ad762faa59e3c05491630641c8d8bf
                            .group:00000000 wm4.core_cmInstr.h.25.d8165482ef3061013a2fc83e2d85f3d9
                            .group:00000000 wm4.core_cm4_simd.h.29.013e5bcf58dba2d27c60184174208e07
                            .group:00000000 wm4.core_cm4.h.155.cf7c793e178943e1bbf613f1b21cd51a
@@ -375,31 +370,30 @@ DEFINED SYMBOLS
                            .group:00000000 wm4.stm32f30x_usart.h.31.cd85313e29c0a128555b4a7b8ec0f487
                            .group:00000000 wm4.stm32f30x_misc.h.31.f08b0e9f53f0471613b5131bb95f8725
                            .group:00000000 wm4.stm32f30x.h.6173.8b641ba1d9b0040eda9120fe8a414b2d
-                           .group:00000000 wm4.vertibot_settings.h.30.48fd32711c00a27183609ce2dc24e6c6
-                           .group:00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
-                           .group:00000000 wm4.config.h.148.52fe83653334d06815a0c57b59a3e584
-                           .group:00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
-                           .group:00000000 wm4.stdio.h.31.f48311dde756a2aec27351b58a280fb9
-                           .group:00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+                           .group:00000000 wm4.vertibot_settings.h.30.2841ec7f17908c0e737642a34a45ead6
+                           .group:00000000 wm4.stdio.h.31.7c0e28c411445f3f9c5b11accf882760
+                           .group:00000000 wm4.stddef.h.184.159df79b4ca79c76561572a55985524c
                            .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
-                           .group:00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+                           .group:00000000 wm4.stddef.h.39.7e3d906ac58942e0b374c527445f5de5
+                           .group:00000000 wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3
                            .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
-                           .group:00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
-                           .group:00000000 wm4.reent.h.16.58b23a9f0faf0e7f2dfe7e2d33154afd
+                           .group:00000000 wm4._types.h.54.d3d34a3b7f3cc230cd159baf022b4b08
+                           .group:00000000 wm4.stddef.h.158.61317cdbfb4026324507d123a50b0fd6
+                           .group:00000000 wm4.reent.h.17.8bd9e4098e0428508c282cad794fae43
                            .group:00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
-                           .group:00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
                            .group:00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
-                           .group:00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+                           .group:00000000 wm4.types.h.80.5759fe41f87f5211a5952dfb1fc64f19
                            .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
-                           .group:00000000 wm4.stdio.h.63.1f4bc553faa62c5c69dd9cb47f9f1417
-                           .group:00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
-                           .group:00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+                           .group:00000000 wm4.stdio.h.64.0f05fa42cfe2db7fc44729a52d3ba948
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.158.a7efb00f6cbc6f43213b50e183c9830c
                            .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
-                           .group:00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
-                           .group:00000000 wm4.ctype.h.2.fecd14bb6f4e162ef31748cc97760e21
-                           .group:00000000 wm4.math.h.49.5da716593b937b9fb02bef6ed6537c13
-                           .group:00000000 wm4.string.h.8.ef946ad0bc9ad5c970c365dcd1fc4b0a
-                           .group:00000000 wm4.string.h.86.d5c872ff52e2712c985b588a0ef39f3c
+                           .group:00000000 wm4.stdlib.h.51.fdf1045aaa750fe709619c2027b96513
+                           .group:00000000 wm4.ctype.h.2.807cf8b53e92f83ce947ab40213cf812
+                           .group:00000000 wm4.math.h.35.13c5bec129ef04ad1bb0a1152b29c624
+                           .group:00000000 wm4.cdefs.h.56.f411b57d64a46a132cc788f4ff08e67a
+                           .group:00000000 wm4.string.h.15.dab3980bf35408a4c507182805e2de3a
+                           .group:00000000 wm4.string.h.126.6ff3aa59129e7f66b2c273baf353e066
 
 UNDEFINED SYMBOLS
 memset
